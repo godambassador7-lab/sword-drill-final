@@ -1,0 +1,100 @@
+﻿function HermeneuticsView({ userData, setUserData }) {
+  const [selectedLevel, setSelectedLevel] = useState("beginner"); // beginner | intermediate | advanced
+  const [selectedLessonIndex, setSelectedLessonIndex] = useState(null);
+  const [goalChecks, setGoalChecks] = useState([]);
+  const [practiceResponses, setPracticeResponses] = useState({});
+  const [quizResponses, setQuizResponses] = useState({});
+  const [practiceSaved, setPracticeSaved] = useState(false);
+  const [quizSaved, setQuizSaved] = useState(false);
+
+  const courseData = HERMENEUTICS_COURSE;
+  const currentCourse = courseData[selectedLevel];
+  const lessons = currentCourse.lessons || [];
+  const lessonCount = lessons.length;
+  const activeLesson = typeof selectedLessonIndex === "number" ? lessons[selectedLessonIndex] : null;
+
+  useEffect(() => {
+    if (!activeLesson) {
+      setGoalChecks([]);
+      setPracticeResponses({});
+      setQuizResponses({});
+      return;
+    }
+    setGoalChecks(Array(activeLesson.goals.length).fill(false));
+    setPracticeResponses({});
+    setQuizResponses({});
+    setPracticeSaved(false);
+    setQuizSaved(false);
+  }, [activeLesson?.id]);
+
+  const toggleGoal = (index) => {
+    setGoalChecks(prev => {
+      const next = [...prev];
+      next[index] = !next[index];
+      return next;
+    });
+  };
+
+  const handlePracticeChange = (index, value) => {
+    setPracticeResponses(prev => ({ ...prev, [index]: value }));
+  };
+
+  const handleQuizChange = (index, value) => {
+    setQuizResponses(prev => ({ ...prev, [index]: value }));
+  };
+
+  const handlePracticeSave = () => {
+    setPracticeSaved(true);
+    setTimeout(() => setPracticeSaved(false), 1800);
+  };
+
+  const handleQuizSave = () => {
+    setQuizSaved(true);
+    setTimeout(() => setQuizSaved(false), 1800);
+  };
+
+  const progress = userData.hermeneuticsProgress?.[selectedLevel] || { completedLessons: [], quizScores: {} };
+  const completedCount = progress.completedLessons?.length || 0;
+  const progressPercent = lessonCount ? Math.round((completedCount / lessonCount) * 100) : 0;
+  const hasBadge = completedCount >= lessonCount;
+
+  const selectLesson = (index) => {
+    setSelectedLessonIndex(index);
+  };
+
+  const markLessonComplete = () => {
+    if (!activeLesson) return;
+
+    const lessonId = activeLesson.id;
+    const newProgress = { ...userData.hermeneuticsProgress };
+    if (!newProgress[selectedLevel]) {
+      newProgress[selectedLevel] = { completedLessons: [], quizScores: {} };
+    }
+
+    if (!newProgress[selectedLevel].completedLessons.includes(lessonId)) {
+      newProgress[selectedLevel].completedLessons.push(lessonId);
+      setUserData({ ...userData, hermeneuticsProgress: newProgress });
+    }
+  };
+
+  const moveLesson = (direction) => {
+    if (selectedLessonIndex == null) return;
+    const nextIndex = selectedLessonIndex + direction;
+    if (nextIndex < 0 || nextIndex >= lessonCount) return;
+    selectLesson(nextIndex);
+  };
+
+  const summaryParagraphs = activeLesson?.overview || [];
+
+  return (
+    <div className="space-y-6">
+      <div className="rounded-2xl border border-amber-500/20 bg-slate-800/40 p-6">
+        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+          <NotebookPen className="text-amber-400" />
+          Hermeneutics Quest
+        </h2>
+        <p className="text-slate-300">
+          Dive into an adventurous hermeneutics course with playful missions for each level. Earn badges, unlock insights, and build a go-to interpretive toolkit.
+        </p>
+      </div>
+...

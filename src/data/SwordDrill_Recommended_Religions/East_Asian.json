@@ -1,0 +1,29 @@
+{
+    "Taoism": {
+        "summary": "Chinese philosophy and religion focused on living in harmony with the Tao (the Way) and natural balance.",
+        "key_concepts": [
+            "Tao",
+            "Wu Wei",
+            "Yin-Yang",
+            "Natural Harmony"
+        ]
+    },
+    "Confucianism": {
+        "summary": "Ethical system emphasizing virtue, moral order, and social harmony developed by Confucius.",
+        "key_concepts": [
+            "Filial Piety",
+            "Virtue",
+            "Social Order",
+            "Harmony"
+        ]
+    },
+    "Shinto": {
+        "summary": "Japanese tradition of reverence for kami (spirits) expressed through ritual purity and nature worship.",
+        "key_concepts": [
+            "Kami",
+            "Purity",
+            "Ancestral Spirits",
+            "Ritual"
+        ]
+    }
+}

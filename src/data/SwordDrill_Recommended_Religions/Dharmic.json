@@ -1,0 +1,40 @@
+{
+    "Hinduism": {
+        "summary": "Diverse Indian tradition teaching karma, dharma, reincarnation, and liberation (moksha) through spiritual realization.",
+        "key_concepts": [
+            "Brahman",
+            "Atman",
+            "Karma",
+            "Dharma",
+            "Moksha"
+        ]
+    },
+    "Buddhism": {
+        "summary": "Philosophy of enlightenment founded by Siddhartha Gautama, emphasizing the Four Noble Truths and Nirvana.",
+        "key_concepts": [
+            "Four Noble Truths",
+            "Eightfold Path",
+            "Nirvana",
+            "Non-self"
+        ]
+    },
+    "Jainism": {
+        "summary": "Ancient Indian faith emphasizing extreme non-violence (ahimsa), truth, and spiritual liberation through asceticism.",
+        "key_concepts": [
+            "Ahimsa",
+            "Karma",
+            "Asceticism",
+            "Liberation"
+        ]
+    },
+    "Sikhism": {
+        "summary": "Monotheistic Indian faith founded by Guru Nanak emphasizing devotion to one God, equality, and service.",
+        "key_concepts": [
+            "Waheguru",
+            "Seva",
+            "Karma",
+            "Grace",
+            "Equality"
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "Atheism": {
+        "summary": "Belief in the absence of any deities, focusing on reason, science, and human ethics.",
+        "key_concepts": [
+            "Materialism",
+            "Rationalism",
+            "Secular Ethics"
+        ]
+    },
+    "Agnosticism": {
+        "summary": "Position of uncertainty toward the existence of God or the divine.",
+        "key_concepts": [
+            "Skepticism",
+            "Open Inquiry"
+        ]
+    },
+    "Humanism": {
+        "summary": "Ethical philosophy placing human welfare, reason, and dignity at the center of moral reflection.",
+        "key_concepts": [
+            "Human Dignity",
+            "Ethical Reasoning",
+            "Moral Responsibility"
+        ]
+    },
+    "New_Age": {
+        "summary": "Eclectic modern movement blending spirituality, mysticism, and self-realization.",
+        "key_concepts": [
+            "Energy",
+            "Reincarnation",
+            "Self-Divinity"
+        ]
+    },
+    "Scientology": {
+        "summary": "Modern spiritual system emphasizing personal enlightenment and freedom through auditing practices.",
+        "key_concepts": [
+            "Thetan",
+            "Auditing",
+            "Spiritual Ascension"
+        ]
+    }
+}

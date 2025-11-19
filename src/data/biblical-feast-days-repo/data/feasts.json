@@ -1,0 +1,243 @@
+[
+  {
+    "id": "passover",
+    "englishName": "Passover",
+    "hebrewName": "Pesach",
+    "category": "spring",
+    "type": [
+      "annual",
+      "pilgrimage"
+    ],
+    "primaryOTRefs": [
+      "Exodus 12",
+      "Leviticus 23:4-5",
+      "Deuteronomy 16:1-8"
+    ],
+    "ntRefs": [
+      "Gospel Passion narratives",
+      "1 Corinthians 5:7"
+    ],
+    "themes": [
+      "redemption",
+      "deliverance",
+      "substitution",
+      "covenant"
+    ],
+    "participationSummary": "Mark the season with a meal retelling the Exodus and pointing to Messiah as Passover Lamb; focus on gratitude for redemption."
+  },
+  {
+    "id": "unleavened_bread",
+    "englishName": "Feast of Unleavened Bread",
+    "hebrewName": "Chag HaMatzot",
+    "category": "spring",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [
+      "Exodus 12:14-20",
+      "Leviticus 23:6-8"
+    ],
+    "ntRefs": [
+      "Gospel passion chronology",
+      "1 Corinthians 5:6-8"
+    ],
+    "themes": [
+      "holiness",
+      "separation",
+      "new life"
+    ],
+    "participationSummary": "Set apart a week to remove leavened bread and focus on examining and cleansing the heart from 'leaven' of sin."
+  },
+  {
+    "id": "firstfruits",
+    "englishName": "Firstfruits",
+    "hebrewName": "Reshit Katzir / Bikkurim",
+    "category": "spring",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [
+      "Leviticus 23:9-14",
+      "Deuteronomy 26:1-11"
+    ],
+    "ntRefs": [
+      "1 Corinthians 15:20-23"
+    ],
+    "themes": [
+      "gratitude",
+      "ownership of God",
+      "resurrection"
+    ],
+    "participationSummary": "Set aside first portions of increase as thanksgiving; remember Christ as firstfruits of the resurrection."
+  },
+  {
+    "id": "weeks",
+    "englishName": "Feast of Weeks / Pentecost",
+    "hebrewName": "Shavuot",
+    "category": "spring",
+    "type": [
+      "annual",
+      "pilgrimage"
+    ],
+    "primaryOTRefs": [
+      "Leviticus 23:15-22",
+      "Deuteronomy 16:9-12"
+    ],
+    "ntRefs": [
+      "Acts 2"
+    ],
+    "themes": [
+      "harvest",
+      "Torah and Spirit",
+      "unity"
+    ],
+    "participationSummary": "Celebrate the gift of the Spirit and God's Word; pray for harvest and read Exodus 19–20 with Acts 2."
+  },
+  {
+    "id": "trumpets",
+    "englishName": "Feast of Trumpets",
+    "hebrewName": "Yom Teruah",
+    "category": "fall",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [
+      "Leviticus 23:23-25",
+      "Numbers 29:1-6"
+    ],
+    "ntRefs": [],
+    "themes": [
+      "kingship",
+      "warning",
+      "remembrance"
+    ],
+    "participationSummary": "Mark the day with trumpet blasts, Scripture, and self-examination at the threshold of the fall feasts."
+  },
+  {
+    "id": "atonement",
+    "englishName": "Day of Atonement",
+    "hebrewName": "Yom HaKippurim",
+    "category": "fall",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [
+      "Leviticus 16",
+      "Leviticus 23:26-32"
+    ],
+    "ntRefs": [
+      "Hebrews 8-10"
+    ],
+    "themes": [
+      "atonement",
+      "repentance",
+      "cleansing"
+    ],
+    "participationSummary": "Use the day for fasting, repentance, and reflection on Messiah's once-for-all atonement."
+  },
+  {
+    "id": "tabernacles",
+    "englishName": "Feast of Tabernacles / Booths",
+    "hebrewName": "Sukkot",
+    "category": "fall",
+    "type": [
+      "annual",
+      "pilgrimage"
+    ],
+    "primaryOTRefs": [
+      "Leviticus 23:33-43",
+      "Deuteronomy 16:13-17"
+    ],
+    "ntRefs": [
+      "John 7-8"
+    ],
+    "themes": [
+      "joy",
+      "provision",
+      "pilgrimage",
+      "presence"
+    ],
+    "participationSummary": "Build and use a temporary shelter, rejoice in God's provision, and extend hospitality."
+  },
+  {
+    "id": "sabbath",
+    "englishName": "Sabbath",
+    "hebrewName": "Shabbat",
+    "category": "weekly",
+    "type": [
+      "weekly"
+    ],
+    "primaryOTRefs": [
+      "Genesis 2:1-3",
+      "Exodus 20:8-11",
+      "Deuteronomy 5:12-15"
+    ],
+    "ntRefs": [
+      "Gospel Sabbath narratives"
+    ],
+    "themes": [
+      "rest",
+      "creation",
+      "redemption"
+    ],
+    "participationSummary": "Set apart regular time for rest and worship, remembering creation and redemption."
+  },
+  {
+    "id": "new_moons",
+    "englishName": "New Moons",
+    "hebrewName": "Rosh Chodesh",
+    "category": "monthly",
+    "type": [
+      "monthly"
+    ],
+    "primaryOTRefs": [
+      "Numbers 10:10",
+      "Numbers 28:11-15"
+    ],
+    "ntRefs": [],
+    "themes": [
+      "time",
+      "orientation",
+      "renewal"
+    ],
+    "participationSummary": "Mark the start of each biblical month with simple prayer and reflection."
+  },
+  {
+    "id": "purim",
+    "englishName": "Purim",
+    "hebrewName": "Purim",
+    "category": "post-exilic",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [
+      "Esther 9"
+    ],
+    "ntRefs": [],
+    "themes": [
+      "providence",
+      "courage",
+      "survival"
+    ],
+    "participationSummary": "Read Esther, feast, share gifts of food, and give to the poor in gratitude for God's preservation."
+  },
+  {
+    "id": "hanukkah",
+    "englishName": "Hanukkah / Feast of Dedication",
+    "hebrewName": "Hanukkah",
+    "category": "second-temple",
+    "type": [
+      "annual"
+    ],
+    "primaryOTRefs": [],
+    "ntRefs": [
+      "John 10:22"
+    ],
+    "themes": [
+      "dedication",
+      "light",
+      "faithfulness"
+    ],
+    "participationSummary": "Remember the rededication of the Temple and God's faithfulness; some light candles and read related Scriptures."
+  }
+]

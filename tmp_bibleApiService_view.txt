@@ -1,0 +1,651 @@
+// ============================================
+// 📖 Sword Drill - Bible API Service (Enhanced v3)
+// Difficulty-specific verse pools for all quiz types
+// ============================================
+
+const API_BASE_URL = "https://api.scripture.api.bible/v1";
+const FALLBACK_BASE_URL = "https://bible-api.com";
+const API_KEY = "5a6b9c48cd6f210359d07c90724ec1cf";
+
+// ======================================================
+// 📹 Book Lists
+// ======================================================
+export const CANONICAL_BOOKS = [
+  "GEN","EXO","LEV","NUM","DEU","JOS","JDG","RUT","1SA","2SA","1KI","2KI","1CH","2CH",
+  "EZR","NEH","EST","JOB","PSA","PRO","ECC","SNG","ISA","JER","LAM","EZK","DAN","HOS",
+  "JOL","AMO","OBA","JON","MIC","NAM","HAB","ZEP","HAG","ZEC","MAL","MAT","MRK","LUK",
+  "JOH","ACT","ROM","1CO","2CO","GAL","EPH","PHP","COL","1TH","2TH","1TI","2TI","TIT",
+  "PHM","HEB","JAS","1PE","2PE","1JN","2JN","3JN","JUD","REV"
+];
+
+export const APOCRYPHA_BOOKS = ["TOB", "JDT", "WIS", "SIR", "BAR", "1MA", "2MA"];
+
+// ======================================================
+// 📹 DIFFICULTY-SPECIFIC VERSE POOLS
+// ======================================================
+
+// 🟢 APPRENTICE/BEGINNER - 50 most common memory verses
+export const APPRENTICE_VERSES = [
+  "Genesis 1:1", "Exodus 20:12", "Joshua 1:9", "Psalm 23:1", "Psalm 46:1", "Psalm 119:105",
+  "Proverbs 3:5-6", "Proverbs 18:10", "Isaiah 40:31", "Jeremiah 29:11", "Matthew 5:16",
+  "Matthew 6:33", "Matthew 11:28", "Matthew 28:19-20", "Luke 6:31", "John 1:1", "John 3:16",
+  "John 8:12", "John 11:25", "John 13:35", "John 14:6", "John 15:5", "Acts 1:8", "Romans 3:23",
+  "Romans 5:8", "Romans 6:23", "Romans 8:1", "Romans 8:28", "Romans 10:9", "1 Corinthians 10:13",
+  "1 Corinthians 13:4-7", "2 Corinthians 5:17", "Galatians 2:20", "Galatians 5:22-23",
+  "Ephesians 2:8-9", "Ephesians 4:32", "Philippians 1:6", "Philippians 4:6-7", "Philippians 4:13",
+  "Colossians 3:23", "2 Timothy 1:7", "2 Timothy 3:16", "Hebrews 11:1", "Hebrews 13:5",
+  "James 1:5", "James 1:22", "1 Peter 5:7", "1 John 1:9", "1 John 4:7-8", "Revelation 3:20"
+];
+
+// 🔵 INTERMEDIATE - 150+ verses from key theological books
+export const INTERMEDIATE_VERSES = [
+  // Romans (25 verses)
+  "Romans 1:16", "Romans 1:20", "Romans 2:11", "Romans 3:10", "Romans 3:20", "Romans 4:3",
+  "Romans 4:25", "Romans 5:1", "Romans 5:12", "Romans 6:4", "Romans 6:11", "Romans 6:14",
+  "Romans 7:18", "Romans 8:6", "Romans 8:11", "Romans 8:16", "Romans 8:31", "Romans 8:37",
+  "Romans 8:38-39", "Romans 10:13", "Romans 10:17", "Romans 12:1", "Romans 12:3", "Romans 12:12",
+  "Romans 15:4",
+  
+  // Ephesians (20 verses)
+  "Ephesians 1:3", "Ephesians 1:7", "Ephesians 1:13", "Ephesians 2:4-5", "Ephesians 2:10",
+  "Ephesians 2:19", "Ephesians 3:16", "Ephesians 3:20", "Ephesians 4:2-3", "Ephesians 4:15",
+  "Ephesians 4:26", "Ephesians 5:1-2", "Ephesians 5:15-16", "Ephesians 5:25", "Ephesians 6:1",
+  "Ephesians 6:4", "Ephesians 6:10", "Ephesians 6:11", "Ephesians 6:12", "Ephesians 6:18",
+  
+  // Isaiah (20 verses)
+  "Isaiah 9:6", "Isaiah 26:3", "Isaiah 40:8", "Isaiah 41:10", "Isaiah 43:1", "Isaiah 43:2",
+  "Isaiah 53:5", "Isaiah 53:6", "Isaiah 54:10", "Isaiah 55:6", "Isaiah 55:8-9", "Isaiah 55:11",
+  "Isaiah 57:15", "Isaiah 58:11", "Isaiah 61:1", "Isaiah 64:8", "Isaiah 65:24", "Isaiah 66:2",
+  "Isaiah 26:4", "Isaiah 12:2",
+  
+  // Hebrews (20 verses)
+  "Hebrews 4:12", "Hebrews 4:15", "Hebrews 4:16", "Hebrews 10:23", "Hebrews 10:24-25",
+  "Hebrews 11:6", "Hebrews 12:1", "Hebrews 12:2", "Hebrews 12:11", "Hebrews 13:8",
+  "Hebrews 2:18", "Hebrews 3:13", "Hebrews 6:19", "Hebrews 9:27", "Hebrews 10:35",
+  "Hebrews 11:3", "Hebrews 13:2", "Hebrews 13:6", "Hebrews 13:15", "Hebrews 13:17",
+  
+  // James (20 verses)
+  "James 1:2-3", "James 1:12", "James 1:17", "James 1:19", "James 2:17", "James 2:19",
+  "James 3:2", "James 3:5", "James 3:17", "James 4:3", "James 4:6", "James 4:7",
+  "James 4:8", "James 4:10", "James 4:14", "James 5:8", "James 5:13", "James 5:16",
+  "James 5:19-20", "James 1:27",
+  
+  // 1 Peter (20 verses)
+  "1 Peter 1:3", "1 Peter 1:6-7", "1 Peter 1:15", "1 Peter 1:16", "1 Peter 1:23",
+  "1 Peter 2:2", "1 Peter 2:9", "1 Peter 2:24", "1 Peter 3:3-4", "1 Peter 3:8",
+  "1 Peter 3:15", "1 Peter 4:8", "1 Peter 4:10", "1 Peter 5:5", "1 Peter 5:8",
+  "1 Peter 5:10", "1 Peter 1:24-25", "1 Peter 2:11", "1 Peter 2:17", "1 Peter 4:12-13",
+  
+  // Psalms (20 verses)
+  "Psalm 1:1-2", "Psalm 16:11", "Psalm 19:14", "Psalm 27:1", "Psalm 32:8", "Psalm 34:8",
+  "Psalm 37:4", "Psalm 37:5", "Psalm 46:10", "Psalm 51:10", "Psalm 55:22", "Psalm 56:3",
+  "Psalm 62:5", "Psalm 73:26", "Psalm 84:11", "Psalm 91:1", "Psalm 100:5", "Psalm 103:12",
+  "Psalm 118:24", "Psalm 139:14",
+  
+  // Proverbs (15 verses)
+  "Proverbs 1:7", "Proverbs 3:7", "Proverbs 4:23", "Proverbs 6:16-19", "Proverbs 10:12",
+  "Proverbs 11:2", "Proverbs 13:20", "Proverbs 15:1", "Proverbs 16:3", "Proverbs 16:18",
+  "Proverbs 17:17", "Proverbs 22:6", "Proverbs 27:17", "Proverbs 29:11", "Proverbs 31:30"
+];
+
+// 🟠 ADVANCED - 250+ verses including longer passages & deeper theology
+export const ADVANCED_VERSES = [
+  // 1 Corinthians (30 verses)
+  "1 Corinthians 1:18", "1 Corinthians 2:9", "1 Corinthians 3:16", "1 Corinthians 6:19-20",
+  "1 Corinthians 9:24", "1 Corinthians 10:31", "1 Corinthians 12:4-6", "1 Corinthians 12:12",
+  "1 Corinthians 12:27", "1 Corinthians 13:1-3", "1 Corinthians 13:8", "1 Corinthians 13:13",
+  "1 Corinthians 15:3-4", "1 Corinthians 15:20", "1 Corinthians 15:33", "1 Corinthians 15:51-52",
+  "1 Corinthians 15:55", "1 Corinthians 15:58", "1 Corinthians 16:13", "1 Corinthians 1:9",
+  "1 Corinthians 1:27", "1 Corinthians 2:14", "1 Corinthians 4:2", "1 Corinthians 6:9-10",
+  "1 Corinthians 7:23", "1 Corinthians 9:22", "1 Corinthians 14:33", "1 Corinthians 14:40",
+  "1 Corinthians 15:10", "1 Corinthians 16:14",
+  
+  // Revelation (25 verses)
+  "Revelation 1:8", "Revelation 2:10", "Revelation 3:15-16", "Revelation 4:11", "Revelation 5:9",
+  "Revelation 7:9", "Revelation 7:17", "Revelation 12:11", "Revelation 14:13", "Revelation 19:6",
+  "Revelation 21:1", "Revelation 21:3-4", "Revelation 21:5", "Revelation 21:6", "Revelation 22:12",
+  "Revelation 22:13", "Revelation 22:17", "Revelation 1:3", "Revelation 1:17-18", "Revelation 2:7",
+  "Revelation 3:5", "Revelation 3:11", "Revelation 5:12", "Revelation 19:16", "Revelation 22:20",
+  
+  // Acts (30 verses)
+  "Acts 2:38", "Acts 2:42", "Acts 4:12", "Acts 4:20", "Acts 5:29", "Acts 10:34",
+  "Acts 16:31", "Acts 17:11", "Acts 17:28", "Acts 20:24", "Acts 20:35", "Acts 26:18",
+  "Acts 1:11", "Acts 2:21", "Acts 2:44-45", "Acts 3:6", "Acts 3:19", "Acts 4:29",
+  "Acts 5:41", "Acts 7:60", "Acts 9:15", "Acts 13:47", "Acts 14:22", "Acts 16:25",
+  "Acts 17:24-25", "Acts 18:9-10", "Acts 20:28", "Acts 22:16", "Acts 24:16", "Acts 26:29",
+  
+  // Deuteronomy (20 verses)
+  "Deuteronomy 4:29", "Deuteronomy 6:4-5", "Deuteronomy 6:6-7", "Deuteronomy 7:9",
+  "Deuteronomy 8:3", "Deuteronomy 10:12", "Deuteronomy 11:18-19", "Deuteronomy 28:1",
+  "Deuteronomy 30:19", "Deuteronomy 31:6", "Deuteronomy 31:8", "Deuteronomy 32:4",
+  "Deuteronomy 4:39", "Deuteronomy 5:16", "Deuteronomy 7:6", "Deuteronomy 8:18",
+  "Deuteronomy 11:13", "Deuteronomy 15:10", "Deuteronomy 16:15", "Deuteronomy 33:27",
+  
+  // Job (20 verses)
+  "Job 1:21", "Job 13:15", "Job 19:25", "Job 23:10", "Job 28:28", "Job 38:4",
+  "Job 42:2", "Job 5:17", "Job 8:21", "Job 11:18", "Job 12:13", "Job 14:14",
+  "Job 16:19", "Job 22:21", "Job 23:12", "Job 26:7", "Job 32:8", "Job 33:4",
+  "Job 36:26", "Job 37:5",
+  
+  // 2 Corinthians (25 verses)
+  "2 Corinthians 1:3-4", "2 Corinthians 1:20", "2 Corinthians 3:17", "2 Corinthians 4:6",
+  "2 Corinthians 4:8-9", "2 Corinthians 4:16", "2 Corinthians 4:17", "2 Corinthians 4:18",
+  "2 Corinthians 5:7", "2 Corinthians 5:15", "2 Corinthians 5:20", "2 Corinthians 5:21",
+  "2 Corinthians 6:2", "2 Corinthians 8:9", "2 Corinthians 9:6-7", "2 Corinthians 9:8",
+  "2 Corinthians 10:5", "2 Corinthians 12:9", "2 Corinthians 12:10", "2 Corinthians 13:5",
+  "2 Corinthians 1:21-22", "2 Corinthians 3:3", "2 Corinthians 3:18", "2 Corinthians 6:14",
+  "2 Corinthians 13:14",
+  
+  // Galatians (20 verses)
+  "Galatians 1:10", "Galatians 3:26", "Galatians 3:28", "Galatians 5:1", "Galatians 5:13",
+  "Galatians 5:16", "Galatians 5:25", "Galatians 6:2", "Galatians 6:7", "Galatians 6:9",
+  "Galatians 6:10", "Galatians 1:4", "Galatians 2:16", "Galatians 3:11", "Galatians 3:13",
+  "Galatians 4:4-5", "Galatians 4:6", "Galatians 5:6", "Galatians 5:14", "Galatians 6:14",
+  
+  // Philippians (20 verses)
+  "Philippians 1:21", "Philippians 2:3-4", "Philippians 2:5", "Philippians 2:9-11",
+  "Philippians 2:13", "Philippians 2:14-15", "Philippians 3:7-8", "Philippians 3:10",
+  "Philippians 3:12", "Philippians 3:13-14", "Philippians 3:20", "Philippians 4:4",
+  "Philippians 4:8", "Philippians 4:11", "Philippians 4:19", "Philippians 1:27",
+  "Philippians 2:16", "Philippians 3:3", "Philippians 3:21", "Philippians 4:1",
+  
+  // Colossians (20 verses)
+  "Colossians 1:13", "Colossians 1:15", "Colossians 1:16", "Colossians 1:17", "Colossians 1:27",
+  "Colossians 2:6-7", "Colossians 2:9-10", "Colossians 3:1-2", "Colossians 3:3", "Colossians 3:12",
+  "Colossians 3:13", "Colossians 3:15", "Colossians 3:16", "Colossians 3:17", "Colossians 4:2",
+  "Colossians 4:5-6", "Colossians 1:9-10", "Colossians 1:18", "Colossians 2:13", "Colossians 3:20",
+  
+  // Matthew (30 verses)
+  "Matthew 5:3-10", "Matthew 5:14", "Matthew 5:44", "Matthew 6:9-13", "Matthew 6:19-21",
+  "Matthew 6:24", "Matthew 7:7", "Matthew 7:12", "Matthew 9:37-38", "Matthew 10:28",
+  "Matthew 11:29-30", "Matthew 16:24", "Matthew 16:26", "Matthew 18:20", "Matthew 20:28",
+  "Matthew 22:37-39", "Matthew 24:35", "Matthew 25:21", "Matthew 26:41", "Matthew 28:18-20",
+  "Matthew 4:4", "Matthew 5:13", "Matthew 5:48", "Matthew 6:6", "Matthew 7:13-14",
+  "Matthew 10:32-33", "Matthew 12:36", "Matthew 16:16", "Matthew 18:3", "Matthew 19:26",
+  
+  // Mark (15 verses)
+  "Mark 1:15", "Mark 8:34", "Mark 8:36", "Mark 9:23", "Mark 10:27", "Mark 10:43-45",
+  "Mark 11:24", "Mark 12:30-31", "Mark 16:15", "Mark 1:17", "Mark 4:24", "Mark 9:35",
+  "Mark 10:9", "Mark 10:14", "Mark 13:31",
+  
+  // Luke (20 verses)
+  "Luke 1:37", "Luke 6:37", "Luke 9:23", "Luke 10:27", "Luke 11:9", "Luke 12:15",
+  "Luke 12:48", "Luke 14:11", "Luke 16:10", "Luke 18:27", "Luke 19:10", "Luke 21:33",
+  "Luke 24:46-47", "Luke 1:45", "Luke 2:10-11", "Luke 4:18", "Luke 6:38", "Luke 11:28",
+  "Luke 12:8", "Luke 17:5"
+];
+
+// 🟣 EXPERT - 2000+ verses (comprehensive coverage)
+// This will use dynamic fetching from specific books
+export const EXPERT_BOOKS = [
+  "GEN", "EXO", "DEU", "JOS", "1SA", "2SA", "1KI", "2KI", "PSA", "PRO", "ISA", "JER",
+  "EZK", "DAN", "MAT", "MRK", "LUK", "JOH", "ACT", "ROM", "1CO", "2CO", "GAL", "EPH",
+  "PHP", "COL", "1TH", "2TH", "1TI", "2TI", "TIT", "HEB", "JAS", "1PE", "2PE", "1JN",
+  "2JN", "3JN", "JUD", "REV"
+];
+
+// ⚔️ ELI CHALLENGE - All 66 books (30,000+ verses)
+// Uses all canonical books dynamically
+
+// ======================================================
+// 📹 Difficulty Configuration
+// ======================================================
+export const DIFFICULTY_CONFIG = {
+  Beginner: {
+    displayName: "Apprentice",
+    description: "50 of the most common memory verses to build your foundation.",
+    color: "from-green-500 to-green-600",
+    verses: APPRENTICE_VERSES,
+    total: 50
+  },
+  Intermediate: {
+    displayName: "Intermediate",
+    description: "150+ verses with deeper theological meaning from key books.",
+    color: "from-blue-500 to-blue-600",
+    verses: INTERMEDIATE_VERSES,
+    total: 150
+  },
+  Advanced: {
+    displayName: "Advanced",
+    description: "250+ longer passages requiring stronger recall.",
+    color: "from-orange-500 to-orange-600",
+    verses: ADVANCED_VERSES,
+    total: 250
+  },
+  Expert: {
+    displayName: "Expert",
+    description: "2000+ verses from major books for mastery.",
+    color: "from-purple-500 to-purple-600",
+    books: EXPERT_BOOKS,
+    total: 2000
+  },
+  "Eli Challenge": {
+    displayName: "Eli Challenge",
+    description: "All 30,000+ verses in Scripture — the ultimate test!",
+    color: "from-red-500 to-red-600",
+    books: CANONICAL_BOOKS,
+    total: 30000
+  }
+};
+
+// ======================================================
+// 📹 Text Sanitizer
+// ======================================================
+function sanitizeVerseText(text) {
+  return (text || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\[\d+\]\s*/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+// ======================================================
+// 📹 Authorized Fetch
+// ======================================================
+async function apiFetch(endpoint) {
+  const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+    headers: { accept: "application/json", "api-key": API_KEY },
+  });
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
+  return res.json();
+}
+
+// ======================================================
+// 📹 Fetch Available Translations
+// ======================================================
+export async function fetchAvailableTranslations() {
+  try {
+    const data = await apiFetch("/bibles");
+    return data.data.map((bible) => ({
+      id: bible.id,
+      name: bible.name,
+      abbreviation: bible.abbreviationLocal || bible.abbreviation,
+      language: bible.language?.name || "Unknown",
+    }));
+  } catch (err) {
+    console.error("Error fetching available translations:", err);
+    return [];
+  }
+}
+
+// ======================================================
+// 📹 Resolve Bible ID
+// ======================================================
+async function resolveBibleId(translation) {
+  if (translation.includes("-")) return translation;
+  const translations = await fetchAvailableTranslations();
+  const match = translations.find(
+    (t) =>
+      t.abbreviation.toUpperCase() === translation.toUpperCase() ||
+      t.name.toLowerCase().includes(translation.toLowerCase())
+  );
+  return match ? match.id : "de4e12af7f28f599-02"; // Default: KJV
+}
+
+// ======================================================
+// 📹 Parse Reference String
+// ======================================================
+function parseReference(ref) {
+  // Handles formats like "John 3:16", "Proverbs 3:5-6", "1 Corinthians 13:4-7"
+  const match = ref.match(/^(\d?\s?[A-Za-z]+)\s+(\d+):(\d+)(?:-(\d+))?$/);
+  if (!match) return null;
+  
+  return {
+    book: match[1].trim(),
+    chapter: match[2],
+    startVerse: match[3],
+    endVerse: match[4] || match[3]
+  };
+}
+
+// ======================================================
+// 📹 Fetch Verse (Safe)
+// ======================================================
+export async function fetchVerse(translation, book, chapter, verse) {
+  try {
+    const bibleId = await resolveBibleId(translation);
+    const bookData = await apiFetch(`/bibles/${bibleId}/books`);
+    const bookMatch = bookData.data.find(
+      (b) => b.name.toLowerCase() === book.toLowerCase() || b.id.toLowerCase().includes(book.toLowerCase())
+    );
+    if (!bookMatch) throw new Error(`Book not found: ${book}`);
+
+    const chapterData = await apiFetch(`/bibles/${bibleId}/books/${bookMatch.id}/chapters`);
+    const chapterMatch = chapterData.data.find((c) => c.id.endsWith(`.${chapter}`));
+    if (!chapterMatch) throw new Error(`Chapter not found: ${chapter}`);
+
+    const verseList = await apiFetch(`/bibles/${bibleId}/chapters/${chapterMatch.id}/verses`);
+    const verseMatch = verseList.data.find((v) => v.reference.endsWith(`:${verse}`));
+    if (!verseMatch) throw new Error(`Verse not found: ${book} ${chapter}:${verse}`);
+
+    const verseData = await apiFetch(`/bibles/${bibleId}/verses/${verseMatch.id}?content-type=text`);
+    const cleanText = sanitizeVerseText(verseData.data.content);
+
+    return {
+      reference: verseData.data.reference,
+      text: cleanText,
+      translation,
+    };
+  } catch (err) {
+    console.warn("⚠️ API.Bible verse failed — using fallback.");
+    try {
+      const ref = `${book}+${chapter}:${verse}`;
+      const fallback = await fetch(`${FALLBACK_BASE_URL}/${ref}`);
+      const data = await fallback.json();
+      return {
+        reference: data.reference || `${book} ${chapter}:${verse}`,
+        text: data.text || "Could not retrieve verse.",
+        translation,
+      };
+    } catch {
+      return {
+        reference: `${book} ${chapter}:${verse}`,
+        text: "Could not retrieve verse.",
+        translation,
+      };
+    }
+  }
+}
+
+// ======================================================
+// 📹 Fetch Verse from Reference String
+// ======================================================
+export async function fetchVerseFromReference(reference) {
+  try {
+    // ✅ FIXED: Properly format reference for bible-api.com
+    const formattedRef = reference.replace(/\s+/g, '+');
+    const response = await fetch(`https://bible-api.com/${encodeURIComponent(formattedRef)}`);
+    
+    if (!response.ok) {
+      throw new Error(`API returned ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return { text: data.text, reference: data.reference };
+  } catch (err) {
+    console.error("Error fetching verse reference:", err);
+    return null;
+  }
+}
+
+// ======================================================
+// 📹 Random Verse by Difficulty (ENHANCED)
+// ======================================================
+export async function getRandomVerseByDifficulty(translation = "KJV", difficulty = "Beginner") {
+  try {
+    const config = DIFFICULTY_CONFIG[difficulty];
+    
+    // For Beginner, Intermediate, and Advanced: use predefined verse lists
+    if (config.verses && config.verses.length > 0) {
+      const randomRef = config.verses[Math.floor(Math.random() * config.verses.length)];
+      const verse = await fetchVerseFromReference(randomRef);  // ✅ FIXED: Only pass reference
+      return {
+        ...verse,
+        difficulty,
+      };
+    }
+    
+    // For Expert and Eli Challenge: use dynamic book selection
+    if (config.books && config.books.length > 0) {
+      const bibleId = await resolveBibleId(translation);
+      const randomBook = config.books[Math.floor(Math.random() * config.books.length)];
+      
+      const chaptersData = await apiFetch(`/bibles/${bibleId}/books/${randomBook}/chapters`);
+      const chapters = chaptersData.data || [];
+      const randomChapter = chapters[Math.floor(Math.random() * chapters.length)];
+      
+      const versesData = await apiFetch(`/bibles/${bibleId}/chapters/${randomChapter.id}/verses`);
+      const verses = versesData.data || [];
+      const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+      
+      const verseData = await apiFetch(`/bibles/${bibleId}/verses/${randomVerse.id}?content-type=text`);
+      const cleanText = sanitizeVerseText(verseData.data.content);
+
+      return {
+        reference: verseData.data.reference,
+        text: cleanText,
+        translation,
+        difficulty,
+      };
+    }
+    
+    throw new Error(`Invalid difficulty configuration: ${difficulty}`);
+    
+  } catch (err) {
+    console.warn("⚠️ Fallback triggered:", err);
+    
+    // Fallback verses by difficulty
+    const fallbackRefs = {
+      Beginner: "John+3:16",
+      Intermediate: "Romans+8:28",
+      Advanced: "Hebrews+11:1",
+      Expert: "Psalm+23:1",
+      "Eli Challenge": "Genesis+1:1"
+    };
+    
+    try {
+      const fallbackRef = fallbackRefs[difficulty] || "John+3:16";
+      const res = await fetch(`${FALLBACK_BASE_URL}/${fallbackRef}`);
+      const data = await res.json();
+      return {
+        reference: data.reference || "Fallback Verse",
+        text: data.text || "Could not retrieve verse.",
+        translation,
+        difficulty,
+      };
+    } catch {
+      return {
+        reference: "Error",
+        text: "Could not retrieve verse. Please try again.",
+        translation,
+        difficulty,
+      };
+    }
+  }
+}
+
+// ======================================================
+// 📹 Get Verse for Specific Quiz Type (ENHANCED)
+// ======================================================
+export async function getVerseForQuizType(translation, difficulty, quizType) {
+  // All quiz types use the same verse pools for now
+  // But this function allows for future customization per quiz type
+  const verse = await getRandomVerseByDifficulty(translation, difficulty);
+  
+  // Add any quiz-type specific filtering here if needed
+  // For example, you might want longer verses for fill-blank
+  if (quizType === 'fill-blank') {
+    // Ensure verse has enough words (at least 10)
+    const wordCount = verse.text.split(' ').length;
+    if (wordCount < 10) {
+      // Try again to get a longer verse
+      return await getVerseForQuizType(translation, difficulty, quizType);
+    }
+  }
+  
+  return verse;
+}
+
+// ======================================================
+// 📹 Fetch Full Chapter (BibleReaderView)
+// ======================================================
+export async function fetchPassage(translation, book, chapter) {
+  try {
+    const bibleId = await resolveBibleId(translation);
+    const bookList = await apiFetch(`/bibles/${bibleId}/books`);
+    const foundBook = bookList.data.find(
+      (b) => b.name.toLowerCase() === book.toLowerCase() || b.id.toLowerCase().includes(book.toLowerCase())
+    );
+    if (!foundBook) throw new Error(`Book not found: ${book}`);
+
+    const chaptersData = await apiFetch(`/bibles/${bibleId}/books/${foundBook.id}/chapters`);
+    const chapterMatch = chaptersData.data.find((c) => c.id.endsWith(`.${chapter}`));
+    const chapterText = await apiFetch(`/bibles/${bibleId}/chapters/${chapterMatch.id}?content-type=text&include-verse-numbers=true&include-notes=false&include-titles=false&include-headings=false`);
+    return {
+      reference: chapterText.data.reference,
+      text: sanitizeVerseText(chapterText.data.content),
+      translation,
+    };
+  } catch (err) {
+    console.error("Error fetching passage:", err);
+    throw err;
+  }
+}
+
+// ======================================================
+// 📹 Search Verses (BibleReaderView)
+// ======================================================
+export async function searchVerses(translation, query) {
+  try {
+    const bibleId = await resolveBibleId(translation);
+    const data = await apiFetch(`/bibles/${bibleId}/search?query=${encodeURIComponent(query)}&limit=50`);
+    return (data.data.verses || []).map((v) => ({
+      reference: v.reference,
+      text: sanitizeVerseText(v.text || v.content || ""),
+      translation,
+    }));
+  } catch (err) {
+    console.error("Error searching verses:", err);
+    return [];
+  }
+}
+
+// ======================================================
+// 📹 Get Difficulty Stats
+// ======================================================
+export function getDifficultyStats(difficulty) {
+  const config = DIFFICULTY_CONFIG[difficulty];
+  return {
+    displayName: config.displayName,
+    description: config.description,
+    color: config.color,
+    total: config.total,
+    verseCount: config.verses ? config.verses.length : config.total
+  };
+}
+
+// ======================================================
+// 📹 Default Export
+// ======================================================
+export default {
+  fetchAvailableTranslations,
+  fetchVerse,
+  fetchVerseFromReference,
+  fetchPassage,
+  searchVerses,
+  getRandomVerseByDifficulty,
+  getVerseForQuizType,
+  getDifficultyStats,
+  DIFFICULTY_CONFIG,
+  APPRENTICE_VERSES,
+  INTERMEDIATE_VERSES,
+  ADVANCED_VERSES,
+  EXPERT_BOOKS,
+  CANONICAL_BOOKS,
+  APOCRYPHA_BOOKS,
+};
+// ✅ Fallback for passage fetch
+// Fetch a Bible chapter from API.Bible with safe formatting and verse numbers
+export async function fetchPassageWithFallback(bibleId, bookId, chapterNumber) {
+  try {
+    console.log(`🔍 Attempting to fetch: ${bookId} ${chapterNumber} from Bible ID: ${bibleId}`);
+    
+    // First, get the list of chapters for this book to find the correct chapter ID
+    const chaptersUrl = `${API_BASE_URL}/bibles/${bibleId}/books/${bookId}/chapters`;
+    console.log(`📡 Fetching chapters from: ${chaptersUrl}`);
+    
+    const chaptersResponse = await fetch(chaptersUrl, {
+      method: "GET",
+      headers: {
+        "api-key": API_KEY,
+      },
+    });
+
+    if (!chaptersResponse.ok) {
+      console.error(`❌ Chapters fetch failed: ${chaptersResponse.status} ${chaptersResponse.statusText}`);
+      throw new Error(`Failed to get chapters: ${chaptersResponse.status}`);
+    }
+
+    const chaptersData = await chaptersResponse.json();
+    console.log(`✅ Got ${chaptersData.data.length} chapters for ${bookId}`);
+    
+    // Find the matching chapter
+    const chapter = chaptersData.data.find(c => {
+      // Chapter IDs are typically like "GEN.1", "GEN.2", etc.
+      return c.number === String(chapterNumber) || c.id.endsWith(`.${chapterNumber}`);
+    });
+
+    if (!chapter) {
+      console.error(`❌ Chapter ${chapterNumber} not found in available chapters`);
+      throw new Error(`Chapter ${chapterNumber} not found in book ${bookId}`);
+    }
+
+    console.log(`✅ Found chapter: ${chapter.id}`);
+
+    // Now fetch the actual chapter content using the correct chapter ID
+    // Use simpler parameters that work across all Bible versions
+    const chapterUrl = `${API_BASE_URL}/bibles/${bibleId}/chapters/${chapter.id}?content-type=html&include-verse-numbers=true`;
+    console.log(`📡 Fetching chapter content from: ${chapterUrl}`);
+    
+    const chapterResponse = await fetch(chapterUrl, {
+      method: "GET",
+      headers: {
+        "api-key": API_KEY,
+      },
+    });
+
+    if (!chapterResponse.ok) {
+      const errorText = await chapterResponse.text();
+      console.error(`❌ Chapter content fetch failed: ${chapterResponse.status}`, errorText);
+      throw new Error(`Primary API error: ${chapterResponse.status}`);
+    }
+
+    const data = await chapterResponse.json();
+    console.log(`✅ Successfully fetched chapter from primary API`);
+    return data;
+  } catch (primaryError) {
+    console.warn("⚠️ Primary passage fetch failed, retrying fallback:", primaryError.message);
+    try {
+      // ✅ Backup to bible-api.com (ONLY HAS KJV)
+      console.log(`📡 Using fallback API for ${bookId} ${chapterNumber}`);
+      const fallbackResponse = await fetch(
+        `${FALLBACK_BASE_URL}/${bookId}+${chapterNumber}`
+      );
+      const fallbackData = await fallbackResponse.json();
+      
+      // Format fallback data to match primary API structure with verse numbers
+      let formattedContent = "<p>";
+      if (fallbackData.verses) {
+        fallbackData.verses.forEach(verse => {
+          formattedContent += `<span class="verse-num">${verse.verse}</span> ${verse.text} `;
+        });
+      } else {
+        formattedContent += fallbackData.text || "No data from fallback source.";
+      }
+      formattedContent += "</p>";
+      
+      console.log(`⚠️ WARNING: Using fallback API - only KJV available`);
+      
+      return {
+        data: {
+          content: formattedContent,
+          reference: fallbackData.reference || `${bookId} ${chapterNumber}`,
+          isFromFallback: true // Flag to indicate fallback was used
+        },
+      };
+    } catch (secondaryError) {
+      console.error("❌ Both primary and fallback API calls failed:", secondaryError);
+      throw new Error("Could not retrieve passage. Please try again later.");
+    }
+  }
+}
+
+
+// ✅ Supported translations (for dropdowns)
+export const SUPPORTED_TRANSLATIONS = [
+  { id: "de4e12af7f28f599-02", name: "KJV — King James Version" },
+  { id: "65eec9e0b60e656b-01", name: "NKJV — New King James Version" },
+  { id: "f72b840c855f362c-04", name: "ESV — English Standard Version" },
+  { id: "7142879509583d59-02", name: "NLT — New Living Translation" },
+  { id: "9879dbb7cfe39e4d-04", name: "CEB — Common English Bible" },
+];

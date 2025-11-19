@@ -1,0 +1,100 @@
+import { parseReference } from './assistant/referenceParser';
+
+/**
+ * Clean verse text by removing formatting symbols like paragraph marks
+ */
+function cleanVerseText(text) {
+  if (!text) return text;
+  return text
+    .replace(/¶/g, '') // Remove pilcrow/paragraph symbol
+    .replace(/\u00B6/g, '') // Remove Unicode paragraph symbol
+    .trim();
+}
+
+const CODE_MAP = {
+  KJV: 'kjv', NKJV: 'kjv',
+  WEB: 'web',
+  ASV: 'asv',
+  NIV: 'niv',
+  NLT: 'nlt',
+  YLT: 'ylt',
+  ESV: 'esv',
+  NASB: 'nasb', // only if you add files later; will fallback if missing
+  BISHOPS: 'bishops',
+  GENEVA: 'geneva',
+};
+
+function folderFor(translation) {
+  const code = CODE_MAP[(translation || '').toUpperCase()];
+  return code ? `/bible/${code}` : null;
+}
+
+async function loadBookJson(folder, book) {
+  const url = `${process.env.PUBLIC_URL || ''}/public${folder}/${book}.json`.replace('/public/public', '/public');
+  // CRA serves from "/"; but our public path is at root: build will include public/*
+  const alt = `${process.env.PUBLIC_URL || ''}${folder}/${book}.json`;
+  for (const u of [alt]) {
+    try {
+      const res = await fetch(u);
+      if (res.ok) return await res.json();
+    } catch (_) {}
+  }
+  return null;
+}
+
+export async function getLocalVerseByReference(translation, reference) {
+  const folder = folderFor(translation);
+  if (!folder) return null;
+  const pr = parseReference(reference);
+  if (!pr.valid || !pr.verse) return null;
+  const bookJson = await loadBookJson(folder, pr.book);
+  if (!bookJson || !bookJson.chapters) return null;
+  const text = bookJson.chapters?.[String(pr.chapter)]?.[String(pr.verse)];
+  if (!text) return null;
+  return { reference: pr.normalized, text: cleanVerseText(text), translation };
+}
+
+// Default list of Bible books to try
+const DEFAULT_BOOKS = [
+  'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy',
+  'Joshua', 'Judges', 'Ruth', '1Samuel', '2Samuel',
+  '1Kings', '2Kings', '1Chronicles', '2Chronicles',
+  'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms',
+  'Proverbs', 'Ecclesiastes', 'Song', 'Isaiah', 'Jeremiah',
+  'Lamentations', 'Ezekiel', 'Daniel', 'Hosea', 'Joel',
+  'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum',
+  'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi',
+  'Matthew', 'Mark', 'Luke', 'John', 'Acts',
+  'Romans', '1Corinthians', '2Corinthians', 'Galatians', 'Ephesians',
+  'Philippians', 'Colossians', '1Thessalonians', '2Thessalonians',
+  '1Timothy', '2Timothy', 'Titus', 'Philemon', 'Hebrews',
+  'James', '1Peter', '2Peter', '1John', '2John', '3John',
+  'Jude', 'Revelation'
+];
+
+export async function getRandomLocalVerse(translation, bookNames = null) {
+  const folder = folderFor(translation);
+  if (!folder) return null;
+
+  // Use provided bookNames or default list
+  const books = (bookNames && Array.isArray(bookNames) && bookNames.length > 0) ? bookNames : DEFAULT_BOOKS;
+
+  // Try a few random books to find one available locally
+  for (let i = 0; i < Math.min(8, books.length); i++) {
+    const name = books[Math.floor(Math.random() * books.length)];
+    const json = await loadBookJson(folder, name);
+    if (!json || !json.chapters) continue;
+    const chapters = Object.keys(json.chapters);
+    if (chapters.length === 0) continue;
+    const ch = chapters[Math.floor(Math.random() * chapters.length)];
+    const verses = Object.keys(json.chapters[ch] || {});
+    if (verses.length === 0) continue;
+    const vs = verses[Math.floor(Math.random() * verses.length)];
+    const text = json.chapters[ch][vs];
+    if (!text) continue;
+    return { reference: `${name} ${ch}:${vs}`, text: cleanVerseText(text), translation, book: name };
+  }
+  return null;
+}
+
+export default { getLocalVerseByReference, getRandomLocalVerse };

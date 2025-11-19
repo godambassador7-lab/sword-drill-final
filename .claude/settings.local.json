@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(nul)",
+      "Bash(npm start)",
+      "Bash(timeout /t 10 /nobreak)",
+      "Bash(npx eslint:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(ping:*)",
+      "Bash(copy /Y \"c:\\Users\\Demetrius\\Documents\\sword-drill\\public\\sword_drill_favicon.ico\" \"c:\\Users\\Demetrius\\Documents\\sword-drill\\public\\favicon.ico\")",
+      "Bash(node -e:*)",
+      "Bash(tar:*)",
+      "Bash(powershell -Command \"Expand-Archive -Path ''hermeneutics_badges.zip'' -DestinationPath ''.'' -Force\")",
+      "Bash(copy:*)",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(cat:*)",
+      "Bash(timeout 120 npm run build)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

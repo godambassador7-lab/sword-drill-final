@@ -1,0 +1,28 @@
+{
+  "basic": [
+    {
+      "hebrew": "אֱלֹהִים",
+      "gloss": "God",
+      "phonetic": "eh-lo-HEEM"
+    },
+    {
+      "hebrew": "מֶלֶךְ",
+      "gloss": "king",
+      "phonetic": "ME-lekh"
+    }
+  ],
+  "intermediate": [
+    {
+      "hebrew": "נֶפֶשׁ",
+      "gloss": "soul",
+      "phonetic": "NE-fesh"
+    }
+  ],
+  "advanced": [
+    {
+      "hebrew": "צֶדֶק",
+      "gloss": "righteousness",
+      "phonetic": "TSE-dek"
+    }
+  ]
+}

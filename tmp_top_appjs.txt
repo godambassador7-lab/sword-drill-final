@@ -1,0 +1,120 @@
+// SwordDrillApp.jsx - Complete code with Help Section
+import { signUp, signIn, signOut, onAuthChange } from './services/authService';
+import { signInWithGoogle } from './services/authService';
+import { subscribeToUserProgress } from './services/dbService';
+import { getUserData, addQuizResult } from './services/dbService';
+import React, { useState, useEffect } from 'react';
+import { Trophy, Book, Target, Award, Calendar, Menu, X, LogOut, User, Settings, Flame, BarChart, ChevronDown, ChevronRight, HelpCircle, Star, Zap, Heart, TrendingUp, Shield } from 'lucide-react';
+import SplashScreen from './components/SplashScreen';
+import { APP_VERSION } from './version';
+import { getRandomVerse, getRandomVerseByDifficulty, DIFFICULTY_CONFIG } from './services/bibleApiService'
+import { APOCRYPHA_DIFFICULTY_CONFIG } from './services/bibleApiService'
+import { formatVerseText } from './services/bibleApiService';
+import { CANONICAL_BOOKS, APOCRYPHA_BOOKS } from './services/bibleApiService'
+import BibleReaderView from './services/BibleReaderView';
+import './App.css';
+import { getDailyVerse } from './dailyVerses';
+import { db } from "./services/firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { getCurrentStreak } from "./services/StreakManager";
+import SharpAssistant from './services/SharpAssistant';
+import AnalyticsModal from './services/Analyticsmodal';
+
+
+
+// Sample verse database (In production, this would be 2000 verses from Firebase)
+const VERSE_DATABASE = [
+  { 
+    id: 1, 
+    reference: "John 3:16", 
+    text: "For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "salvation",
+    difficulty: "Beginner"
+  },
+  { 
+    id: 2, 
+    reference: "Philippians 4:13", 
+    text: "I can do all things through Christ who strengthens me.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "strength",
+    difficulty: "Beginner"
+  },
+  { 
+    id: 3, 
+    reference: "Psalm 23:1", 
+    text: "The Lord is my shepherd; I shall not want.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "comfort",
+    difficulty: "Beginner"
+  },
+  { 
+    id: 4, 
+    reference: "Romans 8:28", 
+    text: "And we know that all things work together for good to those who love God, to those who are the called according to His purpose.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "hope",
+    difficulty: "Intermediate"
+  },
+  { 
+    id: 5, 
+    reference: "Proverbs 3:5-6", 
+    text: "Trust in the Lord with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He shall direct your paths.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "guidance",
+    difficulty: "Intermediate"
+  },
+  { 
+    id: 6, 
+    reference: "Isaiah 40:31", 
+    text: "But those who wait on the Lord shall renew their strength; they shall mount up with wings like eagles, they shall run and not be weary, they shall walk and not faint.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "strength",
+    difficulty: "Intermediate"
+  },
+  { 
+    id: 7, 
+    reference: "Matthew 28:19-20", 
+    text: "Go therefore and make disciples of all the nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all things that I have commanded you; and lo, I am with you always, even to the end of the age.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "faith",
+    difficulty: "Advanced"
+  },
+  { 
+    id: 8, 
+    reference: "Jeremiah 29:11", 
+    text: "For I know the thoughts that I think toward you, says the Lord, thoughts of peace and not of evil, to give you a future and a hope.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "hope",
+    difficulty: "Beginner"
+  },
+  { 
+    id: 9, 
+    reference: "Psalm 119:105", 
+    text: "Your word is a lamp to my feet and a light to my path.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "guidance",
+    difficulty: "Beginner"
+  },
+  { 
+    id: 10, 
+    reference: "Romans 12:2", 
+    text: "And do not be conformed to this world, but be transformed by the renewing of your mind, that you may prove what is that good and acceptable and perfect will of God.", 
+    translation: "NKJV", 
+    category: "canonical", 
+    topic: "wisdom",
+    difficulty: "Advanced"
+  },
+];
+
+const ACHIEVEMENTS = {
+  apprentice: [

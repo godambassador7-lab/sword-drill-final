@@ -1,0 +1,98 @@
+import { routeIntent } from './intentRouter';
+import { parseReference } from './referenceParser';
+import { searchLocalVerses, getVerseByReference } from './retrieval/bibleProvider';
+import { getKJVVerses } from './retrieval/kjvProvider';
+import { getWEBVerses } from './retrieval/webProvider';
+import { synthesizeNeutral } from './synthesizer';
+import { applyNeutrality } from './neutralityGuard';
+import { getCrossReferences } from './retrieval/crossRefsProvider';
+import { lookupWordStudy } from './lexiconProvider';
+
+function formatVersesBlock(arr) {
+  return arr.map(v => `"${v.text}"\n— ${v.reference} (${v.translation})`).join('\n\n');
+}
+
+async function fetchPreferredVerses(parsed, preferred) {
+  const pref = (preferred || 'KJV').toUpperCase();
+  let arr = [];
+  if (pref === 'WEB') {
+    arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+  } else {
+    arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+  }
+  return arr || [];
+}
+
+export async function answerQuery(userMessage, context = {}) {
+  const routed = routeIntent(userMessage);
+  let query = routed.query;
+
+  const parsed = parseReference(userMessage);
+  if (parsed.valid) query = parsed.normalized;
+
+  // Word study
+  if (routed.type === 'word_study') {
+    const entry = lookupWordStudy(query);
+    if (entry) {
+      const ans = `Word Study: ${entry.lemma} (${entry.language}) — Strong's ${entry.strong}\nMeaning: ${entry.gloss}\nNotes: ${entry.notes}\n\nHint: Ask for passages that use this term to see usage in context.`;
+      return { answer: applyNeutrality(ans), citations: [] };
+    }
+  }
+
+  // Compare translations
+  if (routed.type === 'compare_translations' && parsed.valid && parsed.verse) {
+    const kjv = (await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
+    const web = (await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
+    if (kjv || web) {
+      let ans = `Compare translations for ${parsed.normalized}:`;
+      if (kjv) ans += `\n\n[KJV] "${kjv.text}"`;
+      if (web) ans += `\n\n[WEB] "${web.text}"`;
+      ans += `\n\nTip: Ask "cross refs for ${parsed.normalized}" or "word study on <term>".`;
+      const meta = { compare: { ref: parsed.normalized, kjv: kjv ? kjv.text : '', web: web ? web.text : '' } };
+      return { answer: applyNeutrality(ans), citations: [{ ref: parsed.normalized, translation: 'KJV/WEB' }], meta };
+    }
+  }
+
+  // Passage context
+  if (routed.type === 'context' && parsed.valid) {
+    const key = parsed.normalized;
+    let primary = getVerseByReference(key);
+    if (!primary && parsed.verse) {
+      const prefArr = await fetchPreferredVerses(parsed, context.selectedTranslation);
+      if (prefArr.length) primary = prefArr[0];
+    }
+    let ans = `Passage context for ${key} (concise):`;
+    if (primary) ans += `\n\n"${primary.text}" — ${key}`;
+    ans += `\n\nFor full literary context, read the surrounding paragraph in your preferred translation and consider cross‑references.`;
+    const related = getCrossReferences(key);
+    if (related.length) ans += `\nRelated passages: ${related.join(', ')}.`;
+    return { answer: applyNeutrality(ans), citations: [{ ref: key, translation: primary?.translation || 'Unknown' }] };
+  }
+
+  // Direct reference
+  if (routed.type === 'reference' && parsed.valid && parsed.verse) {
+    const arr = await fetchPreferredVerses(parsed, context.selectedTranslation);
+    if (arr.length) {
+      let ans = formatVersesBlock(arr);
+      const related = getCrossReferences(parsed.normalized);
+      if (related.length) ans += `\n\nRelated passages: ${related.join(', ')}.`;
+      return { answer: applyNeutrality(ans), citations: arr.map(v => ({ ref: v.reference, translation: v.translation })) };
+    }
+  }
+
+  // Retrieval + synthesis fallback
+  const hits = await searchLocalVerses(query, { verseHistory: context.verseHistory, selectedTranslation: context.selectedTranslation });
+  let { answer, citations } = synthesizeNeutral({ query, hits });
+  const primaryRef = hits[0]?.reference || (parseReference(query).normalized);
+  if (primaryRef) {
+    const related = getCrossReferences(primaryRef);
+    if (related.length) answer += `\n\nRelated passages: ${related.join(', ')}.`;
+  }
+  return { answer: applyNeutrality(answer), citations };
+}
+
+export default { answerQuery };
+
+
