@@ -8,3 +8,4 @@ Includes:
 - Pronunciation Guide
 
 Fully structured for interactive learning.
+Deployed via Vercel
