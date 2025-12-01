@@ -29,7 +29,7 @@ import {
   CheckCircle,
   Users
 } from 'lucide-react';
-import CORE from "./core/index.js";
+import CORE from "./core/core/index.js";
 
 const {
   // Achievements
