@@ -436,9 +436,14 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                       </div>
                     </div>
 
-                    {/* Verse Reference */}
-                    <div className="mt-3 text-xs text-slate-400 italic">
-                      {round.verse.reference}
+                    {/* Verse Reference and Text */}
+                    <div className="mt-3 bg-slate-900 rounded-lg p-3 border border-slate-600">
+                      <div className="text-amber-400 text-sm font-semibold mb-2">
+                        {round.verse.reference}
+                      </div>
+                      <div className="text-slate-300 text-sm leading-relaxed">
+                        "{round.verse.text}"
+                      </div>
                     </div>
                   </div>
                 ))}
