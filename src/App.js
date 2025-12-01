@@ -29,12 +29,54 @@ import {
   CheckCircle,
   Users
 } from 'lucide-react';
+import VerseScrambleQuiz from './components/VerseScrambleQuiz';
+import BookOrderQuiz from './components/BookOrderQuiz';
+import SwordDrillUltimate from './components/SwordDrillUltimate';
+import BiblicalSpellingBee from './components/BiblicalSpellingBee';
+import BiblicalBloodlines from './components/BiblicalBloodlines';
+import WordsOfJesus from './components/WordsOfJesus';
+import CorrectToast from './components/CorrectToast';
+import IncorrectToast from './components/IncorrectToast';
+import GenericToast from './components/GenericToast';
+import KoineGreekCourse from './components/KoineGreekCourse';
+import AncientHebrewCourse from './components/AncientHebrewCourse';
+import HermeneuticsCourse from './components/HermeneuticsCourse';
+import LearningPlan from './components/LearningPlan';
+import DualCalendarDisplay from './components/DualCalendarDisplay';
+import TutorialHelp from './components/TutorialHelp';
+import HebrewCalendarModal from './components/HebrewCalendarModal';
+import ActivityCalendarModal from './components/ActivityCalendarModal';
+import BibleReader from './components/BibleReader';
+import PersonalVerseBank from './components/PersonalVerseBank';
+import LoadingScreen from './components/LoadingScreen';
+import BibleTrivia from './components/BibleTrivia';
+import ChurchHistoryCourse from './components/ChurchHistoryCourse';
+import KingsOfIsraelCourse from './components/KingsOfIsraelCourse';
+import TextualCriticismCourse from './components/TextualCriticismCourse';
+import UnlockableLXX from './components/UnlockableLXX';
+import UnlockableSinaiticus from './components/UnlockableSinaiticus';
+import UnlockableMasoretic from './components/UnlockableMasoretic';
+import UnlockableEliChallenge from './components/UnlockableEliChallenge';
+import GreekLexicon from './components/GreekLexicon';
+import HebrewLexicon from './components/HebrewLexicon';
+import EnhancedReviewModal from './components/EnhancedReviewModal';
+import EnhancedReviewMultipleChoice from './components/EnhancedReviewMultipleChoice';
+import { getRandomMemoryTip } from './data/memoryTips';
+import { getAllReferencesForDifficulty } from './data/versesByDifficulty';
+import { DAILY_VERSES_POOL } from './dailyVerses';
+import { getLocalVerseByReference, getLocalVersesRange } from './services/localBibleProvider';
+import { getVerseByReference as getStaticVerseByReference } from './services/assistant/retrieval/bibleProvider';
+import { recordQuizAttempt } from './services/quizTracker';
+import PracticeReview from './components/PracticeReview';
+import SpiritualGiftsExam from './components/SpiritualGiftsExam';
+import SharpAssistant from './services/SharpAssistant';
 import CORE from "./core/core/index.js";
 
 const {
   // Achievements
   ACHIEVEMENT_TIERS,
   ACHIEVEMENTS,
+  ACHIEVEMENT_CONDITIONS,
   checkForNewAchievements,
 
   // Points
@@ -80,47 +122,6 @@ const {
   getTotalVerseCount,
   getVersePoolStats
 } = CORE;
-import VerseScrambleQuiz from './components/VerseScrambleQuiz';
-import BookOrderQuiz from './components/BookOrderQuiz';
-import SwordDrillUltimate from './components/SwordDrillUltimate';
-import BiblicalSpellingBee from './components/BiblicalSpellingBee';
-import BiblicalBloodlines from './components/BiblicalBloodlines';
-import WordsOfJesus from './components/WordsOfJesus';
-import CorrectToast from './components/CorrectToast';
-import IncorrectToast from './components/IncorrectToast';
-import GenericToast from './components/GenericToast';
-import KoineGreekCourse from './components/KoineGreekCourse';
-import AncientHebrewCourse from './components/AncientHebrewCourse';
-import HermeneuticsCourse from './components/HermeneuticsCourse';
-import LearningPlan from './components/LearningPlan';
-import DualCalendarDisplay from './components/DualCalendarDisplay';
-import TutorialHelp from './components/TutorialHelp';
-import HebrewCalendarModal from './components/HebrewCalendarModal';
-import ActivityCalendarModal from './components/ActivityCalendarModal';
-import BibleReader from './components/BibleReader';
-import PersonalVerseBank from './components/PersonalVerseBank';
-import LoadingScreen from './components/LoadingScreen';
-import BibleTrivia from './components/BibleTrivia';
-import ChurchHistoryCourse from './components/ChurchHistoryCourse';
-import KingsOfIsraelCourse from './components/KingsOfIsraelCourse';
-import TextualCriticismCourse from './components/TextualCriticismCourse';
-import UnlockableLXX from './components/UnlockableLXX';
-import UnlockableSinaiticus from './components/UnlockableSinaiticus';
-import UnlockableMasoretic from './components/UnlockableMasoretic';
-import UnlockableEliChallenge from './components/UnlockableEliChallenge';
-import GreekLexicon from './components/GreekLexicon';
-import HebrewLexicon from './components/HebrewLexicon';
-import EnhancedReviewModal from './components/EnhancedReviewModal';
-import EnhancedReviewMultipleChoice from './components/EnhancedReviewMultipleChoice';
-import { getRandomMemoryTip } from './data/memoryTips';
-import { getAllReferencesForDifficulty } from './data/versesByDifficulty';
-import { DAILY_VERSES_POOL } from './dailyVerses';
-import { getLocalVerseByReference, getLocalVersesRange } from './services/localBibleProvider';
-import { getVerseByReference as getStaticVerseByReference } from './services/assistant/retrieval/bibleProvider';
-import { recordQuizAttempt } from './services/quizTracker';
-import PracticeReview from './components/PracticeReview';
-import SpiritualGiftsExam from './components/SpiritualGiftsExam';
-import SharpAssistant from './services/SharpAssistant';
 // Firebase Integration Note:
 // In production, you'll need to:
 // 1. Install: npm install firebase
