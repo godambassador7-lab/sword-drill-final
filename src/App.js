@@ -2635,7 +2635,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             onClick={() => {
               // Play sword scrape sound
               try {
-                const swordSound = new Audio('/sword_drill/sword scrape.mp3');
+                const swordSound = new Audio(`${process.env.PUBLIC_URL}/sword scrape.mp3`);
                 const soundSettings = userData.soundSettings || { enabled: true, volume: 0.5 };
                 if (soundSettings.enabled) {
                   swordSound.volume = soundSettings.volume || 0.5;
