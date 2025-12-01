@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Copy dailyVerses to submodule
-        run: cp src/dailyVerses.js src/core/dailyVerses.js
+      - name: Copy required files to submodule
+        run: |
+          cp src/dailyVerses.js src/core/dailyVerses.js
+          cp -r src/data src/core/data
 
       - name: Install dependencies (npm install instead of npm ci)
         run: npm install
