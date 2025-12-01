@@ -88,6 +88,9 @@ export const addQuizResult = async (userId, quizData) => {
     if (quizData.studyPlanProgress !== undefined) {
       updateData.studyPlanProgress = quizData.studyPlanProgress;
     }
+    if (quizData.streakData !== undefined) {
+      updateData.streakData = quizData.streakData;
+    }
 
     console.log('[dbService] Final updateData being sent to Firebase:', updateData);
     await updateDoc(doc(db, 'userProgress', userId), updateData);

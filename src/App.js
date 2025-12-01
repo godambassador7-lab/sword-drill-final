@@ -822,10 +822,12 @@ useEffect(() => {
         // Recalculate streak from normalized local storage to avoid drift
         const recalculatedStreak = calculateCurrentStreak();
         mergedProgress.currentStreak = Math.max(mergedProgress.currentStreak || 0, recalculatedStreak);
-        // Rebuild streakData from quizHistory + existing streakData and persist
+        // Rebuild streakData from Firebase + quizHistory + existing localStorage and persist
         const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
+        const firebaseStreak = normalizeStreakData(result.progress.streakData || {});
         const quizHistory = mergedProgress.quizHistory || [];
-        const rebuilt = { ...existingStreak };
+        // Merge Firebase streakData with local, preferring Firebase data for conflicts
+        const rebuilt = { ...existingStreak, ...firebaseStreak };
         quizHistory.forEach(q => {
           if (q.correct) {
             const ts = q.timestamp || q.ts || q.date;
@@ -1016,6 +1018,13 @@ const handleSignIn = async (e) => {
       const firebaseStreak = data.progress.currentStreak || 0;
 
       const verseProgressData = data.progress.verseProgress || {};
+
+      // Restore streakData from Firebase to localStorage
+      const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
+      const firebaseStreakData = normalizeStreakData(data.progress.streakData || {});
+      const mergedStreakData = { ...existingStreak, ...firebaseStreakData };
+      localStorage.setItem('streakData', JSON.stringify(mergedStreakData));
+
       const mergedUserData = mergeProgressRecords(
         loadProgressFromLocalStorage() || {},
         {
@@ -1031,10 +1040,15 @@ const handleSignIn = async (e) => {
           currentLevel: data.progress.currentLevel || 'Beginner',
           unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false },
           newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
-          achievementClickHistory: data.progress.achievementClickHistory || {}
+          achievementClickHistory: data.progress.achievementClickHistory || {},
+          quizHistory: data.progress.quizHistory || []
         },
         Math.max(localStreak, firebaseStreak)
       );
+
+      // Recalculate streak after merging all data
+      mergedUserData.currentStreak = calculateCurrentStreak();
+
       setUserData(mergedUserData);
       setIsLoggedIn(true);
     }
@@ -2193,6 +2207,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         timestamp: new Date(),
         points: points,
         currentStreak: currentStreakValue,
+        streakData: streakData, // Sync streak calendar data to Firebase
         ...newQuizData
       });
     console.log('[Firebase] Save result:', saveResult);
