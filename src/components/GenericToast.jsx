@@ -2,8 +2,6 @@ import React from 'react';
 import { CheckCircle, X, AlertTriangle, Info } from 'lucide-react';
 
 const GenericToast = ({ show, message, type = 'success', onClose }) => {
-  if (!show) return null;
-
   const getConfig = () => {
     switch (type) {
       case 'success':
@@ -50,6 +48,8 @@ const GenericToast = ({ show, message, type = 'success', onClose }) => {
       return () => clearTimeout(timer);
     }
   }, [show, onClose]);
+
+  if (!show) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">

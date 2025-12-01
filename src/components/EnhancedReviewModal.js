@@ -409,9 +409,9 @@ const EnhancedReviewModal = ({
 
   // Confirmation Dialog Component
   const ConfirmationDialog = () => {
-    if (!confirmDialog) return null;
-
     const [dontAskAgain, setDontAskAgain] = useState(false);
+
+    if (!confirmDialog) return null;
 
     const handleConfirm = () => {
       if (dontAskAgain && confirmDialog.type !== 'failure') {

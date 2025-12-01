@@ -2685,8 +2685,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   });
 
   const QuizView = () => {
-    if (!quizState) return null;
-
     // Drag and drop handlers
     const handleDragStart = useCallback((e, wordItem) => {
       console.log('Drag started:', wordItem);
@@ -2744,6 +2742,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     }, []);
 
     // Note: Verse Scramble is now rendered at top level to prevent re-render issues
+
+    if (!quizState) return null;
 
     return (
       <div className="space-y-6">
