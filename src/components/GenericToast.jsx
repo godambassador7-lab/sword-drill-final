@@ -27,17 +27,17 @@ const GenericToast = ({ show, message, type = 'success', onClose }) => {
         };
       case 'info':
         return {
-          icon: <Info size={48} className="text-yellow-200" />,
-          gradient: 'from-blue-950 via-blue-900 to-blue-800',
-          shadow: '0 0 20px rgba(255,255,255,0.25), 0 0 40px rgba(56,189,248,0.35)',
-          textColor: 'text-yellow-100'
+          icon: <Info size={48} className="text-yellow-300" />,
+          gradient: 'from-blue-950 via-blue-900 to-blue-950',
+          shadow: '0 0 20px rgba(234,179,8,0.25), 0 0 40px rgba(234,179,8,0.35)',
+          textColor: 'text-yellow-300'
         };
       default:
         return {
-          icon: <Info size={48} className="text-yellow-200" />,
-          gradient: 'from-blue-950 via-blue-900 to-blue-800',
-          shadow: '0 0 20px rgba(255,255,255,0.25), 0 0 40px rgba(56,189,248,0.35)',
-          textColor: 'text-yellow-100'
+          icon: <Info size={48} className="text-yellow-300" />,
+          gradient: 'from-blue-950 via-blue-900 to-blue-950',
+          shadow: '0 0 20px rgba(234,179,8,0.25), 0 0 40px rgba(234,179,8,0.35)',
+          textColor: 'text-yellow-300'
         };
     }
   };

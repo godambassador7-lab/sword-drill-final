@@ -1,0 +1,28 @@
+{
+  "title": "Hope Renewed",
+  "default_translation": "ESV",
+  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
+  "days": [
+    {
+      "day": 1,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 2,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 3,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    }
+  ]
+}

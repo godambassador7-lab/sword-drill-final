@@ -1,0 +1,42 @@
+{
+  "title": "Trusting God\u2019s Timing",
+  "default_translation": "ESV",
+  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
+  "days": [
+    {
+      "day": 1,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Trusting God\u2019s Timing' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 2,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Trusting God\u2019s Timing' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 3,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Trusting God\u2019s Timing' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Trusting God\u2019s Timing' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    },
+    {
+      "day": 5,
+      "passage": "{{translation}}: Scripture reference for the topic",
+      "overview": "A study on 'Trusting God\u2019s Timing' exploring the biblical foundation for this theme through Scripture alone.",
+      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
+      "prayer": "A prayer focus based on the day\u2019s passage."
+    }
+  ]
+}

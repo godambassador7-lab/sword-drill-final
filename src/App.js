@@ -829,15 +829,19 @@ useEffect(() => {
         const quizHistory = mergedProgress.quizHistory || [];
         // Merge Firebase streakData with local, preferring Firebase data for conflicts
         const rebuilt = { ...existingStreak, ...firebaseStreakData };
+        const toDate = (ts) => {
+          if (!ts) return null;
+          if (typeof ts.toDate === 'function') return ts.toDate();
+          if (typeof ts === 'object' && ts.seconds) return new Date(ts.seconds * 1000);
+          const d = new Date(ts);
+          return isNaN(d) ? null : d;
+        };
         quizHistory.forEach(q => {
           if (q.correct) {
-            const ts = q.timestamp || q.ts || q.date;
-            if (ts) {
-              const d = new Date(ts);
-              if (!isNaN(d)) {
-                const key = localDateString(d);
-                rebuilt[key] = { ...(rebuilt[key] || {}), marked: true };
-              }
+            const d = toDate(q.timestamp || q.ts || q.date);
+            if (d) {
+              const key = localDateString(d);
+              rebuilt[key] = { ...(rebuilt[key] || {}), marked: true };
             }
           }
         });
@@ -1024,6 +1028,22 @@ const handleSignIn = async (e) => {
       const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
       const firebaseStreakData = normalizeStreakData(data.progress.streakData || {});
       const mergedStreakData = { ...existingStreak, ...firebaseStreakData };
+      const toDate = (ts) => {
+        if (!ts) return null;
+        if (typeof ts.toDate === 'function') return ts.toDate();
+        if (typeof ts === 'object' && ts.seconds) return new Date(ts.seconds * 1000);
+        const d = new Date(ts);
+        return isNaN(d) ? null : d;
+      };
+      (data.progress.quizHistory || []).forEach(q => {
+        if (q.correct) {
+          const d = toDate(q.timestamp || q.ts || q.date);
+          if (d) {
+            const key = localDateString(d);
+            mergedStreakData[key] = { ...(mergedStreakData[key] || {}), marked: true };
+          }
+        }
+      });
       localStorage.setItem('streakData', JSON.stringify(mergedStreakData));
 
       const mergedUserData = mergeProgressRecords(
