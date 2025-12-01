@@ -4875,7 +4875,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           <SwordDrillUltimate
             userLevel={userData.currentLevel || 'Beginner'}
             verseProgress={userData.verseProgress || {}}
-            getLocalVerseByReference={getLocalVerseByReference}
+            getLocalVerseByReference={(ref) => getLocalVerseByReference(userData.selectedTranslation || 'KJV', ref)}
             onComplete={(results) => {
               // Fade out background music
               fadeOutMusic();
