@@ -43,7 +43,9 @@
       "Bash(npx gh-pages-clean)",
       "Bash(git checkout:*)",
       "Bash(git add:*)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

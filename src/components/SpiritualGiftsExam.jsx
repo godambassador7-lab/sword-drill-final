@@ -12,9 +12,16 @@ const SpiritualGiftsExam = ({ onBack }) => {
   const [showPreviousResults, setShowPreviousResults] = useState(false);
 
   useEffect(() => {
+    const dataUrl = `${process.env.PUBLIC_URL || ''}/spiritual_gifts_exam_sword_drill/spiritual_gifts_exam.json`;
+
     // Load the exam data
-    fetch('/spiritual_gifts_exam_sword_drill/spiritual_gifts_exam.json')
-      .then(res => res.json())
+    fetch(dataUrl)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch exam data (${res.status})`);
+        }
+        return res.json();
+      })
       .then(data => {
         setExamData(data);
         setLoading(false);
