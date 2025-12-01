@@ -33,6 +33,7 @@ import {
 import {
   ACHIEVEMENT_TIERS,
   ACHIEVEMENTS,
+  ACHIEVEMENT_CONDITIONS,
   checkForNewAchievements,
   LEVEL_REQUIREMENTS,
   POINT_SYSTEM,
@@ -728,7 +729,11 @@ const SwordDrillApp = () => {
       musicVolume: 0.3 // 0 to 1
     },
     studyPlanProgress: {}, // Track Bible study plan progress: { planId: { started: timestamp, completed: timestamp | null } }
-    personalVerseDetectiveCompletions: {} // Track daily completions: { 'YYYY-MM-DD': count }
+    personalVerseDetectiveCompletions: {}, // Track daily completions: { 'YYYY-MM-DD': count }
+    verseDetectiveCompleted: 0, // Total Verse Detective quizzes completed
+    verseDetectiveCorrect: 0, // Total Verse Detective quizzes answered correctly
+    wordsOfJesusCompleted: 0, // Total Words of Jesus quizzes completed
+    wordsOfJesusCorrect: 0 // Total Words of Jesus questions answered correctly
   });
 
   
@@ -4821,7 +4826,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                quizzesCompleted: prev.quizzesCompleted + 1,
+                wordsOfJesusCompleted: (prev.wordsOfJesusCompleted || 0) + 1,
+                wordsOfJesusCorrect: (prev.wordsOfJesusCorrect || 0) + results.correctAnswers
               }));
 
               // Save quiz results
@@ -4954,14 +4961,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   ...prev,
                   totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
                   quizzesCompleted: prev.quizzesCompleted + 1,
-                  personalVerseDetectiveCompletions: updatedCompletions
+                  personalVerseDetectiveCompletions: updatedCompletions,
+                  verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
+                  verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
                 }));
               } else {
                 // Regular verse detective
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                  quizzesCompleted: prev.quizzesCompleted + 1
+                  quizzesCompleted: prev.quizzesCompleted + 1,
+                  verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
+                  verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
                 }));
               }
 

@@ -54,7 +54,15 @@
     "B52": { "type": "spiritual_gifts_completed", "value": 1, "name": "Gift Seeker 🎁" },
     "B53": { "type": "spiritual_gifts_completed", "value": 2, "name": "Spiritual Starter 💝" },
     "B54": { "type": "sharp_queries", "value": 1, "name": "SHARP Inquirer 🤖" },
-    "B55": { "type": "sharp_queries", "value": 5, "name": "First Question Asked 💬" }
+    "B55": { "type": "sharp_queries", "value": 5, "name": "First Question Asked 💬" },
+    "B56": { "type": "verse_detective_completed", "value": 1, "name": "First Case 🔍" },
+    "B57": { "type": "verse_detective_completed", "value": 5, "name": "Junior Detective 🕵️" },
+    "B58": { "type": "verse_detective_correct", "value": 1, "name": "Case Closed ✅" },
+    "B59": { "type": "verse_detective_correct", "value": 3, "name": "Clue Finder 🔎" },
+    "B60": { "type": "words_of_jesus_completed", "value": 1, "name": "Red Letter Reader 📕" },
+    "B61": { "type": "words_of_jesus_completed", "value": 3, "name": "Gospel Explorer 📖" },
+    "B62": { "type": "words_of_jesus_correct", "value": 5, "name": "Jesus' Words 💬" },
+    "B63": { "type": "words_of_jesus_correct", "value": 10, "name": "Master's Voice 🗣️" }
   },
   "intermediate": {
     "I1": { "type": "quiz_count", "value": 50, "name": "Steady Scholar 📗" },
@@ -111,7 +119,17 @@
     "I52": { "type": "spiritual_gifts_completed", "value": 3, "name": "Gift Discoverer 🎀" },
     "I53": { "type": "spiritual_gifts_completed", "value": 5, "name": "Spiritual Student 💖" },
     "I54": { "type": "sharp_queries", "value": 25, "name": "SHARP Conversationalist 🗨️" },
-    "I55": { "type": "sharp_queries", "value": 50, "name": "Frequent Questioner ❔" }
+    "I55": { "type": "sharp_queries", "value": 50, "name": "Frequent Questioner ❔" },
+    "I56": { "type": "verse_detective_completed", "value": 15, "name": "Detective Scholar 🎓" },
+    "I57": { "type": "verse_detective_completed", "value": 25, "name": "Mystery Solver 🧩" },
+    "I58": { "type": "verse_detective_correct", "value": 10, "name": "Evidence Expert 📋" },
+    "I59": { "type": "verse_detective_correct", "value": 20, "name": "Clue Master 🔍" },
+    "I60": { "type": "verse_detective_accuracy", "value": 75, "name": "Sharp Investigator 🎯" },
+    "I61": { "type": "words_of_jesus_completed", "value": 10, "name": "Gospel Student 📜" },
+    "I62": { "type": "words_of_jesus_completed", "value": 20, "name": "Red Letter Scholar 📕" },
+    "I63": { "type": "words_of_jesus_correct", "value": 25, "name": "Christ's Teachings 🙏" },
+    "I64": { "type": "words_of_jesus_correct", "value": 50, "name": "Gospel Messenger 📣" },
+    "I65": { "type": "words_of_jesus_accuracy", "value": 75, "name": "Discerning Listener 👂" }
   },
   "advanced": {
     "A1": { "type": "quiz_count", "value": 200, "name": "Scroll Commander 🪖" },
@@ -168,7 +186,17 @@
     "A52": { "type": "spiritual_gifts_completed", "value": 8, "name": "Gift Master 🎁" },
     "A53": { "type": "spiritual_gifts_completed", "value": 10, "name": "Spiritual Expert 💝" },
     "A54": { "type": "sharp_queries", "value": 100, "name": "SHARP Expert 💬" },
-    "A55": { "type": "sharp_queries", "value": 150, "name": "Deep Questioner 🤔" }
+    "A55": { "type": "sharp_queries", "value": 150, "name": "Deep Questioner 🤔" },
+    "A56": { "type": "verse_detective_completed", "value": 50, "name": "Master Detective 🕵️‍♂️" },
+    "A57": { "type": "verse_detective_completed", "value": 75, "name": "Chief Inspector 👮" },
+    "A58": { "type": "verse_detective_correct", "value": 40, "name": "Case Specialist 📁" },
+    "A59": { "type": "verse_detective_correct", "value": 60, "name": "Investigation Expert 🔬" },
+    "A60": { "type": "verse_detective_accuracy", "value": 85, "name": "Precision Detective 🎯" },
+    "A61": { "type": "words_of_jesus_completed", "value": 40, "name": "Gospel Master 📖" },
+    "A62": { "type": "words_of_jesus_completed", "value": 60, "name": "Red Letter Expert 🔴" },
+    "A63": { "type": "words_of_jesus_correct", "value": 75, "name": "Word Discerner 🗣️" },
+    "A64": { "type": "words_of_jesus_correct", "value": 100, "name": "Sayings Scholar 💭" },
+    "A65": { "type": "words_of_jesus_accuracy", "value": 85, "name": "Master Listener 👂" }
   },
   "elite": {
     "E1": { "type": "quiz_count", "value": 500, "name": "Flamebearer Prime 🔥👑" },
@@ -233,6 +261,16 @@
     "E60": { "type": "masoretic_unlocked", "value": 1, "name": "Masoretic Master 📖" },
     "E61": { "type": "masoretic_usage", "value": 50, "name": "Hebrew Text Expert ✡️" },
     "E62": { "type": "sinaiticus_unlocked", "value": 1, "name": "Sinaiticus Scholar ⛪" },
-    "E63": { "type": "sinaiticus_usage", "value": 50, "name": "Ancient Manuscript Master 📜" }
+    "E63": { "type": "sinaiticus_usage", "value": 50, "name": "Ancient Manuscript Master 📜" },
+    "E64": { "type": "verse_detective_completed", "value": 100, "name": "Detective Grandmaster 🕵️" },
+    "E65": { "type": "verse_detective_completed", "value": 150, "name": "Sherlock of Scripture 🔍" },
+    "E66": { "type": "verse_detective_correct", "value": 80, "name": "Case Champion 🏆" },
+    "E67": { "type": "verse_detective_correct", "value": 120, "name": "Legendary Investigator 🌟" },
+    "E68": { "type": "verse_detective_accuracy", "value": 95, "name": "Infallible Detective 💎" },
+    "E69": { "type": "words_of_jesus_completed", "value": 80, "name": "Gospel Grandmaster 📜" },
+    "E70": { "type": "words_of_jesus_completed", "value": 100, "name": "Christ's Ambassador 👑" },
+    "E71": { "type": "words_of_jesus_correct", "value": 150, "name": "Words of Life 💫" },
+    "E72": { "type": "words_of_jesus_correct", "value": 200, "name": "Living Word Scholar ✨" },
+    "E73": { "type": "words_of_jesus_accuracy", "value": 95, "name": "Perfect Discernment 🎯" }
   }
 }

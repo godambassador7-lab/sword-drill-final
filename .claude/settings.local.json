@@ -36,7 +36,14 @@
       "Bash(node:*)",
       "Bash(del \"c:\\Users\\Demetrius\\Documents\\sword-drill\\src\\data\\hermeneutics_course\\quiz_content.json\")",
       "Bash(test:*)",
-      "Bash(python replace_alerts.py:*)"
+      "Bash(python replace_alerts.py:*)",
+      "Bash(git remote get-url:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npx gh-pages:*)",
+      "Bash(npx gh-pages-clean)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(del nul)"
     ],
     "deny": [],
     "ask": []
