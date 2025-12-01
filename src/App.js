@@ -27,7 +27,8 @@ import {
   HelpCircle,
   Search,
   CheckCircle,
-  Users
+  Users,
+  Wind
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
@@ -3658,6 +3659,140 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   };
 
+  // Reusable Bible Study Plans Section Component
+  const BibleStudyPlansSection = ({ folder, title, description, userData, setUserData }) => {
+    const [plans, setPlans] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      // Load plans from the specified folder
+      fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/manifest.json`)
+        .then(res => res.json())
+        .then(fileList => {
+          const promises = fileList.map(filename =>
+            fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/${filename}`)
+              .then(r => r.json())
+          );
+          return Promise.all(promises);
+        })
+        .then(loadedPlans => {
+          setPlans(loadedPlans);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error(`Error loading ${folder} plans:`, error);
+          setPlans([]);
+          setLoading(false);
+        });
+    }, [folder]);
+
+    const displayedPlans = searchTerm
+      ? plans.filter(plan =>
+          plan.topic?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          plan.theme?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : plans;
+
+    if (loading) {
+      return (
+        <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl p-6 border border-blue-700/50">
+          <div className="text-slate-300">Loading plans...</div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl p-6 border border-blue-700/50">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-bold text-blue-300 flex items-center gap-2">
+            <Scroll size={24} />
+            {title}
+          </h3>
+          <span className="text-blue-400 font-bold text-sm">{plans.length} Plans</span>
+        </div>
+        <p className="text-slate-300 text-sm mb-4">{description}</p>
+
+        {/* Search */}
+        <div className="mb-4">
+          <input
+            type="text"
+            value={searchTerm}
+            placeholder="Search topics..."
+            className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-blue-500 focus:outline-none"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        {/* Plans Grid */}
+        <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+          {displayedPlans.map(plan => {
+            const planProgress = userData.studyPlanProgress?.[plan.id];
+            const isCompleted = planProgress?.completed;
+            const isInProgress = planProgress?.started && !planProgress?.completed;
+
+            return (
+              <button
+                key={plan.id}
+                onClick={() => {
+                  setPlanVerseTexts([]);
+                  setPlanVerseError('');
+                  setPlanVerseLoading(true);
+                  setSelectedPlan(plan);
+                  setShowPlanDetail(true);
+
+                  // Mark as started
+                  if (!planProgress?.started) {
+                    setUserData(prev => ({
+                      ...prev,
+                      studyPlanProgress: {
+                        ...prev.studyPlanProgress,
+                        [plan.id]: {
+                          started: Date.now(),
+                          completed: null
+                        }
+                      }
+                    }));
+                  }
+                }}
+                className={`bg-slate-700/50 hover:bg-slate-600/50 border ${
+                  isCompleted
+                    ? 'border-emerald-500/50 hover:border-emerald-400'
+                    : isInProgress
+                    ? 'border-amber-500/50 hover:border-amber-400'
+                    : 'border-blue-600/30 hover:border-blue-500'
+                } rounded-lg p-3 text-left transition-all relative`}
+              >
+                {isCompleted && (
+                  <div className="absolute top-2 right-2">
+                    <CheckCircle size={16} className="text-emerald-400" />
+                  </div>
+                )}
+                {isInProgress && !isCompleted && (
+                  <div className="absolute top-2 right-2 flex items-center gap-1">
+                    <Clock size={14} className="text-amber-400" />
+                  </div>
+                )}
+                <div className="text-blue-400 font-bold text-sm mb-1 pr-6">{plan.topic}</div>
+                <div className="text-slate-400 text-xs line-clamp-2">{plan.theme}</div>
+                {isCompleted && (
+                  <div className="mt-2 text-xs text-emerald-400 font-semibold">✓ Completed</div>
+                )}
+                {isInProgress && !isCompleted && (
+                  <div className="mt-2 text-xs text-amber-400 font-semibold">⏱ In Progress</div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {displayedPlans.length === 0 && (
+          <div className="text-center text-slate-400 text-sm">No plans found</div>
+        )}
+      </div>
+    );
+  };
+
   const CalendarView = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const displayedPlans = searchTerm
@@ -3839,6 +3974,24 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           </div>
         )}
       </div>
+
+      {/* Bible Study Plans (3-5 day plans) */}
+      <BibleStudyPlansSection
+        folder="short"
+        title="Bible Study Plans"
+        description="Focused 3-5 day Bible study plans for deeper topical exploration"
+        userData={userData}
+        setUserData={setUserData}
+      />
+
+      {/* Comprehensive Bible Plans (7-10 day plans) */}
+      <BibleStudyPlansSection
+        folder="comprehensive"
+        title="Comprehensive Bible Plans"
+        description="In-depth 7-10 day Bible study plans for thorough biblical exploration"
+        userData={userData}
+        setUserData={setUserData}
+      />
     </div>
     );
   };
@@ -4708,9 +4861,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                     setCurrentView('spiritual-gifts-exam');
                     setShowMenu(false);
                   }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-pink-600/20 hover:to-rose-600/20 transition-all flex items-center gap-3"
+                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-amber-600/20 transition-all flex items-center gap-3"
                 >
-                  <Heart size={20} className="text-pink-400" />
+                  <Wind size={20} className="text-purple-400" />
                   <div>
                     <div className="font-semibold">Spiritual Gifts Exam</div>
                     <div className="text-xs text-slate-400">Discover your spiritual gifts</div>
