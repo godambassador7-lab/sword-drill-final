@@ -2,35 +2,52 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout repository (with private submodules)
+        uses: actions/checkout@v4
         with:
           submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN }}
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Upload production-ready files
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
+          name: production-files
           path: build
 
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     runs-on: ubuntu-latest
+
     steps:
+      - name: Download production files
+        uses: actions/download-artifact@v4
+        with:
+          name: production-files
+          path: build
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
