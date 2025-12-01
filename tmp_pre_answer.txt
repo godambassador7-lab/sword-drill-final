@@ -1,0 +1,15 @@
+    contextualInfo = lastAssistant.citations[0].ref;
+  }
+
+  // If we have context and the question is vague, add context
+  if (contextualInfo) {
+    const pronounPatterns = /^(it|that|this|he|she|they|tell me more|what about|more about|and|also)\b/i;
+    if (pronounPatterns.test(lowerMessage)) {
+      return `${contextualInfo} ${userMessage}`;
+    }
+  }
+
+  return userMessage;
+}
+
+export async function answerQuery(userMessage, context = {}) {

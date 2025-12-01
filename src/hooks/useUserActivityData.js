@@ -6,6 +6,13 @@
 
 import { useState, useEffect, useMemo } from 'react';
 
+const localDateKey = (date) => {
+  if (!date) return '';
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  return d.toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
+};
+
 /**
  * Hook to get user activity data for calendar display
  * @param {string} userId - User ID
@@ -43,15 +50,17 @@ export function useUserActivityData(userId, year = null, month = null, quizHisto
         (quizHistory || []).forEach((quiz) => {
           // Get the date from timestamp
           const timestamp = quiz.timestamp || quiz.ts || 0;
-          const date = new Date(timestamp);
+          const dateRaw = new Date(timestamp);
+          if (isNaN(dateRaw)) return;
+          const date = new Date(dateRaw.getFullYear(), dateRaw.getMonth(), dateRaw.getDate()); // midnight local
 
           // Check if this quiz is within the month range
           if (date >= startDate && date <= endDate) {
-            const dayKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+            const dayKey = localDateKey(date);
 
             if (!dayActivity[dayKey]) {
               dayActivity[dayKey] = {
-                date: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
+                date,
                 count: 0,
                 quizzes: [],
                 categories: {},
@@ -168,7 +177,7 @@ export function useUserActivityData(userId, year = null, month = null, quizHisto
    * @returns {Object|null} Activity data for that day
    */
   const getActivityForDay = (date) => {
-    const dayKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    const dayKey = localDateKey(date);
     return activityData[dayKey] || null;
   };
 

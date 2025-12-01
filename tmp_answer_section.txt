@@ -1,0 +1,80 @@
+
+  return userMessage;
+}
+
+export async function answerQuery(userMessage, context = {}) {
+  // Analyze question structure and quality first
+  const questionAnalysis = analyzeQuestion(userMessage);
+  const clarificationNeeded = generateClarificationRequest(userMessage);
+
+  // Return helpful error message if question is unclear or poorly formed
+  if (clarificationNeeded) {
+    return {
+      answer: clarificationNeeded.message,
+      citations: [],
+      metadata: {
+        needsClarification: true,
+        suggestion: clarificationNeeded.suggestion,
+        questionAnalysis
+      }
+    };
+  }
+
+  // Resolve follow-up questions using conversation context
+  const resolvedMessage = resolveFollowUpContext(userMessage, context.conversationHistory);
+
+  // Check for ambiguous questions first using S.H.A.R.P. personality system
+  if (detectAmbiguousQuestion(resolvedMessage)) {
+    return generateClarificationPrompt(resolvedMessage);
+  }
+
+  // Classify the question using comprehensive taxonomy
+  const classification = classifyQuestion(resolvedMessage);
+
+  // Handle ambiguous questions that need clarification
+  if (classification.needsClarification) {
+    return generateClarificationPrompt(resolvedMessage);
+  }
+
+  const routed = routeIntent(resolvedMessage);
+  let query = routed.query;
+
+  const parsed = parseReference(userMessage);
+  if (parsed.valid) query = parsed.normalized;
+
+  // Check for feast day queries
+  if (isFeastDayQuery(userMessage)) {
+    const feastAnswer = answerFeastDayQuery(userMessage);
+    if (feastAnswer) {
+      return {
+        answer: enhanceWithPersonality(feastAnswer, 'mentor'),
+        citations: [],
+        metadata: {
+          type: 'feast_day',
+          classification
+        }
+      };
+    }
+  }
+
+  // Check for map location queries
+  if (routed.type === 'map_location') {
+    const locations = await searchLocations(query);
+    if (locations.length > 0) {
+      const location = locations[0];
+
+      // Build comprehensive location answer
+      let ans = `?? **${location.name}**`;
+
+      // Add modern location info if available
+      if (location.modern_country) {
+        ans += `\n\n**Present Day Location:** ${location.modern_country}`;
+      }
+
+      // Add region/type info
+      if (location.region) {
+        ans += `\n**Biblical Region:** ${location.region}`;
+      }
+
+      // Add coordinates if available
+      if (location.approximate_coordinates) {

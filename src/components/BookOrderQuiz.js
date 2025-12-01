@@ -1,38 +1,176 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  generateBookOrderQuestion,
-  checkBookAnswer,
-} from "../data/bibleBooks";
+import { X, Clock, Trophy, Zap } from "lucide-react";
+import CorrectToast from "./CorrectToast";
 
-const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
+// Bible books in order
+const BIBLE_BOOKS = [
+  // Old Testament
+  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+  "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+  "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+  "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+  "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations",
+  "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+  "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+  "Zephaniah", "Haggai", "Zechariah", "Malachi",
+  // New Testament
+  "Matthew", "Mark", "Luke", "John", "Acts",
+  "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+  "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
+  "1 Timothy", "2 Timothy", "Titus", "Philemon",
+  "Hebrews", "James", "1 Peter", "2 Peter",
+  "1 John", "2 John", "3 John", "Jude", "Revelation"
+];
+
+const BOOK_ABBREVIATIONS = {
+  genesis: ["gen"],
+  exodus: ["exo", "ex"],
+  leviticus: ["lev"],
+  numbers: ["num"],
+  deuteronomy: ["deut", "deu", "dt"],
+  joshua: ["josh"],
+  judges: ["judg", "jdg"],
+  ruth: ["rth"],
+  samuel: ["sam"],
+  kings: ["kgs", "king"],
+  chronicles: ["chron", "chr"],
+  ezra: ["ezr"],
+  nehemiah: ["neh"],
+  esther: ["est"],
+  job: ["jb"],
+  psalms: ["ps", "psa", "psm", "psalm"],
+  proverbs: ["prov", "prv", "pr"],
+  ecclesiastes: ["ecc", "eccl"],
+  "songofsolomon": ["song", "sos", "songofsongs", "sos"],
+  isaiah: ["isa"],
+  jeremiah: ["jer"],
+  lamentations: ["lam"],
+  ezekiel: ["ezek", "ezk"],
+  daniel: ["dan"],
+  hosea: ["hos"],
+  joel: ["jl"],
+  amos: ["am"],
+  obadiah: ["obad", "oba"],
+  jonah: ["jon"],
+  micah: ["mic"],
+  nahum: ["nah"],
+  habakkuk: ["hab"],
+  zephaniah: ["zeph", "zep"],
+  haggai: ["hag"],
+  zechariah: ["zech", "zec"],
+  malachi: ["mal"],
+  matthew: ["matt", "mt"],
+  mark: ["mk", "mar", "mrk"],
+  luke: ["lk", "luk"],
+  john: ["jn", "jhn", "joh"],
+  acts: ["ac"],
+  romans: ["rom"],
+  corinthians: ["cor", "corinth"],
+  galatians: ["gal"],
+  ephesians: ["eph"],
+  philippians: ["phil", "php"],
+  colossians: ["col", "colos"],
+  thessalonians: ["thess", "thes", "ths"],
+  timothy: ["tim"],
+  titus: ["tit"],
+  philemon: ["philem", "phm"],
+  hebrews: ["heb"],
+  james: ["jas", "jam"],
+  peter: ["pet", "ptr"],
+  jude: ["jud"],
+  revelation: ["rev", "rv"]
+};
+
+const MAX_POINTS_PER_QUESTION = 10;
+const PER_BOOK_POINTS = 5;
+const ABBREVIATION_POINTS = 4;
+
+const generateQuestion = () => {
+  // Don't pick first or last book
+  const index = Math.floor(Math.random() * (BIBLE_BOOKS.length - 2)) + 1;
+  return {
+    currentBook: BIBLE_BOOKS[index],
+    before: BIBLE_BOOKS[index - 1],
+    after: BIBLE_BOOKS[index + 1],
+    index
+  };
+};
+
+const normalizeAnswer = (answer) => {
+  return answer.toLowerCase().trim().replace(/\s+/g, ' ');
+};
+
+const normalizeBookSlug = (book) => book.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+const evaluateBookAnswer = (input, canonical) => {
+  const inputSlug = normalizeBookSlug(input);
+  const canonicalSlug = normalizeBookSlug(canonical);
+  if (inputSlug.length < 2) return { accepted: false, exact: false, basePoints: 0 };
+
+  const canonicalNum = canonicalSlug.match(/^([123])/);
+  const inputNum = inputSlug.match(/^([123])/);
+  if (canonicalNum) {
+    if (!inputNum || inputNum[1] !== canonicalNum[1]) {
+      return { accepted: false, exact: false, basePoints: 0 };
+    }
+  } else if (inputNum) {
+    return { accepted: false, exact: false, basePoints: 0 };
+  }
+
+  const canonicalBase = canonicalNum ? canonicalSlug.slice(1) : canonicalSlug;
+  const inputBase = inputNum ? inputSlug.slice(1) : inputSlug;
+
+  // Exact match (full spelling)
+  if (canonicalBase === inputBase) {
+    return { accepted: true, exact: true, basePoints: PER_BOOK_POINTS };
+  }
+
+  // Abbreviation match (prefix or known abbreviation)
+  const minLen = 3;
+  const abbreviationList = BOOK_ABBREVIATIONS[canonicalBase] || [];
+  const isAbbrev =
+    (inputBase.length >= minLen && canonicalBase.startsWith(inputBase)) ||
+    abbreviationList.includes(inputBase);
+
+  if (isAbbrev) {
+    return { accepted: true, exact: false, basePoints: ABBREVIATION_POINTS };
+  }
+
+  return { accepted: false, exact: false, basePoints: 0 };
+};
+
+const BookOrderQuiz = ({ onComplete, onCancel }) => {
   const [question, setQuestion] = useState(null);
-  const [userAnswer, setUserAnswer] = useState("");
-  const [timeLeft, setTimeLeft] = useState(15); // 15 seconds per question
+  const [beforeAnswer, setBeforeAnswer] = useState("");
+  const [afterAnswer, setAfterAnswer] = useState("");
+  const [timeLeft, setTimeLeft] = useState(20);
   const [score, setScore] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
-  const [totalQuestions] = useState(10); // 10 questions per game
-  const [feedback, setFeedback] = useState(null); // "correct" or "incorrect"
+  const [totalQuestions] = useState(10);
+  const [feedback, setFeedback] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
+  const [correctDetails, setCorrectDetails] = useState(null);
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
+  const [earnedPoints, setEarnedPoints] = useState(0);
 
-  // Generate new question
   const newQuestion = useCallback(() => {
-    const q = generateBookOrderQuestion();
+    const q = generateQuestion();
     setQuestion(q);
-    setUserAnswer("");
-    setTimeLeft(15);
+    setBeforeAnswer("");
+    setAfterAnswer("");
+    setTimeLeft(20);
     setFeedback(null);
+    setCorrectDetails(null);
   }, []);
 
-  // Start first question on mount
   useEffect(() => {
     newQuestion();
   }, [newQuestion]);
 
-  // Timer countdown
   useEffect(() => {
-    if (gameOver || feedback) return; // Don't count down during feedback or game over
+    if (gameOver || feedback) return;
 
     if (timeLeft <= 0) {
       handleTimeout();
@@ -48,6 +186,12 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
 
   const handleTimeout = () => {
     setFeedback("incorrect");
+    setCorrectDetails({
+      before: question.before,
+      after: question.after,
+      beforeCorrect: false,
+      afterCorrect: false
+    });
     setStreak(0);
 
     setTimeout(() => {
@@ -57,29 +201,49 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
         setQuestionsAnswered((prev) => prev + 1);
         newQuestion();
       }
-    }, 1500);
+    }, 2500);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!userAnswer.trim() || feedback || gameOver) return;
+    if (feedback || gameOver) return;
+    if (!beforeAnswer.trim() || !afterAnswer.trim()) return;
 
-    const isCorrect = checkBookAnswer(userAnswer, question.answer);
+    const beforeResult = evaluateBookAnswer(beforeAnswer, question.before);
+    const afterResult = evaluateBookAnswer(afterAnswer, question.after);
+    const bothCorrect = beforeResult.accepted && afterResult.accepted;
 
-    if (isCorrect) {
-      const timeBonus = Math.floor(timeLeft * 10); // Bonus points for speed
-      const basePoints = 100;
-      const earnedPoints = basePoints + timeBonus;
+    setCorrectDetails({
+      before: question.before,
+      after: question.after,
+      beforeCorrect: beforeResult.accepted,
+      afterCorrect: afterResult.accepted
+    });
 
-      setScore((prev) => prev + earnedPoints);
+    const basePoints = beforeResult.basePoints + afterResult.basePoints;
+    const pointsEarned = Math.min(MAX_POINTS_PER_QUESTION, basePoints);
+
+    if (bothCorrect) {
+      setScore((prev) => prev + pointsEarned);
       setFeedback("correct");
+      setEarnedPoints(pointsEarned);
+      setShowCorrectToast(true);
+
+      setTimeout(() => setShowCorrectToast(false), 2300);
+
       setStreak((prev) => {
         const newStreak = prev + 1;
         setBestStreak((best) => Math.max(best, newStreak));
         return newStreak;
       });
     } else {
-      setFeedback("incorrect");
+      // Partial credit
+      if (beforeResult.accepted || afterResult.accepted) {
+        setScore((prev) => prev + pointsEarned);
+        setFeedback("partial");
+      } else {
+        setFeedback("incorrect");
+      }
       setStreak(0);
     }
 
@@ -90,72 +254,74 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
         setQuestionsAnswered((prev) => prev + 1);
         newQuestion();
       }
-    }, 1500);
+    }, 2500);
   };
 
   const endGame = () => {
     setGameOver(true);
     onComplete({
       score,
+      pointsEarned: score,
       questionsAnswered: totalQuestions,
-      correctAnswers: Math.floor(score / 100), // Approximate based on base points
       bestStreak,
+      type: 'book-order'
     });
-  };
-
-  const handleSkip = () => {
-    setFeedback("incorrect");
-    setStreak(0);
-
-    setTimeout(() => {
-      if (questionsAnswered + 1 >= totalQuestions) {
-        endGame();
-      } else {
-        setQuestionsAnswered((prev) => prev + 1);
-        newQuestion();
-      }
-    }, 1500);
   };
 
   if (!question) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex items-center justify-center">
         <div className="text-white text-2xl">Loading...</div>
       </div>
     );
   }
 
   if (gameOver) {
+    const maxPossibleScore = totalQuestions * MAX_POINTS_PER_QUESTION;
+    const accuracy = maxPossibleScore ? Math.round((score / maxPossibleScore) * 100) : 0;
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
-          <h2 className="text-3xl font-bold text-center mb-6 text-purple-900">
-            Quiz Complete!
-          </h2>
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-md w-full border-2 border-purple-500">
+          <div className="text-center mb-6">
+            <Trophy className="mx-auto text-amber-400 mb-4" size={64} />
+            <h2 className="text-3xl font-bold text-white mb-2">
+              Quiz Complete!
+            </h2>
+            <p className="text-slate-300">Great job learning Bible book order!</p>
+          </div>
 
           <div className="space-y-4 mb-6">
-            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg p-4 text-center">
-              <div className="text-white text-sm font-semibold uppercase tracking-wide">
+            <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl p-6 text-center">
+              <div className="text-white text-sm font-semibold uppercase tracking-wide mb-1">
                 Final Score
               </div>
-              <div className="text-white text-4xl font-bold">{score}</div>
+              <div className="text-white text-5xl font-bold">{score}</div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-blue-100 rounded-lg p-4 text-center">
-                <div className="text-blue-600 text-sm font-semibold">
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-slate-700/50 rounded-lg p-4 text-center border border-slate-600">
+                <div className="text-slate-400 text-xs font-semibold mb-1">
+                  Accuracy
+                </div>
+                <div className="text-white text-2xl font-bold">
+                  {accuracy}%
+                </div>
+              </div>
+
+              <div className="bg-slate-700/50 rounded-lg p-4 text-center border border-slate-600">
+                <div className="text-slate-400 text-xs font-semibold mb-1">
                   Questions
                 </div>
-                <div className="text-blue-900 text-2xl font-bold">
+                <div className="text-white text-2xl font-bold">
                   {questionsAnswered}
                 </div>
               </div>
 
-              <div className="bg-green-100 rounded-lg p-4 text-center">
-                <div className="text-green-600 text-sm font-semibold">
+              <div className="bg-slate-700/50 rounded-lg p-4 text-center border border-slate-600">
+                <div className="text-slate-400 text-xs font-semibold mb-1">
                   Best Streak
                 </div>
-                <div className="text-green-900 text-2xl font-bold">
+                <div className="text-white text-2xl font-bold">
                   {bestStreak}
                 </div>
               </div>
@@ -171,7 +337,7 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
             </button>
             <button
               onClick={onCancel}
-              className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-xl transition-all duration-200"
+              className="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200"
             >
               Back to Home
             </button>
@@ -182,45 +348,47 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
   }
 
   const progressPercent = (questionsAnswered / totalQuestions) * 100;
-  const timePercent = (timeLeft / 15) * 100;
+  const timePercent = (timeLeft / 20) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex items-center justify-center p-4">
+      <CorrectToast points={earnedPoints} show={showCorrectToast} />
+      <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-purple-500">
         {/* Header */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-purple-900">
-              Bible Book Order Quiz
+            <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+              📚 Book Order Challenge
             </h2>
             <button
               onClick={onCancel}
-              className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+              className="text-slate-400 hover:text-white transition-colors"
             >
-              ×
+              <X size={28} />
             </button>
           </div>
 
           {/* Stats Bar */}
-          <div className="flex gap-4 text-sm">
-            <div className="bg-blue-100 px-4 py-2 rounded-lg">
-              <span className="text-blue-600 font-semibold">Score:</span>{" "}
-              <span className="text-blue-900 font-bold">{score}</span>
+          <div className="flex gap-3 text-sm mb-4">
+            <div className="bg-amber-500/20 px-4 py-2 rounded-lg border border-amber-500/30">
+              <span className="text-amber-400 font-semibold">Score:</span>{" "}
+              <span className="text-white font-bold">{score}</span>
             </div>
-            <div className="bg-green-100 px-4 py-2 rounded-lg">
-              <span className="text-green-600 font-semibold">Streak:</span>{" "}
-              <span className="text-green-900 font-bold">{streak}</span>
+            <div className="bg-green-500/20 px-4 py-2 rounded-lg border border-green-500/30">
+              <Zap className="inline mr-1" size={16} />
+              <span className="text-green-400 font-semibold">Streak:</span>{" "}
+              <span className="text-white font-bold">{streak}</span>
             </div>
-            <div className="bg-purple-100 px-4 py-2 rounded-lg">
-              <span className="text-purple-600 font-semibold">Question:</span>{" "}
-              <span className="text-purple-900 font-bold">
+            <div className="bg-purple-500/20 px-4 py-2 rounded-lg border border-purple-500/30">
+              <span className="text-purple-400 font-semibold">Question:</span>{" "}
+              <span className="text-white font-bold">
                 {questionsAnswered + 1}/{totalQuestions}
               </span>
             </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="mt-4 bg-gray-200 rounded-full h-2 overflow-hidden">
+          <div className="bg-slate-700 rounded-full h-2 overflow-hidden">
             <div
               className="bg-gradient-to-r from-purple-600 to-indigo-600 h-full transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
@@ -231,16 +399,19 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
         {/* Timer */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-gray-700 font-semibold">Time Left:</span>
+            <span className="text-slate-300 font-semibold flex items-center gap-2">
+              <Clock size={20} />
+              Time Left:
+            </span>
             <span
-              className={`text-2xl font-bold ${
-                timeLeft <= 5 ? "text-red-600" : "text-green-600"
+              className={`text-3xl font-bold ${
+                timeLeft <= 5 ? "text-red-400 animate-pulse" : "text-green-400"
               }`}
             >
               {timeLeft}s
             </span>
           </div>
-          <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
+          <div className="bg-slate-700 rounded-full h-3 overflow-hidden">
             <div
               className={`h-full transition-all duration-1000 ${
                 timeLeft <= 5
@@ -253,84 +424,97 @@ const BookOrderQuiz = ({ onComplete, onCancel, userData }) => {
         </div>
 
         {/* Question */}
-        <div className="mb-6">
-          <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-xl p-6 text-center">
-            <p className="text-lg text-gray-700 mb-2">
-              Which book comes{" "}
-              <span className="font-bold text-purple-900">
-                {question.direction}
-              </span>
-            </p>
-            <p className="text-3xl font-bold text-indigo-900">
-              {question.book}
-            </p>
-            <p className="text-sm text-gray-500 mt-2">in the Bible canon?</p>
+        <div className="bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-xl p-8 mb-6 border-2 border-purple-500/30">
+          <div className="text-center mb-6">
+            <div className="text-slate-400 text-sm font-semibold uppercase tracking-wide mb-3">
+              Current Book
+            </div>
+            <div className="text-white text-4xl font-bold">
+              {question.currentBook}
+            </div>
+          </div>
+
+          <div className="text-center text-slate-300 text-lg mb-4">
+            Name the books that come <span className="text-amber-400 font-bold">before</span> and <span className="text-green-400 font-bold">after</span>
           </div>
         </div>
 
-        {/* Answer Input */}
-        <form onSubmit={handleSubmit} className="mb-4">
-          <input
-            type="text"
-            value={userAnswer}
-            onChange={(e) => setUserAnswer(e.target.value)}
-            placeholder="Type the book name..."
-            className="w-full px-4 py-3 border-2 border-purple-300 rounded-xl focus:outline-none focus:border-purple-600 text-lg text-center"
-            autoFocus
-            disabled={feedback !== null}
-          />
-        </form>
+        {/* Answer Form */}
+        {!feedback ? (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-amber-400 font-semibold mb-2">
+                📖 Book BEFORE {question.currentBook}:
+              </label>
+              <input
+                type="text"
+                value={beforeAnswer}
+                onChange={(e) => setBeforeAnswer(e.target.value)}
+                placeholder="Type the book name..."
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
+                autoFocus
+              />
+            </div>
 
-        {/* Feedback */}
-        {feedback && (
-          <div
-            className={`mb-4 p-4 rounded-xl text-center font-bold text-lg ${
-              feedback === "correct"
-                ? "bg-green-100 text-green-900"
-                : "bg-red-100 text-red-900"
-            }`}
-          >
-            {feedback === "correct" ? (
-              <>
-                ✓ Correct! The answer is{" "}
-                <span className="font-extrabold">{question.answer}</span>
-                <div className="text-sm mt-1">
-                  +{100 + Math.floor(timeLeft * 10)} points
+            <div>
+              <label className="block text-green-400 font-semibold mb-2">
+                📖 Book AFTER {question.currentBook}:
+              </label>
+              <input
+                type="text"
+                value={afterAnswer}
+                onChange={(e) => setAfterAnswer(e.target.value)}
+                placeholder="Type the book name..."
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={!beforeAnswer.trim() || !afterAnswer.trim()}
+              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
+            >
+              Submit Answer
+            </button>
+          </form>
+        ) : (
+          <div className={`rounded-xl p-6 border-2 ${
+            feedback === 'correct' ? 'bg-green-500/20 border-green-500' :
+            feedback === 'partial' ? 'bg-amber-500/20 border-amber-500' :
+            'bg-red-500/20 border-red-500'
+          }`}>
+            <div className="text-center mb-4">
+              <div className={`text-4xl font-bold ${
+                feedback === 'correct' ? 'text-green-400' :
+                feedback === 'partial' ? 'text-amber-400' :
+                'text-red-400'
+              }`}>
+                {feedback === 'correct' ? '✓ Correct!' :
+                 feedback === 'partial' ? '½ Partially Correct' :
+                 '✗ Incorrect'}
+              </div>
+            </div>
+
+            {correctDetails && (
+              <div className="space-y-3 text-white">
+                <div className={`p-3 rounded-lg ${correctDetails.beforeCorrect ? 'bg-green-600/30' : 'bg-red-600/30'}`}>
+                  <span className="font-semibold">Before: </span>
+                  <span className="font-bold">{correctDetails.before}</span>
+                  {!correctDetails.beforeCorrect && beforeAnswer && (
+                    <span className="text-red-300 ml-2">(You: {beforeAnswer})</span>
+                  )}
                 </div>
-              </>
-            ) : (
-              <>
-                ✗ Incorrect. The answer is{" "}
-                <span className="font-extrabold">{question.answer}</span>
-              </>
+                <div className={`p-3 rounded-lg ${correctDetails.afterCorrect ? 'bg-green-600/30' : 'bg-red-600/30'}`}>
+                  <span className="font-semibold">After: </span>
+                  <span className="font-bold">{correctDetails.after}</span>
+                  {!correctDetails.afterCorrect && afterAnswer && (
+                    <span className="text-red-300 ml-2">(You: {afterAnswer})</span>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         )}
-
-        {/* Action Buttons */}
-        <div className="flex gap-3">
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            disabled={!userAnswer.trim() || feedback !== null}
-            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none"
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            onClick={handleSkip}
-            disabled={feedback !== null}
-            className="bg-gray-300 hover:bg-gray-400 disabled:bg-gray-200 disabled:cursor-not-allowed text-gray-800 font-bold py-3 px-6 rounded-xl transition-all duration-200"
-          >
-            Skip
-          </button>
-        </div>
-
-        {/* Hint */}
-        <div className="mt-4 text-center text-sm text-gray-500">
-          Tip: Speed bonus! Answer quickly for extra points.
-        </div>
       </div>
     </div>
   );

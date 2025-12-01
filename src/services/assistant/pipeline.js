@@ -1,4 +1,5 @@
-﻿import { buildApologeticResponse, findReligionsIn, listReligions } from './retrieval/religionsProvider';import { routeIntent } from './intentRouter';
+﻿import { buildApologeticResponse, findReligionsIn, listReligions } from './retrieval/religionsProvider';import { getOverallStats } from './retrieval/userStatsProvider';
+import { routeIntent } from './intentRouter';
 import { parseReference } from './referenceParser';
 import { searchLocalVerses, getVerseByReference } from './retrieval/bibleProvider';
 import { getKJVVerses } from './retrieval/kjvProvider';
@@ -23,12 +24,13 @@ import {
   generateClarificationPrompt,
   addPaulContext
 } from './sharpPersonality';
-import { searchBiblicalLocation, answerGeographicalQuestion } from '../../data/biblicalGeography';
+import { searchLocations } from './retrieval/mapsProvider';
 import {
   answerFeastDayQuery,
   isFeastDayQuery,
   getCurrentFeastDayContext
 } from './feastDayKnowledge';
+import { analyzeQuestion, generateClarificationRequest } from './questionAnalyzer';
 
 // Cache for verse lookups to avoid redundant fetches
 const verseCache = new Map();
@@ -164,21 +166,158 @@ async function fetchPreferredVerses(parsed, preferred) {
   return arr || [];
 }
 
+/**
+ * Resolve follow-up questions using conversation context
+ * Handles pronouns like "it", "that", "he", "she" and references like "more about this"
+ */
+function resolveFollowUpContext(userMessage, conversationHistory) {
+  if (!conversationHistory || conversationHistory.length === 0) {
+    return userMessage;
+  }
+
+  const lowerMessage = userMessage.toLowerCase();
+
+  // Check if this is a follow-up question
+  const followUpPatterns = [
+    /^(what about|tell me more|more about|explain|and|also|what else)/i,
+    /\b(it|that|this|he|she|they|them|him|her)\b/i,
+    /^(who|what|where|when|why|how)/i,
+  ];
+
+  const isFollowUp = followUpPatterns.some(pattern => pattern.test(lowerMessage));
+
+  if (!isFollowUp) {
+    return userMessage;
+  }
+
+  // Get the last assistant message
+  const lastMessages = conversationHistory.slice().reverse();
+  const lastAssistant = lastMessages.find(m => m.type === 'assistant');
+
+  if (!lastAssistant || !lastAssistant.metadata) {
+    return userMessage;
+  }
+
+  // Extract context from last response
+  let contextualInfo = '';
+
+  if (lastAssistant.metadata.type === 'map_location' && lastAssistant.metadata.location) {
+    contextualInfo = lastAssistant.metadata.location;
+  } else if (lastAssistant.metadata.personLookup || lastAssistant.metadata.definitionLookup) {
+    // Extract the subject from the last answer
+    const match = lastAssistant.content.match(/📖\s+([^\n]+)/);
+    if (match) contextualInfo = match[1].trim();
+  } else if (lastAssistant.citations && lastAssistant.citations.length > 0) {
+    contextualInfo = lastAssistant.citations[0].ref;
+  }
+
+  // If we have context and the question is vague, add context
+  if (contextualInfo) {
+    const pronounPatterns = /^(it|that|this|he|she|they|tell me more|what about|more about|and|also)\b/i;
+    if (pronounPatterns.test(lowerMessage)) {
+      return `${contextualInfo} ${userMessage}`;
+    }
+  }
+
+  return userMessage;
+}
+
+// Improved follow-up resolver that tolerates missing metadata and missing subjects
+function resolveFollowUpContextV2(userMessage, conversationHistory) {
+  if (!conversationHistory || conversationHistory.length === 0) return userMessage;
+  const lowerMessage = (userMessage || '').toLowerCase();
+
+  const followUpPatterns = [
+    /^(what about|tell me more|more about|explain|and|also|what else|more details|give me more)/i,
+    /\b(it|that|this|he|she|they|them|him|her)\b/i
+  ];
+  const isFollowUp = followUpPatterns.some(p => p.test(lowerMessage));
+  if (!isFollowUp) return userMessage;
+
+  const lastAssistant = [...conversationHistory].reverse().find(m => m.type === 'assistant');
+  if (!lastAssistant) return userMessage;
+
+  const meta = lastAssistant.meta || lastAssistant.metadata || {};
+  let contextualInfo = '';
+
+  if (meta.type === 'map_location' && meta.location) {
+    contextualInfo = meta.location;
+  } else if (meta.headword) {
+    contextualInfo = meta.headword;
+  } else if (meta.personLookup || meta.definitionLookup) {
+    if (lastAssistant.content) {
+      contextualInfo = String(lastAssistant.content).split('\n')[0] || '';
+    }
+  } else if (lastAssistant.citations && lastAssistant.citations.length > 0) {
+    contextualInfo = lastAssistant.citations[0].ref;
+  }
+
+  if (contextualInfo) {
+    const askMorePatterns = /(tell me more|give me more|more details|more info)/i;
+    const pronounPatterns = /^(it|that|this|he|she|they|tell me more|give me more|more details|more info|what about|more about|and|also)\b/i;
+    if (askMorePatterns.test(lowerMessage)) {
+      return `Tell me more about ${contextualInfo}`;
+    }
+    if (pronounPatterns.test(lowerMessage)) {
+      return `${contextualInfo} ${userMessage}`;
+    }
+  }
+
+  return userMessage;
+}
 export async function answerQuery(userMessage, context = {}) {
+  // Analyze question structure and quality first
+  const questionAnalysis = analyzeQuestion(userMessage);
+  const clarificationNeeded = generateClarificationRequest(userMessage);
+
+  // Return helpful error message if question is unclear or poorly formed
+  if (clarificationNeeded) {
+    return {
+      answer: clarificationNeeded.message,
+      citations: [],
+      metadata: {
+        needsClarification: true,
+        suggestion: clarificationNeeded.suggestion,
+        questionAnalysis
+      }
+    };
+  }
+
+  // Resolve follow-up questions using conversation context
+  const resolvedMessage = resolveFollowUpContextV2(userMessage, context.conversationHistory);
+
+  // Explicit "tell me more about X" shortcut to detailed definition
+  const moreMatch = /^tell me more about\s+(.+)/i.exec(resolvedMessage || '');
+  if (moreMatch) {
+    const term = moreMatch[1].trim();
+    const defResult = await lookupDefinition(term) || (await searchDefinitionsPrefix(term))[0] || (await searchDefinitionsFuzzy(term, 1))[0];
+    if (defResult) {
+      const headword = defResult.headword || term;
+      const definition = defResult.def || defResult.definition || '';
+      const ans = `?? ${headword}\n\n${definition}`;
+      return {
+        answer: ans,
+        citations: [],
+        metadata: { definitionLookup: true, headword },
+        meta: { definitionLookup: true, headword }
+      };
+    }
+  }
+
   // Check for ambiguous questions first using S.H.A.R.P. personality system
-  if (detectAmbiguousQuestion(userMessage)) {
-    return generateClarificationPrompt(userMessage);
+  if (detectAmbiguousQuestion(resolvedMessage)) {
+    return generateClarificationPrompt(resolvedMessage);
   }
 
   // Classify the question using comprehensive taxonomy
-  const classification = classifyQuestion(userMessage);
+  const classification = classifyQuestion(resolvedMessage);
 
   // Handle ambiguous questions that need clarification
   if (classification.needsClarification) {
-    return generateClarificationPrompt(userMessage);
+    return generateClarificationPrompt(resolvedMessage);
   }
 
-  const routed = routeIntent(userMessage);
+  const routed = routeIntent(resolvedMessage);
   let query = routed.query;
 
   const parsed = parseReference(userMessage);
@@ -199,21 +338,55 @@ export async function answerQuery(userMessage, context = {}) {
     }
   }
 
-  // Check for geographical questions
-  const geographicalKeywords = /\b(where|location|modern|today|country|place|city|land|region|geography|map)\b/i;
-  const hasGeographicalIntent = geographicalKeywords.test(userMessage);
-
-  if (hasGeographicalIntent) {
-    const locations = searchBiblicalLocation(userMessage);
+  // Check for map location queries
+  if (routed.type === 'map_location') {
+    const locations = await searchLocations(query);
     if (locations.length > 0) {
-      const geoAnswer = answerGeographicalQuestion(userMessage);
+      const location = locations[0];
+
+      // Build comprehensive location answer
+      let ans = `📍 **${location.name}**`;
+
+      // Add modern location info if available
+      if (location.modern_country) {
+        ans += `\n\n**Present Day Location:** ${location.modern_country}`;
+      }
+
+      // Add region/type info
+      if (location.region) {
+        ans += `\n**Biblical Region:** ${location.region}`;
+      }
+
+      // Add coordinates if available
+      if (location.approximate_coordinates) {
+        ans += `\n**Coordinates:** ${location.approximate_coordinates.lat}°N, ${location.approximate_coordinates.lng}°E`;
+      }
+
+      // Add description if available
+      if (location.description) {
+        ans += `\n\n${location.description}`;
+      }
+
+      // Add key events if available
+      if (location.events && location.events.length > 0) {
+        ans += `\n\n**Biblical Significance:**`;
+        location.events.forEach(event => {
+          ans += `\n• ${event}`;
+        });
+      }
+
+      // Add scripture references if available
+      if (location.primary_scriptures && location.primary_scriptures.length > 0) {
+        ans += `\n\n**Key Passages:** ${location.primary_scriptures.join(', ')}`;
+      }
+
       return {
-        answer: enhanceWithPersonality(geoAnswer, 'mentor'),
-        citations: locations[0].keyVerses || [],
+        answer: enhanceWithPersonality(ans, 'mentor'),
+        citations: [],
         metadata: {
-          type: 'geographical',
-          location: locations[0].biblicalName,
-          modernLocation: locations[0].modernCountries.join(', ')
+          type: 'map_location',
+          location: location.name,
+          modern_country: location.modern_country,
         }
       };
     }
@@ -226,6 +399,22 @@ export async function answerQuery(userMessage, context = {}) {
       const ans = `Word Study: ${entry.lemma} (${entry.language}) â€" Strong's ${entry.strong}\nMeaning: ${entry.gloss}\nNotes: ${entry.notes}\n\nHint: Ask for passages that use this term to see usage in context.`;
       return { answer: applyNeutrality(ans), citations: [] };
     }
+  }
+
+  // User stats
+  if (routed.type === 'user_stats') {
+    const stats = await getOverallStats(context.userId);
+    if (stats.error) {
+      return { answer: stats.error, citations: [] };
+    }
+    const { currentStreak, totalXP, totalQuizzes, accuracy } = stats;
+    const ans = `Here are your current stats:\n\n` +
+      `**Current Streak:** ${currentStreak} days\n` +
+      `**Total XP:** ${totalXP}\n` +
+      `**Total Quizzes Taken:** ${totalQuizzes}\n` +
+      `**Overall Accuracy:** ${accuracy}%\n\n` +
+      `Keep up the great work!`;
+    return { answer: ans, citations: [] };
   }
 
   // Compare translations
@@ -402,6 +591,18 @@ export async function answerQuery(userMessage, context = {}) {
       // Try prefix search
       const prefixResults = await searchDefinitionsPrefix(personName);
       if (prefixResults && prefixResults.length > 0) defResult = prefixResults[0];
+      // Fuzzy rescue for misspellings (e.g., Zipphorah -> Zipporah)
+      if (!defResult) {
+        const fuzzy = await searchDefinitionsFuzzy(personName, 3);
+        if (fuzzy && fuzzy.length > 0) defResult = fuzzy[0];
+        if (!defResult && fuzzy && fuzzy.length) {
+          const suggestions = fuzzy.map(e => e.headword || e.def || '').filter(Boolean);
+          if (suggestions.length) {
+            const hint = `I couldn't find "${personName}", but did you mean: ${suggestions.join(', ')}?`;
+            return { answer: applyNeutrality(hint), citations: [], meta: { classification, suggestions: suggestions.slice(0, 3) } };
+          }
+        }
+      }
     }
 
     if (defResult) {
@@ -441,7 +642,12 @@ export async function answerQuery(userMessage, context = {}) {
       ans = addPaulContext(ans, userMessage);
 
       // Don't apply neutrality to factual biographical information
-      return { answer: ans, citations: relevantHits.map(v => ({ ref: v.reference, translation: v.translation })), meta: { classification, personLookup: true } };
+      return {
+        answer: ans,
+        citations: relevantHits.map(v => ({ ref: v.reference, translation: v.translation })),
+        meta: { classification, personLookup: true, headword },
+        metadata: { classification, personLookup: true, headword }
+      };
     }
 
     // Fallback to verse search but with better framing
@@ -464,6 +670,18 @@ export async function answerQuery(userMessage, context = {}) {
     if (!defResult && term.length > 3) {
       const prefixResults = await searchDefinitionsPrefix(term);
       if (prefixResults && prefixResults.length > 0) defResult = prefixResults[0];
+      // Fuzzy rescue for misspellings
+      if (!defResult) {
+        const fuzzy = await searchDefinitionsFuzzy(term, 3);
+        if (fuzzy && fuzzy.length > 0) defResult = fuzzy[0];
+        if (!defResult && fuzzy && fuzzy.length) {
+          const suggestions = fuzzy.map(e => e.headword || e.def || '').filter(Boolean);
+          if (suggestions.length) {
+            const hint = `I couldn't find "${term}", but did you mean: ${suggestions.join(', ')}?`;
+            return { answer: applyNeutrality(hint), citations: [], meta: { classification, suggestions: suggestions.slice(0, 3) } };
+          }
+        }
+      }
     }
 
     if (defResult) {
@@ -498,7 +716,12 @@ export async function answerQuery(userMessage, context = {}) {
       ans = enhanceWithPersonality(ans, classification, userMessage);
 
       // Don't apply neutrality to factual definitions
-      return { answer: ans, citations: relevantHits.map(v => ({ ref: v.reference, translation: v.translation })), meta: { classification, definitionLookup: true } };
+      return {
+        answer: ans,
+        citations: relevantHits.map(v => ({ ref: v.reference, translation: v.translation })),
+        meta: { classification, definitionLookup: true, headword },
+        metadata: { classification, definitionLookup: true, headword }
+      };
     }
   }
 

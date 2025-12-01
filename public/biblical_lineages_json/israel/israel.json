@@ -1,0 +1,297 @@
+{
+  "name": "Jacob",
+  "aka": [
+    "Israel"
+  ],
+  "type": "person",
+  "notes": "Patriarch renamed Israel; father of the twelve tribes.",
+  "source_refs": [
+    "Genesis 25–35",
+    "Genesis 49"
+  ],
+  "children": [
+    {
+      "name": "Reuben",
+      "type": "tribe",
+      "notes": "Firstborn of Jacob and Leah.",
+      "source_refs": [
+        "Genesis 29:32",
+        "Genesis 49:3"
+      ],
+      "children": []
+    },
+    {
+      "name": "Simeon",
+      "type": "tribe",
+      "notes": "Second son of Jacob and Leah.",
+      "source_refs": [
+        "Genesis 29:33"
+      ],
+      "children": []
+    },
+    {
+      "name": "Levi",
+      "type": "tribe",
+      "notes": "Tribe set apart for priestly service.",
+      "source_refs": [
+        "Genesis 29:34",
+        "Numbers 3"
+      ],
+      "children": [
+        {
+          "name": "Kohath",
+          "type": "clan",
+          "notes": "One of the three main Levitical clans.",
+          "source_refs": [
+            "Exodus 6:16–18"
+          ],
+          "children": [
+            {
+              "name": "Amram",
+              "type": "person",
+              "notes": "Father of Moses, Aaron, and Miriam.",
+              "source_refs": [
+                "Exodus 6:20"
+              ],
+              "children": [
+                {
+                  "name": "Moses",
+                  "type": "person",
+                  "notes": "Prophet and lawgiver of Israel.",
+                  "source_refs": [
+                    "Exodus 2–40"
+                  ],
+                  "children": []
+                },
+                {
+                  "name": "Aaron",
+                  "type": "person",
+                  "notes": "First high priest of Israel.",
+                  "source_refs": [
+                    "Exodus 28:1"
+                  ],
+                  "children": []
+                },
+                {
+                  "name": "Miriam",
+                  "type": "person",
+                  "notes": "Prophetess and sister of Moses.",
+                  "source_refs": [
+                    "Exodus 15:20"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Judah",
+      "type": "tribe",
+      "notes": "Tribe of kings; royal line of David and the Messiah.",
+      "source_refs": [
+        "Genesis 29:35",
+        "Genesis 49:8–10"
+      ],
+      "children": [
+        {
+          "name": "Perez",
+          "type": "person",
+          "notes": "Son of Judah and Tamar, ancestor of David.",
+          "source_refs": [
+            "Genesis 38:29",
+            "Ruth 4:18"
+          ],
+          "children": [
+            {
+              "name": "Hezron",
+              "type": "person",
+              "notes": "Ancestor in the Davidic line.",
+              "source_refs": [
+                "Ruth 4:18"
+              ],
+              "children": [
+                {
+                  "name": "Ram",
+                  "type": "person",
+                  "notes": "Also called Aram; forefather of David.",
+                  "source_refs": [
+                    "Ruth 4:19"
+                  ],
+                  "children": [
+                    {
+                      "name": "Amminadab",
+                      "type": "person",
+                      "notes": "Father-in-law of Aaron through Elisheba.",
+                      "source_refs": [
+                        "Ruth 4:19",
+                        "Exodus 6:23"
+                      ],
+                      "children": [
+                        {
+                          "name": "Nahshon",
+                          "type": "person",
+                          "notes": "Leader of Judah in the wilderness.",
+                          "source_refs": [
+                            "Numbers 1:7"
+                          ],
+                          "children": [
+                            {
+                              "name": "Salmon",
+                              "type": "person",
+                              "notes": "Husband of Rahab (per Matthew).",
+                              "source_refs": [
+                                "Ruth 4:20",
+                                "Matthew 1:4–5"
+                              ],
+                              "children": [
+                                {
+                                  "name": "Boaz",
+                                  "type": "person",
+                                  "notes": "Husband of Ruth; kinsman-redeemer.",
+                                  "source_refs": [
+                                    "Ruth 2–4"
+                                  ],
+                                  "children": [
+                                    {
+                                      "name": "Obed",
+                                      "type": "person",
+                                      "notes": "Son of Boaz and Ruth.",
+                                      "source_refs": [
+                                        "Ruth 4:17"
+                                      ],
+                                      "children": [
+                                        {
+                                          "name": "Jesse",
+                                          "type": "person",
+                                          "notes": "Father of David.",
+                                          "source_refs": [
+                                            "Ruth 4:17"
+                                          ],
+                                          "children": [
+                                            {
+                                              "name": "David",
+                                              "type": "person",
+                                              "notes": "King of Israel; central figure in Messianic promises.",
+                                              "source_refs": [
+                                                "1 Samuel 16–2 Samuel 24"
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dan",
+      "type": "tribe",
+      "notes": "Tribe of Dan.",
+      "source_refs": [
+        "Genesis 30:6"
+      ],
+      "children": []
+    },
+    {
+      "name": "Naphtali",
+      "type": "tribe",
+      "notes": "Tribe of Naphtali.",
+      "source_refs": [
+        "Genesis 30:8"
+      ],
+      "children": []
+    },
+    {
+      "name": "Gad",
+      "type": "tribe",
+      "notes": "Tribe of Gad.",
+      "source_refs": [
+        "Genesis 30:11"
+      ],
+      "children": []
+    },
+    {
+      "name": "Asher",
+      "type": "tribe",
+      "notes": "Tribe of Asher.",
+      "source_refs": [
+        "Genesis 30:13"
+      ],
+      "children": []
+    },
+    {
+      "name": "Issachar",
+      "type": "tribe",
+      "notes": "Tribe of Issachar.",
+      "source_refs": [
+        "Genesis 30:18"
+      ],
+      "children": []
+    },
+    {
+      "name": "Zebulun",
+      "type": "tribe",
+      "notes": "Tribe of Zebulun.",
+      "source_refs": [
+        "Genesis 30:20"
+      ],
+      "children": []
+    },
+    {
+      "name": "Joseph",
+      "type": "person",
+      "notes": "Father of Ephraim and Manasseh; tribes counted through his sons.",
+      "source_refs": [
+        "Genesis 37–50"
+      ],
+      "children": [
+        {
+          "name": "Ephraim",
+          "type": "tribe",
+          "notes": "Often used to refer to the northern kingdom.",
+          "source_refs": [
+            "Genesis 48:13–20"
+          ],
+          "children": []
+        },
+        {
+          "name": "Manasseh",
+          "type": "tribe",
+          "notes": "Half-tribes on both sides of the Jordan.",
+          "source_refs": [
+            "Genesis 48:13–20"
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Benjamin",
+      "type": "tribe",
+      "notes": "Youngest son; tribe of Saul and Paul.",
+      "source_refs": [
+        "Genesis 35:18",
+        "1 Samuel 9:1–2",
+        "Philippians 3:5"
+      ],
+      "children": []
+    }
+  ]
+}

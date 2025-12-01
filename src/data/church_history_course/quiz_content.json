@@ -1,0 +1,1792 @@
+{
+  "beginner": {
+    "intro-biblical-world": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which three major regions formed the biblical world?",
+          "options": [
+            "Mesopotamia, Egypt, Canaan",
+            "Greece, Rome, Persia",
+            "Syria, Arabia, Ethiopia",
+            "Babylon, Assyria, Media"
+          ],
+          "correct": 0,
+          "explanation": "The biblical world primarily spanned from Egypt in the southwest, through Canaan in the center, to Mesopotamia in the northeast."
+        },
+        {
+          "id": 2,
+          "question": "What role did agricultural cycles play in ancient Israel?",
+          "options": [
+            "They had no religious significance",
+            "They shaped religious festivals and daily life",
+            "They only affected farmers",
+            "They were banned by Moses"
+          ],
+          "correct": 1,
+          "explanation": "Agricultural cycles were deeply integrated with religious festivals. Harvest festivals like Passover, Pentecost, and Tabernacles coincided with planting and harvesting seasons."
+        },
+        {
+          "id": 3,
+          "question": "True or False: Trade routes had little impact on Israel's interactions with other nations.",
+          "options": ["True", "False"],
+          "correct": 1,
+          "explanation": "False. Major trade routes passed through Israel, connecting it to surrounding nations and bringing cultural, economic, and religious influences."
+        },
+        {
+          "id": 4,
+          "question": "Which period came between the Exodus and the Kingdom era?",
+          "options": [
+            "Patriarchal period",
+            "Period of the Judges",
+            "Exile period",
+            "Post-Exile period"
+          ],
+          "correct": 1,
+          "explanation": "The Period of the Judges followed the Exodus and preceded the establishment of the Kingdom under Saul, David, and Solomon."
+        },
+        {
+          "id": 5,
+          "question": "Why is understanding biblical geography important?",
+          "options": [
+            "It's only useful for archaeologists",
+            "It helps interpret many biblical narratives",
+            "It's not mentioned in Scripture",
+            "It only matters for New Testament study"
+          ],
+          "correct": 1,
+          "explanation": "Geography helps us understand the context of biblical events, trade, warfare, and why certain locations were strategically important in God's redemptive plan."
+        }
+      ]
+    },
+    "daily-life-ancient-israel": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What was the typical family structure in ancient Israel?",
+          "options": [
+            "Nuclear families living alone",
+            "Extended families living together in compounds",
+            "Individuals living independently",
+            "Communal living with no family structure"
+          ],
+          "correct": 1,
+          "explanation": "Extended families (including grandparents, parents, children, and sometimes other relatives) lived together in family compounds."
+        },
+        {
+          "id": 2,
+          "question": "What were the most common occupations in ancient Israel?",
+          "options": [
+            "Soldiers and priests only",
+            "Merchants and traders",
+            "Farmers, shepherds, and craftsmen",
+            "Scribes and lawyers"
+          ],
+          "correct": 2,
+          "explanation": "The majority of Israelites were farmers, shepherds, or craftsmen. These agricultural and skilled trades formed the backbone of society."
+        },
+        {
+          "id": 3,
+          "question": "What significance did meals have in ancient Israelite culture?",
+          "options": [
+            "They were rushed and individual",
+            "They were communal and had social significance",
+            "Only wealthy families ate together",
+            "Meals had no cultural importance"
+          ],
+          "correct": 1,
+          "explanation": "Meals were communal events that strengthened family bonds and had deep social and religious significance, including fellowship and covenant relationships."
+        },
+        {
+          "id": 4,
+          "question": "How did clothing function in ancient Israel?",
+          "options": [
+            "Everyone wore identical garments",
+            "Clothing indicated social status and occupation",
+            "Clothing had no social meaning",
+            "Only priests wore special clothing"
+          ],
+          "correct": 1,
+          "explanation": "Clothing indicated a person's social status, occupation, and sometimes religious role. Quality, color, and style all communicated social information."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Housing in ancient Israel was typically made of stone or mud brick.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Houses were typically constructed from stone or sun-dried mud bricks, with flat roofs that served as additional living space."
+        }
+      ]
+    },
+    "biblical-calendar": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What system did the biblical calendar follow?",
+          "options": [
+            "Solar cycles only",
+            "Lunar cycles",
+            "A fixed 365-day year",
+            "Random agricultural markers"
+          ],
+          "correct": 1,
+          "explanation": "The Hebrew calendar followed lunar cycles, with months beginning at the new moon. An extra month was added periodically to align with solar seasons."
+        },
+        {
+          "id": 2,
+          "question": "What are the three pilgrimage feasts where men were required to appear before the Lord?",
+          "options": [
+            "Hanukkah, Purim, Rosh Hashanah",
+            "Passover, Pentecost, Tabernacles",
+            "Day of Atonement, Trumpets, Unleavened Bread",
+            "Sabbath, New Moon, Jubilee"
+          ],
+          "correct": 1,
+          "explanation": "The three pilgrimage feasts were Passover (Unleavened Bread), Pentecost (Weeks/Shavuot), and Tabernacles (Booths/Sukkot)."
+        },
+        {
+          "id": 3,
+          "question": "What dual significance did the biblical feasts have?",
+          "options": [
+            "Political and military",
+            "Social and economic",
+            "Agricultural and religious/historical",
+            "Individual and corporate"
+          ],
+          "correct": 2,
+          "explanation": "Feasts commemorated both agricultural cycles (harvest times) and salvation history (God's mighty acts of deliverance)."
+        },
+        {
+          "id": 4,
+          "question": "How did Jesus relate to the feast days?",
+          "options": [
+            "He ignored them as outdated",
+            "He fulfilled their symbolism through His ministry",
+            "He only observed Passover",
+            "He created new feasts to replace them"
+          ],
+          "correct": 1,
+          "explanation": "Jesus fulfilled the feast days' prophetic symbolism - dying as the Passover Lamb, sending the Spirit at Pentecost, and being the true Light and Water at Tabernacles."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The Sabbath was observed every seventh day as a day of rest.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The Sabbath (Saturday) was observed every week as a day of rest, commemorating God's rest after creation and deliverance from Egypt."
+        }
+      ]
+    },
+    "worship-tabernacle": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What did the Tabernacle design primarily reflect?",
+          "options": [
+            "Egyptian architectural styles",
+            "God's holiness and presence",
+            "Military fortification",
+            "Royal palace design"
+          ],
+          "correct": 1,
+          "explanation": "The Tabernacle's design and layout reflected God's holiness, His desire to dwell among His people, and the way to approach Him through sacrifice."
+        },
+        {
+          "id": 2,
+          "question": "What was the significance of the sacrificial system?",
+          "options": [
+            "It was just a cultural practice",
+            "It pointed forward to Christ's ultimate sacrifice",
+            "It was only for wealthy Israelites",
+            "It had no theological meaning"
+          ],
+          "correct": 1,
+          "explanation": "The sacrificial system taught about sin, atonement, and pointed forward to Jesus Christ as the ultimate sacrifice for sin (Hebrews 9-10)."
+        },
+        {
+          "id": 3,
+          "question": "Who could enter the Holy Place of the Tabernacle?",
+          "options": [
+            "Anyone who was ceremonially clean",
+            "Only priests",
+            "Any Israelite man",
+            "Only the High Priest"
+          ],
+          "correct": 1,
+          "explanation": "Only priests (descendants of Aaron) could enter the Holy Place to perform daily duties like tending the lampstand and offering incense."
+        },
+        {
+          "id": 4,
+          "question": "What sacred object was kept in the Most Holy Place?",
+          "options": [
+            "The Table of Showbread",
+            "The Golden Lampstand",
+            "The Ark of the Covenant",
+            "The Altar of Incense"
+          ],
+          "correct": 2,
+          "explanation": "The Ark of the Covenant, containing the tablets of the Law, was kept in the Most Holy Place, representing God's throne and presence."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The Levites were responsible for assisting priests and maintaining the Tabernacle.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The Levites assisted the priests, carried and set up the Tabernacle, and performed various support roles in worship."
+        }
+      ]
+    },
+    "marriage-family": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "How were marriages typically arranged in biblical times?",
+          "options": [
+            "By the couple alone",
+            "By families, with parental involvement",
+            "By religious leaders only",
+            "Through government officials"
+          ],
+          "correct": 1,
+          "explanation": "Marriages were typically arranged by families, with parents playing a key role in selecting suitable spouses for their children."
+        },
+        {
+          "id": 2,
+          "question": "How long did wedding celebrations typically last?",
+          "options": [
+            "One day",
+            "Three days",
+            "Seven days",
+            "Forty days"
+          ],
+          "correct": 2,
+          "explanation": "Wedding celebrations lasted seven days, filled with feasting, music, and rejoicing. This is seen in Judges 14:12 and Jesus' attendance at Cana."
+        },
+        {
+          "id": 3,
+          "question": "What special inheritance rights did the firstborn son receive?",
+          "options": [
+            "The same as all other sons",
+            "All the family property",
+            "Double portion/inheritance",
+            "None - all sons received equal shares"
+          ],
+          "correct": 2,
+          "explanation": "The firstborn son received a double portion of the inheritance (Deuteronomy 21:17), recognizing his special role and responsibilities in the family."
+        },
+        {
+          "id": 4,
+          "question": "How did children primarily learn trades and skills?",
+          "options": [
+            "In formal schools only",
+            "From their parents",
+            "From traveling teachers",
+            "They didn't learn trades until adulthood"
+          ],
+          "correct": 1,
+          "explanation": "Children learned trades and skills primarily from their parents, with sons learning their father's occupation and daughters learning household management from mothers."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Extended family played little role in marriages and child-rearing.",
+          "options": ["True", "False"],
+          "correct": 1,
+          "explanation": "False. Extended family was deeply involved in all aspects of life, including arranging marriages, raising children, and providing economic and social support."
+        }
+      ]
+    },
+    "beginner-exam": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which geographical feature made Israel a crossroads for ancient civilizations?",
+          "options": [
+            "Its mountain ranges",
+            "Its desert location",
+            "Its position on trade routes between Egypt and Mesopotamia",
+            "Its coastal access"
+          ],
+          "correct": 2,
+          "explanation": "Israel's location on the land bridge between Africa, Asia, and Europe made it a natural crossroads for trade and cultural exchange."
+        },
+        {
+          "id": 2,
+          "question": "What was the primary occupation of most ancient Israelites?",
+          "options": [
+            "Merchants",
+            "Agriculture (farming and shepherding)",
+            "Soldiers",
+            "Craftsmen"
+          ],
+          "correct": 1,
+          "explanation": "Most Israelites were engaged in agriculture - farming crops or tending flocks - which shaped their daily life and religious calendar."
+        },
+        {
+          "id": 3,
+          "question": "Which feast commemorated the Exodus from Egypt?",
+          "options": [
+            "Pentecost",
+            "Tabernacles",
+            "Passover",
+            "Trumpets"
+          ],
+          "correct": 2,
+          "explanation": "Passover commemorated God's deliverance of Israel from Egyptian slavery and the angel of death 'passing over' Hebrew homes marked with lamb's blood."
+        },
+        {
+          "id": 4,
+          "question": "What was located in the Most Holy Place of the Tabernacle?",
+          "options": [
+            "The Bronze Altar",
+            "The Ark of the Covenant",
+            "The Golden Lampstand",
+            "The Table of Showbread"
+          ],
+          "correct": 1,
+          "explanation": "The Ark of the Covenant, containing the stone tablets of the Law, was the only item in the Most Holy Place, representing God's throne."
+        },
+        {
+          "id": 5,
+          "question": "How often could the High Priest enter the Most Holy Place?",
+          "options": [
+            "Daily",
+            "Weekly on the Sabbath",
+            "Monthly at new moon",
+            "Once per year on the Day of Atonement"
+          ],
+          "correct": 3,
+          "explanation": "Only the High Priest could enter the Most Holy Place, and only once per year on Yom Kippur (Day of Atonement) to make atonement for the nation's sins."
+        },
+        {
+          "id": 6,
+          "question": "What role did extended family typically play in ancient Israelite society?",
+          "options": [
+            "Families were independent units with little interaction",
+            "Extended families lived together and supported each other economically and socially",
+            "Only immediate family was important",
+            "Family ties were discouraged"
+          ],
+          "correct": 1,
+          "explanation": "Extended families lived in compounds together, provided mutual support, arranged marriages, and functioned as the basic economic and social unit."
+        },
+        {
+          "id": 7,
+          "question": "Which biblical calendar feature aligned with agricultural seasons?",
+          "options": [
+            "The Sabbath day",
+            "The feast days and harvest celebrations",
+            "Only Passover",
+            "The calendar had no agricultural connection"
+          ],
+          "correct": 1,
+          "explanation": "The three pilgrimage feasts (Passover, Pentecost, Tabernacles) aligned with key harvest seasons: barley, wheat, and fruit/final harvest."
+        },
+        {
+          "id": 8,
+          "question": "True or False: Meals in ancient Israel were primarily individual affairs with little social significance.",
+          "options": ["True", "False"],
+          "correct": 1,
+          "explanation": "False. Meals were highly communal and socially significant, strengthening family bonds and expressing fellowship and covenant relationships."
+        },
+        {
+          "id": 9,
+          "question": "What was the purpose of animal sacrifices in the Tabernacle system?",
+          "options": [
+            "To feed the priests",
+            "To demonstrate wealth",
+            "To atone for sin and maintain fellowship with God",
+            "To appease pagan gods"
+          ],
+          "correct": 2,
+          "explanation": "Sacrifices provided atonement for sin, symbolizing substitutionary death and pointing forward to Christ's ultimate sacrifice."
+        },
+        {
+          "id": 10,
+          "question": "How long did ancient Israelite wedding celebrations typically last?",
+          "options": [
+            "One evening",
+            "Three days",
+            "Seven days",
+            "Forty days"
+          ],
+          "correct": 2,
+          "explanation": "Wedding celebrations lasted seven days, as seen in biblical accounts (Judges 14:12) and Jesus' attendance at the wedding in Cana."
+        },
+        {
+          "id": 11,
+          "question": "What inheritance benefit did the firstborn son receive?",
+          "options": [
+            "All the family property",
+            "A double portion of the inheritance",
+            "The same as other sons",
+            "Only non-monetary blessings"
+          ],
+          "correct": 1,
+          "explanation": "The firstborn son received a double portion of the inheritance, recognizing his role as future head of the family with additional responsibilities."
+        },
+        {
+          "id": 12,
+          "question": "Which of the following was NOT one of the three pilgrimage feasts?",
+          "options": [
+            "Passover",
+            "Pentecost",
+            "Tabernacles",
+            "Hanukkah"
+          ],
+          "correct": 3,
+          "explanation": "Hanukkah (Feast of Dedication) was established later. The three pilgrimage feasts commanded in Torah were Passover, Pentecost, and Tabernacles."
+        },
+        {
+          "id": 13,
+          "question": "What did clothing indicate in ancient Israelite society?",
+          "options": [
+            "Nothing - all clothing was the same",
+            "Only gender differences",
+            "Social status and occupation",
+            "Religious affiliation only"
+          ],
+          "correct": 2,
+          "explanation": "Clothing communicated social status, occupation, and sometimes religious role through quality, color, style, and special garments."
+        },
+        {
+          "id": 14,
+          "question": "Who were the Levites?",
+          "options": [
+            "A tribe of warriors",
+            "A tribe set apart for religious service",
+            "Foreign mercenaries",
+            "Royal administrators"
+          ],
+          "correct": 1,
+          "explanation": "The Levites were from the tribe of Levi, set apart to assist priests, maintain the Tabernacle/Temple, and serve in worship."
+        },
+        {
+          "id": 15,
+          "question": "What was the primary teaching method for children in ancient Israelite families?",
+          "options": [
+            "Formal classroom education for all",
+            "Learning from parents through daily life and work",
+            "Hiring private tutors",
+            "Sending children to distant schools"
+          ],
+          "correct": 1,
+          "explanation": "Children learned primarily from parents in the context of daily life, with fathers teaching sons their trade and mothers teaching daughters household skills."
+        }
+      ]
+    }
+  },
+  "intermediate": {
+    "second-temple-period": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "How long was the intertestamental period between the Old and New Testaments?",
+          "options": [
+            "100 years",
+            "200 years",
+            "400 years",
+            "600 years"
+          ],
+          "correct": 2,
+          "explanation": "Approximately 400 years passed between Malachi (c. 430 BC) and the birth of Christ, often called the '400 silent years.'"
+        },
+        {
+          "id": 2,
+          "question": "Which Jewish group believed in resurrection and the oral tradition?",
+          "options": [
+            "Sadducees",
+            "Pharisees",
+            "Essenes",
+            "Zealots"
+          ],
+          "correct": 1,
+          "explanation": "The Pharisees believed in resurrection, angels, spirits, and valued oral tradition alongside written Torah. They were the most influential group among common people."
+        },
+        {
+          "id": 3,
+          "question": "What did the Sadducees reject?",
+          "options": [
+            "The Temple",
+            "Written Torah",
+            "Resurrection and angels",
+            "Roman authority"
+          ],
+          "correct": 2,
+          "explanation": "The Sadducees rejected resurrection, angels, and spirits, accepting only the written Torah. They were aristocratic and politically pragmatic."
+        },
+        {
+          "id": 4,
+          "question": "Who rebuilt the Temple after the Babylonian exile?",
+          "options": [
+            "Solomon",
+            "Zerubbabel",
+            "Herod the Great",
+            "Ezra"
+          ],
+          "correct": 1,
+          "explanation": "Zerubbabel led the rebuilding of the Temple around 516 BC (Ezra 3-6). Herod later greatly expanded and beautified it starting around 20 BC."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The Zealots sought political liberation from Rome through military action.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The Zealots were a revolutionary movement that sought to overthrow Roman rule through armed resistance and rebellion."
+        }
+      ]
+    },
+    "synagogue-system": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "When and why did synagogues develop?",
+          "options": [
+            "During Moses' time for worship",
+            "During Babylonian exile as centers for prayer and study",
+            "After Jesus' resurrection",
+            "During the Judges period"
+          ],
+          "correct": 1,
+          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't access the Temple. They became centers for prayer, Torah study, and community."
+        },
+        {
+          "id": 2,
+          "question": "What was the three-level Jewish education system?",
+          "options": [
+            "Elementary, Secondary, University",
+            "Bet Sefer, Bet Talmud, Bet Midrash",
+            "Synagogue, Temple, Academy",
+            "Reading, Writing, Torah"
+          ],
+          "correct": 1,
+          "explanation": "Jewish boys attended Bet Sefer (elementary, ages 5-10), Bet Talmud (secondary, ages 10-14), and exceptional students continued to Bet Midrash (advanced study)."
+        },
+        {
+          "id": 3,
+          "question": "How did Jesus use synagogues in His ministry?",
+          "options": [
+            "He avoided them",
+            "He only attended on special occasions",
+            "He regularly taught in them",
+            "He established new ones"
+          ],
+          "correct": 2,
+          "explanation": "Jesus regularly attended and taught in synagogues throughout Galilee and Judea, using them as platforms to proclaim the Kingdom (Luke 4:16-21)."
+        },
+        {
+          "id": 4,
+          "question": "What was the role of rabbis in synagogue worship?",
+          "options": [
+            "Offering sacrifices",
+            "Teaching and interpreting Torah",
+            "Political leadership only",
+            "Building maintenance"
+          ],
+          "correct": 1,
+          "explanation": "Rabbis were religious teachers and interpreters of Torah. They taught in synagogues and trained disciples in understanding and applying Scripture."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Paul used synagogues as a starting point for evangelism in new cities.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Paul's typical pattern was to begin preaching in the local synagogue when entering a new city (Acts 13:14-15, 14:1, 17:1-2)."
+        }
+      ]
+    },
+    "jesus-cultural-context": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What was Jesus' hometown and region?",
+          "options": [
+            "Jerusalem in Judea",
+            "Nazareth in Galilee",
+            "Bethlehem in Judea",
+            "Capernaum in Galilee"
+          ],
+          "correct": 1,
+          "explanation": "Jesus grew up in Nazareth in the region of Galilee, though He was born in Bethlehem and later based His ministry in Capernaum."
+        },
+        {
+          "id": 2,
+          "question": "How did Jesus function as a rabbi?",
+          "options": [
+            "He rejected all rabbinic traditions",
+            "He taught, gathered disciples, and interpreted Torah",
+            "He avoided teaching in public",
+            "He only ministered to gentiles"
+          ],
+          "correct": 1,
+          "explanation": "Jesus functioned as a rabbi - teaching, gathering disciples, and interpreting Torah. He was addressed as 'Rabbi' and used rabbinic teaching methods."
+        },
+        {
+          "id": 3,
+          "question": "Why did Jesus use agricultural imagery in His parables?",
+          "options": [
+            "He wanted to confuse His audience",
+            "It was unfamiliar to His hearers",
+            "It reflected the daily life of His audience",
+            "He only taught farmers"
+          ],
+          "correct": 2,
+          "explanation": "Jesus used agricultural imagery (seeds, harvests, vineyards) because His audience lived in an agricultural society and could easily relate to these concepts."
+        },
+        {
+          "id": 4,
+          "question": "What type of Messiah were many Jews expecting?",
+          "options": [
+            "A suffering servant",
+            "A spiritual teacher only",
+            "A political/military deliverer from Rome",
+            "A priest"
+          ],
+          "correct": 2,
+          "explanation": "Many Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, missing the prophecies about a suffering servant."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Jesus lived as a devout Jew who observed Torah.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Jesus observed Torah, attended synagogue and Temple, kept the feasts, and lived as a devout Jew while challenging legalistic misinterpretations."
+        }
+      ]
+    },
+    "festivals-jesus": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What festival was Jesus celebrating when He instituted the Last Supper?",
+          "options": [
+            "Pentecost",
+            "Tabernacles",
+            "Passover",
+            "Hanukkah"
+          ],
+          "correct": 2,
+          "explanation": "Jesus celebrated Passover with His disciples and transformed the Passover meal into the Lord's Supper, identifying Himself as the Passover Lamb."
+        },
+        {
+          "id": 2,
+          "question": "On which feast day did the Holy Spirit come upon the believers?",
+          "options": [
+            "Passover",
+            "Pentecost (Shavuot)",
+            "Tabernacles",
+            "Day of Atonement"
+          ],
+          "correct": 1,
+          "explanation": "The Holy Spirit came on Pentecost (Acts 2), 50 days after Passover. Pentecost celebrated the wheat harvest and commemorated the giving of the Law at Sinai."
+        },
+        {
+          "id": 3,
+          "question": "At which feast did Jesus proclaim Himself the 'living water' and 'light of the world'?",
+          "options": [
+            "Passover",
+            "Pentecost",
+            "Tabernacles (Sukkot)",
+            "Trumpets"
+          ],
+          "correct": 2,
+          "explanation": "At the Feast of Tabernacles, Jesus proclaimed Himself the living water (John 7:37-39) and light of the world (John 8:12), fulfilling the feast's symbolism."
+        },
+        {
+          "id": 4,
+          "question": "What feast is mentioned in John 10 where Jesus declared He is the Good Shepherd?",
+          "options": [
+            "Passover",
+            "Hanukkah (Feast of Dedication)",
+            "Purim",
+            "Pentecost"
+          ],
+          "correct": 1,
+          "explanation": "At Hanukkah (Feast of Dedication), Jesus declared Himself the Good Shepherd and stated 'I and the Father are one' (John 10:22-30)."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The feasts form a prophetic calendar pointing to Messiah's work.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The spring feasts prophetically point to Christ's first coming (death, resurrection, sending of the Spirit) and fall feasts to His return."
+        }
+      ]
+    },
+    "birth-of-church": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "How many believers were gathered when the Holy Spirit came at Pentecost?",
+          "options": [
+            "12 apostles only",
+            "About 120",
+            "About 3,000",
+            "About 5,000"
+          ],
+          "correct": 1,
+          "explanation": "About 120 believers were gathered in the upper room when the Holy Spirit came (Acts 1:15). That day, 3,000 were added to their number."
+        },
+        {
+          "id": 2,
+          "question": "What was distinctive about the early Jerusalem church's economic practices?",
+          "options": [
+            "They hoarded wealth",
+            "They shared possessions communally",
+            "They prohibited giving",
+            "They taxed members"
+          ],
+          "correct": 1,
+          "explanation": "The early Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35)."
+        },
+        {
+          "id": 3,
+          "question": "Who was the first Christian martyr?",
+          "options": [
+            "Peter",
+            "James the apostle",
+            "Stephen",
+            "Paul"
+          ],
+          "correct": 2,
+          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus (Acts 7). His death sparked widespread persecution."
+        },
+        {
+          "id": 4,
+          "question": "What surprising effect did persecution have on the early church?",
+          "options": [
+            "It destroyed the church",
+            "It confined believers to Jerusalem",
+            "It scattered believers and spread the gospel",
+            "It caused everyone to deny Christ"
+          ],
+          "correct": 2,
+          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to Judea, Samaria, and beyond (Acts 8:1-4)."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Peter's vision and encounter with Cornelius revealed that the gospel was for all nations, not just Jews.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Peter's vision (Acts 10) and Cornelius' conversion showed that God accepts Gentiles without requiring them to become Jews first."
+        }
+      ]
+    },
+    "paul-missionary-journeys": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What was Saul/Paul doing before his conversion?",
+          "options": [
+            "Fishing in Galilee",
+            "Persecuting the church",
+            "Building tents only",
+            "Teaching in Jerusalem Temple"
+          ],
+          "correct": 1,
+          "explanation": "Saul was a zealous Pharisee who persecuted Christians, approving of Stephen's death and seeking to imprison believers (Acts 7:58, 8:1-3, 9:1-2)."
+        },
+        {
+          "id": 2,
+          "question": "What was Paul's strategic approach to missionary work?",
+          "options": [
+            "Only visited rural villages",
+            "Targeted major urban centers",
+            "Avoided cities completely",
+            "Only preached to Gentiles"
+          ],
+          "correct": 1,
+          "explanation": "Paul strategically targeted major urban centers (Antioch, Ephesus, Corinth, Rome) where the gospel could spread to surrounding regions."
+        },
+        {
+          "id": 3,
+          "question": "How did Paul typically begin his ministry in a new city?",
+          "options": [
+            "In the marketplace only",
+            "In the synagogue",
+            "By establishing a church building first",
+            "By avoiding Jewish communities"
+          ],
+          "correct": 1,
+          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is the Messiah, before turning to Gentiles (Acts 13:14-15, 17:1-2)."
+        },
+        {
+          "id": 4,
+          "question": "Why did Paul write letters to the churches?",
+          "options": [
+            "To boast about his travels",
+            "To address specific issues and teach doctrine",
+            "To request money only",
+            "He never wrote letters"
+          ],
+          "correct": 1,
+          "explanation": "Paul wrote letters to address specific problems, answer questions, teach doctrine, and encourage the churches he had planted."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Paul established leadership in each church before moving on.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Paul appointed elders in each church (Acts 14:23) to provide ongoing leadership and oversight after he departed."
+        }
+      ]
+    },
+    "intermediate-exam": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which Jewish group controlled the Temple and denied resurrection?",
+          "options": [
+            "Pharisees",
+            "Sadducees",
+            "Essenes",
+            "Zealots"
+          ],
+          "correct": 1,
+          "explanation": "The Sadducees were the aristocratic priestly party who controlled the Temple, denied resurrection and angels, and accepted only the written Torah."
+        },
+        {
+          "id": 2,
+          "question": "When did synagogues develop as institutions?",
+          "options": [
+            "During Moses' time",
+            "During the Babylonian exile",
+            "After Jesus' resurrection",
+            "During the Roman period only"
+          ],
+          "correct": 1,
+          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't worship at the Temple, becoming centers for prayer, Torah study, and community."
+        },
+        {
+          "id": 3,
+          "question": "What was the duration of the intertestamental period?",
+          "options": [
+            "100 years",
+            "200 years",
+            "400 years",
+            "600 years"
+          ],
+          "correct": 2,
+          "explanation": "Approximately 400 years passed between the Old and New Testaments, from Malachi (c. 430 BC) to Jesus' birth."
+        },
+        {
+          "id": 4,
+          "question": "What type of Messiah were most Jews expecting?",
+          "options": [
+            "A suffering servant",
+            "A political/military deliverer",
+            "A spiritual teacher only",
+            "A high priest"
+          ],
+          "correct": 1,
+          "explanation": "Most Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, based on their interpretation of prophecy."
+        },
+        {
+          "id": 5,
+          "question": "At which feast did Jesus institute the Lord's Supper?",
+          "options": [
+            "Pentecost",
+            "Tabernacles",
+            "Passover",
+            "Day of Atonement"
+          ],
+          "correct": 2,
+          "explanation": "Jesus instituted the Lord's Supper during the Passover meal, identifying Himself as the Passover Lamb whose body and blood bring salvation."
+        },
+        {
+          "id": 6,
+          "question": "On which feast did the Holy Spirit come upon the believers?",
+          "options": [
+            "Passover",
+            "Pentecost",
+            "Tabernacles",
+            "Hanukkah"
+          ],
+          "correct": 1,
+          "explanation": "The Holy Spirit came on Pentecost (50 days after Passover), fulfilling Joel's prophecy and empowering the church (Acts 2)."
+        },
+        {
+          "id": 7,
+          "question": "Who was the first Christian martyr?",
+          "options": [
+            "James the apostle",
+            "Stephen",
+            "Peter",
+            "Paul"
+          ],
+          "correct": 1,
+          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus. His death sparked widespread persecution (Acts 6-7)."
+        },
+        {
+          "id": 8,
+          "question": "What effect did persecution have on the early church?",
+          "options": [
+            "It destroyed the church",
+            "It confined believers to Jerusalem",
+            "It scattered believers and spread the gospel",
+            "It caused apostasy"
+          ],
+          "correct": 2,
+          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to new regions (Acts 8:1-4)."
+        },
+        {
+          "id": 9,
+          "question": "What did Peter's vision and encounter with Cornelius demonstrate?",
+          "options": [
+            "Only Jews could be saved",
+            "Gentiles must become Jews first",
+            "The gospel is for all nations",
+            "The food laws still apply"
+          ],
+          "correct": 2,
+          "explanation": "Peter's vision and Cornelius' conversion demonstrated that God accepts Gentiles through faith without requiring Jewish conversion (Acts 10)."
+        },
+        {
+          "id": 10,
+          "question": "What was Paul's occupation before his full-time ministry?",
+          "options": [
+            "Fisherman",
+            "Tax collector",
+            "Tentmaker",
+            "Physician"
+          ],
+          "correct": 2,
+          "explanation": "Paul was a tentmaker by trade (Acts 18:3), which he continued during his missionary work to support himself and set an example."
+        },
+        {
+          "id": 11,
+          "question": "How did Paul typically approach a new city?",
+          "options": [
+            "Avoiding the Jewish community",
+            "Starting in the synagogue",
+            "Only preaching to Gentiles",
+            "Building a church first"
+          ],
+          "correct": 1,
+          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is Messiah, then turning to Gentiles (Acts 13:14-15, 17:1-2)."
+        },
+        {
+          "id": 12,
+          "question": "What was distinctive about the Jerusalem church's economic practice?",
+          "options": [
+            "They prohibited giving",
+            "They shared possessions communally",
+            "They charged for membership",
+            "They hoarded wealth"
+          ],
+          "correct": 1,
+          "explanation": "The Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35)."
+        },
+        {
+          "id": 13,
+          "question": "What was Jesus' primary region of ministry?",
+          "options": [
+            "Judea only",
+            "Samaria",
+            "Galilee",
+            "Perea"
+          ],
+          "correct": 2,
+          "explanation": "While Jesus ministered throughout Israel, Galilee was His primary region of ministry, where He performed most miracles and taught extensively."
+        },
+        {
+          "id": 14,
+          "question": "Which feast celebrates the giving of the Law at Sinai?",
+          "options": [
+            "Passover",
+            "Pentecost/Shavuot",
+            "Tabernacles",
+            "Trumpets"
+          ],
+          "correct": 1,
+          "explanation": "Pentecost (Shavuot/Feast of Weeks) celebrates the wheat harvest and commemorates the giving of the Torah at Mount Sinai."
+        },
+        {
+          "id": 15,
+          "question": "What did Paul establish in each church before moving on?",
+          "options": [
+            "A building",
+            "A school",
+            "Leadership/elders",
+            "A hospital"
+          ],
+          "correct": 2,
+          "explanation": "Paul appointed elders/leadership in each church (Acts 14:23) to provide ongoing pastoral care and oversight after his departure."
+        },
+        {
+          "id": 16,
+          "question": "At which feast did Jesus declare 'I am the light of the world'?",
+          "options": [
+            "Passover",
+            "Pentecost",
+            "Tabernacles",
+            "Purim"
+          ],
+          "correct": 2,
+          "explanation": "At the Feast of Tabernacles, Jesus proclaimed He is the light of the world (John 8:12), fulfilling the feast's lampstand ceremony symbolism."
+        },
+        {
+          "id": 17,
+          "question": "Which Jewish group withdrew to the desert to live in strict purity?",
+          "options": [
+            "Pharisees",
+            "Sadducees",
+            "Essenes",
+            "Zealots"
+          ],
+          "correct": 2,
+          "explanation": "The Essenes withdrew to the desert (like Qumran) to live in strict purity, separate from what they viewed as a corrupted Temple system."
+        },
+        {
+          "id": 18,
+          "question": "What was the three-level Jewish education system?",
+          "options": [
+            "Elementary, Secondary, University",
+            "Bet Sefer, Bet Talmud, Bet Midrash",
+            "Reading, Writing, Arithmetic",
+            "Torah, Prophets, Writings"
+          ],
+          "correct": 1,
+          "explanation": "Jewish education had three levels: Bet Sefer (elementary), Bet Talmud (secondary), and Bet Midrash (advanced rabbinic study)."
+        },
+        {
+          "id": 19,
+          "question": "How many believers were present when the Holy Spirit came at Pentecost?",
+          "options": [
+            "12",
+            "70",
+            "120",
+            "3,000"
+          ],
+          "correct": 2,
+          "explanation": "About 120 believers were gathered when the Holy Spirit came (Acts 1:15). After Peter's sermon, 3,000 were added that day."
+        },
+        {
+          "id": 20,
+          "question": "Why did Paul write letters to the churches?",
+          "options": [
+            "To request money only",
+            "To address issues and teach doctrine",
+            "To boast about his ministry",
+            "To criticize other apostles"
+          ],
+          "correct": 1,
+          "explanation": "Paul wrote to address specific problems, answer questions, teach sound doctrine, encourage believers, and strengthen churches."
+        }
+      ]
+    }
+  },
+  "advanced": {
+    "apostolic-fathers": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who were the Apostolic Fathers?",
+          "options": [
+            "The original 12 apostles",
+            "Leaders who knew the apostles personally",
+            "Medieval church leaders",
+            "Protestant reformers"
+          ],
+          "correct": 1,
+          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by those who did."
+        },
+        {
+          "id": 2,
+          "question": "What was the primary contribution of the Apostolic Fathers?",
+          "options": [
+            "Writing the New Testament",
+            "Preserving and teaching apostolic doctrine",
+            "Building cathedrals",
+            "Translating Scripture"
+          ],
+          "correct": 1,
+          "explanation": "They preserved and faithfully taught apostolic doctrine, providing a crucial link between the apostles and later generations of Christians."
+        },
+        {
+          "id": 3,
+          "question": "What is the Didache?",
+          "options": [
+            "An early Christian creed",
+            "An early church manual on Christian living and worship",
+            "A letter to Rome",
+            "An apocalyptic prophecy"
+          ],
+          "correct": 1,
+          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) containing instructions on Christian ethics, baptism, fasting, prayer, and church order."
+        },
+        {
+          "id": 4,
+          "question": "Who was Polycarp?",
+          "options": [
+            "A Roman emperor",
+            "Bishop of Smyrna, disciple of John, martyred at age 86",
+            "A heretic condemned by the church",
+            "Author of Revelation"
+          ],
+          "correct": 1,
+          "explanation": "Polycarp was bishop of Smyrna, a disciple of the apostle John, and was martyred around 155 AD at age 86 for refusing to deny Christ."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The Apostolic Fathers emphasized episcopal (bishop-led) church structure.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Writings like Ignatius' letters emphasize the authority of bishops as successors to the apostles and leaders of local churches."
+        }
+      ]
+    },
+    "persecution-martyrdom": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which Roman emperor began the first major persecution of Christians?",
+          "options": [
+            "Augustus",
+            "Nero",
+            "Constantine",
+            "Diocletian"
+          ],
+          "correct": 1,
+          "explanation": "Nero began the first major persecution (c. 64 AD), blaming Christians for the Great Fire of Rome. Tradition says Peter and Paul died in this persecution."
+        },
+        {
+          "id": 2,
+          "question": "Why did Romans persecute Christians?",
+          "options": [
+            "Christians were violent rebels",
+            "Christians refused to worship Roman gods and the emperor",
+            "Christians were wealthy",
+            "Romans had no reason"
+          ],
+          "correct": 1,
+          "explanation": "Christians were persecuted primarily for refusing to worship Roman gods and the emperor, which was seen as atheism and disloyalty to the state."
+        },
+        {
+          "id": 3,
+          "question": "What famous phrase describes the effect of martyrdom on the church?",
+          "options": [
+            "\"United we stand\"",
+            "\"The blood of martyrs is the seed of the church\"",
+            "\"Strength in numbers\"",
+            "\"Victory through death\""
+          ],
+          "correct": 1,
+          "explanation": "Tertullian wrote, 'The blood of martyrs is the seed of the church,' noting how martyrs' faithful witness inspired conversions and strengthened believers."
+        },
+        {
+          "id": 4,
+          "question": "What was the Edict of Milan (313 AD)?",
+          "options": [
+            "A decree banning Christianity",
+            "Constantine's declaration of religious tolerance for Christians",
+            "A military victory",
+            "A church council decision"
+          ],
+          "correct": 1,
+          "explanation": "Constantine's Edict of Milan (313 AD) granted religious tolerance to Christians, ending persecution and allowing public worship throughout the Roman Empire."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Roman persecution of Christians was constant and empire-wide from the beginning.",
+          "options": ["True", "False"],
+          "correct": 1,
+          "explanation": "False. Persecution was sporadic and localized, varying by emperor and region. Some periods saw intense persecution, others relative peace."
+        }
+      ]
+    },
+    "early-heresies": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What did Gnosticism teach?",
+          "options": [
+            "Salvation through faith alone",
+            "Salvation through secret knowledge; matter is evil",
+            "Salvation through good works",
+            "Universal salvation"
+          ],
+          "correct": 1,
+          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed matter is evil, and denied Christ's true humanity."
+        },
+        {
+          "id": 2,
+          "question": "What did Marcion reject?",
+          "options": [
+            "The New Testament",
+            "The deity of Christ",
+            "The Old Testament and its God",
+            "All four Gospels"
+          ],
+          "correct": 2,
+          "explanation": "Marcion rejected the Old Testament and its God, claiming the God of the OT was different from Jesus' Father. He accepted only edited versions of Luke and Paul's letters."
+        },
+        {
+          "id": 3,
+          "question": "What was Arianism's main error?",
+          "options": [
+            "Denying Christ's resurrection",
+            "Teaching Christ was a created being, not fully God",
+            "Rejecting the Trinity entirely",
+            "Claiming multiple gods exist"
+          ],
+          "correct": 1,
+          "explanation": "Arius taught that Christ was the first and greatest created being, but not eternal God. This was condemned at the Council of Nicaea (325 AD)."
+        },
+        {
+          "id": 4,
+          "question": "How did the church respond to heresies?",
+          "options": [
+            "Ignored them",
+            "Developed creeds and clarified the biblical canon",
+            "Accepted all teachings as valid",
+            "Split into denominations"
+          ],
+          "correct": 1,
+          "explanation": "Heresies forced the church to clarify core beliefs through creeds (like the Nicene Creed) and establish the biblical canon to counter false teachings."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Heresies actually helped the church clarify and defend orthodox doctrine.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Confronting heresies forced the church to carefully define and defend core doctrines like the Trinity, Christ's nature, and the canon of Scripture."
+        }
+      ]
+    },
+    "church-councils": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What was the main issue addressed at the Council of Nicaea (325)?",
+          "options": [
+            "The canon of Scripture",
+            "The deity of Christ against Arianism",
+            "The nature of Mary",
+            "Church organization"
+          ],
+          "correct": 1,
+          "explanation": "The Council of Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father."
+        },
+        {
+          "id": 2,
+          "question": "What doctrine did the Council of Constantinople (381) clarify?",
+          "options": [
+            "Salvation by grace",
+            "The doctrine of the Trinity",
+            "Church government",
+            "The second coming"
+          ],
+          "correct": 1,
+          "explanation": "Constantinople clarified the doctrine of the Trinity, particularly affirming the deity and personhood of the Holy Spirit."
+        },
+        {
+          "id": 3,
+          "question": "What did the Council of Chalcedon (451) affirm about Christ?",
+          "options": [
+            "He is only divine",
+            "He is only human",
+            "He is fully God and fully human in one person",
+            "He is partly God and partly human"
+          ],
+          "correct": 2,
+          "explanation": "Chalcedon affirmed that Christ is one person with two complete natures - fully God and fully human, without mixture, confusion, separation, or division."
+        },
+        {
+          "id": 4,
+          "question": "What was the purpose of the Nicene Creed?",
+          "options": [
+            "To replace Scripture",
+            "To summarize and defend orthodox Christian belief",
+            "To establish church hierarchy",
+            "To set worship liturgy"
+          ],
+          "correct": 1,
+          "explanation": "The Nicene Creed summarized orthodox Christian belief, particularly about the Trinity and Christ's nature, serving as a standard against heresy."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The ecumenical councils were convened to resolve major theological disputes.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Ecumenical councils brought together bishops from throughout the Christian world to resolve major theological controversies and establish orthodox doctrine."
+        }
+      ]
+    },
+    "church-fathers": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "What was Justin Martyr known for?",
+          "options": [
+            "Translating the Bible",
+            "Early Christian apologetics defending the faith to pagans",
+            "Leading a monastery",
+            "Organizing church councils"
+          ],
+          "correct": 1,
+          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity to pagan philosophers and Roman authorities, eventually dying as a martyr."
+        },
+        {
+          "id": 2,
+          "question": "What was Irenaeus' major contribution?",
+          "options": [
+            "Writing Against Heresies, combating Gnosticism",
+            "Building cathedrals",
+            "Translating Scripture into Latin",
+            "Establishing monasticism"
+          ],
+          "correct": 0,
+          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnosticism and defending orthodox Christian teaching about God, Christ, and salvation."
+        },
+        {
+          "id": 3,
+          "question": "What did Jerome accomplish?",
+          "options": [
+            "Wrote the Nicene Creed",
+            "Translated the Bible into Latin (Vulgate)",
+            "Founded the first monastery",
+            "Converted Constantine"
+          ],
+          "correct": 1,
+          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate translation of the Bible, which became the standard Bible for Western Christianity for over 1,000 years."
+        },
+        {
+          "id": 4,
+          "question": "What was Augustine of Hippo's primary theological focus?",
+          "options": [
+            "Church architecture",
+            "The theology of grace, sin, and salvation",
+            "Prophecy interpretation",
+            "Musical worship"
+          ],
+          "correct": 1,
+          "explanation": "Augustine (354-430) developed profound theology on grace, original sin, predestination, and the nature of the church. His works shaped all later Western theology."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The Church Fathers' writings became foundational for all later Christian theology.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The Church Fathers' works in biblical interpretation, systematic theology, and apologetics shaped Christian thought for all subsequent generations."
+        }
+      ]
+    },
+    "monasticism-worship": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who is considered the father of monasticism?",
+          "options": [
+            "Benedict",
+            "Anthony of Egypt",
+            "Augustine",
+            "Jerome"
+          ],
+          "correct": 1,
+          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism. He withdrew to the desert for prayer and spiritual warfare, inspiring many to follow."
+        },
+        {
+          "id": 2,
+          "question": "What was Benedict's major contribution?",
+          "options": [
+            "Translating the Bible",
+            "Creating the Benedictine Rule for monastic life",
+            "Building cathedrals",
+            "Writing apologetics"
+          ],
+          "correct": 1,
+          "explanation": "Benedict of Nursia (c. 480-547) created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community."
+        },
+        {
+          "id": 3,
+          "question": "What important role did monks play in preserving civilization?",
+          "options": [
+            "Leading armies",
+            "Governing cities",
+            "Copying Scripture and classical texts",
+            "Trading goods"
+          ],
+          "correct": 2,
+          "explanation": "Monks painstakingly copied Scripture and classical texts by hand, preserving learning and literacy through the Dark Ages when civilization collapsed around them."
+        },
+        {
+          "id": 4,
+          "question": "From what tradition did early Christian liturgy develop?",
+          "options": [
+            "Greek philosophy",
+            "Roman imperial ceremonies",
+            "Jewish synagogue worship patterns",
+            "Egyptian temple rituals"
+          ],
+          "correct": 2,
+          "explanation": "Early Christian liturgy developed from Jewish synagogue worship patterns, including Scripture reading, prayer, psalms, and teaching."
+        },
+        {
+          "id": 5,
+          "question": "True or False: The church calendar developed to commemorate Christ's life and honor martyrs.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. The church calendar developed to commemorate events in Christ's life (Christmas, Easter, Ascension) and honor martyrs and faithful saints."
+        }
+      ]
+    },
+    "biblical-geography": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which city was Paul's base for his third missionary journey?",
+          "options": [
+            "Jerusalem",
+            "Antioch",
+            "Ephesus",
+            "Corinth"
+          ],
+          "correct": 2,
+          "explanation": "Ephesus served as Paul's base for over two years during his third journey, from which the gospel spread throughout the province of Asia (Acts 19)."
+        },
+        {
+          "id": 2,
+          "question": "How many of the seven churches of Revelation were located in Asia Minor (modern Turkey)?",
+          "options": [
+            "Three",
+            "Five",
+            "All seven",
+            "None"
+          ],
+          "correct": 2,
+          "explanation": "All seven churches (Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea) were located in the Roman province of Asia (modern western Turkey)."
+        },
+        {
+          "id": 3,
+          "question": "What major trade route passed through Israel?",
+          "options": [
+            "Silk Road",
+            "Spice Route",
+            "Via Maris (Way of the Sea)",
+            "Amber Road"
+          ],
+          "correct": 2,
+          "explanation": "The Via Maris connected Egypt to Damascus and Mesopotamia, passing through Israel and making it a strategic crossroads for trade and military campaigns."
+        },
+        {
+          "id": 4,
+          "question": "What has archaeology confirmed about biblical locations?",
+          "options": [
+            "Nothing can be verified",
+            "Many biblical locations and events",
+            "Only New Testament sites",
+            "Only Jerusalem"
+          ],
+          "correct": 1,
+          "explanation": "Modern archaeology has confirmed many biblical locations, events, and customs, providing external verification of Scripture's historical accuracy."
+        },
+        {
+          "id": 5,
+          "question": "True or False: Strategic locations like Antioch, Ephesus, and Rome became major centers of early Christianity.",
+          "options": ["True", "False"],
+          "correct": 0,
+          "explanation": "True. Strategically located cities with good transportation links became centers where the gospel could spread to surrounding regions."
+        }
+      ]
+    },
+    "advanced-exam": {
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who were the Apostolic Fathers?",
+          "options": [
+            "The original twelve apostles",
+            "Church leaders who knew the apostles personally",
+            "Medieval theologians",
+            "Protestant reformers"
+          ],
+          "correct": 1,
+          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by apostolic disciples."
+        },
+        {
+          "id": 2,
+          "question": "Who began the first major persecution of Christians around 64 AD?",
+          "options": [
+            "Augustus",
+            "Nero",
+            "Domitian",
+            "Diocletian"
+          ],
+          "correct": 1,
+          "explanation": "Nero began the first major persecution after the Great Fire of Rome (64 AD), blaming Christians. Peter and Paul likely died in this persecution."
+        },
+        {
+          "id": 3,
+          "question": "What did Gnosticism fundamentally teach?",
+          "options": [
+            "Salvation by faith alone",
+            "Salvation through secret knowledge; matter is evil",
+            "Universal salvation",
+            "Salvation through works"
+          ],
+          "correct": 1,
+          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed physical matter is evil, and denied Christ's true physical humanity."
+        },
+        {
+          "id": 4,
+          "question": "What was Arianism's central error?",
+          "options": [
+            "Denying the resurrection",
+            "Teaching Christ was created, not fully God",
+            "Rejecting all Scripture",
+            "Teaching multiple gods"
+          ],
+          "correct": 1,
+          "explanation": "Arius taught that Christ was the first and greatest created being but not eternal God, denying His full deity."
+        },
+        {
+          "id": 5,
+          "question": "What major issue did the Council of Nicaea (325) address?",
+          "options": [
+            "The biblical canon",
+            "The deity of Christ against Arianism",
+            "Church government",
+            "The nature of Mary"
+          ],
+          "correct": 1,
+          "explanation": "Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father, co-eternal and co-equal."
+        },
+        {
+          "id": 6,
+          "question": "What did the Council of Chalcedon (451) affirm?",
+          "options": [
+            "Christ is only divine",
+            "Christ is only human",
+            "Christ is fully God and fully human in one person",
+            "Christ has a mixed divine-human nature"
+          ],
+          "correct": 2,
+          "explanation": "Chalcedon affirmed Christ is one person with two complete, distinct natures - fully God and fully human, without confusion or mixture."
+        },
+        {
+          "id": 7,
+          "question": "What was the Edict of Milan (313)?",
+          "options": [
+            "A decree banning Christianity",
+            "Constantine's declaration of religious tolerance",
+            "A church council decree",
+            "A military conscription order"
+          ],
+          "correct": 1,
+          "explanation": "Constantine's Edict of Milan granted religious tolerance to Christians, ending persecution and allowing public worship throughout the empire."
+        },
+        {
+          "id": 8,
+          "question": "What was Polycarp's relationship to the apostles?",
+          "options": [
+            "He was one of the original twelve",
+            "He was a disciple of the apostle John",
+            "He never met any apostles",
+            "He opposed the apostles' teaching"
+          ],
+          "correct": 1,
+          "explanation": "Polycarp was bishop of Smyrna and a direct disciple of the apostle John, martyred around 155 AD at age 86."
+        },
+        {
+          "id": 9,
+          "question": "What is the Didache?",
+          "options": [
+            "An early Christian creed",
+            "An early church manual on Christian living and worship",
+            "A Gnostic gospel",
+            "A letter from Paul"
+          ],
+          "correct": 1,
+          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) with instructions on ethics, baptism, prayer, fasting, and church order."
+        },
+        {
+          "id": 10,
+          "question": "Who wrote 'Against Heresies' combating Gnosticism?",
+          "options": [
+            "Tertullian",
+            "Irenaeus",
+            "Origen",
+            "Cyprian"
+          ],
+          "correct": 1,
+          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnostic teachings and defending orthodox Christian doctrine."
+        },
+        {
+          "id": 11,
+          "question": "Who produced the Latin Vulgate translation of the Bible?",
+          "options": [
+            "Augustine",
+            "Ambrose",
+            "Jerome",
+            "Tertullian"
+          ],
+          "correct": 2,
+          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate, which became the standard Bible for Western Christianity for over 1,000 years."
+        },
+        {
+          "id": 12,
+          "question": "What was Augustine of Hippo's primary theological contribution?",
+          "options": [
+            "Monasticism",
+            "Theology of grace, sin, and salvation",
+            "Biblical archaeology",
+            "Church architecture"
+          ],
+          "correct": 1,
+          "explanation": "Augustine developed profound theology on grace, original sin, predestination, and the church, shaping all later Western Christian thought."
+        },
+        {
+          "id": 13,
+          "question": "Who is considered the father of monasticism?",
+          "options": [
+            "Benedict",
+            "Anthony of Egypt",
+            "Basil",
+            "Pachomius"
+          ],
+          "correct": 1,
+          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism, withdrawing to the desert for prayer and inspiring the monastic movement."
+        },
+        {
+          "id": 14,
+          "question": "What was Benedict's major contribution to monasticism?",
+          "options": [
+            "Building the first monastery",
+            "Creating the Benedictine Rule",
+            "Translating Scripture",
+            "Evangelizing Europe"
+          ],
+          "correct": 1,
+          "explanation": "Benedict of Nursia created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community living."
+        },
+        {
+          "id": 15,
+          "question": "What crucial role did monks play in preserving civilization?",
+          "options": [
+            "Leading armies",
+            "Governing territories",
+            "Copying Scripture and classical texts",
+            "Building fortifications"
+          ],
+          "correct": 2,
+          "explanation": "Monks preserved learning by painstakingly copying Scripture and classical texts, maintaining literacy and knowledge through the Dark Ages."
+        },
+        {
+          "id": 16,
+          "question": "From what tradition did early Christian liturgy primarily develop?",
+          "options": [
+            "Greek philosophy",
+            "Roman ceremonies",
+            "Jewish synagogue worship",
+            "Mystery religions"
+          ],
+          "correct": 2,
+          "explanation": "Early Christian worship developed from Jewish synagogue patterns, including Scripture reading, prayer, psalms, and exposition."
+        },
+        {
+          "id": 17,
+          "question": "What was Marcion's heretical teaching?",
+          "options": [
+            "Rejecting the New Testament",
+            "Rejecting the Old Testament and its God",
+            "Denying Christ's resurrection",
+            "Teaching multiple gods"
+          ],
+          "correct": 1,
+          "explanation": "Marcion rejected the Old Testament and its God, claiming the OT God was different from Jesus' Father, accepting only edited versions of Luke and Paul."
+        },
+        {
+          "id": 18,
+          "question": "What famous phrase describes martyrdom's effect on the church?",
+          "options": [
+            "\"Strength in numbers\"",
+            "\"The blood of martyrs is the seed of the church\"",
+            "\"Victory through death\"",
+            "\"Faith conquers all\""
+          ],
+          "correct": 1,
+          "explanation": "Tertullian wrote that 'the blood of martyrs is the seed of the church,' noting how faithful witness unto death inspired conversions and growth."
+        },
+        {
+          "id": 19,
+          "question": "Which city served as Paul's base during his third missionary journey?",
+          "options": [
+            "Antioch",
+            "Corinth",
+            "Ephesus",
+            "Philippi"
+          ],
+          "correct": 2,
+          "explanation": "Ephesus served as Paul's base for over two years, from which 'all who dwelt in Asia heard the word of the Lord' (Acts 19:10)."
+        },
+        {
+          "id": 20,
+          "question": "Where were all seven churches of Revelation located?",
+          "options": [
+            "Palestine",
+            "Greece",
+            "Asia Minor (modern Turkey)",
+            "Italy"
+          ],
+          "correct": 2,
+          "explanation": "All seven churches were in the Roman province of Asia (modern western Turkey): Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea."
+        },
+        {
+          "id": 21,
+          "question": "How did the church respond to heresies?",
+          "options": [
+            "Ignored them",
+            "Developed creeds and clarified the canon",
+            "Accepted all views as valid",
+            "Split into denominations"
+          ],
+          "correct": 1,
+          "explanation": "The church responded by developing creeds (Apostles', Nicene), clarifying the biblical canon, and defining orthodox doctrine against error."
+        },
+        {
+          "id": 22,
+          "question": "What doctrine did the Council of Constantinople (381) clarify?",
+          "options": [
+            "The atonement",
+            "The Trinity, especially the Holy Spirit",
+            "Church government",
+            "The second coming"
+          ],
+          "correct": 1,
+          "explanation": "Constantinople clarified Trinitarian doctrine, particularly affirming the full deity and personhood of the Holy Spirit against pneumatomachians."
+        },
+        {
+          "id": 23,
+          "question": "True or False: Roman persecution of Christians was constant from the beginning.",
+          "options": ["True", "False"],
+          "correct": 1,
+          "explanation": "False. Persecution was sporadic and varied by emperor and region. Some periods saw intense persecution, others relative peace and tolerance."
+        },
+        {
+          "id": 24,
+          "question": "What was Justin Martyr known for?",
+          "options": [
+            "Monasticism",
+            "Early Christian apologetics",
+            "Bible translation",
+            "Church councils"
+          ],
+          "correct": 1,
+          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity intellectually to pagan philosophers and Roman authorities."
+        },
+        {
+          "id": 25,
+          "question": "What major trade route passed through ancient Israel?",
+          "options": [
+            "Silk Road",
+            "Via Maris (Way of the Sea)",
+            "Amber Road",
+            "Incense Route only"
+          ],
+          "correct": 1,
+          "explanation": "The Via Maris connected Egypt to Mesopotamia through Israel, making it a strategic crossroads for trade, culture, and military campaigns."
+        }
+      ]
+    }
+  }
+}

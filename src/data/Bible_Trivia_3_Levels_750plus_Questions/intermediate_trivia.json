@@ -1,0 +1,1796 @@
+[
+  {
+    "type": "true_false",
+    "question": "Genesis is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Genesis is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Exodus is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Exodus is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Leviticus is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Leviticus is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Numbers is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Numbers is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Deuteronomy is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Deuteronomy is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Joshua is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Joshua is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Judges is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Judges is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ruth is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ruth is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Samuel is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Samuel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Samuel is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Samuel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Kings is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Kings is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Kings is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Kings is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Chronicles is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Chronicles is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezra is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezra is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Nehemiah is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Nehemiah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Esther is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Esther is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Job is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Job is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Psalms is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Psalms is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Proverbs is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Proverbs is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ecclesiastes is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ecclesiastes is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Song of Solomon is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Song of Solomon is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Lamentations is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Lamentations is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Hosea is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Hosea is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Obadiah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Obadiah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jonah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jonah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Nahum is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Nahum is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Habakkuk is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Habakkuk is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Zephaniah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Zephaniah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Haggai is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Haggai is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Matthew is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Matthew is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Mark is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Mark is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Luke is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Luke is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "John is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "John is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Acts is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Acts is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Romans is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Romans is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Corinthians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Corinthians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Corinthians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Corinthians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Galatians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Galatians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ephesians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Ephesians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Philippians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Philippians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Colossians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Colossians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Thessalonians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Thessalonians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Thessalonians is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Thessalonians is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Timothy is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Timothy is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Timothy is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Timothy is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Titus is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Titus is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Philemon is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Philemon is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Hebrews is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Hebrews is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "James is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "James is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Peter is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Peter is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Peter is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Peter is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 John is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "1 John is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 John is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "2 John is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "3 John is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "3 John is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jude is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Jude is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Revelation is primarily considered a prophetic book. (True/False)",
+    "answer": "True",
+    "reference": "Genre"
+  },
+  {
+    "type": "true_false",
+    "question": "Revelation is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who anointed both Saul and David as kings?",
+    "choices": [
+      "Shadrach, Meshach, and Abednego",
+      "Nehemiah",
+      "Stephen",
+      "Samuel"
+    ],
+    "answer": "Samuel",
+    "reference": "1 Samuel 10; 1 Samuel 16"
+  },
+  {
+    "type": "true_false",
+    "question": "Samuel anointed both Saul and David as kings. (True/False)",
+    "answer": "True",
+    "reference": "1 Samuel 10; 1 Samuel 16"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Samuel anointed both Saul and David as kings found or primarily recorded?",
+    "choices": [
+      "2 Peter",
+      "1 Samuel",
+      "2 John",
+      "Leviticus"
+    ],
+    "answer": "1 Samuel",
+    "reference": "1 Samuel 10; 1 Samuel 16"
+  },
+  {
+    "type": "true_false",
+    "question": "Samuel anointed both Saul and David as kings in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Samuel 10; 1 Samuel 16"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who was the first king of Israel?",
+    "choices": [
+      "Stephen",
+      "John the Baptist",
+      "Saul",
+      "Zacchaeus"
+    ],
+    "answer": "Saul",
+    "reference": "1 Samuel 9–10"
+  },
+  {
+    "type": "true_false",
+    "question": "Saul was the first king of Israel. (True/False)",
+    "answer": "True",
+    "reference": "1 Samuel 9–10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Saul was the first king of Israel found or primarily recorded?",
+    "choices": [
+      "Daniel",
+      "2 Samuel",
+      "1 Samuel",
+      "Habakkuk"
+    ],
+    "answer": "1 Samuel",
+    "reference": "1 Samuel 9–10"
+  },
+  {
+    "type": "true_false",
+    "question": "Saul was the first king of Israel in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Samuel 9–10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who led the rebuilding of Jerusalem's walls?",
+    "choices": [
+      "Zacchaeus",
+      "Stephen",
+      "Saul",
+      "Nehemiah"
+    ],
+    "answer": "Nehemiah",
+    "reference": "Nehemiah 1–6"
+  },
+  {
+    "type": "true_false",
+    "question": "Nehemiah led the rebuilding of Jerusalem's walls. (True/False)",
+    "answer": "True",
+    "reference": "Nehemiah 1–6"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Nehemiah led the rebuilding of Jerusalem's walls found or primarily recorded?",
+    "choices": [
+      "Zephaniah",
+      "Lamentations",
+      "Colossians",
+      "Nehemiah"
+    ],
+    "answer": "Nehemiah",
+    "reference": "Nehemiah 1–6"
+  },
+  {
+    "type": "true_false",
+    "question": "Nehemiah led the rebuilding of Jerusalem's walls in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Nehemiah 1–6"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who defeated the Midianites with a small army?",
+    "choices": [
+      "Ananias and Sapphira",
+      "Gideon",
+      "Samuel",
+      "Shadrach, Meshach, and Abednego"
+    ],
+    "answer": "Gideon",
+    "reference": "Judges 6–7"
+  },
+  {
+    "type": "true_false",
+    "question": "Gideon defeated the Midianites with a small army. (True/False)",
+    "answer": "True",
+    "reference": "Judges 6–7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Gideon defeated the Midianites with a small army found or primarily recorded?",
+    "choices": [
+      "Judges",
+      "Romans",
+      "Hosea",
+      "2 Corinthians"
+    ],
+    "answer": "Judges",
+    "reference": "Judges 6–7"
+  },
+  {
+    "type": "true_false",
+    "question": "Gideon defeated the Midianites with a small army in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Judges 6–7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who became queen and helped save her people?",
+    "choices": [
+      "Lydia",
+      "Thomas",
+      "Esther",
+      "Zacchaeus"
+    ],
+    "answer": "Esther",
+    "reference": "Esther 1–8"
+  },
+  {
+    "type": "true_false",
+    "question": "Esther became queen and helped save her people. (True/False)",
+    "answer": "True",
+    "reference": "Esther 1–8"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Esther became queen and helped save her people found or primarily recorded?",
+    "choices": [
+      "Esther",
+      "Deuteronomy",
+      "Numbers",
+      "Romans"
+    ],
+    "answer": "Esther",
+    "reference": "Esther 1–8"
+  },
+  {
+    "type": "true_false",
+    "question": "Esther became queen and helped save her people in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Esther 1–8"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who were thrown into a fiery furnace?",
+    "choices": [
+      "Elisha",
+      "Shadrach, Meshach, and Abednego",
+      "Stephen",
+      "Judas Iscariot"
+    ],
+    "answer": "Shadrach, Meshach, and Abednego",
+    "reference": "Daniel 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Shadrach, Meshach, and Abednego were thrown into a fiery furnace. (True/False)",
+    "answer": "True",
+    "reference": "Daniel 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Shadrach, Meshach, and Abednego were thrown into a fiery furnace found or primarily recorded?",
+    "choices": [
+      "Daniel",
+      "3 John",
+      "2 Corinthians",
+      "Joel"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Shadrach, Meshach, and Abednego were thrown into a fiery furnace in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Daniel 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who received a double portion of Elijah's spirit?",
+    "choices": [
+      "Nehemiah",
+      "Barnabas",
+      "Elisha",
+      "Shadrach, Meshach, and Abednego"
+    ],
+    "answer": "Elisha",
+    "reference": "2 Kings 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Elisha received a double portion of Elijah's spirit. (True/False)",
+    "answer": "True",
+    "reference": "2 Kings 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Elisha received a double portion of Elijah's spirit found or primarily recorded?",
+    "choices": [
+      "2 Thessalonians",
+      "2 Kings",
+      "Jude",
+      "Jeremiah"
+    ],
+    "answer": "2 Kings",
+    "reference": "2 Kings 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Elisha received a double portion of Elijah's spirit in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Kings 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prayed and God added fifteen years to his life?",
+    "choices": [
+      "Hezekiah",
+      "Samuel",
+      "Esther",
+      "Nicodemus"
+    ],
+    "answer": "Hezekiah",
+    "reference": "2 Kings 20"
+  },
+  {
+    "type": "true_false",
+    "question": "Hezekiah prayed and God added fifteen years to his life. (True/False)",
+    "answer": "True",
+    "reference": "2 Kings 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Hezekiah prayed and God added fifteen years to his life found or primarily recorded?",
+    "choices": [
+      "2 Samuel",
+      "Haggai",
+      "2 Kings",
+      "Jude"
+    ],
+    "answer": "2 Kings",
+    "reference": "2 Kings 20"
+  },
+  {
+    "type": "true_false",
+    "question": "Hezekiah prayed and God added fifteen years to his life in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Kings 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who found the Book of the Law and led reforms?",
+    "choices": [
+      "Zacchaeus",
+      "Josiah",
+      "Nicodemus",
+      "John the Baptist"
+    ],
+    "answer": "Josiah",
+    "reference": "2 Kings 22–23"
+  },
+  {
+    "type": "true_false",
+    "question": "Josiah found the Book of the Law and led reforms. (True/False)",
+    "answer": "True",
+    "reference": "2 Kings 22–23"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Josiah found the Book of the Law and led reforms found or primarily recorded?",
+    "choices": [
+      "Ecclesiastes",
+      "Nahum",
+      "Luke",
+      "2 Kings"
+    ],
+    "answer": "2 Kings",
+    "reference": "2 Kings 22–23"
+  },
+  {
+    "type": "true_false",
+    "question": "Josiah found the Book of the Law and led reforms in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Kings 22–23"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who climbed a tree to see Jesus?",
+    "choices": [
+      "Zacchaeus",
+      "Saul",
+      "Hezekiah",
+      "Barnabas"
+    ],
+    "answer": "Zacchaeus",
+    "reference": "Luke 19"
+  },
+  {
+    "type": "true_false",
+    "question": "Zacchaeus climbed a tree to see Jesus. (True/False)",
+    "answer": "True",
+    "reference": "Luke 19"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Zacchaeus climbed a tree to see Jesus found or primarily recorded?",
+    "choices": [
+      "Luke",
+      "Jonah",
+      "Amos",
+      "Titus"
+    ],
+    "answer": "Luke",
+    "reference": "Luke 19"
+  },
+  {
+    "type": "true_false",
+    "question": "Zacchaeus climbed a tree to see Jesus in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Luke 19"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who came to Jesus at night to ask questions?",
+    "choices": [
+      "Cornelius",
+      "Lydia",
+      "Nicodemus",
+      "Esther"
+    ],
+    "answer": "Nicodemus",
+    "reference": "John 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Nicodemus came to Jesus at night to ask questions. (True/False)",
+    "answer": "True",
+    "reference": "John 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Nicodemus came to Jesus at night to ask questions found or primarily recorded?",
+    "choices": [
+      "Nehemiah",
+      "Joshua",
+      "3 John",
+      "John"
+    ],
+    "answer": "John",
+    "reference": "John 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Nicodemus came to Jesus at night to ask questions in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "John 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who was the first Christian martyr?",
+    "choices": [
+      "Gideon",
+      "Philip",
+      "Ananias and Sapphira",
+      "Stephen"
+    ],
+    "answer": "Stephen",
+    "reference": "Acts 6–7"
+  },
+  {
+    "type": "true_false",
+    "question": "Stephen was the first Christian martyr. (True/False)",
+    "answer": "True",
+    "reference": "Acts 6–7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Stephen was the first Christian martyr found or primarily recorded?",
+    "choices": [
+      "Philippians",
+      "Acts",
+      "Numbers",
+      "Nehemiah"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 6–7"
+  },
+  {
+    "type": "true_false",
+    "question": "Stephen was the first Christian martyr in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 6–7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who encouraged believers and traveled with Paul?",
+    "choices": [
+      "Barnabas",
+      "Esther",
+      "Josiah",
+      "Cornelius"
+    ],
+    "answer": "Barnabas",
+    "reference": "Acts 4; Acts 13"
+  },
+  {
+    "type": "true_false",
+    "question": "Barnabas encouraged believers and traveled with Paul. (True/False)",
+    "answer": "True",
+    "reference": "Acts 4; Acts 13"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Barnabas encouraged believers and traveled with Paul found or primarily recorded?",
+    "choices": [
+      "Hosea",
+      "2 Corinthians",
+      "2 Thessalonians",
+      "Acts"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 4; Acts 13"
+  },
+  {
+    "type": "true_false",
+    "question": "Barnabas encouraged believers and traveled with Paul in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 4; Acts 13"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who explained the Scriptures to the Ethiopian eunuch?",
+    "choices": [
+      "Ananias and Sapphira",
+      "Philip",
+      "Saul",
+      "Zacchaeus"
+    ],
+    "answer": "Philip",
+    "reference": "Acts 8"
+  },
+  {
+    "type": "true_false",
+    "question": "Philip explained the Scriptures to the Ethiopian eunuch. (True/False)",
+    "answer": "True",
+    "reference": "Acts 8"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Philip explained the Scriptures to the Ethiopian eunuch found or primarily recorded?",
+    "choices": [
+      "Philemon",
+      "Acts",
+      "2 Timothy",
+      "Philippians"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 8"
+  },
+  {
+    "type": "true_false",
+    "question": "Philip explained the Scriptures to the Ethiopian eunuch in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 8"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who was a Roman centurion who received the Holy Spirit?",
+    "choices": [
+      "Gideon",
+      "Esther",
+      "Cornelius",
+      "Saul"
+    ],
+    "answer": "Cornelius",
+    "reference": "Acts 10"
+  },
+  {
+    "type": "true_false",
+    "question": "Cornelius was a Roman centurion who received the Holy Spirit. (True/False)",
+    "answer": "True",
+    "reference": "Acts 10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Cornelius was a Roman centurion who received the Holy Spirit found or primarily recorded?",
+    "choices": [
+      "Acts",
+      "1 Timothy",
+      "Esther",
+      "Micah"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 10"
+  },
+  {
+    "type": "true_false",
+    "question": "Cornelius was a Roman centurion who received the Holy Spirit in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who was a seller of purple cloth who believed?",
+    "choices": [
+      "Lydia",
+      "Nicodemus",
+      "Zacchaeus",
+      "Barnabas"
+    ],
+    "answer": "Lydia",
+    "reference": "Acts 16"
+  },
+  {
+    "type": "true_false",
+    "question": "Lydia was a seller of purple cloth who believed. (True/False)",
+    "answer": "True",
+    "reference": "Acts 16"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Lydia was a seller of purple cloth who believed found or primarily recorded?",
+    "choices": [
+      "Deuteronomy",
+      "Acts",
+      "Song of Solomon",
+      "Obadiah"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 16"
+  },
+  {
+    "type": "true_false",
+    "question": "Lydia was a seller of purple cloth who believed in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 16"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who lied about money and died?",
+    "choices": [
+      "Philip",
+      "Hezekiah",
+      "Esther",
+      "Ananias and Sapphira"
+    ],
+    "answer": "Ananias and Sapphira",
+    "reference": "Acts 5"
+  },
+  {
+    "type": "true_false",
+    "question": "Ananias and Sapphira lied about money and died. (True/False)",
+    "answer": "True",
+    "reference": "Acts 5"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Ananias and Sapphira lied about money and died found or primarily recorded?",
+    "choices": [
+      "2 Samuel",
+      "Joshua",
+      "Exodus",
+      "Acts"
+    ],
+    "answer": "Acts",
+    "reference": "Acts 5"
+  },
+  {
+    "type": "true_false",
+    "question": "Ananias and Sapphira lied about money and died in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Acts 5"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who said he would not believe until he saw Jesus' wounds?",
+    "choices": [
+      "Gideon",
+      "Josiah",
+      "Shadrach, Meshach, and Abednego",
+      "Thomas"
+    ],
+    "answer": "Thomas",
+    "reference": "John 20"
+  },
+  {
+    "type": "true_false",
+    "question": "Thomas said he would not believe until he saw Jesus' wounds. (True/False)",
+    "answer": "True",
+    "reference": "John 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Thomas said he would not believe until he saw Jesus' wounds found or primarily recorded?",
+    "choices": [
+      "John",
+      "Ezekiel",
+      "Luke",
+      "2 Thessalonians"
+    ],
+    "answer": "John",
+    "reference": "John 20"
+  },
+  {
+    "type": "true_false",
+    "question": "Thomas said he would not believe until he saw Jesus' wounds in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "John 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who betrayed Jesus for silver?",
+    "choices": [
+      "Thomas",
+      "Hezekiah",
+      "Saul",
+      "Judas Iscariot"
+    ],
+    "answer": "Judas Iscariot",
+    "reference": "Matthew 26"
+  },
+  {
+    "type": "true_false",
+    "question": "Judas Iscariot betrayed Jesus for silver. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 26"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where Judas Iscariot betrayed Jesus for silver found or primarily recorded?",
+    "choices": [
+      "Leviticus",
+      "Matthew",
+      "Nahum",
+      "2 Chronicles"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 26"
+  },
+  {
+    "type": "true_false",
+    "question": "Judas Iscariot betrayed Jesus for silver in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 26"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prepared the way of the Lord?",
+    "choices": [
+      "Elisha",
+      "John the Baptist",
+      "Nehemiah",
+      "Josiah"
+    ],
+    "answer": "John the Baptist",
+    "reference": "Gospels"
+  },
+  {
+    "type": "true_false",
+    "question": "John the Baptist prepared the way of the Lord. (True/False)",
+    "answer": "True",
+    "reference": "Gospels"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the story where John the Baptist prepared the way of the Lord found or primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "Genesis",
+      "Acts",
+      "Hebrews"
+    ],
+    "answer": "Acts",
+    "reference": "Gospels"
+  },
+  {
+    "type": "true_false",
+    "question": "John the Baptist prepared the way of the Lord in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Gospels"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which Gospel is the parable of the prodigal son found?",
+    "choices": [
+      "Matthew",
+      "Mark",
+      "John",
+      "Luke"
+    ],
+    "answer": "Luke",
+    "reference": "Luke 15"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In which Gospel is the parable of the prodigal son found?' is 'Luke'. (True/False)",
+    "answer": "True",
+    "reference": "Luke 15"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In the parable of the sower, what does the seed represent?",
+    "choices": [
+      "Angels",
+      "Money",
+      "The temple",
+      "The Word of God"
+    ],
+    "answer": "The Word of God",
+    "reference": "Matthew 13; Luke 8"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In the parable of the sower, what does the seed represent?' is 'The Word of God'. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 13; Luke 8"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In Jesus' teaching, what is the narrow gate associated with?",
+    "choices": [
+      "Destruction",
+      "Wealth",
+      "Life",
+      "Fame"
+    ],
+    "answer": "Life",
+    "reference": "Matthew 7"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In Jesus' teaching, what is the narrow gate associated with?' is 'Life'. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In the Sermon on the Mount, where should a lamp be placed?",
+    "choices": [
+      "In a cave",
+      "On a stand",
+      "Under a bed",
+      "Under a basket"
+    ],
+    "answer": "On a stand",
+    "reference": "Matthew 5"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In the Sermon on the Mount, where should a lamp be placed?' is 'On a stand'. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 5"
+  },
+  {
+    "type": "true_false",
+    "question": "Genesis is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Genesis is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Exodus is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Exodus is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Leviticus is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Leviticus is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Numbers is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Numbers is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Deuteronomy is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Deuteronomy is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joshua is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joshua is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Judges is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Judges is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ruth is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ruth is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Samuel is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Samuel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Samuel is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Samuel is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Kings is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Kings is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Kings is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Kings is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Chronicles is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "1 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Chronicles is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "2 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezra is primarily considered a prophetic book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezra is primarily considered a poetic or wisdom book. (True/False)",
+    "answer": "False",
+    "reference": "Genre",
+    "note": "duplicate_for_volume"
+  }
+]

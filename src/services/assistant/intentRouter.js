@@ -42,6 +42,13 @@ export function routeIntent(raw) {
     return { type: 'define', query: text };
   }
 
+  if (/(my stats|my progress|my streak|my xp|how am I doing)/.test(lower)) {
+    return { type: 'user_stats', query: text };
+  }
+  if (/(where is|show me a map of|map of|present day|modern day|today|current location|now called|what country)/.test(lower)) {
+    return { type: 'map_location', query: text };
+  }
+
   if (/(meaning|interpret|explain|doctrine|theology|view|perspective)/.test(lower)) {
     return { type: 'theology', query: text };
   }

@@ -31,7 +31,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'alphabet-recognition',
       title: 'Alphabet Recognition',
       description: 'Test your knowledge of Greek letters',
-      icon: '🔤',
+      icon: 'A',
       color: 'from-blue-600 to-cyan-600',
       difficulty: 'beginner',
       component: (
@@ -46,7 +46,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'alphabet-pronunciation',
       title: 'Pronunciation Quiz',
       description: 'Match letters to their sounds',
-      icon: '🗣️',
+      icon: 'φ',
       color: 'from-purple-600 to-pink-600',
       difficulty: 'beginner',
       component: (
@@ -61,7 +61,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'flashcards-beginner',
       title: 'Vocabulary Flashcards',
       description: 'Practice beginner vocabulary with spaced repetition',
-      icon: '📇',
+      icon: '□',
       color: 'from-green-600 to-emerald-600',
       difficulty: 'beginner',
       component: (
@@ -76,7 +76,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'vocab-quiz-greek',
       title: 'Greek → English Quiz',
       description: 'Translate Greek words to English',
-      icon: '🇬🇷',
+      icon: 'Ελ',
       color: 'from-indigo-600 to-purple-600',
       difficulty: 'beginner',
       component: (
@@ -92,7 +92,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'vocab-quiz-english',
       title: 'English → Greek Quiz',
       description: 'Translate English words to Greek',
-      icon: '🇺🇸',
+      icon: 'En',
       color: 'from-pink-600 to-rose-600',
       difficulty: 'beginner',
       component: (
@@ -108,7 +108,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'article-quiz',
       title: 'Article Forms Quiz',
       description: 'Test your knowledge of Greek article forms',
-      icon: '📋',
+      icon: 'ὁ',
       color: 'from-blue-600 to-cyan-600',
       difficulty: 'beginner',
       component: (
@@ -122,7 +122,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'noun-declension-quiz',
       title: 'Noun Declension Quiz',
       description: 'Practice 1st & 2nd declension patterns',
-      icon: '📚',
+      icon: 'N',
       color: 'from-emerald-600 to-teal-600',
       difficulty: 'beginner',
       component: (
@@ -136,7 +136,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'verb-conjugation-quiz',
       title: 'Verb Conjugation Quiz',
       description: 'Master present active indicative forms',
-      icon: '⚡',
+      icon: 'V',
       color: 'from-orange-600 to-red-600',
       difficulty: 'beginner',
       component: (
@@ -150,7 +150,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'case-quiz',
       title: 'Case Identification Quiz',
       description: 'Identify cases and their functions',
-      icon: '🎯',
+      icon: 'C',
       color: 'from-violet-600 to-purple-600',
       difficulty: 'intermediate',
       component: (
@@ -164,7 +164,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'exam-beginner',
       title: 'Beginner Exam',
       description: 'Comprehensive beginner level exam',
-      icon: '🎓',
+      icon: '★',
       color: 'from-amber-600 to-yellow-600',
       difficulty: 'beginner',
       component: (
@@ -179,7 +179,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'exam-intermediate',
       title: 'Intermediate Exam',
       description: 'Comprehensive intermediate level exam',
-      icon: '🏆',
+      icon: '★★',
       color: 'from-yellow-600 to-amber-600',
       difficulty: 'intermediate',
       component: (
@@ -194,7 +194,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       id: 'exam-advanced',
       title: 'Advanced Exam',
       description: 'Master level comprehensive exam',
-      icon: '👑',
+      icon: '★★★',
       color: 'from-purple-600 to-indigo-600',
       difficulty: 'advanced',
       component: (

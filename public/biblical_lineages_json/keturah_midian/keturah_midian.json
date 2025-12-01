@@ -1,0 +1,129 @@
+{
+  "name": "Keturah",
+  "type": "person",
+  "notes": "Wife/concubine of Abraham after Sarah’s death; mother of several tribes.",
+  "source_refs": [
+    "Genesis 25:1–4"
+  ],
+  "children": [
+    {
+      "name": "Zimran",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Jokshan",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "",
+      "children": [
+        {
+          "name": "Sheba",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:3"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Dedan",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:3"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Medan",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Midian",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "Ancestor of the Midianites who interacted frequently with Israel.",
+      "children": [
+        {
+          "name": "Ephah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Epher",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Hanoch",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Abida",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Eldaah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 25:4"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Ishbak",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Shuah",
+      "type": "person",
+      "source_refs": [
+        "Genesis 25:2"
+      ],
+      "notes": "",
+      "children": []
+    }
+  ]
+}

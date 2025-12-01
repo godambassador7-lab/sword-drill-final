@@ -1,0 +1,151 @@
+{
+  "name": "Esau",
+  "aka": [
+    "Edom"
+  ],
+  "type": "person",
+  "notes": "Brother of Jacob; ancestor of the Edomites.",
+  "source_refs": [
+    "Genesis 25–36"
+  ],
+  "children": [
+    {
+      "name": "Eliphaz",
+      "type": "person",
+      "notes": "Son of Esau by Adah.",
+      "source_refs": [
+        "Genesis 36:4"
+      ],
+      "children": [
+        {
+          "name": "Teman",
+          "type": "clan",
+          "notes": "Temanite clan; associated with Edomite wisdom traditions.",
+          "source_refs": [
+            "Genesis 36:11",
+            "Jeremiah 49:7"
+          ],
+          "children": []
+        },
+        {
+          "name": "Omar",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:11"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Zepho",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:11"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Gatam",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:11"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Kenaz",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:11"
+          ],
+          "notes": "Name also associated with Caleb the Kenizzite.",
+          "children": []
+        },
+        {
+          "name": "Amalek",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 36:12"
+          ],
+          "notes": "Ancestor of the Amalekites, perennial enemies of Israel.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Reuel",
+      "type": "person",
+      "notes": "Son of Esau by Basemath.",
+      "source_refs": [
+        "Genesis 36:4"
+      ],
+      "children": [
+        {
+          "name": "Nahath",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Zerah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Shammah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Mizzah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 36:13"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Jeush",
+      "type": "person",
+      "source_refs": [
+        "Genesis 36:5"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Jalam",
+      "type": "person",
+      "source_refs": [
+        "Genesis 36:5"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Korah",
+      "type": "person",
+      "source_refs": [
+        "Genesis 36:5"
+      ],
+      "notes": "Different from the Levite Korah who rebelled in Numbers 16.",
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "quiz": [
+    {
+      "saying": "I am the way, the truth, and the life. No one comes to the Father except through Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is my shepherd; I shall not want.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Before Abraham was, I AM.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The fear of the Lord is the beginning of wisdom.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am the bread of life. He who comes to Me shall never hunger.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Trust in the Lord with all your heart, and lean not on your own understanding.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Let not your heart be troubled; you believe in God, believe also in Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The LORD is my light and my salvation; whom shall I fear?",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am the resurrection and the life. He who believes in Me will live, even though he dies.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Be still, and know that I am God.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Love your enemies and pray for those who persecute you.",
+      "is_jesus": true
+    },
+    {
+      "saying": "For God so loved the world that He gave His only begotten Son.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am the good shepherd. The good shepherd lays down His life for the sheep.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Create in me a clean heart, O God, and renew a steadfast spirit within me.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Come to Me, all you who labor and are heavy laden, and I will give you rest.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The heavens declare the glory of God; the skies proclaim the work of His hands.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am the light of the world. Whoever follows Me will never walk in darkness.",
+      "is_jesus": true
+    },
+    {
+      "saying": "I can do all things through Christ who strengthens me.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Father, forgive them, for they do not know what they are doing.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is close to the brokenhearted and saves those who are crushed in spirit.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Do not judge, or you too will be judged.",
+      "is_jesus": true
+    },
+    {
+      "saying": "For I know the plans I have for you, declares the Lord.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am the vine; you are the branches. If you remain in Me and I in you, you will bear much fruit.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The righteous will flourish like a palm tree; they will grow like a cedar of Lebanon.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Ask and it will be given to you; seek and you will find; knock and the door will be opened.",
+      "is_jesus": true
+    },
+    {
+      "saying": "But those who hope in the Lord will renew their strength.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is my rock, my fortress and my deliverer.",
+      "is_jesus": false
+    },
+    {
+      "saying": "It is easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Be strong and courageous. Do not be afraid; do not be discouraged.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Peace I leave with you; My peace I give you. I do not give to you as the world gives.",
+      "is_jesus": true
+    },
+    {
+      "saying": "If My people who are called by My name will humble themselves and pray.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Let the little children come to Me, and do not hinder them, for the kingdom of heaven belongs to such as these.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Cast all your anxiety on Him because He cares for you.",
+      "is_jesus": false
+    },
+    {
+      "saying": "For where two or three gather in My name, there am I with them.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord will fight for you; you need only to be still.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Greater love has no one than this: to lay down one's life for one's friends.",
+      "is_jesus": true
+    },
+    {
+      "saying": "He who dwells in the shelter of the Most High will rest in the shadow of the Almighty.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is gracious and compassionate, slow to anger and rich in love.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Take up your cross and follow Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Wait for the Lord; be strong and take heart and wait for the Lord.",
+      "is_jesus": false
+    },
+    {
+      "saying": "You are the salt of the earth. But if the salt loses its saltiness, how can it be made salty again?",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is faithful to all His promises and loving toward all He has made.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I tell you the truth, unless you change and become like little children, you will never enter the kingdom of heaven.",
+      "is_jesus": true
+    },
+    {
+      "saying": "This is the day the Lord has made; let us rejoice and be glad in it.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Heaven and earth will pass away, but My words will never pass away.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord your God is with you, He is mighty to save.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Whoever believes in Me, as Scripture has said, rivers of living water will flow from within them.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Rejoice in the Lord always. I will say it again: Rejoice!",
+      "is_jesus": false
+    },
+    {
+      "saying": "Do not worry about tomorrow, for tomorrow will worry about itself.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Your word is a lamp for my feet, a light on my path.",
+      "is_jesus": false
+    },
+    {
+      "saying": "If anyone would come after Me, let him deny himself and take up his cross daily and follow Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Taste and see that the Lord is good; blessed is the one who takes refuge in Him.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Whatever you did for one of the least of these brothers and sisters of Mine, you did for Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "He will cover you with His feathers, and under His wings you will find refuge.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I have come that they may have life, and have it to the full.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord gives strength to His people; the Lord blesses His people with peace.",
+      "is_jesus": false
+    },
+    {
+      "saying": "If you love Me, keep My commands.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Be joyful in hope, patient in affliction, faithful in prayer.",
+      "is_jesus": false
+    },
+    {
+      "saying": "I am with you always, even to the end of the age.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is my strength and my shield; my heart trusts in Him, and He helps me.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Blessed are the merciful, for they will be shown mercy.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Give thanks to the Lord, for He is good; His love endures forever.",
+      "is_jesus": false
+    },
+    {
+      "saying": "No one can serve two masters. Either you will hate the one and love the other.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord is near to all who call on Him, to all who call on Him in truth.",
+      "is_jesus": false
+    },
+    {
+      "saying": "For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Love the Lord your God with all your heart and with all your soul and with all your strength.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Watch and pray so that you will not fall into temptation. The spirit is willing, but the flesh is weak.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The name of the Lord is a fortified tower; the righteous run to it and are safe.",
+      "is_jesus": false
+    },
+    {
+      "saying": "My sheep listen to My voice; I know them, and they follow Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "The Lord has done great things for us, and we are filled with joy.",
+      "is_jesus": false
+    },
+    {
+      "saying": "Unless I wash you, you have no part with Me.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Surely goodness and love will follow me all the days of my life.",
+      "is_jesus": false
+    },
+    {
+      "saying": "You will know the truth, and the truth will set you free.",
+      "is_jesus": true
+    },
+    {
+      "saying": "Every good and perfect gift is from above, coming down from the Father of the heavenly lights.",
+      "is_jesus": false
+    },
+    {
+      "saying": "What good is it for someone to gain the whole world, yet forfeit their soul?",
+      "is_jesus": true
+    },
+    {
+      "saying": "Blessed are those whose ways are blameless, who walk according to the law of the Lord.",
+      "is_jesus": false
+    }
+  ]
+}

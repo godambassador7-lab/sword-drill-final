@@ -1,0 +1,47 @@
+{
+  "name": "Aram",
+  "type": "person",
+  "notes": "Ancestor of the Arameans (Syrians).",
+  "source_refs": [
+    "Genesis 10:22–23"
+  ],
+  "children": [
+    {
+      "name": "Uz",
+      "type": "clan",
+      "notes": "Land of Uz associated with Job.",
+      "source_refs": [
+        "Genesis 10:23",
+        "Job 1:1"
+      ],
+      "children": []
+    },
+    {
+      "name": "Hul",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 10:23"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Gether",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 10:23"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Mash",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 10:23"
+      ],
+      "notes": "",
+      "children": []
+    }
+  ]
+}

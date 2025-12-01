@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { koineVocabulary } from '../data/koineGreekComprehensive';
 import { X, CheckCircle, XCircle, Clock } from 'lucide-react';
+import CorrectToast from './CorrectToast';
 
 /**
  * Greek Vocabulary Quiz - Tests Greek → English or English → Greek translation
@@ -14,6 +15,7 @@ const GreekVocabularyQuiz = ({ level = 'beginner', direction = 'greek-to-english
   const [isCorrect, setIsCorrect] = useState(false);
   const [timeLeft, setTimeLeft] = useState(20); // 20 seconds per question
   const [startTime] = useState(Date.now());
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
 
   const totalQuestions = 15;
 
@@ -102,6 +104,8 @@ const GreekVocabularyQuiz = ({ level = 'beginner', direction = 'greek-to-english
       const timeBonus = timeLeft * 5;
       const basePoints = 100;
       setScore(score + basePoints + timeBonus);
+      setShowCorrectToast(true);
+      setTimeout(() => setShowCorrectToast(false), 1300);
     }
 
     setTimeout(() => {
@@ -147,6 +151,7 @@ const GreekVocabularyQuiz = ({ level = 'beginner', direction = 'greek-to-english
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
+      <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-indigo-500/30">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

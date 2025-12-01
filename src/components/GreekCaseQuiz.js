@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { caseFunctions, nounDeclensions } from '../data/koineGreekComprehensive';
 import { X, CheckCircle, XCircle, Target } from 'lucide-react';
+import CorrectToast from './CorrectToast';
 
 /**
  * Greek Case Quiz - Tests case identification and function understanding
@@ -12,6 +13,7 @@ const GreekCaseQuiz = ({ onComplete, onCancel }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
 
   const totalQuestions = 15;
 
@@ -128,6 +130,8 @@ const GreekCaseQuiz = ({ onComplete, onCancel }) => {
 
     if (correct) {
       setScore(score + 100);
+      setShowCorrectToast(true);
+      setTimeout(() => setShowCorrectToast(false), 1300);
     }
 
     setTimeout(() => {
@@ -166,6 +170,7 @@ const GreekCaseQuiz = ({ onComplete, onCancel }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-violet-900 via-purple-900 to-fuchsia-900 flex items-center justify-center p-4">
+      <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-violet-500/30">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

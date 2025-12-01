@@ -1,0 +1,139 @@
+{
+  "name": "Japheth",
+  "type": "person",
+  "notes": "Son of Noah; ancestor of many Indo-European peoples.",
+  "source_refs": [
+    "Genesis 5:32",
+    "Genesis 10:2–5"
+  ],
+  "children": [
+    {
+      "name": "Gomer",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2–3"
+      ],
+      "notes": "",
+      "children": [
+        {
+          "name": "Ashkenaz",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:3"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Riphath",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:3"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Togarmah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:3"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Magog",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Madai",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2"
+      ],
+      "notes": "Associated with the Medes.",
+      "children": []
+    },
+    {
+      "name": "Javan",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2,4"
+      ],
+      "notes": "Associated with Greek maritime peoples.",
+      "children": [
+        {
+          "name": "Elishah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Tarshish",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:4"
+          ],
+          "notes": "Distant seaport; destination of Jonah’s flight.",
+          "children": []
+        },
+        {
+          "name": "Kittim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:4"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Dodanim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:4"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Tubal",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Meshech",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Tiras",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:2"
+      ],
+      "notes": "",
+      "children": []
+    }
+  ]
+}

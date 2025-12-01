@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { greekArticles } from '../data/koineGreekComprehensive';
 import { X, CheckCircle, XCircle, Award } from 'lucide-react';
+import CorrectToast from './CorrectToast';
 
 /**
  * Greek Article Quiz - Tests knowledge of definite article forms
@@ -13,6 +14,7 @@ const GreekArticleQuiz = ({ onComplete, onCancel }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
 
   const totalQuestions = 15;
 
@@ -98,6 +100,8 @@ const GreekArticleQuiz = ({ onComplete, onCancel }) => {
 
     if (correct) {
       setScore(score + 100);
+      setShowCorrectToast(true);
+      setTimeout(() => setShowCorrectToast(false), 1300);
     }
 
     setTimeout(() => {
@@ -136,6 +140,7 @@ const GreekArticleQuiz = ({ onComplete, onCancel }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 flex items-center justify-center p-4">
+      <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-blue-500/30">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

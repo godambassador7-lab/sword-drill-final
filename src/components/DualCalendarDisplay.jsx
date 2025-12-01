@@ -31,7 +31,7 @@ const DualCalendarDisplay = ({
       {/* Roman Calendar Date - Clickable */}
       <button
         onClick={onRomanDateClick}
-        className="roman-date-button group flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all duration-200 border border-slate-700 hover:border-amber-500 cursor-pointer"
+        className="roman-date-button group flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all duration-200 border border-slate-700 hover:border-amber-500 cursor-pointer flex-1 min-w-0"
         title="View Activity Dashboard"
       >
         <Sun className="text-amber-500 group-hover:text-amber-400 transition-colors" size={20} />
@@ -45,7 +45,7 @@ const DualCalendarDisplay = ({
       {showHebrewCalendar && (
         <button
           onClick={onHebrewDateClick}
-          className="hebrew-date-button group flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-blue-900/40 to-purple-900/40 hover:from-blue-800/50 hover:to-purple-800/50 rounded-lg border border-blue-700/50 hover:border-purple-500 transition-all duration-200 cursor-pointer"
+          className="hebrew-date-button group flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-blue-900/40 to-purple-900/40 hover:from-blue-800/50 hover:to-purple-800/50 rounded-lg border border-blue-700/50 hover:border-purple-500 transition-all duration-200 cursor-pointer flex-1 min-w-0"
           title="View Hebrew Calendar"
         >
           <Moon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={20} />

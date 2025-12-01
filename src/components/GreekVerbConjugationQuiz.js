@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { verbConjugations } from '../data/koineGreekComprehensive';
 import { X, CheckCircle, XCircle, Zap } from 'lucide-react';
+import CorrectToast from './CorrectToast';
 
 /**
  * Greek Verb Conjugation Quiz - Tests Present Active Indicative forms
@@ -12,6 +13,7 @@ const GreekVerbConjugationQuiz = ({ onComplete, onCancel }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
 
   const totalQuestions = 12;
 
@@ -115,6 +117,8 @@ const GreekVerbConjugationQuiz = ({ onComplete, onCancel }) => {
 
     if (correct) {
       setScore(score + 100);
+      setShowCorrectToast(true);
+      setTimeout(() => setShowCorrectToast(false), 1300);
     }
 
     setTimeout(() => {
@@ -153,6 +157,7 @@ const GreekVerbConjugationQuiz = ({ onComplete, onCancel }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 flex items-center justify-center p-4">
+      <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-orange-500/30">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

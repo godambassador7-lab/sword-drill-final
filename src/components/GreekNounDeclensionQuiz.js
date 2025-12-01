@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { nounDeclensions } from '../data/koineGreekComprehensive';
 import { X, CheckCircle, XCircle, BookOpen } from 'lucide-react';
+import CorrectToast from './CorrectToast';
 
 /**
  * Greek Noun Declension Quiz - Tests 1st and 2nd declension patterns
@@ -12,6 +13,7 @@ const GreekNounDeclensionQuiz = ({ onComplete, onCancel }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showCorrectToast, setShowCorrectToast] = useState(false);
 
   const totalQuestions = 12;
 
@@ -113,6 +115,8 @@ const GreekNounDeclensionQuiz = ({ onComplete, onCancel }) => {
 
     if (correct) {
       setScore(score + 100);
+      setShowCorrectToast(true);
+      setTimeout(() => setShowCorrectToast(false), 1300);
     }
 
     setTimeout(() => {
@@ -151,6 +155,7 @@ const GreekNounDeclensionQuiz = ({ onComplete, onCancel }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 flex items-center justify-center p-4">
+      <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-emerald-500/30">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

@@ -1,0 +1,1110 @@
+{
+  "module1": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is textual criticism?",
+        "options": [
+          "The practice of criticizing biblical texts",
+          "The science of comparing manuscripts to determine the original text",
+          "The study of biblical interpretation methods",
+          "The process of translating ancient texts"
+        ],
+        "correct": 1,
+        "explanation": "Textual criticism is the scholarly discipline that compares manuscript copies to reconstruct the most accurate form of the original text."
+      },
+      {
+        "id": 2,
+        "question": "Why is textual criticism necessary for the Bible?",
+        "options": [
+          "Because the original manuscripts (autographs) no longer exist",
+          "Because the Bible was written in multiple languages",
+          "Because scholars disagree on biblical interpretation",
+          "Because modern translations need updating"
+        ],
+        "correct": 0,
+        "explanation": "We don't have the original biblical manuscripts. Textual criticism helps us determine what the originals most likely said by comparing thousands of manuscript copies."
+      },
+      {
+        "id": 3,
+        "question": "What are the oldest complete manuscripts of the New Testament?",
+        "options": [
+          "The Dead Sea Scrolls",
+          "Codex Sinaiticus and Codex Vaticanus (4th century)",
+          "The King James Version manuscripts",
+          "The Latin Vulgate"
+        ],
+        "correct": 1,
+        "explanation": "Codex Sinaiticus and Codex Vaticanus, both dating to the 4th century AD, are among the oldest complete or nearly complete manuscripts of the New Testament."
+      },
+      {
+        "id": 4,
+        "question": "Who is considered the father of modern textual criticism?",
+        "options": [
+          "Martin Luther",
+          "John Calvin",
+          "Desiderius Erasmus",
+          "Jerome"
+        ],
+        "correct": 2,
+        "explanation": "Desiderius Erasmus published the first printed Greek New Testament in 1516, which became the basis for many translations and launched modern textual criticism."
+      },
+      {
+        "id": 5,
+        "question": "What was the Textus Receptus?",
+        "options": [
+          "A Latin translation of the Bible",
+          "The Greek text underlying the King James Version",
+          "The first English Bible translation",
+          "An ancient manuscript discovered in Egypt"
+        ],
+        "correct": 1,
+        "explanation": "The Textus Receptus ('Received Text') was based on Erasmus's Greek New Testament and became the standard Greek text used for Protestant translations, including the KJV."
+      },
+      {
+        "id": 6,
+        "question": "What major discovery in the 19th century revolutionized textual criticism?",
+        "options": [
+          "The Rosetta Stone",
+          "Codex Sinaiticus by Constantin von Tischendorf",
+          "The King James Version",
+          "The Gutenberg Bible"
+        ],
+        "correct": 1,
+        "explanation": "Constantin von Tischendorf's discovery of Codex Sinaiticus at St. Catherine's Monastery in 1844 provided scholars with one of the oldest and most complete biblical manuscripts."
+      },
+      {
+        "id": 7,
+        "question": "What percentage of textual variants in the New Testament affect core Christian doctrine?",
+        "options": [
+          "About 50%",
+          "About 25%",
+          "Less than 1%",
+          "Nearly all of them"
+        ],
+        "correct": 2,
+        "explanation": "While there are many textual variants among manuscripts, less than 1% affect the meaning of passages, and virtually none affect core Christian doctrines."
+      },
+      {
+        "id": 8,
+        "question": "What are papyri in biblical textual criticism?",
+        "options": [
+          "Ancient stone inscriptions",
+          "Early manuscripts written on papyrus material",
+          "Metal plates with biblical text",
+          "Leather scrolls from Qumran"
+        ],
+        "correct": 1,
+        "explanation": "Papyri are ancient manuscripts written on papyrus, a paper-like material made from reeds. Many early New Testament manuscripts were preserved on papyrus."
+      },
+      {
+        "id": 9,
+        "question": "What is the significance of the Chester Beatty Papyri?",
+        "options": [
+          "They contain the oldest known Old Testament texts",
+          "They are early New Testament manuscripts from the 2nd-3rd centuries",
+          "They prove the Bible was never changed",
+          "They contain lost books of the Bible"
+        ],
+        "correct": 1,
+        "explanation": "The Chester Beatty Papyri, discovered in the 1930s, contain portions of the New Testament dating to the 2nd-3rd centuries AD, making them among the earliest witnesses."
+      },
+      {
+        "id": 10,
+        "question": "Why did scribes sometimes make intentional changes to manuscripts?",
+        "options": [
+          "To corrupt the biblical text",
+          "To harmonize parallel passages or clarify theological points",
+          "To add new doctrines",
+          "To remove difficult teachings"
+        ],
+        "correct": 1,
+        "explanation": "Most intentional changes were made with good intentions—to harmonize Gospel accounts, clarify grammar, or make theological points clearer. These changes are identifiable through textual criticism."
+      }
+    ]
+  },
+  "module2": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is external evidence in textual criticism?",
+        "options": [
+          "Archaeological findings about biblical events",
+          "The age, quality, and geographical distribution of manuscripts",
+          "Historical records outside the Bible",
+          "Testimony from church fathers"
+        ],
+        "correct": 1,
+        "explanation": "External evidence refers to evaluating manuscript age, quality, text-type families, and geographical distribution to determine which reading is more likely original."
+      },
+      {
+        "id": 2,
+        "question": "What is internal evidence in textual criticism?",
+        "options": [
+          "Evidence found within the text itself about which reading is more likely original",
+          "Archaeological evidence supporting biblical accuracy",
+          "Historical records from the time period",
+          "Theological doctrines about Scripture"
+        ],
+        "correct": 0,
+        "explanation": "Internal evidence examines the text itself—author's style, vocabulary, context, and which reading best explains the others—to determine originality."
+      },
+      {
+        "id": 3,
+        "question": "What does 'lectio difficilior potior' mean?",
+        "options": [
+          "The longer reading is preferred",
+          "The earlier reading is preferred",
+          "The more difficult reading is preferred",
+          "The smoother reading is preferred"
+        ],
+        "correct": 2,
+        "explanation": "'Lectio difficilior potior' (the more difficult reading is preferred) assumes scribes were more likely to simplify difficult passages than to complicate simple ones."
+      },
+      {
+        "id": 4,
+        "question": "Why might an older manuscript not always be better?",
+        "options": [
+          "Because it might have been copied from a poor-quality earlier copy",
+          "Because newer manuscripts are always more accurate",
+          "Because age doesn't matter in textual criticism",
+          "Because old manuscripts are harder to read"
+        ],
+        "correct": 0,
+        "explanation": "An old manuscript could have been copied from a corrupt earlier manuscript, while a later manuscript might preserve a better textual tradition. Age is important but not the only factor."
+      },
+      {
+        "id": 5,
+        "question": "What is a 'text-type' or 'textual family'?",
+        "options": [
+          "Different Bible translations",
+          "Groups of manuscripts that share similar characteristics and readings",
+          "Various genres of biblical literature",
+          "Different languages the Bible was translated into"
+        ],
+        "correct": 1,
+        "explanation": "Text-types are groups of manuscripts that share distinctive readings and characteristics, indicating they were copied from similar earlier sources."
+      },
+      {
+        "id": 6,
+        "question": "What is the Alexandrian text-type known for?",
+        "options": [
+          "Being the longest and most detailed",
+          "Being shorter and more concise, likely preserving earlier readings",
+          "Being the most widely distributed",
+          "Being the easiest to read"
+        ],
+        "correct": 1,
+        "explanation": "The Alexandrian text-type is generally shorter and more austere, and most scholars believe it best preserves the earliest form of the New Testament text."
+      },
+      {
+        "id": 7,
+        "question": "What is the Byzantine text-type?",
+        "options": [
+          "The oldest manuscript family",
+          "The text-type from Egypt",
+          "The most numerous manuscript tradition, typically longer and smoother",
+          "The text found in the Dead Sea Scrolls"
+        ],
+        "correct": 2,
+        "explanation": "The Byzantine text-type represents the majority of later Greek manuscripts. It tends to be longer and smoother, with harmonized readings."
+      },
+      {
+        "id": 8,
+        "question": "Why do scholars generally prefer shorter readings?",
+        "options": [
+          "Because scribes tended to add explanatory material rather than delete text",
+          "Because shorter is always better",
+          "Because longer readings are always errors",
+          "Because ancient manuscripts were expensive"
+        ],
+        "correct": 0,
+        "explanation": "Scribes were more likely to add clarifications or harmonize passages than to delete sacred text, so shorter readings are often considered more original."
+      },
+      {
+        "id": 9,
+        "question": "What is 'transcriptional probability'?",
+        "options": [
+          "The likelihood a manuscript was accurately translated",
+          "Considering which reading scribes were more likely to create when copying",
+          "The probability a manuscript survived",
+          "The chance of finding new manuscripts"
+        ],
+        "correct": 1,
+        "explanation": "Transcriptional probability asks: 'Which reading best explains the existence of the others?' by considering typical scribal habits and errors."
+      },
+      {
+        "id": 10,
+        "question": "What is intrinsic probability?",
+        "options": [
+          "Evaluating which reading best fits the author's style and theology",
+          "Determining the age of a manuscript",
+          "Calculating how many manuscripts support a reading",
+          "Measuring the importance of a variant"
+        ],
+        "correct": 0,
+        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective throughout their writing."
+      }
+    ]
+  },
+  "module3": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "How many New Testament Greek manuscripts exist today?",
+        "options": [
+          "About 100",
+          "About 1,000",
+          "About 5,800",
+          "About 50,000"
+        ],
+        "correct": 2,
+        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, more than any other ancient document, providing abundant evidence for textual criticism."
+      },
+      {
+        "id": 2,
+        "question": "What is P52 (Papyrus 52)?",
+        "options": [
+          "The oldest known fragment of the New Testament (John 18, c. 125 AD)",
+          "A complete copy of the Gospel of Matthew",
+          "An Old Testament manuscript",
+          "A letter from the Apostle Paul"
+        ],
+        "correct": 0,
+        "explanation": "P52, also called the Rylands Papyrus, contains John 18:31-33, 37-38 and dates to around 125 AD, making it the earliest known New Testament fragment."
+      },
+      {
+        "id": 3,
+        "question": "What are uncials?",
+        "options": [
+          "Ancient scrolls made of leather",
+          "Manuscripts written in all capital letters",
+          "Translations of the Bible",
+          "Stone inscriptions with biblical text"
+        ],
+        "correct": 1,
+        "explanation": "Uncials are manuscripts written in all capital letters (majuscules), typically dating from the 4th-9th centuries AD."
+      },
+      {
+        "id": 4,
+        "question": "What are minuscules?",
+        "options": [
+          "Very small manuscripts",
+          "Manuscripts written in lowercase cursive script",
+          "Abbreviated versions of biblical books",
+          "Miniature decorative Bibles"
+        ],
+        "correct": 1,
+        "explanation": "Minuscules are manuscripts written in lowercase cursive script, which became common from the 9th century onward. They make up the majority of Greek manuscripts."
+      },
+      {
+        "id": 5,
+        "question": "What is Codex Sinaiticus?",
+        "options": [
+          "A Latin Bible from the Middle Ages",
+          "One of the oldest complete Bibles in Greek (4th century)",
+          "The original Hebrew Old Testament",
+          "A collection of Paul's letters"
+        ],
+        "correct": 1,
+        "explanation": "Codex Sinaiticus is a 4th-century manuscript containing one of the oldest complete copies of the New Testament and portions of the Old Testament in Greek."
+      },
+      {
+        "id": 6,
+        "question": "What is Codex Vaticanus?",
+        "options": [
+          "A manuscript owned by the Vatican, one of the oldest complete Bibles (4th century)",
+          "The official Bible of the Catholic Church",
+          "A medieval illuminated manuscript",
+          "The Latin Vulgate"
+        ],
+        "correct": 0,
+        "explanation": "Codex Vaticanus is a 4th-century Greek manuscript housed in the Vatican Library, considered one of the most valuable biblical manuscripts for textual criticism."
+      },
+      {
+        "id": 7,
+        "question": "What is Codex Alexandrinus?",
+        "options": [
+          "A 5th-century Greek Bible manuscript from Alexandria",
+          "A Hebrew Old Testament from Egypt",
+          "A collection of church father writings",
+          "An Arabic Bible translation"
+        ],
+        "correct": 0,
+        "explanation": "Codex Alexandrinus is a 5th-century manuscript containing most of the Greek Bible, representing a mixed text-type tradition."
+      },
+      {
+        "id": 8,
+        "question": "What are the 'versions' in textual criticism?",
+        "options": [
+          "Different editions of modern Bibles",
+          "Ancient translations of the Bible into languages like Latin, Syriac, and Coptic",
+          "Various interpretations of Scripture",
+          "Different manuscript text-types"
+        ],
+        "correct": 1,
+        "explanation": "Versions are ancient translations of the Bible into other languages (Latin, Syriac, Coptic, etc.). They provide important witness to the underlying Greek and Hebrew texts."
+      },
+      {
+        "id": 9,
+        "question": "What is the Latin Vulgate?",
+        "options": [
+          "Jerome's 4th-century Latin translation, the most influential Western version",
+          "The common language Bible of the Middle Ages",
+          "A Greek manuscript family",
+          "The first printed Bible"
+        ],
+        "correct": 0,
+        "explanation": "The Latin Vulgate, translated by Jerome in the late 4th century, became the standard Bible of Western Christianity for over 1,000 years."
+      },
+      {
+        "id": 10,
+        "question": "What are lectionaries?",
+        "options": [
+          "Books about how to read the Bible",
+          "Manuscripts containing Scripture readings arranged for church services",
+          "Bible study guides",
+          "Alphabetical Bible concordances"
+        ],
+        "correct": 1,
+        "explanation": "Lectionaries are manuscripts organized with Scripture passages for reading in church services throughout the year. They number over 2,000 and provide textual evidence."
+      }
+    ]
+  },
+  "module4": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is a textual variant?",
+        "options": [
+          "A different interpretation of a verse",
+          "A place where manuscripts differ in their wording",
+          "A translation difference between versions",
+          "An error in printing modern Bibles"
+        ],
+        "correct": 1,
+        "explanation": "A textual variant is any place where the wording differs among manuscript copies, whether due to intentional changes or copying errors."
+      },
+      {
+        "id": 2,
+        "question": "What are the four main categories of textual variants?",
+        "options": [
+          "Addition, deletion, substitution, transposition",
+          "Spelling, grammar, meaning, doctrine",
+          "Greek, Hebrew, Latin, English",
+          "Ancient, medieval, modern, contemporary"
+        ],
+        "correct": 0,
+        "explanation": "Textual variants can be classified as additions (text added), deletions (text removed), substitutions (words changed), or transpositions (word order changed)."
+      },
+      {
+        "id": 3,
+        "question": "What is an 'unintentional' variant?",
+        "options": [
+          "A variant that doesn't affect meaning",
+          "A copying error made by accident (spelling, skipped lines, etc.)",
+          "A variant in an unimportant manuscript",
+          "A variant scholars ignore"
+        ],
+        "correct": 1,
+        "explanation": "Unintentional variants are scribal errors made accidentally—misreading letters, skipping lines, spelling mistakes, or hearing errors in dictation."
+      },
+      {
+        "id": 4,
+        "question": "What is 'homoioteleuton'?",
+        "options": [
+          "When two words sound alike",
+          "When a scribe's eye skips from one word ending to a similar ending, omitting text",
+          "When text is repeated twice",
+          "When word order is changed"
+        ],
+        "correct": 1,
+        "explanation": "Homoioteleuton ('similar ending') occurs when a scribe's eye jumps from one word or line ending to a similar one, accidentally skipping the text between them."
+      },
+      {
+        "id": 5,
+        "question": "What is 'dittography'?",
+        "options": [
+          "Writing with two different hands",
+          "Accidentally repeating text",
+          "Omitting necessary text",
+          "Changing word order"
+        ],
+        "correct": 1,
+        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying."
+      },
+      {
+        "id": 6,
+        "question": "What is 'harmonization' in textual criticism?",
+        "options": [
+          "Making Scripture passages agree with church teaching",
+          "Changing one passage to match a similar passage elsewhere",
+          "Creating musical settings for biblical texts",
+          "Finding agreement between science and Scripture"
+        ],
+        "correct": 1,
+        "explanation": "Harmonization is when scribes changed wording in one passage to match a parallel passage (especially in the Gospels), creating conformity between similar accounts."
+      },
+      {
+        "id": 7,
+        "question": "Why might a scribe intentionally change 'problematic' wording?",
+        "options": [
+          "To corrupt Scripture",
+          "To clarify apparent contradictions or difficult grammar",
+          "To insert new doctrines",
+          "To make the text shorter"
+        ],
+        "correct": 1,
+        "explanation": "Scribes sometimes 'improved' grammar, clarified confusing statements, or resolved apparent contradictions—not to corrupt, but to make the text clearer for readers."
+      },
+      {
+        "id": 8,
+        "question": "What is a 'theologically motivated' variant?",
+        "options": [
+          "Any variant that mentions God",
+          "A change made to support or clarify a theological point",
+          "A variant found only in church manuscripts",
+          "An error in translating theology"
+        ],
+        "correct": 1,
+        "explanation": "Theologically motivated variants occur when scribes altered wording to clarify or emphasize theological points they considered important, often to combat heresies."
+      },
+      {
+        "id": 9,
+        "question": "What does it mean if a variant is 'insignificant'?",
+        "options": [
+          "It doesn't affect the meaning of the passage",
+          "It appears in unimportant manuscripts",
+          "It's found in the Old Testament",
+          "Modern scholars don't study it"
+        ],
+        "correct": 0,
+        "explanation": "Most variants are insignificant—spelling differences, word order changes, or synonyms that don't change the passage's meaning or theological significance."
+      },
+      {
+        "id": 10,
+        "question": "What is the 'longer ending of Mark' (Mark 16:9-20)?",
+        "options": [
+          "A passage found in all manuscripts",
+          "A disputed passage absent from the earliest manuscripts",
+          "The original ending written by Mark",
+          "A medieval addition to explain Mark's Gospel"
+        ],
+        "correct": 1,
+        "explanation": "Mark 16:9-20 is absent from the earliest and most reliable manuscripts, leading most scholars to conclude it was added later, though it's included in most Bible translations with a note."
+      }
+    ]
+  },
+  "module5": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "How should Christians view textual variants?",
+        "options": [
+          "As proof the Bible is unreliable",
+          "As evidence of careful transmission and our ability to reconstruct the original",
+          "As insignificant and ignorable",
+          "As mysteries that can't be solved"
+        ],
+        "correct": 1,
+        "explanation": "The abundance of manuscripts and variants actually helps us reconstruct the original text with great accuracy. No core doctrine is affected by textual uncertainty."
+      },
+      {
+        "id": 2,
+        "question": "What should you do when your Bible has a textual note about a variant?",
+        "options": [
+          "Ignore it as unimportant",
+          "Read the note to understand the textual evidence",
+          "Assume your translation is wrong",
+          "Choose a different Bible version"
+        ],
+        "correct": 1,
+        "explanation": "Bible footnotes about textual variants are valuable information. Reading them helps you understand the evidence and see scholarly transparency about manuscript differences."
+      },
+      {
+        "id": 3,
+        "question": "In John 7:53-8:11 (the woman caught in adultery), what do manuscripts show?",
+        "options": [
+          "It's in all ancient manuscripts",
+          "It's absent from earliest manuscripts but likely reflects a true event",
+          "It was definitely added by medieval monks",
+          "It contradicts other Gospel accounts"
+        ],
+        "correct": 1,
+        "explanation": "This passage is absent from early Greek manuscripts, but many scholars believe it reflects a genuine tradition about Jesus. Most Bibles include it with a note about its textual history."
+      },
+      {
+        "id": 4,
+        "question": "What is the textual issue with 1 John 5:7-8 (the Johannine Comma)?",
+        "options": [
+          "It appears in all manuscripts equally",
+          "The Trinitarian reference in some translations is absent from Greek manuscripts",
+          "It's found only in the Old Testament",
+          "Modern scholars added this verse"
+        ],
+        "correct": 1,
+        "explanation": "The explicit Trinitarian language in 1 John 5:7 ('the Father, the Word, and the Holy Spirit') is found in late Latin manuscripts but not in Greek manuscripts. The Trinity doctrine is well-supported elsewhere."
+      },
+      {
+        "id": 5,
+        "question": "Why do some Bibles include Mark 16:9-20 in brackets or with a note?",
+        "options": [
+          "To show it's less important",
+          "To indicate textual uncertainty about its originality",
+          "Because it's only in Catholic Bibles",
+          "To mark it as symbolic rather than literal"
+        ],
+        "correct": 1,
+        "explanation": "Brackets or notes indicate that scholars recognize this passage isn't in the earliest manuscripts, giving readers transparency about the textual evidence."
+      },
+      {
+        "id": 6,
+        "question": "How can textual criticism strengthen faith?",
+        "options": [
+          "It proves the Bible has no errors",
+          "It shows the careful preservation of Scripture and scholarly integrity",
+          "It eliminates all questions about the Bible",
+          "It makes Bible study unnecessary"
+        ],
+        "correct": 1,
+        "explanation": "Textual criticism demonstrates the careful transmission of Scripture and the honesty of biblical scholarship, showing we can have confidence in the reliability of the biblical text."
+      },
+      {
+        "id": 7,
+        "question": "What should guide your response to textual variants?",
+        "options": [
+          "Choose whichever reading you prefer",
+          "Trust scholarly consensus while maintaining confidence in Scripture's reliability",
+          "Reject all modern scholarship",
+          "Only use the King James Version"
+        ],
+        "correct": 1,
+        "explanation": "We should appreciate scholarly work in textual criticism while maintaining confidence that no essential doctrine depends on disputed variants."
+      },
+      {
+        "id": 8,
+        "question": "How does understanding textual criticism help with Bible study?",
+        "options": [
+          "It makes you doubt Scripture",
+          "It provides context for translation differences and helps you engage with the text more deeply",
+          "It's only useful for professional scholars",
+          "It replaces the need for prayer and devotion"
+        ],
+        "correct": 1,
+        "explanation": "Understanding textual criticism helps explain why translations differ, deepens appreciation for Scripture's transmission, and encourages thoughtful engagement with God's Word."
+      },
+      {
+        "id": 9,
+        "question": "What is the practical benefit of multiple Bible translations?",
+        "options": [
+          "They show the Bible contradicts itself",
+          "Different translations reflect textual and interpretive decisions, giving fuller understanding",
+          "Only one translation can be correct",
+          "They prove modern Bibles are unreliable"
+        ],
+        "correct": 1,
+        "explanation": "Comparing translations helps you see the range of textual and interpretive possibilities, enriching your understanding of Scripture's meaning."
+      },
+      {
+        "id": 10,
+        "question": "What core Christian doctrine is affected by textual uncertainty?",
+        "options": [
+          "The deity of Christ",
+          "The resurrection",
+          "Salvation by grace through faith",
+          "None—all core doctrines are firmly established"
+        ],
+        "correct": 3,
+        "explanation": "While textual variants exist, they don't affect any essential Christian doctrine. All core beliefs are supported by multiple, well-attested passages."
+      }
+    ]
+  },
+  "module6": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the canon 'lectio difficilior' (the more difficult reading)?",
+        "options": [
+          "Prefer the reading that's harder to understand",
+          "Prefer the reading scribes would be less likely to create intentionally",
+          "Always choose the longest reading",
+          "Trust the oldest manuscript only"
+        ],
+        "correct": 1,
+        "explanation": "This canon assumes scribes were more likely to simplify or clarify difficult passages than to create difficulties, so the harder reading is often original."
+      },
+      {
+        "id": 2,
+        "question": "What is the canon 'lectio brevior' (the shorter reading)?",
+        "options": [
+          "Always prefer the shortest variant",
+          "Scribes tended to add rather than omit, so shorter is often earlier",
+          "Shorter readings are always wrong",
+          "Only applies to Old Testament texts"
+        ],
+        "correct": 1,
+        "explanation": "Scribes were more inclined to add explanatory material than to delete sacred text, so shorter readings are often (but not always) more original."
+      },
+      {
+        "id": 3,
+        "question": "What does the canon 'explain the variants' mean?",
+        "options": [
+          "Provide commentary on every variant",
+          "Choose the reading that best explains how other variants arose",
+          "Ignore variants that can't be explained",
+          "Accept all variants equally"
+        ],
+        "correct": 1,
+        "explanation": "The reading that best accounts for the existence of the other variants (through understandable scribal changes) is likely the original."
+      },
+      {
+        "id": 4,
+        "question": "What is 'external evidence' prioritization?",
+        "options": [
+          "Only consider archaeological findings",
+          "Weight earlier manuscripts and better textual traditions more heavily",
+          "Prefer whichever reading has the most manuscripts",
+          "Focus only on Latin versions"
+        ],
+        "correct": 1,
+        "explanation": "External evidence considers manuscript age, quality, and text-type. Earlier manuscripts and better textual families generally receive more weight."
+      },
+      {
+        "id": 5,
+        "question": "What is the canon of 'authorial style'?",
+        "options": [
+          "Prefer more eloquent readings",
+          "Choose the reading most consistent with the author's vocabulary and style",
+          "Only applies to Paul's letters",
+          "Trust the King James translation"
+        ],
+        "correct": 1,
+        "explanation": "The reading that best fits the author's typical vocabulary, grammar, and theological perspective throughout their writings is likely original."
+      },
+      {
+        "id": 6,
+        "question": "What does 'prefer the reading that fits the context' mean?",
+        "options": [
+          "Choose whatever sounds best",
+          "Select the reading that makes the most sense in the immediate and broader context",
+          "Always harmonize with parallel passages",
+          "Ignore context entirely"
+        ],
+        "correct": 1,
+        "explanation": "The reading that fits best with the surrounding verses and the book's overall message is more likely to be original than one that seems out of place."
+      },
+      {
+        "id": 7,
+        "question": "Why should we 'prefer the reading that doesn't harmonize'?",
+        "options": [
+          "Contradictions prove authenticity",
+          "Scribes often harmonized parallel passages, so disharmony may be original",
+          "The Bible contains intentional contradictions",
+          "Harmonized readings are always wrong"
+        ],
+        "correct": 1,
+        "explanation": "Scribes tended to make parallel passages agree (especially in the Gospels). A reading that differs from a parallel may be more original."
+      },
+      {
+        "id": 8,
+        "question": "What is the principle of 'geographical distribution'?",
+        "options": [
+          "Only use manuscripts from Israel",
+          "A reading found in manuscripts from different regions is likely earlier",
+          "Greek manuscripts are always better than Latin",
+          "Only Western manuscripts are reliable"
+        ],
+        "correct": 1,
+        "explanation": "If a reading appears in manuscripts from diverse geographical areas (Egypt, Syria, Rome, etc.), it likely predates the geographical separation of these texts."
+      },
+      {
+        "id": 9,
+        "question": "What does 'no single canon decides' mean?",
+        "options": [
+          "Textual criticism is unreliable",
+          "Apply multiple canons together, weighing all evidence",
+          "Only one rule matters in textual criticism",
+          "Scholars can never agree"
+        ],
+        "correct": 1,
+        "explanation": "No single rule determines the original reading. Textual critics must weigh multiple canons together, considering external evidence, internal evidence, and scribal tendencies."
+      },
+      {
+        "id": 10,
+        "question": "How should Christians balance textual criticism canons with faith?",
+        "options": [
+          "Ignore scholarship and trust tradition only",
+          "Apply scholarly methods while trusting God's preservation of His Word",
+          "Let textual criticism override Scripture's authority",
+          "Reject all critical methods"
+        ],
+        "correct": 1,
+        "explanation": "Christians can embrace rigorous textual scholarship while maintaining confidence that God has faithfully preserved His Word through the manuscript tradition."
+      }
+    ]
+  },
+  "final-exam": {
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the primary goal of textual criticism?",
+        "options": [
+          "To disprove the Bible's reliability",
+          "To reconstruct the most accurate form of the original biblical text",
+          "To create new Bible translations",
+          "To harmonize all biblical passages"
+        ],
+        "correct": 1,
+        "explanation": "Textual criticism aims to compare manuscript evidence to determine what the original authors most likely wrote."
+      },
+      {
+        "id": 2,
+        "question": "Approximately how many Greek New Testament manuscripts exist?",
+        "options": [
+          "About 100",
+          "About 1,000",
+          "About 5,800",
+          "About 50,000"
+        ],
+        "correct": 2,
+        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, providing abundant evidence for textual comparison."
+      },
+      {
+        "id": 3,
+        "question": "What are Codex Sinaiticus and Codex Vaticanus?",
+        "options": [
+          "Medieval Latin Bibles",
+          "4th-century Greek manuscripts, among the oldest complete Bibles",
+          "The original autographs",
+          "Hebrew Old Testament scrolls"
+        ],
+        "correct": 1,
+        "explanation": "Both are 4th-century Greek manuscripts representing the Alexandrian text-type and are highly valued for textual criticism."
+      },
+      {
+        "id": 4,
+        "question": "What does 'lectio difficilior potior' mean?",
+        "options": [
+          "The longer reading is preferred",
+          "The earlier reading is preferred",
+          "The more difficult reading is preferred",
+          "The smoother reading is preferred"
+        ],
+        "correct": 2,
+        "explanation": "This canon assumes scribes would simplify difficult passages, so the harder reading is more likely original."
+      },
+      {
+        "id": 5,
+        "question": "What is the Alexandrian text-type known for?",
+        "options": [
+          "Being the most numerous manuscript family",
+          "Being shorter and more concise, likely preserving earlier readings",
+          "Being found only in Egypt",
+          "Being the basis for the King James Version"
+        ],
+        "correct": 1,
+        "explanation": "The Alexandrian text is generally shorter, more austere, and most scholars believe it best preserves the earliest text."
+      },
+      {
+        "id": 6,
+        "question": "What is external evidence in textual criticism?",
+        "options": [
+          "Archaeological findings",
+          "The age, quality, and distribution of manuscripts supporting a reading",
+          "Church tradition",
+          "Historical records outside the Bible"
+        ],
+        "correct": 1,
+        "explanation": "External evidence evaluates manuscript characteristics—age, quality, text-type, geographical spread—to determine reliability."
+      },
+      {
+        "id": 7,
+        "question": "What is internal evidence?",
+        "options": [
+          "Evidence within the text itself about which reading is likely original",
+          "Archaeological support for biblical events",
+          "Theological doctrines",
+          "Personal interpretation"
+        ],
+        "correct": 0,
+        "explanation": "Internal evidence examines author's style, context, and which reading best explains the variants to determine originality."
+      },
+      {
+        "id": 8,
+        "question": "What is 'homoioteleuton'?",
+        "options": [
+          "Repeating text accidentally",
+          "Skipping text when the eye jumps between similar word endings",
+          "Changing word order",
+          "Adding explanatory notes"
+        ],
+        "correct": 1,
+        "explanation": "Homoioteleuton occurs when a scribe's eye skips from one ending to a similar one, omitting the text between."
+      },
+      {
+        "id": 9,
+        "question": "What is harmonization in textual criticism?",
+        "options": [
+          "Making science and Scripture agree",
+          "Changing one passage to match a parallel passage",
+          "Creating church unity",
+          "Musical settings of Scripture"
+        ],
+        "correct": 1,
+        "explanation": "Harmonization is when scribes altered wording to make parallel passages (especially in Gospels) conform to each other."
+      },
+      {
+        "id": 10,
+        "question": "What is the significance of P52?",
+        "options": [
+          "The oldest known New Testament fragment (John 18, c. 125 AD)",
+          "A complete Gospel manuscript",
+          "The first printed Greek New Testament",
+          "A Dead Sea Scroll"
+        ],
+        "correct": 0,
+        "explanation": "P52 (Rylands Papyrus) is the earliest known fragment of the New Testament, dating to around 125 AD."
+      },
+      {
+        "id": 11,
+        "question": "Why is the Textus Receptus historically important?",
+        "options": [
+          "It's the oldest Greek manuscript",
+          "It was the basis for the King James Version and early Protestant translations",
+          "It contains books not in other Bibles",
+          "It's the only accurate Greek text"
+        ],
+        "correct": 1,
+        "explanation": "The Textus Receptus was the standard Greek text for Protestant translations for centuries, including the KJV."
+      },
+      {
+        "id": 12,
+        "question": "What percentage of textual variants affect core Christian doctrine?",
+        "options": [
+          "About 50%",
+          "About 25%",
+          "Less than 1%",
+          "Nearly 100%"
+        ],
+        "correct": 2,
+        "explanation": "While variants exist, less than 1% affect meaning significantly, and virtually none affect core doctrines."
+      },
+      {
+        "id": 13,
+        "question": "What are 'versions' in textual criticism?",
+        "options": [
+          "Different modern Bible translations",
+          "Ancient translations into languages like Latin, Syriac, and Coptic",
+          "Manuscript families",
+          "Various interpretations of Scripture"
+        ],
+        "correct": 1,
+        "explanation": "Versions are ancient translations that provide important witness to the underlying Greek and Hebrew texts."
+      },
+      {
+        "id": 14,
+        "question": "What is the Byzantine text-type?",
+        "options": [
+          "The oldest manuscript tradition",
+          "The most numerous tradition, typically longer and smoother",
+          "The text found in Egypt",
+          "The rarest manuscript family"
+        ],
+        "correct": 1,
+        "explanation": "The Byzantine text represents the majority of later Greek manuscripts, characterized by longer, harmonized readings."
+      },
+      {
+        "id": 15,
+        "question": "Why might scribes make intentional changes?",
+        "options": [
+          "To corrupt Scripture",
+          "To harmonize passages, clarify grammar, or emphasize theology",
+          "To add new doctrines",
+          "To shorten the text"
+        ],
+        "correct": 1,
+        "explanation": "Scribes made intentional changes with good intentions—to clarify, harmonize, or emphasize theological points."
+      },
+      {
+        "id": 16,
+        "question": "What is 'transcriptional probability'?",
+        "options": [
+          "The likelihood a manuscript survived",
+          "Considering which reading scribes were more likely to create",
+          "The accuracy of a translation",
+          "The age of a manuscript"
+        ],
+        "correct": 1,
+        "explanation": "Transcriptional probability asks which reading best explains the others based on typical scribal habits."
+      },
+      {
+        "id": 17,
+        "question": "What is 'intrinsic probability'?",
+        "options": [
+          "Evaluating which reading fits the author's style and theology",
+          "Counting manuscript support",
+          "Determining manuscript age",
+          "Archaeological verification"
+        ],
+        "correct": 0,
+        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective."
+      },
+      {
+        "id": 18,
+        "question": "What is the textual status of Mark 16:9-20?",
+        "options": [
+          "Found in all manuscripts",
+          "Absent from earliest manuscripts, likely added later",
+          "The original ending Mark wrote",
+          "Only in Latin Bibles"
+        ],
+        "correct": 1,
+        "explanation": "Mark 16:9-20 is absent from the earliest manuscripts, leading scholars to conclude it was a later addition."
+      },
+      {
+        "id": 19,
+        "question": "What is the textual issue with John 7:53-8:11 (woman caught in adultery)?",
+        "options": [
+          "It's in all manuscripts",
+          "It's absent from earliest manuscripts but likely reflects a true tradition",
+          "It contradicts other Gospels",
+          "It was invented in the Middle Ages"
+        ],
+        "correct": 1,
+        "explanation": "This passage lacks early manuscript support but is widely considered to reflect an authentic tradition about Jesus."
+      },
+      {
+        "id": 20,
+        "question": "What is the Johannine Comma (1 John 5:7-8)?",
+        "options": [
+          "A punctuation mark",
+          "An explicit Trinitarian reference found in late Latin but not Greek manuscripts",
+          "A scribal error",
+          "The original reading in all manuscripts"
+        ],
+        "correct": 1,
+        "explanation": "The explicit Trinitarian language appears in late Latin manuscripts but not in Greek manuscripts, though the Trinity is well-supported elsewhere."
+      },
+      {
+        "id": 21,
+        "question": "How should Christians view textual criticism?",
+        "options": [
+          "As a threat to faith",
+          "As evidence of careful transmission and scholarly integrity",
+          "As unnecessary for faith",
+          "As proof the Bible is unreliable"
+        ],
+        "correct": 1,
+        "explanation": "Textual criticism demonstrates careful preservation and allows us to reconstruct the original with great confidence."
+      },
+      {
+        "id": 22,
+        "question": "What does 'prefer the reading that doesn't harmonize' mean?",
+        "options": [
+          "Contradictions are always original",
+          "Scribes harmonized passages, so disharmony may be earlier",
+          "Never harmonize parallel texts",
+          "Ignore Gospel parallels"
+        ],
+        "correct": 1,
+        "explanation": "Since scribes tended to harmonize parallel accounts, a reading that differs from parallels may be more original."
+      },
+      {
+        "id": 23,
+        "question": "What is the canon of 'geographical distribution'?",
+        "options": [
+          "Only use manuscripts from one region",
+          "Readings in manuscripts from diverse regions likely predate their separation",
+          "Greek manuscripts are better than others",
+          "Western texts are most reliable"
+        ],
+        "correct": 1,
+        "explanation": "A reading found across different geographical areas likely predates the spread of texts to those regions."
+      },
+      {
+        "id": 24,
+        "question": "What are uncials?",
+        "options": [
+          "Ancient leather scrolls",
+          "Manuscripts written in all capital letters (4th-9th centuries)",
+          "Bible translations",
+          "Stone inscriptions"
+        ],
+        "correct": 1,
+        "explanation": "Uncials are manuscripts written in all capital letters, dating primarily from the 4th-9th centuries."
+      },
+      {
+        "id": 25,
+        "question": "What are minuscules?",
+        "options": [
+          "Small manuscripts",
+          "Manuscripts in lowercase cursive script (9th century onward)",
+          "Abbreviated texts",
+          "Decorative Bibles"
+        ],
+        "correct": 1,
+        "explanation": "Minuscules use lowercase cursive script and became common from the 9th century, comprising the majority of manuscripts."
+      },
+      {
+        "id": 26,
+        "question": "What is 'dittography'?",
+        "options": [
+          "Writing with two hands",
+          "Accidentally repeating text",
+          "Omitting text",
+          "Changing word order"
+        ],
+        "correct": 1,
+        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying."
+      },
+      {
+        "id": 27,
+        "question": "Why are shorter readings often preferred?",
+        "options": [
+          "Because shorter is always better",
+          "Because scribes tended to add explanatory material rather than delete",
+          "Because longer readings are always errors",
+          "Because manuscripts were expensive"
+        ],
+        "correct": 1,
+        "explanation": "Scribes were more likely to add clarifications than to delete sacred text, making shorter readings often more original."
+      },
+      {
+        "id": 28,
+        "question": "What is the Latin Vulgate?",
+        "options": [
+          "A Greek manuscript",
+          "Jerome's 4th-century Latin translation that became Western Christianity's standard",
+          "The first English Bible",
+          "A manuscript family"
+        ],
+        "correct": 1,
+        "explanation": "Jerome's Latin Vulgate (late 4th century) became the standard Bible of Western Christianity for over 1,000 years."
+      },
+      {
+        "id": 29,
+        "question": "How does textual criticism strengthen faith?",
+        "options": [
+          "It proves the Bible has no variants",
+          "It demonstrates careful preservation and scholarly honesty",
+          "It eliminates all questions",
+          "It makes Bible study unnecessary"
+        ],
+        "correct": 1,
+        "explanation": "Textual criticism shows the careful transmission of Scripture and gives confidence in the Bible's reliability."
+      },
+      {
+        "id": 30,
+        "question": "What principle should guide applying textual criticism canons?",
+        "options": [
+          "Use only one canon at a time",
+          "Weigh multiple canons together, considering all evidence",
+          "Ignore canons and trust tradition",
+          "Always follow the majority reading"
+        ],
+        "correct": 1,
+        "explanation": "No single canon decides the issue. Textual critics must weigh multiple principles together, considering all external and internal evidence."
+      }
+    ]
+  }
+}

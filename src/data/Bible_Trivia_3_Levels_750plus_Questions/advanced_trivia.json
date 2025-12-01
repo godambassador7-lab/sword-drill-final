@@ -1,0 +1,2394 @@
+[
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied about the suffering servant who would bear the sins of many?",
+    "choices": [
+      "Jesus",
+      "Paul",
+      "Isaiah",
+      "Joel"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many. (True/False)",
+    "answer": "True",
+    "reference": "Isaiah 52–53"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Isaiah prophesied about the suffering servant who would bear the sins of many primarily recorded?",
+    "choices": [
+      "Zephaniah",
+      "Jeremiah",
+      "Isaiah",
+      "Lamentations"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Isaiah 52–53"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a new covenant written on the heart?",
+    "choices": [
+      "Jeremiah",
+      "Ezekiel",
+      "Jesus",
+      "Jesus"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart. (True/False)",
+    "answer": "True",
+    "reference": "Jeremiah 31:31–34"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jeremiah spoke of a new covenant written on the heart primarily recorded?",
+    "choices": [
+      "Job",
+      "1 Timothy",
+      "1 Peter",
+      "Jeremiah"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Jeremiah 31:31–34"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a valley of dry bones that came to life?",
+    "choices": [
+      "Jesus",
+      "James",
+      "Ezekiel",
+      "Paul"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life. (True/False)",
+    "answer": "True",
+    "reference": "Ezekiel 37"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Ezekiel saw a valley of dry bones that came to life primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "2 Peter",
+      "Mark",
+      "Zephaniah"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Ezekiel 37"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw four beasts representing kingdoms?",
+    "choices": [
+      "Daniel",
+      "Paul",
+      "John",
+      "Peter"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms. (True/False)",
+    "answer": "True",
+    "reference": "Daniel 7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Daniel saw four beasts representing kingdoms primarily recorded?",
+    "choices": [
+      "Philemon",
+      "1 Thessalonians",
+      "Daniel",
+      "Joshua"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Daniel 7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of God's Spirit being poured out on all flesh?",
+    "choices": [
+      "Paul",
+      "Jesus",
+      "Joel",
+      "Paul"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh. (True/False)",
+    "answer": "True",
+    "reference": "Joel 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Joel spoke of God's Spirit being poured out on all flesh primarily recorded?",
+    "choices": [
+      "Song of Solomon",
+      "Joel",
+      "Galatians",
+      "John"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Joel 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who warned of judgment but promised restoration?",
+    "choices": [
+      "Jesus",
+      "Zechariah",
+      "Jeremiah",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration. (True/False)",
+    "answer": "True",
+    "reference": "Amos 9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Amos warned of judgment but promised restoration primarily recorded?",
+    "choices": [
+      "Malachi",
+      "Colossians",
+      "Joel",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Amos 9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied a ruler coming from Bethlehem?",
+    "choices": [
+      "Jesus",
+      "Micah",
+      "Daniel",
+      "Jeremiah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem. (True/False)",
+    "answer": "True",
+    "reference": "Micah 5:2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Micah prophesied a ruler coming from Bethlehem primarily recorded?",
+    "choices": [
+      "3 John",
+      "Micah",
+      "Job",
+      "Jonah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Micah 5:2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a king riding on a donkey?",
+    "choices": [
+      "Jesus",
+      "Jesus",
+      "James",
+      "Zechariah"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey. (True/False)",
+    "answer": "True",
+    "reference": "Zechariah 9:9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Zechariah spoke of a king riding on a donkey primarily recorded?",
+    "choices": [
+      "Mark",
+      "Daniel",
+      "Zechariah",
+      "Titus"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Zechariah 9:9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of Elijah coming before the day of the Lord?",
+    "choices": [
+      "Jesus",
+      "Joel",
+      "Malachi",
+      "Amos"
+    ],
+    "answer": "Malachi",
+    "reference": "Malachi 4"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi spoke of Elijah coming before the day of the Lord. (True/False)",
+    "answer": "True",
+    "reference": "Malachi 4"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Malachi spoke of Elijah coming before the day of the Lord primarily recorded?",
+    "choices": [
+      "Malachi",
+      "Judges",
+      "James",
+      "Leviticus"
+    ],
+    "answer": "Malachi",
+    "reference": "Malachi 4"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi spoke of Elijah coming before the day of the Lord in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Malachi 4"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that salvation is by grace through faith?",
+    "choices": [
+      "Jesus",
+      "Jesus",
+      "Ezekiel",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "Ephesians 2:8–9"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul taught that salvation is by grace through faith. (True/False)",
+    "answer": "True",
+    "reference": "Ephesians 2:8–9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul taught that salvation is by grace through faith primarily recorded?",
+    "choices": [
+      "Ephesians",
+      "Mark",
+      "1 Thessalonians",
+      "Esther"
+    ],
+    "answer": "Ephesians",
+    "reference": "Ephesians 2:8–9"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul taught that salvation is by grace through faith in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Ephesians 2:8–9"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that faith without works is dead?",
+    "choices": [
+      "The author of Hebrews",
+      "Micah",
+      "Daniel",
+      "James"
+    ],
+    "answer": "James",
+    "reference": "James 2"
+  },
+  {
+    "type": "true_false",
+    "question": "James taught that faith without works is dead. (True/False)",
+    "answer": "True",
+    "reference": "James 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where James taught that faith without works is dead primarily recorded?",
+    "choices": [
+      "1 Samuel",
+      "Mark",
+      "Philippians",
+      "James"
+    ],
+    "answer": "James",
+    "reference": "James 2"
+  },
+  {
+    "type": "true_false",
+    "question": "James taught that faith without works is dead in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "James 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that believers are a royal priesthood?",
+    "choices": [
+      "Jeremiah",
+      "Jesus",
+      "Joel",
+      "Peter"
+    ],
+    "answer": "Peter",
+    "reference": "1 Peter 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter taught that believers are a royal priesthood. (True/False)",
+    "answer": "True",
+    "reference": "1 Peter 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Peter taught that believers are a royal priesthood primarily recorded?",
+    "choices": [
+      "Titus",
+      "1 Peter",
+      "Hosea",
+      "Ephesians"
+    ],
+    "answer": "1 Peter",
+    "reference": "1 Peter 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter taught that believers are a royal priesthood in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Peter 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a new heaven and a new earth?",
+    "choices": [
+      "Malachi",
+      "John",
+      "Amos",
+      "Jeremiah"
+    ],
+    "answer": "John",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a new heaven and a new earth. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where John saw a new heaven and a new earth primarily recorded?",
+    "choices": [
+      "Psalms",
+      "Revelation",
+      "Zephaniah",
+      "Ezra"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a new heaven and a new earth in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught the greatest commandments to love God and neighbor?",
+    "choices": [
+      "James",
+      "Jesus",
+      "Daniel",
+      "Paul"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 22"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught the greatest commandments to love God and neighbor. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 22"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus taught the greatest commandments to love God and neighbor primarily recorded?",
+    "choices": [
+      "1 Peter",
+      "Matthew",
+      "1 Chronicles",
+      "Song of Solomon"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 22"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught the greatest commandments to love God and neighbor in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 22"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who described Himself as the Good Shepherd?",
+    "choices": [
+      "Peter",
+      "Paul",
+      "Jesus",
+      "John"
+    ],
+    "answer": "Jesus",
+    "reference": "John 10"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus described Himself as the Good Shepherd. (True/False)",
+    "answer": "True",
+    "reference": "John 10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus described Himself as the Good Shepherd primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "Ephesians",
+      "John",
+      "1 Thessalonians"
+    ],
+    "answer": "John",
+    "reference": "John 10"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus described Himself as the Good Shepherd in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "John 10"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who predicted the destruction of the temple?",
+    "choices": [
+      "Zechariah",
+      "James",
+      "Malachi",
+      "Jesus"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 24"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus predicted the destruction of the temple. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 24"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus predicted the destruction of the temple primarily recorded?",
+    "choices": [
+      "Matthew",
+      "1 John",
+      "Acts",
+      "Nehemiah"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 24"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus predicted the destruction of the temple in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 24"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that no one knows the day or hour of His return?",
+    "choices": [
+      "Peter",
+      "Jesus",
+      "John",
+      "John"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 24:36"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught that no one knows the day or hour of His return. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 24:36"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus taught that no one knows the day or hour of His return primarily recorded?",
+    "choices": [
+      "Matthew",
+      "Joshua",
+      "Ruth",
+      "1 Kings"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 24:36"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught that no one knows the day or hour of His return in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 24:36"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who described the fruit of the Spirit?",
+    "choices": [
+      "James",
+      "John",
+      "Jesus",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "Galatians 5"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul described the fruit of the Spirit. (True/False)",
+    "answer": "True",
+    "reference": "Galatians 5"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul described the fruit of the Spirit primarily recorded?",
+    "choices": [
+      "Isaiah",
+      "Philemon",
+      "Nahum",
+      "Galatians"
+    ],
+    "answer": "Galatians",
+    "reference": "Galatians 5"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul described the fruit of the Spirit in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Galatians 5"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the resurrection body and victory over death?",
+    "choices": [
+      "Jeremiah",
+      "Paul",
+      "Malachi",
+      "Joel"
+    ],
+    "answer": "Paul",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the resurrection body and victory over death. (True/False)",
+    "answer": "True",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul spoke of the resurrection body and victory over death primarily recorded?",
+    "choices": [
+      "1 Peter",
+      "1 Corinthians",
+      "Joshua",
+      "2 Peter"
+    ],
+    "answer": "1 Corinthians",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the resurrection body and victory over death in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who explained Jesus as high priest in the order of Melchizedek?",
+    "choices": [
+      "Daniel",
+      "The author of Hebrews",
+      "John",
+      "Peter"
+    ],
+    "answer": "The author of Hebrews",
+    "reference": "Hebrews 7"
+  },
+  {
+    "type": "true_false",
+    "question": "The author of Hebrews explained Jesus as high priest in the order of Melchizedek. (True/False)",
+    "answer": "True",
+    "reference": "Hebrews 7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where The author of Hebrews explained Jesus as high priest in the order of Melchizedek primarily recorded?",
+    "choices": [
+      "Hebrews",
+      "2 Samuel",
+      "Isaiah",
+      "Judges"
+    ],
+    "answer": "Hebrews",
+    "reference": "Hebrews 7"
+  },
+  {
+    "type": "true_false",
+    "question": "The author of Hebrews explained Jesus as high priest in the order of Melchizedek in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Hebrews 7"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who gave messages to seven churches in Asia Minor?",
+    "choices": [
+      "John",
+      "Amos",
+      "Peter",
+      "Jesus"
+    ],
+    "answer": "Jesus",
+    "reference": "Revelation 2–3"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus gave messages to seven churches in Asia Minor. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 2–3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus gave messages to seven churches in Asia Minor primarily recorded?",
+    "choices": [
+      "Mark",
+      "1 Thessalonians",
+      "Jeremiah",
+      "Revelation"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 2–3"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus gave messages to seven churches in Asia Minor in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 2–3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a great white throne judgment?",
+    "choices": [
+      "John",
+      "James",
+      "Amos",
+      "The author of Hebrews"
+    ],
+    "answer": "John",
+    "reference": "Revelation 20"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a great white throne judgment. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where John saw a great white throne judgment primarily recorded?",
+    "choices": [
+      "Revelation",
+      "Acts",
+      "Haggai",
+      "Hebrews"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 20"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a great white throne judgment in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 20"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of separating the sheep from the goats?",
+    "choices": [
+      "Jesus",
+      "Jeremiah",
+      "Isaiah",
+      "Micah"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 25"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus spoke of separating the sheep from the goats. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 25"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus spoke of separating the sheep from the goats primarily recorded?",
+    "choices": [
+      "Matthew",
+      "2 Peter",
+      "Philemon",
+      "1 Peter"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 25"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus spoke of separating the sheep from the goats in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 25"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the heavens passing away with a roar?",
+    "choices": [
+      "Jesus",
+      "Peter",
+      "John",
+      "Paul"
+    ],
+    "answer": "Peter",
+    "reference": "2 Peter 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter spoke of the heavens passing away with a roar. (True/False)",
+    "answer": "True",
+    "reference": "2 Peter 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Peter spoke of the heavens passing away with a roar primarily recorded?",
+    "choices": [
+      "2 Peter",
+      "Proverbs",
+      "1 Chronicles",
+      "1 Timothy"
+    ],
+    "answer": "2 Peter",
+    "reference": "2 Peter 3"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter spoke of the heavens passing away with a roar in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Peter 3"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the man of lawlessness?",
+    "choices": [
+      "Jesus",
+      "Ezekiel",
+      "Jesus",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "2 Thessalonians 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the man of lawlessness. (True/False)",
+    "answer": "True",
+    "reference": "2 Thessalonians 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul spoke of the man of lawlessness primarily recorded?",
+    "choices": [
+      "James",
+      "Joshua",
+      "2 Thessalonians",
+      "1 Kings"
+    ],
+    "answer": "2 Thessalonians",
+    "reference": "2 Thessalonians 2"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the man of lawlessness in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Thessalonians 2"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Which chapter in 1 Corinthians contains Paul's teaching on the resurrection of the dead?",
+    "choices": [
+      "1 Corinthians 15",
+      "1 Corinthians 10",
+      "1 Corinthians 13",
+      "1 Corinthians 5"
+    ],
+    "answer": "1 Corinthians 15",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'Which chapter in 1 Corinthians contains Paul's teaching on the resurrection of the dead?' is '1 Corinthians 15'. (True/False)",
+    "answer": "True",
+    "reference": "1 Corinthians 15"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In Romans, Paul says the gospel is the power of God for salvation to whom?",
+    "choices": [
+      "To the Jews only",
+      "To everyone who believes",
+      "To the Gentiles only",
+      "To the righteous only"
+    ],
+    "answer": "To everyone who believes",
+    "reference": "Romans 1:16"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In Romans, Paul says the gospel is the power of God for salvation to whom?' is 'To everyone who believes'. (True/False)",
+    "answer": "True",
+    "reference": "Romans 1:16"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In Revelation, what is the New Jerusalem described as?",
+    "choices": [
+      "A pillar of cloud",
+      "A mountain of fire",
+      "A golden city coming down out of heaven",
+      "A sea of glass"
+    ],
+    "answer": "A golden city coming down out of heaven",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In Revelation, what is the New Jerusalem described as?' is 'A golden city coming down out of heaven'. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 21"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "According to Jesus, who will inherit the earth?",
+    "choices": [
+      "The rich",
+      "The meek",
+      "The strong",
+      "The wise"
+    ],
+    "answer": "The meek",
+    "reference": "Matthew 5:5"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'According to Jesus, who will inherit the earth?' is 'The meek'. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 5:5"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied about the suffering servant who would bear the sins of many?",
+    "choices": [
+      "Jesus",
+      "Paul",
+      "Isaiah",
+      "Joel"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many. (True/False)",
+    "answer": "True",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Isaiah prophesied about the suffering servant who would bear the sins of many primarily recorded?",
+    "choices": [
+      "Zephaniah",
+      "Jeremiah",
+      "Isaiah",
+      "Lamentations"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a new covenant written on the heart?",
+    "choices": [
+      "Jeremiah",
+      "Ezekiel",
+      "Jesus",
+      "Jesus"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart. (True/False)",
+    "answer": "True",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jeremiah spoke of a new covenant written on the heart primarily recorded?",
+    "choices": [
+      "Job",
+      "1 Timothy",
+      "1 Peter",
+      "Jeremiah"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a valley of dry bones that came to life?",
+    "choices": [
+      "Jesus",
+      "James",
+      "Ezekiel",
+      "Paul"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life. (True/False)",
+    "answer": "True",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Ezekiel saw a valley of dry bones that came to life primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "2 Peter",
+      "Mark",
+      "Zephaniah"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw four beasts representing kingdoms?",
+    "choices": [
+      "Daniel",
+      "Paul",
+      "John",
+      "Peter"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms. (True/False)",
+    "answer": "True",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Daniel saw four beasts representing kingdoms primarily recorded?",
+    "choices": [
+      "Philemon",
+      "1 Thessalonians",
+      "Daniel",
+      "Joshua"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of God's Spirit being poured out on all flesh?",
+    "choices": [
+      "Paul",
+      "Jesus",
+      "Joel",
+      "Paul"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh. (True/False)",
+    "answer": "True",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Joel spoke of God's Spirit being poured out on all flesh primarily recorded?",
+    "choices": [
+      "Song of Solomon",
+      "Joel",
+      "Galatians",
+      "John"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who warned of judgment but promised restoration?",
+    "choices": [
+      "Jesus",
+      "Zechariah",
+      "Jeremiah",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration. (True/False)",
+    "answer": "True",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Amos warned of judgment but promised restoration primarily recorded?",
+    "choices": [
+      "Malachi",
+      "Colossians",
+      "Joel",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied a ruler coming from Bethlehem?",
+    "choices": [
+      "Jesus",
+      "Micah",
+      "Daniel",
+      "Jeremiah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem. (True/False)",
+    "answer": "True",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Micah prophesied a ruler coming from Bethlehem primarily recorded?",
+    "choices": [
+      "3 John",
+      "Micah",
+      "Job",
+      "Jonah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a king riding on a donkey?",
+    "choices": [
+      "Jesus",
+      "Jesus",
+      "James",
+      "Zechariah"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey. (True/False)",
+    "answer": "True",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Zechariah spoke of a king riding on a donkey primarily recorded?",
+    "choices": [
+      "Mark",
+      "Daniel",
+      "Zechariah",
+      "Titus"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of Elijah coming before the day of the Lord?",
+    "choices": [
+      "Jesus",
+      "Joel",
+      "Malachi",
+      "Amos"
+    ],
+    "answer": "Malachi",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi spoke of Elijah coming before the day of the Lord. (True/False)",
+    "answer": "True",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Malachi spoke of Elijah coming before the day of the Lord primarily recorded?",
+    "choices": [
+      "Malachi",
+      "Judges",
+      "James",
+      "Leviticus"
+    ],
+    "answer": "Malachi",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi spoke of Elijah coming before the day of the Lord in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that salvation is by grace through faith?",
+    "choices": [
+      "Jesus",
+      "Jesus",
+      "Ezekiel",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "Ephesians 2:8–9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul taught that salvation is by grace through faith. (True/False)",
+    "answer": "True",
+    "reference": "Ephesians 2:8–9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul taught that salvation is by grace through faith primarily recorded?",
+    "choices": [
+      "Ephesians",
+      "Mark",
+      "1 Thessalonians",
+      "Esther"
+    ],
+    "answer": "Ephesians",
+    "reference": "Ephesians 2:8–9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul taught that salvation is by grace through faith in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Ephesians 2:8–9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that faith without works is dead?",
+    "choices": [
+      "The author of Hebrews",
+      "Micah",
+      "Daniel",
+      "James"
+    ],
+    "answer": "James",
+    "reference": "James 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "James taught that faith without works is dead. (True/False)",
+    "answer": "True",
+    "reference": "James 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where James taught that faith without works is dead primarily recorded?",
+    "choices": [
+      "1 Samuel",
+      "Mark",
+      "Philippians",
+      "James"
+    ],
+    "answer": "James",
+    "reference": "James 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "James taught that faith without works is dead in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "James 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that believers are a royal priesthood?",
+    "choices": [
+      "Jeremiah",
+      "Jesus",
+      "Joel",
+      "Peter"
+    ],
+    "answer": "Peter",
+    "reference": "1 Peter 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter taught that believers are a royal priesthood. (True/False)",
+    "answer": "True",
+    "reference": "1 Peter 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Peter taught that believers are a royal priesthood primarily recorded?",
+    "choices": [
+      "Titus",
+      "1 Peter",
+      "Hosea",
+      "Ephesians"
+    ],
+    "answer": "1 Peter",
+    "reference": "1 Peter 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter taught that believers are a royal priesthood in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Peter 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a new heaven and a new earth?",
+    "choices": [
+      "Malachi",
+      "John",
+      "Amos",
+      "Jeremiah"
+    ],
+    "answer": "John",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a new heaven and a new earth. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where John saw a new heaven and a new earth primarily recorded?",
+    "choices": [
+      "Psalms",
+      "Revelation",
+      "Zephaniah",
+      "Ezra"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a new heaven and a new earth in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught the greatest commandments to love God and neighbor?",
+    "choices": [
+      "James",
+      "Jesus",
+      "Daniel",
+      "Paul"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 22",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught the greatest commandments to love God and neighbor. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 22",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus taught the greatest commandments to love God and neighbor primarily recorded?",
+    "choices": [
+      "1 Peter",
+      "Matthew",
+      "1 Chronicles",
+      "Song of Solomon"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 22",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught the greatest commandments to love God and neighbor in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 22",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who described Himself as the Good Shepherd?",
+    "choices": [
+      "Peter",
+      "Paul",
+      "Jesus",
+      "John"
+    ],
+    "answer": "Jesus",
+    "reference": "John 10",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus described Himself as the Good Shepherd. (True/False)",
+    "answer": "True",
+    "reference": "John 10",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus described Himself as the Good Shepherd primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "Ephesians",
+      "John",
+      "1 Thessalonians"
+    ],
+    "answer": "John",
+    "reference": "John 10",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus described Himself as the Good Shepherd in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "John 10",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who predicted the destruction of the temple?",
+    "choices": [
+      "Zechariah",
+      "James",
+      "Malachi",
+      "Jesus"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 24",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus predicted the destruction of the temple. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 24",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus predicted the destruction of the temple primarily recorded?",
+    "choices": [
+      "Matthew",
+      "1 John",
+      "Acts",
+      "Nehemiah"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 24",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus predicted the destruction of the temple in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 24",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who taught that no one knows the day or hour of His return?",
+    "choices": [
+      "Peter",
+      "Jesus",
+      "John",
+      "John"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 24:36",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught that no one knows the day or hour of His return. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 24:36",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus taught that no one knows the day or hour of His return primarily recorded?",
+    "choices": [
+      "Matthew",
+      "Joshua",
+      "Ruth",
+      "1 Kings"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 24:36",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus taught that no one knows the day or hour of His return in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 24:36",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who described the fruit of the Spirit?",
+    "choices": [
+      "James",
+      "John",
+      "Jesus",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "Galatians 5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul described the fruit of the Spirit. (True/False)",
+    "answer": "True",
+    "reference": "Galatians 5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul described the fruit of the Spirit primarily recorded?",
+    "choices": [
+      "Isaiah",
+      "Philemon",
+      "Nahum",
+      "Galatians"
+    ],
+    "answer": "Galatians",
+    "reference": "Galatians 5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul described the fruit of the Spirit in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Galatians 5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the resurrection body and victory over death?",
+    "choices": [
+      "Jeremiah",
+      "Paul",
+      "Malachi",
+      "Joel"
+    ],
+    "answer": "Paul",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the resurrection body and victory over death. (True/False)",
+    "answer": "True",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul spoke of the resurrection body and victory over death primarily recorded?",
+    "choices": [
+      "1 Peter",
+      "1 Corinthians",
+      "Joshua",
+      "2 Peter"
+    ],
+    "answer": "1 Corinthians",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the resurrection body and victory over death in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who explained Jesus as high priest in the order of Melchizedek?",
+    "choices": [
+      "Daniel",
+      "The author of Hebrews",
+      "John",
+      "Peter"
+    ],
+    "answer": "The author of Hebrews",
+    "reference": "Hebrews 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The author of Hebrews explained Jesus as high priest in the order of Melchizedek. (True/False)",
+    "answer": "True",
+    "reference": "Hebrews 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where The author of Hebrews explained Jesus as high priest in the order of Melchizedek primarily recorded?",
+    "choices": [
+      "Hebrews",
+      "2 Samuel",
+      "Isaiah",
+      "Judges"
+    ],
+    "answer": "Hebrews",
+    "reference": "Hebrews 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The author of Hebrews explained Jesus as high priest in the order of Melchizedek in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Hebrews 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who gave messages to seven churches in Asia Minor?",
+    "choices": [
+      "John",
+      "Amos",
+      "Peter",
+      "Jesus"
+    ],
+    "answer": "Jesus",
+    "reference": "Revelation 2–3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus gave messages to seven churches in Asia Minor. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 2–3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus gave messages to seven churches in Asia Minor primarily recorded?",
+    "choices": [
+      "Mark",
+      "1 Thessalonians",
+      "Jeremiah",
+      "Revelation"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 2–3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus gave messages to seven churches in Asia Minor in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 2–3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a great white throne judgment?",
+    "choices": [
+      "John",
+      "James",
+      "Amos",
+      "The author of Hebrews"
+    ],
+    "answer": "John",
+    "reference": "Revelation 20",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a great white throne judgment. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 20",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where John saw a great white throne judgment primarily recorded?",
+    "choices": [
+      "Revelation",
+      "Acts",
+      "Haggai",
+      "Hebrews"
+    ],
+    "answer": "Revelation",
+    "reference": "Revelation 20",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "John saw a great white throne judgment in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Revelation 20",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of separating the sheep from the goats?",
+    "choices": [
+      "Jesus",
+      "Jeremiah",
+      "Isaiah",
+      "Micah"
+    ],
+    "answer": "Jesus",
+    "reference": "Matthew 25",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus spoke of separating the sheep from the goats. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 25",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jesus spoke of separating the sheep from the goats primarily recorded?",
+    "choices": [
+      "Matthew",
+      "2 Peter",
+      "Philemon",
+      "1 Peter"
+    ],
+    "answer": "Matthew",
+    "reference": "Matthew 25",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jesus spoke of separating the sheep from the goats in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Matthew 25",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the heavens passing away with a roar?",
+    "choices": [
+      "Jesus",
+      "Peter",
+      "John",
+      "Paul"
+    ],
+    "answer": "Peter",
+    "reference": "2 Peter 3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter spoke of the heavens passing away with a roar. (True/False)",
+    "answer": "True",
+    "reference": "2 Peter 3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Peter spoke of the heavens passing away with a roar primarily recorded?",
+    "choices": [
+      "2 Peter",
+      "Proverbs",
+      "1 Chronicles",
+      "1 Timothy"
+    ],
+    "answer": "2 Peter",
+    "reference": "2 Peter 3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Peter spoke of the heavens passing away with a roar in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Peter 3",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of the man of lawlessness?",
+    "choices": [
+      "Jesus",
+      "Ezekiel",
+      "Jesus",
+      "Paul"
+    ],
+    "answer": "Paul",
+    "reference": "2 Thessalonians 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the man of lawlessness. (True/False)",
+    "answer": "True",
+    "reference": "2 Thessalonians 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Paul spoke of the man of lawlessness primarily recorded?",
+    "choices": [
+      "James",
+      "Joshua",
+      "2 Thessalonians",
+      "1 Kings"
+    ],
+    "answer": "2 Thessalonians",
+    "reference": "2 Thessalonians 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Paul spoke of the man of lawlessness in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "2 Thessalonians 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Which chapter in 1 Corinthians contains Paul's teaching on the resurrection of the dead?",
+    "choices": [
+      "1 Corinthians 15",
+      "1 Corinthians 10",
+      "1 Corinthians 13",
+      "1 Corinthians 5"
+    ],
+    "answer": "1 Corinthians 15",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'Which chapter in 1 Corinthians contains Paul's teaching on the resurrection of the dead?' is '1 Corinthians 15'. (True/False)",
+    "answer": "True",
+    "reference": "1 Corinthians 15",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In Romans, Paul says the gospel is the power of God for salvation to whom?",
+    "choices": [
+      "To the Jews only",
+      "To everyone who believes",
+      "To the Gentiles only",
+      "To the righteous only"
+    ],
+    "answer": "To everyone who believes",
+    "reference": "Romans 1:16",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In Romans, Paul says the gospel is the power of God for salvation to whom?' is 'To everyone who believes'. (True/False)",
+    "answer": "True",
+    "reference": "Romans 1:16",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In Revelation, what is the New Jerusalem described as?",
+    "choices": [
+      "A pillar of cloud",
+      "A mountain of fire",
+      "A golden city coming down out of heaven",
+      "A sea of glass"
+    ],
+    "answer": "A golden city coming down out of heaven",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'In Revelation, what is the New Jerusalem described as?' is 'A golden city coming down out of heaven'. (True/False)",
+    "answer": "True",
+    "reference": "Revelation 21",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "According to Jesus, who will inherit the earth?",
+    "choices": [
+      "The rich",
+      "The meek",
+      "The strong",
+      "The wise"
+    ],
+    "answer": "The meek",
+    "reference": "Matthew 5:5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "The correct answer to: 'According to Jesus, who will inherit the earth?' is 'The meek'. (True/False)",
+    "answer": "True",
+    "reference": "Matthew 5:5",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied about the suffering servant who would bear the sins of many?",
+    "choices": [
+      "Jesus",
+      "Paul",
+      "Isaiah",
+      "Joel"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many. (True/False)",
+    "answer": "True",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Isaiah prophesied about the suffering servant who would bear the sins of many primarily recorded?",
+    "choices": [
+      "Zephaniah",
+      "Jeremiah",
+      "Isaiah",
+      "Lamentations"
+    ],
+    "answer": "Isaiah",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Isaiah prophesied about the suffering servant who would bear the sins of many in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Isaiah 52–53",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a new covenant written on the heart?",
+    "choices": [
+      "Jeremiah",
+      "Ezekiel",
+      "Jesus",
+      "Jesus"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart. (True/False)",
+    "answer": "True",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Jeremiah spoke of a new covenant written on the heart primarily recorded?",
+    "choices": [
+      "Job",
+      "1 Timothy",
+      "1 Peter",
+      "Jeremiah"
+    ],
+    "answer": "Jeremiah",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Jeremiah spoke of a new covenant written on the heart in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Jeremiah 31:31–34",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw a valley of dry bones that came to life?",
+    "choices": [
+      "Jesus",
+      "James",
+      "Ezekiel",
+      "Paul"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life. (True/False)",
+    "answer": "True",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Ezekiel saw a valley of dry bones that came to life primarily recorded?",
+    "choices": [
+      "Ezekiel",
+      "2 Peter",
+      "Mark",
+      "Zephaniah"
+    ],
+    "answer": "Ezekiel",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Ezekiel saw a valley of dry bones that came to life in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Ezekiel 37",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who saw four beasts representing kingdoms?",
+    "choices": [
+      "Daniel",
+      "Paul",
+      "John",
+      "Peter"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms. (True/False)",
+    "answer": "True",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Daniel saw four beasts representing kingdoms primarily recorded?",
+    "choices": [
+      "Philemon",
+      "1 Thessalonians",
+      "Daniel",
+      "Joshua"
+    ],
+    "answer": "Daniel",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Daniel saw four beasts representing kingdoms in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Daniel 7",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of God's Spirit being poured out on all flesh?",
+    "choices": [
+      "Paul",
+      "Jesus",
+      "Joel",
+      "Paul"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh. (True/False)",
+    "answer": "True",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Joel spoke of God's Spirit being poured out on all flesh primarily recorded?",
+    "choices": [
+      "Song of Solomon",
+      "Joel",
+      "Galatians",
+      "John"
+    ],
+    "answer": "Joel",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Joel spoke of God's Spirit being poured out on all flesh in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Joel 2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who warned of judgment but promised restoration?",
+    "choices": [
+      "Jesus",
+      "Zechariah",
+      "Jeremiah",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration. (True/False)",
+    "answer": "True",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Amos warned of judgment but promised restoration primarily recorded?",
+    "choices": [
+      "Malachi",
+      "Colossians",
+      "Joel",
+      "Amos"
+    ],
+    "answer": "Amos",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Amos warned of judgment but promised restoration in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Amos 9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who prophesied a ruler coming from Bethlehem?",
+    "choices": [
+      "Jesus",
+      "Micah",
+      "Daniel",
+      "Jeremiah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem. (True/False)",
+    "answer": "True",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Micah prophesied a ruler coming from Bethlehem primarily recorded?",
+    "choices": [
+      "3 John",
+      "Micah",
+      "Job",
+      "Jonah"
+    ],
+    "answer": "Micah",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Micah prophesied a ruler coming from Bethlehem in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Micah 5:2",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of a king riding on a donkey?",
+    "choices": [
+      "Jesus",
+      "Jesus",
+      "James",
+      "Zechariah"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey. (True/False)",
+    "answer": "True",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "In which book is the teaching or vision where Zechariah spoke of a king riding on a donkey primarily recorded?",
+    "choices": [
+      "Mark",
+      "Daniel",
+      "Zechariah",
+      "Titus"
+    ],
+    "answer": "Zechariah",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Zechariah spoke of a king riding on a donkey in the book of Genesis. (True/False)",
+    "answer": "False",
+    "reference": "Zechariah 9:9",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Who spoke of Elijah coming before the day of the Lord?",
+    "choices": [
+      "Jesus",
+      "Joel",
+      "Malachi",
+      "Amos"
+    ],
+    "answer": "Malachi",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  },
+  {
+    "type": "true_false",
+    "question": "Malachi spoke of Elijah coming before the day of the Lord. (True/False)",
+    "answer": "True",
+    "reference": "Malachi 4",
+    "note": "duplicate_for_volume"
+  }
+]

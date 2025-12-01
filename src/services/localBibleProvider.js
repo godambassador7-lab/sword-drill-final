@@ -54,6 +54,31 @@ export async function getLocalVerseByReference(translation, reference) {
   return { reference: pr.normalized, text: cleanVerseText(text), translation };
 }
 
+// Fetch a range and concatenate (e.g., "Ephesians 6:10-18")
+export async function getLocalVersesRange(translation, reference) {
+  const folder = folderFor(translation);
+  if (!folder) return null;
+  const pr = parseReference(reference);
+  if (!pr.valid || !pr.verse) return null;
+
+  const bookJson = await loadBookJson(folder, pr.book);
+  if (!bookJson || !bookJson.chapters) return null;
+  const chapterData = bookJson.chapters?.[String(pr.chapter)];
+  if (!chapterData) return null;
+
+  const start = pr.verse;
+  const end = pr.verseEnd && pr.verseEnd >= start ? pr.verseEnd : start;
+  const parts = [];
+  for (let v = start; v <= end; v++) {
+    const text = chapterData[String(v)];
+    if (text) {
+      parts.push(`${v}. ${cleanVerseText(text)}`);
+    }
+  }
+  if (parts.length === 0) return null;
+  return { reference: pr.normalized, text: parts.join(' '), translation };
+}
+
 // Default list of Bible books to try
 const DEFAULT_BOOKS = [
   'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy',
@@ -97,4 +122,4 @@ export async function getRandomLocalVerse(translation, bookNames = null) {
   return null;
 }
 
-export default { getLocalVerseByReference, getRandomLocalVerse };
+export default { getLocalVerseByReference, getLocalVersesRange, getRandomLocalVerse };

@@ -1,0 +1,52 @@
+{
+  "name": "Lot",
+  "type": "person",
+  "notes": "Nephew of Abraham.",
+  "source_refs": [
+    "Genesis 11:27–31",
+    "Genesis 13",
+    "Genesis 19"
+  ],
+  "children": [
+    {
+      "name": "Moab",
+      "type": "person",
+      "notes": "Ancestor of the Moabites, east of the Dead Sea.",
+      "source_refs": [
+        "Genesis 19:37"
+      ],
+      "children": [
+        {
+          "name": "Moabites",
+          "type": "nation",
+          "notes": "Related to Israel but often in conflict; Ruth was a Moabitess who joined Israel.",
+          "source_refs": [
+            "Numbers 22–25",
+            "Ruth 1:4"
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Ben-Ammi",
+      "type": "person",
+      "notes": "Ancestor of the Ammonites.",
+      "source_refs": [
+        "Genesis 19:38"
+      ],
+      "children": [
+        {
+          "name": "Ammonites",
+          "type": "nation",
+          "notes": "Lived east of the Jordan; frequently hostile to Israel.",
+          "source_refs": [
+            "Judges 10–11",
+            "1 Samuel 11"
+          ],
+          "children": []
+        }
+      ]
+    }
+  ]
+}

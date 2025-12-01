@@ -1,0 +1,20 @@
+  // Apocrypha quick path
+  if (isApocryphaBook(parsed.book) && parsed.verse) {
+    arr = await getApocryphaVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (arr && arr.length) {
+      verseCache.set(cacheKey, { data: arr, timestamp: Date.now() });
+      return arr;
+    }
+  }
+  if (pref === 'WEB') {
+    arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+  } else if (pref === 'ESV') {
+    arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+    if (!arr || arr.length === 0) arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
+  } else if (pref === 'ASV') {
+    arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);

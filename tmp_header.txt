@@ -1,0 +1,120 @@
+import { buildApologeticResponse, findReligionsIn, listReligions } from './retrieval/religionsProvider';import { getOverallStats } from './retrieval/userStatsProvider';
+import { routeIntent } from './intentRouter';
+import { parseReference } from './referenceParser';
+import { searchLocalVerses, getVerseByReference } from './retrieval/bibleProvider';
+import { getKJVVerses } from './retrieval/kjvProvider';
+import { getWEBVerses } from './retrieval/webProvider';
+import { getESVVerses } from './retrieval/esvProvider';
+import { getBishopsVerses } from './retrieval/bishopsProvider';
+import { getGenevaVerses } from './retrieval/genevaProvider';
+import { getASVVerses } from './retrieval/asvProvider';
+import { getWlcVerseByReference } from './retrieval/wlcProvider';
+import { getLxxVerseByReference } from './retrieval/lxxProvider';
+import { getSinaiticusVerseByReference } from './retrieval/sinaiticusProvider';
+import { isApocryphaBook, getApocryphaVerses } from './retrieval/apocryphaProvider';
+import { synthesizeNeutral } from './synthesizer';
+import { applyNeutrality } from './neutralityGuard';
+import { getCrossReferences } from './retrieval/crossRefsProvider';
+import { lookupWordStudy } from './lexiconProvider';
+import { lookupDefinition, searchDefinitionsPrefix, searchDefinitionsFuzzy } from './dictionaryProvider';
+import { classifyQuestion, getResponseStrategy } from './questionClassifier';
+import {
+  enhanceWithPersonality,
+  detectAmbiguousQuestion,
+  generateClarificationPrompt,
+  addPaulContext
+} from './sharpPersonality';
+import { searchLocations } from './retrieval/mapsProvider';
+import {
+  answerFeastDayQuery,
+  isFeastDayQuery,
+  getCurrentFeastDayContext
+} from './feastDayKnowledge';
+import { analyzeQuestion, generateClarificationRequest } from './questionAnalyzer';
+
+// Cache for verse lookups to avoid redundant fetches
+const verseCache = new Map();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function getCacheKey(book, chapter, verse, verseEnd, translation) {
+  return `${translation}:${book}:${chapter}:${verse}${verseEnd ? `-${verseEnd}` : ''}`;
+}
+
+function formatVersesBlock(arr) {
+  return arr.map(v => `"${v.text}"\nâ€" ${v.reference} (${v.translation})`).join('\n\n');
+}
+
+/**
+ * Summarize a long dictionary definition into a concise overview
+ * @param {string} definition - The full definition text
+ * @param {string} headword - The term being defined
+ * @returns {string} - A summarized version
+ */
+function summarizeDefinition(definition, headword) {
+  if (!definition || definition.length < 300) return definition;
+
+  // Extract first sentence or two as summary
+  const sentences = definition.match(/[^.!?]+[.!?]+/g) || [];
+  if (sentences.length === 0) return definition.slice(0, 200) + '...';
+
+  // Get first 1-2 sentences that capture the essence
+  let summary = sentences[0];
+  if (sentences.length > 1 && summary.length < 150) {
+    summary += ' ' + sentences[1];
+  }
+
+  // Clean up any incomplete references or orphaned markers
+  summary = summary.replace(/\s+\(\d+\.\)\s*$/, '');
+  summary = summary.replace(/\s+\[\w+\]\s*$/, '');
+
+  return summary.trim();
+}
+
+/**
+ * Check if user is asking for full/detailed information
+ * @param {string} message - User's question
+ * @returns {boolean}
+ */
+function wantsFullDefinition(message) {
+  const fullRequestPatterns = /\b(full|complete|detailed|everything|all about|tell me more|entire|whole)\b/i;
+  return fullRequestPatterns.test(message);
+}
+
+function mentionsMasoretic(q) {
+  const s = (q || '').toLowerCase();
+  return /\b(masoretic|wlc|hebrew\s+(?:text|mt)|original\s+hebrew)\b/.test(s);
+}
+
+function mentionsLxx(q) {
+  const s = (q || '').toLowerCase();
+  return /\b(lxx|septuagint|old\s+greek|rahlfs)\b/.test(s);
+}
+
+function mentionsSinaiticus(q) {
+  const s = (q || '').toLowerCase();
+  return /\b(sinaiticus|codex\s+sinaiticus|aleph|\b01\b)\b/.test(s);
+}
+
+async function getWlcRange(parsed, options = {}) {
+  const out = [];
+  const start = parsed.verse || 1;
+  const end = parsed.verseEnd && parsed.verseEnd >= start ? parsed.verseEnd : start;
+  for (let v = start; v <= end; v++) {
+    const ref = `${parsed.book} ${parsed.chapter}:${v}`;
+    const one = await getWlcVerseByReference(ref, options);
+    if (one) out.push(one);
+  }
+  return out;
+}
+
+async function fetchPreferredVerses(parsed, preferred) {
+  const pref = (preferred || 'KJV').toUpperCase();
+
+  // Check cache first
+  const cacheKey = getCacheKey(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd, pref);
+  const cached = verseCache.get(cacheKey);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return cached.data;
+  }
+
+  let arr = [];

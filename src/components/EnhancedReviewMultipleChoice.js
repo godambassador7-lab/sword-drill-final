@@ -31,7 +31,8 @@ const EnhancedReviewMultipleChoice = ({
   isCommonVerse = false,
   isPaidMode = true,
   completionHistory = [],
-  onPurchaseHint
+  onPurchaseHint,
+  isPersonalVerse = false
 }) => {
   // Game states
   const [gamePhase, setGamePhase] = useState('intro'); // intro, investigation, reveal, complete
@@ -41,6 +42,8 @@ const EnhancedReviewMultipleChoice = ({
   const [confidenceLevel, setConfidenceLevel] = useState(50); // 1-100
   const [evidenceCollected, setEvidenceCollected] = useState([]);
   const [eliminatedOptions, setEliminatedOptions] = useState(new Set());
+  const [timeRemaining, setTimeRemaining] = useState(60); // 60-second timer
+  const [timerExpired, setTimerExpired] = useState(false);
 
   // Hint system
   const [freeHintsRemaining, setFreeHintsRemaining] = useState(3);
@@ -153,6 +156,32 @@ const EnhancedReviewMultipleChoice = ({
     ];
   }, [verse, reference]);
 
+  // Timer countdown
+  useEffect(() => {
+    if (gamePhase !== 'investigation' || timerExpired) return;
+
+    const interval = setInterval(() => {
+      setTimeRemaining(prev => {
+        if (prev <= 1) {
+          setTimerExpired(true);
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [gamePhase, timerExpired]);
+
+  // Auto-submit when timer expires
+  useEffect(() => {
+    if (timerExpired && gamePhase === 'investigation') {
+      // Auto-submit with current selection (or null if none selected)
+      submitAnswer();
+    }
+  }, [timerExpired, gamePhase]);
+
   // Anti-exploit checks
   useEffect(() => {
     if (!isPaidMode) return;
@@ -199,7 +228,7 @@ const EnhancedReviewMultipleChoice = ({
     return baseTime;
   };
 
-  // Calculate points with anti-exploit measures
+  // Calculate points with anti-exploit measures and time-based scoring
   const calculatePoints = () => {
     if (!isPaidMode) return 0;
 
@@ -214,19 +243,9 @@ const EnhancedReviewMultipleChoice = ({
     const evidencePenalty = Math.max(0.3, 1 - (evidenceCollected.length * 0.1));
     basePoints = Math.floor(basePoints * evidencePenalty);
 
-    // Speed bonus
-    if (startTime) {
-      const timeSpent = (Date.now() - startTime) / 1000;
-      const minTime = getMinimumTimeRequired();
-
-      if (timeSpent < minTime) {
-        // Too fast - 50% penalty
-        basePoints = Math.floor(basePoints * 0.5);
-      } else if (timeSpent < minTime * 1.5) {
-        // Fast completion - 20% bonus
-        basePoints = Math.floor(basePoints * 1.2);
-      }
-    }
+    // Time-based bonus (based on time remaining out of 60 seconds)
+    const timeBonus = timeRemaining / 60; // 0 to 1 multiplier
+    basePoints = Math.floor(basePoints * (0.5 + (timeBonus * 0.5)));
 
     // Hint penalty
     const totalHints = (3 - freeHintsRemaining) + paidHintsUsed;
@@ -335,7 +354,8 @@ const EnhancedReviewMultipleChoice = ({
 
   // Complete the review
   const completeReview = () => {
-    const points = selectedAnswer === correctReference ? calculatePoints() : 0;
+    const isCorrect = selectedAnswer === correctReference;
+    const points = isCorrect ? calculatePoints() : -50; // -50 penalty for wrong answer
     onComplete({
       pointsEarned: points,
       paidHintCosts: paidHintsUsed * 50,
@@ -344,7 +364,7 @@ const EnhancedReviewMultipleChoice = ({
       reference,
       timestamp: Date.now(),
       isPaid: isPaidMode,
-      success: selectedAnswer === correctReference
+      success: isCorrect
     });
   };
 
@@ -390,18 +410,28 @@ const EnhancedReviewMultipleChoice = ({
             </div>
 
             <div className="flex items-start gap-3">
-              <Sparkles className="text-purple-400 mt-1" size={20} />
+              <Clock className="text-orange-400 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-purple-300 mb-1">Strategy Matters</h3>
-                <p className="text-sm text-slate-300">Use fewer clues and higher confidence for maximum points. But wrong guesses earn nothing!</p>
+                <h3 className="font-semibold text-orange-300 mb-1">60-Second Timer</h3>
+                <p className="text-sm text-slate-300">You have 60 seconds to solve the case! Points are based on time remaining when you submit.</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Zap className="text-yellow-400 mt-1" size={20} />
+              <Sparkles className="text-purple-400 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-yellow-300 mb-1">Speed Bonus</h3>
-                <p className="text-sm text-slate-300">Complete quickly for bonus points, but not too fast or you'll get a penalty!</p>
+                <h3 className="font-semibold text-purple-300 mb-1">Strategy Matters</h3>
+                <p className="text-sm text-slate-300">Use fewer clues and higher confidence for maximum points. More time remaining = more points!</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <AlertTriangle className="text-red-400 mt-1" size={20} />
+              <div>
+                <h3 className="font-semibold text-red-300 mb-1">⚠️ Wrong Answer Penalty</h3>
+                <p className="text-sm text-red-200 font-semibold">
+                  CAUTION: Incorrect answers will cost you {isPersonalVerse ? '-10 points' : '-50 points'}!
+                </p>
               </div>
             </div>
           </div>
@@ -414,9 +444,14 @@ const EnhancedReviewMultipleChoice = ({
                   <span className="text-emerald-300 font-semibold">Potential Reward:</span>
                 </div>
                 <span className="text-2xl font-bold text-emerald-400">
-                  Up to {isCommonVerse ? 200 : 350} points
+                  {isPersonalVerse ? '5 points max' : `Up to ${isCommonVerse ? 200 : 350} points`}
                 </span>
               </div>
+              {isPersonalVerse && (
+                <p className="text-xs text-emerald-300/70 mt-2">
+                  Personal verses award a maximum of 5 points per completion
+                </p>
+              )}
             </div>
           )}
 
@@ -472,12 +507,12 @@ const EnhancedReviewMultipleChoice = ({
 
           {/* Stats Bar */}
           <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-slate-700/50 rounded-lg p-3">
+            <div className={`bg-slate-700/50 rounded-lg p-3 ${timeRemaining <= 10 ? 'ring-2 ring-red-500 animate-pulse' : ''}`}>
               <div className="flex items-center gap-2 mb-1">
-                <Clock className="text-blue-400" size={16} />
-                <span className="text-xs text-slate-400">Time</span>
+                <Clock className={timeRemaining <= 10 ? "text-red-400" : "text-blue-400"} size={16} />
+                <span className="text-xs text-slate-400">Time Left</span>
               </div>
-              <div className="text-lg font-bold text-blue-300">{getTimeSpent()}s</div>
+              <div className={`text-lg font-bold ${timeRemaining <= 10 ? 'text-red-400' : 'text-blue-300'}`}>{timeRemaining}s</div>
             </div>
 
             <div className="bg-slate-700/50 rounded-lg p-3">
@@ -626,7 +661,7 @@ const EnhancedReviewMultipleChoice = ({
   // REVEAL & COMPLETE SCREENS
   if (gamePhase === 'reveal' || gamePhase === 'complete') {
     const isCorrect = selectedAnswer === correctReference;
-    const earnedPoints = isCorrect ? calculatePoints() : 0;
+    const earnedPoints = isCorrect ? calculatePoints() : -50;
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">

@@ -1,559 +1,682 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Trophy, Clock, Zap, ChevronRight, CheckCircle2 } from 'lucide-react';
-import { getRandomReferenceByDifficulty } from '../data/versesByDifficulty';
-import { BIBLE_BOOKS } from '../data/bibleBooks';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, Clock, Zap, Trophy, Sword, Sparkles, Target } from 'lucide-react';
+import { getAllReferencesForDifficulty } from '../data/versesByDifficulty';
 
-/**
- * Sword Drill Ultimate - The most challenging quiz mode
- * Combines book order knowledge with verse scrambling under time pressure
- */
-const SwordDrillUltimate = ({ difficulty = 'Beginner', onComplete, onCancel }) => {
-  // Quiz stages: 'intro' | 'book-order' | 'scramble' | 'results'
-  const [stage, setStage] = useState('intro');
-  const [verseData, setVerseData] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(0);
-  const [timerActive, setTimerActive] = useState(false);
+// Bible books in order
+const BIBLE_BOOKS = [
+  // Old Testament
+  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+  "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+  "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+  "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+  "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations",
+  "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+  "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+  "Zephaniah", "Haggai", "Zechariah", "Malachi",
+  // New Testament
+  "Matthew", "Mark", "Luke", "John", "Acts",
+  "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+  "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
+  "1 Timothy", "2 Timothy", "Titus", "Philemon",
+  "Hebrews", "James", "1 Peter", "2 Peter",
+  "1 John", "2 John", "3 John", "Jude", "Revelation"
+];
 
-  // Stage 1: Book Order
-  const [bookBefore, setBookBefore] = useState('');
-  const [bookAfter, setBookAfter] = useState('');
-  const [bookOrderComplete, setBookOrderComplete] = useState(false);
-  const [bookBeforeAccuracy, setBookBeforeAccuracy] = useState(100);
-  const [bookAfterAccuracy, setBookAfterAccuracy] = useState(100);
+const normalizeAnswer = (answer) => {
+  return answer.toLowerCase().trim().replace(/\s+/g, ' ');
+};
 
-  // Stage 2: Scramble
+// Helper functions for verse selection
+const levelToDifficulty = (level) => {
+  const map = { Beginner: 'beginner', Intermediate: 'intermediate', Advanced: 'advanced', Elite: 'elite' };
+  return map[level] || 'beginner';
+};
+
+const isVerseOnCooldown = (reference, quizType, verseProgress) => {
+  if (!verseProgress || !verseProgress[reference]) return false;
+  const progress = verseProgress[reference];
+
+  // Check mastery for this quiz type
+  const masteryCount = progress[quizType] || 0;
+  if (masteryCount < 4) return false; // Not mastered yet
+
+  // Mastered - put on cooldown (reduce frequency by 70%)
+  return Math.random() < 0.7;
+};
+
+const generateQuestion = async (userLevel, verseProgress, getLocalVerseByReference) => {
+  try {
+    const difficulty = levelToDifficulty(userLevel);
+    const refs = getAllReferencesForDifficulty(difficulty);
+
+    if (!refs || refs.length === 0) {
+      return null;
+    }
+
+    // Filter out cooldown references
+    const eligible = refs.filter(ref => !isVerseOnCooldown(ref, 'sword-drill-ultimate', verseProgress));
+    const pool = eligible.length > 0 ? eligible : refs;
+
+    // Pick random reference
+    const selectedRef = pool[Math.floor(Math.random() * pool.length)];
+
+    // Fetch verse text
+    const verseData = await getLocalVerseByReference(selectedRef);
+    if (!verseData || !verseData.text) {
+      return null;
+    }
+
+    // Extract book name from reference (e.g., "John 3:16" -> "John")
+    const bookMatch = selectedRef.match(/^([123]?\s*[A-Za-z]+)/);
+    if (!bookMatch) return null;
+
+    const currentBook = bookMatch[1].trim();
+    const index = BIBLE_BOOKS.indexOf(currentBook);
+
+    // Make sure book is in the middle (has before and after)
+    if (index <= 0 || index >= BIBLE_BOOKS.length - 1) {
+      return null;
+    }
+
+    return {
+      currentBook: currentBook,
+      before: BIBLE_BOOKS[index - 1],
+      after: BIBLE_BOOKS[index + 1],
+      verse: {
+        text: verseData.text,
+        reference: selectedRef
+      },
+      index
+    };
+  } catch (error) {
+    console.error('Error generating question:', error);
+    return null;
+  }
+};
+
+const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLocalVerseByReference, onComplete, onCancel }) => {
+  // Round management (1, 2, 3)
+  const [currentRound, setCurrentRound] = useState(1);
+  const [phase, setPhase] = useState('book-order'); // 'book-order' or 'verse-scramble'
+  const [question, setQuestion] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Round data tracking
+  const [roundsData, setRoundsData] = useState([]);
+
+  // Current round state
+  const [beforeAnswer, setBeforeAnswer] = useState("");
+  const [afterAnswer, setAfterAnswer] = useState("");
+  const [bookOrderLocked, setBookOrderLocked] = useState(false);
+  const [bookOrderCorrect, setBookOrderCorrect] = useState({ before: false, after: false });
+
+  // Verse Scramble
   const [scrambledWords, setScrambledWords] = useState([]);
-  const [userSequence, setUserSequence] = useState([]);
+  const [userOrder, setUserOrder] = useState([]);
+  const [correctOrder, setCorrectOrder] = useState([]);
+  const [revisionCount, setRevisionCount] = useState(0);
   const [draggedIndex, setDraggedIndex] = useState(null);
-  const [incorrectPlacements, setIncorrectPlacements] = useState(0);
+
+  // Timing
+  const roundStartTime = useRef(Date.now());
+  const bookOrderTime = useRef(0);
+  const verseScrambleTime = useRef(0);
 
   // Results
+  const [showGradeModal, setShowGradeModal] = useState(false);
   const [finalGrade, setFinalGrade] = useState(null);
 
-  // Time limits based on difficulty (in seconds)
-  const timeByDifficulty = {
-    'Beginner': 180, // 3 minutes
-    'Intermediate': 120, // 2 minutes
-    'Advanced': 90 // 1.5 minutes
-  };
-
-  // Fuzzy matching for book names
-  const fuzzyMatchBook = (input, target) => {
-    const normalize = (str) => str.toLowerCase().replace(/\s+/g, '').replace(/\d+/g, '');
-    const inputNorm = normalize(input);
-    const targetNorm = normalize(target);
-
-    if (inputNorm === targetNorm) return 100; // Perfect match
-
-    // Levenshtein distance for fuzzy matching
-    const distance = levenshteinDistance(inputNorm, targetNorm);
-    const maxLen = Math.max(inputNorm.length, targetNorm.length);
-    const accuracy = Math.max(0, 100 - (distance / maxLen) * 100);
-
-    return accuracy;
-  };
-
-  // Calculate Levenshtein distance
-  const levenshteinDistance = (str1, str2) => {
-    const matrix = [];
-    for (let i = 0; i <= str2.length; i++) {
-      matrix[i] = [i];
-    }
-    for (let j = 0; j <= str1.length; j++) {
-      matrix[0][j] = j;
-    }
-    for (let i = 1; i <= str2.length; i++) {
-      for (let j = 1; j <= str1.length; j++) {
-        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
-          matrix[i][j] = matrix[i - 1][j - 1];
-        } else {
-          matrix[i][j] = Math.min(
-            matrix[i - 1][j - 1] + 1,
-            matrix[i][j - 1] + 1,
-            matrix[i - 1][j] + 1
-          );
-        }
-      }
-    }
-    return matrix[str2.length][str1.length];
-  };
-
-  // Initialize quiz
-  const startQuiz = useCallback(async () => {
-    const verse = await getRandomReferenceByDifficulty(difficulty);
-    if (!verse) {
-      alert('Unable to load verse. Please try again.');
-      return;
-    }
-
-    setVerseData(verse);
-    setStage('book-order');
-    setTimeRemaining(timeByDifficulty[difficulty]);
-    setTimerActive(true);
-  }, [difficulty, timeByDifficulty]);
-
-  // Timer countdown
   useEffect(() => {
-    if (timerActive && timeRemaining > 0) {
-      const interval = setInterval(() => {
-        setTimeRemaining(prev => {
-          if (prev <= 1) {
-            setTimerActive(false);
-            if (stage === 'scramble' || stage === 'book-order') {
-              calculateFinalGrade();
-            }
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(interval);
-    }
-  }, [timerActive, timeRemaining, stage]);
+    const loadQuestion = async () => {
+      setLoading(true);
+      const q = await generateQuestion(userLevel, verseProgress, getLocalVerseByReference);
+      if (q) {
+        setQuestion(q);
+        roundStartTime.current = Date.now();
+      }
+      setLoading(false);
+    };
+    loadQuestion();
+  }, [userLevel, verseProgress, getLocalVerseByReference]);
 
-  // Handle book order submission
-  const handleBookOrderSubmit = () => {
-    if (!verseData) return;
+  const handleBookOrderSubmit = (e) => {
+    e.preventDefault();
+    if (bookOrderLocked) return;
+    if (!beforeAnswer.trim() || !afterAnswer.trim()) return;
 
-    const bookIndex = bibleBooks.findIndex(b => b === verseData.book);
-    const correctBefore = bookIndex > 0 ? bibleBooks[bookIndex - 1] : '';
-    const correctAfter = bookIndex < bibleBooks.length - 1 ? bibleBooks[bookIndex + 1] : '';
+    const beforeCorrect = normalizeAnswer(beforeAnswer) === normalizeAnswer(question.before);
+    const afterCorrect = normalizeAnswer(afterAnswer) === normalizeAnswer(question.after);
 
-    const beforeAccuracy = correctBefore ? fuzzyMatchBook(bookBefore, correctBefore) : 0;
-    const afterAccuracy = correctAfter ? fuzzyMatchBook(bookAfter, correctAfter) : 0;
+    setBookOrderCorrect({ before: beforeCorrect, after: afterCorrect });
+    setBookOrderLocked(true);
+    bookOrderTime.current = Date.now() - roundStartTime.current;
 
-    setBookBeforeAccuracy(beforeAccuracy);
-    setBookAfterAccuracy(afterAccuracy);
-
-    // Require at least 70% accuracy to proceed
-    if (beforeAccuracy >= 70 && afterAccuracy >= 70) {
-      setBookOrderComplete(true);
-      // Scramble the verse
-      const words = verseData.text.split(/\s+/);
-      const scrambled = [...words].sort(() => Math.random() - 0.5);
-      setScrambledWords(scrambled);
-      setUserSequence([]);
-      setStage('scramble');
-    } else {
-      alert('Not quite right! Check your spelling and try again.');
-    }
+    // Initialize verse scramble after 1 second
+    setTimeout(() => {
+      const words = question.verse.text.split(' ');
+      setCorrectOrder(words);
+      setScrambledWords([...words].sort(() => Math.random() - 0.5));
+      setUserOrder([]);
+      setPhase('verse-scramble');
+      roundStartTime.current = Date.now(); // Reset timer for scramble phase
+    }, 1000);
   };
 
-  // Handle word drag
+  const handleWordClick = (word, index) => {
+    const newScrambled = scrambledWords.filter((_, i) => i !== index);
+    setScrambledWords(newScrambled);
+    setUserOrder([...userOrder, word]);
+  };
+
+  const handleUndo = () => {
+    if (userOrder.length === 0) return;
+    const lastWord = userOrder[userOrder.length - 1];
+    setUserOrder(userOrder.slice(0, -1));
+    setScrambledWords([...scrambledWords, lastWord]);
+    setRevisionCount(prev => prev + 1);
+  };
+
   const handleDragStart = (index) => {
     setDraggedIndex(index);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
   };
 
   const handleDrop = (targetIndex) => {
     if (draggedIndex === null) return;
 
-    const newSequence = [...userSequence];
-    const draggedWord = scrambledWords[draggedIndex];
+    const word = scrambledWords[draggedIndex];
+    const newScrambled = scrambledWords.filter((_, i) => i !== draggedIndex);
+    const newUserOrder = [...userOrder];
+    newUserOrder.splice(targetIndex, 0, word);
 
-    // Check if this placement is correct
-    const correctWords = verseData.text.split(/\s+/);
-    if (correctWords[targetIndex] !== draggedWord) {
-      // Deduct time for incorrect placement
-      const penalty = difficulty === 'Advanced' ? 3 : difficulty === 'Intermediate' ? 2 : 1;
-      setTimeRemaining(prev => Math.max(0, prev - penalty));
-      setIncorrectPlacements(prev => prev + 1);
-    }
-
-    newSequence[targetIndex] = draggedWord;
-    setUserSequence(newSequence);
+    setScrambledWords(newScrambled);
+    setUserOrder(newUserOrder);
     setDraggedIndex(null);
   };
 
-  // Handle word click for mobile
-  const handleWordClick = (word) => {
-    if (userSequence.length < verseData.text.split(/\s+/).length) {
-      const newSequence = [...userSequence, word];
-      setUserSequence(newSequence);
+  const handleVerseScrambleSubmit = () => {
+    verseScrambleTime.current = Date.now() - roundStartTime.current;
 
-      // Check if this placement is correct
-      const correctWords = verseData.text.split(/\s+/);
-      const index = newSequence.length - 1;
-      if (correctWords[index] !== word) {
-        const penalty = difficulty === 'Advanced' ? 3 : difficulty === 'Intermediate' ? 2 : 1;
-        setTimeRemaining(prev => Math.max(0, prev - penalty));
-        setIncorrectPlacements(prev => prev + 1);
-      }
+    // Save round data
+    const verseCorrect = userOrder.join(' ') === correctOrder.join(' ');
+    const roundData = {
+      round: currentRound,
+      book: question.currentBook,
+      bookOrderCorrect,
+      verseCorrect,
+      bookOrderTime: (bookOrderTime.current / 1000).toFixed(2),
+      verseScrambleTime: (verseScrambleTime.current / 1000).toFixed(2),
+      totalTime: ((bookOrderTime.current + verseScrambleTime.current) / 1000).toFixed(2),
+      revisionCount,
+      before: question.before,
+      after: question.after,
+      verse: question.verse
+    };
+
+    const newRoundsData = [...roundsData, roundData];
+    setRoundsData(newRoundsData);
+
+    // Check if we should move to next round or show results
+    if (currentRound < 3) {
+      // Move to next round
+      const nextRound = currentRound + 1;
+      setCurrentRound(nextRound);
+      setPhase('book-order');
+      setBeforeAnswer("");
+      setAfterAnswer("");
+      setBookOrderLocked(false);
+      setBookOrderCorrect({ before: false, after: false });
+      setRevisionCount(0);
+
+      // Generate new question
+      const loadNextQuestion = async () => {
+        setLoading(true);
+        const newQuestion = await generateQuestion(userLevel, verseProgress, getLocalVerseByReference);
+        if (newQuestion) {
+          setQuestion(newQuestion);
+          roundStartTime.current = Date.now();
+        }
+        setLoading(false);
+      };
+      loadNextQuestion();
+    } else {
+      // All 3 rounds complete - calculate final grade
+      calculateFinalGrade(newRoundsData);
     }
   };
 
-  // Calculate final grade
-  const calculateFinalGrade = useCallback(() => {
-    if (!verseData) return;
+  const calculateFinalGrade = (rounds) => {
+    let totalScore = 0;
+    let maxScore = 0;
 
-    const totalTime = timeByDifficulty[difficulty];
-    const timeScore = (timeRemaining / totalTime) * 100;
+    rounds.forEach(round => {
+      // Book Order: 10 points per correct answer (20 total per round)
+      const bookScore = (round.bookOrderCorrect.before ? 10 : 0) + (round.bookOrderCorrect.after ? 10 : 0);
+      totalScore += bookScore;
+      maxScore += 20;
 
-    // Calculate scramble accuracy
-    const correctWords = verseData.text.split(/\s+/);
-    const correctCount = userSequence.filter((word, i) => word === correctWords[i]).length;
-    const scrambleAccuracy = (correctCount / correctWords.length) * 100;
+      // Verse Accuracy: 20 points per round
+      if (round.verseCorrect) {
+        totalScore += 20;
+      }
+      maxScore += 20;
 
-    // Average book order accuracy
-    const bookOrderScore = (bookBeforeAccuracy + bookAfterAccuracy) / 2;
+      // Time Bonus: 5 points per round (if under 30 seconds)
+      const time = parseFloat(round.totalTime);
+      if (time <= 30) {
+        totalScore += 5;
+      } else if (time <= 45) {
+        totalScore += 3;
+      } else if (time <= 60) {
+        totalScore += 1;
+      }
+      maxScore += 5;
 
-    // Penalty for incorrect placements
-    const placementPenalty = Math.min(incorrectPlacements * 5, 30);
-
-    // Final score calculation
-    const finalScore = (
-      timeScore * 0.3 +
-      scrambleAccuracy * 0.4 +
-      bookOrderScore * 0.3 -
-      placementPenalty
-    );
-
-    // Determine rank
-    let rank = 'D';
-    if (finalScore >= 95) rank = 'U'; // Ultimate
-    else if (finalScore >= 85) rank = 'S'; // Super
-    else if (finalScore >= 75) rank = 'A';
-    else if (finalScore >= 60) rank = 'B';
-    else if (finalScore >= 45) rank = 'C';
-
-    setFinalGrade({
-      rank,
-      score: Math.round(finalScore),
-      timeScore: Math.round(timeScore),
-      scrambleAccuracy: Math.round(scrambleAccuracy),
-      bookOrderScore: Math.round(bookOrderScore),
-      incorrectPlacements
+      // Revision Penalty: 0-5 points per round
+      const revisionScore = Math.max(0, 5 - round.revisionCount);
+      totalScore += revisionScore;
+      maxScore += 5;
     });
 
-    setStage('results');
-    setTimerActive(false);
+    const percentage = (totalScore / maxScore) * 100;
+    const grade = getGradeFromPercentage(percentage);
 
-    // Notify parent
-    if (onComplete) {
-      onComplete({
-        rank,
-        score: Math.round(finalScore),
-        reference: verseData.reference
-      });
+    setFinalGrade({ grade, percentage, totalScore, maxScore, rounds });
+    setShowGradeModal(true);
+  };
+
+  const getGradeFromPercentage = (percentage) => {
+    if (percentage >= 98) return 'U';  // Ultimate
+    if (percentage >= 95) return 'SS'; // Super Superior
+    if (percentage >= 90) return 'S';  // Superior
+    if (percentage >= 80) return 'A';  // Excellent
+    if (percentage >= 70) return 'B';  // Good
+    return 'C';                        // Average
+  };
+
+  const getGradeColor = (grade) => {
+    switch(grade) {
+      case 'U': return 'from-yellow-300 via-amber-400 to-orange-500';
+      case 'SS': return 'from-purple-400 via-pink-500 to-red-500';
+      case 'S': return 'from-purple-500 via-purple-600 to-indigo-600';
+      case 'A': return 'from-green-400 to-emerald-500';
+      case 'B': return 'from-blue-400 to-cyan-500';
+      case 'C': return 'from-orange-400 to-yellow-500';
+      default: return 'from-gray-500 to-slate-500';
     }
-  }, [verseData, timeRemaining, userSequence, bookBeforeAccuracy, bookAfterAccuracy, incorrectPlacements, difficulty, timeByDifficulty, onComplete]);
-
-  // Handle scramble submit
-  const handleScrambleSubmit = () => {
-    calculateFinalGrade();
   };
 
-  // Rank colors
-  const rankColors = {
-    'U': 'from-purple-500 to-pink-500',
-    'S': 'from-yellow-400 to-amber-500',
-    'A': 'from-green-500 to-emerald-500',
-    'B': 'from-blue-500 to-cyan-500',
-    'C': 'from-orange-500 to-red-500',
-    'D': 'from-gray-500 to-slate-600'
+  const getGradeTitle = (grade) => {
+    switch(grade) {
+      case 'U': return 'ULTIMATE MASTER';
+      case 'SS': return 'SUPER SUPERIOR';
+      case 'S': return 'SUPERIOR PERFORMANCE';
+      case 'A': return 'EXCELLENT WORK';
+      case 'B': return 'GOOD JOB';
+      case 'C': return 'AVERAGE PERFORMANCE';
+      default: return 'COMPLETE';
+    }
   };
 
-  // Render intro screen
-  if (stage === 'intro') {
+  if (!question) {
     return (
-      <div className="space-y-6">
-        <div className="text-center space-y-4">
-          <div className="flex items-center justify-center">
-            <Trophy size={64} className="text-yellow-400" />
-          </div>
-          <h2 className="text-3xl font-bold text-white">Sword Drill Ultimate</h2>
-          <p className="text-slate-300 max-w-2xl mx-auto">
-            The ultimate Bible knowledge challenge! First, identify the books before and after your target verse.
-            Then, unscramble the entire verse under time pressure. Speed and accuracy determine your rank!
-          </p>
-          <div className="grid grid-cols-3 gap-4 max-w-md mx-auto text-sm">
-            <div className="bg-slate-800/50 rounded-lg p-3">
-              <div className="text-yellow-400 font-bold">Stage 1</div>
-              <div className="text-slate-400">Book Order</div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-3">
-              <div className="text-blue-400 font-bold">Stage 2</div>
-              <div className="text-slate-400">Verse Scramble</div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-3">
-              <div className="text-purple-400 font-bold">Results</div>
-              <div className="text-slate-400">Rank & Score</div>
-            </div>
-          </div>
-          <div className="bg-amber-900/30 border border-amber-500/30 rounded-lg p-4 max-w-md mx-auto">
-            <div className="flex items-center gap-2 text-amber-300 mb-2">
-              <Clock size={18} />
-              <span className="font-semibold">Time Limit: {Math.floor(timeByDifficulty[difficulty] / 60)}:{(timeByDifficulty[difficulty] % 60).toString().padStart(2, '0')}</span>
-            </div>
-            <div className="text-xs text-amber-200">
-              Difficulty: <span className="font-bold">{difficulty}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-3 justify-center">
-          <button onClick={onCancel} className="btn btn-secondary">
-            Cancel
-          </button>
-          <button
-            onClick={startQuiz}
-            className="relative btn bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold px-8 py-3 overflow-hidden"
-            style={{
-              animation: 'shimmer 2s infinite'
-            }}
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <Zap size={20} />
-              Start Ultimate Challenge
-            </span>
-            <div
-              className="absolute inset-0 opacity-50"
-              style={{
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)',
-                animation: 'beam 3s infinite'
-              }}
-            />
-          </button>
-        </div>
-
-        <style>{`
-          @keyframes shimmer {
-            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.8); }
-          }
-          @keyframes beam {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200%); }
-          }
-        `}</style>
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
       </div>
     );
   }
 
-  // Render book order stage
-  if (stage === 'book-order') {
+  // Grade Modal
+  if (showGradeModal && finalGrade) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h3 className="text-xl font-bold text-white flex items-center gap-2">
-            <Trophy size={24} className="text-yellow-400" />
-            Stage 1: Book Order
-          </h3>
-          <div className="flex items-center gap-2 text-lg font-bold text-amber-300">
-            <Clock size={20} />
-            {Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}
-          </div>
-        </div>
-
-        <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-6 text-center">
-          <p className="text-sm text-blue-200 mb-2">Find the verse:</p>
-          <h2 className="text-3xl font-bold text-white">{verseData?.reference}</h2>
-        </div>
-
-        <div className="space-y-4">
-          <div>
-            <label className="label">What book comes BEFORE {verseData?.book}?</label>
-            <input
-              type="text"
-              className="input w-full"
-              placeholder="Enter book name..."
-              value={bookBefore}
-              onChange={(e) => setBookBefore(e.target.value)}
-              disabled={bookOrderComplete}
-            />
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
+        <div className="bg-slate-900 rounded-2xl shadow-2xl p-8 max-w-4xl w-full border-4 border-amber-500 relative overflow-hidden max-h-[90vh] overflow-y-auto">
+          {/* Animated background sparkles */}
+          <div className="absolute inset-0 opacity-20">
+            <Sparkles className="absolute top-4 left-4 text-amber-400 animate-pulse" size={24} />
+            <Sparkles className="absolute top-4 right-4 text-amber-400 animate-pulse" style={{animationDelay: '0.5s'}} size={24} />
+            <Sparkles className="absolute bottom-4 left-4 text-amber-400 animate-pulse" style={{animationDelay: '1s'}} size={24} />
+            <Sparkles className="absolute bottom-4 right-4 text-amber-400 animate-pulse" style={{animationDelay: '1.5s'}} size={24} />
           </div>
 
-          <div>
-            <label className="label">What book comes AFTER {verseData?.book}?</label>
-            <input
-              type="text"
-              className="input w-full"
-              placeholder="Enter book name..."
-              value={bookAfter}
-              onChange={(e) => setBookAfter(e.target.value)}
-              disabled={bookOrderComplete}
-            />
-          </div>
-        </div>
-
-        <button
-          onClick={handleBookOrderSubmit}
-          disabled={!bookBefore.trim() || !bookAfter.trim() || bookOrderComplete}
-          className="btn w-full flex items-center justify-center gap-2"
-        >
-          <CheckCircle2 size={20} />
-          Submit Book Order
-        </button>
-      </div>
-    );
-  }
-
-  // Render scramble stage
-  if (stage === 'scramble') {
-    const correctWords = verseData.text.split(/\s+/);
-
-    return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h3 className="text-xl font-bold text-white flex items-center gap-2">
-            <Zap size={24} className="text-blue-400" />
-            Stage 2: Unscramble the Verse
-          </h3>
-          <div className="flex items-center gap-2 text-lg font-bold text-amber-300">
-            <Clock size={20} />
-            {Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}
-          </div>
-        </div>
-
-        {/* Stage 1 Complete (Greyed Out) */}
-        <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 opacity-50">
-          <div className="flex items-center gap-2 mb-2">
-            <CheckCircle2 size={16} className="text-green-400" />
-            <span className="text-sm font-semibold text-slate-400">Stage 1 Complete</span>
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-xs text-slate-500">
-            <div>Before: {bookBefore} ({Math.round(bookBeforeAccuracy)}%)</div>
-            <div>After: {bookAfter} ({Math.round(bookAfterAccuracy)}%)</div>
-          </div>
-        </div>
-
-        <div className="bg-purple-900/30 border border-purple-500/30 rounded-lg p-4 text-center">
-          <p className="text-sm text-purple-200">Reference:</p>
-          <h3 className="text-xl font-bold text-white">{verseData?.reference}</h3>
-        </div>
-
-        {/* User's answer area */}
-        <div className="bg-slate-800/50 rounded-lg p-4 min-h-32 border-2 border-dashed border-slate-600">
-          <p className="text-xs text-slate-400 mb-2">Drop words here or click them in order:</p>
-          <div className="flex flex-wrap gap-2">
-            {correctWords.map((_, index) => (
-              <div
-                key={index}
-                className={`px-3 py-2 rounded ${
-                  userSequence[index]
-                    ? userSequence[index] === correctWords[index]
-                      ? 'bg-green-600 text-white'
-                      : 'bg-red-600 text-white'
-                    : 'bg-slate-700 text-slate-400'
-                } min-w-16 text-center text-sm`}
-                onDragOver={handleDragOver}
-                onDrop={() => handleDrop(index)}
-              >
-                {userSequence[index] || '___'}
+          <div className="relative z-10">
+            {/* Header with Grade Letter on Top Left */}
+            <div className="flex items-start gap-6 mb-8">
+              {/* Grade Letter - Top Left */}
+              <div className={`bg-gradient-to-br ${getGradeColor(finalGrade.grade)} rounded-2xl p-8 shadow-2xl`}
+                   style={{
+                     animation: 'countUp 0.8s ease-out',
+                     boxShadow: '0 0 40px rgba(251, 191, 36, 0.5)',
+                     minWidth: '140px'
+                   }}>
+                <div className="text-white text-7xl font-black text-center"
+                     style={{textShadow: '4px 4px 8px rgba(0,0,0,0.5)'}}>
+                  {finalGrade.grade}
+                </div>
               </div>
-            ))}
+
+              {/* Title and Summary */}
+              <div className="flex-1">
+                <Trophy className="text-amber-400 mb-3" size={48} />
+                <h2 className="text-3xl font-bold text-amber-400 mb-3">
+                  {getGradeTitle(finalGrade.grade)}
+                </h2>
+                <div className="bg-slate-800 rounded-xl p-4 mb-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-300 text-lg">Final Score:</span>
+                    <span className="text-amber-400 text-2xl font-bold">{finalGrade.totalScore}/{finalGrade.maxScore}</span>
+                  </div>
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-slate-300 text-lg">Percentage:</span>
+                    <span className="text-green-400 text-2xl font-bold">{finalGrade.percentage.toFixed(1)}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Detailed Round-by-Round Breakdown */}
+            <div className="bg-slate-800 rounded-xl p-6 mb-6">
+              <h3 className="text-amber-400 text-xl font-bold mb-4 flex items-center gap-2">
+                <Target size={24} />
+                Round-by-Round Performance
+              </h3>
+
+              <div className="space-y-4">
+                {finalGrade.rounds.map((round, index) => (
+                  <div key={index} className="bg-slate-700 rounded-lg p-4 border border-slate-600">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-white font-bold text-lg">Round {round.round} - {round.book}</h4>
+                      <div className="text-amber-400 font-bold">⏱️ {round.totalTime}s</div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      {/* Book Order Results */}
+                      <div className="bg-slate-800 rounded p-3">
+                        <div className="text-blue-300 font-semibold mb-2">Book Order</div>
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className={round.bookOrderCorrect.before ? 'text-green-400' : 'text-red-400'}>
+                              {round.bookOrderCorrect.before ? '✓' : '✗'}
+                            </span>
+                            <span className="text-slate-300">Before: {round.before}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className={round.bookOrderCorrect.after ? 'text-green-400' : 'text-red-400'}>
+                              {round.bookOrderCorrect.after ? '✓' : '✗'}
+                            </span>
+                            <span className="text-slate-300">After: {round.after}</span>
+                          </div>
+                          <div className="text-xs text-slate-400 mt-1">Time: {round.bookOrderTime}s</div>
+                        </div>
+                      </div>
+
+                      {/* Verse Scramble Results */}
+                      <div className="bg-slate-800 rounded p-3">
+                        <div className="text-purple-300 font-semibold mb-2">Verse Scramble</div>
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className={round.verseCorrect ? 'text-green-400 text-xl' : 'text-red-400 text-xl'}>
+                              {round.verseCorrect ? '✓' : '✗'}
+                            </span>
+                            <span className="text-slate-300">{round.verseCorrect ? 'Perfect!' : 'Incorrect'}</span>
+                          </div>
+                          <div className="text-xs text-slate-400">Time: {round.verseScrambleTime}s</div>
+                          <div className="text-xs text-slate-400">Revisions: {round.revisionCount}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Verse Reference */}
+                    <div className="mt-3 text-xs text-slate-400 italic">
+                      {round.verse.reference}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  onComplete({
+                    score: finalGrade.percentage,
+                    grade: finalGrade.grade,
+                    type: 'sword-drill-ultimate',
+                    details: finalGrade
+                  });
+                }}
+                className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                Continue
+              </button>
+              <button
+                onClick={onCancel}
+                className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200"
+              >
+                Back to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (loading || !question) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-4 border-amber-500 text-center">
+          <Sparkles size={48} className="text-amber-400 mx-auto mb-4 animate-pulse" />
+          <div className="text-white text-xl">Loading Sword Drill...</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
+      <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-4 border-amber-500 relative">
+        {/* Header */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+                <Sword size={28} />
+                Sword Drill Ultimate
+              </h2>
+              <div className="text-slate-300 text-sm mt-1">Round {currentRound} of 3</div>
+            </div>
+            <button
+              onClick={onCancel}
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <X size={28} />
+            </button>
+          </div>
+
+          {/* Round Indicator */}
+          <div className="flex gap-2 mb-4">
+            <div className={`flex-1 h-2 rounded-full ${currentRound >= 1 ? 'bg-amber-500' : 'bg-slate-600'}`} />
+            <div className={`flex-1 h-2 rounded-full ${currentRound >= 2 ? 'bg-amber-500' : 'bg-slate-600'}`} />
+            <div className={`flex-1 h-2 rounded-full ${currentRound >= 3 ? 'bg-amber-500' : 'bg-slate-600'}`} />
           </div>
         </div>
 
-        {/* Scrambled words */}
-        <div className="bg-slate-900/50 rounded-lg p-4">
-          <p className="text-xs text-slate-400 mb-2">Available words:</p>
-          <div className="flex flex-wrap gap-2">
-            {scrambledWords.map((word, index) => (
-              <div
-                key={index}
-                draggable
-                onDragStart={() => handleDragStart(index)}
-                onClick={() => handleWordClick(word)}
-                className={`px-3 py-2 rounded bg-blue-600 hover:bg-blue-500 text-white cursor-pointer text-sm transition ${
-                  userSequence.includes(word) ? 'opacity-30' : ''
+        {/* Book Order Phase */}
+        {phase === 'book-order' && (
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-8 border-2 border-amber-500/30">
+              <div className="text-center mb-6">
+                <div className="text-slate-300 text-sm font-semibold uppercase tracking-wide mb-3">
+                  Book Order Challenge
+                </div>
+                <div className="text-white text-4xl font-bold mb-4">
+                  {question.currentBook}
+                </div>
+                <div className="text-slate-300 text-lg">
+                  Name the books that come <span className="text-amber-400 font-bold">before</span> and <span className="text-green-400 font-bold">after</span>
+                </div>
+              </div>
+            </div>
+
+            {!bookOrderLocked ? (
+              <form onSubmit={handleBookOrderSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-amber-400 font-semibold mb-2">
+                    Book BEFORE {question.currentBook}:
+                  </label>
+                  <input
+                    type="text"
+                    value={beforeAnswer}
+                    onChange={(e) => setBeforeAnswer(e.target.value)}
+                    placeholder="Type the book name..."
+                    className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
+                    autoFocus
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-green-400 font-semibold mb-2">
+                    Book AFTER {question.currentBook}:
+                  </label>
+                  <input
+                    type="text"
+                    value={afterAnswer}
+                    onChange={(e) => setAfterAnswer(e.target.value)}
+                    placeholder="Type the book name..."
+                    className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={!beforeAnswer.trim() || !afterAnswer.trim()}
+                  className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
+                >
+                  Submit & Continue
+                </button>
+              </form>
+            ) : (
+              <div className="space-y-3 text-white">
+                <div className={`p-4 rounded-lg ${bookOrderCorrect.before ? 'bg-green-600/30 border-2 border-green-500' : 'bg-red-600/30 border-2 border-red-500'}`}>
+                  <span className="font-semibold">Before: </span>
+                  <span className="font-bold">{question.before}</span>
+                  {!bookOrderCorrect.before && beforeAnswer && (
+                    <span className="text-red-300 ml-2">(You: {beforeAnswer})</span>
+                  )}
+                </div>
+                <div className={`p-4 rounded-lg ${bookOrderCorrect.after ? 'bg-green-600/30 border-2 border-green-500' : 'bg-red-600/30 border-2 border-red-500'}`}>
+                  <span className="font-semibold">After: </span>
+                  <span className="font-bold">{question.after}</span>
+                  {!bookOrderCorrect.after && afterAnswer && (
+                    <span className="text-red-300 ml-2">(You: {afterAnswer})</span>
+                  )}
+                </div>
+                <div className="text-center text-amber-400 animate-pulse">
+                  Preparing verse scramble...
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Verse Scramble Phase */}
+        {phase === 'verse-scramble' && (
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-xl p-6 border-2 border-purple-500/30">
+              <div className="text-center mb-4">
+                <div className="text-slate-300 text-sm font-semibold uppercase tracking-wide mb-2">
+                  Verse Scramble Challenge
+                </div>
+                <div className="text-amber-400 font-bold text-lg mb-2">
+                  {question.verse.reference}
+                </div>
+                <div className="text-slate-300 text-sm">
+                  Arrange the words in the correct order
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="flex gap-3 justify-center text-sm">
+                <div className="bg-orange-500/20 px-3 py-1 rounded-lg border border-orange-500/30">
+                  <Zap className="inline mr-1" size={14} />
+                  <span className="text-orange-400 font-semibold">Revisions:</span>{" "}
+                  <span className="text-white font-bold">{revisionCount}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* User's Answer Area */}
+            <div
+              className="min-h-32 bg-slate-900/50 rounded-xl p-4 border-2 border-dashed border-purple-500/50"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={() => handleDrop(userOrder.length)}
+            >
+              <div className="flex flex-wrap gap-2 min-h-20">
+                {userOrder.length === 0 ? (
+                  <div className="w-full flex items-center justify-center text-slate-500 text-sm">
+                    Drag words here or click them to build the verse
+                  </div>
+                ) : (
+                  userOrder.map((word, index) => (
+                    <div
+                      key={`user-${index}-${word}`}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold shadow-lg"
+                    >
+                      {word}
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+
+            {/* Scrambled Words */}
+            <div className="min-h-24 bg-slate-700/30 rounded-xl p-4">
+              <div className="text-slate-300 text-sm mb-2 font-semibold">Available Words:</div>
+              <div className="flex flex-wrap gap-2">
+                {scrambledWords.map((word, index) => (
+                  <div
+                    key={`scrambled-${index}-${word}`}
+                    draggable
+                    onDragStart={() => handleDragStart(index)}
+                    onClick={() => handleWordClick(word, index)}
+                    className="px-4 py-2 bg-slate-600 text-white rounded-lg font-semibold cursor-move hover:bg-slate-500 transition-all transform hover:scale-105"
+                  >
+                    {word}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-4 justify-center">
+              <button
+                onClick={handleUndo}
+                disabled={userOrder.length === 0}
+                className="px-6 py-3 bg-slate-600 hover:bg-slate-700 text-white font-bold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Undo
+              </button>
+              <button
+                onClick={handleVerseScrambleSubmit}
+                disabled={scrambledWords.length > 0}
+                className={`px-8 py-3 rounded-xl font-semibold text-lg transition-all transform ${
+                  scrambledWords.length === 0
+                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white hover:scale-105 shadow-lg'
+                    : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                 }`}
               >
-                {word}
-              </div>
-            ))}
+                {scrambledWords.length === 0
+                  ? (currentRound === 3 ? 'Submit for Grading' : `Complete Round ${currentRound}`)
+                  : `Place ${scrambledWords.length} more word(s)`
+                }
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="flex gap-3">
-          <button onClick={() => setUserSequence([])} className="btn btn-secondary flex-1">
-            Reset
-          </button>
-          <button
-            onClick={handleScrambleSubmit}
-            className="btn flex-1 flex items-center justify-center gap-2"
-          >
-            <CheckCircle2 size={20} />
-            Submit Answer
-          </button>
-        </div>
+        )}
       </div>
-    );
-  }
-
-  // Render results
-  if (stage === 'results' && finalGrade) {
-    return (
-      <div className="space-y-6 text-center">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">Challenge Complete!</h2>
-
-          {/* Rank Display */}
-          <div className={`inline-block p-8 rounded-2xl bg-gradient-to-br ${rankColors[finalGrade.rank]} shadow-2xl`}>
-            <div className="text-9xl font-black text-white drop-shadow-lg">
-              {finalGrade.rank}
-            </div>
-            <div className="text-lg font-semibold text-white mt-2">
-              {finalGrade.rank === 'U' && 'ULTIMATE'}
-              {finalGrade.rank === 'S' && 'SUPER'}
-              {finalGrade.rank === 'A' && 'EXCELLENT'}
-              {finalGrade.rank === 'B' && 'GOOD'}
-              {finalGrade.rank === 'C' && 'FAIR'}
-              {finalGrade.rank === 'D' && 'NEEDS IMPROVEMENT'}
-            </div>
-          </div>
-
-          {/* Score Breakdown */}
-          <div className="bg-slate-800/50 rounded-lg p-6 max-w-md mx-auto">
-            <h3 className="font-bold text-white mb-4">Score Breakdown</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-slate-400">Final Score:</span>
-                <span className="text-white font-bold">{finalGrade.score}%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Time Bonus:</span>
-                <span className="text-amber-300">{finalGrade.timeScore}%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Scramble Accuracy:</span>
-                <span className="text-blue-300">{finalGrade.scrambleAccuracy}%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Book Order:</span>
-                <span className="text-green-300">{finalGrade.bookOrderScore}%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Incorrect Placements:</span>
-                <span className="text-red-300">-{finalGrade.incorrectPlacements * 5}%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-3 justify-center">
-          <button onClick={onCancel} className="btn btn-secondary">
-            Close
-          </button>
-          <button onClick={() => {
-            setStage('intro');
-            setFinalGrade(null);
-            setBookBefore('');
-            setBookAfter('');
-            setUserSequence([]);
-            setIncorrectPlacements(0);
-          }} className="btn">
-            Try Again
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };
 
 export default SwordDrillUltimate;

@@ -5,9 +5,9 @@ let WEBSTER_INDEX = null;
 let WEBSTER_LOADING = null;
 let WEBSTER_KEYS = null;
 
-let EASTON_INDEX = null;
-let EASTON_LOADING = null;
-let EASTON_KEYS = null;
+let SMITHS_INDEX = null;
+let SMITHS_LOADING = null;
+let SMITHS_KEYS = null;
 
 let COMBINED_INDEX = null;
 let COMBINED_KEYS = null;
@@ -36,50 +36,40 @@ async function loadWebsterIndex() {
   return WEBSTER_LOADING;
 }
 
-async function loadEastonIndex() {
-  if (EASTON_INDEX) return EASTON_INDEX;
-  if (EASTON_LOADING) return EASTON_LOADING;
-  EASTON_LOADING = (async () => {
+async function loadSmithsIndex() {
+  if (SMITHS_INDEX) return SMITHS_INDEX;
+  if (SMITHS_LOADING) return SMITHS_LOADING;
+  SMITHS_LOADING = (async () => {
     try {
       const base = process.env.PUBLIC_URL || '';
-      const urls = [`${base}/dictionaries/easton.json`, `${base}/dictionaries/easton_index.json`];
-      for (const url of urls) {
-        try {
-          const res = await fetch(url);
-          if (res.ok) {
-            const data = await res.json();
-            // data may be array of {headword, def} or key->entry
-            let idx = {};
-            if (Array.isArray(data)) {
-              data.forEach(e => {
-                const k = normalizeKey(e?.headword || '');
-                if (k) idx[k] = { headword: e.headword, pos: e.pos || null, def: e.def || e.definition || '', src: 'EASTON' };
-              });
-            } else if (data && typeof data === 'object') {
-              Object.keys(data).forEach(k => {
-                const key = normalizeKey(k);
-                const val = data[k];
-                if (key) idx[key] = { headword: val?.headword || k, pos: val?.pos || null, def: val?.def || val?.definition || String(val), src: 'EASTON' };
-              });
-            }
-            EASTON_INDEX = idx;
-            EASTON_KEYS = Object.keys(idx);
-            return idx;
-          }
-        } catch (_) {}
+      const res = await fetch(`${base}/dictionaries/smiths.json`);
+      if (res.ok) {
+        const data = await res.json();
+        // data is key->entry object
+        let idx = {};
+        if (data && typeof data === 'object') {
+          Object.keys(data).forEach(k => {
+            const key = normalizeKey(k);
+            const val = data[k];
+            if (key) idx[key] = { headword: val?.headword || k, pos: val?.pos || null, def: val?.def || val?.definition || String(val), src: 'SMITHS' };
+          });
+        }
+        SMITHS_INDEX = idx;
+        SMITHS_KEYS = Object.keys(idx);
+        return idx;
       }
     } catch (_) {}
-    EASTON_INDEX = {};
-    EASTON_KEYS = [];
-    return EASTON_INDEX;
+    SMITHS_INDEX = {};
+    SMITHS_KEYS = [];
+    return SMITHS_INDEX;
   })();
-  return EASTON_LOADING;
+  return SMITHS_LOADING;
 }
 
 async function ensureCombined() {
   if (COMBINED_INDEX) return { idx: COMBINED_INDEX, keys: COMBINED_KEYS };
-  const [w, e] = await Promise.all([loadWebsterIndex(), loadEastonIndex()]);
-  const idx = { ...(e || {}), ...(w || {}) }; // Prefer Easton where overlapping
+  const [w, s] = await Promise.all([loadWebsterIndex(), loadSmithsIndex()]);
+  const idx = { ...(s || {}), ...(w || {}) }; // Prefer Smith's where overlapping
   const keys = Object.keys(idx);
   COMBINED_INDEX = idx; COMBINED_KEYS = keys;
   return { idx, keys };

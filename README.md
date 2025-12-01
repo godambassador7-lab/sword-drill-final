@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Sword Drill
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bible memorization and study companion built with React. Includes Sword Drill Ultimate quizzes, Bible reader, verse detective, achievements, and progress tracking backed by Firebase. Deploys to GitHub Pages and is PWA-ready once the service worker and manifest are wired in.
 
-## Available Scripts
+## Features
+- Sword Drill Ultimate timed quiz with sound effects, background music, and streaks.
+- Bible reader with references, lexicon links, and study plans (97+ plans in data files).
+- Achievements and progress saved to Firebase Realtime Database.
+- Personal Verse Detective, multiple-choice flows, Hebrew calendar integrations, and more ancillary study tools.
+- Responsive Tailwind UI (Tailwind via CDN in `public/index.html`).
 
-In the project directory, you can run:
+## Tech Stack
+- React 19 / react-scripts 5
+- Firebase SDK 12 (auth + realtime database)
+- TailwindCSS (CDN) and Recharts
+- Deployed via `gh-pages` to `https://godambassador7-lab.github.io/sword_drill`
 
-### `npm start`
+## Project Structure
+- `src/App.js` – main app logic, routing by view, quiz/game flows, audio controls.
+- `src/index.js` – React entry point.
+- `src/serviceWorkerRegistration.js` – CRA service worker helper (not yet wired).
+- `public/` – static assets, large Bible/lexicon datasets, PWA manifests (`manifest.json`, `site.webmanifest`), icons, sounds, and HTML shell.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
+1) Install: `npm install`
+2) Run dev server: `npm start` (http://localhost:3000)
+3) Build: `npm run build`
+4) Deploy to GitHub Pages: `npm run deploy` (uses `homepage` from package.json)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Environment
+- `.env` should contain your Firebase config keys and any API endpoints used by `dbService`/`esvProvider`.
+- The app assumes public assets under `/sword_drill/` when deployed to GitHub Pages.
 
-### `npm test`
+## PWA Notes
+- Manifests and icons exist in `public/`, but `public/index.html` still needs a `<link rel="manifest" ...>` and `src/index.js` should call `serviceWorkerRegistration.register()` to enable offline/install.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Testing
+- `npm test` runs CRA’s Jest/Testing Library suite. No custom tests are defined yet.
 
-### `npm run build`
+## Legal
+Copyright (c) 2025 Demetrius Smith.  
+All Rights Reserved.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Unauthorized copying, modification, redistribution, or use of this software in whole or in part is strictly prohibited.
