@@ -29,19 +29,6 @@ import {
   CheckCircle,
   Users
 } from 'lucide-react';
-// Core game logic imports (from private submodule)
-import {
-  ACHIEVEMENT_TIERS,
-  ACHIEVEMENTS,
-  ACHIEVEMENT_CONDITIONS,
-  checkForNewAchievements,
-  LEVEL_REQUIREMENTS,
-  POINT_SYSTEM,
-  QUIZ_POINTS,
-  matchBiblicalReference,
-  DEFAULT_VERSE_FALLBACK,
-  VERSE_DATABASE
-} from './core/core';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
 import SwordDrillUltimate from './components/SwordDrillUltimate';
