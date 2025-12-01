@@ -1877,9 +1877,9 @@ const playSound = (soundType) => {
 
     let soundPath = '';
     if (soundType === 'correct') {
-      soundPath = '/sword_drill/ytmp3free.cc_correct-answer-sound-effect-no-copyright-youtubemp3free.org.mp3';
+      soundPath = `${process.env.PUBLIC_URL}/ytmp3free.cc_correct-answer-sound-effect-no-copyright-youtubemp3free.org.mp3`;
     } else if (soundType === 'incorrect') {
-      soundPath = '/sword_drill/feud buzzer.mp3';
+      soundPath = `${process.env.PUBLIC_URL}/feud buzzer.mp3`;
     }
 
     if (soundPath) {
@@ -1920,7 +1920,7 @@ const playBackgroundMusic = () => {
       return;
     }
 
-    const musicPath = '/sword_drill/ytmp3free.cc_best-cinematic-action-beats-inspiring-no-copyright-background-music-youtubemp3free.org.mp3';
+    const musicPath = `${process.env.PUBLIC_URL}/ytmp3free.cc_best-cinematic-action-beats-inspiring-no-copyright-background-music-youtubemp3free.org.mp3`;
     backgroundMusicRef = new Audio(musicPath);
     backgroundMusicRef.volume = soundSettings.musicVolume; // Use user's music volume
     backgroundMusicRef.loop = true; // Loop the music
@@ -2223,7 +2223,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   if (newlyUnlockedIds.length > 0) {
     // Play congratulations sound (only once even if multiple achievements unlocked)
     try {
-      const congratsSound = new Audio('/sword_drill/ytmp3free.cc_congratulations-sound-effects-free-audio-youtubemp3free.org.mp3');
+      const congratsSound = new Audio(`${process.env.PUBLIC_URL}/ytmp3free.cc_congratulations-sound-effects-free-audio-youtubemp3free.org.mp3`);
       const soundSettings = userData.soundSettings || { enabled: true, volume: 0.5 };
       if (soundSettings.enabled) {
         congratsSound.volume = soundSettings.volume || 0.5;
