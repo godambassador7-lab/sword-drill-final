@@ -3670,9 +3670,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/manifest.json`)
         .then(res => res.json())
         .then(fileList => {
-          const promises = fileList.map(filename =>
+          const promises = fileList.map((filename, index) =>
             fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/${filename}`)
               .then(r => r.json())
+              .then(planData => ({
+                ...planData,
+                id: `${folder}_${index}`,
+                filename: filename,
+                topic: planData.title,
+                theme: `${planData.days.length} day study plan`
+              }))
           );
           return Promise.all(promises);
         })
