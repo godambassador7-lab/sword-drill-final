@@ -41,7 +41,7 @@ import {
   matchBiblicalReference,
   DEFAULT_VERSE_FALLBACK,
   VERSE_DATABASE
-} from './core';
+} from './core/core';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
 import SwordDrillUltimate from './components/SwordDrillUltimate';
