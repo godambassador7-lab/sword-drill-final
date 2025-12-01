@@ -824,10 +824,10 @@ useEffect(() => {
         mergedProgress.currentStreak = Math.max(mergedProgress.currentStreak || 0, recalculatedStreak);
         // Rebuild streakData from Firebase + quizHistory + existing localStorage and persist
         const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
-        const firebaseStreak = normalizeStreakData(result.progress.streakData || {});
+        const firebaseStreakData = normalizeStreakData(result.progress.streakData || {});
         const quizHistory = mergedProgress.quizHistory || [];
         // Merge Firebase streakData with local, preferring Firebase data for conflicts
-        const rebuilt = { ...existingStreak, ...firebaseStreak };
+        const rebuilt = { ...existingStreak, ...firebaseStreakData };
         quizHistory.forEach(q => {
           if (q.correct) {
             const ts = q.timestamp || q.ts || q.date;
