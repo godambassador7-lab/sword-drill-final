@@ -1,0 +1,759 @@
+{
+  "metadata": {
+    "id": "spiritual_gifts_exam_v1",
+    "title": "Spiritual Gifts Exam",
+    "description": "A 50‑question spiritual gifts assessment based on key New Testament passages about spiritual gifts (Romans 12, 1 Corinthians 12–14, Ephesians 4, 1 Peter 4). Users respond on a 1–5 scale from 'Strongly Disagree' to 'Strongly Agree'. Scores are tallied per gift using the gifts_weights for each question.",
+    "version": "1.0.0",
+    "created_at_iso": "2025-11-27T03:01:39.794821Z",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "Strongly Disagree",
+        "2": "Disagree",
+        "3": "Neutral / Unsure",
+        "4": "Agree",
+        "5": "Strongly Agree"
+      }
+    }
+  },
+  "gifts": [
+    {
+      "id": "apostleship",
+      "name": "Apostleship / Pioneer Church-Planting",
+      "summary": "A God‑given drive to take the gospel where it is not known, establish new works, and lay foundations for others to build upon.",
+      "how_to_use_today": "Believers with this gift often start new ministries, plant churches, pioneer outreach in neglected communities, or build structures that enable other believers to flourish. They think in terms of regions, movements, and long‑term mission, not just one local task.",
+      "scripture_refs": [
+        "1 Corinthians 12:28",
+        "Ephesians 4:11-12",
+        "Romans 15:20-21",
+        "Acts 13:1-3"
+      ],
+      "biblical_examples": [
+        "Paul and Barnabas (Acts 13–14)",
+        "Peter going to the Gentiles (Acts 10–11)"
+      ],
+      "cultivation_tips": "Pray regularly for unreached people and overlooked groups near you. Serve on or form teams that start new works rather than only maintaining existing ones. Study missionary biographies and the book of Acts, and invite your church leadership to test and affirm this calling."
+    },
+    {
+      "id": "prophecy",
+      "name": "Prophecy",
+      "summary": "A Spirit‑empowered ability to speak forth God’s heart in a way that convicts, comforts, and calls people back to obedience to His Word.",
+      "how_to_use_today": "This gift shows up in clear, bold, Scripture‑saturated speech that exposes sin, strengthens the church, and brings timely encouragement or warning. It always submits to the authority of Scripture and is tested by the body of Christ.",
+      "scripture_refs": [
+        "Romans 12:6",
+        "1 Corinthians 12:10",
+        "1 Corinthians 14:1-3",
+        "1 Thessalonians 5:19-21"
+      ],
+      "biblical_examples": [
+        "Agabus (Acts 11:27-30; Acts 21:10-11)",
+        "New Testament prophets in Antioch (Acts 13:1)"
+      ],
+      "cultivation_tips": "Immerse yourself in Scripture so that your sense of God’s heart is shaped by His Word. Practice speaking truth in love in safe, accountable settings. Invite feedback from mature leaders, and be quick to repent if you speak from your own feelings rather than from God’s Word."
+    },
+    {
+      "id": "evangelism",
+      "name": "Evangelism",
+      "summary": "A Spirit‑given ability to communicate the good news of Jesus clearly and compellingly so that people are drawn to repent and believe.",
+      "how_to_use_today": "Those with this gift naturally turn conversations toward Jesus, explain the gospel simply, and are often present when people come to faith. They may lead outreach efforts, train others to share their faith, and feel a persistent burden for the lost.",
+      "scripture_refs": [
+        "Ephesians 4:11",
+        "Acts 8:5-13",
+        "Acts 21:8",
+        "2 Timothy 4:5"
+      ],
+      "biblical_examples": [
+        "Philip the evangelist (Acts 8; Acts 21:8)",
+        "Paul’s preaching in Athens (Acts 17:16-34)"
+      ],
+      "cultivation_tips": "Pray consistently for specific people by name. Learn clear ways of explaining the gospel from Scripture. Ask your church how you can serve in outreach and invite others to go with you so they can learn as you share."
+    },
+    {
+      "id": "pastor_shepherd",
+      "name": "Pastor / Shepherd",
+      "summary": "A God‑given capacity to care for, guide, and protect believers so they grow healthy in Christ over time.",
+      "how_to_use_today": "This gift appears in people who watch over souls, notice when someone is drifting, and gently bring them back. They love walking with people over the long haul, praying, listening, and helping them apply Scripture in everyday life.",
+      "scripture_refs": [
+        "Ephesians 4:11-12",
+        "1 Peter 5:1-3",
+        "Acts 20:28",
+        "John 21:15-17"
+      ],
+      "biblical_examples": [
+        "Elders in local churches (Acts 14:23)",
+        "Timothy shepherding believers (1 Timothy 1:3-5)"
+      ],
+      "cultivation_tips": "Join or help lead small groups or discipleship relationships where you care for people consistently. Study passages on shepherd leadership and ask trusted leaders to coach you in how to guard, feed, and guide people with humility."
+    },
+    {
+      "id": "teaching",
+      "name": "Teaching",
+      "summary": "A Spirit‑empowered ability to understand, explain, and apply the Scriptures in a clear, accurate, and life‑giving way.",
+      "how_to_use_today": "Teachers help others grasp the Bible, connect passages together, and see how doctrine shapes daily life. They may teach publicly, lead classes, write, or mentor others in smaller settings.",
+      "scripture_refs": [
+        "Romans 12:7",
+        "1 Corinthians 12:28",
+        "Ephesians 4:11",
+        "2 Timothy 2:2",
+        "James 3:1"
+      ],
+      "biblical_examples": [
+        "Apollos (Acts 18:24-28)",
+        "Paul teaching in Ephesus (Acts 19:8-10)"
+      ],
+      "cultivation_tips": "Commit to careful study and sound doctrine. Practice explaining passages first to yourself, then to others. Invite feedback on clarity and accuracy. Guard your life and teaching closely so your example matches your words."
+    },
+    {
+      "id": "exhortation",
+      "name": "Exhortation / Encouragement",
+      "summary": "A Spirit‑given gift to strengthen, encourage, and urge others to trust and obey God through comfort, counsel, and challenge.",
+      "how_to_use_today": "People with this gift are drawn to those who are discouraged or stuck and instinctively speak words that build faith, hope, and perseverance. They help others apply truth to real situations.",
+      "scripture_refs": [
+        "Romans 12:8",
+        "Hebrews 10:24-25",
+        "Acts 14:21-22"
+      ],
+      "biblical_examples": [
+        "Barnabas, the 'son of encouragement' (Acts 4:36-37; 11:22-24)",
+        "Judas and Silas encouraging believers (Acts 15:32)"
+      ],
+      "cultivation_tips": "Pay attention to who is weary or overlooked and choose to reach out. Fill your own heart with the promises of God so you always have real hope to share. Practice both comforting and challenging people in love."
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership",
+      "summary": "A spiritual capacity to stand in front of others with humility, set direction, and mobilize people toward God’s purposes.",
+      "how_to_use_today": "Leaders see what needs to be done, who should do it, and how to organize it. They make decisions prayerfully, communicate clearly, and help the church move together in unity.",
+      "scripture_refs": [
+        "Romans 12:8",
+        "1 Thessalonians 5:12",
+        "1 Timothy 5:17"
+      ],
+      "biblical_examples": [
+        "Elders who 'rule well' (1 Timothy 5:17)",
+        "James leading the Jerusalem council (Acts 15)"
+      ],
+      "cultivation_tips": "Serve faithfully in small responsibilities and prove trustworthy. Learn from godly leaders, seeking wisdom rather than status. Practice listening well before giving direction, and keep your heart anchored in Christ’s servant leadership."
+    },
+    {
+      "id": "administration",
+      "name": "Administration / Guidance",
+      "summary": "A Spirit‑given ability to organize people, tasks, and resources so that ministry stays aligned, efficient, and fruitful.",
+      "how_to_use_today": "Administrators coordinate details, systems, and timelines that others often overlook. They create structures that free others to focus on their own gifts.",
+      "scripture_refs": [
+        "1 Corinthians 12:28",
+        "Acts 6:1-4"
+      ],
+      "biblical_examples": [
+        "Those appointed to oversee food distribution (Acts 6:1-6)",
+        "Paul’s careful planning of travel and offerings (1 Corinthians 16:1-4)"
+      ],
+      "cultivation_tips": "Volunteer to help manage schedules, communication, and logistics. Learn simple tools for planning and follow‑through. Stay close to leaders so your structures support the real spiritual priorities."
+    },
+    {
+      "id": "serving",
+      "name": "Serving / Helps",
+      "summary": "A Spirit‑energized desire to meet practical needs and support others so that the body of Christ is strengthened.",
+      "how_to_use_today": "Those with this gift find joy in tasks many others avoid—setting up, cleaning, fixing, or caring for behind‑the‑scenes needs. Their quiet faithfulness keeps ministry moving.",
+      "scripture_refs": [
+        "Romans 12:7",
+        "1 Corinthians 12:28",
+        "1 Peter 4:10-11"
+      ],
+      "biblical_examples": [
+        "Those who served tables in Acts 6",
+        "Women who supported Jesus’ ministry (Luke 8:1-3)"
+      ],
+      "cultivation_tips": "Look for unassigned work and simply do it. Tie each act of service to prayer for the people you are helping. Resist resentment by remembering that God sees what is done in secret."
+    },
+    {
+      "id": "giving",
+      "name": "Giving",
+      "summary": "A Spirit‑prompted impulse to share resources generously, joyfully, and wisely to advance God’s work and care for people.",
+      "how_to_use_today": "Givers notice financial and material needs and are eager to meet them discreetly. They often find creative ways to leverage their income, skills, or possessions for the kingdom.",
+      "scripture_refs": [
+        "Romans 12:8",
+        "2 Corinthians 8:1-5",
+        "2 Corinthians 9:6-11"
+      ],
+      "biblical_examples": [
+        "The Macedonian believers (2 Corinthians 8–9)",
+        "Barnabas selling land (Acts 4:36-37)"
+      ],
+      "cultivation_tips": "Set a baseline of faithful giving and then look for Spirit‑led opportunities to go beyond it. Keep your heart free from love of money by remembering that all you have belongs to God."
+    },
+    {
+      "id": "mercy",
+      "name": "Mercy",
+      "summary": "A Spirit‑shaped compassion that moves you to care for the suffering, overlooked, and broken in a tangible way.",
+      "how_to_use_today": "People with this gift lean toward the hurting, not away. They sit with those who grieve, visit the sick, advocate for the vulnerable, and reflect the tenderness of Christ.",
+      "scripture_refs": [
+        "Romans 12:8",
+        "Matthew 25:34-40",
+        "Luke 10:33-37"
+      ],
+      "biblical_examples": [
+        "The good Samaritan (Luke 10:30-37)",
+        "Believers caring for widows (Acts 6:1)"
+      ],
+      "cultivation_tips": "Ask God to show you specific people who are suffering and reach out intentionally. Learn to balance compassion with truth, offering both comfort and hope rooted in Christ."
+    },
+    {
+      "id": "hospitality",
+      "name": "Hospitality",
+      "summary": "A Spirit‑given ability to open one’s home and life so that others experience welcome, safety, and the love of Christ.",
+      "how_to_use_today": "Those with this gift create spaces where people feel seen and cared for. They invite strangers, newcomers, and the lonely into meals, conversations, and community.",
+      "scripture_refs": [
+        "Romans 12:13",
+        "1 Peter 4:9-10",
+        "Hebrews 13:2"
+      ],
+      "biblical_examples": [
+        "Lydia opening her home (Acts 16:14-15)",
+        "Priscilla and Aquila hosting and discipling (Acts 18:1-3, 24-26)"
+      ],
+      "cultivation_tips": "Start small: one person or family at a time. Pray over your home as a place of ministry. Remember that hospitality is more about presence and love than about perfect presentation."
+    },
+    {
+      "id": "wisdom",
+      "name": "Word of Wisdom",
+      "summary": "A Spirit‑given insight into how to apply God’s truth wisely to complex situations and decisions.",
+      "how_to_use_today": "This gift helps believers see the big picture and discern the best path that honors Christ and serves others well. People seek them out for counsel when issues are tangled or sensitive.",
+      "scripture_refs": [
+        "1 Corinthians 12:8",
+        "James 1:5",
+        "Colossians 1:9"
+      ],
+      "biblical_examples": [
+        "James’ wise ruling at the Jerusalem council (Acts 15:13-21)",
+        "Joseph’s wisdom in managing Egypt (Genesis 41:33-40)"
+      ],
+      "cultivation_tips": "Ask God for wisdom regularly and search the Scriptures for principles that guide decisions. Practice listening carefully before speaking, and submit your counsel to the evaluation of other mature believers."
+    },
+    {
+      "id": "knowledge",
+      "name": "Word of Knowledge",
+      "summary": "A Spirit‑enabled grasp of truth—sometimes including specific insights about people or situations—that helps the body of Christ.",
+      "how_to_use_today": "This can appear as a deep understanding of doctrine or as Spirit‑prompted insight into hidden matters that, when tested, helps protect or guide others. It always serves love and holiness.",
+      "scripture_refs": [
+        "1 Corinthians 12:8",
+        "Colossians 2:2-3",
+        "2 Peter 3:18"
+      ],
+      "biblical_examples": [
+        "Peter knowing the truth about Ananias and Sapphira (Acts 5:1-4)",
+        "Paul’s deep doctrinal teaching (Romans; Ephesians)"
+      ],
+      "cultivation_tips": "Study Scripture and sound theology deeply. Stay humble about any insight you receive and be willing to be corrected. Use knowledge to build up, not to impress."
+    },
+    {
+      "id": "faith",
+      "name": "Faith (Extraordinary Trust)",
+      "summary": "A Spirit‑given capacity to trust God boldly for what others see as impossible, inspiring them to believe and act.",
+      "how_to_use_today": "Those with this gift confidently ask God for big things that align with His character and mission. Their trust steadies others in seasons of risk, fear, or uncertainty.",
+      "scripture_refs": [
+        "1 Corinthians 12:9",
+        "Mark 11:22-24",
+        "Hebrews 11:1-6"
+      ],
+      "biblical_examples": [
+        "The heroes of faith (Hebrews 11)",
+        "The believers praying for Peter’s release (Acts 12:5-17)"
+      ],
+      "cultivation_tips": "Feed your faith with the promises and stories of Scripture. Keep a record of answered prayer. Ask God how to trust Him specifically in your church’s mission and needs."
+    },
+    {
+      "id": "discernment",
+      "name": "Discernment of Spirits",
+      "summary": "A Spirit‑sharpened ability to distinguish between what comes from the Holy Spirit, the human spirit, or demonic influence.",
+      "how_to_use_today": "This gift helps the church test teachings, impressions, and movements. Those with it often sense danger or deception early and help protect the flock.",
+      "scripture_refs": [
+        "1 Corinthians 12:10",
+        "1 John 4:1",
+        "Acts 16:16-18"
+      ],
+      "biblical_examples": [
+        "Paul discerning the spirit behind the slave girl (Acts 16:16-18)",
+        "John urging the church to 'test the spirits' (1 John 4:1)"
+      ],
+      "cultivation_tips": "Know Scripture well so you can test everything by God’s revealed truth. Stay submitted to church leadership and resist suspicion or pride. Use this gift to guard and restore, not to accuse quickly."
+    },
+    {
+      "id": "healing",
+      "name": "Gifts of Healings",
+      "summary": "Spirit‑given manifestations where God brings physical, emotional, or spiritual healing through prayer and ministry.",
+      "how_to_use_today": "Believers with this gift often sense a strong urge to pray for the sick and see frequent answers. They point people to Christ as the true healer, honoring His sovereignty whether or not healing occurs.",
+      "scripture_refs": [
+        "1 Corinthians 12:9",
+        "1 Corinthians 12:28-30",
+        "James 5:14-16",
+        "Acts 3:1-8"
+      ],
+      "biblical_examples": [
+        "Peter and John healing the lame man (Acts 3:1-10)",
+        "Paul and others healing in various cities (Acts 14:8-10; Acts 19:11-12)"
+      ],
+      "cultivation_tips": "Pray boldly yet humbly for those who are sick. Keep your focus on Christ’s compassion and the advance of the gospel, not on experiences themselves. Celebrate healings but also walk patiently with those who still suffer."
+    },
+    {
+      "id": "miracles",
+      "name": "Workings of Miracles",
+      "summary": "Spirit‑empowered acts that demonstrate God’s power in unusual ways, confirming His Word and advancing His kingdom.",
+      "how_to_use_today": "This may involve extraordinary answers to prayer that break normal patterns—deliverance, provision, or other signs that draw attention to Christ, not to the person through whom they come.",
+      "scripture_refs": [
+        "1 Corinthians 12:10",
+        "Acts 5:12",
+        "Acts 8:6-8",
+        "Acts 19:11-12"
+      ],
+      "biblical_examples": [
+        "Miracles through the apostles (Acts 5:12-16)",
+        "Paul’s miracles in Ephesus (Acts 19:11-12)"
+      ],
+      "cultivation_tips": "Focus on faithfulness to Christ rather than seeking dramatic experiences. When God acts powerfully, give Him all the glory and use the opportunity to point people to repentance and faith."
+    },
+    {
+      "id": "tongues",
+      "name": "Various Kinds of Tongues",
+      "summary": "Spirit‑prompted speech in languages unknown to the speaker, intended as a sign and for prayer or praise when used under biblical guidelines.",
+      "how_to_use_today": "The New Testament gives strong instructions: in the gathered church, tongues should be interpreted, edify the body, and be exercised in order and submission. In private, tongues may function as prayer or praise to God.",
+      "scripture_refs": [
+        "1 Corinthians 12:10",
+        "1 Corinthians 14:1-19",
+        "Acts 2:1-11",
+        "Acts 10:44-46"
+      ],
+      "biblical_examples": [
+        "Believers speaking in languages at Pentecost (Acts 2:1-11)",
+        "Gentile believers speaking in tongues (Acts 10:44-46)"
+      ],
+      "cultivation_tips": "Study carefully 1 Corinthians 12–14. Submit your practice to Scripture and to godly leaders. Pursue love and edification of the body above all spiritual experiences."
+    },
+    {
+      "id": "interpretation_tongues",
+      "name": "Interpretation of Tongues",
+      "summary": "A Spirit‑given ability to render the meaning of a tongue so that the gathered church is edified.",
+      "how_to_use_today": "Those with this gift help turn otherwise unintelligible speech into clear, Christ‑honoring praise, prayer, or exhortation that the whole church can understand.",
+      "scripture_refs": [
+        "1 Corinthians 12:10",
+        "1 Corinthians 14:13-28"
+      ],
+      "biblical_examples": [
+        "Paul’s instructions about interpretation in Corinth (1 Corinthians 14:13-28)"
+      ],
+      "cultivation_tips": "Stay anchored in Scripture and the gospel so any interpretation aligns with God’s revealed truth. Be willing to test and submit interpretations to mature leaders, and always prioritize clarity and love."
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "text": "I often sense a strong inner push to start new ministries or go where the church’s presence is weak.",
+      "gifts_weights": {
+        "apostleship": 2,
+        "evangelism": 1
+      }
+    },
+    {
+      "id": 2,
+      "text": "When I read or hear Scripture, I frequently feel compelled to speak a timely word of challenge or encouragement to others.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "exhortation": 1
+      }
+    },
+    {
+      "id": 3,
+      "text": "Explaining biblical truth in a way that others finally “get it” brings me deep joy.",
+      "gifts_weights": {
+        "teaching": 2,
+        "knowledge": 1
+      }
+    },
+    {
+      "id": 4,
+      "text": "I naturally notice people who are discouraged or drifting and feel responsible to help them spiritually.",
+      "gifts_weights": {
+        "pastor_shepherd": 2,
+        "mercy": 1
+      }
+    },
+    {
+      "id": 5,
+      "text": "I am energized when organizing people, plans, and details so that important ministry actually happens.",
+      "gifts_weights": {
+        "administration": 2,
+        "leadership": 1
+      }
+    },
+    {
+      "id": 6,
+      "text": "I get more excited about quietly helping behind the scenes than being up front where people notice.",
+      "gifts_weights": {
+        "serving": 2,
+        "mercy": 1
+      }
+    },
+    {
+      "id": 7,
+      "text": "I feel burdened for people who do not know Jesus and often look for opportunities to share the gospel with them.",
+      "gifts_weights": {
+        "evangelism": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 8,
+      "text": "I regularly invite people into my home or personal space so they can feel welcomed and cared for.",
+      "gifts_weights": {
+        "hospitality": 2,
+        "pastor_shepherd": 1
+      }
+    },
+    {
+      "id": 9,
+      "text": "I find that God gives me clear, practical wisdom when others are confused about what to do.",
+      "gifts_weights": {
+        "wisdom": 2,
+        "leadership": 1
+      }
+    },
+    {
+      "id": 10,
+      "text": "I am moved to give generously of my money, time, or possessions to support God’s work and help people in need.",
+      "gifts_weights": {
+        "giving": 2,
+        "mercy": 1
+      }
+    },
+    {
+      "id": 11,
+      "text": "Studying Scripture deeply and connecting different passages together comes naturally to me.",
+      "gifts_weights": {
+        "knowledge": 2,
+        "teaching": 1
+      }
+    },
+    {
+      "id": 12,
+      "text": "Others often ask me for spiritual advice when they face complex decisions.",
+      "gifts_weights": {
+        "wisdom": 2,
+        "pastor_shepherd": 1
+      }
+    },
+    {
+      "id": 13,
+      "text": "I quickly sense when a teaching, movement, or message is not spiritually healthy, even if I can’t explain it right away.",
+      "gifts_weights": {
+        "discernment": 2,
+        "knowledge": 1
+      }
+    },
+    {
+      "id": 14,
+      "text": "In prayer, I sometimes have a strong inner conviction about a situation that later proves accurate and helpful to others.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "discernment": 1
+      }
+    },
+    {
+      "id": 15,
+      "text": "My heart is stirred when I see leaders or teachers mishandling Scripture, and I want to help set things right.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "teaching": 1
+      }
+    },
+    {
+      "id": 16,
+      "text": "When someone explains a difficult doctrine to me, I am able to restate it clearly to others.",
+      "gifts_weights": {
+        "teaching": 2,
+        "knowledge": 1
+      }
+    },
+    {
+      "id": 17,
+      "text": "I tend to see spiritual causes behind surface events and feel a burden to pray and speak into them.",
+      "gifts_weights": {
+        "discernment": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 18,
+      "text": "I enjoy helping others see how biblical truth applies directly to their everyday choices and struggles.",
+      "gifts_weights": {
+        "exhortation": 2,
+        "wisdom": 1
+      }
+    },
+    {
+      "id": 19,
+      "text": "I have a strong sense of confidence that God will keep His promises even when circumstances look impossible.",
+      "gifts_weights": {
+        "faith": 2,
+        "miracles": 1
+      }
+    },
+    {
+      "id": 20,
+      "text": "I sometimes receive specific insights or information about a person or situation in prayer that I could not have known naturally.",
+      "gifts_weights": {
+        "knowledge": 2,
+        "prophecy": 1
+      }
+    },
+    {
+      "id": 21,
+      "text": "I am drawn to people who are suffering, lonely, or overlooked and feel a deep desire to care for them.",
+      "gifts_weights": {
+        "mercy": 2,
+        "hospitality": 1
+      }
+    },
+    {
+      "id": 22,
+      "text": "When a need is announced at church, my first instinct is to ask, “What can I personally do to help?”",
+      "gifts_weights": {
+        "serving": 2,
+        "giving": 1
+      }
+    },
+    {
+      "id": 23,
+      "text": "Opening my home, sharing meals, and building relationships around the table feels like a natural ministry for me.",
+      "gifts_weights": {
+        "hospitality": 2,
+        "pastor_shepherd": 1
+      }
+    },
+    {
+      "id": 24,
+      "text": "I take special joy in providing practical help so that other believers can focus on using their gifts.",
+      "gifts_weights": {
+        "serving": 2,
+        "administration": 1
+      }
+    },
+    {
+      "id": 25,
+      "text": "I am willing to adjust my lifestyle significantly so I can give more toward God’s work or those in need.",
+      "gifts_weights": {
+        "giving": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 26,
+      "text": "I often sense the grief of others and feel compelled to comfort them with the compassion of Christ.",
+      "gifts_weights": {
+        "mercy": 2,
+        "exhortation": 1
+      }
+    },
+    {
+      "id": 27,
+      "text": "I tend to think about how systems and structures could better support care for the vulnerable.",
+      "gifts_weights": {
+        "administration": 2,
+        "mercy": 1
+      }
+    },
+    {
+      "id": 28,
+      "text": "I am energized by walking with the same people over time, watching them grow in Christ through encouragement and correction.",
+      "gifts_weights": {
+        "pastor_shepherd": 2,
+        "exhortation": 1
+      }
+    },
+    {
+      "id": 29,
+      "text": "When I see injustice, neglect, or hypocrisy, I feel a strong internal cry to speak up and act.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "mercy": 1
+      }
+    },
+    {
+      "id": 30,
+      "text": "I feel especially alive when caring for those who cannot easily repay me.",
+      "gifts_weights": {
+        "mercy": 2,
+        "giving": 1
+      }
+    },
+    {
+      "id": 31,
+      "text": "People naturally look to me to set direction when a group is unsure what to do.",
+      "gifts_weights": {
+        "leadership": 2,
+        "wisdom": 1
+      }
+    },
+    {
+      "id": 32,
+      "text": "I am willing to take risks and endure hardship to push forward a ministry or mission that I believe God has given.",
+      "gifts_weights": {
+        "apostleship": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 33,
+      "text": "I enjoy putting together teams and clarifying roles so each person can serve where they fit best.",
+      "gifts_weights": {
+        "administration": 2,
+        "leadership": 1
+      }
+    },
+    {
+      "id": 34,
+      "text": "I often think about regions, cities, or groups of people who need new churches or ministries.",
+      "gifts_weights": {
+        "apostleship": 2,
+        "evangelism": 1
+      }
+    },
+    {
+      "id": 35,
+      "text": "I am willing to stand alone for what I believe God is saying through His Word, even when that is unpopular.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 36,
+      "text": "I like to evaluate whether ministries are staying on mission and bearing real fruit, not just staying busy.",
+      "gifts_weights": {
+        "leadership": 2,
+        "wisdom": 1
+      }
+    },
+    {
+      "id": 37,
+      "text": "I am stirred by stories of missionaries, church planters, and pioneers, and wonder if God might use me similarly.",
+      "gifts_weights": {
+        "apostleship": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 38,
+      "text": "I find it easy to trust God for large needs—financial, logistical, or spiritual—that others feel are unrealistic.",
+      "gifts_weights": {
+        "faith": 2,
+        "miracles": 1
+      }
+    },
+    {
+      "id": 39,
+      "text": "I feel responsible not just for individual people but for the overall health and direction of a ministry or church.",
+      "gifts_weights": {
+        "pastor_shepherd": 2,
+        "leadership": 1
+      }
+    },
+    {
+      "id": 40,
+      "text": "I often think strategically about how different ministries can work together toward a larger kingdom impact.",
+      "gifts_weights": {
+        "administration": 2,
+        "apostleship": 1
+      }
+    },
+    {
+      "id": 41,
+      "text": "I regularly sense a strong urge to pray for people who are sick, and I have seen God answer in remarkable ways.",
+      "gifts_weights": {
+        "healing": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 42,
+      "text": "I have witnessed or been part of unusual answers to prayer that clearly displayed God’s power.",
+      "gifts_weights": {
+        "miracles": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 43,
+      "text": "In worship or prayer, I have at times sensed a prompting to speak out a message that felt bigger than my own thoughts.",
+      "gifts_weights": {
+        "prophecy": 2,
+        "tongues": 1
+      }
+    },
+    {
+      "id": 44,
+      "text": "I sometimes pray or praise God in a language I have not learned, sensing the Spirit’s help in expressing my heart.",
+      "gifts_weights": {
+        "tongues": 2,
+        "faith": 1
+      }
+    },
+    {
+      "id": 45,
+      "text": "When tongues are spoken, I have occasionally had a clear sense of what is being communicated so that others can be edified.",
+      "gifts_weights": {
+        "interpretation_tongues": 2,
+        "discernment": 1
+      }
+    },
+    {
+      "id": 46,
+      "text": "I am comfortable with the idea that God can intervene supernaturally in ways that go beyond normal patterns.",
+      "gifts_weights": {
+        "miracles": 2,
+        "healing": 1
+      }
+    },
+    {
+      "id": 47,
+      "text": "Seasons of extended prayer and fasting feel important and natural to me when facing big spiritual needs.",
+      "gifts_weights": {
+        "faith": 2,
+        "healing": 1
+      }
+    },
+    {
+      "id": 48,
+      "text": "I am often aware of spiritual opposition or unseen dynamics when ministering to people.",
+      "gifts_weights": {
+        "discernment": 2,
+        "miracles": 1
+      }
+    },
+    {
+      "id": 49,
+      "text": "I have at times sensed that God wanted to bring healing or deliverance to someone in a specific moment of ministry.",
+      "gifts_weights": {
+        "healing": 2,
+        "miracles": 1
+      }
+    },
+    {
+      "id": 50,
+      "text": "When stories of miracles, healings, or unusual spiritual experiences are shared, my response is faith and desire for discernment rather than automatic doubt.",
+      "gifts_weights": {
+        "discernment": 2,
+        "faith": 1
+      }
+    }
+  ],
+  "scoring": {
+    "method": "weighted_sum",
+    "description": "For each question, multiply the user’s response (1–5) by the weight for that gift in gifts_weights. Sum these values across all 50 questions for each gift. Higher totals indicate stronger evidence of that gift. Normalize or rank as needed in the app.",
+    "notes": [
+      "This exam is a tool for reflection, not an infallible measure.",
+      "Encourage users to discuss results with mature believers and church leaders.",
+      "Highlight the top three gifts as primary areas for cultivation while affirming the value of all gifts."
+    ]
+  }
+}

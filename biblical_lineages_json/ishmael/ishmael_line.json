@@ -1,0 +1,120 @@
+{
+  "name": "Ishmael",
+  "type": "person",
+  "notes": "Son of Abraham by Hagar; ancestor of twelve princes and various desert tribes.",
+  "source_refs": [
+    "Genesis 16",
+    "Genesis 21",
+    "Genesis 25:12–18"
+  ],
+  "children": [
+    {
+      "name": "Nebaioth",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:13"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Kedar",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:13"
+      ],
+      "notes": "Frequently mentioned as nomadic desert people.",
+      "children": []
+    },
+    {
+      "name": "Adbeel",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:13"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Mibsam",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:13"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Mishma",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:14"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Dumah",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:14"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Massa",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:14"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Hadad",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:15"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Tema",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:15"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Jetur",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:15"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Naphish",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:15"
+      ],
+      "notes": "",
+      "children": []
+    },
+    {
+      "name": "Kedemah",
+      "type": "clan",
+      "source_refs": [
+        "Genesis 25:15"
+      ],
+      "notes": "",
+      "children": []
+    }
+  ]
+}

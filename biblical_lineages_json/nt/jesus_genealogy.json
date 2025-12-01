@@ -1,0 +1,93 @@
+{
+  "name": "Jesus",
+  "aka": [
+    "Jesus of Nazareth",
+    "Christ"
+  ],
+  "type": "person",
+  "notes": "Messiah; Son of David, Son of Abraham.",
+  "source_refs": [
+    "Matthew 1:1–17",
+    "Luke 3:23–38"
+  ],
+  "children": [],
+  "legal_line_through_joseph": {
+    "name": "Joseph",
+    "type": "person",
+    "notes": "Legal father of Jesus; descendant of David through Solomon.",
+    "source_refs": [
+      "Matthew 1:16",
+      "Luke 3:23"
+    ],
+    "children": [
+      {
+        "name": "Davidic line (royal)",
+        "type": "line",
+        "notes": "From David through Solomon to the exilic and post-exilic heirs.",
+        "source_refs": [
+          "Matthew 1:6–16"
+        ],
+        "children": [
+          {
+            "name": "David",
+            "type": "person",
+            "source_refs": [
+              "Matthew 1:6"
+            ],
+            "notes": "King of Israel.",
+            "children": [
+              {
+                "name": "Solomon",
+                "type": "person",
+                "source_refs": [
+                  "Matthew 1:6"
+                ],
+                "notes": "Son of David and Bathsheba; king noted for wisdom.",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "line_through_mary": {
+    "name": "Mary",
+    "type": "person",
+    "notes": "Mother of Jesus; likely from David through Nathan (per Luke).",
+    "source_refs": [
+      "Luke 1–2"
+    ],
+    "children": [
+      {
+        "name": "Davidic line (Nathan)",
+        "type": "line",
+        "notes": "From David through Nathan to Heli (associated with Mary).",
+        "source_refs": [
+          "Luke 3:23–31"
+        ],
+        "children": [
+          {
+            "name": "David",
+            "type": "person",
+            "source_refs": [
+              "Luke 3:31"
+            ],
+            "notes": "King of Israel.",
+            "children": [
+              {
+                "name": "Nathan",
+                "type": "person",
+                "source_refs": [
+                  "Luke 3:31"
+                ],
+                "notes": "Son of David distinct from Solomon.",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

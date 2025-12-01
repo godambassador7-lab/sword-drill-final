@@ -1,0 +1,777 @@
+[
+  {
+    "king": "Jeroboam I",
+    "reign": "931-910 BC",
+    "description": "First king of the northern kingdom of Israel after the split. He was Solomon's servant who led the ten northern tribes to rebel. He set up golden calves in Dan and Bethel to prevent people from worshiping in Jerusalem, leading Israel into idolatry.",
+    "keyEvents": [
+      "Led rebellion against Rehoboam",
+      "Established golden calf worship at Dan and Bethel",
+      "Prophet Ahijah predicted his rise to power",
+      "His son died as judgment for his sins"
+    ],
+    "scripture": "1 Kings 11-14",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "Who was Jeroboam I before becoming king?",
+        "options": ["Solomon's servant", "A priest", "A prophet", "A shepherd"],
+        "answer": "Solomon's servant"
+      },
+      {
+        "question": "How many tribes did Jeroboam rule over?",
+        "options": ["Ten", "Twelve", "Two", "Seven"],
+        "answer": "Ten"
+      },
+      {
+        "question": "Where did Jeroboam set up golden calves?",
+        "options": ["Dan and Bethel", "Jerusalem and Samaria", "Bethel and Jerusalem", "Dan and Beersheba"],
+        "answer": "Dan and Bethel"
+      },
+      {
+        "question": "Which prophet predicted Jeroboam's rise to power?",
+        "options": ["Ahijah", "Elijah", "Elisha", "Isaiah"],
+        "answer": "Ahijah"
+      },
+      {
+        "question": "What was Jeroboam's main sin?",
+        "options": ["Leading Israel into idolatry", "Murder", "Adultery", "Theft"],
+        "answer": "Leading Israel into idolatry"
+      }
+    ]
+  },
+  {
+    "king": "Nadab",
+    "reign": "910-909 BC",
+    "description": "Son of Jeroboam I who reigned only two years. He continued in his father's sins of idolatry. He was assassinated by Baasha during the siege of Gibbethon, and his entire family was destroyed, fulfilling God's judgment on Jeroboam's house.",
+    "keyEvents": [
+      "Reigned only 2 years",
+      "Assassinated by Baasha at Gibbethon",
+      "Entire family destroyed",
+      "Continued Jeroboam's idolatry"
+    ],
+    "scripture": "1 Kings 15:25-32",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "How long did Nadab reign?",
+        "options": ["2 years", "10 years", "20 years", "1 year"],
+        "answer": "2 years"
+      },
+      {
+        "question": "Who was Nadab's father?",
+        "options": ["Jeroboam I", "Solomon", "Rehoboam", "Baasha"],
+        "answer": "Jeroboam I"
+      },
+      {
+        "question": "Who assassinated Nadab?",
+        "options": ["Baasha", "Zimri", "Omri", "Jehu"],
+        "answer": "Baasha"
+      },
+      {
+        "question": "Where was Nadab killed?",
+        "options": ["Gibbethon", "Jerusalem", "Samaria", "Bethel"],
+        "answer": "Gibbethon"
+      },
+      {
+        "question": "What happened to Nadab's family after his death?",
+        "options": ["They were all destroyed", "They fled to Egypt", "They were spared", "They became servants"],
+        "answer": "They were all destroyed"
+      }
+    ]
+  },
+  {
+    "king": "Baasha",
+    "reign": "909-886 BC",
+    "description": "Assassinated Nadab and became king, destroying all of Jeroboam's descendants. Despite God using him for judgment, Baasha continued in the same sins of idolatry. The prophet Jehu prophesied that his dynasty would also be destroyed.",
+    "keyEvents": [
+      "Assassinated Nadab and took the throne",
+      "Destroyed Jeroboam's entire family",
+      "Prophet Jehu prophesied against him",
+      "Continued in Jeroboam's sins despite being used for judgment"
+    ],
+    "scripture": "1 Kings 15:27-16:7",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "How did Baasha become king?",
+        "options": ["Assassinated Nadab", "Elected by the people", "Inherited the throne", "Appointed by a prophet"],
+        "answer": "Assassinated Nadab"
+      },
+      {
+        "question": "What did Baasha do to Jeroboam's family?",
+        "options": ["Destroyed them all", "Spared them", "Exiled them", "Made them servants"],
+        "answer": "Destroyed them all"
+      },
+      {
+        "question": "Which prophet prophesied against Baasha?",
+        "options": ["Jehu", "Elijah", "Ahijah", "Elisha"],
+        "answer": "Jehu"
+      },
+      {
+        "question": "How long did Baasha reign?",
+        "options": ["23 years", "2 years", "40 years", "10 years"],
+        "answer": "23 years"
+      },
+      {
+        "question": "Did Baasha turn from idolatry after becoming king?",
+        "options": ["No, he continued in sin", "Yes, he served the LORD", "He partially reformed", "He was neutral"],
+        "answer": "No, he continued in sin"
+      }
+    ]
+  },
+  {
+    "king": "Elah",
+    "reign": "886-885 BC",
+    "description": "Son of Baasha who reigned only two years. He was killed by his servant Zimri while drunk in the house of his steward at Tirzah. His assassination fulfilled the prophecy against Baasha's house.",
+    "keyEvents": [
+      "Reigned only 2 years",
+      "Killed while drunk by Zimri",
+      "Assassinated at Tirzah",
+      "Fulfilled prophecy against Baasha's house"
+    ],
+    "scripture": "1 Kings 16:8-14",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "Who was Elah's father?",
+        "options": ["Baasha", "Jeroboam I", "Nadab", "Omri"],
+        "answer": "Baasha"
+      },
+      {
+        "question": "How long did Elah reign?",
+        "options": ["2 years", "10 years", "20 years", "1 year"],
+        "answer": "2 years"
+      },
+      {
+        "question": "Who assassinated Elah?",
+        "options": ["Zimri", "Omri", "Baasha", "Jehu"],
+        "answer": "Zimri"
+      },
+      {
+        "question": "What was Elah doing when he was killed?",
+        "options": ["Drinking and drunk", "Praying", "Fighting a battle", "Sleeping"],
+        "answer": "Drinking and drunk"
+      },
+      {
+        "question": "Where was Elah assassinated?",
+        "options": ["Tirzah", "Samaria", "Jerusalem", "Bethel"],
+        "answer": "Tirzah"
+      }
+    ]
+  },
+  {
+    "king": "Zimri",
+    "reign": "885 BC (7 days)",
+    "description": "A chariot commander who assassinated Elah and destroyed Baasha's entire family. He reigned only seven days before Omri besieged him in Tirzah. Zimri burned down the palace with himself inside when he saw the city would fall.",
+    "keyEvents": [
+      "Reigned only 7 days",
+      "Assassinated Elah",
+      "Destroyed all of Baasha's family",
+      "Committed suicide by burning palace with himself inside"
+    ],
+    "scripture": "1 Kings 16:9-20",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "How long did Zimri reign?",
+        "options": ["7 days", "7 months", "7 years", "2 years"],
+        "answer": "7 days"
+      },
+      {
+        "question": "What was Zimri's position before becoming king?",
+        "options": ["Chariot commander", "High priest", "Prophet", "Shepherd"],
+        "answer": "Chariot commander"
+      },
+      {
+        "question": "How did Zimri die?",
+        "options": ["Burned himself in the palace", "Killed in battle", "Assassinated", "Natural causes"],
+        "answer": "Burned himself in the palace"
+      },
+      {
+        "question": "Who besieged Zimri in Tirzah?",
+        "options": ["Omri", "Ahab", "Jehu", "Baasha"],
+        "answer": "Omri"
+      },
+      {
+        "question": "Whose family did Zimri destroy?",
+        "options": ["Baasha's", "Jeroboam's", "Solomon's", "His own"],
+        "answer": "Baasha's"
+      }
+    ]
+  },
+  {
+    "king": "Omri",
+    "reign": "885-874 BC",
+    "description": "Commander of Israel's army who became king after Zimri's death. He defeated rival Tibni and established a powerful dynasty. He built Samaria as the new capital and was politically successful, but did more evil than all kings before him. His wickedness set the pattern for Israel's decline.",
+    "keyEvents": [
+      "Defeated rival king Tibni",
+      "Built Samaria as the new capital",
+      "Politically powerful and successful",
+      "Did more evil than all previous kings"
+    ],
+    "scripture": "1 Kings 16:21-28",
+    "verdict": "Did evil above all who were before him",
+    "questions": [
+      {
+        "question": "What city did Omri build as Israel's capital?",
+        "options": ["Samaria", "Jerusalem", "Tirzah", "Bethel"],
+        "answer": "Samaria"
+      },
+      {
+        "question": "Who did Omri defeat to secure his throne?",
+        "options": ["Tibni", "Zimri", "Ahab", "Baasha"],
+        "answer": "Tibni"
+      },
+      {
+        "question": "What was Omri's position before becoming king?",
+        "options": ["Commander of the army", "High priest", "Prophet", "Governor"],
+        "answer": "Commander of the army"
+      },
+      {
+        "question": "How was Omri's evil compared to previous kings?",
+        "options": ["He did more evil than all before him", "He was the most righteous", "He was neutral", "He partially reformed"],
+        "answer": "He did more evil than all before him"
+      },
+      {
+        "question": "Who was Omri's famous son?",
+        "options": ["Ahab", "Jehu", "Jeroboam", "Zimri"],
+        "answer": "Ahab"
+      }
+    ]
+  },
+  {
+    "king": "Ahab",
+    "reign": "874-853 BC",
+    "description": "Son of Omri and the most wicked king of Israel. Married Jezebel, a Phoenician princess who promoted Baal worship. He built a temple for Baal in Samaria and killed the prophets of God. Opposed by Elijah, he confiscated Naboth's vineyard through murder. Despite temporary repentance, he died in battle as prophesied.",
+    "keyEvents": [
+      "Married Jezebel who promoted Baal worship",
+      "Built temple for Baal in Samaria",
+      "Killed prophets of God",
+      "Took Naboth's vineyard through murder",
+      "Opposed by prophet Elijah",
+      "Died in battle as prophesied"
+    ],
+    "scripture": "1 Kings 16:29-22:40",
+    "verdict": "Did more evil than all before him",
+    "questions": [
+      {
+        "question": "Who was Ahab's wife?",
+        "options": ["Jezebel", "Bathsheba", "Ruth", "Esther"],
+        "answer": "Jezebel"
+      },
+      {
+        "question": "Which prophet opposed Ahab?",
+        "options": ["Elijah", "Isaiah", "Jeremiah", "Amos"],
+        "answer": "Elijah"
+      },
+      {
+        "question": "What false god did Ahab promote?",
+        "options": ["Baal", "Molech", "Asherah", "Dagon"],
+        "answer": "Baal"
+      },
+      {
+        "question": "Whose vineyard did Ahab take through murder?",
+        "options": ["Naboth's", "David's", "Solomon's", "Elijah's"],
+        "answer": "Naboth's"
+      },
+      {
+        "question": "How did Ahab die?",
+        "options": ["In battle as prophesied", "Natural causes", "Assassination", "Suicide"],
+        "answer": "In battle as prophesied"
+      }
+    ]
+  },
+  {
+    "king": "Ahaziah",
+    "reign": "853-852 BC",
+    "description": "Son of Ahab and Jezebel who continued their wicked ways. He fell through a lattice in his palace and was injured. Instead of seeking God, he sent messengers to consult Baal-zebub, god of Ekron. Elijah intercepted them and prophesied his death, which came to pass.",
+    "keyEvents": [
+      "Fell through lattice in palace",
+      "Consulted Baal-zebub instead of God",
+      "Elijah prophesied his death",
+      "Died from his injuries without heir"
+    ],
+    "scripture": "1 Kings 22:51-2 Kings 1:18",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "Who were Ahaziah's parents?",
+        "options": ["Ahab and Jezebel", "Omri and Jezebel", "Ahab and Ruth", "Jeroboam and Jezebel"],
+        "answer": "Ahab and Jezebel"
+      },
+      {
+        "question": "How was Ahaziah injured?",
+        "options": ["Fell through a lattice", "In battle", "Horse accident", "Poison"],
+        "answer": "Fell through a lattice"
+      },
+      {
+        "question": "Which false god did Ahaziah consult?",
+        "options": ["Baal-zebub", "Baal", "Molech", "Asherah"],
+        "answer": "Baal-zebub"
+      },
+      {
+        "question": "Which prophet confronted Ahaziah?",
+        "options": ["Elijah", "Elisha", "Isaiah", "Jeremiah"],
+        "answer": "Elijah"
+      },
+      {
+        "question": "How long did Ahaziah reign?",
+        "options": ["About 2 years", "10 years", "20 years", "1 month"],
+        "answer": "About 2 years"
+      }
+    ]
+  },
+  {
+    "king": "Joram (Jehoram)",
+    "reign": "852-841 BC",
+    "description": "Son of Ahab who removed the sacred stone of Baal but continued in Jeroboam's sins. He fought against Moab and allied with Judah. During his reign, Elisha performed many miracles. He was wounded in battle and later killed by Jehu, ending Ahab's dynasty.",
+    "keyEvents": [
+      "Removed sacred stone of Baal",
+      "Continued in Jeroboam's sins",
+      "Allied with Judah against Moab",
+      "Wounded in battle at Ramoth-gilead",
+      "Killed by Jehu"
+    ],
+    "scripture": "2 Kings 3:1-9:26",
+    "verdict": "Did evil but not like his father and mother",
+    "questions": [
+      {
+        "question": "What did Joram remove that his parents had set up?",
+        "options": ["Sacred stone of Baal", "Golden calves", "Temple of Molech", "Asherah pole"],
+        "answer": "Sacred stone of Baal"
+      },
+      {
+        "question": "Which prophet ministered during Joram's reign?",
+        "options": ["Elisha", "Elijah", "Isaiah", "Jeremiah"],
+        "answer": "Elisha"
+      },
+      {
+        "question": "Who killed Joram?",
+        "options": ["Jehu", "Elisha", "Hazael", "Baasha"],
+        "answer": "Jehu"
+      },
+      {
+        "question": "Did Joram fully turn from evil?",
+        "options": ["No, he continued in Jeroboam's sins", "Yes, he served the LORD", "He was neutral", "He partially reformed"],
+        "answer": "No, he continued in Jeroboam's sins"
+      },
+      {
+        "question": "Who was Joram's father?",
+        "options": ["Ahab", "Omri", "Jeroboam", "Baasha"],
+        "answer": "Ahab"
+      }
+    ]
+  },
+  {
+    "king": "Jehu",
+    "reign": "841-814 BC",
+    "description": "Anointed by Elisha's disciple to destroy Ahab's house. He killed Joram, Jezebel, and all of Ahab's descendants. He destroyed Baal worship from Israel through a clever ruse. However, he did not turn from the golden calf worship at Dan and Bethel. God gave him a dynasty lasting four generations.",
+    "keyEvents": [
+      "Anointed by Elisha's disciple",
+      "Killed Joram and Jezebel",
+      "Destroyed Ahab's entire family",
+      "Eliminated Baal worship from Israel",
+      "Continued golden calf worship",
+      "Given 4-generation dynasty promise"
+    ],
+    "scripture": "2 Kings 9:1-10:36",
+    "verdict": "Destroyed Baal but did not turn from Jeroboam's sins",
+    "questions": [
+      {
+        "question": "Who anointed Jehu to be king?",
+        "options": ["A disciple of Elisha", "Elisha himself", "Elijah", "A priest"],
+        "answer": "A disciple of Elisha"
+      },
+      {
+        "question": "What did Jehu do to Jezebel?",
+        "options": ["Had her thrown from a window", "Exiled her", "Made her a servant", "Imprisoned her"],
+        "answer": "Had her thrown from a window"
+      },
+      {
+        "question": "What false worship did Jehu eliminate from Israel?",
+        "options": ["Baal worship", "Golden calf worship", "Molech worship", "Asherah worship"],
+        "answer": "Baal worship"
+      },
+      {
+        "question": "What sin did Jehu NOT turn away from?",
+        "options": ["Golden calf worship", "Baal worship", "Murder", "Theft"],
+        "answer": "Golden calf worship"
+      },
+      {
+        "question": "How many generations did God promise Jehu's dynasty would last?",
+        "options": ["Four", "Two", "Seven", "Ten"],
+        "answer": "Four"
+      }
+    ]
+  },
+  {
+    "king": "Jehoahaz",
+    "reign": "814-798 BC",
+    "description": "Son of Jehu who did evil and followed Jeroboam's sins. Under his rule, Israel was severely oppressed by Hazael of Syria and his son Ben-hadad. When Jehoahaz sought the LORD, God provided a deliverer, but the people did not turn from their sins.",
+    "keyEvents": [
+      "Israel severely oppressed by Syria",
+      "Army reduced to minimal strength",
+      "Sought the LORD and received a deliverer",
+      "People did not turn from sin despite deliverance"
+    ],
+    "scripture": "2 Kings 13:1-9",
+    "verdict": "Did evil and followed Jeroboam's sins",
+    "questions": [
+      {
+        "question": "Who was Jehoahaz's father?",
+        "options": ["Jehu", "Joram", "Ahab", "Jeroboam"],
+        "answer": "Jehu"
+      },
+      {
+        "question": "Which nation oppressed Israel during Jehoahaz's reign?",
+        "options": ["Syria (Aram)", "Assyria", "Babylon", "Egypt"],
+        "answer": "Syria (Aram)"
+      },
+      {
+        "question": "What did Jehoahaz do when Israel was oppressed?",
+        "options": ["Sought the LORD", "Fled to Egypt", "Made an alliance with Assyria", "Surrendered"],
+        "answer": "Sought the LORD"
+      },
+      {
+        "question": "Did the people turn from sin after God delivered them?",
+        "options": ["No, they continued in sin", "Yes, they fully repented", "Some did, some didn't", "They partially reformed"],
+        "answer": "No, they continued in sin"
+      },
+      {
+        "question": "What happened to Israel's army under Jehoahaz?",
+        "options": ["It was reduced to minimal strength", "It grew stronger", "It was completely destroyed", "It remained the same"],
+        "answer": "It was reduced to minimal strength"
+      }
+    ]
+  },
+  {
+    "king": "Jehoash (Joash)",
+    "reign": "798-782 BC",
+    "description": "Son of Jehoahaz who continued in Jeroboam's sins. He visited the dying prophet Elisha, who prophesied his victories over Syria. Elisha told him to strike the ground with arrows, but he only struck three times, limiting his victories. He defeated Syria three times as prophesied and recovered Israel's cities.",
+    "keyEvents": [
+      "Visited dying prophet Elisha",
+      "Struck ground with arrows only 3 times",
+      "Defeated Syria three times",
+      "Recovered cities from Syria",
+      "Continued in Jeroboam's sins"
+    ],
+    "scripture": "2 Kings 13:10-25",
+    "verdict": "Did evil and did not turn from Jeroboam's sins",
+    "questions": [
+      {
+        "question": "Which dying prophet did Jehoash visit?",
+        "options": ["Elisha", "Elijah", "Isaiah", "Jeremiah"],
+        "answer": "Elisha"
+      },
+      {
+        "question": "How many times did Jehoash strike the ground with arrows?",
+        "options": ["Three times", "Five times", "Seven times", "Once"],
+        "answer": "Three times"
+      },
+      {
+        "question": "How many times did Jehoash defeat Syria?",
+        "options": ["Three times", "Five times", "Seven times", "Once"],
+        "answer": "Three times"
+      },
+      {
+        "question": "What did Jehoash recover from Syria?",
+        "options": ["Cities of Israel", "The temple treasures", "The ark of covenant", "Sacred vessels"],
+        "answer": "Cities of Israel"
+      },
+      {
+        "question": "Did Jehoash turn from Jeroboam's sins?",
+        "options": ["No, he continued in them", "Yes, he fully repented", "He partially reformed", "He was neutral"],
+        "answer": "No, he continued in them"
+      }
+    ]
+  },
+  {
+    "king": "Jeroboam II",
+    "reign": "782-753 BC",
+    "description": "Son of Jehoash who had the longest and most prosperous reign among the northern kings. He restored Israel's borders from Lebo-hamath to the Dead Sea as prophesied by Jonah. Despite military and economic success, he continued in the sins of Jeroboam I. Prophets Amos and Hosea ministered during his reign.",
+    "keyEvents": [
+      "Longest reign of northern kings (41 years)",
+      "Restored Israel's borders extensively",
+      "Great military and economic success",
+      "Prophet Jonah prophesied his victories",
+      "Amos and Hosea prophesied during his time",
+      "Continued in Jeroboam I's sins despite prosperity"
+    ],
+    "scripture": "2 Kings 14:23-29",
+    "verdict": "Did evil despite unprecedented prosperity",
+    "questions": [
+      {
+        "question": "Which prophet prophesied Jeroboam II's military success?",
+        "options": ["Jonah", "Elisha", "Isaiah", "Jeremiah"],
+        "answer": "Jonah"
+      },
+      {
+        "question": "What characterized Jeroboam II's reign?",
+        "options": ["Great prosperity and expansion", "Constant warfare", "Internal strife", "Poverty"],
+        "answer": "Great prosperity and expansion"
+      },
+      {
+        "question": "How long did Jeroboam II reign?",
+        "options": ["41 years", "20 years", "10 years", "2 years"],
+        "answer": "41 years"
+      },
+      {
+        "question": "Which prophets ministered during Jeroboam II's reign?",
+        "options": ["Amos and Hosea", "Isaiah and Jeremiah", "Elijah and Elisha", "Ezekiel and Daniel"],
+        "answer": "Amos and Hosea"
+      },
+      {
+        "question": "Did Jeroboam II turn from sin despite his success?",
+        "options": ["No, he continued in evil", "Yes, he repented", "He partially reformed", "He was neutral"],
+        "answer": "No, he continued in evil"
+      }
+    ]
+  },
+  {
+    "king": "Zechariah",
+    "reign": "753 BC (6 months)",
+    "description": "Son of Jeroboam II who reigned only six months. He continued in the sins of Jeroboam I. He was assassinated by Shallum in front of the people, ending Jehu's dynasty in the fourth generation as God had promised.",
+    "keyEvents": [
+      "Reigned only 6 months",
+      "Last of Jehu's 4-generation dynasty",
+      "Assassinated publicly by Shallum",
+      "Continued in Jeroboam's sins"
+    ],
+    "scripture": "2 Kings 15:8-12",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "How long did Zechariah reign?",
+        "options": ["6 months", "2 years", "1 year", "7 days"],
+        "answer": "6 months"
+      },
+      {
+        "question": "Which generation of Jehu's dynasty was Zechariah?",
+        "options": ["Fourth", "Second", "Third", "Fifth"],
+        "answer": "Fourth"
+      },
+      {
+        "question": "Who assassinated Zechariah?",
+        "options": ["Shallum", "Menahem", "Pekah", "Hoshea"],
+        "answer": "Shallum"
+      },
+      {
+        "question": "Whose dynasty ended with Zechariah?",
+        "options": ["Jehu's", "Jeroboam I's", "Omri's", "Ahab's"],
+        "answer": "Jehu's"
+      },
+      {
+        "question": "What promise was fulfilled when Zechariah died?",
+        "options": ["Jehu's 4-generation dynasty promise", "Destruction of Baal worship", "Israel's restoration", "Temple rebuilding"],
+        "answer": "Jehu's 4-generation dynasty promise"
+      }
+    ]
+  },
+  {
+    "king": "Shallum",
+    "reign": "752 BC (1 month)",
+    "description": "Assassinated Zechariah and reigned for only one month, the shortest reign in Israel's history. He was quickly assassinated by Menahem who destroyed him and took the throne. Shallum's brief rule marked a period of rapid instability.",
+    "keyEvents": [
+      "Assassinated Zechariah",
+      "Shortest reign - only 1 month",
+      "Assassinated by Menahem",
+      "Marked beginning of Israel's rapid decline"
+    ],
+    "scripture": "2 Kings 15:13-15",
+    "verdict": "Assassin with shortest reign",
+    "questions": [
+      {
+        "question": "How long did Shallum reign?",
+        "options": ["1 month", "7 days", "6 months", "1 year"],
+        "answer": "1 month"
+      },
+      {
+        "question": "Who did Shallum assassinate?",
+        "options": ["Zechariah", "Jeroboam II", "Menahem", "Pekahiah"],
+        "answer": "Zechariah"
+      },
+      {
+        "question": "Who assassinated Shallum?",
+        "options": ["Menahem", "Pekah", "Hoshea", "Zechariah"],
+        "answer": "Menahem"
+      },
+      {
+        "question": "What was significant about Shallum's reign?",
+        "options": ["Shortest reign in Israel", "Longest reign in Israel", "Most prosperous", "Most peaceful"],
+        "answer": "Shortest reign in Israel"
+      },
+      {
+        "question": "What period did Shallum's reign mark?",
+        "options": ["Beginning of rapid decline", "Golden age", "Period of peace", "Religious revival"],
+        "answer": "Beginning of rapid decline"
+      }
+    ]
+  },
+  {
+    "king": "Menahem",
+    "reign": "752-742 BC",
+    "description": "Assassinated Shallum and secured his throne through extreme brutality, attacking Tiphsah and ripping open pregnant women. When Pul (Tiglath-pileser III) of Assyria invaded, Menahem paid him tribute with heavy taxes on the wealthy. He continued in Jeroboam's sins throughout his reign.",
+    "keyEvents": [
+      "Assassinated Shallum",
+      "Brutally attacked Tiphsah",
+      "Paid tribute to Assyria",
+      "Taxed Israel heavily for tribute money",
+      "Continued in Jeroboam's sins"
+    ],
+    "scripture": "2 Kings 15:16-22",
+    "verdict": "Did evil with extreme brutality",
+    "questions": [
+      {
+        "question": "How did Menahem secure his throne?",
+        "options": ["Through brutal force and assassination", "Peaceful election", "Inheritance", "Prophet's anointing"],
+        "answer": "Through brutal force and assassination"
+      },
+      {
+        "question": "Which Assyrian king did Menahem pay tribute to?",
+        "options": ["Pul (Tiglath-pileser III)", "Sennacherib", "Shalmaneser", "Nebuchadnezzar"],
+        "answer": "Pul (Tiglath-pileser III)"
+      },
+      {
+        "question": "How did Menahem get money for tribute?",
+        "options": ["Taxed the wealthy heavily", "Sold temple treasures", "Borrowed from Egypt", "Plundered cities"],
+        "answer": "Taxed the wealthy heavily"
+      },
+      {
+        "question": "What brutal act did Menahem commit?",
+        "options": ["Ripped open pregnant women", "Burned children", "Mass executions", "Poisoned wells"],
+        "answer": "Ripped open pregnant women"
+      },
+      {
+        "question": "Did Menahem turn from sin?",
+        "options": ["No, he continued in evil", "Yes, he repented", "He partially reformed", "He was neutral"],
+        "answer": "No, he continued in evil"
+      }
+    ]
+  },
+  {
+    "king": "Pekahiah",
+    "reign": "742-740 BC",
+    "description": "Son of Menahem who reigned only two years. He continued in his father's sins and the sins of Jeroboam. He was assassinated by his captain Pekah along with fifty Gileadites in the citadel of the palace at Samaria.",
+    "keyEvents": [
+      "Reigned only 2 years",
+      "Continued in Jeroboam's sins",
+      "Assassinated by captain Pekah",
+      "Killed with 50 Gileadites in the palace"
+    ],
+    "scripture": "2 Kings 15:23-26",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "Who was Pekahiah's father?",
+        "options": ["Menahem", "Jeroboam II", "Zechariah", "Shallum"],
+        "answer": "Menahem"
+      },
+      {
+        "question": "How long did Pekahiah reign?",
+        "options": ["2 years", "1 month", "10 years", "6 months"],
+        "answer": "2 years"
+      },
+      {
+        "question": "Who was Pekahiah's position before he assassinated the king?",
+        "options": ["His captain", "His son", "A prophet", "A priest"],
+        "answer": "His captain"
+      },
+      {
+        "question": "Who assassinated Pekahiah?",
+        "options": ["Pekah", "Hoshea", "Menahem", "Shallum"],
+        "answer": "Pekah"
+      },
+      {
+        "question": "Where was Pekahiah killed?",
+        "options": ["Palace citadel in Samaria", "Temple", "Battlefield", "Tirzah"],
+        "answer": "Palace citadel in Samaria"
+      }
+    ]
+  },
+  {
+    "king": "Pekah",
+    "reign": "740-732 BC",
+    "description": "Captain who assassinated Pekahiah and reigned for twenty years. He formed an alliance with Rezin of Syria against Assyria and attacked Judah to force them to join. This led to the Syro-Ephraimite War. Tiglath-pileser III of Assyria captured much of northern Israel and deported many people. Pekah was assassinated by Hoshea.",
+    "keyEvents": [
+      "Assassinated Pekahiah his king",
+      "Allied with Syria against Assyria",
+      "Attacked Judah (Syro-Ephraimite War)",
+      "Assyria captured northern Israel",
+      "Many Israelites deported",
+      "Assassinated by Hoshea"
+    ],
+    "scripture": "2 Kings 15:27-31",
+    "verdict": "Did evil in the sight of the LORD",
+    "questions": [
+      {
+        "question": "Who did Pekah ally with against Assyria?",
+        "options": ["Rezin of Syria", "Egypt", "Babylon", "Moab"],
+        "answer": "Rezin of Syria"
+      },
+      {
+        "question": "Which kingdom did Pekah attack to force an alliance?",
+        "options": ["Judah", "Egypt", "Moab", "Edom"],
+        "answer": "Judah"
+      },
+      {
+        "question": "What did Assyria do to northern Israel during Pekah's reign?",
+        "options": ["Captured it and deported people", "Made peace treaty", "Paid tribute", "Ignored it"],
+        "answer": "Captured it and deported people"
+      },
+      {
+        "question": "Who assassinated Pekah?",
+        "options": ["Hoshea", "Menahem", "Tiglath-pileser", "Rezin"],
+        "answer": "Hoshea"
+      },
+      {
+        "question": "How long did Pekah reign?",
+        "options": ["20 years", "2 years", "9 years", "1 year"],
+        "answer": "20 years"
+      }
+    ]
+  },
+  {
+    "king": "Hoshea",
+    "reign": "732-722 BC",
+    "description": "Last king of Israel who assassinated Pekah and became king as Assyria's vassal. He initially paid tribute to Assyria but conspired with Egypt and stopped paying. Shalmaneser V of Assyria besieged Samaria for three years. The city fell in 722 BC, ending the northern kingdom. The people were deported to Assyria, and foreigners were settled in their land.",
+    "keyEvents": [
+      "Last king of Israel",
+      "Assassinated Pekah",
+      "Rebelled against Assyria",
+      "Conspired with Egypt",
+      "Samaria besieged for 3 years",
+      "Fall of northern kingdom (722 BC)",
+      "Israelites deported to Assyria",
+      "End of Israel as a nation"
+    ],
+    "scripture": "2 Kings 17:1-41",
+    "verdict": "Did evil but not as much as previous kings",
+    "questions": [
+      {
+        "question": "What was significant about Hoshea?",
+        "options": ["Last king of Israel", "First king of Israel", "Most righteous king", "Longest reigning king"],
+        "answer": "Last king of Israel"
+      },
+      {
+        "question": "Which nation did Hoshea conspire with against Assyria?",
+        "options": ["Egypt", "Babylon", "Syria", "Moab"],
+        "answer": "Egypt"
+      },
+      {
+        "question": "How long was Samaria besieged?",
+        "options": ["3 years", "7 days", "1 year", "6 months"],
+        "answer": "3 years"
+      },
+      {
+        "question": "When did the northern kingdom fall?",
+        "options": ["722 BC", "586 BC", "931 BC", "1000 BC"],
+        "answer": "722 BC"
+      },
+      {
+        "question": "What happened to the Israelites after Samaria fell?",
+        "options": ["Deported to Assyria", "Fled to Egypt", "Moved to Judah", "Remained in the land"],
+        "answer": "Deported to Assyria"
+      }
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+{
+  "name": "Shem",
+  "type": "person",
+  "notes": "Son of Noah; ancestor of the Hebrews, Arameans, and other Semitic peoples.",
+  "source_refs": [
+    "Genesis 5:32",
+    "Genesis 10:21–31"
+  ],
+  "children": [
+    {
+      "name": "Arphaxad",
+      "type": "person",
+      "source_refs": [
+        "Genesis 10:22"
+      ],
+      "notes": "",
+      "children": [
+        {
+          "name": "Cainan",
+          "type": "person",
+          "notes": "Included in the LXX genealogy.",
+          "source_refs": [
+            "Luke 3:36 (LXX tradition)"
+          ],
+          "children": [
+            {
+              "name": "Shelah",
+              "type": "person",
+              "source_refs": [
+                "Genesis 10:24"
+              ],
+              "notes": "",
+              "children": [
+                {
+                  "name": "Eber",
+                  "type": "person",
+                  "notes": "From his name comes 'Hebrew'.",
+                  "source_refs": [
+                    "Genesis 10:24–25"
+                  ],
+                  "children": [
+                    {
+                      "name": "Peleg",
+                      "type": "person",
+                      "notes": "In his days the earth was divided.",
+                      "source_refs": [
+                        "Genesis 10:25"
+                      ],
+                      "children": [
+                        {
+                          "name": "Reu",
+                          "type": "person",
+                          "source_refs": [
+                            "Genesis 11:18–19"
+                          ],
+                          "notes": "",
+                          "children": [
+                            {
+                              "name": "Serug",
+                              "type": "person",
+                              "source_refs": [
+                                "Genesis 11:20–21"
+                              ],
+                              "notes": "",
+                              "children": [
+                                {
+                                  "name": "Nahor",
+                                  "type": "person",
+                                  "source_refs": [
+                                    "Genesis 11:22–23"
+                                  ],
+                                  "notes": "",
+                                  "children": [
+                                    {
+                                      "name": "Terah",
+                                      "type": "person",
+                                      "source_refs": [
+                                        "Genesis 11:24–26"
+                                      ],
+                                      "notes": "Father of Abram, Nahor, and Haran.",
+                                      "children": [
+                                        {
+                                          "name": "Abram",
+                                          "aka": [
+                                            "Abraham"
+                                          ],
+                                          "type": "person",
+                                          "source_refs": [
+                                            "Genesis 11:26–32",
+                                            "Genesis 12–25"
+                                          ],
+                                          "notes": "Called by God; covenant promises of land, seed, and blessing.",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Joktan",
+                      "type": "person",
+                      "notes": "Ancestor of many Arabian tribes.",
+                      "source_refs": [
+                        "Genesis 10:25–29"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aram",
+      "type": "person",
+      "notes": "Ancestor of Aramean peoples (Syria).",
+      "source_refs": [
+        "Genesis 10:22"
+      ],
+      "children": [
+        {
+          "name": "Uz",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:23"
+          ],
+          "notes": "Land of Uz associated with Job.",
+          "children": []
+        },
+        {
+          "name": "Hul",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:23"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Gether",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:23"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Mash",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:23"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
