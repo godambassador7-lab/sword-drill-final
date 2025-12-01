@@ -29,6 +29,57 @@ import {
   CheckCircle,
   Users
 } from 'lucide-react';
+import CORE from "./core/index.js";
+
+const {
+  // Achievements
+  ACHIEVEMENT_TIERS,
+  ACHIEVEMENTS,
+  checkForNewAchievements,
+
+  // Points
+  POINT_SYSTEM,
+  QUIZ_POINTS,
+  calculateQuizPoints,
+  getBonusPoints,
+  getPenaltyPoints,
+
+  // Levels
+  LEVEL_REQUIREMENTS,
+  checkLevelProgression,
+  getLevelRequirements,
+  getAllLevels,
+  getNextLevel,
+
+  // Quiz
+  getQuizDifficulty,
+  getTimeThreshold,
+  getTimeLimit,
+  getFillBlankConfig,
+  getMultipleChoiceConfig,
+  isTooFast,
+  deservesSpeedBonus,
+  getTimeScoreMultiplier,
+
+  // Validation
+  matchBiblicalReference,
+  validateFillBlank,
+  validateMultipleFillBlanks,
+  validateMultipleChoice,
+  calculateSimilarity,
+  isCloseAnswer,
+
+  // Verses
+  DEFAULT_VERSE_FALLBACK,
+  VERSE_DATABASE,
+  getDailyVerse,
+  getRandomVerse,
+  getVerseByReference,
+  getRandomVerses,
+  verseExists,
+  getTotalVerseCount,
+  getVersePoolStats
+} = CORE;
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
 import SwordDrillUltimate from './components/SwordDrillUltimate';
