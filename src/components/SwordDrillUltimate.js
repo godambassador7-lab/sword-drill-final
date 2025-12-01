@@ -48,21 +48,27 @@ const generateQuestion = async (userLevel, verseProgress, getLocalVerseByReferen
   try {
     const difficulty = levelToDifficulty(userLevel);
     const refs = getAllReferencesForDifficulty(difficulty);
+    console.log('[generateQuestion] Difficulty:', difficulty, 'Refs count:', refs?.length);
 
     if (!refs || refs.length === 0) {
+      console.error('[generateQuestion] No references found for difficulty:', difficulty);
       return null;
     }
 
     // Filter out cooldown references
     const eligible = refs.filter(ref => !isVerseOnCooldown(ref, 'sword-drill-ultimate', verseProgress));
     const pool = eligible.length > 0 ? eligible : refs;
+    console.log('[generateQuestion] Pool size:', pool.length);
 
     // Pick random reference
     const selectedRef = pool[Math.floor(Math.random() * pool.length)];
+    console.log('[generateQuestion] Selected ref:', selectedRef);
 
     // Fetch verse text
     const verseData = await getLocalVerseByReference(selectedRef);
+    console.log('[generateQuestion] Verse data:', verseData ? 'loaded' : 'null');
     if (!verseData || !verseData.text) {
+      console.error('[generateQuestion] No verse text for:', selectedRef);
       return null;
     }
 
@@ -129,10 +135,15 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   useEffect(() => {
     const loadQuestion = async () => {
       setLoading(true);
+      console.log('[SwordDrillUltimate] Loading question with userLevel:', userLevel);
+      console.log('[SwordDrillUltimate] getLocalVerseByReference:', typeof getLocalVerseByReference);
       const q = await generateQuestion(userLevel, verseProgress, getLocalVerseByReference);
+      console.log('[SwordDrillUltimate] Generated question:', q);
       if (q) {
         setQuestion(q);
         roundStartTime.current = Date.now();
+      } else {
+        console.error('[SwordDrillUltimate] Failed to generate question');
       }
       setLoading(false);
     };
