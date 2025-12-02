@@ -4390,13 +4390,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               </button>
             </div>
           )}
-
-          <p className="text-center text-slate-400 text-sm mt-6">
-            Demo mode: Any email/password will work
-          </p>
-          <p className="text-center text-slate-400 text-xs mt-2">
-            Firebase authentication ready for production
-          </p>
         </div>
 
         {/* Forgot Password Modal */}

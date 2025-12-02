@@ -156,8 +156,8 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
     let pointsEarned = 0;
 
     // Base points
-    const basePoints = currentPuzzle.difficulty === 'Easy' ? 50 :
-                      currentPuzzle.difficulty === 'Medium' ? 100 : 150;
+    const basePoints = currentPuzzle.difficulty === 'Easy' ? 25 :
+                      currentPuzzle.difficulty === 'Medium' ? 50 : 100;
     pointsEarned += basePoints;
 
     // Bonus challenge points
