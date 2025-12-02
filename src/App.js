@@ -58,6 +58,7 @@ import UnlockableLXX from './components/UnlockableLXX';
 import UnlockableSinaiticus from './components/UnlockableSinaiticus';
 import UnlockableMasoretic from './components/UnlockableMasoretic';
 import UnlockableEliChallenge from './components/UnlockableEliChallenge';
+import BibleWordSearch from './components/BibleWordSearch';
 import GreekLexicon from './components/GreekLexicon';
 import HebrewLexicon from './components/HebrewLexicon';
 import EnhancedReviewModal from './components/EnhancedReviewModal';
@@ -3959,7 +3960,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
         {/* Plans Grid */}
         <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
-          {displayedPlans.slice(0, 20).map(plan => {
+          {displayedPlans.map(plan => {
             const planProgress = userData.studyPlanProgress?.[plan.id];
             const isCompleted = planProgress?.completed;
             const isInProgress = planProgress?.started && !planProgress?.completed;
@@ -4270,6 +4271,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             <span className="text-purple-200 text-sm">⚡ FAST-PACED</span>
           </div>
           <div className="text-purple-100 text-sm">Time-based quiz • 30 seconds • Can you identify Jesus' words?</div>
+        </button>
+        <button
+          onClick={() => setCurrentView('word-search')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white p-4 rounded-xl border-2 border-emerald-400 hover:border-emerald-300 transition-all text-left disabled:opacity-50 shadow-lg"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            🔍 Bible Word Search Journey
+            <span className="text-emerald-200 text-sm">⭐ 250 PUZZLES</span>
+          </div>
+          <div className="text-emerald-100 text-sm">Glowing orb checkpoints • Hints with points • Time bonuses • Progress tracking</div>
         </button>
       </div>
     </div>
@@ -5039,6 +5051,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'word-search' && (
+          <BibleWordSearch
+            onBack={() => setCurrentView('bonus-quizzes')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'book-order-quiz' && (
