@@ -734,7 +734,8 @@ const SwordDrillApp = () => {
     unlockables: {
       lxx: false,        // Septuagint (Greek OT) - Unlock at 5000 pts
       masoretic: false,  // Masoretic Text (Hebrew OT) - Unlock at 7500 pts
-      sinaiticus: false  // Codex Sinaiticus - Unlock at 10000 pts
+      sinaiticus: false, // Codex Sinaiticus - Unlock at 10000 pts
+      smithDictionary: false // Smith's Bible Dictionary - Unlock at 500 pts
     },
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
@@ -4160,6 +4161,269 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   };
 
+  const PowerUpShopView = () => {
+    const purchasePowerUp = (powerUpType) => {
+      const powerUp = ECONOMY.POWER_UPS[powerUpType];
+
+      if (userData.totalPoints < powerUp.cost) {
+        showToast(`Not enough points! Need ${powerUp.cost} points.`, 'error');
+        return;
+      }
+
+      // Check if this boost is already active
+      const isActive = (userData.activeBoosts || []).some(
+        b => b.type === powerUpType && b.expiresAt > Date.now()
+      );
+
+      if (isActive) {
+        showToast(`${powerUp.name} is already active!`, 'error');
+        return;
+      }
+
+      // Deduct points and add boost
+      const newPoints = userData.totalPoints - powerUp.cost;
+      const newBoost = {
+        type: powerUpType,
+        expiresAt: Date.now() + powerUp.duration,
+        multiplier: powerUp.multiplier,
+        purchasedAt: Date.now()
+      };
+
+      const updatedBoosts = [...(userData.activeBoosts || []), newBoost];
+
+      setUserData(prev => ({
+        ...prev,
+        totalPoints: newPoints,
+        activeBoosts: updatedBoosts
+      }));
+
+      if (currentUser?.uid) {
+        updateUserProgress(currentUser.uid, {
+          totalPoints: newPoints,
+          activeBoosts: updatedBoosts
+        });
+      }
+
+      showToast(`🎉 ${powerUp.name} activated for ${Math.ceil(powerUp.duration / 60000)} minutes!`, 'success');
+    };
+
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-2xl p-6 border-2 border-purple-500/50">
+          <div className="flex items-center gap-3 mb-2">
+            <Crown size={32} className="text-yellow-400" />
+            <h2 className="text-2xl font-bold text-purple-200">Power-Up Shop</h2>
+          </div>
+          <p className="text-purple-300 text-sm mb-4">
+            Purchase temporary boosts to enhance your quiz performance
+          </p>
+          <div className="bg-slate-800/50 rounded-lg p-3 border border-purple-600/30">
+            <div className="text-amber-400 font-bold text-lg">
+              Your Points: {userData.totalPoints.toLocaleString()}
+            </div>
+          </div>
+        </div>
+
+        {/* Power-Ups Grid */}
+        <div className="grid grid-cols-1 gap-4">
+          {/* Double Points */}
+          <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-xl p-6 border-2 border-green-600/50">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <TrendingUp size={28} className="text-green-400" />
+                <div>
+                  <h3 className="text-xl font-bold text-green-300">Double Points</h3>
+                  <p className="text-green-200 text-sm">Earn 2x points on all quizzes</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.DOUBLE_POINTS.cost} pts</div>
+                <div className="text-green-300 text-xs">10 minutes</div>
+              </div>
+            </div>
+            <button
+              onClick={() => purchasePowerUp('DOUBLE_POINTS')}
+              disabled={userData.totalPoints < ECONOMY.POWER_UPS.DOUBLE_POINTS.cost ||
+                (userData.activeBoosts || []).some(b => b.type === 'DOUBLE_POINTS' && b.expiresAt > Date.now())}
+              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {(userData.activeBoosts || []).some(b => b.type === 'DOUBLE_POINTS' && b.expiresAt > Date.now())
+                ? '✓ Active'
+                : 'Purchase'}
+            </button>
+          </div>
+
+          {/* Streak Freeze */}
+          <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-6 border-2 border-blue-600/50">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <Flame size={28} className="text-blue-400" />
+                <div>
+                  <h3 className="text-xl font-bold text-blue-300">Streak Freeze</h3>
+                  <p className="text-blue-200 text-sm">Protect your streak for 24 hours</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.STREAK_FREEZE.cost} pts</div>
+                <div className="text-blue-300 text-xs">24 hours</div>
+              </div>
+            </div>
+            <button
+              onClick={() => purchasePowerUp('STREAK_FREEZE')}
+              disabled={userData.totalPoints < ECONOMY.POWER_UPS.STREAK_FREEZE.cost ||
+                (userData.activeBoosts || []).some(b => b.type === 'STREAK_FREEZE' && b.expiresAt > Date.now())}
+              className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {(userData.activeBoosts || []).some(b => b.type === 'STREAK_FREEZE' && b.expiresAt > Date.now())
+                ? '✓ Active'
+                : 'Purchase'}
+            </button>
+          </div>
+
+          {/* Extra Time */}
+          <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-6 border-2 border-amber-600/50">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <Clock size={28} className="text-amber-400" />
+                <div>
+                  <h3 className="text-xl font-bold text-amber-300">Extra Time</h3>
+                  <p className="text-amber-200 text-sm">+60 seconds on timed quizzes</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.EXTRA_TIME.cost} pts</div>
+                <div className="text-amber-300 text-xs">10 minutes</div>
+              </div>
+            </div>
+            <button
+              onClick={() => purchasePowerUp('EXTRA_TIME')}
+              disabled={userData.totalPoints < ECONOMY.POWER_UPS.EXTRA_TIME.cost ||
+                (userData.activeBoosts || []).some(b => b.type === 'EXTRA_TIME' && b.expiresAt > Date.now())}
+              className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {(userData.activeBoosts || []).some(b => b.type === 'EXTRA_TIME' && b.expiresAt > Date.now())
+                ? '✓ Active'
+                : 'Purchase'}
+            </button>
+          </div>
+
+          {/* Point Shield */}
+          <div className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 rounded-xl p-6 border-2 border-emerald-600/50">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <Lock size={28} className="text-emerald-400" />
+                <div>
+                  <h3 className="text-xl font-bold text-emerald-300">Point Shield</h3>
+                  <p className="text-emerald-200 text-sm">No point penalties for wrong answers</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.POINT_SHIELD.cost} pts</div>
+                <div className="text-emerald-300 text-xs">30 minutes</div>
+              </div>
+            </div>
+            <button
+              onClick={() => purchasePowerUp('POINT_SHIELD')}
+              disabled={userData.totalPoints < ECONOMY.POWER_UPS.POINT_SHIELD.cost ||
+                (userData.activeBoosts || []).some(b => b.type === 'POINT_SHIELD' && b.expiresAt > Date.now())}
+              className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {(userData.activeBoosts || []).some(b => b.type === 'POINT_SHIELD' && b.expiresAt > Date.now())
+                ? '✓ Active'
+                : 'Purchase'}
+            </button>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setCurrentView('home')}
+          className="w-full bg-slate-600 hover:bg-slate-500 text-white font-bold py-3 rounded-xl transition-all"
+        >
+          Back to Home
+        </button>
+      </div>
+    );
+  };
+
+  const SmithDictionaryView = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    // Sample dictionary entries (you can expand this list)
+    const dictionaryEntries = [
+      { term: 'Aaron', definition: 'The elder son of Amram and Jochebed, and brother of Moses and Miriam. He was appointed by God to be the spokesman of Moses to Pharaoh and to the people, and became the first high priest of Israel.' },
+      { term: 'Abel', definition: 'The second son of Adam and Eve, a keeper of sheep. He offered to God a more acceptable sacrifice than Cain, and was murdered by his brother out of jealousy.' },
+      { term: 'Abraham', definition: 'Originally called Abram, he was called by God to leave his country and become the father of a great nation. God made a covenant with him, and he is considered the father of faith for Jews, Christians, and Muslims alike.' },
+      { term: 'Covenant', definition: 'A solemn agreement between two parties, especially between God and His people. The Old Covenant was given through Moses at Sinai; the New Covenant was established through Jesus Christ.' },
+      { term: 'David', definition: 'The youngest son of Jesse, anointed by Samuel to be king of Israel. He was a shepherd, musician, warrior, and poet. God made an everlasting covenant with him regarding his throne and descendants.' },
+      { term: 'Exodus', definition: 'The departure of the Israelites from Egypt under Moses\' leadership. This event marked the birth of Israel as a nation and demonstrated God\'s power and faithfulness to His covenant promises.' },
+      { term: 'Faith', definition: 'Trust in and reliance upon God and His promises. It is the assurance of things hoped for and the conviction of things not seen (Hebrews 11:1).' },
+      { term: 'Gospel', definition: 'The good news of salvation through Jesus Christ. It refers to Jesus\' life, death, and resurrection, and the message of redemption available to all who believe.' },
+      { term: 'Grace', definition: 'The unmerited favor and love of God toward humanity. It is by grace through faith that believers are saved, not by works (Ephesians 2:8-9).' },
+      { term: 'Jerusalem', definition: 'The holy city of Israel, captured by David and made the capital of his kingdom. It was the location of Solomon\'s Temple and the center of Jewish worship.' },
+      { term: 'Moses', definition: 'The great lawgiver and prophet who led Israel out of Egyptian bondage. He received the Ten Commandments and the Law from God on Mount Sinai.' },
+      { term: 'Passover', definition: 'The feast commemorating Israel\'s deliverance from Egypt, when the angel of death "passed over" the houses marked with lamb\'s blood. Jesus was crucified during Passover week.' },
+      { term: 'Redemption', definition: 'The act of purchasing back or ransoming. In Scripture, it refers to Christ\'s deliverance of believers from sin and its consequences through His death on the cross.' },
+      { term: 'Righteousness', definition: 'Conformity to God\'s will and character. In the New Testament, believers are declared righteous through faith in Christ, who is our righteousness.' },
+      { term: 'Salvation', definition: 'Deliverance from sin and its consequences, granted by God\'s grace through faith in Jesus Christ. It includes justification, sanctification, and glorification.' },
+      { term: 'Temple', definition: 'The house of God built by Solomon in Jerusalem, replacing the Tabernacle. It was the center of Jewish worship until destroyed by the Babylonians, rebuilt, and finally destroyed by the Romans in 70 AD.' }
+    ];
+
+    const filteredEntries = searchTerm
+      ? dictionaryEntries.filter(entry =>
+          entry.term.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : dictionaryEntries;
+
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-2xl p-6 border-2 border-blue-600/50">
+          <div className="flex items-center gap-3 mb-2">
+            <BookOpen size={32} className="text-blue-400" />
+            <h2 className="text-2xl font-bold text-blue-200">Smith's Bible Dictionary</h2>
+          </div>
+          <p className="text-blue-300 text-sm mb-4">
+            Comprehensive reference for biblical terms, people, and places
+          </p>
+
+          {/* Search Bar */}
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search dictionary entries..."
+            className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-blue-600/30 focus:border-blue-500 focus:outline-none"
+          />
+        </div>
+
+        {/* Dictionary Entries */}
+        <div className="space-y-3">
+          {filteredEntries.length > 0 ? (
+            filteredEntries.map((entry, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-800/50 rounded-xl p-5 border border-slate-600 hover:border-blue-500/50 transition-all"
+              >
+                <h3 className="text-xl font-bold text-blue-300 mb-2">{entry.term}</h3>
+                <p className="text-slate-300 leading-relaxed">{entry.definition}</p>
+              </div>
+            ))
+          ) : (
+            <div className="text-center text-slate-400 py-8">
+              No entries found for "{searchTerm}"
+            </div>
+          )}
+        </div>
+
+        <button
+          onClick={() => setCurrentView('home')}
+          className="w-full bg-slate-600 hover:bg-slate-500 text-white font-bold py-3 rounded-xl transition-all"
+        >
+          Back to Home
+        </button>
+      </div>
+    );
+  };
+
   const CalendarView = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const displayedPlans = searchTerm
@@ -4917,6 +5181,21 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               >
                 <BarChart size={20} /> Mastery List
               </button>
+              <button
+                onClick={() => {
+                  setCurrentView('powerup-shop');
+                  setShowMenu(false);
+                }}
+                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-700 hover:to-pink-600 transition-all flex items-center gap-3 relative group"
+              >
+                <Crown size={20} className="text-purple-400 group-hover:text-yellow-400 transition-colors" />
+                <span className="group-hover:text-purple-300 transition-colors">Power-Up Shop</span>
+                {(userData.activeBoosts || []).length > 0 && (
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
+                    {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length} ACTIVE
+                  </span>
+                )}
+              </button>
             </nav>
 
             {/* Learning & Study Section */}
@@ -5049,6 +5328,63 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                     <div className="font-semibold">Hebrew Lexicon</div>
                     <div className="text-xs text-slate-400">Strong's Hebrew Dictionary</div>
                   </div>
+                </button>
+                <button
+                  onClick={() => {
+                    if (!userData.unlockables?.smithDictionary) {
+                      // Show unlock prompt
+                      if (userData.totalPoints >= 500) {
+                        if (window.confirm('Unlock Smith\'s Bible Dictionary for 500 points?')) {
+                          const newPoints = userData.totalPoints - 500;
+                          const updatedUnlockables = {
+                            ...userData.unlockables,
+                            smithDictionary: true
+                          };
+
+                          setUserData(prev => ({
+                            ...prev,
+                            totalPoints: newPoints,
+                            unlockables: updatedUnlockables
+                          }));
+
+                          if (currentUser?.uid) {
+                            updateUserProgress(currentUser.uid, {
+                              totalPoints: newPoints,
+                              unlockables: updatedUnlockables
+                            });
+                          }
+
+                          showToast('📖 Smith\'s Bible Dictionary unlocked!', 'success');
+                          setCurrentView('smith-dictionary');
+                          setShowMenu(false);
+                        }
+                      } else {
+                        showToast('Need 500 points to unlock Smith\'s Bible Dictionary', 'error');
+                      }
+                    } else {
+                      setCurrentView('smith-dictionary');
+                      setShowMenu(false);
+                    }
+                  }}
+                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3 relative"
+                >
+                  <BookOpen size={20} className="text-blue-400" />
+                  <div className="flex-1">
+                    <div className="font-semibold flex items-center gap-2">
+                      Smith's Bible Dictionary
+                      {!userData.unlockables?.smithDictionary && (
+                        <Lock size={14} className="text-amber-400" />
+                      )}
+                    </div>
+                    <div className="text-xs text-slate-400">
+                      {userData.unlockables?.smithDictionary
+                        ? 'Comprehensive Bible Reference'
+                        : 'Unlock for 500 points'}
+                    </div>
+                  </div>
+                  {!userData.unlockables?.smithDictionary && (
+                    <div className="text-amber-400 font-bold text-sm">500 pts</div>
+                  )}
                 </button>
               </div>
             </div>
@@ -5296,6 +5632,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         {currentView === 'achievements' && <AchievementsView />}
         {currentView === 'analytics' && <AnalyticsView />}
         {currentView === 'mastery' && <MasteryView />}
+        {currentView === 'powerup-shop' && <PowerUpShopView />}
+        {currentView === 'smith-dictionary' && <SmithDictionaryView />}
         {currentView === 'calendar' && <CalendarView />}
         {currentView === 'settings' && <SettingsView />}
         {currentView === 'tutorial' && <TutorialHelp onBack={() => setCurrentView('home')} />}
