@@ -667,6 +667,8 @@ const SwordDrillApp = () => {
   const [planVerseTexts, setPlanVerseTexts] = useState([]);
   const [planVerseLoading, setPlanVerseLoading] = useState(false);
   const [planVerseError, setPlanVerseError] = useState('');
+  const [currentDayIndex, setCurrentDayIndex] = useState(0);
+  const [dayVerseText, setDayVerseText] = useState('');
 
   // Achievement unlock states
   const [showAchievementUnlock, setShowAchievementUnlock] = useState(null);
@@ -958,24 +960,52 @@ useEffect(() => {
     setPlanVerseLoading(true);
     setPlanVerseError('');
     try {
-      const scriptures = Array.isArray(selectedPlan.scriptures) ? selectedPlan.scriptures : [];
-      const results = await Promise.all(scriptures.map(async (scripture) => {
-        // Strip any AUTO prefixes or markers from references
-        const ref = (scripture.reference || '').replace(/^AUTO[^A-Za-z0-9]*\s*/i, '').trim();
-        const resolved = await resolveVerseText(ref, userData.selectedTranslation);
-        return {
-          reference: ref,
-          text: resolved?.text || '',
-          translation: resolved?.translation || userData.selectedTranslation,
-          note: scripture.note || ''
-        };
-      }));
-      if (!cancelled) setPlanVerseTexts(results);
+      // Check if this is a new format plan (has days array)
+      if (selectedPlan.days) {
+        // For new format, load the current day's verse
+        const currentDay = selectedPlan.days[currentDayIndex];
+        if (currentDay && currentDay.passage) {
+          // Extract the scripture reference from passage (format: "{{translation}}: Reference")
+          const passageMatch = currentDay.passage.match(/:\s*(.+)$/);
+          if (passageMatch) {
+            const reference = passageMatch[1].trim();
+            const resolved = await resolveVerseText(reference, userData.selectedTranslation);
+            if (!cancelled) {
+              setDayVerseText(resolved?.text || `[${reference} - Unable to load verse text]`);
+            }
+          } else {
+            if (!cancelled) {
+              setDayVerseText('');
+            }
+          }
+        } else {
+          if (!cancelled) {
+            setDayVerseText('');
+          }
+        }
+      } else {
+        // Old format - load all scriptures
+        const scriptures = Array.isArray(selectedPlan.scriptures) ? selectedPlan.scriptures : [];
+        const results = await Promise.all(scriptures.map(async (scripture) => {
+          // Strip any AUTO prefixes or markers from references
+          const ref = (scripture.reference || '').replace(/^AUTO[^A-Za-z0-9]*\s*/i, '').trim();
+          const resolved = await resolveVerseText(ref, userData.selectedTranslation);
+          return {
+            reference: ref,
+            text: resolved?.text || '',
+            translation: resolved?.translation || userData.selectedTranslation,
+            note: scripture.note || ''
+          };
+        }));
+        if (!cancelled) setPlanVerseTexts(results);
+      }
     } catch (err) {
       console.error('Error loading plan verses', err);
       if (!cancelled) {
         setPlanVerseError('Unable to load verses for this plan right now.');
-        setPlanVerseTexts([]);
+        if (!selectedPlan.days) {
+          setPlanVerseTexts([]);
+        }
       }
     } finally {
       if (!cancelled) setPlanVerseLoading(false);
@@ -984,7 +1014,7 @@ useEffect(() => {
 
   loadPlanVerses();
   return () => { cancelled = true; };
-}, [showPlanDetail, selectedPlan, userData.selectedTranslation]);
+}, [showPlanDetail, selectedPlan, userData.selectedTranslation, currentDayIndex]);
 
 // Handle verse of the day read checkbox
 const handleVerseOfDayRead = () => {
@@ -3792,6 +3822,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   setPlanVerseLoading(true);
                   setSelectedPlan(plan);
                   setShowPlanDetail(true);
+                  setCurrentDayIndex(0);
 
                   // Mark as started
                   if (!planProgress?.started) {
@@ -3974,6 +4005,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   setPlanVerseLoading(true);
                   setSelectedPlan(plan);
                   setShowPlanDetail(true);
+                  setCurrentDayIndex(0);
 
                   // Mark as started if not already
                   if (!planProgress?.started) {
@@ -5636,34 +5668,72 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               {/* Check if this is a new format plan (has days array) or old format (has questions/scriptures) */}
               {selectedPlan.days ? (
-                /* New format - show days-based plan */
+                /* New format - show one day at a time */
                 <div className="space-y-4">
-                  <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
-                    <h3 className="text-blue-400 font-bold mb-3">{selectedPlan.days.length}-Day Study Plan</h3>
-                    {selectedPlan.days.map((day, index) => (
-                      <div key={index} className="mb-4 last:mb-0 pb-4 last:pb-0 border-b last:border-b-0 border-slate-600">
-                        <h4 className="text-amber-400 font-semibold mb-2">Day {day.day}</h4>
-                        <div className="space-y-2 text-sm">
-                          <div>
-                            <span className="text-blue-300 font-semibold">Passage: </span>
-                            <span className="text-slate-300">{day.passage}</span>
-                          </div>
-                          <div>
-                            <span className="text-purple-300 font-semibold">Overview: </span>
-                            <span className="text-slate-300">{day.overview}</span>
-                          </div>
-                          <div>
-                            <span className="text-green-300 font-semibold">Reflection: </span>
-                            <span className="text-slate-300 italic">{day.reflection}</span>
-                          </div>
-                          <div>
-                            <span className="text-amber-300 font-semibold">Prayer: </span>
-                            <span className="text-slate-300 italic">{day.prayer}</span>
+                  {(() => {
+                    const currentDay = selectedPlan.days[currentDayIndex];
+                    const passageMatch = currentDay.passage.match(/:\s*(.+)$/);
+                    const reference = passageMatch ? passageMatch[1].trim() : currentDay.passage;
+
+                    return (
+                      <>
+                        <div className="flex items-center justify-between bg-blue-900/40 rounded-lg p-3 border border-blue-700/50">
+                          <h3 className="text-blue-400 font-bold">Day {currentDay.day} of {selectedPlan.days.length}</h3>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => setCurrentDayIndex(prev => Math.max(0, prev - 1))}
+                              disabled={currentDayIndex === 0}
+                              className="px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded text-sm font-semibold transition-all"
+                            >
+                              ← Previous
+                            </button>
+                            <button
+                              onClick={() => setCurrentDayIndex(prev => Math.min(selectedPlan.days.length - 1, prev + 1))}
+                              disabled={currentDayIndex === selectedPlan.days.length - 1}
+                              className="px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded text-sm font-semibold transition-all"
+                            >
+                              Next →
+                            </button>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+
+                        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+                          <h4 className="text-blue-400 font-bold mb-3 flex items-center gap-2">
+                            <Scroll size={20} />
+                            Scripture Reading
+                          </h4>
+                          <div className="bg-slate-800 rounded-lg p-4 border border-slate-600 mb-4">
+                            <div className="text-blue-300 font-semibold mb-2">{reference}</div>
+                            {planVerseLoading ? (
+                              <p className="text-slate-400 italic">Loading verse...</p>
+                            ) : dayVerseText ? (
+                              <p className="text-slate-200 leading-relaxed">{dayVerseText}</p>
+                            ) : (
+                              <p className="text-slate-400 italic">Scripture reference: {reference}</p>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="bg-purple-900/40 rounded-xl p-4 border border-purple-700/50">
+                          <h4 className="text-purple-300 font-bold mb-2">Overview</h4>
+                          <p className="text-slate-300">{currentDay.overview}</p>
+                        </div>
+
+                        <div className="bg-green-900/40 rounded-xl p-4 border border-green-700/50">
+                          <h4 className="text-green-300 font-bold mb-2 flex items-center gap-2">
+                            <Lightbulb size={18} />
+                            Reflection
+                          </h4>
+                          <p className="text-slate-300 italic">{currentDay.reflection}</p>
+                        </div>
+
+                        <div className="bg-amber-900/40 rounded-xl p-4 border border-amber-700/50">
+                          <h4 className="text-amber-300 font-bold mb-2">Prayer</h4>
+                          <p className="text-slate-300 italic">{currentDay.prayer}</p>
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               ) : (
                 /* Old format - show traditional sections */
