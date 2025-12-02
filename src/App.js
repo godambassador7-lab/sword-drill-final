@@ -2849,6 +2849,78 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             </div>
           </div>
 
+          {/* Hint System */}
+          {!quizState.hintUsed && (
+            <button
+              type="button"
+              onClick={() => {
+                const hintCost = 25;
+                if (userData.totalPoints < hintCost) {
+                  showToast('Not enough points for a hint! (Cost: 25 points)', 'error');
+                  return;
+                }
+
+                // Deduct points
+                const newTotalPoints = userData.totalPoints - hintCost;
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: newTotalPoints
+                }));
+
+                // Update Firebase
+                if (currentUser?.uid) {
+                  updateUserProgress(currentUser.uid, {
+                    totalPoints: newTotalPoints
+                  }).catch(err => console.error('Error updating points:', err));
+                }
+
+                // Generate hint based on quiz type
+                let hint = '';
+                if (quizState.type === 'fill-blank') {
+                  // Show first letter of first blank answer
+                  if (quizState.answers && quizState.answers[0]) {
+                    const firstAnswer = quizState.answers[0];
+                    hint = `💡 Hint: First word starts with "${firstAnswer.charAt(0).toUpperCase()}"`;
+                  } else if (quizState.answer) {
+                    hint = `💡 Hint: Answer starts with "${quizState.answer.charAt(0).toUpperCase()}"`;
+                  }
+                } else if (quizState.type === 'multiple-choice') {
+                  // Eliminate one wrong answer
+                  const wrongOptions = quizState.options.filter(opt => opt !== quizState.correctAnswer);
+                  if (wrongOptions.length > 0) {
+                    const eliminate = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
+                    hint = `💡 Hint: It's NOT "${eliminate.replace(/:\d+$/, '')}"`;
+                  }
+                } else if (quizState.type === 'reference-recall') {
+                  // Show the book name
+                  const bookMatch = quizState.answer.match(/^([1-3]?\s*[A-Za-z]+)/);
+                  if (bookMatch) {
+                    hint = `💡 Hint: The book is ${bookMatch[1]}`;
+                  }
+                }
+
+                setQuizState(prev => ({
+                  ...prev,
+                  hintUsed: true,
+                  hintText: hint
+                }));
+
+                showToast(`Hint purchased for ${hintCost} points!`, 'info');
+              }}
+              className="w-full mb-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-4 rounded-lg hover:from-purple-500 hover:to-purple-600 transition-all border border-purple-500 flex items-center justify-center gap-2"
+            >
+              <Lightbulb size={20} />
+              Get Hint (25 points)
+            </button>
+          )}
+
+          {/* Show hint if used */}
+          {quizState.hintUsed && quizState.hintText && (
+            <div className="mb-4 p-4 bg-purple-900/40 border border-purple-600/50 rounded-lg text-purple-200">
+              {quizState.hintText}
+            </div>
+          )}
+
           {/* Question with drop zones for fill-blank */}
           {quizState.type === 'fill-blank' && quizState.userAnswers ? (
             <>
