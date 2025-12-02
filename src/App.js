@@ -1481,10 +1481,13 @@ const startQuiz = async (type, usePersonalVerses = false) => {
       const uniqueWrongAnswers = [...new Set(wrongAnswers)].filter(r => r !== correctAnswer);
       const allAnswers = [correctAnswer, ...uniqueWrongAnswers.slice(0, 3)].sort(() => Math.random() - 0.5);
 
+      // Strip verse numbers from the text (e.g., "1 In the beginning..." -> "In the beginning...")
+      const cleanedText = verse.text.replace(/^\d+\s+/, '');
+
       setQuizState({
         type: 'multiple-choice',
         verse: { ...verse, text: verse.text },
-        question: verse.text,
+        question: cleanedText,
         correctAnswer,
         // Options remain references; strip verse numbers for display only
         options: allAnswers,
@@ -5423,6 +5426,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         {currentView === 'spiritual-gifts-exam' && (
           <SpiritualGiftsExam
             onBack={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'bible-trivia' && (

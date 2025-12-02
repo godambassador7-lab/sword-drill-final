@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, CheckCircle, ArrowLeft, Download, History, RotateCcw } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const SpiritualGiftsExam = ({ onBack }) => {
+const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [examData, setExamData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -31,16 +32,20 @@ const SpiritualGiftsExam = ({ onBack }) => {
         setLoading(false);
       });
 
-    // Load previous results from localStorage
-    const savedResults = localStorage.getItem('spiritualGiftsResults');
-    if (savedResults) {
-      try {
-        setPreviousResults(JSON.parse(savedResults));
-      } catch (err) {
-        console.error('Error loading previous results:', err);
+    // Load previous results from Firebase (priority) or localStorage
+    if (userData?.spiritualGiftsResults) {
+      setPreviousResults(userData.spiritualGiftsResults);
+    } else {
+      const savedResults = localStorage.getItem('spiritualGiftsResults');
+      if (savedResults) {
+        try {
+          setPreviousResults(JSON.parse(savedResults));
+        } catch (err) {
+          console.error('Error loading previous results:', err);
+        }
       }
     }
-  }, []);
+  }, [userData]);
 
   const handleResponse = (questionId, value) => {
     setResponses(prev => ({
@@ -82,8 +87,21 @@ const SpiritualGiftsExam = ({ onBack }) => {
       responses: responses
     };
 
+    // Save to localStorage
     localStorage.setItem('spiritualGiftsResults', JSON.stringify(resultsToSave));
     setPreviousResults(resultsToSave);
+
+    // Sync to Firebase
+    if (userId && setUserData) {
+      setUserData(prev => ({
+        ...prev,
+        spiritualGiftsResults: resultsToSave
+      }));
+
+      updateUserProgress(userId, {
+        spiritualGiftsResults: resultsToSave
+      }).catch(err => console.error('Error saving spiritual gifts results to Firebase:', err));
+    }
 
     setResults(sortedGifts);
     setShowResults(true);
