@@ -145,6 +145,46 @@ const localDateString = (date = new Date()) => {
   return `${y}-${m}-${day}`;
 };
 
+// Point Economy Constants
+const ECONOMY = {
+  MISSED_DAY_TAX: 10, // Daily upkeep if no activity
+  HINT_COST: 25, // Cost per hint
+  SKIP_COST: 50, // Cost to skip a question
+  RETRY_PENALTY: 0.5, // Multiply reward by this per retry
+  TIME_DECAY_DAYS: 3, // Days before decay starts
+  TIME_DECAY_AMOUNT: 5, // Points lost per day of inactivity
+  WRONG_ANSWER_PENALTY: 5, // Small deduction per wrong answer
+  RAPID_FIRE_WINDOW: 3000, // 3 seconds
+  RAPID_FIRE_PENALTY: 15, // Extra penalty for rapid wrong answers
+
+  POWER_UPS: {
+    DOUBLE_POINTS: { cost: 100, duration: 600000, multiplier: 2, name: 'Double Points' }, // 10 min
+    STREAK_FREEZE: { cost: 150, duration: 86400000, name: 'Streak Freeze' }, // 24 hours
+    EXTRA_TIME: { cost: 50, duration: 600000, extraTime: 60, name: 'Extra Time' }, // 10 min, +60sec
+    POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' } // 30 min, no penalties
+  }
+};
+
+// Calculate active boost multiplier
+const getActiveBoostMultiplier = (activeBoosts) => {
+  let multiplier = 1;
+  const now = Date.now();
+
+  activeBoosts.forEach(boost => {
+    if (boost.expiresAt > now && boost.multiplier) {
+      multiplier *= boost.multiplier;
+    }
+  });
+
+  return multiplier;
+};
+
+// Check if point shield is active
+const hasPointShield = (activeBoosts) => {
+  const now = Date.now();
+  return activeBoosts.some(boost => boost.type === 'POINT_SHIELD' && boost.expiresAt > now);
+};
+
 // Note: LEVEL_REQUIREMENTS, ACHIEVEMENTS, POINT_SYSTEM, and QUIZ_POINTS
 // are now imported from './core' (private submodule)
 
@@ -710,7 +750,16 @@ const SwordDrillApp = () => {
     verseDetectiveCompleted: 0, // Total Verse Detective quizzes completed
     verseDetectiveCorrect: 0, // Total Verse Detective quizzes answered correctly
     wordsOfJesusCompleted: 0, // Total Words of Jesus quizzes completed
-    wordsOfJesusCorrect: 0 // Total Words of Jesus questions answered correctly
+    wordsOfJesusCorrect: 0, // Total Words of Jesus questions answered correctly
+
+    // Point Economy System
+    lastActivityDate: Date.now(), // Track last activity for decay
+    activeBoosts: [], // Array of active boosts: { type, expiresAt, multiplier }
+    retryCount: 0, // Track retries for current quiz
+    wrongAnswerCount: 0, // Track wrong answers for penalties
+    lastWrongAnswerTime: 0, // Track rapid-fire wrong answers
+    streakProtectionActive: false, // Streak freeze purchased
+    streakProtectionExpiresAt: null // When streak protection expires
   });
 
   
@@ -877,6 +926,47 @@ useEffect(() => {
   if (!hasHydratedProgress) return;
   saveProgressToLocalStorage(userData);
 }, [userData, hasHydratedProgress]);
+
+// Check for time decay and missed day tax on app load
+useEffect(() => {
+  if (!hasHydratedProgress || !isLoggedIn) return;
+
+  const now = Date.now();
+  const lastActivity = userData.lastActivityDate || now;
+  const daysSinceActivity = Math.floor((now - lastActivity) / 86400000); // days
+
+  if (daysSinceActivity >= ECONOMY.TIME_DECAY_DAYS) {
+    const decayDays = daysSinceActivity - ECONOMY.TIME_DECAY_DAYS + 1;
+    const decayPenalty = decayDays * ECONOMY.TIME_DECAY_AMOUNT;
+
+    if (decayPenalty > 0 && userData.totalPoints > 0) {
+      const newPoints = Math.max(0, userData.totalPoints - decayPenalty);
+
+      setUserData(prev => ({
+        ...prev,
+        totalPoints: newPoints,
+        lastActivityDate: now
+      }));
+
+      if (currentUser?.uid) {
+        updateUserProgress(currentUser.uid, {
+          totalPoints: newPoints,
+          lastActivityDate: now
+        });
+      }
+
+      showToast(`⏰ ${decayPenalty} points deducted due to ${decayDays} day(s) of inactivity`, 'error');
+    }
+  }
+
+  // Clean up expired boosts
+  if (userData.activeBoosts && userData.activeBoosts.length > 0) {
+    const activeBoosts = userData.activeBoosts.filter(boost => boost.expiresAt > now);
+    if (activeBoosts.length !== userData.activeBoosts.length) {
+      setUserData(prev => ({ ...prev, activeBoosts }));
+    }
+  }
+}, [hasHydratedProgress, isLoggedIn]);
 
 // Timer effect for quizzes (except verse-scramble which manages its own timer)
 useEffect(() => {
@@ -2093,6 +2183,40 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
   let points = calculateQuizPoints(quizState.type, isCorrect, userLevel, quizTime, isPerfect, currentProgress, quizState.isPersonalVerse);
 
+  // Apply retry penalty
+  const retryCount = userData.retryCount || 0;
+  if (retryCount > 0) {
+    points = Math.floor(points * Math.pow(ECONOMY.RETRY_PENALTY, retryCount));
+  }
+
+  // Apply boost multiplier if active
+  const boostMultiplier = getActiveBoostMultiplier(userData.activeBoosts || []);
+  if (boostMultiplier > 1 && isCorrect) {
+    points = Math.floor(points * boostMultiplier);
+  }
+
+  // Wrong answer penalties (only if no point shield active)
+  let wrongAnswerPenalty = 0;
+  if (!isCorrect && !hasPointShield(userData.activeBoosts || [])) {
+    wrongAnswerPenalty = ECONOMY.WRONG_ANSWER_PENALTY;
+
+    // Check for rapid-fire wrong answer
+    const now = Date.now();
+    const lastWrong = userData.lastWrongAnswerTime || 0;
+    if (now - lastWrong < ECONOMY.RAPID_FIRE_WINDOW) {
+      wrongAnswerPenalty += ECONOMY.RAPID_FIRE_PENALTY;
+    }
+
+    // Update last wrong answer time
+    setUserData(prev => ({
+      ...prev,
+      lastWrongAnswerTime: now,
+      wrongAnswerCount: (prev.wrongAnswerCount || 0) + 1
+    }));
+
+    points -= wrongAnswerPenalty;
+  }
+
   // Check for first quiz of day bonus (use local date to avoid UTC drift)
   const todayString = localDateString(new Date());
   const lastQuizDate = localStorage.getItem('lastQuizDate');
@@ -2119,11 +2243,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     points += inactivityPenalty; // Penalty is negative
   }
 
-  // Update last activity date
+  // Update last activity date and reset retry count
   localStorage.setItem('lastActivityDate', new Date().toISOString());
 
   const newQuizzesCompleted = userData.quizzesCompleted + 1;
   const newTotalPoints = Math.max(0, userData.totalPoints + points); // Can't go below 0
+
+  // Reset retry count after submission
+  setUserData(prev => ({
+    ...prev,
+    retryCount: 0,
+    lastActivityDate: Date.now()
+  }));
 
   // STREAK TRACKING: Track all quiz attempts (correct and incorrect)
   // Store detailed quiz information for calendar view
@@ -2457,8 +2588,51 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   };
 
 
-  const HomeView = () => (
+  const HomeView = () => {
+    // Check for active boosts
+    const activeBoosts = (userData.activeBoosts || []).filter(b => b.expiresAt > Date.now());
+    const hasActiveBoosts = activeBoosts.length > 0;
+
+    return (
     <div className="space-y-6">
+      {/* Active Boosts Display */}
+      {hasActiveBoosts && (
+        <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border-2 border-purple-500/50 rounded-2xl p-4 animate-pulse-glow">
+          <div className="flex items-center gap-2 mb-3">
+            <Crown size={24} className="text-yellow-400 animate-bounce" />
+            <h3 className="text-lg font-bold text-purple-300">Active Boosts</h3>
+          </div>
+          <div className="space-y-2">
+            {activeBoosts.map((boost, idx) => {
+              const timeLeft = Math.ceil((boost.expiresAt - Date.now()) / 60000); // minutes
+              const boostInfo = ECONOMY.POWER_UPS[boost.type];
+              return (
+                <div
+                  key={idx}
+                  className="flex items-center justify-between bg-purple-800/30 rounded-lg p-3 border border-purple-600/40"
+                >
+                  <div className="flex items-center gap-2">
+                    {boost.type === 'DOUBLE_POINTS' && <TrendingUp size={18} className="text-green-400" />}
+                    {boost.type === 'STREAK_FREEZE' && <Flame size={18} className="text-blue-400" />}
+                    {boost.type === 'EXTRA_TIME' && <Clock size={18} className="text-amber-400" />}
+                    {boost.type === 'POINT_SHIELD' && <Lock size={18} className="text-emerald-400" />}
+                    <span className="text-white font-semibold">{boostInfo?.name || boost.type}</span>
+                    {boost.multiplier && (
+                      <span className="text-green-400 text-sm font-bold animate-pulse">
+                        {boost.multiplier}x Points!
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-purple-300 text-sm">
+                    {timeLeft}m left
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {verseOfDay && (
         <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-3">
@@ -2741,7 +2915,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         </div>
       </div>
     </div>
-  );
+    );
+  };
 
   // Drop zone component for drag-and-drop
   const DropZone = React.memo(({ index, value, onDrop, onDragOver, onRemove }) => {
