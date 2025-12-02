@@ -1226,20 +1226,37 @@ const levelToDifficulty = (level = 'Beginner') => {
   }
 };
 
+// Helper function to strip verse numbers from the beginning of verse text
+const stripVerseNumbers = (text) => {
+  if (!text) return text;
+  // Remove leading verse numbers in multiple formats:
+  // - "1 ", "12 ", "23 " (simple verse numbers)
+  // - "3:16 " (reference-style)
+  // - "23. " (verse with period)
+  // - "23." at the very beginning
+  let cleaned = text;
+
+  // Remove patterns like "23. " or "23 " from the start
+  cleaned = cleaned.replace(/^\d+\.\s*/, '');
+  cleaned = cleaned.replace(/^\d+(?::\d+)?\s+/, '');
+
+  return cleaned.trim();
+};
+
 const resolveVerseText = async (reference, translationPref) => {
   // 1) Try local corpus (handles ranges)
   const localRange = await getLocalVersesRange(translationPref || 'KJV', reference);
-  if (localRange) return { text: localRange.text, translation: localRange.translation || translationPref || 'KJV' };
+  if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || translationPref || 'KJV' };
   const local = await getLocalVerseByReference(translationPref || 'KJV', reference);
-  if (local) return { text: local.text, translation: local.translation || translationPref || 'KJV' };
+  if (local) return { text: stripVerseNumbers(local.text), translation: local.translation || translationPref || 'KJV' };
 
   // 2) Try small static sample set
   const staticHit = getStaticVerseByReference(reference, translationPref || 'KJV');
-  if (staticHit) return { text: staticHit.text, translation: staticHit.translation || translationPref || 'KJV' };
+  if (staticHit) return { text: stripVerseNumbers(staticHit.text), translation: staticHit.translation || translationPref || 'KJV' };
 
   // 3) Try daily pool
   const daily = DAILY_VERSES_POOL.find(v => (v.reference || '').toLowerCase() === reference.toLowerCase());
-  if (daily) return { text: daily.text, translation: translationPref || 'KJV' };
+  if (daily) return { text: stripVerseNumbers(daily.text), translation: translationPref || 'KJV' };
 
   // 4) Fallback placeholder to keep UI functional
   return { text: `Verse text for ${reference} (translation ${translationPref || 'KJV'}) not available locally.`, translation: translationPref || 'KJV' };
@@ -3720,10 +3737,30 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   };
 
   // Reusable Bible Study Plans Section Component
-  const BibleStudyPlansSection = ({ folder, title, description, userData, setUserData }) => {
+  const BibleStudyPlansSection = ({ folder, title, description, userData, setUserData, colorScheme = 'blue' }) => {
     const [plans, setPlans] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
+
+    // Define color schemes
+    const colors = {
+      blue: {
+        gradient: 'from-blue-900/40 to-indigo-900/40',
+        border: 'border-blue-700/50',
+        title: 'text-blue-300',
+        count: 'text-blue-400',
+        focus: 'focus:border-blue-500'
+      },
+      red: {
+        gradient: 'from-red-900/50 to-rose-800/50',
+        border: 'border-red-500/60',
+        title: 'text-red-200',
+        count: 'text-rose-300',
+        focus: 'focus:border-red-400'
+      }
+    };
+
+    const scheme = colors[colorScheme] || colors.blue;
 
     useEffect(() => {
       // Load plans from the specified folder
@@ -3778,20 +3815,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
     if (loading) {
       return (
-        <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl p-6 border border-blue-700/50">
+        <div className={`bg-gradient-to-br ${scheme.gradient} rounded-xl p-6 border ${scheme.border}`}>
           <div className="text-slate-300">Loading plans...</div>
         </div>
       );
     }
 
     return (
-      <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl p-6 border border-blue-700/50">
+      <div className={`bg-gradient-to-br ${scheme.gradient} rounded-xl p-6 border ${scheme.border}`}>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-blue-300 flex items-center gap-2">
+          <h3 className={`text-lg font-bold ${scheme.title} flex items-center gap-2`}>
             <Scroll size={24} />
             {title}
           </h3>
-          <span className="text-blue-400 font-bold text-sm">{plans.length} Plans</span>
+          <span className={`${scheme.count} font-bold text-sm`}>{plans.length} Plans</span>
         </div>
         <p className="text-slate-300 text-sm mb-4">{description}</p>
 
@@ -3801,7 +3838,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             type="text"
             value={searchTerm}
             placeholder="Search topics..."
-            className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-blue-500 focus:outline-none"
+            className={`w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 ${scheme.focus} focus:outline-none`}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
@@ -4075,6 +4112,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         description="In-depth 7-10 day Bible study plans for thorough biblical exploration"
         userData={userData}
         setUserData={setUserData}
+        colorScheme="red"
       />
     </div>
     );
