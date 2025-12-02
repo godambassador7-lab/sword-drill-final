@@ -3696,12 +3696,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
     useEffect(() => {
       // Load plans from the specified folder
-      fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/manifest.json`)
-        .then(res => res.json())
+      const manifestPath = `${process.env.PUBLIC_URL}/bible_study_plans/${folder}/manifest.json`;
+      console.log(`[BibleStudyPlansSection] Loading manifest from: ${manifestPath}`);
+
+      fetch(manifestPath)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Failed to fetch manifest (${res.status})`);
+          }
+          return res.json();
+        })
         .then(fileList => {
+          console.log(`[BibleStudyPlansSection] Loaded ${fileList.length} plan files from ${folder} manifest`);
           const promises = fileList.map((filename, index) =>
             fetch(`${process.env.PUBLIC_URL}/bible_study_plans/${folder}/${filename}`)
-              .then(r => r.json())
+              .then(r => {
+                if (!r.ok) {
+                  throw new Error(`Failed to fetch ${filename} (${r.status})`);
+                }
+                return r.json();
+              })
               .then(planData => ({
                 ...planData,
                 id: `${folder}_${index}`,
@@ -3713,11 +3727,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           return Promise.all(promises);
         })
         .then(loadedPlans => {
+          console.log(`[BibleStudyPlansSection] Successfully loaded ${loadedPlans.length} plans from ${folder}`);
           setPlans(loadedPlans);
           setLoading(false);
         })
         .catch(error => {
-          console.error(`Error loading ${folder} plans:`, error);
+          console.error(`[BibleStudyPlansSection] Error loading ${folder} plans:`, error);
           setPlans([]);
           setLoading(false);
         });
