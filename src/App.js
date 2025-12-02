@@ -5628,72 +5628,114 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             </div>
 
             <div className="space-y-6">
-              {/* Theme & Overview */}
+              {/* Theme */}
               <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-xl p-4 border border-green-700/50">
                 <h3 className="text-green-300 font-bold mb-2">Theme</h3>
                 <p className="text-slate-300 text-sm">{selectedPlan.theme}</p>
               </div>
 
-              <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
-                <h3 className="text-amber-400 font-bold mb-2">Overview</h3>
-                <p className="text-slate-300 text-sm">{selectedPlan.overview}</p>
-              </div>
-
-              {/* Scriptures */}
-              <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
-                <h3 className="text-blue-400 font-bold mb-3 flex items-center gap-2">
-                  <Scroll size={20} />
-                  Scripture Readings
-                </h3>
-                <div className="space-y-3">
-                  {planVerseLoading ? (
-                    <p className="text-slate-300 text-sm">Loading verses for this plan...</p>
-                  ) : planVerseError ? (
-                    <p className="text-rose-300 text-sm">{planVerseError}</p>
-                  ) : planVerseTexts.length > 0 ? (
-                    planVerseTexts.map((verse, index) => (
-                      <div key={index} className="bg-slate-800 rounded-lg p-3 border border-slate-600">
-                        <div className="flex items-center justify-between mb-1">
-                          <div className="text-blue-300 font-semibold">
-                            {(verse.reference || '').replace(/^AUTO[^A-Za-z0-9]*\s*/i, '')}
+              {/* Check if this is a new format plan (has days array) or old format (has questions/scriptures) */}
+              {selectedPlan.days ? (
+                /* New format - show days-based plan */
+                <div className="space-y-4">
+                  <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+                    <h3 className="text-blue-400 font-bold mb-3">{selectedPlan.days.length}-Day Study Plan</h3>
+                    {selectedPlan.days.map((day, index) => (
+                      <div key={index} className="mb-4 last:mb-0 pb-4 last:pb-0 border-b last:border-b-0 border-slate-600">
+                        <h4 className="text-amber-400 font-semibold mb-2">Day {day.day}</h4>
+                        <div className="space-y-2 text-sm">
+                          <div>
+                            <span className="text-blue-300 font-semibold">Passage: </span>
+                            <span className="text-slate-300">{day.passage}</span>
+                          </div>
+                          <div>
+                            <span className="text-purple-300 font-semibold">Overview: </span>
+                            <span className="text-slate-300">{day.overview}</span>
+                          </div>
+                          <div>
+                            <span className="text-green-300 font-semibold">Reflection: </span>
+                            <span className="text-slate-300 italic">{day.reflection}</span>
+                          </div>
+                          <div>
+                            <span className="text-amber-300 font-semibold">Prayer: </span>
+                            <span className="text-slate-300 italic">{day.prayer}</span>
                           </div>
                         </div>
-                        <p className="text-slate-200 text-sm leading-relaxed">{verse.text}</p>
                       </div>
-                    ))
-                  ) : (
-                    <p className="text-slate-300 text-sm">No scriptures listed for this plan.</p>
-                  )}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                /* Old format - show traditional sections */
+                <>
+                  <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+                    <h3 className="text-amber-400 font-bold mb-2">Overview</h3>
+                    <p className="text-slate-300 text-sm">{selectedPlan.overview}</p>
+                  </div>
 
-              {/* Questions */}
-              <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
-                <h3 className="text-purple-400 font-bold mb-3 flex items-center gap-2">
-                  <Lightbulb size={20} />
-                  Reflection Questions
-                </h3>
-                <ul className="space-y-2">
-                  {selectedPlan.questions.map((question, index) => (
-                    <li key={index} className="text-slate-300 text-sm flex gap-2">
-                      <span className="text-purple-400 font-bold">{index + 1}.</span>
-                      <span>{question}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {/* Scriptures */}
+                  <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+                    <h3 className="text-blue-400 font-bold mb-3 flex items-center gap-2">
+                      <Scroll size={20} />
+                      Scripture Readings
+                    </h3>
+                    <div className="space-y-3">
+                      {planVerseLoading ? (
+                        <p className="text-slate-300 text-sm">Loading verses for this plan...</p>
+                      ) : planVerseError ? (
+                        <p className="text-rose-300 text-sm">{planVerseError}</p>
+                      ) : planVerseTexts.length > 0 ? (
+                        planVerseTexts.map((verse, index) => (
+                          <div key={index} className="bg-slate-800 rounded-lg p-3 border border-slate-600">
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="text-blue-300 font-semibold">
+                                {(verse.reference || '').replace(/^AUTO[^A-Za-z0-9]*\s*/i, '')}
+                              </div>
+                            </div>
+                            <p className="text-slate-200 text-sm leading-relaxed">{verse.text}</p>
+                          </div>
+                        ))
+                      ) : (
+                        <p className="text-slate-300 text-sm">No scriptures listed for this plan.</p>
+                      )}
+                    </div>
+                  </div>
 
-              {/* Reflection */}
-              <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-4 border border-purple-700/50">
-                <h3 className="text-purple-300 font-bold mb-2">Daily Reflection</h3>
-                <p className="text-slate-300 text-sm italic">{selectedPlan.reflection}</p>
-              </div>
+                  {/* Questions */}
+                  {selectedPlan.questions && selectedPlan.questions.length > 0 && (
+                    <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+                      <h3 className="text-purple-400 font-bold mb-3 flex items-center gap-2">
+                        <Lightbulb size={20} />
+                        Reflection Questions
+                      </h3>
+                      <ul className="space-y-2">
+                        {selectedPlan.questions.map((question, index) => (
+                          <li key={index} className="text-slate-300 text-sm flex gap-2">
+                            <span className="text-purple-400 font-bold">{index + 1}.</span>
+                            <span>{question}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-              {/* Prayer */}
-              <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border border-amber-700/50">
-                <h3 className="text-amber-300 font-bold mb-2">Prayer</h3>
-                <p className="text-slate-300 text-sm italic">{selectedPlan.prayer}</p>
-              </div>
+                  {/* Reflection */}
+                  {selectedPlan.reflection && (
+                    <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-4 border border-purple-700/50">
+                      <h3 className="text-purple-300 font-bold mb-2">Daily Reflection</h3>
+                      <p className="text-slate-300 text-sm italic">{selectedPlan.reflection}</p>
+                    </div>
+                  )}
+
+                  {/* Prayer */}
+                  {selectedPlan.prayer && (
+                    <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border border-amber-700/50">
+                      <h3 className="text-amber-300 font-bold mb-2">Prayer</h3>
+                      <p className="text-slate-300 text-sm italic">{selectedPlan.prayer}</p>
+                    </div>
+                  )}
+                </>
+              )}
 
               {/* Action Buttons */}
               <div className="flex gap-3">
