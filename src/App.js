@@ -2873,7 +2873,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
               placeholder="Type the reference (e.g., John 3:16)..."
               className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
-              autoFocus
+              autoComplete="off"
+              spellCheck={false}
+              inputMode="text"
+              enterKeyHint="done"
             />
           )}
 
@@ -2882,6 +2885,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               {quizState.options.map((option, idx) => (
                 <button
                   key={idx}
+                  type="button"
                   onClick={() => setQuizState(prev => ({ ...prev, userAnswer: option }))}
                   className={`w-full p-4 rounded-lg border-2 transition-all text-left ${
                     quizState.userAnswer === option
@@ -2897,6 +2901,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         </div>
 
         <button
+          type="button"
           onClick={submitQuiz}
           disabled={
             quizState.type === 'fill-blank'
@@ -2909,6 +2914,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         </button>
 
         <button
+          type="button"
           onClick={() => {
             setCurrentView('home');
             setQuizState(null);
