@@ -1,42 +1,34 @@
 {
   "title": "Guarding Your Heart",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Guarding Your Heart' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 4:23",
+      "overview": "Solomon warns that above all else, we must guard our hearts because everything we do flows from it. The heart is the wellspring of life—our thoughts, attitudes, and actions all stem from our inner being.",
+      "reflection": "What does it mean to guard your heart? What are the greatest threats to your heart's purity? How do your actions reflect the condition of your heart?",
+      "prayer": "Ask God to help you vigilantly guard your heart and reveal any areas of compromise."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Guarding Your Heart' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 15:18-20",
+      "overview": "Jesus teaches that what comes out of the mouth proceeds from the heart, and this is what defiles a person. Evil thoughts, murder, adultery, and other sins originate in the heart, not from external circumstances.",
+      "reflection": "What does this passage reveal about the source of sin? How can you address sin at the heart level rather than just managing behavior? What comes from your heart in your words and actions?",
+      "prayer": "Pray for God to cleanse your heart and transform you from the inside out."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Guarding Your Heart' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:8",
+      "overview": "Paul provides a filter for what believers should allow into their minds: whatever is true, honorable, just, pure, lovely, commendable, excellent, and praiseworthy. Guarding the heart begins with controlling our thought life.",
+      "reflection": "What media, conversations, or thoughts fail this test? How can you be more intentional about what you allow into your mind? What excellent and praiseworthy things can you dwell on?",
+      "prayer": "Ask God to help you discipline your mind and focus on things that honor Him."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Guarding Your Heart' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Guarding Your Heart' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Psalm 51:10",
+      "overview": "David's prayer after his sin with Bathsheba reveals his recognition that only God can create a clean heart and renew a right spirit within him. True heart transformation requires God's intervention.",
+      "reflection": "What does a clean heart look like? In what areas do you need God to renew a right spirit? How does confession lead to restoration?",
+      "prayer": "Pray David's prayer—ask God to create a clean heart in you and renew a steadfast spirit within you."
     }
   ]
 }

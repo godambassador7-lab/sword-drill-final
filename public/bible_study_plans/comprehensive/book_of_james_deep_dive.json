@@ -1,77 +1,76 @@
 {
   "title": "Book of James Deep Dive",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:1-8",
+      "overview": "James introduces himself and immediately addresses trials, encouraging believers to count them as joy because testing produces steadfastness. Wisdom is available to those who ask in faith.",
+      "reflection": "How do you respond to trials? What does counting trials as joy mean? When have you asked God for wisdom in faith?",
+      "prayer": "Ask God for wisdom to navigate your current trials with joy and steadfastness."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:9-18",
+      "overview": "James discusses the transience of wealth, the blessing of enduring temptation, and clarifies that God tempts no one—rather, He gives every good gift from above.",
+      "reflection": "What is your relationship with wealth? How do you distinguish between trials and temptations? What good gifts has God given you?",
+      "prayer": "Thank God for His perfect gifts and pray for endurance in temptation."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:19-27",
+      "overview": "James warns against hearing without doing, emphasizes controlling the tongue, and defines pure religion as caring for orphans and widows while remaining unstained by the world.",
+      "reflection": "Are you a doer or just a hearer? How well do you control your tongue? How do you practice pure religion?",
+      "prayer": "Ask God to help you be a doer of the word, not just a hearer."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 2:1-13",
+      "overview": "James condemns showing partiality, especially favoritism toward the rich. Believers are called to love their neighbors as themselves, fulfilling the royal law.",
+      "reflection": "Where do you show partiality? How do you treat the poor versus the rich? What does loving your neighbor as yourself look like?",
+      "prayer": "Confess any partiality and ask God to help you love all people equally."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 2:14-26",
+      "overview": "James argues that faith without works is dead. Genuine faith produces actions—Abraham and Rahab exemplify faith that was completed by works.",
+      "reflection": "How does your faith show itself in actions? What works demonstrate your faith? Where is your faith inactive?",
+      "prayer": "Pray that your faith would be alive and active, producing good works."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 3:1-12",
+      "overview": "James warns about the power of the tongue—though small, it can set great forests ablaze. The tongue reveals the heart and should bless God, not curse people made in His image.",
+      "reflection": "How do you use your tongue? What damage has your speech caused? How can you better control your words?",
+      "prayer": "Ask God to tame your tongue and help you speak only blessing and truth."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 3:13-18",
+      "overview": "James contrasts earthly wisdom (characterized by jealousy and selfish ambition) with heavenly wisdom (pure, peaceable, gentle, open to reason, full of mercy and good fruits).",
+      "reflection": "What kind of wisdom guides your life? Where do you see earthly versus heavenly wisdom? How can you pursue wisdom from above?",
+      "prayer": "Pray for heavenly wisdom that is pure, peaceable, and full of mercy."
     },
     {
       "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 4:1-10",
+      "overview": "James addresses quarrels arising from unfulfilled desires, friendship with the world as enmity with God, and the call to submit to God, resist the devil, and humble ourselves.",
+      "reflection": "What desires cause conflict in your life? Where are you friends with the world? How do you humble yourself before God?",
+      "prayer": "Submit yourself to God, resist the devil, and ask God to lift you up in His time."
     },
     {
       "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 4:11-17",
+      "overview": "James warns against judging others, reminds believers of life's brevity and uncertainty, and defines sin as knowing what is right but failing to do it.",
+      "reflection": "Who are you judging? How do you account for life's uncertainty in your plans? What good are you failing to do?",
+      "prayer": "Ask forgiveness for judging others and pray for obedience to do the good you know."
     },
     {
       "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Book of James Deep Dive' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 5:1-20",
+      "overview": "James warns the rich, encourages patience in suffering, prohibits swearing, promotes prayer and confession, and urges believers to restore wandering brothers and sisters.",
+      "reflection": "How patient are you in suffering? How is your prayer life? Who needs you to help them return to truth?",
+      "prayer": "Pray for patience, commit to fervent prayer, and ask God to use you to restore others."
     }
   ]
 }

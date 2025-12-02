@@ -1,77 +1,55 @@
 {
   "title": "Covenant Faithfulness",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 12:1-3",
+      "overview": "God makes a covenant with Abraham, promising to make him a great nation, bless him, and through him bless all families of the earth. God initiates covenant relationships.",
+      "reflection": "What does God's covenant with Abraham reveal about His character? How has God's promise to bless all nations been fulfilled? How are you blessed through Abraham?",
+      "prayer": "Thank God for His covenant faithfulness shown from the beginning with Abraham."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 17:7-8",
+      "overview": "God establishes an everlasting covenant with Abraham and his offspring, promising to be their God and give them the land of Canaan as an everlasting possession.",
+      "reflection": "What does an everlasting covenant mean? How has God kept His promises to Abraham's descendants? What does it mean that God is your God?",
+      "prayer": "Praise God for keeping His covenant promises throughout generations."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Exodus 19:5-6",
+      "overview": "God reminds Israel that if they obey His voice and keep His covenant, they will be His treasured possession, a kingdom of priests, and a holy nation.",
+      "reflection": "What does being God's treasured possession mean? How does covenant relationship involve obedience? What responsibilities come with being part of God's covenant people?",
+      "prayer": "Thank God for making you His treasured possession and help you walk in obedience."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Jeremiah 31:31-34",
+      "overview": "God promises a new covenant different from the old—He will put His law within them, write it on their hearts, be their God, and they will be His people. He will forgive their iniquity.",
+      "reflection": "How is the new covenant different from the old? What does God's law written on your heart mean? How have you experienced forgiveness under the new covenant?",
+      "prayer": "Thank God for the new covenant and for writing His law on your heart."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Luke 22:19-20",
+      "overview": "At the Last Supper, Jesus institutes the new covenant in His blood, shed for the forgiveness of sins. The new covenant is established through Christ's sacrifice.",
+      "reflection": "How does Jesus' blood establish the new covenant? What does remembering His sacrifice mean? How do you experience new covenant blessings?",
+      "prayer": "Thank Jesus for establishing the new covenant through His shed blood."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 8:6-13",
+      "overview": "Christ is the mediator of a better covenant enacted on better promises. The new covenant surpasses the old, fulfilling what the old could not accomplish.",
+      "reflection": "What makes the new covenant better? How does Jesus mediate this covenant? What promises does the new covenant include?",
+      "prayer": "Praise Jesus for mediating a better covenant with better promises."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Covenant Faithfulness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 1:20",
+      "overview": "Paul declares that all of God's promises find their 'Yes' in Christ. Through Him believers say 'Amen' to the glory of God. Jesus is the fulfillment of every covenant promise.",
+      "reflection": "How are God's promises fulfilled in Jesus? What promises are you trusting? How do you respond 'Amen' to God's promises?",
+      "prayer": "Thank God that all His promises are 'Yes' in Christ Jesus."
     }
   ]
 }

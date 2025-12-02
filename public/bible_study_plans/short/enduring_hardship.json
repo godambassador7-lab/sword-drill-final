@@ -1,42 +1,34 @@
 {
   "title": "Enduring Hardship",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Enduring Hardship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:2-4",
+      "overview": "James teaches that trials test and strengthen our faith, producing perseverance and maturity. Rather than avoiding hardship, believers are called to find joy in it, knowing God is working through it.",
+      "reflection": "How does viewing trials as opportunities change your perspective? What does it mean that testing produces steadfastness? How can you count it 'all joy' when facing difficulties?",
+      "prayer": "Ask God to help you trust His purpose in the midst of current trials and hardships."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Enduring Hardship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 5:3-5",
+      "overview": "Paul reveals the progression from suffering to hope. Through suffering we gain endurance, character, and ultimately hope that does not disappoint because of God's love poured into our hearts.",
+      "reflection": "What character qualities have developed in you through past hardships? How does suffering produce hope? How have you experienced God's love during difficult times?",
+      "prayer": "Pray for endurance and the ability to see God's character-building work in your struggles."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Enduring Hardship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 4:16-18",
+      "overview": "Paul contrasts our temporary light afflictions with the eternal weight of glory being prepared. While outward circumstances may deteriorate, our inner being is renewed daily as we focus on eternal realities.",
+      "reflection": "How can you shift your focus from visible troubles to unseen eternal things? What does daily inner renewal look like? How does the promise of eternal glory help you endure present hardship?",
+      "prayer": "Ask God to renew your inner being daily and help you maintain an eternal perspective."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Enduring Hardship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Enduring Hardship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 4:12-13",
+      "overview": "Peter reminds believers not to be surprised by fiery trials, as they share in Christ's sufferings. These sufferings are opportunities to glorify God and will result in joy when Christ's glory is revealed.",
+      "reflection": "Why should suffering for Christ not surprise believers? How do you share in Christ's sufferings? What does it mean to rejoice in suffering?",
+      "prayer": "Pray for joy and steadfastness when facing trials for your faith in Christ."
     }
   ]
 }

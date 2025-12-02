@@ -1,28 +1,27 @@
 {
   "title": "Beatitudes",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Beatitudes' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:3-5",
+      "overview": "The Beatitudes begin with Jesus teaching about true blessedness. Today we explore the first three beatitudes: being poor in spirit, mourning, and meekness. These virtues reflect humility before God and a heart that recognizes its spiritual poverty.",
+      "reflection": "What does it mean to be 'poor in spirit'? How does spiritual poverty lead to receiving the kingdom of heaven? In what ways can mourning and meekness be considered blessed?",
+      "prayer": "Ask God to reveal areas where you need greater humility and spiritual dependence on Him."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Beatitudes' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:6-9",
+      "overview": "Jesus continues with beatitudes about hungering for righteousness, showing mercy, purity of heart, and peacemaking. These characteristics reveal a heart transformed by God's grace, actively pursuing holiness and reconciliation.",
+      "reflection": "What does it mean to hunger and thirst for righteousness? How can you be a peacemaker in your current relationships? What does purity of heart look like in daily life?",
+      "prayer": "Pray for a deeper hunger for God's righteousness and the courage to be a peacemaker."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Beatitudes' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:10-12",
+      "overview": "The final beatitudes address persecution for righteousness' sake. Jesus teaches that suffering for His name brings great reward and connects believers to the prophets who suffered before them.",
+      "reflection": "How should believers respond to persecution? What does it mean to rejoice in suffering for Christ's sake? How does the promise of heavenly reward sustain you?",
+      "prayer": "Ask God for strength to stand firm in faith even when facing opposition or persecution."
     }
   ]
 }

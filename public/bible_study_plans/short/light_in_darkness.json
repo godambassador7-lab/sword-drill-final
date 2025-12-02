@@ -1,42 +1,34 @@
 {
   "title": "Light in Darkness",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Light in Darkness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 8:12",
+      "overview": "Jesus declares Himself the light of the world, promising that whoever follows Him will not walk in darkness but have the light of life. Christ is the source of all spiritual illumination and guidance.",
+      "reflection": "What does it mean that Jesus is the light of the world? How do you follow Him? What darkness has Christ's light dispelled in your life?",
+      "prayer": "Thank Jesus for being your light and ask Him to illuminate your path and dispel all darkness."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Light in Darkness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:14-16",
+      "overview": "Jesus calls His followers the light of the world, commanding them to let their light shine so others may see their good works and glorify God. Believers are to be visible witnesses of God's transforming power.",
+      "reflection": "How are you being light in the world? What good works reveal God's character through you? Where might you be hiding your light?",
+      "prayer": "Ask God to help you shine brightly for Him, that others would see Christ in you and glorify Him."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Light in Darkness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 5:8-11",
+      "overview": "Paul reminds believers they were once darkness but now are light in the Lord. They should walk as children of light, producing good fruit and exposing the unfruitful works of darkness.",
+      "reflection": "How has God brought you from darkness to light? What does it mean to walk as a child of light? What works of darkness need to be exposed?",
+      "prayer": "Thank God for rescuing you from darkness and pray for boldness to walk as a child of light."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Light in Darkness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Light in Darkness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 John 1:5-7",
+      "overview": "John declares that God is light with no darkness at all. If believers walk in the light as He is in the light, they have fellowship with one another and Christ's blood cleanses them from all sin.",
+      "reflection": "What does it mean that God is light with no darkness? How do you walk in the light? How does walking in light connect to fellowship and cleansing?",
+      "prayer": "Confess any hidden darkness and ask God to help you walk fully in His light with transparency."
     }
   ]
 }

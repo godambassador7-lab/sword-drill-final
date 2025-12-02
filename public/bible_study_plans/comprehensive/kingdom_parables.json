@@ -1,56 +1,55 @@
 {
   "title": "Kingdom Parables",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:1-9, 18-23",
+      "overview": "Jesus tells the parable of the sower. Seed falls on different soils—path, rocky ground, thorns, and good soil—representing different responses to God's word. Only good soil produces fruit.",
+      "reflection": "What kind of soil is your heart? What prevents the word from bearing fruit in your life? How can you be good soil?",
+      "prayer": "Ask God to make your heart good soil that receives His word and bears much fruit."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:24-30, 36-43",
+      "overview": "Jesus tells of wheat and weeds growing together until harvest. The field is the world, good seed are sons of the kingdom, weeds are sons of the evil one. Judgment comes at harvest.",
+      "reflection": "What does this parable teach about coexistence of good and evil? How should you live knowing judgment is coming? What comfort does final judgment bring?",
+      "prayer": "Thank God for patience with the world and pray for readiness for the final harvest."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:31-32",
+      "overview": "Jesus compares the kingdom to a mustard seed—the smallest seed that grows into the largest garden plant, sheltering birds. The kingdom starts small but grows immensely.",
+      "reflection": "How does the kingdom start small? What growth have you seen? How does the kingdom provide shelter?",
+      "prayer": "Thank God for the kingdom's growth from small beginnings to great expansion."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:33",
+      "overview": "Jesus likens the kingdom to leaven that a woman hid in three measures of flour until all was leavened. The kingdom permeates and transforms everything it touches.",
+      "reflection": "How does the kingdom spread like leaven? How has the kingdom permeated your life? What transformation has it brought?",
+      "prayer": "Ask God to let His kingdom permeate every area of your life."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:44",
+      "overview": "Jesus compares the kingdom to treasure hidden in a field. A man finds it, hides it, and in joy sells all he has to buy that field. The kingdom is worth everything.",
+      "reflection": "What does discovering the kingdom mean? What have you given up for the kingdom? What joy comes from finding this treasure?",
+      "prayer": "Thank God for the treasure of the kingdom and ask for willingness to give everything for it."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:45-46",
+      "overview": "Jesus likens the kingdom to a merchant searching for fine pearls. Finding one of great value, he sells all he has to purchase it. The kingdom is the pearl of greatest value.",
+      "reflection": "How valuable is the kingdom to you? What have you sacrificed for it? What makes it worth everything?",
+      "prayer": "Ask God to help you value the kingdom above all earthly possessions."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Kingdom Parables' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 13:47-50",
+      "overview": "Jesus compares the kingdom to a net gathering fish of every kind. The good are kept; the bad are thrown away. Angels will separate the evil from the righteous at the end of the age.",
+      "reflection": "What does this parable teach about final judgment? How should this motivate holy living? What comfort or warning does this bring?",
+      "prayer": "Pray for readiness for judgment and that you would be found among the righteous."
     }
   ]
 }

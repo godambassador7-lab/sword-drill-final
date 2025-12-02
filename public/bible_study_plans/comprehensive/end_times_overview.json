@@ -1,56 +1,62 @@
 {
   "title": "End Times Overview",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 24:3-14",
+      "overview": "Jesus describes signs before the end: false prophets, wars, famines, earthquakes, persecution. The gospel must be proclaimed to all nations before the end comes.",
+      "reflection": "What signs of the end times do you see today? How should awareness of the end affect your life? How are you participating in proclaiming the gospel?",
+      "prayer": "Pray for readiness for Christ's return and boldness in gospel proclamation."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 24:29-31",
+      "overview": "Jesus describes His return: cosmic signs, the Son of Man coming on clouds with power and glory, angels gathering the elect. His return will be unmistakable and glorious.",
+      "reflection": "What does Jesus' return mean to you? How should you prepare? What comfort do you find in His promised return?",
+      "prayer": "Express your longing for Jesus' return and ask Him to keep you ready."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 4:13-18",
+      "overview": "Paul comforts believers about those who have died—at Christ's return, the dead in Christ will rise first, then living believers will be caught up together to meet the Lord in the air, forever with Him.",
+      "reflection": "What hope does Christ's return give regarding death? How does this promise comfort you? How do you encourage others with these words?",
+      "prayer": "Thank God for the hope of resurrection and eternal life with Christ."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:51-58",
+      "overview": "Paul reveals a mystery: at the last trumpet, the dead will be raised imperishable and the living will be changed. Death is swallowed up in victory through Jesus Christ.",
+      "reflection": "What does being changed in a moment mean? How does resurrection hope affect how you live? How can you abound in the Lord's work?",
+      "prayer": "Thank God for victory over death and commit to steadfast service until Christ returns."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Peter 3:8-14",
+      "overview": "Peter explains that God's timing differs from ours—He is patient, not wanting any to perish. The day of the Lord will come like a thief, so believers should live holy and godly lives.",
+      "reflection": "How does God's patience affect your view of His timing? What does waiting for new heavens and earth mean? How should you live in light of the coming day?",
+      "prayer": "Thank God for His patience and pray for holiness as you wait for His return."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Revelation 19:11-16",
+      "overview": "John sees heaven opened and Jesus returning as King of kings and Lord of lords, riding a white horse, leading the armies of heaven, judging and making war in righteousness.",
+      "reflection": "What does Jesus' role as conquering King mean? How does His return bring justice? How do you prepare for Him as judge and king?",
+      "prayer": "Worship Jesus as King of kings and Lord of lords and long for His righteous reign."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'End Times Overview' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Revelation 21:1-5",
+      "overview": "John sees a new heaven and new earth, the New Jerusalem descending, God dwelling with His people, wiping away every tear. Death, mourning, crying, and pain will be no more.",
+      "reflection": "What does the new heaven and earth promise mean to you? How does God dwelling with you bring comfort? What suffering will finally end?",
+      "prayer": "Thank God for the promise of new creation and His eternal presence with you."
+    },
+    {
+      "day": 8,
+      "passage": "{{translation}}: Revelation 22:12-17",
+      "overview": "Jesus declares He is coming soon, bringing His recompense to repay each for what they have done. He is the Alpha and Omega. The Spirit and Bride say, 'Come!' Blessed are those who wash their robes.",
+      "reflection": "What does Jesus' promise to come soon mean for how you live? How do you say 'Come, Lord Jesus'? How are you made ready?",
+      "prayer": "Express your longing for Jesus' return: 'Come, Lord Jesus! Come quickly!'"
     }
   ]
 }

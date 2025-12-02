@@ -1,56 +1,55 @@
 {
   "title": "Wisdom from Proverbs",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 1:7",
+      "overview": "Solomon declares the fear of the Lord is the beginning of knowledge; fools despise wisdom and instruction. True wisdom starts with proper reverence for God.",
+      "reflection": "What does fearing the Lord mean? How is it the foundation of wisdom? What makes someone a fool?",
+      "prayer": "Ask God for a healthy fear of Him that leads to true wisdom."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 3:5-6",
+      "overview": "Trust in the Lord with all your heart; don't lean on your own understanding. In all your ways acknowledge Him, and He will make straight your paths.",
+      "reflection": "What does trusting God with all your heart mean? Where do you rely on your own understanding? How do you acknowledge God?",
+      "prayer": "Commit to trusting God fully and acknowledging Him in all your ways."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 4:23",
+      "overview": "Above all else, guard your heart, for from it flow the springs of life. The heart is the wellspring of all we do.",
+      "reflection": "What threatens your heart? How do you guard it? What flows from your heart?",
+      "prayer": "Ask God to help you vigilantly guard your heart and keep it pure."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 16:18",
+      "overview": "Pride goes before destruction, and a haughty spirit before a fall. Pride sets up inevitable collapse.",
+      "reflection": "Where is pride showing up in your life? What destruction can pride cause? How do you cultivate humility?",
+      "prayer": "Confess any pride and ask God to humble you before you fall."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 18:21",
+      "overview": "Death and life are in the power of the tongue; those who love it will eat its fruits. Words have tremendous power.",
+      "reflection": "How have you used your tongue lately? What fruit have your words produced? How can you speak life?",
+      "prayer": "Ask God to control your tongue and help you speak words of life."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 27:17",
+      "overview": "Iron sharpens iron, and one man sharpens another. Believers need mutual accountability and encouragement for spiritual growth.",
+      "reflection": "Who sharpens you? Who are you sharpening? What does this sharpening look like?",
+      "prayer": "Thank God for those who sharpen you and pray for wisdom to sharpen others."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Wisdom from Proverbs' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 31:30",
+      "overview": "Charm is deceitful and beauty is vain, but a woman who fears the Lord is to be praised. Character matters more than appearance.",
+      "reflection": "What do you value—outward beauty or inner character? How do you cultivate fear of the Lord? What is praiseworthy?",
+      "prayer": "Ask God to help you value what He values and cultivate godly character."
     }
   ]
 }

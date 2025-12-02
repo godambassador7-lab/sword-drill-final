@@ -1,28 +1,34 @@
 {
   "title": "Hope Renewed",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 15:13",
+      "overview": "Paul prays that the God of hope would fill believers with all joy and peace in believing, so that by the power of the Holy Spirit they may abound in hope. Hope is a gift from God that overflows through the Spirit.",
+      "reflection": "How is God specifically called 'the God of hope'? What role does the Holy Spirit play in hope? How do joy and peace connect to hope?",
+      "prayer": "Ask the God of hope to fill you with joy and peace, causing you to overflow with hope by His Spirit."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Lamentations 3:21-24",
+      "overview": "Amid deep suffering, Jeremiah finds hope by remembering God's steadfast love and mercies that are new every morning. God's faithfulness is the ground of renewed hope even in darkness.",
+      "reflection": "How does remembering God's character renew hope? What does it mean that His mercies are new every morning? How is the Lord your portion?",
+      "prayer": "Thank God for His unfailing mercies and faithfulness, and ask Him to renew your hope today."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope Renewed' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 1:3-5",
+      "overview": "Peter blesses God for His great mercy in giving believers a living hope through Christ's resurrection. This hope is anchored in an imperishable inheritance kept in heaven, guarded by God's power through faith.",
+      "reflection": "Why is this called a 'living hope'? How does Christ's resurrection secure your hope? What comfort do you find in knowing your inheritance is kept safely in heaven?",
+      "prayer": "Praise God for the living hope you have through Jesus' resurrection and for securing your eternal inheritance."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: Hebrews 6:19-20",
+      "overview": "The author describes hope as a sure and steadfast anchor of the soul, entering behind the curtain where Jesus has gone as our forerunner. Our hope is secured by Christ's work on our behalf.",
+      "reflection": "How is hope like an anchor? What makes this hope sure and steadfast? How does Jesus as your forerunner give you confidence?",
+      "prayer": "Thank Jesus for entering God's presence on your behalf and anchoring your soul with certain hope."
     }
   ]
 }

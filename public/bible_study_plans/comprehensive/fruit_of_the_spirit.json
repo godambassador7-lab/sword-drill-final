@@ -1,77 +1,55 @@
 {
   "title": "Fruit of the Spirit",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Galatians 5:22-23",
+      "overview": "Paul lists the fruit of the Spirit: love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control. These are the evidence of the Spirit's work in believers' lives.",
+      "reflection": "Which fruit is most evident in your life? Which needs cultivation? How does the Spirit produce this fruit?",
+      "prayer": "Ask the Spirit to produce His fruit abundantly in your life."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 13:4-7",
+      "overview": "Paul defines love—patient, kind, not envious or boastful, not arrogant or rude, not insisting on its own way, not irritable or resentful, rejoicing with truth, bearing, believing, hoping, enduring all things.",
+      "reflection": "How does your love measure against this definition? Where do you fall short? What would it take to love like this?",
+      "prayer": "Ask God to fill you with His love that is patient, kind, and enduring."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:4-7",
+      "overview": "Paul commands believers to rejoice in the Lord always, showing reasonableness, bringing everything to God in prayer with thanksgiving. The result is God's peace guarding hearts and minds.",
+      "reflection": "How do you cultivate joy in the Lord? What does it mean to rejoice always? How does prayer with thanksgiving produce peace?",
+      "prayer": "Pray for constant joy in the Lord and peace that guards your heart and mind."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:12-14",
+      "overview": "Paul instructs believers to put on compassionate hearts, kindness, humility, meekness, and patience, bearing with one another, forgiving as the Lord forgave, and above all, putting on love.",
+      "reflection": "Which virtues do you need to 'put on' more intentionally? How do you bear with others? Why is love the greatest?",
+      "prayer": "Ask God to clothe you with these virtues and make love your highest pursuit."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 3:17-18",
+      "overview": "James describes wisdom from above as pure, peaceable, gentle, open to reason, full of mercy and good fruits, impartial and sincere. Righteousness is sown in peace by peacemakers.",
+      "reflection": "What characteristics of heavenly wisdom do you see in your life? How can you be a peacemaker? What does sowing righteousness in peace mean?",
+      "prayer": "Pray for wisdom from above that is pure, peaceable, and full of mercy."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Timothy 6:11",
+      "overview": "Paul commands Timothy to pursue righteousness, godliness, faith, love, steadfastness, and gentleness. These virtues are to be actively pursued, not passively hoped for.",
+      "reflection": "Which virtues are you actively pursuing? What does pursuit look like? How do you develop steadfastness and gentleness?",
+      "prayer": "Commit to actively pursuing these godly virtues with the Spirit's help."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Fruit of the Spirit' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Titus 2:11-12",
+      "overview": "Paul teaches that God's grace trains us to renounce ungodliness and worldly passions, to live self-controlled, upright, and godly lives. Grace produces transformation, including self-control.",
+      "reflection": "How does grace train you? What ungodliness needs to be renounced? How do you develop self-control?",
+      "prayer": "Thank God for His grace and ask Him to train you in godliness and self-control."
     }
   ]
 }

@@ -1,28 +1,34 @@
 {
   "title": "The Fear of the Lord",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Fear of the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 9:10",
+      "overview": "Solomon declares that the fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is insight. True wisdom starts with proper reverence and awe of God.",
+      "reflection": "What does it mean to fear the Lord? How is fear of God the foundation of wisdom? What does knowledge of the Holy One look like?",
+      "prayer": "Ask God to give you a healthy fear of Him that leads to wisdom and understanding."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Fear of the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Psalm 111:10",
+      "overview": "The psalmist echoes that the fear of the Lord is the beginning of wisdom, and all who practice it have good understanding. Fearing God produces both wisdom and practical discernment.",
+      "reflection": "How do you practice the fear of the Lord? What understanding has come from fearing God? How does fearing God affect your daily decisions?",
+      "prayer": "Pray for a deeper reverence for God that shapes all your thoughts and actions."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Fear of the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Deuteronomy 10:12-13",
+      "overview": "Moses asks what the Lord requires: to fear Him, walk in His ways, love Him, serve Him with all your heart and soul, and keep His commandments. Fear of God encompasses the whole relationship.",
+      "reflection": "How does fearing God connect to loving and serving Him? What ways of God do you need to walk in? How do you serve God with all your heart?",
+      "prayer": "Commit to fearing, loving, and serving God wholeheartedly, walking in His ways."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: Ecclesiastes 12:13",
+      "overview": "After exploring life's meaning, Solomon concludes: Fear God and keep His commandments, for this is the whole duty of man. Fearing God and obeying Him is the purpose of human existence.",
+      "reflection": "How does this summarize the meaning of life? What would change if you truly saw this as your whole duty? How are you fulfilling this purpose?",
+      "prayer": "Recommit yourself to your fundamental purpose: fearing God and keeping His commandments."
     }
   ]
 }

@@ -1,56 +1,55 @@
 {
   "title": "The Names of God",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 1:1",
+      "overview": "The Bible begins with 'Elohim' (God) creating the heavens and earth. This name emphasizes God's power, might, and supreme authority as Creator.",
+      "reflection": "What does God as Creator mean to you? How does His creative power affect your view of Him? What has He created in your life?",
+      "prayer": "Worship Elohim, the all-powerful Creator of heaven and earth."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 22:13-14",
+      "overview": "After God provides a ram instead of Isaac, Abraham names the place 'Yahweh-Yireh' (The LORD Will Provide). God sees needs and provides for His people.",
+      "reflection": "How has God provided for you? What needs are you trusting Him to meet? What does God's provision teach about His character?",
+      "prayer": "Thank Yahweh-Yireh for His faithful provision and trust Him with current needs."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Exodus 15:26",
+      "overview": "After healing bitter waters, God reveals Himself as 'Yahweh-Rapha' (The LORD Who Heals). He promises health to those who obey Him.",
+      "reflection": "What healing do you need from God? How has He healed you? What does God as healer mean beyond physical healing?",
+      "prayer": "Ask Yahweh-Rapha to heal you physically, emotionally, and spiritually."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Psalm 23:1",
+      "overview": "David declares 'Yahweh-Rohi' (The LORD is my Shepherd), trusting God's guidance, provision, and protection. A shepherd cares intimately for his sheep.",
+      "reflection": "How is God your Shepherd? Where is He leading you? How do you experience His care and protection?",
+      "prayer": "Thank Yahweh-Rohi for shepherding you and ask Him to guide you today."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Judges 6:24",
+      "overview": "After encountering God's angel, Gideon builds an altar named 'Yahweh-Shalom' (The LORD is Peace). Even in turmoil, God gives peace.",
+      "reflection": "Where do you need God's peace? How does knowing God as peace affect anxiety? What peace has He given you?",
+      "prayer": "Ask Yahweh-Shalom to fill you with His peace in every circumstance."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Jeremiah 23:5-6",
+      "overview": "God promises a righteous Branch who will be called 'Yahweh-Tsidkenu' (The LORD Our Righteousness). This prophecy points to Christ, our righteousness.",
+      "reflection": "How is Jesus your righteousness? What does it mean to have righteousness not your own? How does this free you?",
+      "prayer": "Thank Yahweh-Tsidkenu for being your righteousness through Jesus Christ."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Names of God' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ezekiel 48:35",
+      "overview": "Ezekiel's vision of the restored city ends with its name: 'Yahweh-Shammah' (The LORD is There). God's presence defines His people's ultimate blessing.",
+      "reflection": "What does God's presence mean to you? How do you experience Him being 'there'? How does His presence change everything?",
+      "prayer": "Thank Yahweh-Shammah for His presence with you and worship Him as Emmanuel, God with us."
     }
   ]
 }

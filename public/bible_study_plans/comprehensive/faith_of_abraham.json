@@ -1,56 +1,55 @@
 {
   "title": "Faith of Abraham",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 12:1-4",
+      "overview": "God calls Abram to leave his country and family for a land He will show him. Abram obeys by faith without knowing the destination, trusting God's promise.",
+      "reflection": "When has God called you to step out in faith? How do you respond when you don't know the full plan? What does obedient faith look like?",
+      "prayer": "Ask God for Abraham's faith to obey even when you don't see the full picture."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 15:1-6",
+      "overview": "God promises Abram countless descendants though he is childless. Abram believes the Lord, and God counts it to him as righteousness. Faith is credited as righteousness.",
+      "reflection": "What impossible promises are you trusting God for? How is faith counted as righteousness? What does believing God mean?",
+      "prayer": "Thank God for counting faith as righteousness and strengthen your trust in His promises."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 17:1-8",
+      "overview": "God establishes His covenant with Abraham, promising to make him the father of many nations and give his descendants the land of Canaan. Abraham's name is changed from Abram.",
+      "reflection": "What does God's covenant reveal about His faithfulness? How does Abraham's name change reflect his identity? What covenant promises do you trust?",
+      "prayer": "Thank God for His covenant faithfulness and for giving you a new identity in Christ."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Genesis 22:1-18",
+      "overview": "God tests Abraham by commanding him to sacrifice Isaac. Abraham obeys, trusting God to provide. God provides a ram and reaffirms His covenant promises because Abraham did not withhold his son.",
+      "reflection": "How did Abraham's faith show itself in action? What has God asked you to surrender? How do you trust God to provide?",
+      "prayer": "Ask God for faith to obey even when His commands seem impossible to understand."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 4:18-25",
+      "overview": "Paul describes Abraham's faith—against hope he believed in hope, not weakened by considering his own body or Sarah's barrenness, fully convinced God could do what He promised.",
+      "reflection": "How did Abraham believe against hope? What obstacles to God's promises do you focus on? How can you be fully convinced of God's power?",
+      "prayer": "Pray for unwavering faith that believes God's promises despite circumstances."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 11:8-12",
+      "overview": "The author praises Abraham's faith in obeying the call to an unknown place, dwelling in tents as a stranger, looking forward to the city whose designer and builder is God.",
+      "reflection": "How did faith make Abraham a sojourner? What eternal city are you looking forward to? How does eternal perspective affect earthly living?",
+      "prayer": "Ask God to help you live as a sojourner, longing for the eternal city He has prepared."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Faith of Abraham' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 11:17-19",
+      "overview": "Abraham's faith was tested when offering Isaac. He reasoned that God could raise the dead, and figuratively speaking, he received Isaac back. Faith trusts God's ability beyond death.",
+      "reflection": "How far does your faith trust God? What does believing God can raise the dead mean? How did Abraham's faith go beyond what seemed possible?",
+      "prayer": "Pray for faith that trusts God's power even beyond death and impossibility."
     }
   ]
 }

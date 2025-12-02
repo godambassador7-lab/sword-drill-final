@@ -1,56 +1,55 @@
 {
   "title": "Understanding the Prophets",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Jeremiah 1:4-10",
+      "overview": "God calls Jeremiah before birth to be a prophet to nations. Though young, Jeremiah is appointed to uproot and tear down, destroy and overthrow, build and plant.",
+      "reflection": "What is a prophet's role? How does God call and equip prophets? What does Jeremiah's calling teach about God's purposes?",
+      "prayer": "Thank God for speaking through prophets and ask Him to help you hear His word."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Isaiah 6:1-8",
+      "overview": "Isaiah sees the Lord on His throne, experiences conviction of sin, receives cleansing from a burning coal, and volunteers when God asks who will go for Him.",
+      "reflection": "What does Isaiah's vision reveal about God? How does seeing God's holiness produce conviction? How do you respond to God's call?",
+      "prayer": "Worship God's holiness and respond to His call: 'Here am I! Send me.'"
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Amos 5:21-24",
+      "overview": "Through Amos, God rejects Israel's religious festivals because they neglect justice. He desires justice to roll down like waters and righteousness like an ever-flowing stream.",
+      "reflection": "What do the prophets emphasize? How can religious activity substitute for justice? What does God truly desire?",
+      "prayer": "Ask God to help you match worship with pursuit of justice and righteousness."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Micah 6:8",
+      "overview": "Micah summarizes what God requires: to do justice, love kindness, and walk humbly with God. This encapsulates the prophetic message.",
+      "reflection": "How do you do justice and love mercy? What does walking humbly with God mean? How do the prophets challenge you?",
+      "prayer": "Ask God to help you do justice, love kindness, and walk humbly with Him."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Isaiah 53:3-6",
+      "overview": "Isaiah prophesies about the Suffering Servant who bears our griefs, carries our sorrows, is pierced for our transgressions, crushed for our iniquities. The LORD lays on Him our iniquity.",
+      "reflection": "How is this fulfilled in Jesus? What does the Suffering Servant accomplish? How does prophecy point to Christ?",
+      "prayer": "Thank Jesus for fulfilling Isaiah's prophecy and bearing your sins."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ezekiel 36:26-27",
+      "overview": "God promises a new heart and new spirit, removing the heart of stone and giving a heart of flesh. He will put His Spirit within them, causing them to walk in His statutes.",
+      "reflection": "What does a new heart mean? How has God given you His Spirit? How does the Spirit enable obedience?",
+      "prayer": "Thank God for giving you a new heart and His Spirit within you."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding the Prophets' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Joel 2:28-29",
+      "overview": "God promises to pour out His Spirit on all flesh—sons and daughters prophesying, old men dreaming dreams, young men seeing visions, even on servants.",
+      "reflection": "How was this fulfilled at Pentecost? What does the Spirit being poured out mean? How do you experience the Spirit's work?",
+      "prayer": "Thank God for pouring out His Spirit and ask to be filled afresh."
     }
   ]
 }

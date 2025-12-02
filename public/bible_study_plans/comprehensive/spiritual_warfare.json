@@ -1,77 +1,55 @@
 {
   "title": "Spiritual Warfare",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 6:10-13",
+      "overview": "Paul reveals the true nature of Christian struggle: not against flesh and blood but against spiritual forces of evil. Believers must be strong in the Lord and put on God's armor.",
+      "reflection": "What spiritual battles are you facing? How do you strengthen yourself in the Lord? Why is recognizing the spiritual dimension important?",
+      "prayer": "Ask God to open your eyes to spiritual realities and strengthen you in Him."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 6:14-17",
+      "overview": "Paul describes each piece of armor: belt of truth, breastplate of righteousness, shoes of gospel readiness, shield of faith, helmet of salvation, sword of the Spirit (God's word).",
+      "reflection": "Which piece of armor do you need most? How do you put on each piece? What role does God's Word play?",
+      "prayer": "Ask God to help you daily put on the full armor and wield His Word effectively."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 10:3-5",
+      "overview": "Paul explains that spiritual weapons have divine power to destroy strongholds, arguments, and pretensions against knowing God, taking every thought captive to obey Christ.",
+      "reflection": "What strongholds exist in your thinking? What arguments oppose knowing God? How do you take thoughts captive?",
+      "prayer": "Ask God to demolish strongholds and help you bring every thought into obedience to Christ."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 4:7",
+      "overview": "James provides a battle strategy: submit to God, resist the devil, and he will flee. Victory comes through surrender to God and active resistance of evil.",
+      "reflection": "What does submitting to God look like? How do you actively resist the devil? What areas need greater submission?",
+      "prayer": "Submit yourself fully to God and ask for strength to resist the devil."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 5:8-9",
+      "overview": "Peter warns that the devil prowls like a roaring lion seeking someone to devour. Believers must be sober-minded, watchful, and resist him firm in faith.",
+      "reflection": "Where is the enemy prowling in your life? How do you remain watchful? What does resisting firm in faith mean?",
+      "prayer": "Ask God for alertness to the enemy's schemes and firm faith to resist."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Revelation 12:10-11",
+      "overview": "A heavenly voice declares believers conquer the accuser by the blood of the Lamb, the word of their testimony, and not loving their lives unto death.",
+      "reflection": "How do you overcome accusation? What is your testimony? What does not loving your life mean?",
+      "prayer": "Thank Jesus for His blood that conquers the accuser and strengthen your testimony."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Spiritual Warfare' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 2:13-15",
+      "overview": "Paul declares that God made believers alive with Christ, forgiving all trespasses, canceling the record of debt, disarming rulers and authorities, triumphing over them in the cross.",
+      "reflection": "What has Christ's victory accomplished? How does the cross disarm spiritual powers? What freedom does this bring?",
+      "prayer": "Thank Jesus for His complete victory over spiritual powers through the cross."
     }
   ]
 }

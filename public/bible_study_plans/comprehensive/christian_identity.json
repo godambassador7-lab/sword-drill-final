@@ -1,56 +1,55 @@
 {
   "title": "Christian Identity",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 5:17",
+      "overview": "Paul declares that if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come. Christian identity is rooted in being made new in Christ.",
+      "reflection": "What does being a new creation mean? What 'old things' have passed away? What 'new things' has God done in you?",
+      "prayer": "Thank God for making you a new creation and ask Him to continue His transforming work."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 2:9-10",
+      "overview": "Peter describes believers as a chosen race, a royal priesthood, a holy nation, God's own possession, called to proclaim His excellencies. Once not a people, now you are God's people.",
+      "reflection": "How does your identity as chosen, royal, and holy affect your life? How do you proclaim God's excellencies? What does being God's possession mean?",
+      "prayer": "Thank God for making you His chosen possession and help you proclaim His greatness."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 2:19-22",
+      "overview": "Paul reveals that believers are no longer strangers but fellow citizens with the saints and members of God's household, built on the foundation of apostles and prophets with Christ as cornerstone.",
+      "reflection": "What does being a citizen of God's kingdom mean? How do you experience being part of God's household? How is Christ your cornerstone?",
+      "prayer": "Thank God for making you a citizen of His kingdom and part of His family."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Galatians 3:26-29",
+      "overview": "All who believe are sons of God through faith in Christ Jesus. In Christ there is no Jew or Greek, slave or free, male or female—all are one and Abraham's offspring, heirs according to promise.",
+      "reflection": "What does being a child of God mean to you? How does unity in Christ transcend human divisions? How are you an heir to God's promises?",
+      "prayer": "Thank God for adopting you as His child and making you an heir of His promises."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 8:14-17",
+      "overview": "Those led by the Spirit are children of God. Believers have received the Spirit of adoption, enabling them to cry 'Abba! Father!' As children, they are heirs—heirs of God and fellow heirs with Christ.",
+      "reflection": "How does the Spirit lead you? What does calling God 'Abba' mean? How does being God's heir shape your perspective?",
+      "prayer": "Thank God for the Spirit of adoption and for making you His child and heir."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:1-4",
+      "overview": "Paul instructs believers who have been raised with Christ to seek things above where Christ is. Their life is hidden with Christ in God, and when Christ appears, they will appear with Him in glory.",
+      "reflection": "What does it mean that your life is hidden with Christ? How do you seek things above? How does the promise of future glory affect you now?",
+      "prayer": "Ask God to help you seek heavenly things and live in light of your identity in Christ."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christian Identity' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 1:12-13",
+      "overview": "John declares that to all who received Jesus and believed in His name, He gave the right to become children of God—born not of blood, will of flesh, or will of man, but of God.",
+      "reflection": "What does it mean to receive Jesus? How were you born of God? What does being God's child mean for your identity?",
+      "prayer": "Thank God for giving you the right to be His child through faith in Jesus."
     }
   ]
 }

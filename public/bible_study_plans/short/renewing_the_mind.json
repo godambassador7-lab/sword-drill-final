@@ -1,42 +1,34 @@
 {
   "title": "Renewing the Mind",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Renewing the Mind' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 12:2",
+      "overview": "Paul commands believers not to be conformed to this world but transformed by the renewal of their minds. Mental transformation enables discernment of God's will—what is good, acceptable, and perfect.",
+      "reflection": "How are you being conformed to the world? What does mental renewal look like? How does a renewed mind help you discern God's will?",
+      "prayer": "Ask God to transform you by renewing your mind and help you discern His perfect will."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Renewing the Mind' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:1-2",
+      "overview": "Paul instructs believers who have been raised with Christ to seek and set their minds on things above, not on earthly things. Mental focus determines spiritual direction.",
+      "reflection": "What does it mean to seek things above? What earthly things consume your thoughts? How can you reorient your mind toward heavenly realities?",
+      "prayer": "Pray for help to set your mind on things above and loosen your attachment to earthly concerns."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Renewing the Mind' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:8",
+      "overview": "Paul provides criteria for thought life: whatever is true, honorable, just, pure, lovely, commendable, excellent, and praiseworthy. Believers are to intentionally direct their thoughts toward these things.",
+      "reflection": "What do you allow into your mind that fails this test? How can you be more selective about your mental input? What excellent things should occupy your thoughts?",
+      "prayer": "Ask God to help you discipline your thought life according to these biblical standards."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Renewing the Mind' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Renewing the Mind' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 10:5",
+      "overview": "Paul describes spiritual warfare involving taking every thought captive to obey Christ. Mental discipline requires actively capturing thoughts and submitting them to Christ's lordship.",
+      "reflection": "What thoughts need to be taken captive? How do you make thoughts obey Christ? What strongholds exist in your thinking?",
+      "prayer": "Pray for God's power to demolish mental strongholds and bring every thought into obedience to Christ."
     }
   ]
 }

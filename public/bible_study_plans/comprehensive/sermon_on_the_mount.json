@@ -1,77 +1,69 @@
 {
   "title": "Sermon on the Mount",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:3-12",
+      "overview": "Jesus begins with the Beatitudes, pronouncing blessing on the poor in spirit, those who mourn, the meek, those hungering for righteousness, the merciful, pure in heart, peacemakers, and persecuted.",
+      "reflection": "Which beatitude speaks most to you? What does Jesus' definition of blessing challenge? How do you pursue these characteristics?",
+      "prayer": "Ask God to form in you the character Jesus blesses."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:13-16",
+      "overview": "Jesus calls His disciples salt of the earth and light of the world, commanding them to let their light shine so others see good works and glorify God.",
+      "reflection": "How are you salt and light? What good works make your light visible? Where might you be hiding your light?",
+      "prayer": "Ask God to help you be salt and light, shining for His glory."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:21-26",
+      "overview": "Jesus teaches that anger is like murder—reconciliation is urgent. Don't come to worship with unreconciled relationships. Settle matters quickly.",
+      "reflection": "Who do you need to reconcile with? How does anger relate to murder? What prevents you from seeking reconciliation?",
+      "prayer": "Ask God to reveal any unreconciled relationships and give you courage to seek peace."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:43-48",
+      "overview": "Jesus commands loving enemies and praying for persecutors, to be sons of the Father who makes sun rise on evil and good. Be perfect as your heavenly Father is perfect.",
+      "reflection": "Who is your enemy? How do you pray for those who persecute you? What does perfection in love mean?",
+      "prayer": "Pray for specific enemies and persecutors, asking God for love toward them."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 6:19-24",
+      "overview": "Jesus warns against storing treasures on earth versus heaven. Where your treasure is, your heart will be. You cannot serve both God and money.",
+      "reflection": "Where is your treasure? What does your spending reveal about your heart? How do you serve God rather than money?",
+      "prayer": "Ask God to help you store treasure in heaven and serve only Him."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 6:25-34",
+      "overview": "Jesus commands not to be anxious about life, food, clothing. God feeds birds and clothes flowers—He will care for you. Seek first His kingdom and righteousness.",
+      "reflection": "What do you worry about? How does God's care for creation encourage you? What does seeking His kingdom first mean?",
+      "prayer": "Cast your anxieties on God and commit to seeking His kingdom first."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 7:1-5",
+      "overview": "Jesus warns against judging others while having your own faults. Remove the log from your own eye before addressing the speck in another's eye.",
+      "reflection": "Who are you judging? What log is in your own eye? How can you address your own sin first?",
+      "prayer": "Confess your judgmental attitudes and ask God to help you see your own faults."
     },
     {
       "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 7:7-11",
+      "overview": "Jesus encourages asking, seeking, knocking—God gives good gifts to His children. If earthly fathers give good gifts, how much more will the heavenly Father.",
+      "reflection": "What do you need to ask for? How does God's character as Father encourage your asking? What good gifts has He given?",
+      "prayer": "Ask, seek, and knock, trusting your heavenly Father to give good gifts."
     },
     {
       "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sermon on the Mount' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 7:24-27",
+      "overview": "Jesus concludes: whoever hears and does His words is like a wise man building on rock; whoever hears without doing is like a fool building on sand.",
+      "reflection": "Are you a hearer only or also a doer? What foundation is your life built on? What storms have tested your foundation?",
+      "prayer": "Commit to being a doer of Jesus' words, building on the solid rock."
     }
   ]
 }

@@ -1,56 +1,62 @@
 {
   "title": "Gospel Foundations",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 3:23",
+      "overview": "Paul declares that all have sinned and fall short of the glory of God. The gospel begins with the universal problem: human sinfulness and separation from God's glory.",
+      "reflection": "How do you understand your own sinfulness? What does falling short of God's glory mean? Why is recognizing sin essential to the gospel?",
+      "prayer": "Confess your sinfulness and thank God for not leaving you in that state."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 6:23",
+      "overview": "Paul states that the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord. Sin earns death; grace gives life.",
+      "reflection": "What does it mean that sin's wage is death? How is eternal life a gift, not wages? How have you received this gift?",
+      "prayer": "Thank God for the gift of eternal life and for sending Jesus to pay sin's penalty."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 5:8",
+      "overview": "Paul reveals that God demonstrates His own love for us in that while we were still sinners, Christ died for us. God's love acted while we were His enemies.",
+      "reflection": "How does Christ's death demonstrate God's love? What does it mean that He died while you were still a sinner? How does this shape your understanding of grace?",
+      "prayer": "Marvel at God's love shown in Christ's death for you while you were still a sinner."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:3-4",
+      "overview": "Paul summarizes the gospel: Christ died for our sins according to the Scriptures, was buried, and was raised on the third day according to the Scriptures. These are the gospel essentials.",
+      "reflection": "Why is Christ's death, burial, and resurrection the core of the gospel? How do the Scriptures testify to these events? What difference does the resurrection make?",
+      "prayer": "Thank Jesus for dying for your sins, being buried, and rising victoriously from the dead."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 3:16",
+      "overview": "Jesus declares that God so loved the world that He gave His only Son, that whoever believes in Him should not perish but have eternal life. Belief in Jesus is the means of salvation.",
+      "reflection": "What does God's love giving His Son mean? How do you believe in Jesus? What does eternal life mean to you?",
+      "prayer": "Thank God for loving you enough to give His only Son for your salvation."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 2:8-9",
+      "overview": "Paul explains that salvation is by grace through faith, not from works, so no one can boast. It is God's gift. Works cannot earn salvation—only grace received by faith saves.",
+      "reflection": "How do you understand grace? What works are you tempted to rely on? Why is salvation by grace alone important?",
+      "prayer": "Thank God for the gift of salvation by grace through faith, not by works."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gospel Foundations' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 10:9-10",
+      "overview": "Paul teaches that if you confess with your mouth that Jesus is Lord and believe in your heart that God raised Him from the dead, you will be saved. Belief in the heart leads to righteousness; confession leads to salvation.",
+      "reflection": "Have you confessed Jesus as Lord? What does believing in His resurrection mean? How do belief and confession work together?",
+      "prayer": "Confess Jesus as Lord and thank God for raising Him from the dead for your salvation."
+    },
+    {
+      "day": 8,
+      "passage": "{{translation}}: Acts 16:30-31",
+      "overview": "When the Philippian jailer asks what he must do to be saved, Paul and Silas answer: 'Believe in the Lord Jesus, and you will be saved.' Salvation comes through faith in Jesus.",
+      "reflection": "What does believing in the Lord Jesus mean? How simple is the gospel? How can you share this message with others?",
+      "prayer": "Thank God for the simplicity of the gospel: believe in Jesus and be saved."
     }
   ]
 }

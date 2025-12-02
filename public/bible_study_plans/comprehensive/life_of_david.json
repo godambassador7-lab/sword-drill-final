@@ -1,77 +1,55 @@
 {
   "title": "Life of David",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Samuel 16:1-13",
+      "overview": "God rejects Saul and sends Samuel to anoint a new king. God chooses David, the youngest son, because the Lord looks at the heart, not outward appearance.",
+      "reflection": "How does God's view differ from human judgment? What does God see in your heart? How did God prepare David for kingship?",
+      "prayer": "Ask God to examine your heart and prepare you for His purposes."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Samuel 17:32-50",
+      "overview": "David volunteers to fight Goliath, trusting God who delivered him from lion and bear. He defeats Goliath with a sling and stone, declaring the battle is the Lord's.",
+      "reflection": "What giants do you face? How has God proven faithful in past battles? What does it mean that the battle is the Lord's?",
+      "prayer": "Ask God for courage to face your giants, trusting that the battle belongs to Him."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Samuel 24:1-12",
+      "overview": "David spares Saul's life in the cave, refusing to harm the Lord's anointed despite Saul's pursuit. David trusts God to establish justice rather than taking vengeance.",
+      "reflection": "How do you respond to enemies? What does it mean to trust God for justice? When is it hard to leave vengeance to God?",
+      "prayer": "Ask God for grace to trust Him for justice and refrain from personal vengeance."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Samuel 11:1-17",
+      "overview": "David commits adultery with Bathsheba and arranges Uriah's death to cover his sin. Even a man after God's heart can fall into grievous sin when spiritually complacent.",
+      "reflection": "What led to David's sin? What warning does this give? How do you guard against temptation and spiritual complacency?",
+      "prayer": "Ask God to keep you from temptation and give you vigilance against sin."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Psalm 51:1-12",
+      "overview": "After Nathan confronts him, David's psalm of repentance acknowledges his sin, pleads for mercy, asks God to create a clean heart, and prays for restoration of salvation's joy.",
+      "reflection": "How does David model repentance? What does a clean heart require? How do you experience restoration after sin?",
+      "prayer": "Pray David's prayer: create a clean heart in you and restore the joy of salvation."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Samuel 7:8-16",
+      "overview": "God establishes an everlasting covenant with David: his offspring will build a house for God's name, and God will establish his kingdom forever. This points to Jesus, David's ultimate descendant.",
+      "reflection": "What does God's covenant with David promise? How is it fulfilled in Jesus? What does Jesus' eternal kingdom mean to you?",
+      "prayer": "Thank God for His covenant faithfulness and for establishing Jesus' kingdom forever."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Life of David' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Kings 2:1-4",
+      "overview": "David's final charge to Solomon emphasizes keeping God's ways, walking in His statutes, commandments, and testimonies, that God's promise to David's house might be established.",
+      "reflection": "What was David's priority at the end of his life? What would you emphasize in a final charge? How do you walk in God's ways?",
+      "prayer": "Commit to walking in God's ways and keeping His commandments all your days."
     }
   ]
 }

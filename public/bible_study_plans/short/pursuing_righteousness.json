@@ -1,28 +1,34 @@
 {
   "title": "Pursuing Righteousness",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Pursuing Righteousness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Timothy 6:11",
+      "overview": "Paul commands Timothy, as a man of God, to flee from certain sins and pursue righteousness, godliness, faith, love, steadfastness, and gentleness. The Christian life involves both fleeing evil and pursuing good.",
+      "reflection": "What sins do you need to flee from? How do you actively pursue righteousness? Which of these virtues needs more attention in your life?",
+      "prayer": "Ask God for strength to flee temptation and diligently pursue righteousness and godliness."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Pursuing Righteousness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 5:6",
+      "overview": "Jesus pronounces blessing on those who hunger and thirst for righteousness, promising they will be satisfied. True righteousness comes from an intense spiritual desire that God promises to fulfill.",
+      "reflection": "How strong is your hunger for righteousness? What would it look like to thirst for righteousness? How has God satisfied your spiritual hunger?",
+      "prayer": "Pray for a deeper hunger and thirst for righteousness, trusting God to satisfy that longing."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Pursuing Righteousness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 6:12-13",
+      "overview": "Paul commands believers not to let sin reign in their bodies or present their members to sin as instruments for unrighteousness. Instead, they should present themselves to God as instruments for righteousness.",
+      "reflection": "What does it mean to not let sin reign? How can you present your body's members as instruments for righteousness? What would this look like practically?",
+      "prayer": "Commit your whole being to God as an instrument for His righteous purposes."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: 2 Timothy 2:22",
+      "overview": "Paul instructs Timothy to flee youthful passions and pursue righteousness, faith, love, and peace along with those who call on the Lord from a pure heart. Righteousness is pursued in community.",
+      "reflection": "What youthful passions need to be fled? How does pursuing righteousness alongside other believers help? What does calling on the Lord from a pure heart mean?",
+      "prayer": "Ask God to help you flee sinful desires and pursue righteousness together with fellow believers."
     }
   ]
 }

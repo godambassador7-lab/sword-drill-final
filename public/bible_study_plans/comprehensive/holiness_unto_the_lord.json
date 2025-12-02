@@ -1,56 +1,55 @@
 {
   "title": "Holiness Unto the Lord",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Leviticus 11:44-45",
+      "overview": "God commands Israel to be holy because He is holy. Holiness is rooted in God's character and reflects His people's identity as those brought out of Egypt to be His possession.",
+      "reflection": "What does it mean to be holy? How does God's holiness motivate yours? How do you pursue holiness?",
+      "prayer": "Ask God to make you holy as He is holy and help you reflect His character."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 1:14-16",
+      "overview": "Peter calls believers to be holy in all conduct, not conformed to former passions. As obedient children, they should be holy because God is holy.",
+      "reflection": "What former passions do you need to leave behind? How do you pursue holiness in all conduct? What does obedience have to do with holiness?",
+      "prayer": "Pray for transformation from old patterns and growth in holiness in every area."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 12:14",
+      "overview": "The author urges believers to strive for peace with everyone and for holiness without which no one will see the Lord. Holiness is essential for seeing God.",
+      "reflection": "How do you pursue holiness? Why is holiness necessary to see the Lord? How do peace and holiness connect?",
+      "prayer": "Ask God to help you strive for holiness and make peace with everyone."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 7:1",
+      "overview": "Paul urges believers to cleanse themselves from every defilement of body and spirit, bringing holiness to completion in the fear of God. Holiness involves active purification.",
+      "reflection": "What defilements need cleansing in your life? How do you bring holiness to completion? What role does fear of God play?",
+      "prayer": "Confess any defilement and ask God to help you pursue complete holiness."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 4:3-7",
+      "overview": "Paul declares that God's will is your sanctification—abstaining from sexual immorality, controlling your body in holiness and honor. God calls us to holiness, not impurity.",
+      "reflection": "What does sanctification mean? How do you control your body in holiness? What impurity needs to be rejected?",
+      "prayer": "Thank God for calling you to holiness and pray for purity in all areas."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 6:19-22",
+      "overview": "Paul instructs believers to present their members as slaves to righteousness leading to sanctification. Now set free from sin and enslaved to God, they have fruit leading to sanctification and eternal life.",
+      "reflection": "What does slavery to righteousness look like? How do you present yourself to God? What fruit of sanctification do you see?",
+      "prayer": "Present yourself fully to God as a slave to righteousness leading to holiness."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Holiness Unto the Lord' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 1:4",
+      "overview": "Paul declares that God chose believers in Christ before the foundation of the world to be holy and blameless before Him in love. Holiness is God's eternal plan for His people.",
+      "reflection": "What does being chosen for holiness mean? How does God's eternal purpose affect your pursuit of holiness? How do love and holiness connect?",
+      "prayer": "Thank God for choosing you to be holy and blameless before Him in love."
     }
   ]
 }

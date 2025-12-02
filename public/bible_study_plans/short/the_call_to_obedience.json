@@ -1,42 +1,34 @@
 {
   "title": "The Call to Obedience",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Call to Obedience' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 14:15",
+      "overview": "Jesus states simply: 'If you love me, you will keep my commandments.' Obedience is the natural expression of genuine love for Christ—not a burden but a joyful response to His love.",
+      "reflection": "How does your obedience reflect your love for Jesus? What commandments are you struggling to keep? Is obedience a burden or delight to you?",
+      "prayer": "Ask Jesus to deepen your love for Him so that obedience flows naturally from your heart."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Call to Obedience' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Samuel 15:22",
+      "overview": "Samuel rebukes Saul: 'Has the Lord as great delight in burnt offerings and sacrifices, as in obeying the voice of the Lord? Behold, to obey is better than sacrifice.' God values obedience over religious activity.",
+      "reflection": "What religious activities might you use to substitute for obedience? Where is God calling you to simple obedience? How is obedience better than sacrifice?",
+      "prayer": "Confess any partial obedience and commit to obeying God fully, not just performing religious duties."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Call to Obedience' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:22",
+      "overview": "James warns against being hearers of the word only, deceiving ourselves. We must be doers of the word. Knowing truth without obeying it is self-deception.",
+      "reflection": "What truth do you know but aren't obeying? How can you become a better doer of the word? Where are you deceiving yourself?",
+      "prayer": "Ask God to reveal any areas where you hear but don't obey, and give you grace to act on His word."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Call to Obedience' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Call to Obedience' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Luke 6:46",
+      "overview": "Jesus questions: 'Why do you call me 'Lord, Lord,' and not do what I tell you?' Calling Jesus Lord is meaningless without corresponding obedience to His commands.",
+      "reflection": "In what ways do you call Jesus 'Lord' without obeying? What specific commands is Jesus speaking to you? How can you make your profession match your practice?",
+      "prayer": "Commit to making Jesus truly Lord by obeying what He commands, not just calling Him Lord."
     }
   ]
 }

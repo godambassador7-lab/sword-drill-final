@@ -1,56 +1,55 @@
 {
   "title": "Christ Our High Priest",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 4:14-16",
+      "overview": "The author presents Jesus as our great High Priest who has passed through the heavens, who sympathizes with our weaknesses, enabling us to approach God's throne with confidence.",
+      "reflection": "What does it mean that Jesus is your High Priest? How does His sympathy with weakness encourage you? When do you need to approach God's throne with confidence?",
+      "prayer": "Thank Jesus for being your High Priest and approach God's throne boldly for mercy and grace."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 5:1-10",
+      "overview": "High priests are appointed to represent people before God, offering gifts and sacrifices. Jesus was appointed by God and learned obedience through suffering, becoming the source of eternal salvation.",
+      "reflection": "How did Jesus fulfill the role of High Priest? What does it mean that He learned obedience through suffering? How is He the source of your salvation?",
+      "prayer": "Thank God for appointing Jesus as your High Priest and providing eternal salvation."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 7:23-28",
+      "overview": "Unlike Levitical priests who died and were replaced, Jesus holds His priesthood permanently because He lives forever. He always lives to make intercession for those who draw near to God through Him.",
+      "reflection": "How does Jesus' permanent priesthood give you confidence? What does Christ's intercession for you mean? How do you draw near to God through Jesus?",
+      "prayer": "Thank Jesus for His permanent priesthood and His constant intercession on your behalf."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 8:1-6",
+      "overview": "Jesus serves as High Priest in the true tabernacle in heaven, not the earthly shadow. He is the mediator of a better covenant established on better promises.",
+      "reflection": "How is the new covenant better? What does Jesus mediate for you? How does His heavenly ministry affect your daily life?",
+      "prayer": "Praise Jesus for mediating the new covenant and serving as your High Priest in heaven."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 9:11-14",
+      "overview": "Christ entered once for all into the holy places by His own blood, securing eternal redemption. His blood purifies our conscience from dead works to serve the living God.",
+      "reflection": "How is Christ's sacrifice superior to animal sacrifices? What does purifying your conscience mean? How do you serve the living God?",
+      "prayer": "Thank Jesus for His once-for-all sacrifice and the cleansing of your conscience."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 9:24-28",
+      "overview": "Christ appeared once to put away sin by the sacrifice of Himself. Now He appears in God's presence on our behalf and will appear a second time to save those eagerly waiting for Him.",
+      "reflection": "How does Christ represent you in God's presence? What does eagerly waiting for His return look like? How does this hope affect your life?",
+      "prayer": "Thank Jesus for appearing in God's presence for you and express your eager hope for His return."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Christ Our High Priest' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 10:19-25",
+      "overview": "Because of Jesus' blood, believers have confidence to enter the holy places by a new and living way. We can draw near with a true heart in full assurance of faith.",
+      "reflection": "How does Jesus' blood give you access to God? What does drawing near with a true heart mean? How can you encourage others to draw near?",
+      "prayer": "Draw near to God with confidence, thanking Jesus for opening the way to the Father."
     }
   ]
 }

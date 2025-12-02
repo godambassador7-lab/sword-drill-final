@@ -1,42 +1,34 @@
 {
   "title": "Letting Go of Anger",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letting Go of Anger' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 4:26-27",
+      "overview": "Paul acknowledges that anger itself isn't always sinful but warns not to let the sun go down on anger, as this gives the devil a foothold. Unresolved anger becomes destructive and provides opportunity for evil.",
+      "reflection": "What is the difference between righteous anger and sinful anger? Why is it important to resolve anger quickly? How has unresolved anger given the enemy a foothold in your life?",
+      "prayer": "Ask God to help you process anger in healthy ways and resolve conflicts before they fester."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letting Go of Anger' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:19-20",
+      "overview": "James instructs believers to be quick to hear, slow to speak, and slow to anger, for human anger does not produce the righteousness that God requires. Patient listening prevents many angry outbursts.",
+      "reflection": "How can you become quicker to listen and slower to speak? Why doesn't human anger produce God's righteousness? What triggers your anger most easily?",
+      "prayer": "Pray for patience in listening, wisdom in speaking, and self-control in managing anger."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letting Go of Anger' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 15:1",
+      "overview": "Solomon reveals that a soft answer turns away wrath, but a harsh word stirs up anger. How we respond to provocation determines whether conflict escalates or de-escalates.",
+      "reflection": "When has a soft answer defused a tense situation? How can you respond gently when provoked? What harsh words do you need to avoid?",
+      "prayer": "Ask God for grace to respond with gentleness rather than harshness, even when provoked."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letting Go of Anger' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letting Go of Anger' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:8",
+      "overview": "Paul commands believers to put away anger, wrath, malice, slander, and obscene talk. These are remnants of the old self that must be discarded, replaced by the character of Christ.",
+      "reflection": "Which of these sins most characterizes your old self? What does it mean to 'put away' anger? How does your new identity in Christ motivate this change?",
+      "prayer": "Confess any anger, wrath, or malice and ask God to complete His transforming work in you."
     }
   ]
 }

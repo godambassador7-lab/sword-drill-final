@@ -1,42 +1,34 @@
 {
   "title": "Walking in Wisdom",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walking in Wisdom' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:5",
+      "overview": "James promises that if anyone lacks wisdom, they should ask God, who gives generously to all without reproach. Wisdom is available to those who ask in faith.",
+      "reflection": "What decisions require wisdom? How do you ask God for wisdom? What does it mean that God gives without reproach?",
+      "prayer": "Ask God for wisdom in specific situations you're facing, trusting He will give generously."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walking in Wisdom' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 3:5-6",
+      "overview": "Solomon instructs: Trust in the Lord with all your heart, lean not on your own understanding; in all your ways acknowledge Him, and He will make straight your paths.",
+      "reflection": "Where are you relying on your own understanding? What does it mean to trust God with all your heart? How do you acknowledge God in all your ways?",
+      "prayer": "Commit to trusting God fully and acknowledging Him in every area of your life."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walking in Wisdom' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 2:3",
+      "overview": "Paul reveals that in Christ are hidden all the treasures of wisdom and knowledge. True wisdom is found in relationship with Jesus, not apart from Him.",
+      "reflection": "How is Christ the source of wisdom? What treasures of wisdom have you found in Him? Where are you seeking wisdom apart from Christ?",
+      "prayer": "Thank Jesus for being your wisdom and ask Him to reveal His treasures to you."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walking in Wisdom' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walking in Wisdom' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 4:7",
+      "overview": "Solomon declares that wisdom is supreme—therefore get wisdom. Though it cost all you have, get understanding. Wisdom is worth any price.",
+      "reflection": "What would you sacrifice to gain wisdom? How are you actively pursuing wisdom? What does it mean that wisdom is supreme?",
+      "prayer": "Commit to pursuing wisdom above all else, whatever the cost."
     }
   ]
 }

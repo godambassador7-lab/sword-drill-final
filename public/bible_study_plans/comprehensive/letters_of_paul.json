@@ -1,77 +1,62 @@
 {
   "title": "Letters of Paul",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 1:16-17",
+      "overview": "Paul declares the gospel as God's power for salvation to everyone who believes. In it God's righteousness is revealed from faith for faith—the righteous shall live by faith.",
+      "reflection": "Why is the gospel God's power? What does righteousness by faith mean? How do you live by faith daily?",
+      "prayer": "Thank God for the gospel's power and help you live by faith."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Galatians 2:20",
+      "overview": "Paul declares he has been crucified with Christ and no longer lives, but Christ lives in him. The life he now lives is by faith in the Son of God who loved him and gave Himself for him.",
+      "reflection": "What does being crucified with Christ mean? How does Christ live in you? How do you live by faith in Him?",
+      "prayer": "Thank Jesus for loving you and giving Himself for you, and pray that He would live through you."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 1:21",
+      "overview": "Paul declares that for him to live is Christ and to die is gain. His entire existence centers on Christ—living for Him is purpose; dying to be with Him is gain.",
+      "reflection": "Is Christ your life? What would it mean for Christ to be your life? How do you view death?",
+      "prayer": "Ask God to make Christ the center and purpose of your life."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 1:15-20",
+      "overview": "Paul describes Christ's supremacy: image of the invisible God, firstborn over creation, Creator of all things, head of the church, firstborn from the dead, reconciler through His blood.",
+      "reflection": "What does Christ's supremacy mean to you? How is He first in your life? How has He reconciled you to God?",
+      "prayer": "Worship Jesus for His supremacy over all creation and thank Him for reconciliation."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 2:1-10",
+      "overview": "Paul describes salvation: dead in sins, made alive with Christ, raised and seated with Him, saved by grace through faith—not by works—created in Christ for good works God prepared.",
+      "reflection": "How were you dead in sins? How has God made you alive? What good works has God prepared for you?",
+      "prayer": "Thank God for making you alive in Christ and creating you for good works."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 13:1-13",
+      "overview": "Paul's love chapter: without love, spiritual gifts mean nothing. Love is patient, kind, not envious or boastful. Faith, hope, and love remain, but the greatest is love.",
+      "reflection": "How does your love measure against this standard? Why is love greater than other virtues? How can you grow in love?",
+      "prayer": "Ask God to fill you with His love that is patient, kind, and never fails."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Timothy 3:16-17",
+      "overview": "Paul declares all Scripture is breathed out by God and profitable for teaching, reproof, correction, and training in righteousness, that believers may be complete, equipped for every good work.",
+      "reflection": "How is Scripture God-breathed? How do you use it for teaching and correction? How does Scripture equip you?",
+      "prayer": "Thank God for His inspired Word and ask Him to use it to equip you fully."
     },
     {
       "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Letters of Paul' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 5:16-18",
+      "overview": "Paul commands believers to rejoice always, pray without ceasing, and give thanks in all circumstances, for this is God's will for them in Christ Jesus.",
+      "reflection": "How do you rejoice always? What does praying without ceasing mean? How can you be thankful in all circumstances?",
+      "prayer": "Ask God to help you maintain constant joy, prayer, and thanksgiving."
     }
   ]
 }

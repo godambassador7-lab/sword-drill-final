@@ -1,42 +1,41 @@
 {
   "title": "Living by Faith",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Living by Faith' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 11:1-3",
+      "overview": "The author defines faith as the assurance of things hoped for and the conviction of things not seen. By faith we understand that God created the universe by His word—faith perceives spiritual realities.",
+      "reflection": "How would you define faith in your own words? What unseen realities are you confident about? How does faith connect to understanding God's creative work?",
+      "prayer": "Ask God to strengthen your faith and help you perceive spiritual realities beyond what is visible."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Living by Faith' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 11:6",
+      "overview": "Without faith it is impossible to please God, for whoever would draw near must believe that He exists and rewards those who seek Him. Faith is foundational to any relationship with God.",
+      "reflection": "Why is faith essential to pleasing God? How do you seek God diligently? What does it mean that God rewards those who seek Him?",
+      "prayer": "Pray for deeper faith that truly believes God exists and earnestly seeks Him."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Living by Faith' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 1:17",
+      "overview": "Paul proclaims that in the gospel the righteousness of God is revealed from faith for faith. As it is written, 'The righteous shall live by faith'—faith is both the means and the manner of Christian living.",
+      "reflection": "How is God's righteousness revealed from faith for faith? What does it mean to live by faith daily? How does the gospel strengthen your faith?",
+      "prayer": "Thank God for revealing His righteousness through the gospel and ask for grace to live by faith."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Living by Faith' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 5:7",
+      "overview": "Paul states that believers walk by faith, not by sight. Living by faith means trusting God's promises and character even when circumstances seem contrary to them.",
+      "reflection": "In what areas are you tempted to walk by sight rather than faith? How can you trust God more fully? What promises do you need to believe despite what you see?",
+      "prayer": "Ask God to help you walk by faith even when sight suggests otherwise, trusting His promises."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Living by Faith' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 2:14-17",
+      "overview": "James challenges empty profession, arguing that faith without works is dead. Genuine faith produces action—belief and behavior must align. Faith that doesn't transform life is not saving faith.",
+      "reflection": "How does your faith show itself in actions? What works demonstrate the reality of your faith? Where might your faith be inactive?",
+      "prayer": "Pray that your faith would be alive and active, producing works that honor God."
     }
   ]
 }

@@ -1,56 +1,55 @@
 {
   "title": "Hope of Resurrection",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:12-19",
+      "overview": "Paul argues that if there is no resurrection, Christ was not raised, preaching is in vain, faith is futile, and believers are most to be pitied. Resurrection is essential to Christian faith.",
+      "reflection": "Why is resurrection central to Christianity? What would change if there were no resurrection? How does resurrection hope affect your life?",
+      "prayer": "Thank God that Christ has been raised and your faith is not in vain."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:20-23",
+      "overview": "Paul declares Christ as the firstfruits of those who have fallen asleep. As in Adam all die, so in Christ all will be made alive. Christ's resurrection guarantees ours.",
+      "reflection": "What does Christ being firstfruits mean? How does Adam bring death and Christ bring life? When will you be made alive?",
+      "prayer": "Thank Jesus for being the firstfruits and guaranteeing your resurrection."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:35-44",
+      "overview": "Paul explains the resurrection body: sown in dishonor, raised in glory; sown in weakness, raised in power; sown a natural body, raised a spiritual body. Resurrection transforms.",
+      "reflection": "What will your resurrection body be like? How is it different from your current body? What does resurrection in power mean?",
+      "prayer": "Thank God for the promise of a glorified resurrection body."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 15:51-57",
+      "overview": "Paul reveals that the dead will be raised imperishable and living believers will be changed. Death is swallowed up in victory. Thanks be to God who gives victory through Jesus Christ.",
+      "reflection": "What does victory over death mean? How does this hope affect how you face death? What does being changed in a moment mean?",
+      "prayer": "Thank God for victory over death through Jesus Christ."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 11:25-26",
+      "overview": "Jesus declares He is the resurrection and the life. Whoever believes in Him will live even though they die, and whoever lives and believes in Him will never die.",
+      "reflection": "How is Jesus the resurrection and the life? What does it mean to never die? Do you believe this?",
+      "prayer": "Thank Jesus for being your resurrection and life, conquering death forever."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 8:11",
+      "overview": "Paul teaches that if the Spirit of Him who raised Jesus from the dead dwells in you, He will give life to your mortal bodies through His Spirit who dwells in you.",
+      "reflection": "How does the Spirit give life? What does future bodily resurrection mean? How does the Spirit's presence now connect to future resurrection?",
+      "prayer": "Thank God for the Spirit dwelling in you and guaranteeing your resurrection."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Hope of Resurrection' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 4:13-14",
+      "overview": "Paul encourages believers not to grieve like those without hope. Since Jesus died and rose again, God will bring with Him those who have fallen asleep in Jesus.",
+      "reflection": "How is Christian grief different? What hope do you have regarding death? How does Jesus' resurrection guarantee yours?",
+      "prayer": "Thank God for resurrection hope that transforms how you face death and loss."
     }
   ]
 }

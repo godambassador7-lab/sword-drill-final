@@ -1,56 +1,55 @@
 {
   "title": "Prayer and Communion",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 6:5-8",
+      "overview": "Jesus teaches about prayer: avoid hypocrisy, pray in secret, don't use empty phrases like pagans. Your Father knows what you need before you ask.",
+      "reflection": "What does praying in secret mean? How do you avoid empty repetition? How does knowing God already knows your needs affect your prayers?",
+      "prayer": "Ask God to teach you authentic prayer that connects with Him genuinely."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 6:9-13",
+      "overview": "Jesus teaches the Lord's Prayer: hallowing God's name, seeking His kingdom, daily bread, forgiveness, protection from temptation. This model prayer covers essential elements.",
+      "reflection": "What does each petition mean? How do you hallow God's name? What does seeking God's kingdom first look like?",
+      "prayer": "Pray through the Lord's Prayer slowly, reflecting on each petition."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Luke 18:1-8",
+      "overview": "Jesus tells a parable about a persistent widow to show disciples they should always pray and not lose heart. God will give justice to His elect who cry to Him day and night.",
+      "reflection": "What does persistent prayer look like? When are you tempted to give up praying? How does God's justice encourage persistent prayer?",
+      "prayer": "Commit to persisting in prayer without losing heart, trusting God will answer."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:6-7",
+      "overview": "Paul instructs believers not to be anxious but bring everything to God in prayer and supplication with thanksgiving. God's peace will guard their hearts and minds.",
+      "reflection": "What anxieties should you bring to God? How does thanksgiving change prayer? How have you experienced God's peace?",
+      "prayer": "Bring your anxieties to God with thanksgiving and receive His peace."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 5:16-18",
+      "overview": "Paul commands constant rejoicing, unceasing prayer, and thanksgiving in all circumstances. This is God's will for believers in Christ Jesus.",
+      "reflection": "How do you pray without ceasing? What does thanksgiving in all circumstances mean? How is this God's will?",
+      "prayer": "Ask God to help you maintain constant prayer and thanksgiving."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 5:13-16",
+      "overview": "James instructs believers to pray in trouble, sing in cheerfulness, call elders to pray for the sick, confess sins to one another. The prayer of a righteous person is powerful and effective.",
+      "reflection": "How do you pray in different circumstances? When do you confess sins to others? What makes prayer powerful?",
+      "prayer": "Commit to fervent, righteous prayer and confession when needed."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Prayer and Communion' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 15:7",
+      "overview": "Jesus promises that if believers abide in Him and His words abide in them, they can ask whatever they wish and it will be done. Answered prayer flows from abiding relationship.",
+      "reflection": "What does abiding in Christ mean? How do His words abide in you? How does abiding affect what you pray?",
+      "prayer": "Ask Jesus to teach you to abide in Him so your prayers align with His will."
     }
   ]
 }

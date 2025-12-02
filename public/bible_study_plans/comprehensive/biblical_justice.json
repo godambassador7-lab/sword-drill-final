@@ -1,56 +1,55 @@
 {
   "title": "Biblical Justice",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Micah 6:8",
+      "overview": "Micah reveals what God requires: to do justice, love kindness, and walk humbly with God. Justice is central to God's character and His expectations for His people.",
+      "reflection": "What does God require of you? How do you do justice in your context? How are justice, mercy, and humility connected?",
+      "prayer": "Ask God to show you how to do justice, love mercy, and walk humbly with Him."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Isaiah 1:16-17",
+      "overview": "God calls His people to cease doing evil, learn to do good, seek justice, correct oppression, bring justice to the fatherless, and plead the widow's cause.",
+      "reflection": "What evil needs to cease in your life? How can you seek justice for the oppressed? Who are the vulnerable you can advocate for?",
+      "prayer": "Pray for eyes to see injustice and courage to stand up for the vulnerable."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Amos 5:21-24",
+      "overview": "God rejects religious ceremonies when His people neglect justice. He desires justice to roll down like waters and righteousness like an ever-flowing stream.",
+      "reflection": "How might religious activity substitute for justice? What does justice 'rolling down' look like? Where is God calling you to prioritize justice?",
+      "prayer": "Ask God to keep your worship authentic by matching it with pursuit of justice."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Proverbs 31:8-9",
+      "overview": "Scripture commands us to open our mouths for the mute, for the rights of all who are destitute, to judge righteously and plead the cause of the poor and needy.",
+      "reflection": "Who cannot speak for themselves in your sphere? How can you advocate for the voiceless? What poor and needy are you ignoring?",
+      "prayer": "Pray for boldness to speak up for those who cannot speak for themselves."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Deuteronomy 10:17-19",
+      "overview": "God executes justice for the fatherless and widow, loves the sojourner, and commands His people to love the sojourner as themselves, remembering they were sojourners in Egypt.",
+      "reflection": "How does God's justice for the vulnerable affect your view of justice? Who are the 'sojourners' in your community? How can you love them?",
+      "prayer": "Thank God for His justice and ask Him to help you extend it to the vulnerable."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 1:27",
+      "overview": "Pure and undefiled religion before God is visiting orphans and widows in their affliction and keeping oneself unstained from the world. Justice and personal holiness go together.",
+      "reflection": "How do you practice pure religion? What widows and orphans need your care? How does caring for the vulnerable relate to personal holiness?",
+      "prayer": "Ask God to show you specific ways to care for orphans and widows while remaining holy."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Biblical Justice' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 23:23",
+      "overview": "Jesus rebukes religious leaders for tithing minutely while neglecting weightier matters of the law: justice, mercy, and faithfulness. These should be done without neglecting the others.",
+      "reflection": "What minor things do you focus on while neglecting justice? How do you balance details with weightier matters? What does Jesus' priority teach you?",
+      "prayer": "Pray for wisdom to prioritize what matters most to God without neglecting any obedience."
     }
   ]
 }

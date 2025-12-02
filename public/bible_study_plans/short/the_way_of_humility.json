@@ -1,42 +1,41 @@
 {
   "title": "The Way of Humility",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Way of Humility' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 2:3-4",
+      "overview": "Paul commands believers to do nothing from selfish ambition or conceit, but in humility count others more significant than themselves, looking to others' interests, not just their own.",
+      "reflection": "Where do selfish ambition or conceit show up in your life? How can you count others more significant? Whose interests are you neglecting?",
+      "prayer": "Ask God to root out selfish ambition and give you genuine humility toward others."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Way of Humility' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 2:5-8",
+      "overview": "Paul points to Christ's supreme example of humility: though in the form of God, He emptied Himself, took the form of a servant, and humbled Himself to death on a cross.",
+      "reflection": "What did Christ's humility cost Him? How does Jesus' example challenge you? What would it mean to have the same mind as Christ?",
+      "prayer": "Thank Jesus for His humble sacrifice and ask for His mindset of humble service."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Way of Humility' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: James 4:6",
+      "overview": "James quotes Scripture: God opposes the proud but gives grace to the humble. Pride puts us in opposition to God, while humility positions us to receive His grace.",
+      "reflection": "Where is pride showing up in your life? How have you experienced God's opposition or grace? What does it mean to humble yourself before God?",
+      "prayer": "Confess any pride and ask God to humble you and shower you with His grace."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Way of Humility' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 23:12",
+      "overview": "Jesus teaches that whoever exalts himself will be humbled, and whoever humbles himself will be exalted. God reverses human values—greatness comes through humble service.",
+      "reflection": "How are you tempted to exalt yourself? What does it mean to humble yourself? How does God's promise of future exaltation encourage humility now?",
+      "prayer": "Pray for grace to humble yourself, trusting God to exalt you in His time and way."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Way of Humility' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 5:5-6",
+      "overview": "Peter instructs younger believers to be subject to elders, and all to clothe themselves with humility toward one another. God opposes the proud but gives grace to the humble, so humble yourselves under God's mighty hand.",
+      "reflection": "How do you show humility toward others? What does it mean to humble yourself under God's hand? How does humility relate to submission?",
+      "prayer": "Ask God to clothe you with humility and help you submit to His mighty hand."
     }
   ]
 }

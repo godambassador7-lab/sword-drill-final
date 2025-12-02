@@ -1,42 +1,34 @@
 {
   "title": "Forgiveness and Mercy",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Forgiveness and Mercy' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 6:14-15",
+      "overview": "Jesus directly connects our forgiveness of others with God's forgiveness of us. This is not about earning salvation but about the evidence of a forgiven heart—those who have received mercy extend mercy to others.",
+      "reflection": "Why is forgiving others essential to the Christian life? Who in your life needs your forgiveness? What does this passage reveal about the heart of God?",
+      "prayer": "Ask God to reveal any unforgiveness in your heart and give you grace to forgive others as you have been forgiven."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Forgiveness and Mercy' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 18:21-35",
+      "overview": "Through the parable of the unforgiving servant, Jesus teaches that forgiveness should be unlimited and reflects the massive debt God has cancelled for us. Refusing to forgive reveals a failure to grasp God's mercy.",
+      "reflection": "How much have you been forgiven by God? How does understanding your own forgiveness motivate you to forgive others? What does the king's response to the unmerciful servant teach about God?",
+      "prayer": "Thank God for His immeasurable mercy toward you and ask for a heart that freely forgives others."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Forgiveness and Mercy' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:12-13",
+      "overview": "Paul instructs believers to clothe themselves with compassion, kindness, humility, meekness, and patience, bearing with one another and forgiving as the Lord forgave them. These qualities should characterize God's chosen people.",
+      "reflection": "Which of these qualities do you need to 'put on' more intentionally? How does forgiving as the Lord forgave set the standard? What does it mean to bear with one another?",
+      "prayer": "Pray that God would clothe you with His character and enable you to forgive freely and fully."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Forgiveness and Mercy' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Forgiveness and Mercy' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 4:31-32",
+      "overview": "Paul contrasts bitterness, anger, and malice with kindness, tenderheartedness, and forgiveness. Believers are to forgive one another as God in Christ forgave them—completely and at great cost.",
+      "reflection": "What bitterness, anger, or malice do you need to put away? How does Christ's forgiveness of you serve as the model? What would it look like to be tenderhearted toward those who have wronged you?",
+      "prayer": "Ask God to remove all bitterness from your heart and replace it with Christlike compassion and forgiveness."
     }
   ]
 }

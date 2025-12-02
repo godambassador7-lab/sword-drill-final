@@ -1,56 +1,55 @@
 {
   "title": "Understanding Sanctification",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 4:3",
+      "overview": "Paul declares that God's will is your sanctification. Sanctification—being set apart for God and made holy—is central to God's purpose for believers.",
+      "reflection": "What is sanctification? How is it God's will for you? What does being set apart mean?",
+      "prayer": "Ask God to sanctify you completely according to His will."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 10:10",
+      "overview": "The author declares believers have been sanctified through the offering of Jesus Christ's body once for all. Sanctification is accomplished through Christ's sacrifice.",
+      "reflection": "How were you sanctified? What did Christ's sacrifice accomplish? How is sanctification both accomplished and ongoing?",
+      "prayer": "Thank Jesus for sanctifying you through His once-for-all sacrifice."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Thessalonians 2:13",
+      "overview": "Paul thanks God for choosing believers for salvation through sanctification by the Spirit and belief in the truth. The Spirit works sanctification in those who believe.",
+      "reflection": "What is the Spirit's role in sanctification? How does belief in truth sanctify? How do you cooperate with the Spirit's work?",
+      "prayer": "Thank God for choosing you and ask the Spirit to continue His sanctifying work."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Romans 6:19",
+      "overview": "Paul instructs believers to present their members as slaves to righteousness leading to sanctification. Sanctification requires active presentation of ourselves to God.",
+      "reflection": "What does presenting yourself to righteousness mean? How is sanctification progressive? What areas need to be presented to God?",
+      "prayer": "Present yourself fully to God as a slave to righteousness leading to sanctification."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 7:1",
+      "overview": "Paul urges believers to cleanse themselves from every defilement of body and spirit, bringing holiness to completion in the fear of God.",
+      "reflection": "What defilements need cleansing? How do you bring holiness to completion? What role does fear of God play?",
+      "prayer": "Ask God to cleanse you from all defilement and complete your sanctification."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 17:17",
+      "overview": "Jesus prays for His disciples: 'Sanctify them in the truth; your word is truth.' God's Word is the means by which believers are sanctified.",
+      "reflection": "How does God's Word sanctify you? What truth is transforming you? How much time do you spend in the Word?",
+      "prayer": "Ask God to sanctify you through His Word and help you treasure it."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Understanding Sanctification' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 5:23-24",
+      "overview": "Paul prays that the God of peace would sanctify believers completely—spirit, soul, and body—kept blameless until Christ's coming. He who calls is faithful and will do it.",
+      "reflection": "What does complete sanctification mean? How is God faithful to sanctify you? What hope does this give?",
+      "prayer": "Trust God's faithfulness to sanctify you completely until Christ returns."
     }
   ]
 }

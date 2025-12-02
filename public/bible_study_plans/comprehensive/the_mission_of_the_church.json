@@ -1,77 +1,55 @@
 {
   "title": "The Mission of the Church",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 28:18-20",
+      "overview": "Jesus commissions His disciples to make disciples of all nations, baptizing and teaching them to observe all His commands. He promises His presence always.",
+      "reflection": "What is the Great Commission? How are you making disciples? What does Jesus' presence with you mean?",
+      "prayer": "Ask God to make you a disciple-maker and help you obey the Great Commission."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Acts 1:8",
+      "overview": "Jesus promises His disciples will receive power when the Holy Spirit comes and be His witnesses in Jerusalem, Judea, Samaria, and to the end of the earth.",
+      "reflection": "Where is your Jerusalem? How does the Spirit empower witness? How far does your witness reach?",
+      "prayer": "Ask the Spirit to empower you to witness both locally and to the ends of the earth."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Acts 2:42-47",
+      "overview": "The early church devoted themselves to teaching, fellowship, breaking bread, and prayer. They shared possessions, worshiped together, enjoyed favor with people, and the Lord added to their number daily.",
+      "reflection": "How do these elements characterize your church? What does devotion to apostles' teaching mean? How does community life reflect the gospel?",
+      "prayer": "Pray for your church to embody these characteristics and grow as the early church did."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Ephesians 4:11-16",
+      "overview": "Christ gave apostles, prophets, evangelists, shepherds, and teachers to equip the saints for ministry, building up the body until all reach unity, maturity, and the fullness of Christ.",
+      "reflection": "What is the purpose of church leaders? How are you being equipped for ministry? What does maturity in Christ look like?",
+      "prayer": "Thank God for leaders who equip you and pray for growth toward maturity in Christ."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Corinthians 12:12-27",
+      "overview": "Paul compares the church to a body with many members. All are necessary; none can say they don't belong or aren't needed. If one suffers, all suffer; if one is honored, all rejoice.",
+      "reflection": "What is your role in the body? How do you value others' roles? How do you share in others' joys and sufferings?",
+      "prayer": "Thank God for your place in the body and pray for unity and mutual care."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Peter 2:9-10",
+      "overview": "Peter declares believers are a chosen race, royal priesthood, holy nation, God's possession, called to proclaim His excellencies. Once not a people, now God's people.",
+      "reflection": "What does being a royal priesthood mean? How do you proclaim God's excellencies? What difference does being God's people make?",
+      "prayer": "Thank God for making you His possession and help you proclaim His greatness."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 8,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 9,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 10,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'The Mission of the Church' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Revelation 7:9-10",
+      "overview": "John sees a great multitude from every nation, tribe, people, and language standing before the throne worshiping God and the Lamb. This is the church's destiny.",
+      "reflection": "How does this vision inspire the church's mission? What does worshiping with all nations mean? How does this hope motivate you?",
+      "prayer": "Thank God for the promise that people from every nation will worship Him forever."
     }
   ]
 }

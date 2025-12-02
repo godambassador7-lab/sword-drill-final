@@ -1,42 +1,34 @@
 {
   "title": "Gratitude Lifestyle",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gratitude Lifestyle' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 Thessalonians 5:16-18",
+      "overview": "Paul commands believers to rejoice always, pray continually, and give thanks in all circumstances. This is God's will for those in Christ Jesus—a life marked by constant gratitude regardless of external conditions.",
+      "reflection": "How can you rejoice always when circumstances are difficult? What does it mean to give thanks in all circumstances versus for all circumstances? How does prayer connect to gratitude?",
+      "prayer": "Ask God to cultivate a heart of constant thankfulness and help you see His goodness in every situation."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gratitude Lifestyle' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Psalm 100:1-5",
+      "overview": "This psalm calls all people to worship the Lord with gladness, recognizing Him as Creator and Shepherd. Gratitude flows from understanding God's character—His goodness, steadfast love, and faithfulness endure forever.",
+      "reflection": "What aspects of God's character inspire your gratitude? How does knowing God as your Shepherd affect your thankfulness? What does it mean to enter His gates with thanksgiving?",
+      "prayer": "Praise God for His goodness, steadfast love, and faithfulness that endure forever."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gratitude Lifestyle' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Colossians 3:15-17",
+      "overview": "Paul instructs believers to let peace rule in their hearts and be thankful. Everything done in word or deed should be done in Jesus' name, giving thanks to God the Father through Him.",
+      "reflection": "How does thankfulness connect to peace in your heart? What would change if you did everything in Jesus' name with thanksgiving? How can you let the word of Christ dwell richly in you?",
+      "prayer": "Pray for a thankful heart that permeates all your words and actions, bringing glory to God."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gratitude Lifestyle' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
-    },
-    {
-      "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Gratitude Lifestyle' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:4-7",
+      "overview": "Paul repeats his command to rejoice in the Lord and presents an alternative to anxiety—prayer with thanksgiving. When we bring our requests to God with grateful hearts, His peace guards our hearts and minds.",
+      "reflection": "How does thanksgiving drive out anxiety? What requests do you need to bring to God with a thankful heart? How have you experienced God's peace that surpasses understanding?",
+      "prayer": "Thank God for specific blessings and bring your anxieties to Him, trusting His peace to guard your heart."
     }
   ]
 }

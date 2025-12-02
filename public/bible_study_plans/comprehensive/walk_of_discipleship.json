@@ -1,56 +1,55 @@
 {
   "title": "Walk of Discipleship",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Luke 9:23",
+      "overview": "Jesus declares that if anyone would come after Him, he must deny himself, take up his cross daily, and follow. Discipleship requires self-denial and daily commitment.",
+      "reflection": "What does denying yourself mean? What is your cross? How do you take it up daily?",
+      "prayer": "Ask Jesus for grace to deny yourself, take up your cross, and follow Him daily."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 15:5",
+      "overview": "Jesus declares He is the vine and believers are branches. Whoever abides in Him and He in them bears much fruit, for apart from Him they can do nothing.",
+      "reflection": "What does abiding in Jesus mean? How do you remain connected to the vine? What fruit comes from abiding?",
+      "prayer": "Ask Jesus to teach you to abide in Him and bear much fruit."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: John 13:34-35",
+      "overview": "Jesus gives a new commandment: love one another as He has loved them. By this love, all will know they are His disciples.",
+      "reflection": "How has Jesus loved you? How do you love others with His love? What does this love reveal?",
+      "prayer": "Ask God to fill you with Jesus' love for others that identifies you as His disciple."
     },
     {
       "day": 4,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Matthew 28:19-20",
+      "overview": "Jesus commissions disciples to make disciples of all nations, baptizing and teaching them to observe all He commanded. He promises His presence always.",
+      "reflection": "How are you making disciples? What does teaching obedience mean? How does Jesus' presence encourage you?",
+      "prayer": "Commit to making disciples and thank Jesus for His constant presence."
     },
     {
       "day": 5,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Luke 14:26-27",
+      "overview": "Jesus teaches that discipleship requires loving Him more than family, even one's own life. Whoever doesn't bear his cross and come after Jesus cannot be His disciple.",
+      "reflection": "What does this priority mean? Is Jesus first in your life? What might you need to love less?",
+      "prayer": "Ask Jesus to be first above all other loves and relationships."
     },
     {
       "day": 6,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Mark 8:34-35",
+      "overview": "Jesus teaches that to save your life, you must lose it; whoever loses his life for Jesus and the gospel will save it. True discipleship involves sacrifice.",
+      "reflection": "What does losing your life mean? What are you holding onto? How do you lose your life for Jesus?",
+      "prayer": "Ask God for courage to lose your life for Jesus and find true life in Him."
     },
     {
       "day": 7,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Walk of Discipleship' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 3:7-8",
+      "overview": "Paul counts everything as loss compared to the surpassing worth of knowing Christ Jesus his Lord. For His sake, Paul has suffered the loss of all things, counting them as rubbish.",
+      "reflection": "What is worth compared to knowing Christ? What have you given up for Him? What still competes with Him?",
+      "prayer": "Ask God to help you count everything as loss compared to knowing Jesus."
     }
   ]
 }

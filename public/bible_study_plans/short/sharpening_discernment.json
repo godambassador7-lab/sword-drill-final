@@ -1,28 +1,34 @@
 {
   "title": "Sharpening Discernment",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sharpening Discernment' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 1 John 4:1",
+      "overview": "John warns believers not to believe every spirit but to test the spirits to see whether they are from God, because many false prophets have gone out into the world. Discernment requires active testing.",
+      "reflection": "What teachings or messages do you need to test? How do you test whether something is from God? What false teachings are prevalent today?",
+      "prayer": "Ask God for wisdom to discern truth from error and test all teachings against Scripture."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sharpening Discernment' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Hebrews 5:14",
+      "overview": "The mature have their powers of discernment trained by constant practice to distinguish good from evil. Discernment is a skill developed through regular exercise, not an instant gift.",
+      "reflection": "How are you training your discernment? What practices help you distinguish good from evil? Where do you need greater spiritual maturity?",
+      "prayer": "Pray for maturity and disciplined practice in developing your spiritual discernment."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Sharpening Discernment' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 1:9-10",
+      "overview": "Paul prays that the Philippians' love would abound more and more in knowledge and depth of insight, enabling them to discern what is best and be pure and blameless. Love combined with knowledge produces discernment.",
+      "reflection": "How do love and knowledge work together in discernment? What is the connection between discernment and purity? How can you approve what is excellent?",
+      "prayer": "Ask God to increase your love with knowledge and depth of insight for better discernment."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: Proverbs 2:1-6",
+      "overview": "Solomon teaches that discernment comes from crying out for insight, searching for it like treasure, and recognizing that the Lord gives wisdom. Understanding requires both diligent pursuit and God's gift.",
+      "reflection": "How diligently are you seeking wisdom and discernment? What would it mean to search for understanding like hidden treasure? How does fear of the Lord connect to discernment?",
+      "prayer": "Cry out to God for wisdom and discernment, committing to search for it diligently."
     }
   ]
 }

@@ -1,28 +1,34 @@
 {
   "title": "Strength in Weakness",
   "default_translation": "ESV",
-  "translation_placeholder_note": "Replace {{translation}} with user-selected translation inside the app.",
   "days": [
     {
       "day": 1,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Strength in Weakness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: 2 Corinthians 12:9-10",
+      "overview": "Paul shares God's response to his plea for relief: 'My grace is sufficient for you, for my power is made perfect in weakness.' Paul learns to boast in weaknesses so Christ's power may rest upon him.",
+      "reflection": "How is God's power made perfect in weakness? What weaknesses do you need to accept? How can you boast in weakness rather than resent it?",
+      "prayer": "Ask God to show His power through your weaknesses and help you trust His sufficient grace."
     },
     {
       "day": 2,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Strength in Weakness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Isaiah 40:29-31",
+      "overview": "Isaiah promises that God gives power to the faint and strength to the powerless. Those who wait on the Lord renew their strength, mounting up with wings like eagles, running without weariness.",
+      "reflection": "What does it mean to wait on the Lord? When have you experienced renewed strength from God? How does weakness position you to receive God's power?",
+      "prayer": "Bring your weariness to God and ask Him to renew your strength as you wait on Him."
     },
     {
       "day": 3,
-      "passage": "{{translation}}: Scripture reference for the topic",
-      "overview": "A study on 'Strength in Weakness' exploring the biblical foundation for this theme through Scripture alone.",
-      "reflection": "Questions that guide deeper thought rooted solely in the biblical text.",
-      "prayer": "A prayer focus based on the day\u2019s passage."
+      "passage": "{{translation}}: Philippians 4:13",
+      "overview": "Paul declares that he can do all things through Christ who strengthens him. This follows his discussion of being content in all circumstances—Christ provides strength for whatever God calls us to.",
+      "reflection": "What impossible task is God calling you to? How have you experienced Christ's strengthening? What's the connection between contentment and strength?",
+      "prayer": "Thank Christ for being your strength and ask Him to empower you for all He calls you to do."
+    },
+    {
+      "day": 4,
+      "passage": "{{translation}}: 2 Corinthians 4:7",
+      "overview": "Paul describes believers as jars of clay holding a treasure—the surpassing power belongs to God, not to us. Our weakness showcases that the power is divine, not human.",
+      "reflection": "Why does God use weak vessels? How does your weakness highlight God's power? What treasure do you carry in your earthen vessel?",
+      "prayer": "Thank God for choosing to display His power through your weakness and making His strength evident."
     }
   ]
 }
