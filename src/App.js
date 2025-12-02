@@ -1,5 +1,5 @@
 import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
-import { getUserData, addQuizResult } from './services/dbService';
+import { getUserData, addQuizResult, updateUserProgress } from './services/dbService';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import {
   Trophy,
