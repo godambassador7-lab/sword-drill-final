@@ -1,4 +1,5 @@
 import { parseReference } from './assistant/referenceParser';
+import { simplifyText } from './simplifiedMode';
 
 /**
  * Clean verse text by removing formatting symbols like paragraph marks
@@ -12,14 +13,10 @@ function cleanVerseText(text) {
 }
 
 const CODE_MAP = {
-  KJV: 'kjv', NKJV: 'kjv',
+  KJV: 'kjv',
   WEB: 'web',
   ASV: 'asv',
-  NIV: 'niv',
-  NLT: 'nlt',
   YLT: 'ylt',
-  ESV: 'esv',
-  NASB: 'nasb', // only if you add files later; will fallback if missing
   BISHOPS: 'bishops',
   GENEVA: 'geneva',
 };
@@ -42,20 +39,29 @@ async function loadBookJson(folder, book) {
   return null;
 }
 
-export async function getLocalVerseByReference(translation, reference) {
+export async function getLocalVerseByReference(translation, reference, options = {}) {
   const folder = folderFor(translation);
   if (!folder) return null;
   const pr = parseReference(reference);
   if (!pr.valid || !pr.verse) return null;
   const bookJson = await loadBookJson(folder, pr.book);
   if (!bookJson || !bookJson.chapters) return null;
-  const text = bookJson.chapters?.[String(pr.chapter)]?.[String(pr.verse)];
+  let text = bookJson.chapters?.[String(pr.chapter)]?.[String(pr.verse)];
   if (!text) return null;
-  return { reference: pr.normalized, text: cleanVerseText(text), translation };
+
+  // Clean verse text
+  text = cleanVerseText(text);
+
+  // Apply simplified mode if requested
+  if (options.simplifiedMode) {
+    text = simplifyText(text, translation);
+  }
+
+  return { reference: pr.normalized, text, translation };
 }
 
 // Fetch a range and concatenate (e.g., "Ephesians 6:10-18")
-export async function getLocalVersesRange(translation, reference) {
+export async function getLocalVersesRange(translation, reference, options = {}) {
   const folder = folderFor(translation);
   if (!folder) return null;
   const pr = parseReference(reference);
@@ -70,9 +76,16 @@ export async function getLocalVersesRange(translation, reference) {
   const end = pr.verseEnd && pr.verseEnd >= start ? pr.verseEnd : start;
   const parts = [];
   for (let v = start; v <= end; v++) {
-    const text = chapterData[String(v)];
+    let text = chapterData[String(v)];
     if (text) {
-      parts.push(`${v}. ${cleanVerseText(text)}`);
+      text = cleanVerseText(text);
+
+      // Apply simplified mode if requested
+      if (options.simplifiedMode) {
+        text = simplifyText(text, translation);
+      }
+
+      parts.push(`${v}. ${text}`);
     }
   }
   if (parts.length === 0) return null;

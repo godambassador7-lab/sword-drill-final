@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Search, X, Columns, Heart, BookmarkPlus, BookOpen } from 'lucide-react';
+import { simplifyText } from '../services/simplifiedMode';
 
 const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, userData, onUpdateUserData }) => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -17,7 +18,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
   // Parallel view states
   const [parallelMode, setParallelMode] = useState(false);
-  const [secondaryTranslation, setSecondaryTranslation] = useState('ESV');
+  const [secondaryTranslation, setSecondaryTranslation] = useState('ASV');
   const [secondaryChapterContent, setSecondaryChapterContent] = useState([]);
   const [loadingSecondary, setLoadingSecondary] = useState(false);
 
@@ -26,8 +27,8 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const [endVerse, setEndVerse] = useState('');
   const [filteredVerses, setFilteredVerses] = useState([]);
 
-  // Validate and fix translation
-  const validTranslations = ['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT'];
+  // Validate and fix translation (public domain only)
+  const validTranslations = ['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'];
   const activeTranslation = validTranslations.includes(selectedTranslation?.toUpperCase())
     ? selectedTranslation.toUpperCase()
     : 'KJV';
@@ -215,10 +216,20 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
         const chapterData = data.chapters[chapter.toString()];
         if (chapterData) {
           // Convert object to array format and remove paragraph markers
-          const verses = Object.entries(chapterData).map(([verseNum, text]) => ({
-            verse: parseInt(verseNum),
-            text: text.replace(/^¶\s*/, '') // Remove paragraph marker at the beginning
-          }));
+          const verses = Object.entries(chapterData).map(([verseNum, text]) => {
+            // Remove paragraph marker at the beginning
+            let cleanedText = text.replace(/^¶\s*/, '');
+
+            // Apply simplified mode if enabled
+            if (userData?.simplifiedMode) {
+              cleanedText = simplifyText(cleanedText, activeTranslation);
+            }
+
+            return {
+              verse: parseInt(verseNum),
+              text: cleanedText
+            };
+          });
           console.log(`Loaded ${verses.length} verses for chapter ${chapter}`);
           setChapterContent(verses);
         } else {
@@ -260,10 +271,20 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
         const chapterData = data.chapters[chapter.toString()];
 
         if (chapterData) {
-          const verses = Object.entries(chapterData).map(([verseNum, text]) => ({
-            verse: parseInt(verseNum),
-            text: text.replace(/^¶\s*/, '')
-          }));
+          const verses = Object.entries(chapterData).map(([verseNum, text]) => {
+            // Remove paragraph marker at the beginning
+            let cleanedText = text.replace(/^¶\s*/, '');
+
+            // Apply simplified mode if enabled
+            if (userData?.simplifiedMode) {
+              cleanedText = simplifyText(cleanedText, translation);
+            }
+
+            return {
+              verse: parseInt(verseNum),
+              text: cleanedText
+            };
+          });
           setSecondaryChapterContent(verses);
         } else {
           console.error(`Chapter ${chapter} not found in ${book.name} (${translation})`);

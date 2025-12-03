@@ -3,15 +3,14 @@ import { parseReference } from "./assistant/referenceParser";
 // DISABLED: Not using API calls - only local verses
 // import { fetchPassageWithFallback, searchVerses, SUPPORTED_TRANSLATIONS } from "../services/bibleApiService";
 
-// All available translations (excluding ancient manuscripts)
+// All available translations (public domain only)
 const SUPPORTED_TRANSLATIONS = [
   { id: "KJV", name: "King James Version (KJV)" },
-  { id: "NIV", name: "New International Version (NIV)" },
-  { id: "NLT", name: "New Living Translation (NLT)" },
-  { id: "ESV", name: "English Standard Version (ESV)" },
   { id: "WEB", name: "World English Bible (WEB)" },
   { id: "ASV", name: "American Standard Version (ASV)" },
-  { id: "YLT", name: "Young's Literal Translation (YLT)" }
+  { id: "YLT", name: "Young's Literal Translation (YLT)" },
+  { id: "BISHOPS", name: "Bishops' Bible" },
+  { id: "GENEVA", name: "Geneva Bible" }
 ];
 
 // Complete list of Bible books with their abbreviations

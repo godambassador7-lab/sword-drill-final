@@ -1,5 +1,6 @@
 import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
 import { getUserData, addQuizResult, updateUserProgress } from './services/dbService';
+import { simplifyText, TRANSLATION_STYLES, getComparisonLabel, isSimplificationRecommended } from './services/simplifiedMode';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import {
   Trophy,
@@ -728,6 +729,7 @@ const SwordDrillApp = () => {
     achievements: [],
     selectedTranslation: 'KJV',
     includeApocrypha: false,
+    simplifiedMode: false, // Modernize archaic language in public domain translations
     verseProgress: {}, // NEW: Track progress for each verse
     currentLevel: 'Beginner', // Track user's current level
     completedCourseSections: {}, // Track completed course sections for one-time 100pt rewards
@@ -1060,7 +1062,7 @@ useEffect(() => {
           const passageMatch = currentDay.passage.match(/:\s*(.+)$/);
           if (passageMatch) {
             const reference = passageMatch[1].trim();
-            const resolved = await resolveVerseText(reference, userData.selectedTranslation);
+            const resolved = await resolveVerseText(reference, userData.selectedTranslation, { simplifiedMode: userData.simplifiedMode });
             if (!cancelled) {
               setDayVerseText(resolved?.text || `[${reference} - Unable to load verse text]`);
             }
@@ -1080,7 +1082,7 @@ useEffect(() => {
         const results = await Promise.all(scriptures.map(async (scripture) => {
           // Strip any AUTO prefixes or markers from references
           const ref = (scripture.reference || '').replace(/^AUTO[^A-Za-z0-9]*\s*/i, '').trim();
-          const resolved = await resolveVerseText(ref, userData.selectedTranslation);
+          const resolved = await resolveVerseText(ref, userData.selectedTranslation, { simplifiedMode: userData.simplifiedMode });
           return {
             reference: ref,
             text: resolved?.text || '',
@@ -1334,11 +1336,11 @@ const stripVerseNumbers = (text) => {
   return cleaned.trim();
 };
 
-const resolveVerseText = async (reference, translationPref) => {
+const resolveVerseText = async (reference, translationPref, options = {}) => {
   // 1) Try local corpus (handles ranges)
-  const localRange = await getLocalVersesRange(translationPref || 'KJV', reference);
+  const localRange = await getLocalVersesRange(translationPref || 'KJV', reference, options);
   if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || translationPref || 'KJV' };
-  const local = await getLocalVerseByReference(translationPref || 'KJV', reference);
+  const local = await getLocalVerseByReference(translationPref || 'KJV', reference, options);
   if (local) return { text: stripVerseNumbers(local.text), translation: local.translation || translationPref || 'KJV' };
 
   // 2) Try small static sample set
@@ -1382,7 +1384,7 @@ const startQuiz = async (type, usePersonalVerses = false) => {
   try {
     // Pick a curated reference based on level, avoiding quiz-type cooldowns
     const reference = pickCuratedReference(type, userData, usePersonalVerses);
-    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV');
+    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV', { simplifiedMode: userData.simplifiedMode });
     let verse = {
       id: reference,
       reference,
@@ -1680,7 +1682,7 @@ const startVerseDetective = async () => {
   try {
     // Pick a curated reference based on level
     const reference = pickCuratedReference('verse-detective', userData, false);
-    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV');
+    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV', { simplifiedMode: userData.simplifiedMode });
     const verse = {
       id: reference,
       reference,
@@ -1863,7 +1865,7 @@ const startPersonalVerseDetective = async () => {
     const randomVerse = personalVerses[Math.floor(Math.random() * personalVerses.length)];
     const reference = randomVerse.reference;
 
-    const verseTextInfo = await resolveVerseText(reference, randomVerse.translation || 'KJV');
+    const verseTextInfo = await resolveVerseText(reference, randomVerse.translation || 'KJV', { simplifiedMode: userData.simplifiedMode });
     const verse = {
       id: reference,
       reference,
@@ -2671,7 +2673,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           Open Bible Reader
         </div>
         <div className="text-amber-100 text-sm">
-          Read Scripture by Chapter • {['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT'].includes(userData.selectedTranslation?.toUpperCase()) ? userData.selectedTranslation.toUpperCase() : 'KJV'}
+          Read Scripture by Chapter • {['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'].includes(userData.selectedTranslation?.toUpperCase()) ? userData.selectedTranslation.toUpperCase() : 'KJV'}
         </div>
       </button>
 
@@ -4726,12 +4728,51 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             <option value="KJV">King James Version (KJV)</option>
             <option value="ASV">American Standard Version (ASV)</option>
             <option value="WEB">World English Bible (WEB)</option>
-            <option value="ESV">English Standard Version (ESV)</option>
-            <option value="NIV">New International Version (NIV)</option>
-            <option value="NLT">New Living Translation (NLT)</option>
             <option value="YLT">Young's Literal Translation (YLT)</option>
+            <option value="Bishops">Bishops' Bible</option>
+            <option value="Geneva">Geneva Bible</option>
           </select>
           <p className="text-slate-400 text-xs mt-2">All translations are stored locally - no internet connection required</p>
+
+          {/* Translation Style Info */}
+          {TRANSLATION_STYLES[userData.selectedTranslation?.toUpperCase()] && (
+            <div className="mt-3 p-3 bg-slate-800/50 rounded-lg border border-slate-600/50">
+              <div className="text-xs text-amber-400 font-semibold mb-1">
+                {TRANSLATION_STYLES[userData.selectedTranslation.toUpperCase()].style}
+              </div>
+              <div className="text-xs text-slate-400">
+                {TRANSLATION_STYLES[userData.selectedTranslation.toUpperCase()].comparable}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Simplified Mode Toggle */}
+        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+          <label className="flex items-center justify-between">
+            <div>
+              <span className="text-white font-bold">Simplified Mode</span>
+              {isSimplificationRecommended(userData.selectedTranslation) && (
+                <span className="ml-2 text-xs bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full border border-amber-500/30">
+                  Recommended
+                </span>
+              )}
+            </div>
+            <input
+              type="checkbox"
+              checked={userData.simplifiedMode}
+              onChange={(e) => setUserData({...userData, simplifiedMode: e.target.checked})}
+              className="w-6 h-6 rounded bg-slate-800 border-slate-600 text-amber-500 focus:ring-amber-500"
+            />
+          </label>
+          <p className="text-slate-400 text-sm mt-2">
+            Modernize archaic language: "thee/thou" → "you", "hath" → "has", etc.
+          </p>
+          {userData.selectedTranslation?.toUpperCase() === 'ASV' && userData.simplifiedMode && (
+            <p className="text-amber-400 text-xs mt-2 italic">
+              Also converts "Jehovah" → "LORD"
+            </p>
+          )}
         </div>
 
         <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
@@ -5747,7 +5788,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           <SwordDrillUltimate
             userLevel={userData.currentLevel || 'Beginner'}
             verseProgress={userData.verseProgress || {}}
-            getLocalVerseByReference={(ref) => getLocalVerseByReference(userData.selectedTranslation || 'KJV', ref)}
+            getLocalVerseByReference={(ref) => getLocalVerseByReference(userData.selectedTranslation || 'KJV', ref, { simplifiedMode: userData.simplifiedMode })}
             onComplete={(results) => {
               // Fade out background music
               fadeOutMusic();
