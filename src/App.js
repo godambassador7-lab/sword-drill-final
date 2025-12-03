@@ -654,7 +654,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const unlockables = {
     lxx: (localProgress.unlockables?.lxx || remoteProgress.unlockables?.lxx) || false,
     masoretic: (localProgress.unlockables?.masoretic || remoteProgress.unlockables?.masoretic) || false,
-    sinaiticus: (localProgress.unlockables?.sinaiticus || remoteProgress.unlockables?.sinaiticus) || false
+    sinaiticus: (localProgress.unlockables?.sinaiticus || remoteProgress.unlockables?.sinaiticus) || false,
+    smithDictionary: (localProgress.unlockables?.smithDictionary || remoteProgress.unlockables?.smithDictionary) || false,
+    bloodlines: (localProgress.unlockables?.bloodlines || remoteProgress.unlockables?.bloodlines) || false
   };
 
   // Merge quiz history (local + remote)
@@ -760,7 +762,8 @@ const SwordDrillApp = () => {
       lxx: false,        // Septuagint (Greek OT) - Unlock at 5000 pts
       masoretic: false,  // Masoretic Text (Hebrew OT) - Unlock at 7500 pts
       sinaiticus: false, // Codex Sinaiticus - Unlock at 10000 pts
-      smithDictionary: false // Smith's Bible Dictionary - Unlock at 500 pts
+      smithDictionary: false, // Smith's Bible Dictionary - Unlock at 500 pts
+      bloodlines: false // Bible Bloodlines unlock
     },
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
@@ -4773,7 +4776,30 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   };
 
-  const CalendarView = () => {
+  // Learning Plans View - Shows custom user learning plans
+  const LearningPlansView = () => {
+    return (
+      <div className="space-y-6">
+        <div className="text-center mb-6">
+          <GraduationCap className="mx-auto text-indigo-400 mb-2" size={48} />
+          <h2 className="text-2xl font-bold text-indigo-400">Learning Plans</h2>
+          <p className="text-slate-300">Create and manage your personalized Bible study learning plans</p>
+        </div>
+
+        {/* Learning Plan Component */}
+        <LearningPlan
+          userData={userData}
+          onUpdatePlan={(plans) => {
+            // Handle plan updates
+            console.log('Learning plans updated:', plans);
+          }}
+        />
+      </div>
+    );
+  };
+
+  // Bible Study Plans View - Shows all 3 Bible study plan sections
+  const BibleStudyPlansView = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const displayedPlans = searchTerm
       ? bibleStudyPlans.filter(plan =>
@@ -4783,21 +4809,137 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       : bibleStudyPlans;
 
     return (
+      <div className="space-y-6">
+        <div className="text-center mb-6">
+          <BookOpen className="mx-auto text-green-400 mb-2" size={48} />
+          <h2 className="text-2xl font-bold text-green-400">Bible Study Plans</h2>
+          <p className="text-slate-300">Structured Bible study plans from 1 day to 10+ days</p>
+        </div>
+
+        {/* Mini Bible Study Plans */}
+        <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-xl p-6 border border-green-700/50">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-bold text-green-300 flex items-center gap-2">
+              <BookOpen size={24} />
+              Mini Bible Study Plans
+            </h3>
+            <span className="text-green-400 font-bold text-sm">{bibleStudyPlans.length} Plans</span>
+          </div>
+          <p className="text-slate-300 text-sm mb-4">
+            Explore {bibleStudyPlans.length} topical mini Bible study plans with scripture readings, reflection questions, and prayers.
+          </p>
+
+          {/* Search and filter */}
+          <div className="mb-4">
+            <input
+              type="text"
+              value={searchTerm}
+              placeholder="Search topics (e.g., Faith, Prayer, Love...)"
+              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-green-500 focus:outline-none"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
+          {/* Plans Grid */}
+          <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+            {displayedPlans.map(plan => {
+              const planProgress = userData.studyPlanProgress?.[plan.id];
+              const isCompleted = planProgress?.completed;
+              const isInProgress = planProgress?.started && !planProgress?.completed;
+
+              return (
+                <button
+                  key={plan.id}
+                  onClick={() => {
+                    setPlanVerseTexts([]);
+                    setPlanVerseError('');
+                    setPlanVerseLoading(true);
+                    setSelectedPlan(plan);
+                    setShowPlanDetail(true);
+                    setCurrentDayIndex(0);
+
+                    // Mark as started if not already
+                    if (!planProgress?.started) {
+                      setUserData(prev => ({
+                        ...prev,
+                        studyPlanProgress: {
+                          ...prev.studyPlanProgress,
+                          [plan.id]: {
+                            started: Date.now(),
+                            completed: null
+                          }
+                        }
+                      }));
+                    }
+                  }}
+                  className={`bg-slate-700/50 hover:bg-slate-600/50 border ${
+                    isCompleted
+                      ? 'border-emerald-500/50 hover:border-emerald-400'
+                      : isInProgress
+                      ? 'border-amber-500/50 hover:border-amber-400'
+                      : 'border-green-600/30 hover:border-green-500'
+                  } rounded-lg p-3 text-left transition-all relative`}
+                >
+                  {isCompleted && (
+                    <div className="absolute top-2 right-2">
+                      <CheckCircle size={16} className="text-emerald-400" />
+                    </div>
+                  )}
+                  {isInProgress && !isCompleted && (
+                    <div className="absolute top-2 right-2 flex items-center gap-1">
+                      <Clock size={14} className="text-amber-400" />
+                    </div>
+                  )}
+                  <div className="text-green-400 font-bold text-sm mb-1 pr-6">{plan.topic}</div>
+                  <div className="text-slate-400 text-xs line-clamp-2">{plan.theme}</div>
+                  {isCompleted && (
+                    <div className="mt-2 text-xs text-emerald-400 font-semibold">✓ Completed</div>
+                  )}
+                  {isInProgress && !isCompleted && (
+                    <div className="mt-2 text-xs text-amber-400 font-semibold">⏱ In Progress</div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {displayedPlans.length > 20 && (
+            <div className="text-center text-slate-400 text-sm mt-3">
+              +{displayedPlans.length - 20} more plans available
+            </div>
+          )}
+        </div>
+
+        {/* Bible Study Plans (3-5 day plans) */}
+        <BibleStudyPlansSection
+          folder="short"
+          title="Bible Study Plans"
+          description="Focused 3-5 day Bible study plans for deeper topical exploration"
+          userData={userData}
+          setUserData={setUserData}
+        />
+
+        {/* Comprehensive Bible Plans (7-10 day plans) */}
+        <BibleStudyPlansSection
+          folder="comprehensive"
+          title="Comprehensive Bible Plans"
+          description="In-depth 7-10 day Bible study plans for thorough biblical exploration"
+          userData={userData}
+          setUserData={setUserData}
+          colorScheme="red"
+        />
+      </div>
+    );
+  };
+
+  const CalendarView = () => {
+    return (
     <div className="space-y-6">
       <div className="text-center mb-6">
         <Calendar className="mx-auto text-amber-400 mb-2" size={48} />
-        <h2 className="text-2xl font-bold text-amber-400">Calendar & Plans</h2>
-        <p className="text-slate-300">Track your progress, biblical dates, and study plans</p>
+        <h2 className="text-2xl font-bold text-amber-400">Activity Calendar</h2>
+        <p className="text-slate-300">Track your progress and biblical dates</p>
       </div>
-
-      {/* Learning Plan and Streak Tracker */}
-      <LearningPlan
-        userData={userData}
-        onUpdatePlan={(plans) => {
-          // Handle plan updates
-          console.log('Learning plans updated:', plans);
-        }}
-      />
 
       {/* Dual Calendar Display */}
       <DualCalendarDisplay
@@ -4861,119 +5003,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           View Activity Calendar
         </button>
       </div>
-
-      {/* Mini Bible Study Plans */}
-      <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-xl p-6 border border-green-700/50">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-green-300 flex items-center gap-2">
-            <BookOpen size={24} />
-            Mini Bible Study Plans
-          </h3>
-          <span className="text-green-400 font-bold text-sm">{bibleStudyPlans.length} Plans</span>
-        </div>
-        <p className="text-slate-300 text-sm mb-4">
-          Explore {bibleStudyPlans.length} topical mini Bible study plans with scripture readings, reflection questions, and prayers.
-        </p>
-
-        {/* Search and filter */}
-        <div className="mb-4">
-          <input
-            type="text"
-            value={searchTerm}
-            placeholder="Search topics (e.g., Faith, Prayer, Love...)"
-            className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-green-500 focus:outline-none"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-
-        {/* Plans Grid */}
-        <div className="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
-          {displayedPlans.map(plan => {
-            const planProgress = userData.studyPlanProgress?.[plan.id];
-            const isCompleted = planProgress?.completed;
-            const isInProgress = planProgress?.started && !planProgress?.completed;
-
-            return (
-              <button
-                key={plan.id}
-                onClick={() => {
-                  setPlanVerseTexts([]);
-                  setPlanVerseError('');
-                  setPlanVerseLoading(true);
-                  setSelectedPlan(plan);
-                  setShowPlanDetail(true);
-                  setCurrentDayIndex(0);
-
-                  // Mark as started if not already
-                  if (!planProgress?.started) {
-                    setUserData(prev => ({
-                      ...prev,
-                      studyPlanProgress: {
-                        ...prev.studyPlanProgress,
-                        [plan.id]: {
-                          started: Date.now(),
-                          completed: null
-                        }
-                      }
-                    }));
-                  }
-                }}
-                className={`bg-slate-700/50 hover:bg-slate-600/50 border ${
-                  isCompleted
-                    ? 'border-emerald-500/50 hover:border-emerald-400'
-                    : isInProgress
-                    ? 'border-amber-500/50 hover:border-amber-400'
-                    : 'border-green-600/30 hover:border-green-500'
-                } rounded-lg p-3 text-left transition-all relative`}
-              >
-                {isCompleted && (
-                  <div className="absolute top-2 right-2">
-                    <CheckCircle size={16} className="text-emerald-400" />
-                  </div>
-                )}
-                {isInProgress && !isCompleted && (
-                  <div className="absolute top-2 right-2 flex items-center gap-1">
-                    <Clock size={14} className="text-amber-400" />
-                  </div>
-                )}
-                <div className="text-green-400 font-bold text-sm mb-1 pr-6">{plan.topic}</div>
-                <div className="text-slate-400 text-xs line-clamp-2">{plan.theme}</div>
-                {isCompleted && (
-                  <div className="mt-2 text-xs text-emerald-400 font-semibold">✓ Completed</div>
-                )}
-                {isInProgress && !isCompleted && (
-                  <div className="mt-2 text-xs text-amber-400 font-semibold">⏱ In Progress</div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {displayedPlans.length > 20 && (
-          <div className="text-center text-slate-400 text-sm mt-3">
-            +{displayedPlans.length - 20} more plans available
-          </div>
-        )}
-      </div>
-
-      {/* Bible Study Plans (3-5 day plans) */}
-      <BibleStudyPlansSection
-        folder="short"
-        title="Bible Study Plans"
-        description="Focused 3-5 day Bible study plans for deeper topical exploration"
-        userData={userData}
-        setUserData={setUserData}
-      />
-
-      {/* Comprehensive Bible Plans (7-10 day plans) */}
-      <BibleStudyPlansSection
-        folder="comprehensive"
-        title="Comprehensive Bible Plans"
-        description="In-depth 7-10 day Bible study plans for thorough biblical exploration"
-        userData={userData}
-        setUserData={setUserData}
-        colorScheme="red"
-      />
     </div>
     );
   };
@@ -5621,8 +5650,46 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   </button>
                   <button
                     onClick={() => {
-                      setCurrentView('biblical-bloodlines');
-                      setShowMenu(false);
+                      const isUnlocked = userData.unlockables?.bloodlines;
+                      if (!isUnlocked) {
+                        if (userData.totalPoints >= 500) {
+                          if (window.confirm('Unlock Bible Bloodlines for 500 points?')) {
+                            if (currentUser?.uid) {
+                              purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
+                                if (result.success && result.validatedData) {
+                                  setUserData(prev => ({
+                                    ...prev,
+                                    totalPoints: result.validatedData.totalPoints,
+                                    unlockables: result.validatedData.unlockables
+                                  }));
+                                  showToast('Bible Bloodlines unlocked!', 'success');
+                                  setCurrentView('biblical-bloodlines');
+                                  setShowMenu(false);
+                                } else {
+                                  showToast(result.error || 'Failed to unlock Bible Bloodlines', 'error');
+                                }
+                              }).catch(err => {
+                                showToast('Error: ' + err.message, 'error');
+                              });
+                            } else {
+                              // Offline/guest unlock
+                              setUserData(prev => ({
+                                ...prev,
+                                totalPoints: Math.max(0, prev.totalPoints - 500),
+                                unlockables: { ...(prev.unlockables || {}), bloodlines: true }
+                              }));
+                              showToast('Bible Bloodlines unlocked!', 'success');
+                              setCurrentView('biblical-bloodlines');
+                              setShowMenu(false);
+                            }
+                          }
+                        } else {
+                          showToast('Need 500 points to unlock Bible Bloodlines', 'error');
+                        }
+                      } else {
+                        setCurrentView('biblical-bloodlines');
+                        setShowMenu(false);
+                      }
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
                   >
@@ -5630,6 +5697,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                     <div className="flex-1">
                       <div className="font-semibold text-sm">Biblical Bloodlines</div>
                       <div className="text-xs text-slate-400">Interactive Family Trees</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('bible-study-plans');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-green-600/20 hover:to-emerald-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Scroll size={18} className="text-green-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Bible Study Plans</div>
+                      <div className="text-xs text-slate-400">1-10 day structured plans</div>
                     </div>
                   </button>
 
@@ -5837,6 +5917,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         {currentView === 'mastery' && <MasteryView />}
         {currentView === 'powerup-shop' && <PowerUpShopView />}
         {currentView === 'smith-dictionary' && <SmithDictionaryView />}
+        {currentView === 'learning-plan' && <LearningPlansView />}
+        {currentView === 'bible-study-plans' && <BibleStudyPlansView />}
         {currentView === 'calendar' && <CalendarView />}
         {currentView === 'settings' && <SettingsView />}
         {currentView === 'tutorial' && <TutorialHelp onBack={() => setCurrentView('home')} />}
