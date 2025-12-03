@@ -199,9 +199,13 @@ const hasPointShield = (activeBoosts) => {
 
 // Progress Meters Component
 const ProgressMeters = ({ userData, isEliChallenge = false }) => {
-  const currentLevel = userData.currentLevel || 'Beginner';
+  // Ensure currentLevel is a string, not an object
+  let currentLevel = userData.currentLevel || 'Beginner';
+  if (typeof currentLevel === 'object') {
+    currentLevel = 'Beginner'; // Fallback if corrupted
+  }
   const requirements = LEVEL_REQUIREMENTS[currentLevel];
-  const nextLevel = requirements.nextLevel;
+  const nextLevel = requirements?.nextLevel;
   const progressRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -2454,13 +2458,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   console.log('Combined achievements:', newAchievements);
 
   // Check for level progression
-  const newLevel = checkLevelProgression({
+  const levelProgressionResult = checkLevelProgression({
     ...updatedUserDataForChecking,
     achievements: newAchievements
   });
 
+  // Determine actual level (advance if eligible, otherwise keep current)
+  const newLevel = levelProgressionResult.canLevelUp && levelProgressionResult.nextLevel
+    ? levelProgressionResult.nextLevel
+    : (userData.currentLevel || 'Beginner');
+
   console.log('[Level Progression Debug]');
   console.log('Current level:', userData.currentLevel);
+  console.log('Can level up:', levelProgressionResult.canLevelUp);
+  console.log('Next level:', levelProgressionResult.nextLevel);
   console.log('New level:', newLevel);
 
   // Auto-unlock translations based on points
