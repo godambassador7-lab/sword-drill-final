@@ -36,7 +36,8 @@ import {
   Activity,
   Plus,
   FileText,
-  AlertTriangle
+  AlertTriangle,
+  Coins
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
@@ -3268,15 +3269,27 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
                 // Deduct points
                 const newTotalPoints = userData.totalPoints - hintCost;
+
+                // Track hint purchase
+                const hintPurchase = {
+                  timestamp: Date.now(),
+                  cost: hintCost,
+                  quizType: quizState.type
+                };
+
+                const updatedHintPurchases = [...(userData.hintPurchases || []), hintPurchase];
+
                 setUserData(prev => ({
                   ...prev,
-                  totalPoints: newTotalPoints
+                  totalPoints: newTotalPoints,
+                  hintPurchases: updatedHintPurchases
                 }));
 
                 // Update Firebase
                 if (currentUser?.uid) {
                   updateUserProgress(currentUser.uid, {
-                    totalPoints: newTotalPoints
+                    totalPoints: newTotalPoints,
+                    hintPurchases: updatedHintPurchases
                   }).catch(err => console.error('Error updating points:', err));
                 }
 
@@ -4277,10 +4290,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       // Add quiz earnings
       (userData.quizHistory || []).forEach(quiz => {
-        if (quiz.correct && quiz.points) {
+        if (quiz.correct && quiz.points && quiz.timestamp) {
+          // Ensure timestamp is a valid number
+          const timestamp = typeof quiz.timestamp === 'number' ? quiz.timestamp : Date.now();
           transactions.push({
-            id: `quiz_${quiz.timestamp}`,
-            date: quiz.timestamp,
+            id: `quiz_${timestamp}_${Math.random()}`,
+            date: timestamp,
             type: 'earn',
             amount: quiz.points,
             description: `Quiz completed: ${quiz.type}`,
@@ -4305,6 +4320,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           }
         });
       }
+
+      // Add hint purchases
+      (userData.hintPurchases || []).forEach(hint => {
+        if (hint.timestamp && hint.cost) {
+          transactions.push({
+            id: `hint_${hint.timestamp}`,
+            date: hint.timestamp,
+            type: 'spend',
+            amount: hint.cost,
+            description: `Hint purchased: ${hint.quizType || 'quiz'}`,
+            icon: '💡'
+          });
+        }
+      });
 
       // Add investments
       (userData.investments || []).forEach(inv => {
@@ -4450,7 +4479,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         {/* Header */}
         <div className="text-center mb-6">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <TrendingUp className="text-amber-400" size={48} />
+            <Coins className="text-amber-400" size={48} />
             <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
               Points Bank
             </h2>
@@ -6933,10 +6962,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             isPaidMode={true}
             completionHistory={[]}
             onPurchaseHint={(cost) => {
+              const hintPurchase = {
+                timestamp: Date.now(),
+                cost: cost,
+                quizType: 'verse-detective'
+              };
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints - cost)
+                totalPoints: Math.max(0, prev.totalPoints - cost),
+                hintPurchases: [...(prev.hintPurchases || []), hintPurchase]
               }));
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: Math.max(0, userData.totalPoints - cost),
+                  hintPurchases: [...(userData.hintPurchases || []), hintPurchase]
+                }).catch(err => console.error('Error updating hint purchase:', err));
+              }
             }}
           />
         )}
@@ -7775,10 +7816,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           isPaidMode={true}
           completionHistory={[]}
           onPurchaseHint={(cost) => {
+            const hintPurchase = {
+              timestamp: Date.now(),
+              cost: cost,
+              quizType: 'enhanced-review'
+            };
             setUserData(prev => ({
               ...prev,
-              totalPoints: Math.max(0, prev.totalPoints - cost)
+              totalPoints: Math.max(0, prev.totalPoints - cost),
+              hintPurchases: [...(prev.hintPurchases || []), hintPurchase]
             }));
+            if (currentUser?.uid) {
+              updateUserProgress(currentUser.uid, {
+                totalPoints: Math.max(0, userData.totalPoints - cost),
+                hintPurchases: [...(userData.hintPurchases || []), hintPurchase]
+              }).catch(err => console.error('Error updating hint purchase:', err));
+            }
           }}
         />
       )}
