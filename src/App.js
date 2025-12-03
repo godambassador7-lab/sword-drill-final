@@ -736,6 +736,10 @@ const SwordDrillApp = () => {
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
   const [dayVerseText, setDayVerseText] = useState('');
 
+  // Purchase confirmation modal
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const [purchaseModalData, setPurchaseModalData] = useState(null);
+
   // Achievement unlock states
   const [showAchievementUnlock, setShowAchievementUnlock] = useState(null);
   const [hasUnviewedAchievements, setHasUnviewedAchievements] = useState(
@@ -1409,26 +1413,46 @@ const handleCourseAccess = (courseId) => {
 
   // Need to pay admission
   if (userData.totalPoints >= course.cost) {
-    if (window.confirm(`Pay ${course.cost} points admission to access ${course.name}?`)) {
-      if (currentUser?.uid) {
-        purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
-          if (result.success && result.validatedData) {
-            setUserData(prev => ({
-              ...prev,
-              totalPoints: result.validatedData.totalPoints,
-              unlockables: result.validatedData.unlockables
-            }));
-            showToast(`🎓 ${course.name} unlocked! Welcome to class!`, 'success');
-            setCurrentView(courseId);
-            setShowMenu(false);
-          } else {
-            showToast(result.error || 'Failed to unlock course', 'error');
-          }
-        }).catch(err => {
-          showToast('Error: ' + err.message, 'error');
-        });
+    setPurchaseModalData({
+      name: course.name,
+      cost: course.cost,
+      icon: course.icon,
+      color: course.color,
+      description: course.description,
+      isAdmission: true,
+      onConfirm: () => {
+        if (currentUser?.uid) {
+          purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
+            if (result.success && result.validatedData) {
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: result.validatedData.totalPoints,
+                unlockables: result.validatedData.unlockables
+              }));
+              showToast(`🎓 ${course.name} unlocked! Welcome to class!`, 'success');
+              setCurrentView(courseId);
+              setShowMenu(false);
+            } else {
+              showToast(result.error || 'Failed to unlock course', 'error');
+            }
+          }).catch(err => {
+            showToast('Error: ' + err.message, 'error');
+          });
+        } else {
+          // Offline/guest unlock
+          setUserData(prev => ({
+            ...prev,
+            totalPoints: Math.max(0, prev.totalPoints - course.cost),
+            unlockables: { ...(prev.unlockables || {}), [unlockKey]: true }
+          }));
+          showToast(`🎓 ${course.name} unlocked! Welcome to class!`, 'success');
+          setCurrentView(courseId);
+          setShowMenu(false);
+        }
+        setShowPurchaseModal(false);
       }
-    }
+    });
+    setShowPurchaseModal(true);
   } else {
     showToast(`Need ${course.cost} points to access ${course.name}`, 'error');
   }
@@ -5635,7 +5659,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                         setShowMenu(false);
                       }
                     }}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
+                    className={`w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3 ${!userData.unlockables?.smithDictionary ? 'locked-pulse' : ''}`}
                   >
                     <BookOpen size={18} className="text-blue-400" />
                     <div className="flex-1">
@@ -5653,50 +5677,64 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                       const isUnlocked = userData.unlockables?.bloodlines;
                       if (!isUnlocked) {
                         if (userData.totalPoints >= 500) {
-                          if (window.confirm('Unlock Bible Bloodlines for 500 points?')) {
-                            if (currentUser?.uid) {
-                              purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
-                                if (result.success && result.validatedData) {
-                                  setUserData(prev => ({
-                                    ...prev,
-                                    totalPoints: result.validatedData.totalPoints,
-                                    unlockables: result.validatedData.unlockables
-                                  }));
-                                  showToast('Bible Bloodlines unlocked!', 'success');
-                                  setCurrentView('biblical-bloodlines');
-                                  setShowMenu(false);
-                                } else {
-                                  showToast(result.error || 'Failed to unlock Bible Bloodlines', 'error');
-                                }
-                              }).catch(err => {
-                                showToast('Error: ' + err.message, 'error');
-                              });
-                            } else {
-                              // Offline/guest unlock
-                              setUserData(prev => ({
-                                ...prev,
-                                totalPoints: Math.max(0, prev.totalPoints - 500),
-                                unlockables: { ...(prev.unlockables || {}), bloodlines: true }
-                              }));
-                              showToast('Bible Bloodlines unlocked!', 'success');
-                              setCurrentView('biblical-bloodlines');
-                              setShowMenu(false);
+                          setPurchaseModalData({
+                            name: 'Biblical Bloodlines',
+                            cost: 500,
+                            icon: Users,
+                            color: 'amber',
+                            description: 'Interactive Family Trees',
+                            onConfirm: () => {
+                              if (currentUser?.uid) {
+                                purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
+                                  if (result.success && result.validatedData) {
+                                    setUserData(prev => ({
+                                      ...prev,
+                                      totalPoints: result.validatedData.totalPoints,
+                                      unlockables: result.validatedData.unlockables
+                                    }));
+                                    showToast('🎉 Biblical Bloodlines unlocked!', 'success');
+                                    setCurrentView('biblical-bloodlines');
+                                    setShowMenu(false);
+                                  } else {
+                                    showToast(result.error || 'Failed to unlock Biblical Bloodlines', 'error');
+                                  }
+                                }).catch(err => {
+                                  showToast('Error: ' + err.message, 'error');
+                                });
+                              } else {
+                                // Offline/guest unlock
+                                setUserData(prev => ({
+                                  ...prev,
+                                  totalPoints: Math.max(0, prev.totalPoints - 500),
+                                  unlockables: { ...(prev.unlockables || {}), bloodlines: true }
+                                }));
+                                showToast('🎉 Biblical Bloodlines unlocked!', 'success');
+                                setCurrentView('biblical-bloodlines');
+                                setShowMenu(false);
+                              }
+                              setShowPurchaseModal(false);
                             }
-                          }
+                          });
+                          setShowPurchaseModal(true);
                         } else {
-                          showToast('Need 500 points to unlock Bible Bloodlines', 'error');
+                          showToast('Need 500 points to unlock Biblical Bloodlines', 'error');
                         }
                       } else {
                         setCurrentView('biblical-bloodlines');
                         setShowMenu(false);
                       }
                     }}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                    className={`w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3 ${!userData.unlockables?.bloodlines ? 'locked-pulse' : ''}`}
                   >
                     <Users size={18} className="text-amber-400" />
                     <div className="flex-1">
-                      <div className="font-semibold text-sm">Biblical Bloodlines</div>
-                      <div className="text-xs text-slate-400">Interactive Family Trees</div>
+                      <div className="font-semibold text-sm flex items-center gap-2">
+                        Biblical Bloodlines
+                        {!userData.unlockables?.bloodlines && <Lock size={12} className="text-amber-400" />}
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        {userData.unlockables?.bloodlines ? 'Interactive Family Trees' : '500 pts to unlock'}
+                      </div>
                     </div>
                   </button>
                   <button
@@ -5736,7 +5774,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                             <button
                               key={courseId}
                               onClick={() => handleCourseAccess(courseId)}
-                              className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-${course.color}-600/20 hover:to-${course.color}-600/20 transition-all flex items-center gap-2`}
+                              className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-${course.color}-600/20 hover:to-${course.color}-600/20 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
                             >
                               <IconComponent size={16} className={`text-${course.color}-400`} />
                               <div className="flex-1">
@@ -6908,6 +6946,64 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <div className="text-emerald-100 text-sm">Solve clues to identify your verses • 5 points • -10 penalty • Limited to 3 completions per day</div>
               </button>
 
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Purchase Confirmation Modal */}
+      {showPurchaseModal && purchaseModalData && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setShowPurchaseModal(false)}>
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl max-w-md w-full p-6 border-2 border-amber-500/50" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center gap-3">
+                {(() => {
+                  const IconComponent = purchaseModalData.icon;
+                  return <IconComponent size={32} className={`text-${purchaseModalData.color}-400`} />;
+                })()}
+                <div>
+                  <h2 className="text-xl font-bold text-white">
+                    {purchaseModalData.isAdmission ? 'Pay Admission' : 'Unlock Feature'}
+                  </h2>
+                  <p className="text-slate-400 text-sm">{purchaseModalData.name}</p>
+                </div>
+              </div>
+              <button onClick={() => setShowPurchaseModal(false)} className="text-slate-400 hover:text-white transition-all">
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="bg-slate-700/50 rounded-xl p-4 mb-6 border border-slate-600">
+              <p className="text-slate-300 text-sm mb-3">{purchaseModalData.description}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-sm">Cost:</span>
+                <span className="text-amber-400 text-2xl font-bold">{purchaseModalData.cost} pts</span>
+              </div>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
+                <span className="text-slate-400 text-sm">Your Balance:</span>
+                <span className="text-white text-lg font-semibold">{userData.totalPoints} pts</span>
+              </div>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
+                <span className="text-slate-400 text-sm">After Purchase:</span>
+                <span className={`text-lg font-semibold ${userData.totalPoints - purchaseModalData.cost >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {userData.totalPoints - purchaseModalData.cost} pts
+                </span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowPurchaseModal(false)}
+                className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-lg transition-all"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={purchaseModalData.onConfirm}
+                className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-3 px-4 rounded-lg transition-all"
+              >
+                {purchaseModalData.isAdmission ? 'Pay & Enter' : 'Unlock'}
+              </button>
             </div>
           </div>
         </div>
