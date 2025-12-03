@@ -167,6 +167,13 @@ const ECONOMY = {
   }
 };
 
+const SUPPORTED_TRANSLATIONS = ['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT'];
+const normalizeTranslation = (t) => {
+  const normalized = (t || '').toUpperCase().trim();
+  if (normalized === 'NKJV') return 'KJV'; // map NKJV to local KJV corpus
+  return SUPPORTED_TRANSLATIONS.includes(normalized) ? normalized : 'KJV';
+};
+
 // Calculate active boost multiplier
 const getActiveBoostMultiplier = (activeBoosts) => {
   let multiplier = 1;
@@ -671,7 +678,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     currentStreak,
     totalPoints: Math.max(localProgress.totalPoints || 0, remoteProgress.totalPoints || 0),
     achievements,
-    selectedTranslation: remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV',
+    selectedTranslation: normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV'),
     includeApocrypha: remoteProgress.includeApocrypha ?? localProgress.includeApocrypha ?? false,
     verseProgress,
     currentLevel: remoteProgress.currentLevel || localProgress.currentLevel || 'Beginner',
@@ -861,16 +868,16 @@ useEffect(() => {
       const mergedStreak = Math.max(localStreak, firebaseStreak);
 
       const verseProgressData = result.progress.verseProgress || {};
-      const loadedUserData = {
-        name: result.user.name || 'User',
-        versesMemorized: calculateMasteredVerses(verseProgressData),
-        quizzesCompleted: result.progress.quizzesCompleted || 0,
-        currentStreak: mergedStreak,
-        totalPoints: result.progress.totalPoints || 0,
-        achievements: Array.isArray(result.progress.achievements) ? result.progress.achievements : [],
-        selectedTranslation: result.user.selectedTranslation || 'KJV',
-        includeApocrypha: result.user.includeApocrypha || false,
-        verseProgress: verseProgressData,
+        const loadedUserData = {
+          name: result.user.name || 'User',
+          versesMemorized: calculateMasteredVerses(verseProgressData),
+          quizzesCompleted: result.progress.quizzesCompleted || 0,
+          currentStreak: mergedStreak,
+          totalPoints: result.progress.totalPoints || 0,
+          achievements: Array.isArray(result.progress.achievements) ? result.progress.achievements : [],
+          selectedTranslation: normalizeTranslation(result.user.selectedTranslation || 'KJV'),
+          includeApocrypha: result.user.includeApocrypha || false,
+          verseProgress: verseProgressData,
           currentLevel: result.progress.currentLevel || 'Beginner',
           unlockables: result.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false },
           newlyUnlockedAchievements: result.progress.newlyUnlockedAchievements || [],
@@ -1246,7 +1253,7 @@ const handleSignIn = async (e) => {
           currentStreak: Math.max(localStreak, firebaseStreak),
           totalPoints: data.progress.totalPoints || 0,
           achievements: Array.isArray(data.progress.achievements) ? data.progress.achievements : [],
-          selectedTranslation: data.user.selectedTranslation || 'KJV',
+          selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'KJV'),
           includeApocrypha: data.user.includeApocrypha || false,
           verseProgress: verseProgressData,
           currentLevel: data.progress.currentLevel || 'Beginner',
@@ -1404,22 +1411,23 @@ const stripVerseNumbers = (text) => {
 };
 
 const resolveVerseText = async (reference, translationPref, options = {}) => {
+  const preferred = normalizeTranslation(translationPref || 'KJV');
   // 1) Try local corpus (handles ranges)
-  const localRange = await getLocalVersesRange(translationPref || 'KJV', reference, options);
-  if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || translationPref || 'KJV' };
-  const local = await getLocalVerseByReference(translationPref || 'KJV', reference, options);
-  if (local) return { text: stripVerseNumbers(local.text), translation: local.translation || translationPref || 'KJV' };
+  const localRange = await getLocalVersesRange(preferred, reference, options);
+  if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || preferred };
+  const local = await getLocalVerseByReference(preferred, reference, options);
+  if (local) return { text: stripVerseNumbers(local.text), translation: local.translation || preferred };
 
   // 2) Try small static sample set
-  const staticHit = getStaticVerseByReference(reference, translationPref || 'KJV');
-  if (staticHit) return { text: stripVerseNumbers(staticHit.text), translation: staticHit.translation || translationPref || 'KJV' };
+  const staticHit = getStaticVerseByReference(reference, preferred);
+  if (staticHit) return { text: stripVerseNumbers(staticHit.text), translation: staticHit.translation || preferred };
 
   // 3) Try daily pool
   const daily = DAILY_VERSES_POOL.find(v => (v.reference || '').toLowerCase() === reference.toLowerCase());
-  if (daily) return { text: stripVerseNumbers(daily.text), translation: translationPref || 'KJV' };
+  if (daily) return { text: stripVerseNumbers(daily.text), translation: preferred };
 
   // 4) Fallback placeholder to keep UI functional
-  return { text: `Verse text for ${reference} (translation ${translationPref || 'KJV'}) not available locally.`, translation: translationPref || 'KJV' };
+  return { text: `Verse text for ${reference} (translation ${preferred}) not available locally.`, translation: preferred };
 };
 
 const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => {
@@ -1445,13 +1453,14 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   const picked = pool[Math.floor(Math.random() * pool.length)];
   return picked || DEFAULT_VERSE_FALLBACK.reference;
 };
-const startQuiz = async (type, usePersonalVerses = false) => {
-  setLoading(true);
+  const startQuiz = async (type, usePersonalVerses = false) => {
+    setLoading(true);
 
-  try {
-    // Pick a curated reference based on level, avoiding quiz-type cooldowns
-    const reference = pickCuratedReference(type, userData, usePersonalVerses);
-    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV', { simplifiedMode: userData.simplifiedMode });
+    try {
+      const preferredTranslation = normalizeTranslation(userData.selectedTranslation || 'KJV');
+      // Pick a curated reference based on level, avoiding quiz-type cooldowns
+      const reference = pickCuratedReference(type, userData, usePersonalVerses);
+      const verseTextInfo = await resolveVerseText(reference, preferredTranslation, { simplifiedMode: userData.simplifiedMode });
     let verse = {
       id: reference,
       reference,
