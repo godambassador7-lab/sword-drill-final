@@ -202,20 +202,27 @@ export function recomputeStreakFromHistory(quizHistory = []) {
     streakData[dateStr] = true;
   });
 
-  // Calculate current streak (must be consecutive ending today)
+  // Calculate current streak (consecutive days ending today or yesterday)
   const today = new Date().toDateString();
   let currentStreak = 0;
   let checkDate = new Date();
 
-  // Count backwards from today
+  // Check if user has completed quiz today
+  const hasQuizToday = streakData[today];
+
+  // If no quiz today, start from yesterday (grace period)
+  if (!hasQuizToday) {
+    checkDate.setDate(checkDate.getDate() - 1);
+  }
+
+  // Count backwards from today/yesterday
   while (true) {
     const dateStr = checkDate.toDateString();
     if (streakData[dateStr]) {
       currentStreak++;
       checkDate.setDate(checkDate.getDate() - 1);
     } else {
-      // Allow 1 day gap if user has streak freeze
-      // (This would be passed as a parameter in production)
+      // Streak broken
       break;
     }
   }
