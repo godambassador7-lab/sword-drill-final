@@ -2499,9 +2499,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         ...newQuizData
       });
     console.log('[Firebase] Save result:', saveResult);
+
+    // SECURITY: Use server-validated data if available
+    if (saveResult.success && saveResult.validatedData) {
+      console.log('[Security] Using server-validated points:', saveResult.validatedData);
+      // Override client calculations with server-validated values
+      setUserData(prev => ({
+        ...prev,
+        ...newQuizData,
+        totalPoints: saveResult.validatedData.totalPoints,
+        currentStreak: saveResult.validatedData.currentStreak,
+        longestStreak: saveResult.validatedData.longestStreak,
+        quizzesCompleted: saveResult.validatedData.quizzesCompleted,
+        currentLevel: saveResult.validatedData.currentLevel || prev.currentLevel
+      }));
+      return; // Exit early to prevent using client-calculated values
+    }
   }
 
-  // Always update all quiz data (quizzes completed, verses mastered, etc.)
+  // Fallback: update with client-calculated data (only if Firebase save failed)
   setUserData(prev => ({
     ...prev,
     ...newQuizData

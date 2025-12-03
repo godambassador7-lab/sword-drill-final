@@ -154,6 +154,9 @@ export const addQuizResult = async (userId, quizData) => {
     if (quizData.studyPlanProgress !== undefined) {
       updateData.studyPlanProgress = quizData.studyPlanProgress;
     }
+    if (quizData.currentLevel !== undefined) {
+      updateData.currentLevel = quizData.currentLevel;
+    }
 
     console.log('[dbService] Final updateData being sent to Firebase:', updateData);
     await updateDoc(doc(db, 'userProgress', userId), updateData);
@@ -169,7 +172,8 @@ export const addQuizResult = async (userId, quizData) => {
         streakData: recomputedStreak.streakData,
         pointsAwarded: validatedPoints,
         diminishingMultiplier: pointsValidation.diminishingMultiplier,
-        quizzesCompleted: updatedHistory.length
+        quizzesCompleted: updatedHistory.length,
+        currentLevel: updateData.currentLevel // Include level if provided
       }
     };
   } catch (error) {
