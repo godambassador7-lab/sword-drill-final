@@ -1,5 +1,5 @@
 import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
-import { getUserData, addQuizResult, updateUserProgress } from './services/dbService';
+import { getUserData, addQuizResult, updateUserProgress, purchaseUnlockable, recordVerseOfDayRead } from './services/dbService';
 import { simplifyText, TRANSLATION_STYLES, getComparisonLabel, isSimplificationRecommended } from './services/simplifiedMode';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import {
