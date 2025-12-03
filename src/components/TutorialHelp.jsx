@@ -265,15 +265,175 @@ const TutorialHelp = ({ onBack }) => {
       ]
     },
     {
+      id: 'points-bank-investments',
+      title: 'Points Bank & Investments',
+      icon: Coins,
+      color: 'from-amber-500 to-orange-600',
+      subsections: [
+        {
+          title: 'What is the Points Bank?',
+          content: 'The Points Bank is your comprehensive financial management system within Sword Drill. Track all your earnings, spending, and investments in one place. View detailed transaction history showing every point movement from quizzes, purchases, and investment returns.',
+          tips: [
+            'Access Points Bank from the Analytics menu',
+            'See 4 summary cards: Total Earned, Total Spent, Current Balance, Invested',
+            'Transaction history shows up to 50 recent activities',
+            'Transactions are color-coded: green (earnings), red (penalties), gray (spending)',
+            'Each transaction shows description, date/time, and amount',
+            'Icons indicate transaction type: 📝 quiz, 🔓 unlock, 💰 investment, 🎉 matured'
+          ]
+        },
+        {
+          title: 'Activity Score System',
+          content: 'Your Activity Score (0-100) is calculated based on your engagement and consistency. This score directly affects your investment returns - the more active and consistent you are, the better your ROI! The score considers your current streak, total quizzes completed, average quizzes per day, and days active.',
+          tips: [
+            'Score range: 0-100, displayed as a visual progress bar',
+            'Current streak contributes up to 40 points (2 points per day)',
+            'Quiz rate contributes up to 40 points (based on quizzes/day)',
+            'Base 20 points for being an active user',
+            'Higher scores unlock better investment multipliers (up to 50% bonus)',
+            'Maintain daily streaks to maximize your activity score',
+            'Consistent daily practice yields the highest scores'
+          ]
+        },
+        {
+          title: 'Investment System',
+          content: 'Invest your hard-earned points to generate passive returns! Lock in your points for 7, 14, 30, 60, or 90 days and earn interest based on your activity score and commitment period. The longer you lock and the more active you are, the higher your ROI.',
+          tips: [
+            'Minimum investment: 100 points',
+            'Lock periods: 7, 14, 30, 60, or 90 days',
+            'Base ROI: 2% per week (compounds with multipliers)',
+            'Activity bonus: 0-50% additional based on your score',
+            'Time multipliers: 7d=1.0x, 14d=1.05x, 30d=1.15x, 60d=1.3x, 90d=1.5x',
+            'Example: 1000 pts for 90 days at 80 activity = ~350 pts return',
+            'Points are subtracted from current balance when invested',
+            'Multiple active investments allowed simultaneously'
+          ]
+        },
+        {
+          title: 'Creating an Investment',
+          content: 'Click "New Investment" in the Points Bank to open the investment modal. Enter your desired amount (minimum 100 points), select a lock period, and review the projected ROI before confirming. The modal shows your projected return and breaks down the activity bonus and time multiplier.',
+          tips: [
+            'Enter any amount ≥100 points',
+            'See your available balance before investing',
+            'ROI calculation updates in real-time as you adjust lock period',
+            'Projected returns show exact points you\'ll receive',
+            'Activity bonus breakdown shows how your score affects returns',
+            'Time multiplier displayed (1.0x - 1.5x based on lock period)',
+            'WARNING displayed about 50% early withdrawal penalty',
+            'Confirm investment only when you\'re ready to lock the points'
+          ]
+        },
+        {
+          title: 'Managing Active Investments',
+          content: 'Track all your active investments in the Investments section of Points Bank. Each investment card shows the amount, days remaining until maturity, ROI percentage, lock period, and projected returns. When an investment matures, withdraw it to collect your returns!',
+          tips: [
+            'Green checkmark = Matured (ready to withdraw)',
+            'Orange clock = Still maturing (days remaining shown)',
+            'View ROI rate, lock period, and projected return for each investment',
+            'Matured investments show "Withdraw" button (green)',
+            'Active investments show "Early Exit" button (red)',
+            'Withdraw matured investments to collect full return + bonus',
+            'Multiple investments can mature on different days'
+          ]
+        },
+        {
+          title: 'Early Withdrawal Penalty',
+          content: 'Need your points back before maturity? You can withdraw early, but be warned - you\'ll lose 50% of your investment! This severe penalty discourages premature withdrawals and rewards commitment. Only withdraw early in true emergencies.',
+          tips: [
+            '⚠️ SEVERE PENALTY: 50% loss on early withdrawal',
+            'Example: 1000 pts invested → only 500 pts returned if early',
+            'Matured investments have NO penalty (full return + ROI)',
+            'Confirmation modal shows exactly how much you\'ll lose',
+            'Days remaining until maturity displayed before withdrawal',
+            'Consider waiting unless absolutely necessary',
+            'Better to wait and earn bonus than lose half your investment',
+            'Plan your investments carefully to avoid needing early exit'
+          ]
+        },
+        {
+          title: 'Withdrawal Process',
+          content: 'Withdrawing a matured investment is simple and rewarding! Click "Withdraw" on the matured investment, review the return amount (original + ROI bonus), and confirm to collect your points. The withdrawal modal shows your original investment, ROI rate, and total return with bonus points highlighted.',
+          tips: [
+            'Matured investments show green "Withdraw" button',
+            'Review modal shows: Original amount, ROI rate, Total return',
+            'Bonus points earned displayed (Total - Original)',
+            'Celebration message: "Investment matured! +X bonus points!"',
+            'Points immediately added to your current balance',
+            'Transaction recorded in history with 🎉 icon',
+            'Investment marked as completed in your records',
+            'Reinvest your returns to compound your growth!'
+          ]
+        },
+        {
+          title: 'Investment Strategy Tips',
+          content: 'Maximize your returns with smart investment strategies! Focus on building and maintaining your activity score through consistent daily practice. Longer lock periods yield significantly better returns but require more commitment. Diversify with multiple investments at different maturity dates.',
+          tips: [
+            '🎯 Strategy 1: Build activity score first before big investments',
+            '🎯 Strategy 2: Start with short locks (7-14d) to test the system',
+            '🎯 Strategy 3: Progress to longer locks (60-90d) for max returns',
+            '🎯 Strategy 4: Maintain daily streak to boost activity score',
+            '🎯 Strategy 5: Invest in stages - don\'t lock all points at once',
+            '🎯 Strategy 6: Reinvest matured returns for compound growth',
+            '🎯 Strategy 7: Plan lock periods around personal schedule',
+            '🎯 Strategy 8: Keep emergency reserve (don\'t invest everything)'
+          ]
+        }
+      ]
+    },
+    {
       id: 'courses-interactive',
       title: 'Courses & Interactive Features',
       icon: Users,
       color: 'from-teal-500 to-cyan-600',
       subsections: [
         {
-          title: 'Κοινή Greek Course',
-          content: 'A comprehensive multi-level course in Biblical (Koine) Greek! Learn to read and understand the New Testament in its original language through structured lessons covering alphabet, vocabulary, grammar, syntax, and translation.',
+          title: 'Course Admission System',
+          content: 'Premium courses require point-based admission fees to unlock! Each course is priced based on its complexity and depth. Pay once with your earned points to gain permanent access. Courses are organized in a convenient dropdown menu under the Study section.',
           tips: [
+            'Greek Course: 300 points admission (Κοινή Greek)',
+            'Hebrew Course: 300 points admission (עברית עתיקה)',
+            'Hermeneutics Course: 500 points (most advanced)',
+            'Church History: 200 points (From Genesis to Early Church)',
+            'Kings of Israel: 200 points (Rulers & Prophets)',
+            'Textual Criticism: 400 points (Manuscript Analysis)',
+            'Locked courses pulse with amber glow to draw attention',
+            'Click locked course to see admission cost and current balance',
+            'Admission is one-time payment - permanent access after unlock',
+            'All purchases validated server-side to prevent exploits'
+          ]
+        },
+        {
+          title: 'Ancient Manuscript Unlockables',
+          content: 'Unlock access to rare ancient biblical manuscripts and texts! These premium resources provide scholarly access to the original sources of Scripture. Each manuscript is a significant investment but offers invaluable historical and textual insights.',
+          tips: [
+            'LXX Septuagint: 5000 points (Greek Old Testament)',
+            'Masoretic WLC: 7500 points (Hebrew Bible with vowel points)',
+            'Codex Sinaiticus: 10000 points (4th-century Greek manuscript)',
+            'Locked items show pulsing amber glow',
+            'View cost and description before purchasing',
+            'Beautiful purchase modal shows cost breakdown',
+            'One-time purchase for permanent access',
+            'Server validates you have sufficient points before unlocking'
+          ]
+        },
+        {
+          title: 'Biblical Bloodlines Unlockable',
+          content: 'Unlock the Biblical Bloodlines feature to explore interactive family trees! This 500-point unlockable provides visual genealogies of major biblical figures, helping you understand family relationships and lineages throughout Scripture.',
+          tips: [
+            'Cost: 500 points (one-time unlock)',
+            'Interactive family trees of biblical figures',
+            'Trace lineages from Abraham to Jesus',
+            'Visual connections between key characters',
+            'Understand tribal relationships and royal lines',
+            'Locked feature pulses with amber glow in menu',
+            'Purchase modal shows balance and cost breakdown'
+          ]
+        },
+        {
+          title: 'Κοινή Greek Course',
+          content: 'A comprehensive multi-level course in Biblical (Koine) Greek! Learn to read and understand the New Testament in its original language through structured lessons covering alphabet, vocabulary, grammar, syntax, and translation. Requires 300 points admission.',
+          tips: [
+            '💰 Admission: 300 points (one-time payment)',
             'Progress through 3 levels: Basic, Intermediate, Advanced',
             'Covers Greek alphabet, pronunciation, and writing',
             'Learn 500+ essential New Testament vocabulary words',
@@ -284,8 +444,9 @@ const TutorialHelp = ({ onBack }) => {
         },
         {
           title: 'Ancient Hebrew Course',
-          content: 'Dive deep into Biblical Hebrew with this comprehensive 3-level course! Master the ancient language of the Old Testament, learning alphabet, grammar, vocabulary, and textual analysis.',
+          content: 'Dive deep into Biblical Hebrew with this comprehensive 3-level course! Master the ancient language of the Old Testament, learning alphabet, grammar, vocabulary, and textual analysis. Requires 300 points admission.',
           tips: [
+            '💰 Admission: 300 points (one-time payment)',
             '3 difficulty levels from beginner to advanced',
             'Learn the Hebrew alphabet (Aleph to Tav)',
             'Study vowel points (Niqqud) and pronunciation',
@@ -296,8 +457,9 @@ const TutorialHelp = ({ onBack }) => {
         },
         {
           title: 'Hermeneutics Course',
-          content: 'Master the art and science of biblical interpretation! This course teaches you proper methods for understanding, interpreting, and applying Scripture through historical, grammatical, literary, and theological approaches.',
+          content: 'Master the art and science of biblical interpretation! This course teaches you proper methods for understanding, interpreting, and applying Scripture through historical, grammatical, literary, and theological approaches. Requires 500 points admission - the most advanced course!',
           tips: [
+            '💰 Admission: 500 points (highest tier - most advanced)',
             'Learn principles of sound biblical interpretation',
             'Understand context: historical, cultural, and literary',
             'Study different genres: narrative, poetry, prophecy, epistles',
@@ -308,8 +470,9 @@ const TutorialHelp = ({ onBack }) => {
         },
         {
           title: 'Church History Course',
-          content: 'Journey through 2000 years of church history! Explore key events, figures, councils, movements, and developments from the early church through modern times.',
+          content: 'Journey through 2000 years of church history! Explore key events, figures, councils, movements, and developments from the early church through modern times. Requires 200 points admission.',
           tips: [
+            '💰 Admission: 200 points (one-time payment)',
             'Covers Early Church, Medieval, Reformation, and Modern periods',
             'Learn about church fathers, councils, and creeds',
             'Understand major theological controversies and resolutions',
@@ -320,14 +483,28 @@ const TutorialHelp = ({ onBack }) => {
         },
         {
           title: 'Kings of Israel Course',
-          content: 'An in-depth study of the monarchs of Israel and Judah! Learn about each king\'s reign, accomplishments, failures, and spiritual legacy from Saul through the exile.',
+          content: 'An in-depth study of the monarchs of Israel and Judah! Learn about each king\'s reign, accomplishments, failures, and spiritual legacy from Saul through the exile. Requires 200 points admission.',
           tips: [
+            '💰 Admission: 200 points (one-time payment)',
             'Study all kings of united Israel, northern Israel, and Judah',
             'Understand the divided kingdom period',
             'Learn about godly kings (David, Josiah) and wicked ones (Ahab, Manasseh)',
             'See how leadership affects national spiritual condition',
             'Trace prophetic ministry during various reigns',
             'Understand the lead-up to exile and restoration'
+          ]
+        },
+        {
+          title: 'Textual Criticism Course',
+          content: 'Explore the science of determining the original biblical text through manuscript analysis! Learn how scholars reconstruct Scripture from ancient copies, evaluate textual variants, and understand transmission history. Requires 400 points admission.',
+          tips: [
+            '💰 Admission: 400 points (advanced topic)',
+            'Study manuscript families and textual traditions',
+            'Learn to evaluate textual variants and their significance',
+            'Understand how ancient manuscripts were copied and preserved',
+            'Explore major textual witnesses (Codex Sinaiticus, Vaticanus, etc.)',
+            'Develop skills in critical apparatus reading',
+            'Gain confidence in the reliability of Scripture'
           ]
         },
         {
@@ -606,6 +783,121 @@ const TutorialHelp = ({ onBack }) => {
       ]
     },
     {
+      id: 'updates-changelog',
+      title: 'Updates & What\'s New',
+      icon: Clock,
+      color: 'from-cyan-500 to-blue-600',
+      subsections: [
+        {
+          title: 'Version 2.5 - December 2025',
+          content: 'Major update bringing powerful new financial features, comprehensive analytics, and quality-of-life improvements!',
+          tips: [
+            '💰 NEW: Points Bank - Complete investment system with ROI based on activity',
+            '📊 Invest points for 7-90 days and earn returns based on your streak and quiz rate',
+            '⚠️ Early withdrawal penalty (50%) discourages premature withdrawals',
+            '📈 Transaction history tracks all point movements (earnings, spending, investments)',
+            '📉 Activity Score (0-100) determines your investment returns',
+            '🔒 Lock in investments with maturity tracking and automated return calculations'
+          ]
+        },
+        {
+          title: 'Version 2.4 - November 2025',
+          content: 'Enhanced user experience with better menu organization, unlockable features, and visual polish.',
+          tips: [
+            '📚 NEW: Course Admission System - Pay points to access premium courses',
+            '🎓 Courses now organized in dropdown menu (Greek, Hebrew, Hermeneutics, Church History, Kings, Textual Criticism)',
+            '📜 Added ancient manuscript unlockables: LXX Septuagint (5000 pts), Masoretic WLC (7500 pts), Codex Sinaiticus (10000 pts)',
+            '✨ Unlockable items now pulse with amber glow to draw attention',
+            '💳 Beautiful in-app purchase modal replacing browser prompts',
+            '🔐 All purchases validated server-side to prevent point tampering',
+            '🏆 Achievement unlock sound effect with celebration audio',
+            '📖 Separated Bible Study Plans into dedicated page (1-10 day plans)',
+            '🗓️ Learning Plans moved to separate dedicated page for better organization'
+          ]
+        },
+        {
+          title: 'Version 2.3 - October 2025',
+          content: 'Critical security update hardening the point economy against exploits and ensuring fair gameplay.',
+          tips: [
+            '🔒 SECURITY: Server-side point validation prevents tampering',
+            '✅ 100-point cap per quiz prevents inflated scoring',
+            '🚫 Duplicate quiz detection prevents replay attacks',
+            '⏱️ Rate limiting (3 seconds between quizzes) stops spam',
+            '📊 Daily caps: 50 quizzes/day, 2000 points/day, 10 same-quiz-type/day',
+            '📉 Diminishing returns after 5 same-type quizzes (75% reduction, min 25%)',
+            '🔄 Streak grace period: 1-day buffer prevents unfair resets',
+            '🛡️ All points/streaks recomputed from trusted server events',
+            '⛔ Purchase validation prevents unlocking with tampered points',
+            '🕒 Verse-of-day 24-hour cooldown prevents repeated claims'
+          ]
+        },
+        {
+          title: 'Version 2.2 - September 2025',
+          content: 'Native app experience improvements with scroll optimization and UI refinements.',
+          tips: [
+            '📱 Native app feel: No more white page bleed when scrolling',
+            '🎨 Fixed position scrolling prevents overscroll bounce',
+            '🌑 Dark slate background (slate-900) extends to all edges',
+            '✨ Smooth touch scrolling on iOS with -webkit-overflow-scrolling',
+            '🔧 Comprehensive overscroll prevention across HTML, body, and root'
+          ]
+        },
+        {
+          title: 'Version 2.1 - August 2025',
+          content: 'Content organization and copyright compliance update ensuring only public domain translations.',
+          tips: [
+            '📖 Removed copyrighted translations: NKJV, NIV, NLT, ESV, NASB',
+            '✅ Kept public domain translations: KJV, ASV, WEB, YLT, Bishops\' Bible, Geneva Bible',
+            '🆓 All active translations are now freely available without licensing restrictions',
+            '📚 Focus on historically significant and legally accessible Bible texts'
+          ]
+        },
+        {
+          title: 'Version 2.0 - July 2025',
+          content: 'Complete rewrite with modern React architecture, Firebase backend, and comprehensive feature set.',
+          tips: [
+            '⚡ Built with React 18 and modern hooks',
+            '☁️ Cloud sync with secure authentication',
+            '🎯 Spaced repetition algorithm for optimal retention',
+            '🎮 Gamification with achievements, streaks, and progression system',
+            '🎵 Sound effects and background music support',
+            '📊 Advanced analytics and progress tracking',
+            '🌍 Multiple quiz modes and interactive features',
+            '💾 Automatic progress saving and backup'
+          ]
+        },
+        {
+          title: 'Modern Translations - Coming Soon!',
+          content: 'We\'re actively working on licensing agreements to bring modern translations back to Sword Drill. These translations are in the works and will be added as unlockables when agreements are finalized.',
+          tips: [
+            '📋 NIV (New International Version) - In licensing negotiations',
+            '📋 ESV (English Standard Version) - In licensing negotiations',
+            '📋 NLT (New Living Translation) - In licensing negotiations',
+            '📋 NASB (New American Standard Bible) - In licensing negotiations',
+            '📋 CSB (Christian Standard Bible) - Under consideration',
+            '📋 NRSV (New Revised Standard Version) - Under consideration',
+            '⏳ These translations require publisher agreements and licensing fees',
+            '💰 Will likely be premium unlockables (500-1000 points each)',
+            '🔔 Check back for updates - we\'re committed to expanding translation options!'
+          ]
+        },
+        {
+          title: 'What\'s Next?',
+          content: 'Exciting features planned for future releases based on user feedback and our development roadmap.',
+          tips: [
+            '🌐 Multiplayer challenges and leaderboards',
+            '🎤 Voice input for quiz answers',
+            '📱 Native iOS and Android apps',
+            '🔊 Audio Bible integration',
+            '🧠 Advanced AI tutoring features',
+            '📖 More ancient texts and manuscripts',
+            '🏆 Community tournaments and events',
+            '💬 Social features and study groups'
+          ]
+        }
+      ]
+    },
+    {
       id: 'troubleshooting',
       title: 'Troubleshooting & FAQ',
       icon: AlertCircle,
@@ -630,18 +922,18 @@ const TutorialHelp = ({ onBack }) => {
             'You can practice the same verse in different quiz modes',
             'Streak requires at least one correct answer per day',
             'Points can go negative but will stop at 0',
-            'Cloud sync requires being logged in with Firebase'
+            'Cloud sync requires being logged in to your account'
           ]
         },
         {
           title: 'Getting Help',
-          content: 'Need more assistance? Check the GitHub issues page, join the community Discord, or contact support through the feedback form.',
+          content: 'Need more assistance? Contact support through the app feedback form or reach out to the development team for help with technical issues.',
           tips: [
             'Include screenshots when reporting bugs',
-            'Check if your issue is already reported',
             'Be specific about what you were doing when the issue occurred',
             'Provide your browser and device information',
-            'Feature requests are welcome!'
+            'Check the Updates section for recent fixes',
+            'Feature requests and suggestions are always welcome!'
           ]
         }
       ]

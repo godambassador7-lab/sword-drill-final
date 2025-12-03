@@ -15,6 +15,7 @@ import {
   Flame,
   BarChart,
   TrendingUp,
+  TrendingDown,
   Sword,
   GraduationCap,
   Lightbulb,
@@ -30,7 +31,12 @@ import {
   Search,
   CheckCircle,
   Users,
-  Wind
+  Wind,
+  Wallet,
+  Activity,
+  Plus,
+  FileText,
+  AlertTriangle
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
@@ -2212,6 +2218,8 @@ const playSound = (soundType) => {
       soundPath = `${process.env.PUBLIC_URL}/ytmp3free.cc_correct-answer-sound-effect-no-copyright-youtubemp3free.org.mp3`;
     } else if (soundType === 'incorrect') {
       soundPath = `${process.env.PUBLIC_URL}/feud buzzer.mp3`;
+    } else if (soundType === 'achievement') {
+      soundPath = `${process.env.PUBLIC_URL}/ytmp3free.cc_congratulations-sound-effects-free-audio-youtubemp3free.org.mp3`;
     }
 
     if (soundPath) {
@@ -2666,6 +2674,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       setShowAchievementUnlock(firstUnlockedAchievement);
       setHasUnviewedAchievements(true);
       localStorage.setItem('hasUnviewedAchievements', 'true');
+
+      // Play achievement sound
+      playSound('achievement');
 
       // Auto-hide after 5 seconds
       setTimeout(() => {
@@ -4203,6 +4214,716 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   };
 
+  // Points Bank View Component
+  const PointsBankView = () => {
+    const [showInvestmentModal, setShowInvestmentModal] = useState(false);
+    const [investmentAmount, setInvestmentAmount] = useState('');
+    const [investmentDays, setInvestmentDays] = useState(30);
+    const [expandedInvestment, setExpandedInvestment] = useState(null);
+    const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
+    const [selectedInvestment, setSelectedInvestment] = useState(null);
+
+    // Calculate user activity metrics for ROI
+    const calculateActivityMetrics = () => {
+      const quizHistory = userData.quizHistory || [];
+      const totalQuizzes = quizHistory.length;
+      const currentStreak = userData.currentStreak || 0;
+
+      // Calculate days since account creation
+      const accountCreated = userData.accountCreated || Date.now();
+      const daysSinceCreation = Math.max(1, Math.floor((Date.now() - accountCreated) / 86400000));
+
+      // Calculate average quizzes per day
+      const avgQuizzesPerDay = totalQuizzes / daysSinceCreation;
+
+      // Activity score (0-100)
+      const streakScore = Math.min(currentStreak * 2, 40); // Max 40 points from streak
+      const quizScore = Math.min(avgQuizzesPerDay * 20, 40); // Max 40 points from quiz rate
+      const totalScore = Math.min(streakScore + quizScore + 20, 100); // +20 base
+
+      return {
+        totalQuizzes,
+        currentStreak,
+        daysSinceCreation,
+        avgQuizzesPerDay,
+        activityScore: totalScore
+      };
+    };
+
+    // Calculate ROI based on lock period and activity
+    const calculateROI = (days, activityScore) => {
+      // Base ROI: 2% per week (0.2857% per day)
+      let baseROI = (days / 7) * 2;
+
+      // Activity bonus: 0-50% additional based on activity score
+      const activityBonus = (activityScore / 100) * 50;
+
+      // Time bonus: Longer locks get better rates
+      let timeMultiplier = 1;
+      if (days >= 90) timeMultiplier = 1.5;
+      else if (days >= 60) timeMultiplier = 1.3;
+      else if (days >= 30) timeMultiplier = 1.15;
+      else if (days >= 14) timeMultiplier = 1.05;
+
+      return (baseROI + activityBonus) * timeMultiplier;
+    };
+
+    const metrics = calculateActivityMetrics();
+    const roi = calculateROI(investmentDays, metrics.activityScore);
+
+    // Get all transactions from quiz history and purchases
+    const getTransactions = () => {
+      const transactions = [];
+
+      // Add quiz earnings
+      (userData.quizHistory || []).forEach(quiz => {
+        if (quiz.correct && quiz.points) {
+          transactions.push({
+            id: `quiz_${quiz.timestamp}`,
+            date: quiz.timestamp,
+            type: 'earn',
+            amount: quiz.points,
+            description: `Quiz completed: ${quiz.type}`,
+            icon: '📝'
+          });
+        }
+      });
+
+      // Add purchases/unlockables
+      if (userData.unlockables) {
+        Object.keys(userData.unlockables).forEach(key => {
+          const unlockData = userData.unlockables[key];
+          if (typeof unlockData === 'object' && unlockData.purchaseDate && unlockData.cost) {
+            transactions.push({
+              id: `unlock_${key}_${unlockData.purchaseDate}`,
+              date: unlockData.purchaseDate,
+              type: 'spend',
+              amount: unlockData.cost,
+              description: `Unlocked: ${key.replace(/_/g, ' ')}`,
+              icon: '🔓'
+            });
+          }
+        });
+      }
+
+      // Add investments
+      (userData.investments || []).forEach(inv => {
+        transactions.push({
+          id: `invest_${inv.startDate}`,
+          date: inv.startDate,
+          type: 'invest',
+          amount: inv.amount,
+          description: `Investment locked for ${inv.lockDays} days`,
+          icon: '💰'
+        });
+
+        if (inv.status === 'matured' && inv.withdrawnDate) {
+          transactions.push({
+            id: `withdraw_${inv.withdrawnDate}`,
+            date: inv.withdrawnDate,
+            type: 'earn',
+            amount: Math.floor(inv.amount * (1 + inv.roi / 100)),
+            description: `Investment matured (+${inv.roi.toFixed(1)}% ROI)`,
+            icon: '🎉'
+          });
+        } else if (inv.status === 'withdrawn_early' && inv.withdrawnDate) {
+          transactions.push({
+            id: `withdraw_early_${inv.withdrawnDate}`,
+            date: inv.withdrawnDate,
+            type: 'penalty',
+            amount: Math.floor(inv.amount * 0.5),
+            description: `Early withdrawal penalty (-50%)`,
+            icon: '⚠️'
+          });
+        }
+      });
+
+      // Sort by date descending
+      return transactions.sort((a, b) => b.date - a.date);
+    };
+
+    const transactions = getTransactions();
+
+    // Calculate totals
+    const totalEarned = transactions
+      .filter(t => t.type === 'earn')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    const totalSpent = transactions
+      .filter(t => t.type === 'spend' || t.type === 'invest')
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    const activeInvestments = (userData.investments || []).filter(inv => inv.status === 'active');
+    const totalInvested = activeInvestments.reduce((sum, inv) => inv.amount + sum, 0);
+
+    const handleCreateInvestment = () => {
+      const amount = parseInt(investmentAmount);
+
+      if (!amount || amount < 100) {
+        showToast('Minimum investment: 100 points', 'error');
+        return;
+      }
+
+      if (amount > userData.totalPoints) {
+        showToast('Insufficient points', 'error');
+        return;
+      }
+
+      const newInvestment = {
+        id: `inv_${Date.now()}`,
+        amount,
+        lockDays: investmentDays,
+        startDate: Date.now(),
+        maturityDate: Date.now() + (investmentDays * 86400000),
+        roi: calculateROI(investmentDays, metrics.activityScore),
+        status: 'active',
+        activityScoreAtCreation: metrics.activityScore
+      };
+
+      setUserData(prev => ({
+        ...prev,
+        totalPoints: prev.totalPoints - amount,
+        investments: [...(prev.investments || []), newInvestment]
+      }));
+
+      // Save to Firebase
+      if (currentUser?.uid) {
+        updateUserProgress(currentUser.uid, {
+          totalPoints: userData.totalPoints - amount,
+          investments: [...(userData.investments || []), newInvestment]
+        });
+      }
+
+      showToast(`💰 ${amount} points invested for ${investmentDays} days!`, 'success');
+      setShowInvestmentModal(false);
+      setInvestmentAmount('');
+    };
+
+    const handleWithdrawInvestment = (investment, isEarly) => {
+      const now = Date.now();
+      const isMatured = now >= investment.maturityDate;
+
+      let pointsReturned;
+      let updatedInvestment;
+
+      if (isMatured) {
+        // Full return + ROI
+        pointsReturned = Math.floor(investment.amount * (1 + investment.roi / 100));
+        updatedInvestment = { ...investment, status: 'matured', withdrawnDate: now };
+        showToast(`🎉 Investment matured! +${Math.floor(investment.amount * investment.roi / 100)} bonus points!`, 'success');
+      } else {
+        // 50% penalty for early withdrawal
+        pointsReturned = Math.floor(investment.amount * 0.5);
+        updatedInvestment = { ...investment, status: 'withdrawn_early', withdrawnDate: now };
+        showToast(`⚠️ Early withdrawal: 50% penalty applied`, 'error');
+      }
+
+      setUserData(prev => {
+        const updatedInvestments = prev.investments.map(inv =>
+          inv.id === investment.id ? updatedInvestment : inv
+        );
+
+        return {
+          ...prev,
+          totalPoints: prev.totalPoints + pointsReturned,
+          investments: updatedInvestments
+        };
+      });
+
+      // Save to Firebase
+      if (currentUser?.uid) {
+        const updatedInvestments = userData.investments.map(inv =>
+          inv.id === investment.id ? updatedInvestment : inv
+        );
+        updateUserProgress(currentUser.uid, {
+          totalPoints: userData.totalPoints + pointsReturned,
+          investments: updatedInvestments
+        });
+      }
+
+      setShowWithdrawalModal(false);
+      setSelectedInvestment(null);
+    };
+
+    return (
+      <div className="space-y-6 pb-20">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <TrendingUp className="text-amber-400" size={48} />
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+              Points Bank
+            </h2>
+          </div>
+          <p className="text-slate-300">Manage your points, track transactions, and grow your wealth</p>
+        </div>
+
+        {/* Summary Cards */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-gradient-to-br from-emerald-900/40 to-green-900/40 rounded-xl p-4 border border-emerald-700/50">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingUp size={20} className="text-emerald-400" />
+              <div className="text-xs text-emerald-300 font-semibold">Total Earned</div>
+            </div>
+            <div className="text-2xl font-bold text-emerald-400">{totalEarned.toLocaleString()}</div>
+            <div className="text-xs text-slate-400 mt-1">All-time earnings</div>
+          </div>
+
+          <div className="bg-gradient-to-br from-red-900/40 to-rose-900/40 rounded-xl p-4 border border-red-700/50">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingDown size={20} className="text-red-400" />
+              <div className="text-xs text-red-300 font-semibold">Total Spent</div>
+            </div>
+            <div className="text-2xl font-bold text-red-400">{totalSpent.toLocaleString()}</div>
+            <div className="text-xs text-slate-400 mt-1">Purchases & investments</div>
+          </div>
+
+          <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border border-amber-700/50">
+            <div className="flex items-center gap-2 mb-2">
+              <Wallet size={20} className="text-amber-400" />
+              <div className="text-xs text-amber-300 font-semibold">Current Balance</div>
+            </div>
+            <div className="text-2xl font-bold text-amber-400">{userData.totalPoints?.toLocaleString()}</div>
+            <div className="text-xs text-slate-400 mt-1">Available now</div>
+          </div>
+
+          <div className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border border-purple-700/50">
+            <div className="flex items-center gap-2 mb-2">
+              <Lock size={20} className="text-purple-400" />
+              <div className="text-xs text-purple-300 font-semibold">Invested</div>
+            </div>
+            <div className="text-2xl font-bold text-purple-400">{totalInvested.toLocaleString()}</div>
+            <div className="text-xs text-slate-400 mt-1">{activeInvestments.length} active</div>
+          </div>
+        </div>
+
+        {/* Activity Score */}
+        <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-6 border border-blue-700/50">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-bold text-blue-300 flex items-center gap-2">
+                <Activity size={24} />
+                Activity Score
+              </h3>
+              <p className="text-slate-400 text-sm">Higher activity = better investment returns</p>
+            </div>
+            <div className="text-4xl font-bold text-blue-400">{Math.round(metrics.activityScore)}</div>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-400">Current Streak:</span>
+              <span className="text-white font-semibold">{metrics.currentStreak} days</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-400">Total Quizzes:</span>
+              <span className="text-white font-semibold">{metrics.totalQuizzes}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-400">Avg Quizzes/Day:</span>
+              <span className="text-white font-semibold">{metrics.avgQuizzesPerDay.toFixed(1)}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-400">Days Active:</span>
+              <span className="text-white font-semibold">{metrics.daysSinceCreation}</span>
+            </div>
+          </div>
+
+          {/* Activity Bar */}
+          <div className="mt-4">
+            <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500"
+                style={{ width: `${metrics.activityScore}%` }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Investment Section */}
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-amber-700/50">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-bold text-amber-300 flex items-center gap-2">
+              <TrendingUp size={24} />
+              Investments
+            </h3>
+            <button
+              onClick={() => setShowInvestmentModal(true)}
+              className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-2 px-4 rounded-lg transition-all flex items-center gap-2"
+            >
+              <Plus size={18} />
+              New Investment
+            </button>
+          </div>
+
+          {/* Active Investments */}
+          {activeInvestments.length > 0 ? (
+            <div className="space-y-3">
+              {activeInvestments.map(investment => {
+                const now = Date.now();
+                const timeRemaining = investment.maturityDate - now;
+                const daysRemaining = Math.max(0, Math.ceil(timeRemaining / 86400000));
+                const isMatured = timeRemaining <= 0;
+                const projectedReturn = Math.floor(investment.amount * (1 + investment.roi / 100));
+
+                return (
+                  <div
+                    key={investment.id}
+                    className={`bg-slate-700/50 rounded-lg p-4 border ${
+                      isMatured ? 'border-emerald-500/50' : 'border-amber-600/30'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        {isMatured ? (
+                          <CheckCircle size={20} className="text-emerald-400" />
+                        ) : (
+                          <Clock size={20} className="text-amber-400" />
+                        )}
+                        <div>
+                          <div className="text-white font-semibold">
+                            {investment.amount.toLocaleString()} pts
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            {isMatured ? 'Matured - Ready to withdraw!' : `${daysRemaining} days remaining`}
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setSelectedInvestment(investment);
+                          setShowWithdrawalModal(true);
+                        }}
+                        className={`${
+                          isMatured
+                            ? 'bg-emerald-600 hover:bg-emerald-700'
+                            : 'bg-red-600 hover:bg-red-700'
+                        } text-white font-bold py-2 px-3 rounded-lg transition-all text-sm`}
+                      >
+                        {isMatured ? 'Withdraw' : 'Early Exit'}
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div className="bg-slate-800/50 rounded p-2">
+                        <div className="text-slate-400">ROI</div>
+                        <div className="text-amber-400 font-bold">{investment.roi.toFixed(1)}%</div>
+                      </div>
+                      <div className="bg-slate-800/50 rounded p-2">
+                        <div className="text-slate-400">Lock Period</div>
+                        <div className="text-white font-bold">{investment.lockDays}d</div>
+                      </div>
+                      <div className="bg-slate-800/50 rounded p-2">
+                        <div className="text-slate-400">Returns</div>
+                        <div className="text-emerald-400 font-bold">
+                          {projectedReturn.toLocaleString()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-slate-400">
+              <Lock size={48} className="mx-auto mb-2 opacity-50" />
+              <p>No active investments</p>
+              <p className="text-sm">Start investing to earn passive points!</p>
+            </div>
+          )}
+        </div>
+
+        {/* Transaction History */}
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700">
+          <h3 className="text-lg font-bold text-slate-300 flex items-center gap-2 mb-4">
+            <FileText size={24} />
+            Transaction History
+          </h3>
+
+          {transactions.length > 0 ? (
+            <div className="space-y-2 max-h-96 overflow-y-auto">
+              {transactions.slice(0, 50).map(transaction => (
+                <div
+                  key={transaction.id}
+                  className="bg-slate-700/30 rounded-lg p-3 flex items-center justify-between hover:bg-slate-700/50 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="text-2xl">{transaction.icon}</div>
+                    <div>
+                      <div className="text-white text-sm font-medium">{transaction.description}</div>
+                      <div className="text-slate-400 text-xs">
+                        {new Date(transaction.date).toLocaleDateString()} at{' '}
+                        {new Date(transaction.date).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`font-bold text-lg ${
+                      transaction.type === 'earn'
+                        ? 'text-emerald-400'
+                        : transaction.type === 'penalty'
+                        ? 'text-red-400'
+                        : 'text-slate-400'
+                    }`}
+                  >
+                    {transaction.type === 'earn' ? '+' : '-'}
+                    {transaction.amount}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-slate-400">
+              <FileText size={48} className="mx-auto mb-2 opacity-50" />
+              <p>No transactions yet</p>
+            </div>
+          )}
+        </div>
+
+        {/* Investment Modal */}
+        {showInvestmentModal && (
+          <div
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={() => setShowInvestmentModal(false)}
+          >
+            <div
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl max-w-md w-full p-6 border-2 border-amber-500/50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+                    <TrendingUp size={28} />
+                    New Investment
+                  </h2>
+                  <p className="text-slate-400 text-sm mt-1">Lock points to earn interest</p>
+                </div>
+                <button
+                  onClick={() => setShowInvestmentModal(false)}
+                  className="text-slate-400 hover:text-white transition-all"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Amount Input */}
+              <div className="mb-4">
+                <label className="text-slate-300 text-sm font-semibold mb-2 block">
+                  Investment Amount
+                </label>
+                <input
+                  type="number"
+                  value={investmentAmount}
+                  onChange={(e) => setInvestmentAmount(e.target.value)}
+                  placeholder="Min: 100 points"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border border-slate-600 focus:border-amber-500 focus:outline-none text-lg font-semibold"
+                />
+                <div className="text-xs text-slate-400 mt-1">
+                  Available: {userData.totalPoints?.toLocaleString()} pts
+                </div>
+              </div>
+
+              {/* Lock Period Selector */}
+              <div className="mb-6">
+                <label className="text-slate-300 text-sm font-semibold mb-2 block">
+                  Lock Period
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[7, 14, 30, 60, 90].map(days => (
+                    <button
+                      key={days}
+                      onClick={() => setInvestmentDays(days)}
+                      className={`py-2 px-3 rounded-lg font-semibold text-sm transition-all ${
+                        investmentDays === days
+                          ? 'bg-amber-600 text-white'
+                          : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                      }`}
+                    >
+                      {days} days
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* ROI Calculation */}
+              <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-4 mb-6 border border-blue-700/50">
+                <div className="text-center">
+                  <div className="text-slate-400 text-sm mb-1">Projected ROI</div>
+                  <div className="text-4xl font-bold text-blue-400 mb-2">
+                    {roi.toFixed(1)}%
+                  </div>
+                  {investmentAmount && parseInt(investmentAmount) >= 100 && (
+                    <div className="text-slate-300 text-sm">
+                      You'll receive:{' '}
+                      <span className="text-emerald-400 font-bold">
+                        {Math.floor(parseInt(investmentAmount) * (1 + roi / 100)).toLocaleString()}
+                      </span>{' '}
+                      pts
+                    </div>
+                  )}
+                </div>
+                <div className="mt-3 pt-3 border-t border-blue-700/30 text-xs text-slate-400">
+                  <div className="flex justify-between mb-1">
+                    <span>Activity Bonus:</span>
+                    <span className="text-blue-400">+{((metrics.activityScore / 100) * 50).toFixed(1)}%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Time Multiplier:</span>
+                    <span className="text-blue-400">
+                      {investmentDays >= 90 ? '1.5x' :
+                       investmentDays >= 60 ? '1.3x' :
+                       investmentDays >= 30 ? '1.15x' :
+                       investmentDays >= 14 ? '1.05x' : '1.0x'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Warning */}
+              <div className="bg-red-900/20 border border-red-700/50 rounded-lg p-3 mb-6">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle size={18} className="text-red-400 mt-0.5" />
+                  <div className="text-xs text-red-300">
+                    <div className="font-semibold mb-1">Early Withdrawal Penalty</div>
+                    <div>Withdrawing before maturity will result in a <span className="font-bold">50% loss</span> of your investment.</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowInvestmentModal(false)}
+                  className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-lg transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleCreateInvestment}
+                  disabled={!investmentAmount || parseInt(investmentAmount) < 100}
+                  className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 disabled:from-slate-600 disabled:to-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-all"
+                >
+                  Confirm Investment
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Withdrawal Modal */}
+        {showWithdrawalModal && selectedInvestment && (
+          <div
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={() => setShowWithdrawalModal(false)}
+          >
+            <div
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl max-w-md w-full p-6 border-2 border-amber-500/50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const now = Date.now();
+                const isMatured = now >= selectedInvestment.maturityDate;
+                const pointsIfWithdraw = isMatured
+                  ? Math.floor(selectedInvestment.amount * (1 + selectedInvestment.roi / 100))
+                  : Math.floor(selectedInvestment.amount * 0.5);
+
+                return (
+                  <>
+                    <div className="flex justify-between items-start mb-6">
+                      <div>
+                        <h2 className={`text-2xl font-bold flex items-center gap-2 ${
+                          isMatured ? 'text-emerald-400' : 'text-red-400'
+                        }`}>
+                          {isMatured ? <CheckCircle size={28} /> : <AlertTriangle size={28} />}
+                          {isMatured ? 'Withdraw Investment' : 'Early Withdrawal'}
+                        </h2>
+                        <p className="text-slate-400 text-sm mt-1">
+                          {isMatured ? 'Congratulations! Your investment has matured.' : 'Warning: Early withdrawal penalty applies'}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setShowWithdrawalModal(false)}
+                        className="text-slate-400 hover:text-white transition-all"
+                      >
+                        <X size={24} />
+                      </button>
+                    </div>
+
+                    <div className="bg-slate-700/50 rounded-xl p-4 mb-6">
+                      <div className="flex justify-between items-center mb-3">
+                        <span className="text-slate-400">Original Investment:</span>
+                        <span className="text-white font-bold text-lg">
+                          {selectedInvestment.amount.toLocaleString()} pts
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center mb-3">
+                        <span className="text-slate-400">ROI Rate:</span>
+                        <span className="text-amber-400 font-bold">
+                          {selectedInvestment.roi.toFixed(1)}%
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center pt-3 border-t border-slate-600">
+                        <span className="text-slate-300 font-semibold">You'll Receive:</span>
+                        <span className={`font-bold text-2xl ${
+                          isMatured ? 'text-emerald-400' : 'text-red-400'
+                        }`}>
+                          {pointsIfWithdraw.toLocaleString()} pts
+                        </span>
+                      </div>
+                      {isMatured && (
+                        <div className="text-emerald-400 text-sm text-center mt-2">
+                          +{(pointsIfWithdraw - selectedInvestment.amount).toLocaleString()} bonus points! 🎉
+                        </div>
+                      )}
+                      {!isMatured && (
+                        <div className="text-red-400 text-sm text-center mt-2">
+                          -{(selectedInvestment.amount - pointsIfWithdraw).toLocaleString()} points lost due to penalty
+                        </div>
+                      )}
+                    </div>
+
+                    {!isMatured && (
+                      <div className="bg-red-900/20 border border-red-700/50 rounded-lg p-4 mb-6">
+                        <div className="flex items-start gap-2">
+                          <AlertTriangle size={20} className="text-red-400 mt-0.5" />
+                          <div className="text-sm text-red-300">
+                            <div className="font-semibold mb-2">Are you sure?</div>
+                            <div>You're withdrawing <span className="font-bold">
+                              {Math.ceil((selectedInvestment.maturityDate - now) / 86400000)} days early
+                            </span>. You'll lose <span className="font-bold">50%</span> of your investment.</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => setShowWithdrawalModal(false)}
+                        className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-4 rounded-lg transition-all"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => handleWithdrawInvestment(selectedInvestment, !isMatured)}
+                        className={`flex-1 ${
+                          isMatured
+                            ? 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700'
+                            : 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700'
+                        } text-white font-bold py-3 px-4 rounded-lg transition-all`}
+                      >
+                        {isMatured ? 'Collect Returns' : 'Withdraw Anyway'}
+                      </button>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // Reusable Bible Study Plans Section Component
   const BibleStudyPlansSection = ({ folder, title, description, userData, setUserData, colorScheme = 'blue' }) => {
     const [plans, setPlans] = useState([]);
@@ -5192,9 +5913,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
         <h3 className="text-white font-bold mb-2">About</h3>
-        <p className="text-slate-400 text-sm">Sword Drill v1.0</p>
+        <p className="text-slate-400 text-sm">Sword Drill v2.5</p>
         <p className="text-slate-400 text-sm">Gamified Bible Memorization</p>
-        <p className="text-slate-400 text-sm mt-2">Firebase & GitHub integration ready</p>
+        <p className="text-slate-400 text-sm mt-2">Cloud-synced with secure authentication</p>
       </div>
 
       {/* Donation Section */}
@@ -5889,6 +6610,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   >
                     <BarChart size={18} className="text-teal-400" /> Points Log & Stats
                   </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('points-bank');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Wallet size={18} className="text-amber-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Points Bank</div>
+                      <div className="text-xs text-slate-400">Investments & transactions</div>
+                    </div>
+                  </button>
                 </div>
               </div>
 
@@ -5953,6 +6687,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         {currentView === 'achievements' && <AchievementsView />}
         {currentView === 'analytics' && <AnalyticsView />}
         {currentView === 'mastery' && <MasteryView />}
+        {currentView === 'points-bank' && <PointsBankView />}
         {currentView === 'powerup-shop' && <PowerUpShopView />}
         {currentView === 'smith-dictionary' && <SmithDictionaryView />}
         {currentView === 'learning-plan' && <LearningPlansView />}
