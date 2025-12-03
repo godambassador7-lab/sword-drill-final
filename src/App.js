@@ -5243,7 +5243,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   const todaysQuizzesCount = 0; // TODO: Track this properly
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 pb-0">
+    <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 pb-0" style={{ overscrollBehavior: 'none' }}>
       <CorrectToast points={toastPoints} show={showCorrectToast} />
       <IncorrectToast show={showIncorrectToast} points={toastPoints} />
       <GenericToast show={showGenericToast} message={genericToastMessage} type={genericToastType} onClose={() => setShowGenericToast(false)} />
