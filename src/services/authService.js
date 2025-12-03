@@ -18,7 +18,7 @@ export const signUp = async (email, password, name) => {
       name,
       email,
       createdAt: new Date(),
-      selectedTranslation: 'NKJV',
+      selectedTranslation: 'KJV',
       includeApocrypha: false
     });
     

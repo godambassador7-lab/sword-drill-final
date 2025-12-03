@@ -2,6 +2,7 @@ import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services
 import { getUserData, addQuizResult, updateUserProgress, purchaseUnlockable, recordVerseOfDayRead } from './services/dbService';
 import { simplifyText, TRANSLATION_STYLES, getComparisonLabel, isSimplificationRecommended } from './services/simplifiedMode';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import confetti from 'canvas-confetti';
 import {
   Trophy,
   Book,
@@ -784,6 +785,9 @@ const SwordDrillApp = () => {
   const [showMemoryTip, setShowMemoryTip] = useState(false);
   const [memoryTip, setMemoryTip] = useState(null);
 
+  // Track previous level for level-up detection
+  const previousLevelRef = useRef(userData.currentLevel);
+
   // Stable callbacks for VerseScrambleQuiz - must be declared before any early returns
   const handleVerseScrambleComplete = useCallback((result) => {
     console.log('[handleVerseScrambleComplete] Called with result:', result);
@@ -974,7 +978,7 @@ useEffect(() => {
 // Timer effect for quizzes (except verse-scramble which manages its own timer)
 useEffect(() => {
   if (currentView === 'quiz' && quizState && quizState.type !== 'verse-scramble') {
-    // Start timer
+    // Start timer - will only restart when quizId changes (new quiz)
     setQuizTimer(0);
     timerIntervalRef.current = setInterval(() => {
       setQuizTimer(prev => prev + 1);
@@ -992,7 +996,70 @@ useEffect(() => {
       clearInterval(timerIntervalRef.current);
     }
   };
-}, [currentView, quizState]);
+}, [currentView, quizState?.quizId]); // Only restart timer when quiz ID changes
+
+// Level-up celebration effect (confetti + sound)
+useEffect(() => {
+  const currentLevel = userData.currentLevel;
+  const previousLevel = previousLevelRef.current;
+
+  // Check if level changed and it's an actual level up (not initial load or level down)
+  if (currentLevel && previousLevel && currentLevel !== previousLevel) {
+    const levelOrder = ['Beginner', 'Intermediate', 'Advanced', 'Elite'];
+    const currentIndex = levelOrder.indexOf(currentLevel);
+    const previousIndex = levelOrder.indexOf(previousLevel);
+
+    // Only celebrate if it's a level up (not down)
+    if (currentIndex > previousIndex && currentIndex !== -1) {
+      // Trigger confetti
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#fbbf24', '#f59e0b', '#d97706', '#ffffff']
+      });
+
+      // Additional confetti burst after delay
+      setTimeout(() => {
+        confetti({
+          particleCount: 50,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#fbbf24', '#f59e0b', '#d97706']
+        });
+      }, 250);
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 50,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#fbbf24', '#f59e0b', '#d97706']
+        });
+      }, 400);
+
+      // Play yay sound effect
+      try {
+        const yaySound = new Audio(`${process.env.PUBLIC_URL}/ytmp3free.cc_yay-sound-effect-lucas-arpon-tv-youtubemp3free.org (mp3cut.net).mp3`);
+        const soundSettings = userData.soundSettings || { enabled: true, volume: 0.5 };
+        if (soundSettings.enabled) {
+          yaySound.volume = soundSettings.volume || 0.5;
+          yaySound.play().catch(err => console.log('Could not play yay sound:', err));
+        }
+      } catch (err) {
+        console.log('Error playing yay sound:', err);
+      }
+
+      // Show toast notification
+      showToast(`🎉 Level Up! You're now ${currentLevel}!`, 'success');
+    }
+
+    // Update the previous level ref
+    previousLevelRef.current = currentLevel;
+  }
+}, [userData.currentLevel]);
 
 // Background music effect for Sword Drill Ultimate
 useEffect(() => {
@@ -1469,6 +1536,7 @@ const startQuiz = async (type, usePersonalVerses = false) => {
       const shuffledWordBank = wordBankItems.sort(() => Math.random() - 0.5);
 
       setQuizState({
+        quizId: Date.now(), // Unique ID to prevent timer reset on answer changes
         type: 'fill-blank',
         verse: { ...verse, text: verse.text },
         question: questionWords.join(' '),
@@ -1626,6 +1694,7 @@ const startQuiz = async (type, usePersonalVerses = false) => {
       const cleanedText = verse.text.replace(/^\d+\s+/, '');
 
       setQuizState({
+        quizId: Date.now(), // Unique ID to prevent timer reset on answer changes
         type: 'multiple-choice',
         verse: { ...verse, text: verse.text },
         question: cleanedText,
@@ -1637,6 +1706,7 @@ const startQuiz = async (type, usePersonalVerses = false) => {
       });
     } else if (type === 'reference-recall') {
       setQuizState({
+        quizId: Date.now(), // Unique ID to prevent timer reset on answer changes
         type: 'reference-recall',
         verse: { ...verse, text: verse.text },
         question: verse.text,
@@ -1656,6 +1726,7 @@ const startQuiz = async (type, usePersonalVerses = false) => {
       const scrambled = [...wordObjects].sort(() => Math.random() - 0.5);
 
       setQuizState({
+        quizId: Date.now(), // Unique ID to prevent timer reset on answer changes
         type: 'verse-scramble',
         verse: { ...verse, text: verse.text },
         question: verse.text,
@@ -2373,6 +2444,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   console.log('Newly unlocked IDs:', newlyUnlockedIds);
   console.log('Combined achievements:', newAchievements);
 
+  // Check for level progression
+  const newLevel = checkLevelProgression({
+    ...updatedUserDataForChecking,
+    achievements: newAchievements
+  });
+
+  console.log('[Level Progression Debug]');
+  console.log('Current level:', userData.currentLevel);
+  console.log('New level:', newLevel);
+
   // Auto-unlock translations based on points
   const updatedUnlockables = { ...userData.unlockables };
   if (newTotalPoints >= 5000 && !updatedUnlockables.lxx) {
@@ -2395,6 +2476,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     verseProgress: newVerseProgress,
     versesMemorized: newVersesMastered,
     currentStreak: currentStreakValue,
+    currentLevel: newLevel, // Update level based on progression
     unlockables: updatedUnlockables,
     newlyUnlockedAchievements: updatedNewlyUnlocked,
     achievementClickHistory: userData.achievementClickHistory || {}
@@ -5150,7 +5232,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       {showMenu && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}>
-          <div className="absolute left-0 top-0 h-full w-80 bg-slate-800 border-r border-slate-700 p-6 overflow-y-auto shadow-2xl" style={{scrollbarWidth: 'thin', scrollbarColor: '#2d2d2d #0a0a0a'}} onClick={(e) => e.stopPropagation()}>
+          <div className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right" style={{scrollbarWidth: 'thin', scrollbarColor: '#2d2d2d #0a0a0a'}} onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-700">
               <User className="text-amber-400" size={32} />
               <div>
