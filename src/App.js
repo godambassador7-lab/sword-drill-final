@@ -5159,493 +5159,344 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               </div>
             </div>
 
-            <nav className="space-y-1">
+            <nav className="space-y-2">
+              {/* HOME */}
               <button
                 onClick={() => {
                   setCurrentView('home');
                   setShowMenu(false);
                 }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3"
+                className="w-full text-left px-4 py-3 rounded-lg text-white font-semibold bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500 transition-all flex items-center gap-3"
               >
                 <Book size={20} /> Home
               </button>
-              <button
-                onClick={() => {
-                  setCurrentView('practice-review');
-                  setShowMenu(false);
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-orange-600/20 hover:to-red-600/20 transition-all flex items-center gap-3"
-              >
-                <RefreshCw size={20} className="text-orange-400" /> Practice Review
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('calendar');
-                  setShowMenu(false);
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3"
-              >
-                <Calendar size={20} /> Calendar & Plans
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('achievements');
-                  setShowMenu(false);
-                  setHasUnviewedAchievements(false);
-                  localStorage.setItem('hasUnviewedAchievements', 'false');
-                  localStorage.setItem('achievementsLastViewed', new Date().toISOString());
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3 relative"
-              >
-                <Trophy size={20} /> Achievements
-                {hasUnviewedAchievements && (
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 to-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
-                    NEW
-                  </span>
-                )}
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('analytics');
-                  setShowMenu(false);
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3"
-              >
-                <TrendingUp size={20} /> Analytics
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('mastery');
-                  setShowMenu(false);
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3"
-              >
-                <BarChart size={20} /> Mastery List
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentView('powerup-shop');
-                  setShowMenu(false);
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-700 hover:to-pink-600 transition-all flex items-center gap-3 relative group"
-              >
-                <Crown size={20} className="text-purple-400 group-hover:text-yellow-400 transition-colors" />
-                <span className="group-hover:text-purple-300 transition-colors">Power-Up Shop</span>
-                {(userData.activeBoosts || []).length > 0 && (
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
-                    {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length} ACTIVE
-                  </span>
-                )}
-              </button>
-            </nav>
 
-            {/* Learning & Study Section */}
-            <div className="mt-6 pt-6 border-t border-slate-700">
-              <h3 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 px-4">Learning & Study</h3>
-              <div className="space-y-1">
-                <button
-                  onClick={() => {
-                    setCurrentView('greek-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
-                >
-                  <GraduationCap size={20} className="text-indigo-400" />
-                  <div>
-                    <div className="font-semibold">Κοινή Greek</div>
-                    <div className="text-xs text-slate-400">Biblical Greek Course • 100pts per section</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('hebrew-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
-                >
-                  <GraduationCap size={20} className="text-amber-400" />
-                  <div>
-                    <div className="font-semibold">עברית עתיקה</div>
-                    <div className="text-xs text-slate-400">Ancient Hebrew Course • 100pts per section</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('hermeneutics-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-teal-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
-                >
-                  <Lightbulb size={20} className="text-teal-400" />
-                  <div>
-                    <div className="font-semibold">Hermeneutics</div>
-                    <div className="text-xs text-slate-400">Biblical Interpretation • 100pts per section</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('church-history-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 transition-all flex items-center gap-3"
-                >
-                  <Book size={20} className="text-purple-400" />
-                  <div>
-                    <div className="font-semibold">Church History & Bible Culture</div>
-                    <div className="text-xs text-slate-400">From Genesis to Early Church • 100pts per section</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('kings-of-israel-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-indigo-600/20 transition-all flex items-center gap-3"
-                >
-                  <Crown size={20} className="text-blue-400" />
-                  <div>
-                    <div className="font-semibold">Kings of Israel</div>
-                    <div className="text-xs text-slate-400">Learn the chronology of Israel's kings • 100pts per section</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('textual-criticism-course');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
-                >
-                  <Search size={20} className="text-indigo-400" />
-                  <div>
-                    <div className="font-semibold">Understanding Textual Criticism</div>
-                    <div className="text-xs text-slate-400">Biblical manuscript analysis • 100pts per section</div>
-                  </div>
-                </button>
+              {/* TRAIN - Practice Review and Personal Verse Bank */}
+              <div className="pt-2">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Train</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('practice-review');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-orange-600/20 hover:to-red-600/20 transition-all flex items-center gap-3"
+                  >
+                    <RefreshCw size={18} className="text-orange-400" /> Practice Review
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('personal-verses');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-pink-600/20 hover:to-rose-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Heart size={18} className="text-pink-400" /> Personal Verse Bank
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Study Tools Section */}
-            <div className="mt-6 pt-6 border-t border-slate-700">
-              <h3 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 px-4">Study Tools</h3>
-              <div className="space-y-1">
-                <button
-                  onClick={() => {
-                    setCurrentView('biblical-bloodlines');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
-                >
-                  <Users size={20} className="text-amber-400" />
-                  <div>
-                    <div className="font-semibold flex items-center gap-2">
-                      Biblical Bloodlines
-                      <span className="text-amber-400 text-xs">✨</span>
-                    </div>
-                    <div className="text-xs text-slate-400">Interactive Family Trees</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('greek-lexicon');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
-                >
-                  <BookOpen size={20} className="text-indigo-400" />
-                  <div>
-                    <div className="font-semibold">Greek Lexicon</div>
-                    <div className="text-xs text-slate-400">Strong's Greek Dictionary</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('hebrew-lexicon');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
-                >
-                  <BookOpen size={20} className="text-amber-400" />
-                  <div>
-                    <div className="font-semibold">Hebrew Lexicon</div>
-                    <div className="text-xs text-slate-400">Strong's Hebrew Dictionary</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    if (!userData.unlockables?.smithDictionary) {
-                      // Show unlock prompt
-                      if (userData.totalPoints >= 500) {
-                        if (window.confirm('Unlock Smith\'s Bible Dictionary for 500 points?')) {
-                          const newPoints = userData.totalPoints - 500;
-                          const updatedUnlockables = {
-                            ...userData.unlockables,
-                            smithDictionary: true
-                          };
-
-                          setUserData(prev => ({
-                            ...prev,
-                            totalPoints: newPoints,
-                            unlockables: updatedUnlockables
-                          }));
-
-                          if (currentUser?.uid) {
-                            updateUserProgress(currentUser.uid, {
-                              totalPoints: newPoints,
-                              unlockables: updatedUnlockables
-                            });
+              {/* STUDY - Bible Reader, Lexicons, Dictionary, Bloodlines, Courses */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Study</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setShowBibleReaderModal(true);
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3"
+                  >
+                    <BookOpen size={18} className="text-emerald-400" /> Bible Reader
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('greek-lexicon');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                  >
+                    <BookOpen size={18} className="text-indigo-400" /> Greek Lexicon
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('hebrew-lexicon');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                  >
+                    <BookOpen size={18} className="text-amber-400" /> Hebrew Lexicon
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (!userData.unlockables?.smithDictionary) {
+                        if (userData.totalPoints >= 500) {
+                          if (window.confirm('Unlock Smith\'s Bible Dictionary for 500 points?')) {
+                            if (currentUser?.uid) {
+                              purchaseUnlockable(currentUser.uid, 'smithDictionary', 500).then(result => {
+                                if (result.success && result.validatedData) {
+                                  setUserData(prev => ({
+                                    ...prev,
+                                    totalPoints: result.validatedData.totalPoints,
+                                    unlockables: result.validatedData.unlockables
+                                  }));
+                                  showToast('📖 Smith\'s Bible Dictionary unlocked!', 'success');
+                                  setCurrentView('smith-dictionary');
+                                  setShowMenu(false);
+                                } else {
+                                  showToast(result.error || 'Failed to unlock dictionary', 'error');
+                                }
+                              }).catch(err => {
+                                showToast('Error: ' + err.message, 'error');
+                              });
+                            }
                           }
-
-                          showToast('📖 Smith\'s Bible Dictionary unlocked!', 'success');
-                          setCurrentView('smith-dictionary');
-                          setShowMenu(false);
+                        } else {
+                          showToast('Need 500 points to unlock Smith\'s Bible Dictionary', 'error');
                         }
                       } else {
-                        showToast('Need 500 points to unlock Smith\'s Bible Dictionary', 'error');
+                        setCurrentView('smith-dictionary');
+                        setShowMenu(false);
                       }
-                    } else {
-                      setCurrentView('smith-dictionary');
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
+                  >
+                    <BookOpen size={18} className="text-blue-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm flex items-center gap-2">
+                        Smith's Dictionary
+                        {!userData.unlockables?.smithDictionary && <Lock size={12} className="text-amber-400" />}
+                      </div>
+                      <div className="text-xs text-slate-400">
+                        {userData.unlockables?.smithDictionary ? 'Bible Reference' : '500 pts to unlock'}
+                      </div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('biblical-bloodlines');
                       setShowMenu(false);
-                    }
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3 relative"
-                >
-                  <BookOpen size={20} className="text-blue-400" />
-                  <div className="flex-1">
-                    <div className="font-semibold flex items-center gap-2">
-                      Smith's Bible Dictionary
-                      {!userData.unlockables?.smithDictionary && (
-                        <Lock size={14} className="text-amber-400" />
-                      )}
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Users size={18} className="text-amber-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Biblical Bloodlines</div>
+                      <div className="text-xs text-slate-400">Interactive Family Trees</div>
                     </div>
-                    <div className="text-xs text-slate-400">
-                      {userData.unlockables?.smithDictionary
-                        ? 'Comprehensive Bible Reference'
-                        : 'Unlock for 500 points'}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('greek-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                  >
+                    <GraduationCap size={18} className="text-indigo-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Κοινή Greek</div>
+                      <div className="text-xs text-slate-400">Biblical Greek Course</div>
                     </div>
-                  </div>
-                  {!userData.unlockables?.smithDictionary && (
-                    <div className="text-amber-400 font-bold text-sm">500 pts</div>
-                  )}
-                </button>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('hebrew-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                  >
+                    <GraduationCap size={18} className="text-amber-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">עברית עתיקה</div>
+                      <div className="text-xs text-slate-400">Ancient Hebrew Course</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('hermeneutics-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-teal-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Lightbulb size={18} className="text-teal-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Hermeneutics</div>
+                      <div className="text-xs text-slate-400">Biblical Interpretation</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('church-history-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Book size={18} className="text-purple-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Church History</div>
+                      <div className="text-xs text-slate-400">From Genesis to Early Church</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('kings-of-israel-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-indigo-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Crown size={18} className="text-blue-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Kings of Israel</div>
+                      <div className="text-xs text-slate-400">Chronology of Israel's Kings</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('textual-criticism-course');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-600/20 hover:to-slate-500/20 transition-all flex items-center gap-3"
+                  >
+                    <Search size={18} className="text-slate-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">Textual Criticism</div>
+                      <div className="text-xs text-slate-400">Manuscript Analysis</div>
+                    </div>
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Unlockables Section */}
-            <div className="mt-6 pt-6 border-t border-slate-700">
-              <h3 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 px-4">Unlockables</h3>
-              <div className="space-y-1">
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 5000 || userData.unlockables?.lxx) {
-                      // Unlock LXX
-                      setUserData(prev => ({
-                        ...prev,
-                        unlockables: { ...prev.unlockables, lxx: true }
-                      }));
-                      setCurrentView('unlockable-lxx');
+              {/* PLANS & CALENDAR */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Plans & Calendar</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('learning-plan');
                       setShowMenu(false);
-                    } else {
-                      showToast(`🔒 Septuagint (LXX)\n\nUnlock with 5,000 points\n\nCurrent: ${userData.totalPoints.toLocaleString()} pts\nNeeded: ${(5000 - userData.totalPoints).toLocaleString()} more pts`, 'warning');
-                    }
-                  }}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
-                    userData.totalPoints >= 5000 || userData.unlockables?.lxx
-                      ? 'text-slate-200 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-teal-600/20'
-                      : 'text-slate-600 cursor-not-allowed opacity-50'
-                  }`}
-                >
-                  {userData.totalPoints >= 5000 || userData.unlockables?.lxx ? (
-                    <Unlock size={20} className="text-emerald-400" />
-                  ) : (
-                    <Lock size={20} className="text-slate-600" />
-                  )}
-                  <div>
-                    <div className="font-semibold flex items-center gap-2">
-                      Septuagint (LXX)
-                      {!(userData.totalPoints >= 5000 || userData.unlockables?.lxx) && (
-                        <span className="text-xs bg-slate-700 px-2 py-0.5 rounded">5,000 pts</span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-400">Greek Old Testament</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 7500 || userData.unlockables?.masoretic) {
-                      // Unlock Masoretic
-                      setUserData(prev => ({
-                        ...prev,
-                        unlockables: { ...prev.unlockables, masoretic: true }
-                      }));
-                      setCurrentView('unlockable-masoretic');
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                  >
+                    <GraduationCap size={18} className="text-indigo-400" /> Learning Plans
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('calendar');
                       setShowMenu(false);
-                    } else {
-                      showToast(`🔒 Masoretic Text (WLC)\n\nUnlock with 7,500 points\n\nCurrent: ${userData.totalPoints.toLocaleString()} pts\nNeeded: ${(7500 - userData.totalPoints).toLocaleString()} more pts`, 'warning');
-                    }
-                  }}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
-                    userData.totalPoints >= 7500 || userData.unlockables?.masoretic
-                      ? 'text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20'
-                      : 'text-slate-600 cursor-not-allowed opacity-50'
-                  }`}
-                >
-                  {userData.totalPoints >= 7500 || userData.unlockables?.masoretic ? (
-                    <Unlock size={20} className="text-amber-400" />
-                  ) : (
-                    <Lock size={20} className="text-slate-600" />
-                  )}
-                  <div>
-                    <div className="font-semibold flex items-center gap-2">
-                      Masoretic Text (WLC)
-                      {!(userData.totalPoints >= 7500 || userData.unlockables?.masoretic) && (
-                        <span className="text-xs bg-slate-700 px-2 py-0.5 rounded">7,500 pts</span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-400">Hebrew Old Testament</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 10000 || userData.unlockables?.sinaiticus) {
-                      // Unlock Sinaiticus
-                      setUserData(prev => ({
-                        ...prev,
-                        unlockables: { ...prev.unlockables, sinaiticus: true }
-                      }));
-                      setCurrentView('unlockable-sinaiticus');
-                      setShowMenu(false);
-                    } else {
-                      showToast(`🔒 Codex Sinaiticus\n\nUnlock with 10,000 points\n\nCurrent: ${userData.totalPoints.toLocaleString()} pts\nNeeded: ${(10000 - userData.totalPoints).toLocaleString()} more pts`, 'warning');
-                    }
-                  }}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
-                    userData.totalPoints >= 10000 || userData.unlockables?.sinaiticus
-                      ? 'text-slate-200 hover:bg-gradient-to-r hover:from-violet-600/20 hover:to-purple-600/20'
-                      : 'text-slate-600 cursor-not-allowed opacity-50'
-                  }`}
-                >
-                  {userData.totalPoints >= 10000 || userData.unlockables?.sinaiticus ? (
-                    <Unlock size={20} className="text-violet-400" />
-                  ) : (
-                    <Lock size={20} className="text-slate-600" />
-                  )}
-                  <div>
-                    <div className="font-semibold flex items-center gap-2">
-                      Codex Sinaiticus
-                      {!(userData.totalPoints >= 10000 || userData.unlockables?.sinaiticus) && (
-                        <span className="text-xs bg-slate-700 px-2 py-0.5 rounded">10,000 pts</span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-400">Ancient Greek Bible</div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    // Check if all Elite achievements are unlocked
-                    const eliteAchievements = ACHIEVEMENT_CONDITIONS.elite;
-                    const eliteKeys = Object.keys(eliteAchievements);
-                    const allEliteUnlocked = eliteKeys.every(key =>
-                      userData.achievements && userData.achievements.includes(eliteAchievements[key].name)
-                    );
-
-                    if (allEliteUnlocked) {
-                      setCurrentView('unlockable-eli-challenge');
-                      setShowMenu(false);
-                    } else {
-                      const unlockedCount = eliteKeys.filter(key =>
-                        userData.achievements && userData.achievements.includes(eliteAchievements[key].name)
-                      ).length;
-                      showToast(`🔒 Eli Challenge\n\nThe Ultimate Test of Biblical Mastery\n\nUnlock by completing ALL Elite achievements\n\nProgress: ${unlockedCount}/${eliteKeys.length} Elite achievements`, 'warning');
-                    }
-                  }}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
-                    (() => {
-                      const eliteAchievements = ACHIEVEMENT_CONDITIONS.elite;
-                      const eliteKeys = Object.keys(eliteAchievements);
-                      const allEliteUnlocked = eliteKeys.every(key =>
-                        userData.achievements && userData.achievements.includes(eliteAchievements[key].name)
-                      );
-                      return allEliteUnlocked
-                        ? 'text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-yellow-600/20'
-                        : 'text-slate-600 cursor-not-allowed opacity-50';
-                    })()
-                  }`}
-                >
-                  {(() => {
-                    const eliteAchievements = ACHIEVEMENT_CONDITIONS.elite;
-                    const eliteKeys = Object.keys(eliteAchievements);
-                    const allEliteUnlocked = eliteKeys.every(key =>
-                      userData.achievements && userData.achievements.includes(eliteAchievements[key].name)
-                    );
-                    return allEliteUnlocked ? (
-                      <Unlock size={20} className="text-amber-400" />
-                    ) : (
-                      <Lock size={20} className="text-slate-600" />
-                    );
-                  })()}
-                  <div>
-                    <div className="font-semibold flex items-center gap-2">
-                      Eli Challenge
-                      {!(() => {
-                        const eliteAchievements = ACHIEVEMENT_CONDITIONS.elite;
-                        const eliteKeys = Object.keys(eliteAchievements);
-                        return eliteKeys.every(key =>
-                          userData.achievements && userData.achievements.includes(eliteAchievements[key].name)
-                        );
-                      })() && (
-                        <span className="text-xs bg-slate-700 px-2 py-0.5 rounded">All Elite</span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-400">Ultimate Biblical Mastery</div>
-                  </div>
-                </button>
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Calendar size={18} className="text-blue-400" /> Activity Calendar
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Quizzes & Activities Section */}
-            <div className="mt-6 pt-6 border-t border-slate-700">
-              <h3 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 px-4">Quizzes & Activities</h3>
-              <div className="space-y-1">
-                <button
-                  onClick={() => {
-                    setCurrentView('spiritual-gifts-exam');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-amber-600/20 transition-all flex items-center gap-3"
-                >
-                  <Wind size={20} className="text-purple-400" />
-                  <div>
-                    <div className="font-semibold">Spiritual Gifts Exam</div>
-                    <div className="text-xs text-slate-400">Discover your spiritual gifts</div>
-                  </div>
-                </button>
+              {/* ACHIEVEMENTS & REWARDS */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Achievements & Rewards</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('achievements');
+                      setShowMenu(false);
+                      setHasUnviewedAchievements(false);
+                      localStorage.setItem('hasUnviewedAchievements', 'false');
+                      localStorage.setItem('achievementsLastViewed', new Date().toISOString());
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-yellow-600/20 transition-all flex items-center gap-3 relative"
+                  >
+                    <Trophy size={18} className="text-amber-400" /> Achievements & Badges
+                    {hasUnviewedAchievements && (
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 to-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
+                        NEW
+                      </span>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('powerup-shop');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 transition-all flex items-center gap-3 relative"
+                  >
+                    <Crown size={18} className="text-purple-400" /> Power-Ups & Unlockables
+                    {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length > 0 && (
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
+                        {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length}
+                      </span>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('mastery');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-green-600/20 hover:to-emerald-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Flame size={18} className="text-green-400" /> Streak Milestones
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* System Section */}
-            <div className="mt-6 pt-6 border-t border-slate-700">
-              <div className="space-y-1">
-                <button
-                  onClick={() => {
-                    setCurrentView('settings');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transition-all flex items-center gap-3"
-                >
-                  <Settings size={20} /> Settings
-                </button>
-                <button
-                  onClick={() => {
-                    setCurrentView('tutorial');
-                    setShowMenu(false);
-                  }}
-                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-700 hover:to-purple-700 transition-all flex items-center gap-3"
-                >
-                  <HelpCircle size={20} /> Tutorial & Help
-                </button>
+              {/* PROFILE & PROGRESS */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Profile & Progress</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('analytics');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-cyan-600/20 hover:to-blue-600/20 transition-all flex items-center gap-3"
+                  >
+                    <TrendingUp size={18} className="text-cyan-400" /> Level Progress & XP
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('mastery');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-teal-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
+                  >
+                    <BarChart size={18} className="text-teal-400" /> Points Log & Stats
+                  </button>
+                </div>
               </div>
-            </div>
 
+              {/* TUTORIAL & HELP */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Tutorial & Help</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setShowTutorialHelp(true);
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                  >
+                    <HelpCircle size={18} className="text-blue-400" /> Tutorials & Help
+                  </button>
+                </div>
+              </div>
+
+              {/* SETTINGS */}
+              <div className="pt-3">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Settings</div>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('settings');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-600/20 hover:to-slate-500/20 transition-all flex items-center gap-3"
+                  >
+                    <Settings size={18} className="text-slate-400" /> Account & Preferences
+                  </button>
+                </div>
+              </div>
+            </nav>
+
+            {/* Sign Out Button */}
             <div className="mt-6 pt-6 border-t border-slate-700">
               <button
                 onClick={() => handleSignOut()}
