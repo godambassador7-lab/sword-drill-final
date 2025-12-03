@@ -134,11 +134,19 @@ export function calculateValidatedPoints(quizData, basePoints, quizHistory = [])
     };
   }
 
+  // SECURITY: Cap base points to prevent inflated values from client
+  const MAX_BASE_POINTS = 100;
+  const cappedBasePoints = Math.min(basePoints, MAX_BASE_POINTS);
+
+  if (cappedBasePoints < basePoints) {
+    console.warn(`[pointValidation] Client sent ${basePoints} base points, capped to ${cappedBasePoints}`);
+  }
+
   // Apply diminishing returns
   const diminishingMultiplier = calculateDiminishingReturns(quizData.type, quizHistory);
 
   // Calculate final points
-  let finalPoints = Math.floor(basePoints * diminishingMultiplier);
+  let finalPoints = Math.floor(cappedBasePoints * diminishingMultiplier);
 
   // Check daily point cap
   const today = new Date().toDateString();
@@ -250,11 +258,34 @@ export function recomputeStreakFromHistory(quizHistory = []) {
 /**
  * Recompute total points from quiz history
  * Never trust client-sent totals
+ * Only counts validated quizzes with reasonable point values
  */
 export function recomputeTotalPoints(quizHistory = []) {
-  return quizHistory
+  const MAX_POINTS_PER_QUIZ = 100; // Cap individual quiz points to prevent inflation
+
+  let totalPoints = 0;
+  let cappedCount = 0;
+
+  quizHistory
     .filter(q => q.correct && q.points)
-    .reduce((total, q) => total + q.points, 0);
+    .forEach(q => {
+      // Cap individual quiz points to prevent old inflated values
+      const originalPoints = q.points;
+      const cappedPoints = Math.min(originalPoints, MAX_POINTS_PER_QUIZ);
+
+      if (cappedPoints < originalPoints) {
+        cappedCount++;
+        console.log(`[pointValidation] Capped quiz from ${originalPoints} to ${cappedPoints} points`);
+      }
+
+      totalPoints += cappedPoints;
+    });
+
+  if (cappedCount > 0) {
+    console.log(`[pointValidation] Total: ${cappedCount} quizzes had inflated points and were capped`);
+  }
+
+  return totalPoints;
 }
 
 /**

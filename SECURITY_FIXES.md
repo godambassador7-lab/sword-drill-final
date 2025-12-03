@@ -6,6 +6,12 @@ This document details all security improvements to prevent point farming, exploi
 
 The point economy has been hardened with **server-side validation** to prevent all major exploits. Points, streaks, and unlockables are now recomputed from trusted events rather than accepting client-sent values.
 
+**Latest Update (2025-12-03):**
+- Added **100-point cap per quiz** in recomputation to prevent old inflated values
+- Added **100-point cap on client-sent base points** to prevent new inflated submissions
+- Added logging to detect and report capped quizzes
+- All existing quiz history is automatically sanitized on next submission
+
 ---
 
 ## Vulnerabilities Fixed
@@ -191,6 +197,44 @@ export const recordVerseOfDayRead = async (userId) => {
 ```
 
 **Files:** `src/services/dbService.js` (lines 240-267), `src/services/pointValidation.js` (lines 217-233)
+
+---
+
+### 10. ✅ Point Inflation from Quiz History (1000+ Point Jumps)
+**Problem:** Old quiz history contained inflated point values that were being summed without validation, causing points to jump by thousands.
+
+**Fix:**
+- **Point capping in recomputation:** `recomputeTotalPoints()` now caps each quiz to max 100 points
+- **Client-sent point capping:** `calculateValidatedPoints()` caps base points from client to 100
+- **Automatic sanitization:** All existing quiz history is automatically capped on recomputation
+- **Logging:** Console logs show which quizzes had inflated values that were capped
+
+```javascript
+export function recomputeTotalPoints(quizHistory = []) {
+  const MAX_POINTS_PER_QUIZ = 100;
+
+  return quizHistory
+    .filter(q => q.correct && q.points)
+    .reduce((total, q) => {
+      const cappedPoints = Math.min(q.points, MAX_POINTS_PER_QUIZ);
+      if (cappedPoints < q.points) {
+        console.log(`Capped quiz from ${q.points} to ${cappedPoints}`);
+      }
+      return total + cappedPoints;
+    }, 0);
+}
+
+export function calculateValidatedPoints(quizData, basePoints, quizHistory) {
+  const MAX_BASE_POINTS = 100;
+  const cappedBasePoints = Math.min(basePoints, MAX_BASE_POINTS);
+
+  // ... rest of validation
+}
+```
+
+**Result:** Points will automatically stabilize to realistic values (typically 5-50 per quiz) on next quiz submission.
+
+**Files:** `src/services/pointValidation.js` (lines 255-281, 137-143)
 
 ---
 

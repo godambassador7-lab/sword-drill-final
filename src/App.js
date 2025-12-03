@@ -2337,8 +2337,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   // Update last activity date and reset retry count
   localStorage.setItem('lastActivityDate', new Date().toISOString());
 
-  const newQuizzesCompleted = userData.quizzesCompleted + 1;
-  const newTotalPoints = Math.max(0, userData.totalPoints + points); // Can't go below 0
+  let newQuizzesCompleted = userData.quizzesCompleted + 1;
+  let newTotalPoints = Math.max(0, userData.totalPoints + points); // Can't go below 0
 
   // Reset retry count after submission
   setUserData(prev => ({
@@ -2468,7 +2468,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   });
 
   // Determine actual level (advance if eligible, otherwise keep current)
-  const newLevel = levelProgressionResult.canLevelUp && levelProgressionResult.nextLevel
+  let newLevel = levelProgressionResult.canLevelUp && levelProgressionResult.nextLevel
     ? levelProgressionResult.nextLevel
     : (userData.currentLevel || 'Beginner');
 
@@ -2508,6 +2508,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
   console.log('[Quiz Data to Save]', newQuizData);
 
+  let effectiveQuizData = newQuizData;
+
   // Save to Firebase
   try {
     if (currentUser) {
@@ -2528,27 +2530,31 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       // SECURITY: Use server-validated data if available
       if (saveResult.success && saveResult.validatedData) {
         console.log('[Security] Using server-validated points:', saveResult.validatedData);
-        // Override client calculations with server-validated values
-        setUserData(prev => ({
-          ...prev,
+        effectiveQuizData = {
           ...newQuizData,
           totalPoints: saveResult.validatedData.totalPoints,
           currentStreak: saveResult.validatedData.currentStreak,
-          longestStreak: saveResult.validatedData.longestStreak,
           quizzesCompleted: saveResult.validatedData.quizzesCompleted,
-          currentLevel: saveResult.validatedData.currentLevel || prev.currentLevel
-        }));
-        return; // Exit early to prevent using client-calculated values
+          currentLevel: saveResult.validatedData.currentLevel || newQuizData.currentLevel
+        };
       }
     }
   } catch (err) {
     console.error('[Firebase] Save result failed, using local data:', err);
   }
 
+  // If server provided overrides, align local variables for UI messages
+  if (effectiveQuizData !== newQuizData) {
+    newTotalPoints = effectiveQuizData.totalPoints ?? newTotalPoints;
+    newQuizzesCompleted = effectiveQuizData.quizzesCompleted ?? newQuizzesCompleted;
+    currentStreakValue = effectiveQuizData.currentStreak ?? currentStreakValue;
+    newLevel = effectiveQuizData.currentLevel ?? newLevel;
+  }
+
   // Fallback: update with client-calculated data (only if Firebase save failed)
   setUserData(prev => ({
     ...prev,
-    ...newQuizData
+    ...effectiveQuizData
   }));
 
   // Show achievement unlock notifications
