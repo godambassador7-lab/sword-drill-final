@@ -785,6 +785,7 @@ const SwordDrillApp = () => {
   const [showCorrectToast, setShowCorrectToast] = useState(false);
   const [showIncorrectToast, setShowIncorrectToast] = useState(false);
   const [toastPoints, setToastPoints] = useState(0);
+  const [isSubmittingQuiz, setIsSubmittingQuiz] = useState(false);
   const [showGenericToast, setShowGenericToast] = useState(false);
   const [genericToastMessage, setGenericToastMessage] = useState('');
   const [genericToastType, setGenericToastType] = useState('success');
@@ -2213,6 +2214,9 @@ const fadeOutMusic = () => {
 
 
 const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
+  if (isSubmittingQuiz) return;
+  setIsSubmittingQuiz(true);
+  try {
   // Guard: if React passes a click event, prevent default and ignore the override
   if (isCorrectOverride && typeof isCorrectOverride === 'object' && 'preventDefault' in isCorrectOverride) {
     try { isCorrectOverride.preventDefault(); } catch (_) {}
@@ -2505,8 +2509,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   console.log('[Quiz Data to Save]', newQuizData);
 
   // Save to Firebase
-  if (currentUser) {
-    console.log('[Firebase] Saving quiz result with achievements:', newAchievements);
+  try {
+    if (currentUser) {
+      console.log('[Firebase] Saving quiz result with achievements:', newAchievements);
       const saveResult = await addQuizResult(currentUser.uid, {
         verseId: quizState.verse.id,
         verseReference: verseId,
@@ -2518,23 +2523,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         streakData: streakData, // Sync streak calendar data to Firebase
         ...newQuizData
       });
-    console.log('[Firebase] Save result:', saveResult);
+      console.log('[Firebase] Save result:', saveResult);
 
-    // SECURITY: Use server-validated data if available
-    if (saveResult.success && saveResult.validatedData) {
-      console.log('[Security] Using server-validated points:', saveResult.validatedData);
-      // Override client calculations with server-validated values
-      setUserData(prev => ({
-        ...prev,
-        ...newQuizData,
-        totalPoints: saveResult.validatedData.totalPoints,
-        currentStreak: saveResult.validatedData.currentStreak,
-        longestStreak: saveResult.validatedData.longestStreak,
-        quizzesCompleted: saveResult.validatedData.quizzesCompleted,
-        currentLevel: saveResult.validatedData.currentLevel || prev.currentLevel
-      }));
-      return; // Exit early to prevent using client-calculated values
+      // SECURITY: Use server-validated data if available
+      if (saveResult.success && saveResult.validatedData) {
+        console.log('[Security] Using server-validated points:', saveResult.validatedData);
+        // Override client calculations with server-validated values
+        setUserData(prev => ({
+          ...prev,
+          ...newQuizData,
+          totalPoints: saveResult.validatedData.totalPoints,
+          currentStreak: saveResult.validatedData.currentStreak,
+          longestStreak: saveResult.validatedData.longestStreak,
+          quizzesCompleted: saveResult.validatedData.quizzesCompleted,
+          currentLevel: saveResult.validatedData.currentLevel || prev.currentLevel
+        }));
+        return; // Exit early to prevent using client-calculated values
+      }
     }
+  } catch (err) {
+    console.error('[Firebase] Save result failed, using local data:', err);
   }
 
   // Fallback: update with client-calculated data (only if Firebase save failed)
@@ -2661,6 +2669,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         }, 5000); // Show memory tip for 5 seconds
       }, 2000); // Show incorrect toast for 2 seconds
     }
+  }
+  } finally {
+    setIsSubmittingQuiz(false);
   }
 };
 
@@ -3325,11 +3336,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           disabled={
             quizState.type === 'fill-blank'
               ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
-              : !quizState.userAnswer
+              : !quizState.userAnswer || isSubmittingQuiz
           }
           className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-4 rounded-xl hover:from-amber-600 hover:to-amber-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit Answer
+          {isSubmittingQuiz ? 'Submitting...' : 'Submit Answer'}
         </button>
 
         <button
