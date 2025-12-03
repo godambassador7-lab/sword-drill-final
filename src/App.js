@@ -5202,7 +5202,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <div className="space-y-1">
                   <button
                     onClick={() => {
-                      setShowBibleReaderModal(true);
+                      setShowBibleReader(true);
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3"
@@ -5469,7 +5469,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <div className="space-y-1">
                   <button
                     onClick={() => {
-                      setShowTutorialHelp(true);
+                      setCurrentView('tutorial');
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
