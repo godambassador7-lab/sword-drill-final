@@ -12,6 +12,26 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [previousResults, setPreviousResults] = useState(null);
   const [showPreviousResults, setShowPreviousResults] = useState(false);
 
+  // Background music effect
+  useEffect(() => {
+    const audio = new Audio(`${process.env.PUBLIC_URL || ''}/ytmp3free.cc_holy-spirit-and-i-10-minute-praying-time-music-meditation-music-youtubemp3free.org.mp3`);
+    audio.loop = true;
+    audio.volume = 0.3; // Set to 30% volume for background ambiance
+
+    // Play the audio
+    audio.play().catch(err => {
+      console.log('Audio autoplay prevented:', err);
+      // Autoplay might be blocked by browser, user will need to interact first
+    });
+
+    // Cleanup: stop and remove audio when component unmounts
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = '';
+    };
+  }, []);
+
   useEffect(() => {
     const dataUrl = `${process.env.PUBLIC_URL || ''}/spiritual_gifts_exam_sword_drill/spiritual_gifts_exam.json`;
 

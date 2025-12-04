@@ -1,0 +1,23 @@
+{
+  "level_id": "level3",
+  "lessons": [
+    {
+      "lesson_id": "l3_1",
+      "text": "እኔ ወደ ቤት እሄዳለሁ።",
+      "explanation": "Sentence structure parsing."
+    },
+    {
+      "lesson_id": "l3_2",
+      "dialogue": [
+        {
+          "am": "ሰላም እንዴት ነህ?",
+          "eng": "Hello, how are you?"
+        },
+        {
+          "am": "ደኅና ነኝ።",
+          "eng": "I am well."
+        }
+      ]
+    }
+  ]
+}

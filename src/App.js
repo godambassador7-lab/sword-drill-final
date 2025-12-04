@@ -50,6 +50,10 @@ import IncorrectToast from './components/IncorrectToast';
 import GenericToast from './components/GenericToast';
 import KoineGreekCourse from './components/KoineGreekCourse';
 import AncientHebrewCourse from './components/AncientHebrewCourse';
+import PaleoHebrewCourse from './components/PaleoHebrewCourse';
+import AmharicCourse from './components/AmharicCourse';
+import GeezCourse from './components/GeezCourse';
+import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -705,12 +709,16 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
 const SwordDrillApp = () => {
   // Course admission costs
   const COURSE_ADMISSION = {
-    'greek-course': { cost: 300, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
-    'hebrew-course': { cost: 300, name: 'עברית עתיקה', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
-    'hermeneutics-course': { cost: 500, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
-    'church-history-course': { cost: 200, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
-    'kings-of-israel-course': { cost: 200, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
-    'textual-criticism-course': { cost: 400, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' }
+    'greek-course': { cost: 800, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
+    'hebrew-course': { cost: 800, name: 'עברית עתיקה', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
+    'paleo-hebrew-course': { cost: 800, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
+    'amharic-course': { cost: 800, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
+    'geez-course': { cost: 800, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
+    'aramaic-course': { cost: 800, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
+    'hermeneutics-course': { cost: 800, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
+    'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
+    'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
+    'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' }
   };
 
   const [currentView, setCurrentView] = useState('home');
@@ -7081,6 +7089,150 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               }));
 
               setCurrentView('home');
+            }}
+            onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'paleo-hebrew-course' && (
+          <PaleoHebrewCourse
+            onComplete={(results) => {
+              console.log('Paleo Hebrew course results:', results);
+
+              // Award points for course completion
+              let pointsEarned = 0;
+              if (results.type === 'lesson') {
+                pointsEarned = awardBonusPoints('courseLesson');
+                showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+
+                // Track lesson completion
+                recordQuizAttempt({
+                  verseReference: results.lessonTitle || 'Paleo Hebrew Lesson',
+                  type: 'paleo-hebrew-lesson',
+                  correct: true,
+                  points: pointsEarned
+                });
+              } else if (results.type === 'level') {
+                pointsEarned = awardBonusPoints('courseLevel');
+                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+
+                // Track level completion
+                recordQuizAttempt({
+                  verseReference: results.levelTitle || 'Paleo Hebrew Level',
+                  type: 'paleo-hebrew-level',
+                  correct: true,
+                  points: pointsEarned
+                });
+              } else if (results.type === 'course') {
+                pointsEarned = awardBonusPoints('courseComplete');
+                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Paleo Hebrew course!`, 'success');
+
+                // Track course completion
+                recordQuizAttempt({
+                  verseReference: 'Paleo Hebrew Course',
+                  type: 'paleo-hebrew-course',
+                  correct: true,
+                  points: pointsEarned
+                });
+              }
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              setCurrentView('home');
+            }}
+            onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'amharic-course' && (
+          <AmharicCourse
+            onComplete={(results) => {
+              console.log('Amharic course results:', results);
+
+              // Award 100 points for lessons, quiz, and levels
+              const pointsEarned = results.points || 100;
+
+              if (results.type === 'lesson') {
+                showToast(`🎓 Amharic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nአማርኛ mastery in progress!`, 'success');
+              } else if (results.type === 'level') {
+                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nየተሳካ! (Success!) You've mastered ${results.levelTitle}!`, 'success');
+              } else if (results.type === 'quiz') {
+                showToast(`📝 Quiz Complete!\n\n+${pointsEarned} points earned!\n\nScore: ${results.score}%`, 'success');
+              }
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              // Track completion
+              recordQuizAttempt({
+                verseReference: `Amharic ${results.type}`,
+                type: 'amharic-course',
+                correct: true,
+                points: pointsEarned
+              });
+            }}
+            onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'geez-course' && (
+          <GeezCourse
+            onComplete={(results) => {
+              console.log('Ge\'ez course results:', results);
+
+              // Award 100 points for lessons and levels
+              const pointsEarned = results.points || 100;
+
+              if (results.type === 'lesson') {
+                showToast(`🎓 Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\nግዕዝ mastery in progress!`, 'success');
+              } else if (results.type === 'level') {
+                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nዓቢይ! (Great!) You've mastered ${results.levelTitle}!`, 'success');
+              }
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              // Track completion
+              recordQuizAttempt({
+                verseReference: `Ge'ez ${results.type}`,
+                type: 'geez-course',
+                correct: true,
+                points: pointsEarned
+              });
+            }}
+            onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'aramaic-course' && (
+          <AramaicCourse
+            onComplete={(results) => {
+              console.log('Aramaic course results:', results);
+
+              // Award 100 points for lessons and levels
+              const pointsEarned = results.points || 100;
+
+              if (results.type === 'lesson') {
+                showToast(`🎓 Aramaic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nܐܪܡܝܐ - The language of Jesus!`, 'success');
+              } else if (results.type === 'level') {
+                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nܫܦܝܪ! (Excellent!) You've mastered ${results.levelTitle}!`, 'success');
+              }
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              // Track completion
+              recordQuizAttempt({
+                verseReference: `Aramaic ${results.type}`,
+                type: 'aramaic-course',
+                correct: true,
+                points: pointsEarned
+              });
             }}
             onCancel={() => setCurrentView('home')}
           />

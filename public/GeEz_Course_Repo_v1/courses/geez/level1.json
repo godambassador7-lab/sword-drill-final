@@ -1,0 +1,815 @@
+{
+  "level_id": "level1",
+  "lessons": [
+    {
+      "lesson_id": "l1_1",
+      "title": "Letters: Hä, Lä, Ḥä, Mä",
+      "letters": [
+        {
+          "name": "Hä",
+          "base_symbol": "ሀ",
+          "transliteration": "h",
+          "reconstructed_phonology": {
+            "ipa": "hə",
+            "notes": "Voiceless glottal fricative with inherent vowel ə"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ሀ",
+              "approx_pronunciation": "hä",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ሀ",
+              "approx_pronunciation": "hu",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ሀ",
+              "approx_pronunciation": "hi",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ሀ",
+              "approx_pronunciation": "ha",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ሀ",
+              "approx_pronunciation": "he",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ሀ",
+              "approx_pronunciation": "hə",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ሀ",
+              "approx_pronunciation": "ho",
+              "ipa": "hə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Lä",
+          "base_symbol": "ለ",
+          "transliteration": "l",
+          "reconstructed_phonology": {
+            "ipa": "lə",
+            "notes": "Clear alveolar lateral"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ለ",
+              "approx_pronunciation": "lä",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ለ",
+              "approx_pronunciation": "lu",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ለ",
+              "approx_pronunciation": "li",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ለ",
+              "approx_pronunciation": "la",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ለ",
+              "approx_pronunciation": "le",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ለ",
+              "approx_pronunciation": "lə",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ለ",
+              "approx_pronunciation": "lo",
+              "ipa": "lə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Ḥä",
+          "base_symbol": "ሐ",
+          "transliteration": "ħ",
+          "reconstructed_phonology": {
+            "ipa": "ħə",
+            "notes": "Pharyngeal/fricative H distinct in Semitic languages"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ሐ",
+              "approx_pronunciation": "ħä",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ሐ",
+              "approx_pronunciation": "ħu",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ሐ",
+              "approx_pronunciation": "ħi",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ሐ",
+              "approx_pronunciation": "ħa",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ሐ",
+              "approx_pronunciation": "ħe",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ሐ",
+              "approx_pronunciation": "ħə",
+              "ipa": "ħə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ሐ",
+              "approx_pronunciation": "ħo",
+              "ipa": "ħə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Mä",
+          "base_symbol": "መ",
+          "transliteration": "m",
+          "reconstructed_phonology": {
+            "ipa": "mə",
+            "notes": "Bilabial nasal"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "መ",
+              "approx_pronunciation": "mä",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "መ",
+              "approx_pronunciation": "mu",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "መ",
+              "approx_pronunciation": "mi",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "መ",
+              "approx_pronunciation": "ma",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "መ",
+              "approx_pronunciation": "me",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "መ",
+              "approx_pronunciation": "mə",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "መ",
+              "approx_pronunciation": "mo",
+              "ipa": "mə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_2",
+      "title": "Letters: Śä, Rä, Sä, Šä",
+      "letters": [
+        {
+          "name": "Śä",
+          "base_symbol": "ሠ",
+          "transliteration": "s",
+          "reconstructed_phonology": {
+            "ipa": "sə",
+            "notes": "Classical Ge'ez Ś distinct from S"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ሠ",
+              "approx_pronunciation": "sä",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ሠ",
+              "approx_pronunciation": "su",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ሠ",
+              "approx_pronunciation": "si",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ሠ",
+              "approx_pronunciation": "sa",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ሠ",
+              "approx_pronunciation": "se",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ሠ",
+              "approx_pronunciation": "sə",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ሠ",
+              "approx_pronunciation": "so",
+              "ipa": "sə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Rä",
+          "base_symbol": "ረ",
+          "transliteration": "r",
+          "reconstructed_phonology": {
+            "ipa": "rə",
+            "notes": "Tapped or trilled r"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ረ",
+              "approx_pronunciation": "rä",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ረ",
+              "approx_pronunciation": "ru",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ረ",
+              "approx_pronunciation": "ri",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ረ",
+              "approx_pronunciation": "ra",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ረ",
+              "approx_pronunciation": "re",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ረ",
+              "approx_pronunciation": "rə",
+              "ipa": "rə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ረ",
+              "approx_pronunciation": "ro",
+              "ipa": "rə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Sä",
+          "base_symbol": "ሰ",
+          "transliteration": "s",
+          "reconstructed_phonology": {
+            "ipa": "sə",
+            "notes": "Voiceless alveolar s"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ሰ",
+              "approx_pronunciation": "sä",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ሰ",
+              "approx_pronunciation": "su",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ሰ",
+              "approx_pronunciation": "si",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ሰ",
+              "approx_pronunciation": "sa",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ሰ",
+              "approx_pronunciation": "se",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ሰ",
+              "approx_pronunciation": "sə",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ሰ",
+              "approx_pronunciation": "so",
+              "ipa": "sə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Šä",
+          "base_symbol": "ሸ",
+          "transliteration": "ʃ",
+          "reconstructed_phonology": {
+            "ipa": "ʃə",
+            "notes": "Sh sound like English 'sh'"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃä",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃu",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃi",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃa",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃe",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃə",
+              "ipa": "ʃə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ሸ",
+              "approx_pronunciation": "ʃo",
+              "ipa": "ʃə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_3",
+      "title": "Letters: Qä, Bä, T’ä, Ṣä",
+      "letters": [
+        {
+          "name": "Qä",
+          "base_symbol": "ቀ",
+          "transliteration": "q",
+          "reconstructed_phonology": {
+            "ipa": "qə",
+            "notes": "Uvular stop / deep Semitic q"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ቀ",
+              "approx_pronunciation": "qä",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ቀ",
+              "approx_pronunciation": "qu",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ቀ",
+              "approx_pronunciation": "qi",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ቀ",
+              "approx_pronunciation": "qa",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ቀ",
+              "approx_pronunciation": "qe",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ቀ",
+              "approx_pronunciation": "qə",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ቀ",
+              "approx_pronunciation": "qo",
+              "ipa": "qə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Bä",
+          "base_symbol": "በ",
+          "transliteration": "b",
+          "reconstructed_phonology": {
+            "ipa": "bə",
+            "notes": "Bilabial voiced stop"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "በ",
+              "approx_pronunciation": "bä",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "በ",
+              "approx_pronunciation": "bu",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "በ",
+              "approx_pronunciation": "bi",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "በ",
+              "approx_pronunciation": "ba",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "በ",
+              "approx_pronunciation": "be",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "በ",
+              "approx_pronunciation": "bə",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "በ",
+              "approx_pronunciation": "bo",
+              "ipa": "bə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "T’ä",
+          "base_symbol": "ጠ",
+          "transliteration": "tʼ",
+          "reconstructed_phonology": {
+            "ipa": "tʼə",
+            "notes": "Ejective emphatic T"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼä",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼu",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼi",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼa",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼe",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼə",
+              "ipa": "tʼə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ጠ",
+              "approx_pronunciation": "tʼo",
+              "ipa": "tʼə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        },
+        {
+          "name": "Ṣä",
+          "base_symbol": "ፀ",
+          "transliteration": "sˤ",
+          "reconstructed_phonology": {
+            "ipa": "sˤə",
+            "notes": "Emphatic/alveolarized 'ts' class"
+          },
+          "orders": [
+            {
+              "order_number": 1,
+              "vowel": "ä",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤä",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 2,
+              "vowel": "u",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤu",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 3,
+              "vowel": "i",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤi",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 4,
+              "vowel": "a",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤa",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 5,
+              "vowel": "e",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤe",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 6,
+              "vowel": "ə",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤə",
+              "ipa": "sˤə"
+            },
+            {
+              "order_number": 7,
+              "vowel": "o",
+              "display": "ፀ",
+              "approx_pronunciation": "sˤo",
+              "ipa": "sˤə"
+            }
+          ],
+          "core_meanings": [
+            "sound value only — Ge'ez is not pictographic"
+          ],
+          "scripture_examples": [
+            "Genesis (Ge'ez), Psalm 1 (Ge'ez)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "texts": [
+    {
+      "reference": "Daniel 2:4",
+      "aramaic": "וַיֹּאמְרוּ כַלְדָּאֵי בַאֲרָמִית",
+      "translation": "And the Chaldeans spoke to the king in Aramaic.",
+      "analysis": "Transition into Aramaic; 'vayomru' uses Hebrew form but content shifts to Aramaic."
+    },
+    {
+      "reference": "Ezra 4:7",
+      "aramaic": "וּכְתָב הַנִּשְׁתְּוָן כָּתוּב אֲרָמִית",
+      "translation": "And the letter was written in Aramaic.",
+      "analysis": "Shows formal Imperial Aramaic used in Persian government."
+    },
+    {
+      "reference": "Jeremiah 10:11",
+      "aramaic": "כְּדֵן תֵּאמְרוּן לוֹן...",
+      "translation": "Thus shall you say to them...",
+      "analysis": "Only Aramaic sentence in Jeremiah; strong instructional syntax."
+    }
+  ]
+}

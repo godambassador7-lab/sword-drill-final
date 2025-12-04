@@ -1,0 +1,408 @@
+{
+  "level_id": "level2",
+  "title": "Level 2 – Roots and Word Building",
+  "lessons": [
+    {
+      "lesson_id": "l2_1",
+      "title": "Roots Batch 1",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "אב",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אב would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אדמה",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אדמה would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אמן",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אמן would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אור",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אור would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אחד",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אחד would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אלהים",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אלהים would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "אכל",
+          "associated_letter": "Aleph",
+          "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אכל would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "בית",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בית would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "בן",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בן would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ברית",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ברית would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_2",
+      "title": "Roots Batch 2",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "בכור",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בכור would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "בשר",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בשר would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ברך",
+          "associated_letter": "Beit",
+          "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ברך would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גמל",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גמל would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גר",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גר would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גבעה",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גבעה would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גל",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גל would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גלה",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גלה would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "גדול",
+          "associated_letter": "Gimel",
+          "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גדול would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "דלת",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דלת would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_3",
+      "title": "Roots Batch 3",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "דם",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דם would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "דבר",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דבר would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "דרך",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דרך would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "דוד",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דוד would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "דום",
+          "associated_letter": "Dalet",
+          "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דום would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "הר",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הר would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "הן",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הן would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "היה",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root היה would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "הלל",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הלל would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "הוד",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הוד would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_4",
+      "title": "Roots Batch 4",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "הושע",
+          "associated_letter": "Hey",
+          "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הושע would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ו",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ו would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "וד",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root וד would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ורד",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ורד would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ונתן",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ונתן would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "וירא",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root וירא would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "והיה",
+          "associated_letter": "Waw",
+          "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root והיה would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "זהב",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זהב would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "זכר",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זכר would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "זבח",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זבח would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_5",
+      "title": "Roots Batch 5",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "זד",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זד would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "זית",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זית would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "זמן",
+          "associated_letter": "Zayin",
+          "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זמן would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חסד",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חסד would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חיים",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חיים would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חכמה",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חכמה would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חטא",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חטא would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חיל",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חיל would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "חסל",
+          "associated_letter": "Chet",
+          "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חסל would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "טוב",
+          "associated_letter": "Tet",
+          "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טוב would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_6",
+      "title": "Roots Batch 6",
+      "objective": "Study how specific roots express meaning through their associated letters and semantic explanations.",
+      "roots": [
+        {
+          "root": "טהור",
+          "associated_letter": "Tet",
+          "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טהור would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "טעם",
+          "associated_letter": "Tet",
+          "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טעם would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "טף",
+          "associated_letter": "Tet",
+          "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טף would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "טמן",
+          "associated_letter": "Tet",
+          "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טמן would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "יד",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יד would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "יום",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יום would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "ישראל",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ישראל would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "יער",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יער would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "יבש",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יבש would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        },
+        {
+          "root": "יצא",
+          "associated_letter": "Yod",
+          "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+          "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יצא would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+        }
+      ]
+    }
+  ]
+}

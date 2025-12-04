@@ -1,0 +1,543 @@
+{
+  "title": "Ge'ez Course Quizzes",
+  "quizzes": [
+    {
+      "id": "symbol_to_name",
+      "questions": [
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ሀ?",
+          "options": [
+            "Hä",
+            "Lä"
+          ],
+          "answer": "Hä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ለ?",
+          "options": [
+            "Lä",
+            "Mä"
+          ],
+          "answer": "Lä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ሐ?",
+          "options": [
+            "Ḥä",
+            "Ṣä"
+          ],
+          "answer": "Ḥä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: መ?",
+          "options": [
+            "Mä",
+            "Śä"
+          ],
+          "answer": "Mä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ሠ?",
+          "options": [
+            "Śä",
+            "Ḥä"
+          ],
+          "answer": "Śä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ረ?",
+          "options": [
+            "Rä",
+            "Mä"
+          ],
+          "answer": "Rä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ሰ?",
+          "options": [
+            "Sä",
+            "Qä"
+          ],
+          "answer": "Sä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ሸ?",
+          "options": [
+            "Šä",
+            "T’ä"
+          ],
+          "answer": "Šä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ቀ?",
+          "options": [
+            "Qä",
+            "Bä"
+          ],
+          "answer": "Qä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: በ?",
+          "options": [
+            "Bä",
+            "Hä"
+          ],
+          "answer": "Bä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ጠ?",
+          "options": [
+            "T’ä",
+            "Qä"
+          ],
+          "answer": "T’ä"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Which Ge'ez letter is this: ፀ?",
+          "options": [
+            "Ṣä",
+            "Sä"
+          ],
+          "answer": "Ṣä"
+        }
+      ]
+    },
+    {
+      "id": "syllable_sound",
+      "questions": [
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 1)?",
+          "answer": "hä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 2)?",
+          "answer": "hu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 3)?",
+          "answer": "hi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 4)?",
+          "answer": "ha"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 5)?",
+          "answer": "he"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 6)?",
+          "answer": "hə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሀ (order 7)?",
+          "answer": "ho"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 1)?",
+          "answer": "lä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 2)?",
+          "answer": "lu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 3)?",
+          "answer": "li"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 4)?",
+          "answer": "la"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 5)?",
+          "answer": "le"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 6)?",
+          "answer": "lə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ለ (order 7)?",
+          "answer": "lo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 1)?",
+          "answer": "ħä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 2)?",
+          "answer": "ħu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 3)?",
+          "answer": "ħi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 4)?",
+          "answer": "ħa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 5)?",
+          "answer": "ħe"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 6)?",
+          "answer": "ħə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሐ (order 7)?",
+          "answer": "ħo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 1)?",
+          "answer": "mä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 2)?",
+          "answer": "mu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 3)?",
+          "answer": "mi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 4)?",
+          "answer": "ma"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 5)?",
+          "answer": "me"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 6)?",
+          "answer": "mə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of መ (order 7)?",
+          "answer": "mo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 1)?",
+          "answer": "sä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 2)?",
+          "answer": "su"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 3)?",
+          "answer": "si"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 4)?",
+          "answer": "sa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 5)?",
+          "answer": "se"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 6)?",
+          "answer": "sə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሠ (order 7)?",
+          "answer": "so"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 1)?",
+          "answer": "rä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 2)?",
+          "answer": "ru"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 3)?",
+          "answer": "ri"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 4)?",
+          "answer": "ra"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 5)?",
+          "answer": "re"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 6)?",
+          "answer": "rə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ረ (order 7)?",
+          "answer": "ro"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 1)?",
+          "answer": "sä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 2)?",
+          "answer": "su"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 3)?",
+          "answer": "si"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 4)?",
+          "answer": "sa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 5)?",
+          "answer": "se"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 6)?",
+          "answer": "sə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሰ (order 7)?",
+          "answer": "so"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 1)?",
+          "answer": "ʃä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 2)?",
+          "answer": "ʃu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 3)?",
+          "answer": "ʃi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 4)?",
+          "answer": "ʃa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 5)?",
+          "answer": "ʃe"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 6)?",
+          "answer": "ʃə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ሸ (order 7)?",
+          "answer": "ʃo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 1)?",
+          "answer": "qä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 2)?",
+          "answer": "qu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 3)?",
+          "answer": "qi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 4)?",
+          "answer": "qa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 5)?",
+          "answer": "qe"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 6)?",
+          "answer": "qə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ቀ (order 7)?",
+          "answer": "qo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 1)?",
+          "answer": "bä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 2)?",
+          "answer": "bu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 3)?",
+          "answer": "bi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 4)?",
+          "answer": "ba"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 5)?",
+          "answer": "be"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 6)?",
+          "answer": "bə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of በ (order 7)?",
+          "answer": "bo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 1)?",
+          "answer": "tʼä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 2)?",
+          "answer": "tʼu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 3)?",
+          "answer": "tʼi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 4)?",
+          "answer": "tʼa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 5)?",
+          "answer": "tʼe"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 6)?",
+          "answer": "tʼə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ጠ (order 7)?",
+          "answer": "tʼo"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 1)?",
+          "answer": "sˤä"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 2)?",
+          "answer": "sˤu"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 3)?",
+          "answer": "sˤi"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 4)?",
+          "answer": "sˤa"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 5)?",
+          "answer": "sˤe"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 6)?",
+          "answer": "sˤə"
+        },
+        {
+          "type": "matching",
+          "prompt": "What is the sound of ፀ (order 7)?",
+          "answer": "sˤo"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "level_id": "level1",
+  "title": "Level 1 – Letters and Symbols",
+  "lessons": [
+    {
+      "lesson_id": "l1_1",
+      "title": "Letters: Aleph, Beit, Gimel, Dalet",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Aleph",
+          "symbol": "𐤀",
+          "approx_pronunciation": "glottal stop / carrier vowel",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "ʔ",
+            "early_hebrew_ipa": "ʔ",
+            "notes": "Likely realized as a glottal stop or silent carrier for adjacent vowels; often lost in later pronunciation."
+          },
+          "core_meanings": [
+            "strength",
+            "leader",
+            "first",
+            "ox",
+            "power"
+          ],
+          "scripture_examples": [
+            "Genesis 1:1",
+            "Genesis 2:7",
+            "Exodus 3:14"
+          ]
+        },
+        {
+          "letter_name": "Beit",
+          "symbol": "𐤁",
+          "approx_pronunciation": "b as in 'boy'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "b",
+            "early_hebrew_ipa": "b",
+            "notes": "Plain voiced bilabial stop; no evidence of spirantization in the Paleo period."
+          },
+          "core_meanings": [
+            "house",
+            "family",
+            "inside",
+            "tent",
+            "structure"
+          ],
+          "scripture_examples": [
+            "Genesis 7:1",
+            "Deuteronomy 6:7",
+            "Psalm 122:1"
+          ]
+        },
+        {
+          "letter_name": "Gimel",
+          "symbol": "𐤂",
+          "approx_pronunciation": "g as in 'go'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "g",
+            "early_hebrew_ipa": "g",
+            "notes": "Plain voiced velar stop; later dialects show possible spirantization between vowels."
+          },
+          "core_meanings": [
+            "walk",
+            "carry",
+            "foot",
+            "camel",
+            "supply"
+          ],
+          "scripture_examples": [
+            "Genesis 24:10",
+            "Psalm 37:25"
+          ]
+        },
+        {
+          "letter_name": "Dalet",
+          "symbol": "𐤃",
+          "approx_pronunciation": "d as in 'door'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "d",
+            "early_hebrew_ipa": "d",
+            "notes": "Voiced dental stop; later Hebrew developed a fricative allophone in some positions."
+          },
+          "core_meanings": [
+            "door",
+            "path",
+            "enter",
+            "move"
+          ],
+          "scripture_examples": [
+            "Genesis 4:7",
+            "Psalm 23:4"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_2",
+      "title": "Letters: Hey, Waw, Zayin, Chet",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Hey",
+          "symbol": "𐤄",
+          "approx_pronunciation": "h as in 'hallelujah'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "h",
+            "early_hebrew_ipa": "h",
+            "notes": "Voiceless glottal fricative; also used as mater lectionis for final vowels."
+          },
+          "core_meanings": [
+            "behold",
+            "reveal",
+            "breath",
+            "window"
+          ],
+          "scripture_examples": [
+            "Exodus 3:14-15",
+            "Psalm 150"
+          ]
+        },
+        {
+          "letter_name": "Waw",
+          "symbol": "𐤅",
+          "approx_pronunciation": "w as in 'way'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "w",
+            "early_hebrew_ipa": "w~ʋ",
+            "notes": "Labial approximant; later developed into consonantal v and vowel markers for /u/ and /o/."
+          },
+          "core_meanings": [
+            "hook",
+            "add",
+            "secure",
+            "connect"
+          ],
+          "scripture_examples": [
+            "Genesis 1:1-31"
+          ]
+        },
+        {
+          "letter_name": "Zayin",
+          "symbol": "𐤆",
+          "approx_pronunciation": "z as in 'zoo'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "z",
+            "early_hebrew_ipa": "z",
+            "notes": "Voiced alveolar fricative; no strong evidence for emphatic contrast at this letter."
+          },
+          "core_meanings": [
+            "cut",
+            "weapon",
+            "divide",
+            "nourish"
+          ],
+          "scripture_examples": [
+            "Genesis 8:11"
+          ]
+        },
+        {
+          "letter_name": "Chet",
+          "symbol": "𐤇",
+          "approx_pronunciation": "kh as in German 'Bach'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "χ",
+            "early_hebrew_ipa": "χ~ħ",
+            "notes": "Voiceless or weakly voiced uvular or pharyngeal fricative; often merged with /ħ/ in later stages."
+          },
+          "core_meanings": [
+            "fence",
+            "separate",
+            "protect"
+          ],
+          "scripture_examples": [
+            "Exodus 34:6",
+            "Psalm 119:57"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_3",
+      "title": "Letters: Tet, Yod, Kaph, Lamed",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Tet",
+          "symbol": "𐤈",
+          "approx_pronunciation": "emphatic t",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "tˤ",
+            "early_hebrew_ipa": "tˤ",
+            "notes": "Emphatic dental stop, likely pharyngealized or velarized, distinct from plain /t/."
+          },
+          "core_meanings": [
+            "surround",
+            "coil",
+            "contain"
+          ],
+          "scripture_examples": [
+            "Genesis 1:4"
+          ]
+        },
+        {
+          "letter_name": "Yod",
+          "symbol": "𐤉",
+          "approx_pronunciation": "y as in 'yes'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "j",
+            "early_hebrew_ipa": "j",
+            "notes": "Palatal approximant; later serves as consonant and vowel letter for /i/ and /e/."
+          },
+          "core_meanings": [
+            "hand",
+            "work",
+            "deed",
+            "power"
+          ],
+          "scripture_examples": [
+            "Genesis 32:28",
+            "Psalm 19:1"
+          ]
+        },
+        {
+          "letter_name": "Kaph",
+          "symbol": "𐤊",
+          "approx_pronunciation": "k as in 'king'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "k",
+            "early_hebrew_ipa": "k",
+            "notes": "Plain voiceless velar stop; spirantization appeared after the Paleo period."
+          },
+          "core_meanings": [
+            "palm",
+            "bend",
+            "tame",
+            "subdue"
+          ],
+          "scripture_examples": [
+            "Exodus 28:1"
+          ]
+        },
+        {
+          "letter_name": "Lamed",
+          "symbol": "𐤋",
+          "approx_pronunciation": "l as in 'lift'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "l",
+            "early_hebrew_ipa": "l",
+            "notes": "Clear alveolar lateral approximant; strongly connected to teaching and guiding imagery."
+          },
+          "core_meanings": [
+            "staff",
+            "authority",
+            "teach"
+          ],
+          "scripture_examples": [
+            "Psalm 119 (Lamed section)"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_4",
+      "title": "Letters: Mem, Nun, Samekh, Ayin",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Mem",
+          "symbol": "𐤌",
+          "approx_pronunciation": "m as in 'mother'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "m",
+            "early_hebrew_ipa": "m",
+            "notes": "Bilabial nasal; its water pictograph resonates with fluid, people-groups, and chaos themes."
+          },
+          "core_meanings": [
+            "water",
+            "chaos",
+            "peoples",
+            "flow"
+          ],
+          "scripture_examples": [
+            "Genesis 7",
+            "Psalm 1"
+          ]
+        },
+        {
+          "letter_name": "Nun",
+          "symbol": "𐤍",
+          "approx_pronunciation": "n as in 'now'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "n",
+            "early_hebrew_ipa": "n",
+            "notes": "Alveolar nasal; pictograph of seed or fish links to continuity and offspring."
+          },
+          "core_meanings": [
+            "seed",
+            "life",
+            "continue",
+            "offspring"
+          ],
+          "scripture_examples": [
+            "Genesis 6-9",
+            "Numbers 6"
+          ]
+        },
+        {
+          "letter_name": "Samekh",
+          "symbol": "𐤎",
+          "approx_pronunciation": "s as in 'see'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "s",
+            "early_hebrew_ipa": "s",
+            "notes": "Voiceless alveolar fricative; especially associated with support and surrounding structures."
+          },
+          "core_meanings": [
+            "support",
+            "uphold",
+            "surround"
+          ],
+          "scripture_examples": [
+            "Psalm 119 (Samekh section)"
+          ]
+        },
+        {
+          "letter_name": "Ayin",
+          "symbol": "𐤏",
+          "approx_pronunciation": "deep pharyngeal voiced sound",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "ʕ",
+            "early_hebrew_ipa": "ʕ",
+            "notes": "Voiced pharyngeal fricative or approximant; strongly marked consonant often lost in later traditions."
+          },
+          "core_meanings": [
+            "eye",
+            "see",
+            "know",
+            "experience"
+          ],
+          "scripture_examples": [
+            "Genesis 3",
+            "Exodus 20"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_5",
+      "title": "Letters: Pe, Tsade, Qoph, Resh",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Pe",
+          "symbol": "𐤐",
+          "approx_pronunciation": "p as in 'pray'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "p",
+            "early_hebrew_ipa": "p",
+            "notes": "Voiceless bilabial stop; in later Hebrew a fricative allophone /f/ developed."
+          },
+          "core_meanings": [
+            "mouth",
+            "speak",
+            "blow"
+          ],
+          "scripture_examples": [
+            "Exodus 12",
+            "Psalm 34"
+          ]
+        },
+        {
+          "letter_name": "Tsade",
+          "symbol": "𐤑",
+          "approx_pronunciation": "ts as in 'cats'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "sˤ",
+            "early_hebrew_ipa": "sˤ~tsˤ",
+            "notes": "Emphatic sibilant, probably pharyngealized; later realized as affricate /ts/."
+          },
+          "core_meanings": [
+            "hunt",
+            "trail",
+            "righteous path"
+          ],
+          "scripture_examples": [
+            "Psalm 4",
+            "Psalm 23"
+          ]
+        },
+        {
+          "letter_name": "Qoph",
+          "symbol": "𐤒",
+          "approx_pronunciation": "deep back-of-throat k",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "q",
+            "early_hebrew_ipa": "q",
+            "notes": "Voiceless uvular stop; distinct from /k/ by place of articulation."
+          },
+          "core_meanings": [
+            "circle",
+            "time",
+            "horizon",
+            "behind"
+          ],
+          "scripture_examples": [
+            "Exodus 19",
+            "Genesis 22"
+          ]
+        },
+        {
+          "letter_name": "Resh",
+          "symbol": "𐤓",
+          "approx_pronunciation": "tapped or trilled r",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "r",
+            "early_hebrew_ipa": "r",
+            "notes": "Likely an alveolar tap or trill; associated with leadership and headship."
+          },
+          "core_meanings": [
+            "head",
+            "chief",
+            "first",
+            "top"
+          ],
+          "scripture_examples": [
+            "Genesis 1:2"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_6",
+      "title": "Letters: Shin, Tav",
+      "objective": "Recognize each Paleo-Hebrew symbol in this group and recall its name, approximate sound, and core meanings.",
+      "content": [
+        {
+          "letter_name": "Shin",
+          "symbol": "𐤔",
+          "approx_pronunciation": "sh as in 'ship'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "ʃ",
+            "early_hebrew_ipa": "ʃ",
+            "notes": "Voiceless postalveolar fricative; visually associated with teeth and consuming."
+          },
+          "core_meanings": [
+            "teeth",
+            "consume",
+            "press"
+          ],
+          "scripture_examples": [
+            "Psalm 29",
+            "Deuteronomy 6:4"
+          ]
+        },
+        {
+          "letter_name": "Tav",
+          "symbol": "𐤕",
+          "approx_pronunciation": "t as in 'time'",
+          "reconstructed_phonology": {
+            "proto_canaanite_ipa": "t",
+            "early_hebrew_ipa": "t",
+            "notes": "Plain voiceless dental stop; pictograph of a mark or cross reinforces covenant imagery."
+          },
+          "core_meanings": [
+            "mark",
+            "sign",
+            "covenant"
+          ],
+          "scripture_examples": [
+            "Exodus 20",
+            "Psalm 19"
+          ]
+        }
+      ]
+    }
+  ]
+}

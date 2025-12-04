@@ -1,0 +1,265 @@
+{
+  "level_id": "level2",
+  "lessons": [
+    {
+      "lesson_id": "l2_1",
+      "roots": [
+        {
+          "root_word": "መጣ",
+          "pattern": "m-tʼ",
+          "meaning": "to come",
+          "explanation": "The Amharic root መጣ means 'to come'."
+        },
+        {
+          "root_word": "ሄደ",
+          "pattern": "h-y-d",
+          "meaning": "to go",
+          "explanation": "The Amharic root ሄደ means 'to go'."
+        },
+        {
+          "root_word": "ተናገረ",
+          "pattern": "t-n-g-r",
+          "meaning": "to speak",
+          "explanation": "The Amharic root ተናገረ means 'to speak'."
+        },
+        {
+          "root_word": "qgk",
+          "pattern": "q-g-k",
+          "meaning": "Teaching root q-g-k.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "tmz",
+          "pattern": "t-m-z",
+          "meaning": "Teaching root t-m-z.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "tnm",
+          "pattern": "t-n-m",
+          "meaning": "Teaching root t-n-m.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "yfm",
+          "pattern": "y-f-m",
+          "meaning": "Teaching root y-f-m.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "gqt",
+          "pattern": "g-q-t",
+          "meaning": "Teaching root g-q-t.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "trn",
+          "pattern": "t-r-n",
+          "meaning": "Teaching root t-r-n.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "ṣlč",
+          "pattern": "ṣ-l-č",
+          "meaning": "Teaching root ṣ-l-č.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_2",
+      "roots": [
+        {
+          "root_word": "wzt",
+          "pattern": "w-z-t",
+          "meaning": "Teaching root w-z-t.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "hlr",
+          "pattern": "h-l-r",
+          "meaning": "Teaching root h-l-r.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "nlk",
+          "pattern": "n-l-k",
+          "meaning": "Teaching root n-l-k.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "bhq",
+          "pattern": "b-h-q",
+          "meaning": "Teaching root b-h-q.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "mgr",
+          "pattern": "m-g-r",
+          "meaning": "Teaching root m-g-r.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "flt",
+          "pattern": "f-l-t",
+          "meaning": "Teaching root f-l-t.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "kgṣ",
+          "pattern": "k-g-ṣ",
+          "meaning": "Teaching root k-g-ṣ.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "yhm",
+          "pattern": "y-h-m",
+          "meaning": "Teaching root y-h-m.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "tfč",
+          "pattern": "t-f-č",
+          "meaning": "Teaching root t-f-č.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "nqf",
+          "pattern": "n-q-f",
+          "meaning": "Teaching root n-q-f.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_3",
+      "roots": [
+        {
+          "root_word": "bṣg",
+          "pattern": "b-ṣ-g",
+          "meaning": "Teaching root b-ṣ-g.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "mfz",
+          "pattern": "m-f-z",
+          "meaning": "Teaching root m-f-z.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "kfč",
+          "pattern": "k-f-č",
+          "meaning": "Teaching root k-f-č.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "čgl",
+          "pattern": "č-g-l",
+          "meaning": "Teaching root č-g-l.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "hkt",
+          "pattern": "h-k-t",
+          "meaning": "Teaching root h-k-t.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "blf",
+          "pattern": "b-l-f",
+          "meaning": "Teaching root b-l-f.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "nsm",
+          "pattern": "n-s-m",
+          "meaning": "Teaching root n-s-m.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "swl",
+          "pattern": "s-w-l",
+          "meaning": "Teaching root s-w-l.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "htṣ",
+          "pattern": "h-t-ṣ",
+          "meaning": "Teaching root h-t-ṣ.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "bqč",
+          "pattern": "b-q-č",
+          "meaning": "Teaching root b-q-č.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l2_4",
+      "roots": [
+        {
+          "root_word": "qnb",
+          "pattern": "q-n-b",
+          "meaning": "Teaching root q-n-b.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "bkz",
+          "pattern": "b-k-z",
+          "meaning": "Teaching root b-k-z.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "tfw",
+          "pattern": "t-f-w",
+          "meaning": "Teaching root t-f-w.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "fṣt",
+          "pattern": "f-ṣ-t",
+          "meaning": "Teaching root f-ṣ-t.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "čmb",
+          "pattern": "č-m-b",
+          "meaning": "Teaching root č-m-b.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "mby",
+          "pattern": "m-b-y",
+          "meaning": "Teaching root m-b-y.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "wbm",
+          "pattern": "w-b-m",
+          "meaning": "Teaching root w-b-m.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "klf",
+          "pattern": "k-l-f",
+          "meaning": "Teaching root k-l-f.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "wfṣ",
+          "pattern": "w-f-ṣ",
+          "meaning": "Teaching root w-f-ṣ.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        },
+        {
+          "root_word": "zts",
+          "pattern": "z-t-s",
+          "meaning": "Teaching root z-t-s.",
+          "explanation": "This demonstrates Amharic triliteral root structure."
+        }
+      ]
+    }
+  ]
+}

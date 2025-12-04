@@ -1,0 +1,484 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "mode": "symbol_to_name",
+      "front": "ሀ",
+      "back": "Ha"
+    },
+    {
+      "id": 2,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "hä"
+    },
+    {
+      "id": 3,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "hu"
+    },
+    {
+      "id": 4,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "hi"
+    },
+    {
+      "id": 5,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "ha"
+    },
+    {
+      "id": 6,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "he"
+    },
+    {
+      "id": 7,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "hə"
+    },
+    {
+      "id": 8,
+      "mode": "syllable_sound",
+      "front": "ሀ",
+      "back": "ho"
+    },
+    {
+      "id": 9,
+      "mode": "symbol_to_name",
+      "front": "ለ",
+      "back": "Le"
+    },
+    {
+      "id": 10,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "lä"
+    },
+    {
+      "id": 11,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "lu"
+    },
+    {
+      "id": 12,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "li"
+    },
+    {
+      "id": 13,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "la"
+    },
+    {
+      "id": 14,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "le"
+    },
+    {
+      "id": 15,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "lə"
+    },
+    {
+      "id": 16,
+      "mode": "syllable_sound",
+      "front": "ለ",
+      "back": "lo"
+    },
+    {
+      "id": 17,
+      "mode": "symbol_to_name",
+      "front": "መ",
+      "back": "Me"
+    },
+    {
+      "id": 18,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "mä"
+    },
+    {
+      "id": 19,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "mu"
+    },
+    {
+      "id": 20,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "mi"
+    },
+    {
+      "id": 21,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "ma"
+    },
+    {
+      "id": 22,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "me"
+    },
+    {
+      "id": 23,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "mə"
+    },
+    {
+      "id": 24,
+      "mode": "syllable_sound",
+      "front": "መ",
+      "back": "mo"
+    },
+    {
+      "id": 25,
+      "mode": "symbol_to_name",
+      "front": "ሰ",
+      "back": "Se"
+    },
+    {
+      "id": 26,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "sä"
+    },
+    {
+      "id": 27,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "su"
+    },
+    {
+      "id": 28,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "si"
+    },
+    {
+      "id": 29,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "sa"
+    },
+    {
+      "id": 30,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "se"
+    },
+    {
+      "id": 31,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "sə"
+    },
+    {
+      "id": 32,
+      "mode": "syllable_sound",
+      "front": "ሰ",
+      "back": "so"
+    },
+    {
+      "id": 33,
+      "mode": "symbol_to_name",
+      "front": "ሸ",
+      "back": "She"
+    },
+    {
+      "id": 34,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "šä"
+    },
+    {
+      "id": 35,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "šu"
+    },
+    {
+      "id": 36,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "ši"
+    },
+    {
+      "id": 37,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "ša"
+    },
+    {
+      "id": 38,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "še"
+    },
+    {
+      "id": 39,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "šə"
+    },
+    {
+      "id": 40,
+      "mode": "syllable_sound",
+      "front": "ሸ",
+      "back": "šo"
+    },
+    {
+      "id": 41,
+      "mode": "symbol_to_name",
+      "front": "ቀ",
+      "back": "Qe"
+    },
+    {
+      "id": 42,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qä"
+    },
+    {
+      "id": 43,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qu"
+    },
+    {
+      "id": 44,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qi"
+    },
+    {
+      "id": 45,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qa"
+    },
+    {
+      "id": 46,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qe"
+    },
+    {
+      "id": 47,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qə"
+    },
+    {
+      "id": 48,
+      "mode": "syllable_sound",
+      "front": "ቀ",
+      "back": "qo"
+    },
+    {
+      "id": 49,
+      "mode": "symbol_to_name",
+      "front": "ተ",
+      "back": "Te"
+    },
+    {
+      "id": 50,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "tä"
+    },
+    {
+      "id": 51,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "tu"
+    },
+    {
+      "id": 52,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "ti"
+    },
+    {
+      "id": 53,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "ta"
+    },
+    {
+      "id": 54,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "te"
+    },
+    {
+      "id": 55,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "tə"
+    },
+    {
+      "id": 56,
+      "mode": "syllable_sound",
+      "front": "ተ",
+      "back": "to"
+    },
+    {
+      "id": 57,
+      "mode": "symbol_to_name",
+      "front": "በ",
+      "back": "Be"
+    },
+    {
+      "id": 58,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "bä"
+    },
+    {
+      "id": 59,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "bu"
+    },
+    {
+      "id": 60,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "bi"
+    },
+    {
+      "id": 61,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "ba"
+    },
+    {
+      "id": 62,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "be"
+    },
+    {
+      "id": 63,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "bə"
+    },
+    {
+      "id": 64,
+      "mode": "syllable_sound",
+      "front": "በ",
+      "back": "bo"
+    },
+    {
+      "id": 65,
+      "mode": "symbol_to_name",
+      "front": "ነ",
+      "back": "Ne"
+    },
+    {
+      "id": 66,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "nä"
+    },
+    {
+      "id": 67,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "nu"
+    },
+    {
+      "id": 68,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "ni"
+    },
+    {
+      "id": 69,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "na"
+    },
+    {
+      "id": 70,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "ne"
+    },
+    {
+      "id": 71,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "nə"
+    },
+    {
+      "id": 72,
+      "mode": "syllable_sound",
+      "front": "ነ",
+      "back": "no"
+    },
+    {
+      "id": 73,
+      "mode": "symbol_to_name",
+      "front": "የ",
+      "back": "Ye"
+    },
+    {
+      "id": 74,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "yä"
+    },
+    {
+      "id": 75,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "yu"
+    },
+    {
+      "id": 76,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "yi"
+    },
+    {
+      "id": 77,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "ya"
+    },
+    {
+      "id": 78,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "ye"
+    },
+    {
+      "id": 79,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "yə"
+    },
+    {
+      "id": 80,
+      "mode": "syllable_sound",
+      "front": "የ",
+      "back": "yo"
+    }
+  ]
+}

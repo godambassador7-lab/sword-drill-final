@@ -1,0 +1,58 @@
+{
+  "level_id": "level3",
+  "title": "Level 3 – Scripture and Interpretation",
+  "lessons": [
+    {
+      "lesson_id": "l3_1",
+      "title": "Paleo-Hebrew View of Creation Words",
+      "passages": [
+        "Genesis 1:1-5"
+      ],
+      "focus_words": [
+        {
+          "hebrew": "בראשית",
+          "discussion": "Explores the root בראש with Resh-head and Aleph-strength themes."
+        },
+        {
+          "hebrew": "אלהים",
+          "discussion": "Considers Aleph-strength and plural structure in a Paleo frame."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l3_2",
+      "title": "Names and Identity",
+      "passages": [
+        "Genesis 32:28",
+        "Exodus 3:14"
+      ],
+      "focus_words": [
+        {
+          "hebrew": "ישראל",
+          "discussion": "Looks at the consonants in Israel and how struggle and ruling imagery appear in Paleo symbols."
+        },
+        {
+          "hebrew": "אהיה",
+          "discussion": "Reviews the verb of being with Aleph and Hey as revelation of existence."
+        }
+      ]
+    },
+    {
+      "lesson_id": "l3_3",
+      "title": "Covenant and Torah",
+      "passages": [
+        "Exodus 19-20"
+      ],
+      "focus_words": [
+        {
+          "hebrew": "תורה",
+          "discussion": "Tav-mark and Resh-head combine to show guidance marked out for the covenant people."
+        },
+        {
+          "hebrew": "ברית",
+          "discussion": "Beit-house and Tav-mark express a marked relationship that binds households."
+        }
+      ]
+    }
+  ]
+}

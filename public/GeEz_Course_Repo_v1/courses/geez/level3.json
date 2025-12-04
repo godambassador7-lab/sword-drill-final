@@ -1,0 +1,21 @@
+{
+  "level_id": "level3",
+  "lessons": [
+    {
+      "lesson_id": "l3_1",
+      "title": "Reading Genesis in Ge'ez",
+      "passages": [
+        "Genesis 1:1 (Ge'ez)"
+      ],
+      "discussion": "Break down key words by syllable structure and roots."
+    },
+    {
+      "lesson_id": "l3_2",
+      "title": "Psalm 1 in Ge'ez",
+      "passages": [
+        "Psalm 1 (Ge'ez)"
+      ],
+      "discussion": "Identify roots, analyze forms, and parse verb patterns."
+    }
+  ]
+}
