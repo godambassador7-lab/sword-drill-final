@@ -1,0 +1,38 @@
+{
+  "id": "B-008",
+  "title": "Pentecost Overview",
+  "reference": "Acts 2:1–13",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "The disciples are gathered together in one place",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "A sound like a rushing wind fills the house",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Tongues as of fire rest on each of them",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "They speak in other tongues by the Spirit",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The crowd is amazed and confused",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "Pentecost"
+  ]
+}

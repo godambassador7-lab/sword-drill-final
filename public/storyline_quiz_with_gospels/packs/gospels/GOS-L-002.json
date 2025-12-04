@@ -1,0 +1,93 @@
+{
+  "id": "GOS-L-002",
+  "title": "Miracles of Jesus Chronological",
+  "reference": "Harmony",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Water turned to wine",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Healing of nobleman’s son",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Healing in Capernaum synagogue",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Healing of Peter’s mother-in-law",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Cleansing of a leper",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Healing of centurion’s servant",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Calming the storm",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Healing the Gerasene demoniac",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Raising Jairus’s daughter",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Feeding the five thousand",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Walking on water",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Healing the Syrophoenician woman’s daughter",
+      "correctIndex": 11
+    },
+    {
+      "id": "e13",
+      "text": "Feeding the four thousand",
+      "correctIndex": 12
+    },
+    {
+      "id": "e14",
+      "text": "Healing the blind man at Bethsaida",
+      "correctIndex": 13
+    },
+    {
+      "id": "e15",
+      "text": "Raising Lazarus",
+      "correctIndex": 14
+    },
+    {
+      "id": "e16",
+      "text": "Healing Malchus’s ear",
+      "correctIndex": 15
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Miracles"
+  ]
+}

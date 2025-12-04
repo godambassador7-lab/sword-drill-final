@@ -1,0 +1,42 @@
+{
+  "id": "B-006",
+  "title": "Daniel in the Lions’ Den",
+  "reference": "Daniel 6",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Daniel continues praying to God",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Officials accuse Daniel before the king",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Daniel is thrown into the lions’ den",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The king spends a sleepless night",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Daniel is found unharmed",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "The king honors Daniel’s God",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Daniel"
+  ]
+}

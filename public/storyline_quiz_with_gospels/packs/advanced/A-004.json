@@ -1,0 +1,73 @@
+{
+  "id": "A-004",
+  "title": "Sermon on the Mount Flow",
+  "reference": "Matthew 5–7",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus goes up on the mountain and sits",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus declares the Beatitudes",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus teaches about being salt and light",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus speaks of fulfilling the Law and the Prophets",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus deepens commands on anger and lust",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus teaches about loving enemies",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus instructs on giving, prayer, and fasting",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jesus warns about treasures on earth",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus teaches about anxiety and seeking the kingdom",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus warns about judging others",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus speaks of the narrow gate",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Jesus warns of false prophets and builders",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Teaching"
+  ]
+}

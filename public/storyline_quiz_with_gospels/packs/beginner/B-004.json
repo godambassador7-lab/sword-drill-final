@@ -1,0 +1,38 @@
+{
+  "id": "B-004",
+  "title": "Moses and the Burning Bush",
+  "reference": "Exodus 3",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Moses tends the flock of Jethro",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Moses sees a bush burning but not consumed",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "God calls to Moses from the bush",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Moses removes his sandals on holy ground",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "God sends Moses to deliver Israel from Egypt",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Exodus",
+    "Moses"
+  ]
+}

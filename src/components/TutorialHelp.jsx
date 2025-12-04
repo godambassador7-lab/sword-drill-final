@@ -151,6 +151,20 @@ const TutorialHelp = ({ onBack }) => {
             'Verb Conjugations cover tenses and moods',
             'Essential for reading the New Testament in Greek'
           ]
+        },
+        {
+          title: '⚡ Storyline Quiz (NEW!)',
+          content: 'Test your knowledge of biblical chronology! Drag and drop events into the correct chronological order. Features stories from Genesis to the Gospels, with difficulty-based scoring and time bonuses.',
+          tips: [
+            'Drag events into chronological order before time runs out',
+            'Perfect placement earns maximum points + bonuses',
+            'Near-misses still earn partial points',
+            'Beginner: 4-6 events, 180 seconds',
+            'Legendary: 10-18 events, 300 seconds',
+            'Perfect bonus: +20 to +100 points depending on difficulty',
+            'Time bonuses: +30-50 points for fast completion',
+            'Includes special Gospel-focused packs'
+          ]
         }
       ]
     },
@@ -396,7 +410,7 @@ const TutorialHelp = ({ onBack }) => {
             'Church History: 200 points (From Genesis to Early Church)',
             'Kings of Israel: 200 points (Rulers & Prophets)',
             'Textual Criticism: 400 points (Manuscript Analysis)',
-            'Locked courses pulse with amber glow to draw attention',
+            'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
             'All purchases validated server-side to prevent exploits'
@@ -409,7 +423,7 @@ const TutorialHelp = ({ onBack }) => {
             'LXX Septuagint: 5000 points (Greek Old Testament)',
             'Masoretic WLC: 7500 points (Hebrew Bible with vowel points)',
             'Codex Sinaiticus: 10000 points (4th-century Greek manuscript)',
-            'Locked items show pulsing amber glow',
+            'Affordable items show shimmering amber border',
             'View cost and description before purchasing',
             'Beautiful purchase modal shows cost breakdown',
             'One-time purchase for permanent access',
@@ -425,7 +439,7 @@ const TutorialHelp = ({ onBack }) => {
             'Trace lineages from Abraham to Jesus',
             'Visual connections between key characters',
             'Understand tribal relationships and royal lines',
-            'Locked feature pulses with amber glow in menu',
+            'Shows shimmering amber border when affordable',
             'Purchase modal shows balance and cost breakdown'
           ]
         },
@@ -792,6 +806,12 @@ const TutorialHelp = ({ onBack }) => {
           title: 'Version 2.5 - December 2025',
           content: 'Major update bringing powerful new financial features, comprehensive analytics, and quality-of-life improvements!',
           tips: [
+            '⚡ NEW: Storyline Quiz - Order biblical events chronologically with drag-and-drop',
+            '📖 44+ quiz packs covering Genesis to Gospels with 4 difficulty tiers',
+            '⏱️ Timed challenges: 180s (Beginner) to 300s (Legendary)',
+            '🎯 Smart scoring: Perfect placement, near-miss bonuses, time bonuses',
+            '🏆 Perfect Order Bonus: +20 to +100 points based on difficulty',
+            '⚡ Time completion bonuses: +30-50 points for fast solvers',
             '💰 NEW: Points Bank - Complete investment system with ROI based on activity',
             '📊 Invest points for 7-90 days and earn returns based on your streak and quiz rate',
             '⚠️ Early withdrawal penalty (50%) discourages premature withdrawals',
@@ -807,7 +827,7 @@ const TutorialHelp = ({ onBack }) => {
             '📚 NEW: Course Admission System - Pay points to access premium courses',
             '🎓 Courses now organized in dropdown menu (Greek, Hebrew, Hermeneutics, Church History, Kings, Textual Criticism)',
             '📜 Added ancient manuscript unlockables: LXX Septuagint (5000 pts), Masoretic WLC (7500 pts), Codex Sinaiticus (10000 pts)',
-            '✨ Unlockable items now pulse with amber glow to draw attention',
+            '✨ Affordable unlockables show shimmering amber border to draw attention',
             '💳 Beautiful in-app purchase modal replacing browser prompts',
             '🔐 All purchases validated server-side to prevent point tampering',
             '🏆 Achievement unlock sound effect with celebration audio',

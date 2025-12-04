@@ -1,0 +1,73 @@
+{
+  "id": "L-002",
+  "title": "Life of Moses from Birth to Death",
+  "reference": "Exodus–Deuteronomy",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Moses is born and hidden from Pharaoh’s decree",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Moses is placed in a basket on the Nile",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Pharaoh’s daughter finds and raises Moses",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Moses flees to Midian",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "God speaks to Moses from the burning bush",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Moses confronts Pharaoh with God’s command",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "God brings plagues upon Egypt",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Israel crosses the Red Sea",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "God gives the law at Sinai",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Israel wanders in the wilderness",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Moses leads the people to the edge of the promised land",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Moses dies on the mountain after viewing the land",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Moses",
+    "Torah"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "GOS-I-003",
+  "title": "Gerasene Demoniac",
+  "reference": "Mark 5:1–20",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus reaches the country of the Gerasenes",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "A man possessed by many demons meets Him",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "The demons beg not to be tormented",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus commands them to leave",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The demons enter a herd of pigs",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "The pigs rush into the sea",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "People see the man clothed and in his right mind",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "The man wants to follow Jesus",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus sends him to proclaim God’s works",
+      "correctIndex": 8
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Deliverance"
+  ]
+}

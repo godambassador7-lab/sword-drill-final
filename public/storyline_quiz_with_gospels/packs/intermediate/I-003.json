@@ -1,0 +1,48 @@
+{
+  "id": "I-003",
+  "title": "Jericho Falls",
+  "reference": "Joshua 6",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "The Lord gives Joshua instructions about Jericho",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Israel marches around the city once each day",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "On the seventh day they circle the city seven times",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The priests blow the trumpets",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The people shout with a great shout",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "The wall of Jericho falls down",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Israel enters and captures the city",
+      "correctIndex": 6
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Joshua",
+    "Jericho"
+  ]
+}

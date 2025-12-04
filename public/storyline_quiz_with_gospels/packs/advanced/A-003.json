@@ -1,0 +1,73 @@
+{
+  "id": "A-003",
+  "title": "Passion Week Detailed",
+  "reference": "Matthew 21–27; Mark 11–15; Luke 19–23; John 12–19",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus enters Jerusalem on a colt",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Crowds shout blessings and spread branches",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus cleanses the temple",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus teaches in the temple and confronts leaders",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus shares the Passover meal with His disciples",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus prays in Gethsemane",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus is arrested and led away",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jesus is tried before the council",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus is brought before Pilate",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus is mocked and scourged",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus is crucified",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Jesus dies and is buried in a tomb",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "PassionWeek"
+  ]
+}

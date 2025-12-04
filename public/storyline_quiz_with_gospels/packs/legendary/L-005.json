@@ -1,0 +1,133 @@
+{
+  "id": "L-005",
+  "title": "Revelation: Detailed Chapter Flow",
+  "reference": "Revelation 1–22",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "John sees the risen Christ and receives the command to write",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Messages are sent to the seven churches of Asia",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "John sees the throne in heaven and worship around it",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The Lamb takes the scroll and begins opening seals",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Four horsemen ride forth with judgments",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Martyrs cry out and cosmic signs appear",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Seven trumpets sound with escalating judgments",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "A mighty angel appears with a little scroll",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "John measures the temple and two witnesses testify",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "A woman, a dragon, and a male child are revealed",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "A beast from the sea and a beast from the earth arise",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "The Lamb stands with the faithful on Mount Zion",
+      "correctIndex": 11
+    },
+    {
+      "id": "e13",
+      "text": "Three angels proclaim warnings and announcements",
+      "correctIndex": 12
+    },
+    {
+      "id": "e14",
+      "text": "The Son of Man reaps the earth in harvest imagery",
+      "correctIndex": 13
+    },
+    {
+      "id": "e15",
+      "text": "Seven bowls of God’s wrath are poured out",
+      "correctIndex": 14
+    },
+    {
+      "id": "e16",
+      "text": "Babylon the great is described and then falls",
+      "correctIndex": 15
+    },
+    {
+      "id": "e17",
+      "text": "Heaven rejoices over Babylon’s fall",
+      "correctIndex": 16
+    },
+    {
+      "id": "e18",
+      "text": "Christ comes as a rider on a white horse to judge and wage war",
+      "correctIndex": 17
+    },
+    {
+      "id": "e19",
+      "text": "The beast and false prophet are seized and cast into fire",
+      "correctIndex": 18
+    },
+    {
+      "id": "e20",
+      "text": "Satan is bound for a thousand years and the saints reign",
+      "correctIndex": 19
+    },
+    {
+      "id": "e21",
+      "text": "Satan is released briefly and then cast into the lake of fire",
+      "correctIndex": 20
+    },
+    {
+      "id": "e22",
+      "text": "The dead are judged before the great white throne",
+      "correctIndex": 21
+    },
+    {
+      "id": "e23",
+      "text": "A new heaven, new earth, and new Jerusalem are shown",
+      "correctIndex": 22
+    },
+    {
+      "id": "e24",
+      "text": "The river of life and tree of life are described with final invitation",
+      "correctIndex": 23
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Revelation",
+    "Detailed"
+  ]
+}

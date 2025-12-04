@@ -1,0 +1,38 @@
+{
+  "id": "B-001",
+  "title": "Creation Highlights",
+  "reference": "Genesis 1",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "God creates light",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "God separates waters and sky",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "God gathers waters and makes dry land appear",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "God creates living creatures",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "God creates mankind in His image",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Genesis",
+    "Creation"
+  ]
+}

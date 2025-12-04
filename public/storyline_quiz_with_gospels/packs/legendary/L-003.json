@@ -1,0 +1,73 @@
+{
+  "id": "L-003",
+  "title": "Book of Acts Macro Arc",
+  "reference": "Acts 1–28",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus ascends and promises the Spirit",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The Spirit is poured out at Pentecost",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "The church in Jerusalem grows rapidly",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Persecution scatters believers beyond Jerusalem",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Philip and others preach in Samaria and beyond",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Saul is converted and begins to preach Christ",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "The gospel reaches Gentiles like Cornelius",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "The council at Jerusalem affirms salvation by grace",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Paul undertakes missionary journeys through the empire",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Paul returns to Jerusalem and is arrested",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Paul appeals to Caesar and sails to Rome",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Paul preaches the kingdom of God in Rome",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "Macro"
+  ]
+}

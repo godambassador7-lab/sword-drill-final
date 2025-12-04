@@ -45,6 +45,7 @@ import SwordDrillUltimate from './components/SwordDrillUltimate';
 import BiblicalSpellingBee from './components/BiblicalSpellingBee';
 import BiblicalBloodlines from './components/BiblicalBloodlines';
 import WordsOfJesus from './components/WordsOfJesus';
+import StorylineQuiz from './components/StorylineQuiz';
 import CorrectToast from './components/CorrectToast';
 import IncorrectToast from './components/IncorrectToast';
 import GenericToast from './components/GenericToast';
@@ -810,7 +811,16 @@ const SwordDrillApp = () => {
     streakProtectionExpiresAt: null // When streak protection expires
   });
 
-  
+  // Utility function to play cha-ching sound when spending points
+  const playChaChing = () => {
+    if (userData.soundSettings?.enabled !== false) {
+      const audio = new Audio(`${process.env.PUBLIC_URL || ''}/cha ching.mp3`);
+      audio.volume = userData.soundSettings?.volume || 0.5;
+      audio.play().catch(err => console.log('Audio play prevented:', err));
+    }
+  };
+
+
   const [quizState, setQuizState] = useState(null);
   const [quizTimer, setQuizTimer] = useState(0);
   const [verseOfDay, setVerseOfDay] = useState(null);
@@ -1436,6 +1446,7 @@ const handleCourseAccess = (courseId) => {
       description: course.description,
       isAdmission: true,
       onConfirm: () => {
+        playChaChing();
         if (currentUser?.uid) {
           purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
             if (result.success && result.validatedData) {
@@ -3275,6 +3286,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   return;
                 }
 
+                // Play cha-ching sound
+                playChaChing();
+
                 // Deduct points
                 const newTotalPoints = userData.totalPoints - hintCost;
 
@@ -3630,7 +3644,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               className={`rounded-lg p-4 border-2 transition-all cursor-pointer relative ${
                 achievement.isUnlocked
                   ? achievement.isNew
-                    ? 'bg-amber-500/20 border-amber-500 animate-pulse-glow'
+                    ? 'bg-amber-500/20 border-amber-500 animate-shimmer-border'
                     : 'bg-amber-500/10 border-amber-500/50'
                   : 'bg-slate-800/30 border-slate-700 opacity-50'
               }`}
@@ -4405,6 +4419,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         showToast('Insufficient points', 'error');
         return;
       }
+
+      // Play cha-ching sound
+      playChaChing();
 
       const newInvestment = {
         id: `inv_${Date.now()}`,
@@ -5324,7 +5341,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
           <div className="space-y-4">
             {/* Septuagint (LXX) */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl p-4 border border-purple-600/30">
+            <div className={`bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl p-4 border-2 ${
+              !userData.unlockables?.lxx && userData.totalPoints >= 5000
+                ? 'border-amber-500 animate-shimmer-border'
+                : 'border-purple-600/30'
+            }`}>
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="flex items-center gap-2">
@@ -5344,6 +5365,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   onClick={() => {
                     if (userData.totalPoints >= 5000) {
                       if (window.confirm('Unlock Septuagint (LXX) for 5000 points?')) {
+                        playChaChing();
                         if (currentUser?.uid) {
                           purchaseUnlockable(currentUser.uid, 'lxx', 5000).then(result => {
                             if (result.success && result.validatedData) {
@@ -5372,7 +5394,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             </div>
 
             {/* Masoretic (WLC) */}
-            <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-4 border border-amber-600/30">
+            <div className={`bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-4 border-2 ${
+              !userData.unlockables?.masoretic && userData.totalPoints >= 7500
+                ? 'border-amber-500 animate-shimmer-border'
+                : 'border-amber-600/30'
+            }`}>
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="flex items-center gap-2">
@@ -5392,6 +5418,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   onClick={() => {
                     if (userData.totalPoints >= 7500) {
                       if (window.confirm('Unlock Masoretic Text (WLC) for 7500 points?')) {
+                        playChaChing();
                         if (currentUser?.uid) {
                           purchaseUnlockable(currentUser.uid, 'masoretic', 7500).then(result => {
                             if (result.success && result.validatedData) {
@@ -5420,7 +5447,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             </div>
 
             {/* Codex Sinaiticus */}
-            <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border border-blue-600/30">
+            <div className={`bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border-2 ${
+              !userData.unlockables?.sinaiticus && userData.totalPoints >= 10000
+                ? 'border-amber-500 animate-shimmer-border'
+                : 'border-blue-600/30'
+            }`}>
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="flex items-center gap-2">
@@ -5440,6 +5471,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                   onClick={() => {
                     if (userData.totalPoints >= 10000) {
                       if (window.confirm('Unlock Codex Sinaiticus for 10000 points?')) {
+                        playChaChing();
                         if (currentUser?.uid) {
                           purchaseUnlockable(currentUser.uid, 'sinaiticus', 10000).then(result => {
                             if (result.success && result.validatedData) {
@@ -6063,6 +6095,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           </div>
           <div className="text-emerald-100 text-sm">Glowing orb checkpoints • Hints with points • Time bonuses • Progress tracking</div>
         </button>
+        <button
+          onClick={() => setCurrentView('storyline-quiz')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            ⚡ Storyline Quiz
+            <span className="text-purple-200 text-sm">🆕 NEW!</span>
+          </div>
+          <div className="text-purple-100 text-sm">Put biblical events in order • Chronological challenges • Gospels included • Timed</div>
+        </button>
       </div>
     </div>
   );
@@ -6390,6 +6433,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                       if (!userData.unlockables?.smithDictionary) {
                         if (userData.totalPoints >= 500) {
                           if (window.confirm('Unlock Smith\'s Bible Dictionary for 500 points?')) {
+                            playChaChing();
                             if (currentUser?.uid) {
                               purchaseUnlockable(currentUser.uid, 'smithDictionary', 500).then(result => {
                                 if (result.success && result.validatedData) {
@@ -6442,6 +6486,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                             color: 'amber',
                             description: 'Interactive Family Trees',
                             onConfirm: () => {
+                              playChaChing();
                               if (currentUser?.uid) {
                                 purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
                                   if (result.success && result.validatedData) {
@@ -6838,6 +6883,36 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             onCancel={() => setCurrentView('home')}
           />
         )}
+        {currentView === 'storyline-quiz' && (
+          <StorylineQuiz
+            userLevel={userData.currentLevel || 'Beginner'}
+            onComplete={(results) => {
+              // Calculate points for Storyline Quiz
+              const pointsEarned = results.score || 0;
+
+              // Update user data
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
+                quizzesCompleted: prev.quizzesCompleted + 1
+              }));
+
+              // Save quiz results
+              addQuizResult({
+                type: 'storyline-quiz',
+                packId: results.packId,
+                score: results.score,
+                perfect: results.perfect,
+                timeLeft: results.timeLeft,
+                points: pointsEarned,
+                timestamp: new Date().toISOString()
+              });
+
+              showToast(`⚡ Storyline Quiz Complete!\n\nScore: ${results.score} points\n${results.perfect ? '🏆 Perfect Order!' : ''}\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+            }}
+            onBack={() => setCurrentView('bonus-quizzes')}
+          />
+        )}
         {currentView === 'sword-drill-ultimate' && (
           <SwordDrillUltimate
             userLevel={userData.currentLevel || 'Beginner'}
@@ -6970,6 +7045,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             isPaidMode={true}
             completionHistory={[]}
             onPurchaseHint={(cost) => {
+              playChaChing();
               const hintPurchase = {
                 timestamp: Date.now(),
                 cost: cost,
@@ -7968,6 +8044,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           isPaidMode={true}
           completionHistory={[]}
           onPurchaseHint={(cost) => {
+            playChaChing();
             const hintPurchase = {
               timestamp: Date.now(),
               cost: cost,

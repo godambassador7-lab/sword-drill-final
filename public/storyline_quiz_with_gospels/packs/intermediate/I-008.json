@@ -1,0 +1,53 @@
+{
+  "id": "I-008",
+  "title": "Peter and Cornelius",
+  "reference": "Acts 10",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Cornelius receives a vision from an angel",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Cornelius sends men to Joppa",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Peter sees a vision of a sheet from heaven",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The Spirit tells Peter to go with the men",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Peter enters Cornelius’s house",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Peter preaches Jesus to those gathered",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "The Holy Spirit falls on the listeners",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "They are baptized in the name of Jesus",
+      "correctIndex": 7
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "Gentiles"
+  ]
+}

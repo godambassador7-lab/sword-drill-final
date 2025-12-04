@@ -1,0 +1,83 @@
+{
+  "id": "L-004",
+  "title": "Gospel Harmony: Life of Jesus",
+  "reference": "Selected from Matthew–John",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "An angel announces the birth of Jesus",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus is born in Bethlehem",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus is presented and grows in wisdom",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "John the Baptist prepares the way",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus is baptized and the Spirit descends",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus is tempted in the wilderness",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus teaches and heals throughout Galilee",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jesus reveals His glory on a high mountain",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus sets His face toward Jerusalem",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus enters Jerusalem amid rejoicing",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus shares the Passover with His disciples",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Jesus is betrayed, tried, and crucified",
+      "correctIndex": 11
+    },
+    {
+      "id": "e13",
+      "text": "Jesus rises from the dead",
+      "correctIndex": 12
+    },
+    {
+      "id": "e14",
+      "text": "Jesus commissions His disciples to go to all nations",
+      "correctIndex": 13
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Harmony"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "B-007",
+  "title": "Birth of Jesus Overview",
+  "reference": "Luke 2:1–20",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "A decree sends Joseph and Mary to Bethlehem",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus is born and laid in a manger",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Angels announce the news to shepherds",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Shepherds visit the newborn Jesus",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Shepherds glorify and praise God",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "BirthOfJesus"
+  ]
+}

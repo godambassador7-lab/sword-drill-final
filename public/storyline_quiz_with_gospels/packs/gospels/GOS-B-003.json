@@ -1,0 +1,43 @@
+{
+  "id": "GOS-B-003",
+  "title": "Jesus Walks on Water",
+  "reference": "Matthew 14:22–33",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus sends the disciples ahead by boat",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The disciples struggle against the wind",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus walks toward them on the water",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Peter walks toward Jesus",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Peter begins to sink and cries out",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus calms the storm",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Miracle"
+  ]
+}

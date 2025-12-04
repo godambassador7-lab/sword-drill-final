@@ -1,0 +1,59 @@
+{
+  "id": "GOS-I-001",
+  "title": "Paralyzed Man Through the Roof",
+  "reference": "Mark 2:1–12",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus is teaching in a crowded house",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Four men bring a paralyzed friend",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "They open the roof above Jesus",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "They lower the man on the mat",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus sees their faith and forgives sins",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Scribes question in their hearts",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus heals the man physically",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "The man walks out in full view of all",
+      "correctIndex": 7
+    }
+  ],
+  "distractors": [
+    {
+      "id": "d1",
+      "text": "Jesus feeds the four thousand",
+      "note": "Not part of this miracle"
+    }
+  ],
+  "tags": [
+    "Gospels",
+    "Healing"
+  ]
+}

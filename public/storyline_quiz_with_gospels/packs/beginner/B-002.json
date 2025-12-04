@@ -1,0 +1,43 @@
+{
+  "id": "B-002",
+  "title": "Noah and the Ark",
+  "reference": "Genesis 6–9",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "God warns Noah about the coming flood",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Noah builds the ark",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Animals enter the ark",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The floodwaters cover the earth",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The waters recede and the ark rests",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "God places the rainbow in the sky",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Genesis",
+    "Noah"
+  ]
+}

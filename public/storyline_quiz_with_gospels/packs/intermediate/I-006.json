@@ -1,0 +1,48 @@
+{
+  "id": "I-006",
+  "title": "Feeding of the Five Thousand",
+  "reference": "Mark 6:30–44; John 6:1–14",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Crowds follow Jesus to a remote place",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The disciples urge Jesus to send them away to buy food",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "A boy’s five loaves and two fish are found",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus gives thanks and breaks the loaves",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The disciples distribute the food to the crowd",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Everyone eats and is satisfied",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Twelve baskets of leftovers are gathered",
+      "correctIndex": 6
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Miracle"
+  ]
+}

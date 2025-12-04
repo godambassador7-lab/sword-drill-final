@@ -1,0 +1,63 @@
+{
+  "id": "GOS-L-003",
+  "title": "Parables of Jesus Chronological",
+  "reference": "Matthew 13",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Parable of the Sower",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Parable of the Weeds",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Parable of the Mustard Seed",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Parable of the Leaven",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Parable of the Hidden Treasure",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Parable of the Pearl",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Parable of the Net",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Explanation of teaching in parables",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Interpretation of the Weeds",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus departs to teach elsewhere",
+      "correctIndex": 9
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Parables"
+  ]
+}

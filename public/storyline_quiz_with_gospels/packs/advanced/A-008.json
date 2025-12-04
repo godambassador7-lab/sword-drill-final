@@ -1,0 +1,73 @@
+{
+  "id": "A-008",
+  "title": "Major Visions of Revelation",
+  "reference": "Revelation 1–22 (overview)",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "John sees the risen Christ among the lampstands",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Messages are given to the seven churches",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "John sees the throne in heaven and the Lamb",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The Lamb opens the seals",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Trumpets sound with judgments",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "A dragon and beasts appear in conflict with the saints",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Bowls of wrath are poured out",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Babylon the great falls",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Heaven rejoices at God’s judgments",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Christ returns and defeats the beast",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "The dead are judged before the great white throne",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "A new heaven and new earth appear",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Revelation",
+    "Visions"
+  ]
+}

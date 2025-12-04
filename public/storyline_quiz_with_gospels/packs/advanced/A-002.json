@@ -1,0 +1,53 @@
+{
+  "id": "A-002",
+  "title": "David Flees from Saul",
+  "reference": "1 Samuel 19–24",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Saul tries to spear David",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Michal helps David escape",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "David flees to Samuel at Ramah",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "David and Jonathan confirm Saul’s intent",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "David departs and gathers followers",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "David spares Saul in the cave",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "David shows Saul the piece of robe",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Saul acknowledges David’s righteousness",
+      "correctIndex": 7
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "David",
+    "Saul"
+  ]
+}
