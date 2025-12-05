@@ -932,11 +932,15 @@ const SwordDrillApp = () => {
   const handleVerseScrambleComplete = useCallback((result) => {
     console.log('[handleVerseScrambleComplete] Called with result:', result);
 
-    // Update quiz state with user's answer and time
+    // Capture the current quiz state before updating
     setQuizState(prev => {
       console.log('[handleVerseScrambleComplete] Previous state:', prev);
       console.log('[handleVerseScrambleComplete] prev.verse:', prev?.verse);
-      if (!prev) return null;
+      if (!prev) {
+        console.error('[handleVerseScrambleComplete] No previous state!');
+        return null;
+      }
+
       const updatedState = {
         ...prev,
         userAnswer: result.userAnswer,
@@ -944,20 +948,23 @@ const SwordDrillApp = () => {
       };
       console.log('[handleVerseScrambleComplete] Updated state:', updatedState);
       console.log('[handleVerseScrambleComplete] updatedState.verse:', updatedState.verse);
+
+      // Call submitQuiz with the updated state in the next tick
+      // This ensures the state is updated before submitQuiz runs
+      setTimeout(() => {
+        console.log('[handleVerseScrambleComplete] About to call submitQuiz');
+        if (typeof submitQuiz === 'function') {
+          // Change view to home first so toasts show on home screen
+          setCurrentView('home');
+          // Then submit after a brief delay
+          setTimeout(() => {
+            submitQuiz(result.isCorrect, result.timeTaken);
+          }, 50);
+        }
+      }, 0);
+
       return updatedState;
     });
-
-    // Switch to home view to show toasts properly
-    setCurrentView('home');
-
-    // Call submitQuiz with the result data after a small delay
-    // This ensures the view has switched before toasts appear
-    console.log('[handleVerseScrambleComplete] About to call submitQuiz');
-    setTimeout(() => {
-      if (typeof submitQuiz === 'function') {
-        submitQuiz(result.isCorrect, result.timeTaken);
-      }
-    }, 100);
   }, []);
 
   const handleVerseScrambleSkip = useCallback(() => {
