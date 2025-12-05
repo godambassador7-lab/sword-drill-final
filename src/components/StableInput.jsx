@@ -28,7 +28,7 @@ const StableInput = React.memo(({
       autoFocus={autoFocus}
       autoComplete={autoComplete}
       onClick={(e) => e.stopPropagation()}
-      onTouchStart={(e) => e.stopPropagation()}
+      onFocus={(e) => e.stopPropagation()}
     />
   );
 }, (prevProps, nextProps) => {
