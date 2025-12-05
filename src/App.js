@@ -2739,13 +2739,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       // SECURITY: Use server-validated data if available
       if (saveResult.success && saveResult.validatedData) {
         console.log('[Security] Using server-validated points:', saveResult.validatedData);
+        const validatedStreak = Math.max(currentStreakValue, saveResult.validatedData.currentStreak || 0);
         effectiveQuizData = {
           ...newQuizData,
           totalPoints: saveResult.validatedData.totalPoints,
-          currentStreak: saveResult.validatedData.currentStreak,
+          currentStreak: validatedStreak,
           quizzesCompleted: saveResult.validatedData.quizzesCompleted,
           currentLevel: saveResult.validatedData.currentLevel || newQuizData.currentLevel
         };
+        currentStreakValue = validatedStreak;
       }
     }
   } catch (err) {

@@ -608,6 +608,9 @@ const EnhancedReviewMultipleChoice = ({
               max="100"
               value={confidenceLevel}
               onChange={(e) => setConfidenceLevel(Number(e.target.value))}
+              onMouseDown={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onFocus={(e) => e.stopPropagation()}
               className="w-full h-3 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-amber-500"
             />
 
