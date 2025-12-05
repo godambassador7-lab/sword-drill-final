@@ -947,12 +947,17 @@ const SwordDrillApp = () => {
       return updatedState;
     });
 
-    // Call submitQuiz with the result data
-    // submitQuiz will handle showing toasts and redirecting to home
+    // Switch to home view to show toasts properly
+    setCurrentView('home');
+
+    // Call submitQuiz with the result data after a small delay
+    // This ensures the view has switched before toasts appear
     console.log('[handleVerseScrambleComplete] About to call submitQuiz');
-    if (typeof submitQuiz === 'function') {
-      submitQuiz(result.isCorrect, result.timeTaken);
-    }
+    setTimeout(() => {
+      if (typeof submitQuiz === 'function') {
+        submitQuiz(result.isCorrect, result.timeTaken);
+      }
+    }, 100);
   }, []);
 
   const handleVerseScrambleSkip = useCallback(() => {
