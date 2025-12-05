@@ -932,18 +932,12 @@ const SwordDrillApp = () => {
   const handleVerseScrambleComplete = useCallback((result) => {
     console.log('[handleVerseScrambleComplete] Called with result:', result);
 
-    // Immediately hide the VerseScrambleQuiz component
-    setCurrentView('home');
-    setQuizState(null);
-
     // Update quiz state with user's answer and time
-    // Store the updated state in a variable to pass to submitQuiz
-    let updatedState = null;
     setQuizState(prev => {
       console.log('[handleVerseScrambleComplete] Previous state:', prev);
       console.log('[handleVerseScrambleComplete] prev.verse:', prev?.verse);
       if (!prev) return null;
-      updatedState = {
+      const updatedState = {
         ...prev,
         userAnswer: result.userAnswer,
         timeTaken: result.timeTaken
@@ -953,8 +947,8 @@ const SwordDrillApp = () => {
       return updatedState;
     });
 
-    // Call submitQuiz immediately with the result data
-    // submitQuiz will use the current quizState from closure, which should still have verse data
+    // Call submitQuiz with the result data
+    // submitQuiz will handle showing toasts and redirecting to home
     console.log('[handleVerseScrambleComplete] About to call submitQuiz');
     if (typeof submitQuiz === 'function') {
       submitQuiz(result.isCorrect, result.timeTaken);

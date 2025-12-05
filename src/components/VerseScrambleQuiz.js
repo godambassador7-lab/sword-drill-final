@@ -13,6 +13,7 @@ const VerseScrambleQuiz = ({ verse, scramble, onComplete, onSkip, isPracticeMode
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [startTime] = useState(Date.now());
+  const [completionCalled, setCompletionCalled] = useState(false);
 
   // Debug logging to track renders
   console.log('[VerseScramble] Component rendered. Selected words:', selectedWords.length, 'Bank:', wordBank.length);
@@ -154,6 +155,7 @@ const VerseScrambleQuiz = ({ verse, scramble, onComplete, onSkip, isPracticeMode
       userAnswer: selectedWords.map(w => w.text).join(' '),
     };
     console.log('[VerseScramble] Calling onComplete with:', result);
+    setCompletionCalled(true);
     onComplete(result);
   };
 
@@ -163,6 +165,11 @@ const VerseScrambleQuiz = ({ verse, scramble, onComplete, onSkip, isPracticeMode
 
   if (!verse) {
     return <div>Loading...</div>;
+  }
+
+  // Hide component after completion is called - let parent handle toasts
+  if (completionCalled) {
+    return null;
   }
 
   // Result screen
