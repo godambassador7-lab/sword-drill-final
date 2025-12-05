@@ -931,6 +931,11 @@ const SwordDrillApp = () => {
   // Stable callbacks for VerseScrambleQuiz - must be declared before any early returns
   const handleVerseScrambleComplete = useCallback((result) => {
     console.log('[handleVerseScrambleComplete] Called with result:', result);
+
+    // Immediately hide the VerseScrambleQuiz component
+    setCurrentView('home');
+    setQuizState(null);
+
     // Update quiz state with user's answer and time
     // Store the updated state in a variable to pass to submitQuiz
     let updatedState = null;
@@ -1756,7 +1761,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
         blankIndices: selectedIndices,
         wordBank: shuffledWordBank,
         userAnswers: Array(actualBlanks).fill(null),
-        draggedWord: null,
+        selectedBlankIndex: null,
         isPersonalVerse: usePersonalVerses,
       });
     } else if (type === 'multiple-choice') {
@@ -3345,20 +3350,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   });
 
   const QuizView = () => {
-    // Track which blank is currently selected for filling
-    const [selectedBlankIndex, setSelectedBlankIndex] = useState(null);
-
     // Click-to-choose handlers
     const handleSelectBlank = useCallback((index) => {
-      setSelectedBlankIndex(index);
+      setQuizState(prev => ({
+        ...prev,
+        selectedBlankIndex: index
+      }));
     }, []);
 
     const handleWordClick = useCallback((wordItem) => {
-      if (selectedBlankIndex === null) return;
-
       setQuizState(prev => {
+        if (prev.selectedBlankIndex === null) return prev;
+
         const newAnswers = [...prev.userAnswers];
-        newAnswers[selectedBlankIndex] = wordItem;
+        newAnswers[prev.selectedBlankIndex] = wordItem;
 
         // Remove this specific item from word bank by ID
         const newWordBank = prev.wordBank.filter(w => w.id !== wordItem.id);
@@ -3366,13 +3371,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         return {
           ...prev,
           userAnswers: newAnswers,
-          wordBank: newWordBank
+          wordBank: newWordBank,
+          selectedBlankIndex: null // Clear selection after placing word
         };
       });
-
-      // Clear selection after placing word
-      setSelectedBlankIndex(null);
-    }, [selectedBlankIndex]);
+    }, []);
 
     const handleRemoveWord = useCallback((index) => {
       setQuizState(prev => {
@@ -3387,12 +3390,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         return {
           ...prev,
           userAnswers: newAnswers,
-          wordBank: newWordBank
+          wordBank: newWordBank,
+          selectedBlankIndex: null // Clear selection when removing a word
         };
       });
-
-      // Clear selection when removing a word
-      setSelectedBlankIndex(null);
     }, []);
 
     // Note: Verse Scramble is now rendered at top level to prevent re-render issues
@@ -3525,7 +3526,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                           value={quizState.userAnswers[currentBlankIndex]}
                           onSelect={handleSelectBlank}
                           onRemove={handleRemoveWord}
-                          isSelected={selectedBlankIndex === currentBlankIndex}
+                          isSelected={quizState.selectedBlankIndex === currentBlankIndex}
                         />
                       );
                     }
@@ -3539,7 +3540,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <WordBank
                   wordBank={quizState.wordBank}
                   onWordClick={handleWordClick}
-                  selectedBlankIndex={selectedBlankIndex}
+                  selectedBlankIndex={quizState.selectedBlankIndex}
                 />
               )}
 
@@ -6286,16 +6287,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           </div>
           <div className="text-purple-100 text-sm">Put biblical events in order • Chronological challenges • Gospels included • Timed</div>
         </button>
-        <button
-          onClick={() => setCurrentView('spiritual-gifts-exam')}
-          disabled={loading}
-          className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white p-4 rounded-xl border-2 border-cyan-400 hover:border-cyan-300 transition-all text-left disabled:opacity-50 shadow-lg"
-        >
-          <div className="font-bold text-lg flex items-center gap-2">
-            ✨ Spiritual Gifts Exam
-          </div>
-          <div className="text-cyan-100 text-sm">Discover your spiritual gifts • 50+ questions • Biblical assessment</div>
-        </button>
       </div>
     </div>
   );
@@ -6562,7 +6553,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <Book size={20} /> Home
               </button>
 
-              {/* TRAIN - Practice Review and Personal Verse Bank */}
+              {/* TRAIN - Practice Review, Personal Verse Bank, and Spiritual Gifts Exam */}
               <div className="pt-2">
                 <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Train</div>
                 <div className="space-y-1">
@@ -6583,6 +6574,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-pink-600/20 hover:to-rose-600/20 transition-all flex items-center gap-3"
                   >
                     <Heart size={18} className="text-pink-400" /> Personal Verse Bank
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('spiritual-gifts-exam');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-cyan-600/20 hover:to-blue-600/20 transition-all flex items-center gap-3"
+                  >
+                    <GraduationCap size={18} className="text-cyan-400" /> Spiritual Gifts Exam
                   </button>
                 </div>
               </div>
