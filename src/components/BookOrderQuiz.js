@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback , useRef } from "react";
 import { X, Clock, Trophy, Zap } from "lucide-react";
 import CorrectToast from "./CorrectToast";
 
@@ -141,6 +141,8 @@ const evaluateBookAnswer = (input, canonical) => {
 
 const BookOrderQuiz = ({ onComplete, onCancel }) => {
   const [question, setQuestion] = useState(null);
+  const beforeInputRef = useRef(null);
+  const afterInputRef = useRef(null);
   const [beforeAnswer, setBeforeAnswer] = useState("");
   const [afterAnswer, setAfterAnswer] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
@@ -449,6 +451,11 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={beforeAnswer}
+                ref={beforeInputRef}
+                onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); beforeInputRef.current?.focus(); }}
+                onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); beforeInputRef.current?.focus(); }}
+                onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); beforeInputRef.current?.focus(); }}
+                onClick={(e) => e.stopPropagation()}
                 onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}
@@ -472,6 +479,11 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={afterAnswer}
+                ref={afterInputRef}
+                onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); afterInputRef.current?.focus(); }}
+                onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); afterInputRef.current?.focus(); }}
+                onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); afterInputRef.current?.focus(); }}
+                onClick={(e) => e.stopPropagation()}
                 onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}

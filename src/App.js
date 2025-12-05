@@ -906,6 +906,7 @@ const SwordDrillApp = () => {
 
   const [quizState, setQuizState] = useState(null);
   const [quizTimer, setQuizTimer] = useState(0);
+  const referenceInputRef = useRef(null);
   const [verseOfDay, setVerseOfDay] = useState(null);
   const [verseOfDayRead, setVerseOfDayRead] = useState(false);
   const [showCorrectToast, setShowCorrectToast] = useState(false);
@@ -3544,8 +3545,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             >
               <input
                 key="reference-recall-input"
+                ref={referenceInputRef}
                 type="text"
                 value={quizState.userAnswer || ''}
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  referenceInputRef.current?.focus();
+                }}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  referenceInputRef.current?.focus();
+                }}
+                onTouchStart={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  referenceInputRef.current?.focus();
+                }}
+                onClick={(e) => e.stopPropagation()}
                 onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
                 placeholder="Type the reference (e.g., John 3:16)..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
