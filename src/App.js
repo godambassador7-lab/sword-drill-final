@@ -3538,14 +3538,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           )}
 
           {quizState.type === 'reference-recall' && (
-            <StableInput
+            <input
               key={`reference-recall-${quizState.quizId}`}
-              defaultValue={quizState.userAnswer || ''}
-              onChange={(value) => setQuizState(prev => ({ ...prev, userAnswer: value }))}
+              type="text"
+              value={quizState.userAnswer || ''}
+              onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
               placeholder="Type the reference (e.g., John 3:16)..."
               className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
               autoComplete="off"
-              type="text"
+              autoFocus
             />
           )}
 
