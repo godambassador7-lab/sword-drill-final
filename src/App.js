@@ -520,6 +520,53 @@ const calculateMasteredVerses = (verseProgress) => {
   }).length;
 };
 
+// Helper function to update streak data after quiz completion
+const updateStreakData = (isCorrect, quizType, reference, points) => {
+  const today = new Date();
+  const dateString = localDateString(today);
+  const streakData = JSON.parse(localStorage.getItem('streakData') || '{}');
+
+  // Create detailed quiz entry
+  const quizEntry = {
+    verseReference: reference || 'N/A',
+    type: quizType,
+    correct: isCorrect,
+    points: points,
+    timestamp: today.toISOString(),
+    dateKey: dateString
+  };
+
+  // Initialize or update day's data
+  if (!streakData[dateString]) {
+    streakData[dateString] = {
+      marked: isCorrect, // Only mark as completed if correct
+      quizCount: 1,
+      quizzes: [quizEntry],
+      timestamp: today.toISOString()
+    };
+  } else {
+    // Update existing day
+    streakData[dateString].quizCount = (streakData[dateString].quizCount || 0) + 1;
+    if (isCorrect) {
+      streakData[dateString].marked = true; // Mark as complete on first correct answer
+    }
+    // Add quiz to the day's quiz array
+    if (!streakData[dateString].quizzes) {
+      streakData[dateString].quizzes = [];
+    }
+    streakData[dateString].quizzes.push(quizEntry);
+  }
+
+  // Save to localStorage
+  localStorage.setItem('streakData', JSON.stringify(streakData));
+
+  // Return updated streak count if quiz was correct
+  if (isCorrect) {
+    return calculateCurrentStreak();
+  }
+  return null; // Don't update streak for incorrect answers
+};
+
 // Helper function to check and apply inactivity penalties
 const calculateInactivityPenalty = () => {
   const lastActivityDate = localStorage.getItem('lastActivityDate');
@@ -6783,12 +6830,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             onComplete={(results) => {
               // Calculate points for Spelling Bee
               const pointsEarned = results.score;
+              const isCorrect = results.score > 0;
+
+              // Update streak data
+              const newStreak = updateStreakData(isCorrect, 'spelling-bee', 'N/A', pointsEarned);
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                quizzesCompleted: prev.quizzesCompleted + 1,
+                currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
 
               // Save quiz results
@@ -6813,12 +6865,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             onComplete={(results) => {
               // Calculate points for Words of Jesus quiz
               const pointsEarned = results.score;
+              const isCorrect = results.correctAnswers > 0;
+
+              // Update streak data
+              const newStreak = updateStreakData(isCorrect, 'words-of-jesus', 'N/A', pointsEarned);
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
                 quizzesCompleted: prev.quizzesCompleted + 1,
+                currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
                 wordsOfJesusCompleted: (prev.wordsOfJesusCompleted || 0) + 1,
                 wordsOfJesusCorrect: (prev.wordsOfJesusCorrect || 0) + results.correctAnswers
               }));
@@ -6857,12 +6914,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               const levelMultiplier = POINT_SYSTEM.DIFFICULTY_MULTIPLIERS[userLevel]?.multiplier || 1.0;
               const rawPoints = results.pointsEarned ?? results.score ?? 0;
               const pointsEarned = Math.max(0, Math.floor(rawPoints * levelMultiplier));
+              const isCorrect = results.score > 0;
+
+              // Update streak data
+              const newStreak = updateStreakData(isCorrect, 'book-order', 'N/A', pointsEarned);
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                quizzesCompleted: prev.quizzesCompleted + 1,
+                currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
 
               // Save quiz results
@@ -6889,12 +6951,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             onComplete={(results) => {
               // Calculate points for Storyline Quiz
               const pointsEarned = results.score || 0;
+              const isCorrect = results.score > 0;
+
+              // Update streak data
+              const newStreak = updateStreakData(isCorrect, 'storyline-quiz', results.packId || 'N/A', pointsEarned);
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                quizzesCompleted: prev.quizzesCompleted + 1,
+                currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
 
               // Save quiz results
@@ -6927,12 +6994,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               const basePoints = POINT_SYSTEM.BASE_QUIZ_POINTS['sword-drill-ultimate'] || 50;
               const levelMultiplier = POINT_SYSTEM.DIFFICULTY_MULTIPLIERS[userLevel]?.multiplier || 1.0;
               const pointsEarned = Math.floor(basePoints * levelMultiplier * (results.score / 100));
+              const isCorrect = results.score > 0;
+
+              // Update streak data
+              const newStreak = updateStreakData(isCorrect, 'sword-drill-ultimate', 'N/A', pointsEarned);
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
                 totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                quizzesCompleted: prev.quizzesCompleted + 1,
+                currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
 
               // Save quiz results
@@ -6987,20 +7059,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 const updatedCompletions = { ...(userData.personalVerseDetectiveCompletions || {}) };
                 updatedCompletions[today] = (updatedCompletions[today] || 0) + 1;
 
+                // Update streak data
+                const newStreak = updateStreakData(results.success, 'personal-verse-detective', results.reference, pointsEarned);
+
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
                   quizzesCompleted: prev.quizzesCompleted + 1,
+                  currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
                   personalVerseDetectiveCompletions: updatedCompletions,
                   verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
                   verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
                 }));
               } else {
                 // Regular verse detective
+                // Update streak data
+                const newStreak = updateStreakData(results.success, 'verse-detective', results.reference, pointsEarned);
+
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
                   quizzesCompleted: prev.quizzesCompleted + 1,
+                  currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
                   verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
                   verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
                 }));
