@@ -217,10 +217,19 @@ export const purchaseUnlockable = async (userId, unlockableId, cost) => {
       [unlockableId]: true
     };
 
+    // Track purchase in history for transaction tracking
+    const purchaseRecord = {
+      unlockableId: unlockableId,
+      cost: cost,
+      timestamp: Date.now(),
+      pointsAfter: validation.remainingPoints
+    };
+
     await updateDoc(doc(db, 'userProgress', userId), {
       unlockables: updatedUnlockables,
       totalPoints: validation.remainingPoints, // Use validated remaining points
-      lastPurchaseTimestamp: serverTimestamp()
+      lastPurchaseTimestamp: serverTimestamp(),
+      purchaseHistory: arrayUnion(purchaseRecord)
     });
 
     return {

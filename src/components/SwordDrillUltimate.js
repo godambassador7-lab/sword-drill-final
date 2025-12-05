@@ -106,6 +106,7 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   const [phase, setPhase] = useState('book-order'); // 'book-order' or 'verse-scramble'
   const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
   // Round data tracking
   const [roundsData, setRoundsData] = useState([]);
@@ -135,6 +136,7 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   useEffect(() => {
     const loadQuestion = async () => {
       setLoading(true);
+      setLoadError(false);
       console.log('[SwordDrillUltimate] Loading question with userLevel:', userLevel);
       console.log('[SwordDrillUltimate] getLocalVerseByReference:', typeof getLocalVerseByReference);
       const q = await generateQuestion(userLevel, verseProgress, getLocalVerseByReference);
@@ -142,8 +144,10 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
       if (q) {
         setQuestion(q);
         roundStartTime.current = Date.now();
+        setLoadError(false);
       } else {
         console.error('[SwordDrillUltimate] Failed to generate question');
+        setLoadError(true);
       }
       setLoading(false);
     };
@@ -241,10 +245,14 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
       // Generate new question
       const loadNextQuestion = async () => {
         setLoading(true);
+        setLoadError(false);
         const newQuestion = await generateQuestion(userLevel, verseProgress, getLocalVerseByReference);
         if (newQuestion) {
           setQuestion(newQuestion);
           roundStartTime.current = Date.now();
+          setLoadError(false);
+        } else {
+          setLoadError(true);
         }
         setLoading(false);
       };
@@ -479,12 +487,41 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   }
 
   // Show loading state
-  if (loading || !question) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
         <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-4 border-amber-500 text-center">
           <Sparkles size={48} className="text-amber-400 mx-auto mb-4 animate-pulse" />
           <div className="text-white text-xl">Loading Sword Drill...</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error state with retry option
+  if (loadError || !question) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-4 border-red-500 text-center">
+          <X size={48} className="text-red-400 mx-auto mb-4" />
+          <div className="text-white text-xl mb-4">Failed to load question</div>
+          <p className="text-slate-300 mb-6">
+            Unable to generate a Sword Drill question. Please check your connection or try again.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold py-3 px-6 rounded-xl hover:from-amber-500 hover:to-orange-500 transition-all"
+            >
+              Retry
+            </button>
+            <button
+              onClick={onCancel}
+              className="bg-slate-700 text-white font-bold py-3 px-6 rounded-xl hover:bg-slate-600 transition-all"
+            >
+              Go Back
+            </button>
+          </div>
         </div>
       </div>
     );

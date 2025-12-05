@@ -2342,17 +2342,25 @@ const playBackgroundMusic = () => {
 };
 
 // Fade out background music
+let fadeIntervalId = null;
 const fadeOutMusic = () => {
   const audio = backgroundMusicRef;
   if (!audio) return;
 
+  // Clear any existing fade interval
+  if (fadeIntervalId) {
+    clearInterval(fadeIntervalId);
+    fadeIntervalId = null;
+  }
+
   const fadeInterval = 50; // ms between volume decreases
   const fadeStep = 0.05; // amount to decrease volume each step
 
-  const fade = setInterval(() => {
+  fadeIntervalId = setInterval(() => {
     // Guard against audio being cleared elsewhere
-    if (!audio) {
-      clearInterval(fade);
+    if (!audio || !backgroundMusicRef) {
+      clearInterval(fadeIntervalId);
+      fadeIntervalId = null;
       backgroundMusicRef = null;
       return;
     }
@@ -2360,9 +2368,13 @@ const fadeOutMusic = () => {
     if (audio.volume > fadeStep) {
       audio.volume = Math.max(0, audio.volume - fadeStep);
     } else {
+      // Ensure audio is fully stopped
+      audio.volume = 0;
       audio.pause();
+      audio.currentTime = 0;
       backgroundMusicRef = null;
-      clearInterval(fade);
+      clearInterval(fadeIntervalId);
+      fadeIntervalId = null;
     }
   }, fadeInterval);
 };
@@ -4357,38 +4369,54 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     const getTransactions = () => {
       const transactions = [];
 
-      // Add quiz earnings
+      // Add ALL quiz results (both correct and incorrect)
       (userData.quizHistory || []).forEach(quiz => {
-        if (quiz.correct && quiz.points && quiz.timestamp) {
+        if (quiz.points !== undefined && quiz.timestamp) {
           // Ensure timestamp is a valid number
           const timestamp = typeof quiz.timestamp === 'number' ? quiz.timestamp : Date.now();
+          const points = quiz.points || 0;
+
+          // Determine transaction type based on points
+          let transactionType, icon, description;
+          if (points > 0) {
+            transactionType = 'earn';
+            icon = '📝';
+            description = `Quiz completed: ${quiz.type}`;
+          } else if (points < 0) {
+            transactionType = 'penalty';
+            icon = '❌';
+            description = `Quiz failed: ${quiz.type}`;
+          } else {
+            // Zero points (quiz attempted but no points)
+            transactionType = 'neutral';
+            icon = '📝';
+            description = `Quiz attempted: ${quiz.type}`;
+          }
+
           transactions.push({
             id: `quiz_${timestamp}_${Math.random()}`,
             date: timestamp,
-            type: 'earn',
-            amount: quiz.points,
-            description: `Quiz completed: ${quiz.type}`,
-            icon: '📝'
+            type: transactionType,
+            amount: Math.abs(points),
+            description: description,
+            icon: icon
           });
         }
       });
 
-      // Add purchases/unlockables
-      if (userData.unlockables) {
-        Object.keys(userData.unlockables).forEach(key => {
-          const unlockData = userData.unlockables[key];
-          if (typeof unlockData === 'object' && unlockData.purchaseDate && unlockData.cost) {
-            transactions.push({
-              id: `unlock_${key}_${unlockData.purchaseDate}`,
-              date: unlockData.purchaseDate,
-              type: 'spend',
-              amount: unlockData.cost,
-              description: `Unlocked: ${key.replace(/_/g, ' ')}`,
-              icon: '🔓'
-            });
-          }
-        });
-      }
+      // Add purchases/unlockables from purchase history
+      (userData.purchaseHistory || []).forEach(purchase => {
+        if (purchase.timestamp && purchase.cost) {
+          transactions.push({
+            id: `purchase_${purchase.timestamp}`,
+            date: purchase.timestamp,
+            type: 'spend',
+            amount: purchase.cost,
+            description: `Unlocked: ${purchase.unlockableId.replace(/_/g, ' ').replace(/course/g, 'Course')}`,
+            icon: '🔓'
+          });
+        }
+      });
 
       // Add hint purchases
       (userData.hintPurchases || []).forEach(hint => {
@@ -4481,17 +4509,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         activityScoreAtCreation: metrics.activityScore
       };
 
+      const updatedPoints = userData.totalPoints - amount;
+      const updatedInvestments = [...(userData.investments || []), newInvestment];
+
       setUserData(prev => ({
         ...prev,
-        totalPoints: prev.totalPoints - amount,
-        investments: [...(prev.investments || []), newInvestment]
+        totalPoints: updatedPoints,
+        investments: updatedInvestments
       }));
 
       // Save to Firebase
       if (currentUser?.uid) {
         updateUserProgress(currentUser.uid, {
-          totalPoints: userData.totalPoints - amount,
-          investments: [...(userData.investments || []), newInvestment]
+          totalPoints: updatedPoints,
+          investments: updatedInvestments
         });
       }
 
@@ -4519,25 +4550,21 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         showToast(`⚠️ Early withdrawal: 50% penalty applied`, 'error');
       }
 
-      setUserData(prev => {
-        const updatedInvestments = prev.investments.map(inv =>
-          inv.id === investment.id ? updatedInvestment : inv
-        );
+      const updatedInvestments = userData.investments.map(inv =>
+        inv.id === investment.id ? updatedInvestment : inv
+      );
+      const updatedPoints = userData.totalPoints + pointsReturned;
 
-        return {
-          ...prev,
-          totalPoints: prev.totalPoints + pointsReturned,
-          investments: updatedInvestments
-        };
-      });
+      setUserData(prev => ({
+        ...prev,
+        totalPoints: updatedPoints,
+        investments: updatedInvestments
+      }));
 
       // Save to Firebase
       if (currentUser?.uid) {
-        const updatedInvestments = userData.investments.map(inv =>
-          inv.id === investment.id ? updatedInvestment : inv
-        );
         updateUserProgress(currentUser.uid, {
-          totalPoints: userData.totalPoints + pointsReturned,
+          totalPoints: updatedPoints,
           investments: updatedInvestments
         });
       }
@@ -5220,6 +5247,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         showToast(`${powerUp.name} is already active!`, 'error');
         return;
       }
+
+      // Play purchase sound
+      playChaChing();
 
       // Deduct points and add boost
       const newPoints = userData.totalPoints - powerUp.cost;
