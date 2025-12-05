@@ -109,6 +109,36 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
     setDragStart(null);
   };
 
+  // Touch event handlers for mobile
+  const handleTouchStart = (e, row, col) => {
+    e.preventDefault();
+    setDragStart({ row, col });
+    setSelectedCells([getCellKey(row, col)]);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!dragStart) return;
+    e.preventDefault();
+
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (element && element.dataset.row !== undefined && element.dataset.col !== undefined) {
+      const row = parseInt(element.dataset.row);
+      const col = parseInt(element.dataset.col);
+      const newSelection = getSelectionBetween(dragStart, { row, col });
+      setSelectedCells(newSelection);
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    e.preventDefault();
+    if (selectedCells.length > 0) {
+      checkWord();
+    }
+    setDragStart(null);
+  };
+
   const getSelectionBetween = (start, end) => {
     const cells = [];
     const rowDiff = end.row - start.row;
@@ -427,6 +457,8 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
               setDragStart(null);
               setSelectedCells([]);
             }}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <div
               className="grid gap-1"
@@ -443,9 +475,12 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                   return (
                     <div
                       key={key}
+                      data-row={rowIndex}
+                      data-col={colIndex}
                       onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
                       onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
                       onMouseUp={handleMouseUp}
+                      onTouchStart={(e) => handleTouchStart(e, rowIndex, colIndex)}
                       className={`
                         w-10 h-10 flex items-center justify-center font-bold text-lg rounded cursor-pointer
                         select-none transition-all
@@ -472,19 +507,24 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
             Words to Find ({foundWords.length}/{currentPuzzle.words.length})
           </h4>
           <div className="grid grid-cols-2 gap-2">
-            {currentPuzzle.words.map(word => (
-              <div
-                key={word}
-                className={`px-3 py-2 rounded-lg font-semibold transition-all ${
-                  foundWords.includes(word)
-                    ? 'bg-green-600/20 text-green-300 line-through'
-                    : 'bg-slate-700/50 text-slate-300'
-                }`}
-              >
-                {foundWords.includes(word) && <CheckCircle size={16} className="inline mr-2" />}
-                {word}
-              </div>
-            ))}
+            {currentPuzzle.words.map(word => {
+              // Add space between compound words (e.g., "ElElyon" -> "El Elyon")
+              const displayWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+              return (
+                <div
+                  key={word}
+                  className={`px-3 py-2 rounded-lg font-semibold transition-all break-words ${
+                    foundWords.includes(word)
+                      ? 'bg-green-600/20 text-green-300 line-through'
+                      : 'bg-slate-700/50 text-slate-300'
+                  }`}
+                >
+                  {foundWords.includes(word) && <CheckCircle size={16} className="inline mr-2" />}
+                  {displayWord}
+                </div>
+              );
+            })}
           </div>
         </div>
 

@@ -744,8 +744,8 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
               <p className="text-slate-400">Loading chapter...</p>
             </div>
           ) : selectedBook && chapterContent.length > 0 ? (
-            <div className="bg-slate-800/50 rounded-lg p-4 max-h-96 overflow-y-auto">
-              <div className="sticky top-0 bg-slate-800 pb-2 border-b border-slate-700 mb-4">
+            <div className="bg-slate-800/50 rounded-lg p-2 md:p-4 max-h-96 overflow-y-auto">
+              <div className="sticky top-0 bg-slate-800 pb-2 pt-2 border-b border-slate-700 mb-4 -mx-2 md:-mx-4 px-2 md:px-4 z-10">
                 {parallelMode ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <h3 className="text-lg font-bold text-amber-400">
@@ -764,7 +764,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
               {parallelMode ? (
                 // Parallel View Layout
-                <div className="space-y-4">
+                <div className="space-y-4 w-full">
                   {loadingSecondary ? (
                     <div className="text-center py-8">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-400 mx-auto mb-2"></div>
@@ -775,26 +775,26 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                       const secondaryVerse = secondaryChapterContent.find(v => v.verse === verse.verse);
                       const inBank = isVerseInBank(verse);
                       return (
-                        <div key={index} className="group grid grid-cols-1 md:grid-cols-2 gap-4 p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative">
+                        <div key={index} className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-2 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full">
                           {/* Primary Translation (Left Column) */}
-                          <div className="flex gap-3">
-                            <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[2rem]">
+                          <div className="flex gap-2 md:gap-3 w-full">
+                            <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                               {verse.verse}
                             </span>
-                            <p className="text-slate-200 leading-relaxed">
+                            <p className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
                               {verse.text}
                             </p>
                           </div>
 
                           {/* Divider for mobile */}
-                          <div className="md:hidden border-l-2 border-slate-600 mx-4"></div>
+                          <div className="md:hidden border-t border-slate-600 my-2"></div>
 
                           {/* Secondary Translation (Right Column) */}
-                          <div className="flex gap-3 md:border-l-2 md:border-slate-600 md:pl-4">
-                            <span className="text-emerald-400 font-bold text-sm mt-0.5 min-w-[2rem] md:hidden">
+                          <div className="flex gap-2 md:gap-3 md:border-l-2 md:border-slate-600 md:pl-4 w-full">
+                            <span className="text-emerald-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0 md:hidden">
                               {verse.verse}
                             </span>
-                            <p className="text-slate-200 leading-relaxed flex-1">
+                            <p className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
                               {secondaryVerse ? secondaryVerse.text : '...'}
                             </p>
                           </div>
@@ -823,15 +823,15 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                 </div>
               ) : (
                 // Single View Layout
-                <div className="space-y-3">
+                <div className="space-y-3 w-full">
                   {filteredVerses.map((verse, index) => {
                     const inBank = isVerseInBank(verse);
                     return (
-                      <div key={index} className="group relative flex gap-3 hover:bg-slate-700/30 p-3 rounded transition-all border border-transparent hover:border-slate-600">
-                        <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[2rem]">
+                      <div key={index} className="group relative flex gap-2 md:gap-3 hover:bg-slate-700/30 p-2 md:p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full">
+                        <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                           {verse.verse}
                         </span>
-                        <p className="text-slate-200 leading-relaxed flex-1">
+                        <p className="text-slate-200 leading-relaxed text-sm md:text-base flex-1 break-words">
                           {verse.text}
                         </p>
                         <button
