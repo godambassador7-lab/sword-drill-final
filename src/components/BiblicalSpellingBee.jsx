@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { X, Clock, Trophy, Zap, Check, AlertCircle } from 'lucide-react';
 import CorrectToast from './CorrectToast';
+import StableInput from './StableInput';
 
 // Load words from Smith's Bible Dictionary
 let SMITHS_WORDS = [];
@@ -66,7 +67,7 @@ const HINT_PENALTY = 2;
 const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [words, setWords] = useState([]);
-  const [userAnswer, setUserAnswer] = useState('');
+  const userAnswerRef = useRef(''); // Using ref instead of state to prevent re-renders
   const [scrambled, setScrambled] = useState('');
   const [timeLeft, setTimeLeft] = useState(60);
   const [score, setScore] = useState(0);
@@ -101,7 +102,7 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
     if (words.length > 0 && currentWordIndex < words.length) {
       const currentWord = words[currentWordIndex];
       setScrambled(scrambleWord(currentWord.word));
-      setUserAnswer('');
+      userAnswerRef.current = ''; // Reset ref instead of state
       setShowHint(false);
       setFeedback(null);
     }
@@ -142,7 +143,7 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
     if (feedback || gameOver) return;
 
     const currentWord = words[currentWordIndex];
-    const isCorrect = userAnswer.toLowerCase().trim() === currentWord.word.toLowerCase();
+    const isCorrect = userAnswerRef.current.toLowerCase().trim() === currentWord.word.toLowerCase();
 
     if (isCorrect) {
       // Flat scoring capped at 10 points per correct word, with a small hint penalty
@@ -407,12 +408,14 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
               <label className="block text-white font-semibold mb-2">
                 Your Answer:
               </label>
-              <input
-                type="text"
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                onClick={(e) => e.stopPropagation()}
-                onTouchStart={(e) => e.stopPropagation()}
+              <StableInput
+                defaultValue=""
+                onChange={(value) => { userAnswerRef.current = value; }}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSubmit(e);
+                  }
+                }}
                 placeholder="Type the unscrambled word..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-purple-500 focus:outline-none text-lg"
                 autoFocus
@@ -423,7 +426,6 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
             <div className="flex gap-3">
               <button
                 type="submit"
-                disabled={!userAnswer.trim()}
                 className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
               >
                 Submit

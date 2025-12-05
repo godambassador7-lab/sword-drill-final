@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Clock, Zap, Trophy, Sword, Sparkles, Target } from 'lucide-react';
 import { getAllReferencesForDifficulty } from '../data/versesByDifficulty';
+import StableInput from './StableInput';
 
 // Bible books in order
 const BIBLE_BOOKS = [
@@ -111,9 +112,9 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   // Round data tracking
   const [roundsData, setRoundsData] = useState([]);
 
-  // Current round state
-  const [beforeAnswer, setBeforeAnswer] = useState("");
-  const [afterAnswer, setAfterAnswer] = useState("");
+  // Current round state - using refs for inputs to prevent re-renders
+  const beforeAnswerRef = useRef("");
+  const afterAnswerRef = useRef("");
   const [bookOrderLocked, setBookOrderLocked] = useState(false);
   const [bookOrderCorrect, setBookOrderCorrect] = useState({ before: false, after: false });
 
@@ -157,10 +158,10 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   const handleBookOrderSubmit = (e) => {
     e.preventDefault();
     if (bookOrderLocked) return;
-    if (!beforeAnswer.trim() || !afterAnswer.trim()) return;
+    if (!beforeAnswerRef.current.trim() || !afterAnswerRef.current.trim()) return;
 
-    const beforeCorrect = normalizeAnswer(beforeAnswer) === normalizeAnswer(question.before);
-    const afterCorrect = normalizeAnswer(afterAnswer) === normalizeAnswer(question.after);
+    const beforeCorrect = normalizeAnswer(beforeAnswerRef.current) === normalizeAnswer(question.before);
+    const afterCorrect = normalizeAnswer(afterAnswerRef.current) === normalizeAnswer(question.after);
 
     setBookOrderCorrect({ before: beforeCorrect, after: afterCorrect });
     setBookOrderLocked(true);
@@ -236,8 +237,8 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
       const nextRound = currentRound + 1;
       setCurrentRound(nextRound);
       setPhase('book-order');
-      setBeforeAnswer("");
-      setAfterAnswer("");
+      beforeAnswerRef.current = "";
+      afterAnswerRef.current = "";
       setBookOrderLocked(false);
       setBookOrderCorrect({ before: false, after: false });
       setRevisionCount(0);
@@ -579,14 +580,17 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                   <label className="block text-amber-400 font-semibold mb-2">
                     Book BEFORE {question.currentBook}:
                   </label>
-                  <input
-                    type="text"
-                    value={beforeAnswer}
-                    onChange={(e) => setBeforeAnswer(e.target.value)}
-                    onClick={(e) => e.stopPropagation()}
-                    onMouseDown={(e) => e.stopPropagation()}
-                    onTouchStart={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
+                  <StableInput
+                    defaultValue=""
+                    onChange={(value) => { beforeAnswerRef.current = value; }}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (beforeAnswerRef.current.trim() && afterAnswerRef.current.trim()) {
+                          handleBookOrderSubmit(e);
+                        }
+                      }
+                    }}
                     placeholder="Type the book name..."
                     className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
                     autoFocus
@@ -597,14 +601,17 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                   <label className="block text-green-400 font-semibold mb-2">
                     Book AFTER {question.currentBook}:
                   </label>
-                  <input
-                    type="text"
-                    value={afterAnswer}
-                    onChange={(e) => setAfterAnswer(e.target.value)}
-                    onClick={(e) => e.stopPropagation()}
-                    onMouseDown={(e) => e.stopPropagation()}
-                    onTouchStart={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
+                  <StableInput
+                    defaultValue=""
+                    onChange={(value) => { afterAnswerRef.current = value; }}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (beforeAnswerRef.current.trim() && afterAnswerRef.current.trim()) {
+                          handleBookOrderSubmit(e);
+                        }
+                      }
+                    }}
                     placeholder="Type the book name..."
                     className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
                   />
@@ -612,7 +619,6 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
 
                 <button
                   type="submit"
-                  disabled={!beforeAnswer.trim() || !afterAnswer.trim()}
                   className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-lg"
                 >
                   Submit & Continue
