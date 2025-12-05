@@ -6378,7 +6378,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         }
       `}</style>
 
-      <div className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-10">
+      <div className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-10" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
         <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div>
@@ -6398,7 +6398,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       {showMenu && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}>
-          <div className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right" style={{scrollbarWidth: 'thin', scrollbarColor: '#2d2d2d #0a0a0a'}} onClick={(e) => e.stopPropagation()}>
+          <div className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right" style={{scrollbarWidth: 'thin', scrollbarColor: '#2d2d2d #0a0a0a', paddingTop: 'calc(1.5rem + env(safe-area-inset-top))', paddingRight: 'calc(1.5rem + env(safe-area-inset-right))'}} onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-700">
               <User className="text-amber-400" size={32} />
               <div>
