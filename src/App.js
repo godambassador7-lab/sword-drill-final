@@ -3560,13 +3560,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <button
                   key={idx}
                   type="button"
-                  onMouseDown={(e) => e.stopPropagation()}
+                  onPointerDown={(e) => {
+                    e.stopPropagation();
+                    setQuizState(prev => ({ ...prev, userAnswer: option }));
+                  }}
+                  onMouseEnter={(e) => e.stopPropagation()}
                   onTouchStart={(e) => e.stopPropagation()}
-                  onClick={() => setQuizState(prev => ({ ...prev, userAnswer: option }))}
-                  className={`w-full p-4 rounded-lg border-2 transition-all text-left ${
+                  className={`w-full p-4 rounded-lg border-2 text-left focus:outline-none focus-visible:outline-none ${
                     quizState.userAnswer === option
-                      ? 'bg-amber-500 border-amber-400 text-slate-900 font-bold'
-                      : 'bg-slate-700 border-slate-600 text-white hover:border-amber-500'
+                      ? 'bg-amber-500 border-amber-400 text-slate-900 font-bold shadow-lg'
+                      : 'bg-slate-700 border-slate-600 text-white hover:bg-slate-600'
                   }`}
                 >
                   {option.replace(/:\\d+$/, '')}
