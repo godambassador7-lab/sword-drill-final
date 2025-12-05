@@ -8,6 +8,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   const [loading, setLoading] = useState(true);
   const [selectedCells, setSelectedCells] = useState([]);
   const [foundWords, setFoundWords] = useState([]);
+  const [foundWordCells, setFoundWordCells] = useState([]); // Track cells of found words
   const [timer, setTimer] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [hintCost, setHintCost] = useState(50);
@@ -62,12 +63,13 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
     }
   }, [isTimerRunning]);
 
-  // Start timer when puzzle loads
+  // Start timer when puzzle loads (only reset if puzzle ID changes, not just index)
   useEffect(() => {
     if (currentPuzzle && !completedPuzzles.includes(currentPuzzle.id)) {
       setTimer(0);
       setIsTimerRunning(true);
       setFoundWords([]);
+      setFoundWordCells([]);
       setSelectedCells([]);
 
       // Random bonus challenge (30% chance)
@@ -80,8 +82,11 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
       } else {
         setBonusChallenge(null);
       }
+    } else if (currentPuzzle && completedPuzzles.includes(currentPuzzle.id)) {
+      // If puzzle is already completed, stop timer
+      setIsTimerRunning(false);
     }
-  }, [currentPuzzleIndex, currentPuzzle, completedPuzzles]);
+  }, [currentPuzzle?.id, completedPuzzles]);
 
   const getCellKey = (row, col) => `${row}-${col}`;
 
@@ -140,6 +145,9 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
 
     if (foundWord && !foundWords.includes(foundWord)) {
       setFoundWords(prev => [...prev, foundWord]);
+
+      // Store the cells of this found word for permanent highlighting
+      setFoundWordCells(prev => [...prev, ...selectedCells]);
 
       // Check if puzzle complete
       if (foundWords.length + 1 === currentPuzzle.words.length) {
@@ -430,6 +438,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                 row.split('').map((letter, colIndex) => {
                   const key = getCellKey(rowIndex, colIndex);
                   const isSelected = selectedCells.includes(key);
+                  const isFoundWord = foundWordCells.includes(key);
 
                   return (
                     <div
@@ -442,6 +451,8 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                         select-none transition-all
                         ${isSelected
                           ? 'bg-gradient-to-br from-blue-500 to-purple-500 text-white scale-110 shadow-lg'
+                          : isFoundWord
+                          ? 'bg-gradient-to-br from-green-600/60 to-emerald-600/60 text-white'
                           : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50'
                         }
                       `}

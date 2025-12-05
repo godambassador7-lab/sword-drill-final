@@ -4405,15 +4405,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     const metrics = calculateActivityMetrics();
     const roi = calculateROI(investmentDays, metrics.activityScore);
 
+    // Normalize timestamps from numbers, strings, Date objects, or Firestore Timestamps
+    const normalizeTimestamp = (value) => {
+      if (!value) return Date.now();
+      if (typeof value === 'number') return value;
+      if (typeof value === 'string') {
+        const d = new Date(value);
+        if (!isNaN(d)) return d.getTime();
+      }
+      if (typeof value === 'object') {
+        if (typeof value.toDate === 'function') {
+          const d = value.toDate();
+          if (!isNaN(d)) return d.getTime();
+        }
+        if (value.seconds !== undefined) {
+          return (value.seconds * 1000) + Math.floor((value.nanoseconds || 0) / 1_000_000);
+        }
+      }
+      return Date.now();
+    };
+
     // Get all transactions from quiz history and purchases
     const getTransactions = () => {
       const transactions = [];
 
       // Add ALL quiz results (both correct and incorrect)
       (userData.quizHistory || []).forEach(quiz => {
-        if (quiz.points !== undefined && quiz.timestamp) {
-          // Ensure timestamp is a valid number
-          const timestamp = typeof quiz.timestamp === 'number' ? quiz.timestamp : Date.now();
+        if (quiz.points !== undefined && (quiz.timestamp || quiz.ts || quiz.date)) {
+          const timestamp = normalizeTimestamp(quiz.timestamp || quiz.ts || quiz.date);
           const points = quiz.points || 0;
 
           // Determine transaction type based on points
@@ -4434,7 +4453,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           }
 
           transactions.push({
-            id: `quiz_${timestamp}_${Math.random()}`,
+            id: `quiz_${timestamp}_${Math.random().toString(36).slice(2)}`,
             date: timestamp,
             type: transactionType,
             amount: Math.abs(points),
@@ -4446,10 +4465,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       // Add purchases/unlockables from purchase history
       (userData.purchaseHistory || []).forEach(purchase => {
-        if (purchase.timestamp && purchase.cost) {
+        if (purchase.cost) {
+          const timestamp = normalizeTimestamp(purchase.timestamp);
           transactions.push({
-            id: `purchase_${purchase.timestamp}`,
-            date: purchase.timestamp,
+            id: `purchase_${timestamp}`,
+            date: timestamp,
             type: 'spend',
             amount: purchase.cost,
             description: `Unlocked: ${purchase.unlockableId.replace(/_/g, ' ').replace(/course/g, 'Course')}`,
@@ -4460,10 +4480,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       // Add hint purchases
       (userData.hintPurchases || []).forEach(hint => {
-        if (hint.timestamp && hint.cost) {
+        if (hint.cost) {
+          const timestamp = normalizeTimestamp(hint.timestamp);
           transactions.push({
-            id: `hint_${hint.timestamp}`,
-            date: hint.timestamp,
+            id: `hint_${timestamp}`,
+            date: timestamp,
             type: 'spend',
             amount: hint.cost,
             description: `Hint purchased: ${hint.quizType || 'quiz'}`,
@@ -4474,9 +4495,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
       // Add investments
       (userData.investments || []).forEach(inv => {
+        const start = normalizeTimestamp(inv.startDate);
         transactions.push({
-          id: `invest_${inv.startDate}`,
-          date: inv.startDate,
+          id: `invest_${start}`,
+          date: start,
           type: 'invest',
           amount: inv.amount,
           description: `Investment locked for ${inv.lockDays} days`,
@@ -4484,18 +4506,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         });
 
         if (inv.status === 'matured' && inv.withdrawnDate) {
+          const withdrawn = normalizeTimestamp(inv.withdrawnDate);
           transactions.push({
-            id: `withdraw_${inv.withdrawnDate}`,
-            date: inv.withdrawnDate,
+            id: `withdraw_${withdrawn}`,
+            date: withdrawn,
             type: 'earn',
             amount: Math.floor(inv.amount * (1 + inv.roi / 100)),
             description: `Investment matured (+${inv.roi.toFixed(1)}% ROI)`,
             icon: '🎉'
           });
         } else if (inv.status === 'withdrawn_early' && inv.withdrawnDate) {
+          const withdrawn = normalizeTimestamp(inv.withdrawnDate);
           transactions.push({
-            id: `withdraw_early_${inv.withdrawnDate}`,
-            date: inv.withdrawnDate,
+            id: `withdraw_early_${withdrawn}`,
+            date: withdrawn,
             type: 'penalty',
             amount: Math.floor(inv.amount * 0.5),
             description: `Early withdrawal penalty (-50%)`,
@@ -4516,7 +4540,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       .reduce((sum, t) => sum + t.amount, 0);
 
     const totalSpent = transactions
-      .filter(t => t.type === 'spend' || t.type === 'invest')
+      .filter(t => t.type === 'spend' || t.type === 'invest' || t.type === 'penalty')
       .reduce((sum, t) => sum + t.amount, 0);
 
     const activeInvestments = (userData.investments || []).filter(inv => inv.status === 'active');
@@ -6222,6 +6246,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             <span className="text-purple-200 text-sm">🆕 NEW!</span>
           </div>
           <div className="text-purple-100 text-sm">Put biblical events in order • Chronological challenges • Gospels included • Timed</div>
+        </button>
+        <button
+          onClick={() => setCurrentView('spiritual-gifts-exam')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white p-4 rounded-xl border-2 border-cyan-400 hover:border-cyan-300 transition-all text-left disabled:opacity-50 shadow-lg"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            ✨ Spiritual Gifts Exam
+          </div>
+          <div className="text-cyan-100 text-sm">Discover your spiritual gifts • 50+ questions • Biblical assessment</div>
         </button>
       </div>
     </div>
@@ -8168,7 +8202,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
           <div className="achievement-unlock-notification bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 rounded-2xl p-8 border-4 border-amber-300 shadow-2xl max-w-md animate-achievement-unlock pointer-events-auto">
             <div className="text-center">
-              <div className="text-6xl mb-4 animate-bounce">{showAchievementUnlock.icon}</div>
+              <div className="text-6xl mb-4 animate-bounce">{showAchievementUnlock.icon || '🏆'}</div>
               <div className="text-2xl font-bold text-slate-900 mb-2">Achievement Unlocked!</div>
               <div className="text-xl font-semibold text-slate-800">{showAchievementUnlock.name}</div>
               <div className="mt-4 text-sm text-slate-700">
@@ -8176,6 +8210,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 {showAchievementUnlock.type === 'streak' && `Reach a ${showAchievementUnlock.value} day streak`}
                 {showAchievementUnlock.type === 'verse_mastered' && `Master ${showAchievementUnlock.value} verses`}
                 {showAchievementUnlock.type === 'points' && `Earn ${showAchievementUnlock.value} points`}
+                {(!showAchievementUnlock.type || !['quiz_count', 'streak', 'verse_mastered', 'points'].includes(showAchievementUnlock.type)) && (showAchievementUnlock.description || 'Achievement completed!')}
               </div>
             </div>
           </div>

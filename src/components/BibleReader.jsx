@@ -694,7 +694,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                   </label>
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400 text-sm">From:</span>
+                      <span className="text-slate-400 text-sm whitespace-nowrap">From:</span>
                       <input
                         type="number"
                         min="1"
@@ -702,11 +702,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                         value={startVerse}
                         onChange={(e) => setStartVerse(e.target.value)}
                         placeholder="1"
-                        className="w-20 px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none"
+                        className="w-16 min-w-[4rem] max-w-[6rem] px-2 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-center"
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400 text-sm">To:</span>
+                      <span className="text-slate-400 text-sm whitespace-nowrap">To:</span>
                       <input
                         type="number"
                         min={startVerse || "1"}
@@ -714,7 +714,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                         value={endVerse}
                         onChange={(e) => setEndVerse(e.target.value)}
                         placeholder={chapterContent.length.toString()}
-                        className="w-20 px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none"
+                        className="w-16 min-w-[4rem] max-w-[6rem] px-2 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-center"
                       />
                     </div>
                     {(startVerse || endVerse) && (
