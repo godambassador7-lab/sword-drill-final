@@ -2867,35 +2867,23 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
       -10;
     const penalty = Number.isFinite(basePenalty) ? basePenalty : -10;
 
-    // For fill-in-blank quizzes, show Enhanced Review Modal
-    if (quizState.type === 'fill-blank' && quizState.verse) {
-      setFailedQuizData({
-        verse: quizState.verse.text,
-        reference: quizState.verse.reference,
-        quizType: quizState.type,
-        penalty: penalty,
-        newBalance: newTotalPoints
-      });
-      setShowEnhancedReview(true);
-    } else {
-      // For other quiz types, show incorrect toast and then memory tip
-      const tip = getRandomMemoryTip();
-      setMemoryTip(tip);
+    // Show incorrect toast and then memory tip for all quiz types
+    const tip = getRandomMemoryTip();
+    setMemoryTip(tip);
 
-      // Show incorrect toast immediately with penalty amount
-      setToastPoints(penalty); // Store penalty to display on toast
-      setShowIncorrectToast(true);
+    // Show incorrect toast immediately with penalty amount
+    setToastPoints(penalty); // Store penalty to display on toast
+    setShowIncorrectToast(true);
+    setTimeout(() => {
+      setShowIncorrectToast(false);
+      // Show memory tip modal after toast
+      setShowMemoryTip(true);
       setTimeout(() => {
-        setShowIncorrectToast(false);
-        // Show memory tip modal after toast
-        setShowMemoryTip(true);
-        setTimeout(() => {
-          setShowMemoryTip(false);
-          setCurrentView('home');
-          setQuizState(null);
-        }, 5000); // Show memory tip for 5 seconds
-      }, 2000); // Show incorrect toast for 2 seconds
-    }
+        setShowMemoryTip(false);
+        setCurrentView('home');
+        setQuizState(null);
+      }, 5000); // Show memory tip for 5 seconds
+    }, 2000); // Show incorrect toast for 2 seconds
   }
   } finally {
     setIsSubmittingQuiz(false);

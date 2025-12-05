@@ -69,7 +69,8 @@ const VerseScrambleQuiz = ({ verse, scramble, onComplete, onSkip, isPracticeMode
   }, [verse?.reference, verse?.text, scramble]); // Keep dependencies but use ref to prevent re-runs
 
   // Handle word selection from word bank
-  const handleWordSelect = (wordObj) => {
+  const handleWordSelect = (e, wordObj) => {
+    e.stopPropagation();
     const newSelected = [...selectedWords, wordObj];
     setSelectedWords(newSelected);
     setWordBank(prev => prev.filter(w => w.id !== wordObj.id));
@@ -269,7 +270,7 @@ const VerseScrambleQuiz = ({ verse, scramble, onComplete, onSkip, isPracticeMode
                 <button
                   key={wordObj.id}
                   type="button"
-                  onClick={() => handleWordSelect(wordObj)}
+                  onClick={(e) => handleWordSelect(e, wordObj)}
                   className="px-4 py-2 bg-slate-600 text-white rounded-lg font-semibold cursor-pointer hover:bg-slate-500 transition-all transform hover:scale-105 active:scale-95 select-none"
                 >
                   {wordObj.text}
