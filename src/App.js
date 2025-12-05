@@ -977,7 +977,11 @@ useEffect(() => {
           unlockables: result.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false },
           newlyUnlockedAchievements: result.progress.newlyUnlockedAchievements || [],
           achievementClickHistory: result.progress.achievementClickHistory || {},
-          quizHistory: result.progress.quizHistory || []
+          quizHistory: result.progress.quizHistory || [],
+          investments: result.progress.investments || [],
+          purchaseHistory: result.progress.purchaseHistory || [],
+          hintPurchases: result.progress.hintPurchases || [],
+          activeBoosts: result.progress.activeBoosts || []
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
         const mergedProgress = mergeProgressRecords(localSavedProgress, loadedUserData, localStreak);
