@@ -3360,7 +3360,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     if (!quizState) return null;
 
     return (
-      <div className="space-y-6">
+      <div
+        className="space-y-6"
+        onMouseDown={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+      >
         <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-6 border border-amber-500/30">
           <div className="flex justify-between items-center mb-4">
             <div className="text-amber-400 font-bold">
@@ -3536,6 +3541,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               type="text"
               value={quizState.userAnswer || ''}
               onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
+              onMouseDown={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onFocus={(e) => e.stopPropagation()}
               placeholder="Type the reference (e.g., John 3:16)..."
               className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
               autoComplete="off"
