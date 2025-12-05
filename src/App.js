@@ -3536,23 +3536,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           )}
 
           {quizState.type === 'reference-recall' && (
-            <input
-              key="reference-recall-input"
-              type="text"
-              value={quizState.userAnswer || ''}
-              onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
+            <div
               onPointerDown={(e) => e.stopPropagation()}
               onMouseDown={(e) => e.stopPropagation()}
-              onClick={(e) => e.stopPropagation()}
               onTouchStart={(e) => e.stopPropagation()}
-              onFocus={(e) => e.stopPropagation()}
-              placeholder="Type the reference (e.g., John 3:16)..."
-              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
-              autoComplete="off"
-              spellCheck={false}
-              inputMode="text"
-              enterKeyHint="done"
-            />
+              onClick={(e) => e.stopPropagation()}
+            >
+              <input
+                key="reference-recall-input"
+                type="text"
+                value={quizState.userAnswer || ''}
+                onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
+                placeholder="Type the reference (e.g., John 3:16)..."
+                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
+                autoComplete="off"
+                spellCheck={false}
+                inputMode="text"
+                enterKeyHint="done"
+              />
+            </div>
           )}
 
           {quizState.type === 'multiple-choice' && (
