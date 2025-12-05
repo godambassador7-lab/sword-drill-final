@@ -59,6 +59,10 @@ export function parseReference(raw) {
   } else {
     // Keep provided book casing normalized
     book = book.replace(/\s+/g, ' ').replace(/\b([a-z])/g, s => s.toUpperCase());
+    // Handle singular "Psalm" → "Psalms"
+    if (book === 'Psalm') {
+      book = 'Psalms';
+    }
   }
 
   return {
