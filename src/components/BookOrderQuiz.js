@@ -146,6 +146,8 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
   const afterInputRef = useRef(null);
   const beforeAnswerRef = useRef(""); // Using ref instead of state to prevent re-renders
   const afterAnswerRef = useRef(""); // Using ref instead of state to prevent re-renders
+  const [beforeAnswer, setBeforeAnswer] = useState("");
+  const [afterAnswer, setAfterAnswer] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
   const [score, setScore] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
@@ -163,6 +165,8 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
     setQuestion(q);
     beforeAnswerRef.current = "";
     afterAnswerRef.current = "";
+    setBeforeAnswer("");
+    setAfterAnswer("");
     setTimeLeft(20);
     setFeedback(null);
     setCorrectDetails(null);
@@ -456,7 +460,10 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={beforeAnswer}
-                onChange={(e) => setBeforeAnswer(e.target.value)}
+                onChange={(e) => {
+                  setBeforeAnswer(e.target.value);
+                  beforeAnswerRef.current = e.target.value;
+                }}
                 onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
                 onTouchStart={(e) => e.stopPropagation()}
@@ -474,7 +481,10 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={afterAnswer}
-                onChange={(e) => setAfterAnswer(e.target.value)}
+                onChange={(e) => {
+                  setAfterAnswer(e.target.value);
+                  afterAnswerRef.current = e.target.value;
+                }}
                 onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
                 onTouchStart={(e) => e.stopPropagation()}
