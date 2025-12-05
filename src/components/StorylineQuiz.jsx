@@ -113,10 +113,12 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
   const handleDragStart = (e, index) => {
     setDraggedItem(index);
     e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', index.toString());
   };
 
   const handleDragOver = (e, index) => {
     e.preventDefault();
+    e.stopPropagation();
     if (draggedItem === null || draggedItem === index) return;
 
     const newOrder = [...userOrder];
@@ -130,6 +132,11 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
 
   const handleDrop = (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    setDraggedItem(null);
+  };
+
+  const handleDragEnd = () => {
     setDraggedItem(null);
   };
 
@@ -318,6 +325,7 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
                   onDragStart={(e) => handleDragStart(e, index)}
                   onDragOver={(e) => handleDragOver(e, index)}
                   onDrop={handleDrop}
+                  onDragEnd={handleDragEnd}
                   className={`bg-slate-700 rounded-xl p-4 cursor-move border-2 transition-all ${
                     draggedItem === index
                       ? 'border-purple-400 opacity-50'

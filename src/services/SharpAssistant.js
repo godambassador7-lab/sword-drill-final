@@ -100,7 +100,7 @@ const SharpAssistant = ({ userData, userId }) => {
   if (!SHARP_ASSISTANT_ENABLED) return null;
 
   return (
-    <div className="p-4 rounded-lg text-white border border-purple-500/50 max-w-2xl mx-auto mt-8 mb-0 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900">
+    <div className="p-4 rounded-lg text-white border border-purple-500/50 max-w-2xl mx-auto mt-8 mb-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900">
       {/* Nebula glimmer effect */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/20 via-blue-500/20 to-pink-500/20 animate-pulse"></div>
