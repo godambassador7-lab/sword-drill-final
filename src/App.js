@@ -648,7 +648,12 @@ const saveProgressToLocalStorage = (progress) => {
       currentLevel,
       unlockables,
       newlyUnlockedAchievements,
-      achievementClickHistory
+      achievementClickHistory,
+      purchaseHistory,
+      hintPurchases,
+      investments,
+      activeBoosts,
+      accountCreated
     } = progress;
 
     const payload = {
@@ -664,7 +669,12 @@ const saveProgressToLocalStorage = (progress) => {
       currentLevel,
       unlockables,
       newlyUnlockedAchievements,
-      achievementClickHistory
+      achievementClickHistory,
+      purchaseHistory,
+      hintPurchases,
+      investments,
+      activeBoosts,
+      accountCreated
     };
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
@@ -736,6 +746,27 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     calculateCurrentStreak()
   );
 
+  // Merge investments (prefer remote, fallback to local)
+  const investments = remoteProgress.investments ?? localProgress.investments ?? [];
+
+  // Merge purchase history (combine both local and remote)
+  const purchaseHistory = [
+    ...(localProgress.purchaseHistory || []),
+    ...(remoteProgress.purchaseHistory || [])
+  ];
+
+  // Merge hint purchases (combine both local and remote)
+  const hintPurchases = [
+    ...(localProgress.hintPurchases || []),
+    ...(remoteProgress.hintPurchases || [])
+  ];
+
+  // Merge active boosts (prefer remote, fallback to local)
+  const activeBoosts = remoteProgress.activeBoosts ?? localProgress.activeBoosts ?? [];
+
+  // Account created (prefer remote, fallback to local, default to now)
+  const accountCreated = remoteProgress.accountCreated || localProgress.accountCreated || Date.now();
+
   return {
     name: remoteProgress.name || localProgress.name || 'Guest',
     versesMemorized: Math.max(localProgress.versesMemorized || 0, remoteProgress.versesMemorized || 0),
@@ -750,7 +781,12 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     unlockables,
     newlyUnlockedAchievements,
     achievementClickHistory,
-    quizHistory
+    quizHistory,
+    purchaseHistory,
+    hintPurchases,
+    investments,
+    activeBoosts,
+    accountCreated
   };
 };
 
