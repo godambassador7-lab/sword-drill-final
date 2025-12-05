@@ -3541,6 +3541,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
               type="text"
               value={quizState.userAnswer || ''}
               onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
+              onPointerDown={(e) => e.stopPropagation()}
               onMouseDown={(e) => e.stopPropagation()}
               onClick={(e) => e.stopPropagation()}
               onTouchStart={(e) => e.stopPropagation()}

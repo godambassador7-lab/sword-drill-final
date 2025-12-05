@@ -449,11 +449,16 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={beforeAnswer}
-                onChange={(e) => setBeforeAnswer(e.target.value)}
-                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 onTouchStart={(e) => e.stopPropagation()}
                 onFocus={(e) => e.stopPropagation()}
+                onChange={(e) => setBeforeAnswer(e.target.value)}
+                
+                
+                
+                
                 placeholder="Type the book name..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
                 autoFocus
@@ -467,11 +472,16 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <input
                 type="text"
                 value={afterAnswer}
-                onChange={(e) => setAfterAnswer(e.target.value)}
-                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 onTouchStart={(e) => e.stopPropagation()}
                 onFocus={(e) => e.stopPropagation()}
+                onChange={(e) => setAfterAnswer(e.target.value)}
+                
+                
+                
+                
                 placeholder="Type the book name..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
               />
