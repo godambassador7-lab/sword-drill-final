@@ -113,26 +113,30 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
   const handleDragStart = (e, index) => {
     setDraggedItem(index);
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', index.toString());
+    e.dataTransfer.setData('text/plain', index.toString());
   };
 
-  const handleDragOver = (e, index) => {
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e, dropIndex) => {
     e.preventDefault();
     e.stopPropagation();
-    if (draggedItem === null || draggedItem === index) return;
 
+    if (draggedItem === null || draggedItem === dropIndex) {
+      setDraggedItem(null);
+      return;
+    }
+
+    // Reorder the array
     const newOrder = [...userOrder];
     const draggedEvent = newOrder[draggedItem];
     newOrder.splice(draggedItem, 1);
-    newOrder.splice(index, 0, draggedEvent);
+    newOrder.splice(dropIndex, 0, draggedEvent);
 
-    setDraggedItem(index);
     setUserOrder(newOrder);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
     setDraggedItem(null);
   };
 
@@ -323,8 +327,8 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
                   key={event.id}
                   draggable
                   onDragStart={(e) => handleDragStart(e, index)}
-                  onDragOver={(e) => handleDragOver(e, index)}
-                  onDrop={handleDrop}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, index)}
                   onDragEnd={handleDragEnd}
                   className={`bg-slate-700 rounded-xl p-4 cursor-move border-2 transition-all ${
                     draggedItem === index
