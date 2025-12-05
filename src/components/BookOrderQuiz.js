@@ -453,17 +453,14 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <label className="block text-amber-400 font-semibold mb-2">
                 📖 Book BEFORE {question.currentBook}:
               </label>
-              <StableInput
-                defaultValue=""
-                onChange={(value) => { beforeAnswerRef.current = value; }}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (beforeAnswerRef.current.trim() && afterAnswerRef.current.trim()) {
-                      handleSubmit(e);
-                    }
-                  }
-                }}
+              <input
+                type="text"
+                value={beforeAnswer}
+                onChange={(e) => setBeforeAnswer(e.target.value)}
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
+                onFocus={(e) => e.stopPropagation()}
                 placeholder="Type the book name..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
                 autoFocus
@@ -474,17 +471,14 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
               <label className="block text-green-400 font-semibold mb-2">
                 📖 Book AFTER {question.currentBook}:
               </label>
-              <StableInput
-                defaultValue=""
-                onChange={(value) => { afterAnswerRef.current = value; }}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (beforeAnswerRef.current.trim() && afterAnswerRef.current.trim()) {
-                      handleSubmit(e);
-                    }
-                  }
-                }}
+              <input
+                type="text"
+                value={afterAnswer}
+                onChange={(e) => setAfterAnswer(e.target.value)}
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
+                onFocus={(e) => e.stopPropagation()}
                 placeholder="Type the book name..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
               />
