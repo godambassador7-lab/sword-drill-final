@@ -46,6 +46,7 @@ import BiblicalSpellingBee from './components/BiblicalSpellingBee';
 import BiblicalBloodlines from './components/BiblicalBloodlines';
 import WordsOfJesus from './components/WordsOfJesus';
 import StorylineQuiz from './components/StorylineQuiz';
+import StableInput from './components/StableInput';
 import CorrectToast from './components/CorrectToast';
 import IncorrectToast from './components/IncorrectToast';
 import GenericToast from './components/GenericToast';
@@ -3537,23 +3538,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           )}
 
           {quizState.type === 'reference-recall' && (
-            <input
-              key="reference-recall-input"
-              ref={referenceInputRef}
-              type="text"
-              value={quizState.userAnswer || ''}
-              onPointerDown={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-              onFocus={(e) => e.stopPropagation()}
-              onClick={(e) => e.stopPropagation()}
-              onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
+            <StableInput
+              key={`reference-recall-${quizState.quizId}`}
+              defaultValue={quizState.userAnswer || ''}
+              onChange={(value) => setQuizState(prev => ({ ...prev, userAnswer: value }))}
               placeholder="Type the reference (e.g., John 3:16)..."
               className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
               autoComplete="off"
-              spellCheck={false}
-              inputMode="text"
-              enterKeyHint="done"
+              type="text"
             />
           )}
 
