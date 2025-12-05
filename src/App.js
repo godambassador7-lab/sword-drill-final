@@ -3272,90 +3272,93 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   };
 
-  // Drop zone component for drag-and-drop
-  const DropZone = React.memo(({ index, value, onDrop, onDragOver, onRemove }) => {
+  // Blank slot component for click-to-choose
+  const DropZone = React.memo(({ index, value, onSelect, onRemove, isSelected }) => {
     const handleClick = (e) => {
       e.stopPropagation();
       if (value) {
+        // If there's a value, remove it
         onRemove(index);
+      } else {
+        // If empty, select this blank to fill
+        onSelect(index);
       }
     };
 
     return (
       <span className="inline-block relative mx-1">
-        <sup className="text-amber-400 text-xs absolute -top-3 left-1">{index + 1}</sup>
-        <div
-          onDrop={(e) => onDrop(e, index)}
-          onDragOver={(e) => onDragOver(e)}
+        <sup className={`text-xs absolute -top-3 left-1 font-bold ${isSelected ? 'text-green-400' : 'text-amber-400'}`}>
+          {index + 1}
+        </sup>
+        <button
+          type="button"
           onClick={handleClick}
-          className={`w-32 px-2 py-1 rounded border-2 border-dashed text-center min-h-[2rem] flex items-center justify-center transition-all ${
+          className={`w-32 px-2 py-1 rounded border-2 text-center min-h-[2rem] flex items-center justify-center transition-all ${
             value
               ? 'bg-amber-500 border-amber-400 text-slate-900 font-semibold cursor-pointer hover:bg-amber-600'
-              : 'bg-slate-700/50 border-slate-500 text-slate-400'
+              : isSelected
+              ? 'bg-green-600/30 border-green-400 border-dashed text-green-300 cursor-pointer animate-pulse'
+              : 'bg-slate-700/50 border-slate-500 border-dashed text-slate-400 cursor-pointer hover:border-amber-400'
           }`}
         >
           {value ? value.word : '___'}
-        </div>
+        </button>
       </span>
     );
   });
 
   // Memoized WordBank component to prevent re-renders from timer
-  const WordBank = React.memo(({ wordBank, onDragStart }) => {
+  const WordBank = React.memo(({ wordBank, onWordClick, selectedBlankIndex }) => {
     return (
       <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
         <div className="text-amber-400 text-sm font-semibold mb-3">
-          Word Bank - Drag words to the blanks
+          {selectedBlankIndex !== null ?
+            `Word Bank - Click a word to fill blank #${selectedBlankIndex + 1}` :
+            'Word Bank - Click a blank number above, then choose a word'}
         </div>
         <div className="flex flex-wrap gap-2">
           {wordBank.map((wordItem) => (
-            <div
+            <button
               key={wordItem.id}
-              draggable={true}
-              onDragStart={(e) => {
+              type="button"
+              onClick={(e) => {
                 e.stopPropagation();
-                onDragStart(e, wordItem);
+                onWordClick(wordItem);
               }}
-              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg cursor-move hover:from-blue-500 hover:to-blue-600 hover:scale-105 transition-all shadow-md border border-blue-500 font-semibold select-none"
+              disabled={selectedBlankIndex === null}
+              className={`px-4 py-2 rounded-lg font-semibold select-none transition-all shadow-md border ${
+                selectedBlankIndex === null
+                  ? 'bg-slate-600 border-slate-500 text-slate-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-500 cursor-pointer hover:from-blue-500 hover:to-blue-600 hover:scale-105'
+              }`}
             >
               {wordItem.word}
-            </div>
+            </button>
           ))}
         </div>
       </div>
     );
   }, (prevProps, nextProps) => {
-    // Only re-render if wordBank array changes
-    return JSON.stringify(prevProps.wordBank) === JSON.stringify(nextProps.wordBank);
+    // Only re-render if wordBank array or selectedBlankIndex changes
+    return JSON.stringify(prevProps.wordBank) === JSON.stringify(nextProps.wordBank) &&
+           prevProps.selectedBlankIndex === nextProps.selectedBlankIndex;
   });
 
   const QuizView = () => {
-    // Drag and drop handlers
-    const handleDragStart = useCallback((e, wordItem) => {
-      console.log('Drag started:', wordItem);
-      e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/plain', JSON.stringify(wordItem));
+    // Track which blank is currently selected for filling
+    const [selectedBlankIndex, setSelectedBlankIndex] = useState(null);
+
+    // Click-to-choose handlers
+    const handleSelectBlank = useCallback((index) => {
+      setSelectedBlankIndex(index);
     }, []);
 
-    const handleDragOver = useCallback((e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      e.dataTransfer.dropEffect = 'move';
-    }, []);
-
-    const handleDrop = useCallback((e, index) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const wordItemStr = e.dataTransfer.getData('text/plain');
-      if (!wordItemStr) return;
-
-      const wordItem = JSON.parse(wordItemStr);
-      console.log('Dropped word:', wordItem, 'at index:', index);
+    const handleWordClick = useCallback((wordItem) => {
+      if (selectedBlankIndex === null) return;
 
       setQuizState(prev => {
         const newAnswers = [...prev.userAnswers];
-        newAnswers[index] = wordItem;
+        newAnswers[selectedBlankIndex] = wordItem;
 
         // Remove this specific item from word bank by ID
         const newWordBank = prev.wordBank.filter(w => w.id !== wordItem.id);
@@ -3366,7 +3369,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           wordBank: newWordBank
         };
       });
-    }, []);
+
+      // Clear selection after placing word
+      setSelectedBlankIndex(null);
+    }, [selectedBlankIndex]);
 
     const handleRemoveWord = useCallback((index) => {
       setQuizState(prev => {
@@ -3384,6 +3390,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           wordBank: newWordBank
         };
       });
+
+      // Clear selection when removing a word
+      setSelectedBlankIndex(null);
     }, []);
 
     // Note: Verse Scramble is now rendered at top level to prevent re-render issues
@@ -3514,9 +3523,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                           key={`blank-${currentBlankIndex}`}
                           index={currentBlankIndex}
                           value={quizState.userAnswers[currentBlankIndex]}
-                          onDrop={handleDrop}
-                          onDragOver={handleDragOver}
+                          onSelect={handleSelectBlank}
                           onRemove={handleRemoveWord}
+                          isSelected={selectedBlankIndex === currentBlankIndex}
                         />
                       );
                     }
@@ -3527,7 +3536,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               {/* Word Bank */}
               {quizState.wordBank && quizState.wordBank.length > 0 && (
-                <WordBank wordBank={quizState.wordBank} onDragStart={handleDragStart} />
+                <WordBank
+                  wordBank={quizState.wordBank}
+                  onWordClick={handleWordClick}
+                  selectedBlankIndex={selectedBlankIndex}
+                />
               )}
 
               {/* Placed Words - Click to Remove */}
