@@ -116,7 +116,7 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   const beforeAnswerRef = useRef("");
   const afterAnswerRef = useRef("");
   const [bookOrderLocked, setBookOrderLocked] = useState(false);
-  const [bookOrderCorrect, setBookOrderCorrect] = useState({ before: false, after: false });
+  const [bookOrderCorrect, setBookOrderCorrect] = useState({ before: false, after: false, userBeforeAnswer: "", userAfterAnswer: "" });
 
   // Verse Scramble
   const [scrambledWords, setScrambledWords] = useState([]);
@@ -163,7 +163,12 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
     const beforeCorrect = normalizeAnswer(beforeAnswerRef.current) === normalizeAnswer(question.before);
     const afterCorrect = normalizeAnswer(afterAnswerRef.current) === normalizeAnswer(question.after);
 
-    setBookOrderCorrect({ before: beforeCorrect, after: afterCorrect });
+    setBookOrderCorrect({
+      before: beforeCorrect,
+      after: afterCorrect,
+      userBeforeAnswer: beforeAnswerRef.current,
+      userAfterAnswer: afterAnswerRef.current
+    });
     setBookOrderLocked(true);
     bookOrderTime.current = Date.now() - roundStartTime.current;
 
@@ -240,7 +245,7 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
       beforeAnswerRef.current = "";
       afterAnswerRef.current = "";
       setBookOrderLocked(false);
-      setBookOrderCorrect({ before: false, after: false });
+      setBookOrderCorrect({ before: false, after: false, userBeforeAnswer: "", userAfterAnswer: "" });
       setRevisionCount(0);
 
       // Generate new question
@@ -629,15 +634,15 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                 <div className={`p-4 rounded-lg ${bookOrderCorrect.before ? 'bg-green-600/30 border-2 border-green-500' : 'bg-red-600/30 border-2 border-red-500'}`}>
                   <span className="font-semibold">Before: </span>
                   <span className="font-bold">{question.before}</span>
-                  {!bookOrderCorrect.before && beforeAnswer && (
-                    <span className="text-red-300 ml-2">(You: {beforeAnswer})</span>
+                  {!bookOrderCorrect.before && bookOrderCorrect.userBeforeAnswer && (
+                    <span className="text-red-300 ml-2">(You: {bookOrderCorrect.userBeforeAnswer})</span>
                   )}
                 </div>
                 <div className={`p-4 rounded-lg ${bookOrderCorrect.after ? 'bg-green-600/30 border-2 border-green-500' : 'bg-red-600/30 border-2 border-red-500'}`}>
                   <span className="font-semibold">After: </span>
                   <span className="font-bold">{question.after}</span>
-                  {!bookOrderCorrect.after && afterAnswer && (
-                    <span className="text-red-300 ml-2">(You: {afterAnswer})</span>
+                  {!bookOrderCorrect.after && bookOrderCorrect.userAfterAnswer && (
+                    <span className="text-red-300 ml-2">(You: {bookOrderCorrect.userAfterAnswer})</span>
                   )}
                 </div>
                 <div className="text-center text-amber-400 animate-pulse">

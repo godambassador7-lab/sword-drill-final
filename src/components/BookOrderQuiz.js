@@ -193,7 +193,9 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
       before: question.before,
       after: question.after,
       beforeCorrect: false,
-      afterCorrect: false
+      afterCorrect: false,
+      userBeforeAnswer: beforeAnswerRef.current,
+      userAfterAnswer: afterAnswerRef.current
     });
     setStreak(0);
 
@@ -220,7 +222,9 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
       before: question.before,
       after: question.after,
       beforeCorrect: beforeResult.accepted,
-      afterCorrect: afterResult.accepted
+      afterCorrect: afterResult.accepted,
+      userBeforeAnswer: beforeAnswerRef.current,
+      userAfterAnswer: afterAnswerRef.current
     });
 
     const basePoints = beforeResult.basePoints + afterResult.basePoints;
@@ -516,15 +520,15 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
                 <div className={`p-3 rounded-lg ${correctDetails.beforeCorrect ? 'bg-green-600/30' : 'bg-red-600/30'}`}>
                   <span className="font-semibold">Before: </span>
                   <span className="font-bold">{correctDetails.before}</span>
-                  {!correctDetails.beforeCorrect && beforeAnswer && (
-                    <span className="text-red-300 ml-2">(You: {beforeAnswer})</span>
+                  {!correctDetails.beforeCorrect && correctDetails.userBeforeAnswer && (
+                    <span className="text-red-300 ml-2">(You: {correctDetails.userBeforeAnswer})</span>
                   )}
                 </div>
                 <div className={`p-3 rounded-lg ${correctDetails.afterCorrect ? 'bg-green-600/30' : 'bg-red-600/30'}`}>
                   <span className="font-semibold">After: </span>
                   <span className="font-bold">{correctDetails.after}</span>
-                  {!correctDetails.afterCorrect && afterAnswer && (
-                    <span className="text-red-300 ml-2">(You: {afterAnswer})</span>
+                  {!correctDetails.afterCorrect && correctDetails.userAfterAnswer && (
+                    <span className="text-red-300 ml-2">(You: {correctDetails.userAfterAnswer})</span>
                   )}
                 </div>
               </div>
