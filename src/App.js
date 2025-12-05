@@ -3300,6 +3300,35 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     );
   });
 
+  // Memoized WordBank component to prevent re-renders from timer
+  const WordBank = React.memo(({ wordBank, onDragStart }) => {
+    return (
+      <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
+        <div className="text-amber-400 text-sm font-semibold mb-3">
+          Word Bank - Drag words to the blanks
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {wordBank.map((wordItem) => (
+            <div
+              key={wordItem.id}
+              draggable={true}
+              onDragStart={(e) => {
+                e.stopPropagation();
+                onDragStart(e, wordItem);
+              }}
+              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg cursor-move hover:from-blue-500 hover:to-blue-600 hover:scale-105 transition-all shadow-md border border-blue-500 font-semibold select-none"
+            >
+              {wordItem.word}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }, (prevProps, nextProps) => {
+    // Only re-render if wordBank array changes
+    return JSON.stringify(prevProps.wordBank) === JSON.stringify(nextProps.wordBank);
+  });
+
   const QuizView = () => {
     // Drag and drop handlers
     const handleDragStart = useCallback((e, wordItem) => {
@@ -3498,26 +3527,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               {/* Word Bank */}
               {quizState.wordBank && quizState.wordBank.length > 0 && (
-                <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
-                  <div className="text-amber-400 text-sm font-semibold mb-3">
-                    Word Bank - Drag words to the blanks
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {quizState.wordBank.map((wordItem) => (
-                      <div
-                        key={wordItem.id}
-                        draggable={true}
-                        onDragStart={(e) => {
-                          e.stopPropagation();
-                          handleDragStart(e, wordItem);
-                        }}
-                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg cursor-move hover:from-blue-500 hover:to-blue-600 hover:scale-105 transition-all shadow-md border border-blue-500 font-semibold select-none"
-                      >
-                        {wordItem.word}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <WordBank wordBank={quizState.wordBank} onDragStart={handleDragStart} />
               )}
 
               {/* Placed Words - Click to Remove */}
