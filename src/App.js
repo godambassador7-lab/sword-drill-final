@@ -6938,14 +6938,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               // Update streak data
               const newStreak = updateStreakData(isCorrect, 'spelling-bee', 'N/A', pointsEarned);
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = userData.quizzesCompleted + 1;
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1,
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
                 currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
+
+              // Save to Firebase if logged in
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted,
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                }).catch(err => console.error('Error updating progress:', err));
+              }
 
               // Save quiz results
               addQuizResult({
@@ -6958,7 +6969,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 timestamp: new Date().toISOString()
               });
 
-              showToast(`🐝 Spelling Bee Complete!\n\nScore: ${results.score}\n+${pointsEarned} points\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+              showToast(`🐝 Spelling Bee Complete!\n\nScore: ${results.score}\n+${pointsEarned} points\n\n💰 New Balance: ${newTotalPoints} points`, 'success');
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
@@ -6973,16 +6984,27 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               // Update streak data
               const newStreak = updateStreakData(isCorrect, 'words-of-jesus', 'N/A', pointsEarned);
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = userData.quizzesCompleted + 1;
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1,
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
                 currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
                 wordsOfJesusCompleted: (prev.wordsOfJesusCompleted || 0) + 1,
                 wordsOfJesusCorrect: (prev.wordsOfJesusCorrect || 0) + results.correctAnswers
               }));
+
+              // Save to Firebase if logged in
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted,
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                }).catch(err => console.error('Error updating progress:', err));
+              }
 
               // Save quiz results
               addQuizResult({
@@ -7022,14 +7044,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               // Update streak data
               const newStreak = updateStreakData(isCorrect, 'book-order', 'N/A', pointsEarned);
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = userData.quizzesCompleted + 1;
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1,
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
                 currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
+
+              // Save to Firebase if logged in
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted,
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                }).catch(err => console.error('Error updating progress:', err));
+              }
 
               // Save quiz results
               if (results.score > 0) {
@@ -7059,14 +7092,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               // Update streak data
               const newStreak = updateStreakData(isCorrect, 'storyline-quiz', results.packId || 'N/A', pointsEarned);
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = userData.quizzesCompleted + 1;
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1,
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
                 currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
+
+              // Save to Firebase if logged in
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted,
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                }).catch(err => console.error('Error updating progress:', err));
+              }
 
               // Save quiz results
               addQuizResult({
@@ -7102,14 +7146,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
               // Update streak data
               const newStreak = updateStreakData(isCorrect, 'sword-drill-ultimate', 'N/A', pointsEarned);
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = userData.quizzesCompleted + 1;
 
               // Update user data
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1,
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
                 currentStreak: newStreak !== null ? newStreak : prev.currentStreak
               }));
+
+              // Save to Firebase if logged in
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted,
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                }).catch(err => console.error('Error updating progress:', err));
+              }
 
               // Save quiz results
               if (results.score > 0) {

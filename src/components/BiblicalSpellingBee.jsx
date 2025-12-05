@@ -411,6 +411,8 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
                 type="text"
                 value={userAnswer}
                 onChange={(e) => setUserAnswer(e.target.value)}
+                onClick={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
                 placeholder="Type the unscrambled word..."
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-purple-500 focus:outline-none text-lg"
                 autoFocus

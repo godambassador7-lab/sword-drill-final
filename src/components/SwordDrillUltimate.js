@@ -583,6 +583,8 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                     type="text"
                     value={beforeAnswer}
                     onChange={(e) => setBeforeAnswer(e.target.value)}
+                    onClick={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
                     placeholder="Type the book name..."
                     className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none text-lg"
                     autoFocus
@@ -597,6 +599,8 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
                     type="text"
                     value={afterAnswer}
                     onChange={(e) => setAfterAnswer(e.target.value)}
+                    onClick={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
                     placeholder="Type the book name..."
                     className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border-2 border-slate-600 focus:border-green-500 focus:outline-none text-lg"
                   />
