@@ -3560,6 +3560,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
                 <button
                   key={idx}
                   type="button"
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onTouchStart={(e) => e.stopPropagation()}
                   onClick={() => setQuizState(prev => ({ ...prev, userAnswer: option }))}
                   className={`w-full p-4 rounded-lg border-2 transition-all text-left ${
                     quizState.userAnswer === option
@@ -3577,6 +3579,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
         <button
           type="button"
           onClick={submitQuiz}
+          onMouseDown={(e) => e.stopPropagation()}
+          onTouchStart={(e) => e.stopPropagation()}
           disabled={
             quizState.type === 'fill-blank'
               ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
@@ -3593,6 +3597,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
             setCurrentView('home');
             setQuizState(null);
           }}
+          onMouseDown={(e) => e.stopPropagation()}
+          onTouchStart={(e) => e.stopPropagation()}
           className="w-full bg-slate-600 text-white font-bold py-3 rounded-xl hover:bg-slate-500 transition-all"
         >
           Cancel
