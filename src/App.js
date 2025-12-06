@@ -2435,7 +2435,7 @@ const fadeOutMusic = () => {
 // Note: matchBiblicalReference now imported from './core' (private submodule)
 
 
-const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
+const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState = null) => {
   if (isSubmittingQuiz) return;
   setIsSubmittingQuiz(true);
   try {
@@ -2444,32 +2444,37 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     try { isCorrectOverride.preventDefault(); } catch (_) {}
     isCorrectOverride = undefined;
   }
+  const effectiveQuizState = forcedQuizState || quizState;
+  if (!effectiveQuizState || !effectiveQuizState.verse) {
+    console.error('[submitQuiz] quizState or quizState.verse is null:', effectiveQuizState);
+    return;
+  }
   // Only honor boolean overrides; everything else falls back to normal grading
   let isCorrect = typeof isCorrectOverride === 'boolean' ? isCorrectOverride : undefined;
   if (isCorrect === undefined) {
-    if (quizState.type === 'fill-blank') {
+    if (effectiveQuizState.type === 'fill-blank') {
       // For multiple blanks with word objects
-      if (quizState.userAnswers) {
-        const correctAnswers = quizState.blankWords.map(w => w.toLowerCase().replace(/[.,;:!?]/g, ''));
-        const userAnswersClean = quizState.userAnswers.map(a => {
-          if (!a) return '';
-          // Handle both string and object formats
-          const word = typeof a === 'string' ? a : a.word;
-          return word.toLowerCase().trim().replace(/[.,;:!?]/g, '');
+      if (effectiveQuizState.userAnswers) {
+        const correctAnswers = effectiveQuizState.blankWords.map(w => w.toLowerCase().replace(/[.,;:!?]/g, ''));
+        const userAnswersClean = effectiveQuizState.userAnswers.map(a => {
+        if (!a) return '';
+        // Handle both string and object formats
+        const word = typeof a === 'string' ? a : a.word;
+        return word.toLowerCase().trim().replace(/[.,;:!?]/g, '');
         });
 
-        // Check if all answers match
-        isCorrect = userAnswersClean.length === correctAnswers.length &&
-                    userAnswersClean.every((ans, idx) => ans === correctAnswers[idx]);
+      // Check if all answers match
+      isCorrect = userAnswersClean.length === correctAnswers.length &&
+                  userAnswersClean.every((ans, idx) => ans === correctAnswers[idx]);
       } else {
         // Old single-blank format
-        isCorrect = quizState.userAnswer.toLowerCase().trim() === quizState.answer.toLowerCase().trim();
+        isCorrect = effectiveQuizState.userAnswer.toLowerCase().trim() === effectiveQuizState.answer.toLowerCase().trim();
       }
-    } else if (quizState.type === 'reference-recall') {
+    } else if (effectiveQuizState.type === 'reference-recall') {
       // Use fuzzy matching for biblical references
-      isCorrect = matchBiblicalReference(quizState.userAnswer, quizState.answer);
+      isCorrect = matchBiblicalReference(effectiveQuizState.userAnswer, effectiveQuizState.answer);
     } else {
-      isCorrect = quizState.userAnswer === quizState.correctAnswer;
+      isCorrect = effectiveQuizState.userAnswer === effectiveQuizState.correctAnswer;
     }
   }
 
@@ -2477,15 +2482,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
   const userLevel = userData.currentLevel || 'Beginner';
   const quizTime = typeof timeTakenOverride === 'number'
     ? timeTakenOverride
-    : (typeof quizState?.timeTaken === 'number' ? quizState.timeTaken : quizTimer);
+    : (typeof effectiveQuizState?.timeTaken === 'number' ? effectiveQuizState.timeTaken : quizTimer);
   const isPerfect = isCorrect; // For now, single question = perfect if correct
 
   // Get current verse progress for penalty calculation
-  if (!quizState || !quizState.verse) {
-    console.error('[submitQuiz] quizState or quizState.verse is null:', quizState);
-    return;
-  }
-  const verseId = quizState.verse.reference;
+  const verseId = effectiveQuizState.verse.reference;
   const currentProgress = userData.verseProgress[verseId] || {
     correctCount: 0,
     incorrectCount: 0,
@@ -2494,7 +2495,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
     quizTypes: {}
   };
 
-  let points = calculateQuizPoints(quizState.type, isCorrect, userLevel, quizTime, isPerfect, currentProgress, quizState.isPersonalVerse);
+  let points = calculateQuizPoints(effectiveQuizState.type, isCorrect, userLevel, quizTime, isPerfect, currentProgress, effectiveQuizState.isPersonalVerse);
 
   // Apply retry penalty
   const retryCount = userData.retryCount || 0;
@@ -2577,8 +2578,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
 
   // Create detailed quiz entry
   const quizEntry = {
-    verseReference: quizState.verse.reference,
-    type: quizState.type,
+    verseReference: effectiveQuizState.verse.reference,
+    type: effectiveQuizState.type,
     correct: isCorrect,
     points: points,
     timestamp: today.toISOString(),
@@ -3599,10 +3600,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride) => {
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
           disabled={
-            quizState.type === 'fill-blank'
-              ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
-              : !quizState.userAnswer || isSubmittingQuiz
-          }
+    effectiveQuizState.type === 'fill-blank'
+      ? !effectiveQuizState.userAnswers || effectiveQuizState.userAnswers.some(a => !a)
+      : !effectiveQuizState.userAnswer || isSubmittingQuiz
+  }
           className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-4 rounded-xl hover:from-amber-600 hover:to-amber-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmittingQuiz ? 'Submitting...' : 'Submit Answer'}
