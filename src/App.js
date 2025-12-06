@@ -2448,6 +2448,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   const effectiveQuizState = forcedQuizState || quizState;
   if (!effectiveQuizState || !effectiveQuizState.verse) {
     console.error('[submitQuiz] quizState or quizState.verse is null:', effectiveQuizState);
+    // If verse scramble sent a payload, retry once with that payload
+    if (forcedQuizState) {
+      console.error('[submitQuiz] forcedQuizState missing verse, aborting submit.');
+      return;
+    }
+    // As a last resort, bail gracefully
     return;
   }
   // Only honor boolean overrides; everything else falls back to normal grading
