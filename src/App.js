@@ -2446,6 +2446,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     isCorrectOverride = undefined;
   }
   const effectiveQuizState = forcedQuizState || quizState;
+  const quizType = effectiveQuizState?.type;
+  const quizVerse = effectiveQuizState?.verse;
   if (!effectiveQuizState || !effectiveQuizState.verse) {
     console.error('[submitQuiz] quizState or quizState.verse is null:', effectiveQuizState);
     // If verse scramble sent a payload, retry once with that payload
@@ -2493,7 +2495,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   const isPerfect = isCorrect; // For now, single question = perfect if correct
 
   // Get current verse progress for penalty calculation
-  const verseId = effectiveQuizState.verse.reference;
+  const verseId = quizVerse.reference;
   const currentProgress = userData.verseProgress[verseId] || {
     correctCount: 0,
     incorrectCount: 0,
@@ -2640,23 +2642,23 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   // Note: verseId and currentProgress already declared above for point calculation
 
   // Track progress by quiz type
-  if (!currentProgress.quizTypes[quizState.type]) {
-    currentProgress.quizTypes[quizState.type] = { correct: 0, incorrect: 0 };
+  if (!currentProgress.quizTypes[quizType]) {
+    currentProgress.quizTypes[quizType] = { correct: 0, incorrect: 0 };
   }
   
   if (isCorrect) {
     currentProgress.correctCount++;
-    currentProgress.quizTypes[quizState.type].correct++;
+    currentProgress.quizTypes[quizType].correct++;
   } else {
     currentProgress.incorrectCount++;
-    currentProgress.quizTypes[quizState.type].incorrect++;
+    currentProgress.quizTypes[quizType].incorrect++;
   }
 
   // Set quiz-type-specific cooldown to avoid immediate repeats
   if (!currentProgress.quizCooldowns) {
     currentProgress.quizCooldowns = {};
   }
-  currentProgress.quizCooldowns[quizState.type] = Date.now() + getQuizCooldownMs(quizState.type);
+  currentProgress.quizCooldowns[quizType] = Date.now() + getQuizCooldownMs(quizType);
   
   currentProgress.lastReview = Date.now();
   currentProgress.nextReview = calculateNextReview(
@@ -2745,9 +2747,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     if (currentUser) {
       console.log('[Firebase] Saving quiz result with achievements:', newAchievements);
       const saveResult = await addQuizResult(currentUser.uid, {
-        verseId: quizState.verse.id,
+        verseId: quizVerse.id,
         verseReference: verseId,
-        type: quizState.type,
+        type: quizType,
         correct: isCorrect,
         timestamp: new Date(),
         points: points,
@@ -2837,7 +2839,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   if (isCorrect) {
     // Build detailed point breakdown message
     let message = `✅ Correct!\n\n`;
-    const basePoints = POINT_SYSTEM.BASE_QUIZ_POINTS[quizState.type] || 10;
+    const basePoints = POINT_SYSTEM.BASE_QUIZ_POINTS[quizType] || 10;
     const levelMultiplier = POINT_SYSTEM.DIFFICULTY_MULTIPLIERS[userLevel]?.multiplier || 1.0;
 
     message += `📊 Points Breakdown:\n`;
@@ -2860,7 +2862,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     message += `\n💰 Total: ${points > 0 ? '+' : ''}${points} points`;
     message += `\n🏆 New Balance: ${newTotalPoints} points`;
 
-    const progress = currentProgress.quizTypes[quizState.type];
+    const progress = currentProgress.quizTypes[quizType];
     if (progress.correct >= 3 && progress.incorrect === 0) {
       message += `\n\n🎯 Mastered this verse! You won't see it again for a while.`;
     }
