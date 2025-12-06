@@ -953,12 +953,13 @@ const SwordDrillApp = () => {
       // This ensures the state is updated before submitQuiz runs
       setTimeout(() => {
         console.log('[handleVerseScrambleComplete] About to call submitQuiz');
+        console.log('[handleVerseScrambleComplete] Passing updatedState:', updatedState);
         if (typeof submitQuiz === 'function') {
           // Change view to home first so toasts show on home screen
           setCurrentView('home');
-          // Then submit after a brief delay
+          // Then submit after a brief delay, passing updatedState as forcedQuizState
           setTimeout(() => {
-            submitQuiz(result.isCorrect, result.timeTaken);
+            submitQuiz(result.isCorrect, result.timeTaken, updatedState);
           }, 50);
         }
       }, 0);
