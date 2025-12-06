@@ -3600,9 +3600,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
           disabled={
-    effectiveQuizState.type === 'fill-blank'
-      ? !effectiveQuizState.userAnswers || effectiveQuizState.userAnswers.some(a => !a)
-      : !effectiveQuizState.userAnswer || isSubmittingQuiz
+    quizState.type === 'fill-blank'
+      ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
+      : !quizState.userAnswer || isSubmittingQuiz
   }
           className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-4 rounded-xl hover:from-amber-600 hover:to-amber-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
