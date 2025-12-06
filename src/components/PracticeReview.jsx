@@ -87,23 +87,29 @@ const PracticeReview = ({ onClose, userData }) => {
 
   // Start practice session
   const startPractice = async (verse, quizType) => {
+    console.log('Starting practice:', quizType, verse.reference);
     setCurrentVerse(verse);
     setPracticeMode(quizType);
 
     // Fetch verse text for fill-blank, multiple-choice, and reference-recall
     if (['fill-blank', 'multiple-choice', 'reference-recall'].includes(quizType)) {
+      console.log('Fetching verse text for:', verse.reference);
+      setCurrentVerseText(''); // Reset first
       try {
         const translation = userData?.selectedTranslation || 'KJV';
+        console.log('Using translation:', translation);
         const verseData = await getLocalVerseByReference(translation, verse.reference);
+        console.log('Received verse data:', verseData);
         if (verseData && verseData.text) {
           setCurrentVerseText(verseData.text);
+          console.log('Set verse text:', verseData.text);
         } else {
-          setCurrentVerseText('');
-          console.error('Could not fetch verse text for', verse.reference);
+          setCurrentVerseText('ERROR: No verse text found');
+          console.error('Could not fetch verse text for', verse.reference, verseData);
         }
       } catch (err) {
         console.error('Error fetching verse text:', err);
-        setCurrentVerseText('');
+        setCurrentVerseText('ERROR: ' + err.message);
       }
     }
   };
@@ -239,7 +245,7 @@ const PracticeReview = ({ onClose, userData }) => {
               isPracticeMode={true}
             />
           )}
-          {practiceMode === 'fill-blank' && currentVerseText && (
+          {practiceMode === 'fill-blank' && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
             <EnhancedReviewModal
               verse={currentVerseText}
               reference={currentVerse.reference}
@@ -250,7 +256,7 @@ const PracticeReview = ({ onClose, userData }) => {
               completionHistory={[]}
             />
           )}
-          {(practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && currentVerseText && (
+          {(practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
             <EnhancedReviewMultipleChoice
               verse={currentVerseText}
               reference={currentVerse.reference}
@@ -263,13 +269,25 @@ const PracticeReview = ({ onClose, userData }) => {
               completionHistory={[]}
             />
           )}
-          {(practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && !currentVerseText && (
+          {(practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && (!currentVerseText || currentVerseText.startsWith('ERROR:')) && (
             <div className="bg-slate-800 rounded-lg p-8 border border-slate-700 text-center">
               <AlertCircle className="text-amber-400 mx-auto mb-4" size={48} />
-              <h3 className="text-xl font-bold text-slate-100 mb-2">Loading...</h3>
+              <h3 className="text-xl font-bold text-slate-100 mb-2">
+                {currentVerseText && currentVerseText.startsWith('ERROR:') ? 'Error' : 'Loading...'}
+              </h3>
               <p className="text-slate-400 mb-4">
-                Fetching verse text for {currentVerse.reference}
+                {currentVerseText && currentVerseText.startsWith('ERROR:')
+                  ? currentVerseText
+                  : `Fetching verse text for ${currentVerse?.reference || 'verse'}`}
               </p>
+              {currentVerseText && currentVerseText.startsWith('ERROR:') && (
+                <button
+                  onClick={completePractice}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+                >
+                  Return to Practice List
+                </button>
+              )}
             </div>
           )}
         </div>
