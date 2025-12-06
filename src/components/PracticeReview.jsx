@@ -24,11 +24,15 @@ import VerseScrambleQuiz from './VerseScrambleQuiz';
 import BookOrderQuiz from './BookOrderQuiz';
 import SwordDrillUltimate from './SwordDrillUltimate';
 import BiblicalSpellingBee from './BiblicalSpellingBee';
+import EnhancedReviewModal from './EnhancedReviewModal';
+import EnhancedReviewMultipleChoice from './EnhancedReviewMultipleChoice';
+import { getLocalVerseByReference } from '../services/localBibleProvider';
 
 const PracticeReview = ({ onClose, userData }) => {
   const [selectedFilter, setSelectedFilter] = useState('all'); // all, verse-scramble, book-order, sword-drill
   const [practiceMode, setPracticeMode] = useState(null);
   const [currentVerse, setCurrentVerse] = useState(null);
+  const [currentVerseText, setCurrentVerseText] = useState('');
   const [showQuizTypeMenu, setShowQuizTypeMenu] = useState(null); // Track which verse's menu is open
 
   // Close dropdown when clicking outside
@@ -82,15 +86,76 @@ const PracticeReview = ({ onClose, userData }) => {
   }, [missedVerses, selectedFilter]);
 
   // Start practice session
-  const startPractice = (verse, quizType) => {
+  const startPractice = async (verse, quizType) => {
     setCurrentVerse(verse);
     setPracticeMode(quizType);
+
+    // Fetch verse text for fill-blank, multiple-choice, and reference-recall
+    if (['fill-blank', 'multiple-choice', 'reference-recall'].includes(quizType)) {
+      try {
+        const translation = userData?.selectedTranslation || 'KJV';
+        const verseData = await getLocalVerseByReference(translation, verse.reference);
+        if (verseData && verseData.text) {
+          setCurrentVerseText(verseData.text);
+        } else {
+          setCurrentVerseText('');
+          console.error('Could not fetch verse text for', verse.reference);
+        }
+      } catch (err) {
+        console.error('Error fetching verse text:', err);
+        setCurrentVerseText('');
+      }
+    }
   };
 
   // Complete practice (no points affected)
   const completePractice = () => {
     setPracticeMode(null);
     setCurrentVerse(null);
+    setCurrentVerseText('');
+  };
+
+  // Generate wrong references for multiple choice
+  const generateWrongReferences = (correctReference) => {
+    const books = [
+      'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy',
+      'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel', '1 Kings', '2 Kings',
+      '1 Chronicles', '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job',
+      'Psalms', 'Proverbs', 'Ecclesiastes', 'Song of Solomon',
+      'Isaiah', 'Jeremiah', 'Lamentations', 'Ezekiel', 'Daniel',
+      'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum',
+      'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi',
+      'Matthew', 'Mark', 'Luke', 'John', 'Acts',
+      'Romans', '1 Corinthians', '2 Corinthians', 'Galatians', 'Ephesians',
+      'Philippians', 'Colossians', '1 Thessalonians', '2 Thessalonians',
+      '1 Timothy', '2 Timothy', 'Titus', 'Philemon', 'Hebrews',
+      'James', '1 Peter', '2 Peter', '1 John', '2 John', '3 John', 'Jude', 'Revelation'
+    ];
+
+    const wrongRefs = [];
+    const parts = correctReference.match(/^((?:\d\s)?[A-Za-z\s]+)\s+(\d+):(\d+)$/);
+    if (!parts) return ['John 3:16', 'Romans 8:28', 'Philippians 4:13']; // fallback
+
+    const [, correctBook, correctChapter, correctVerse] = parts;
+
+    // Generate 3 wrong references
+    for (let i = 0; i < 3; i++) {
+      if (i === 0) {
+        // Different book, same chapter/verse
+        const wrongBook = books[Math.floor(Math.random() * books.length)];
+        wrongRefs.push(`${wrongBook} ${correctChapter}:${correctVerse}`);
+      } else if (i === 1) {
+        // Same book, different chapter
+        const wrongChapter = Math.max(1, parseInt(correctChapter) + Math.floor(Math.random() * 10) - 5);
+        wrongRefs.push(`${correctBook} ${wrongChapter}:${correctVerse}`);
+      } else {
+        // Same book and chapter, different verse
+        const wrongVerse = Math.max(1, parseInt(correctVerse) + Math.floor(Math.random() * 20) - 10);
+        wrongRefs.push(`${correctBook} ${correctChapter}:${wrongVerse}`);
+      }
+    }
+
+    return wrongRefs;
   };
 
   // Available quiz types for practice (verse-based only)
@@ -174,21 +239,37 @@ const PracticeReview = ({ onClose, userData }) => {
               isPracticeMode={true}
             />
           )}
-          {(practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && (
+          {practiceMode === 'fill-blank' && currentVerseText && (
+            <EnhancedReviewModal
+              verse={currentVerseText}
+              reference={currentVerse.reference}
+              onComplete={completePractice}
+              onSkip={completePractice}
+              userPoints={0}
+              isPaidMode={false}
+              completionHistory={[]}
+            />
+          )}
+          {(practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && currentVerseText && (
+            <EnhancedReviewMultipleChoice
+              verse={currentVerseText}
+              reference={currentVerse.reference}
+              correctReference={currentVerse.reference}
+              wrongReferences={generateWrongReferences(currentVerse.reference)}
+              onComplete={completePractice}
+              onSkip={completePractice}
+              userPoints={0}
+              isPaidMode={false}
+              completionHistory={[]}
+            />
+          )}
+          {(practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && !currentVerseText && (
             <div className="bg-slate-800 rounded-lg p-8 border border-slate-700 text-center">
               <AlertCircle className="text-amber-400 mx-auto mb-4" size={48} />
-              <h3 className="text-xl font-bold text-slate-100 mb-2">
-                {getQuizTypeName(practiceMode)}
-              </h3>
+              <h3 className="text-xl font-bold text-slate-100 mb-2">Loading...</h3>
               <p className="text-slate-400 mb-4">
-                This quiz type uses the main quiz flow. Practice with: {currentVerse.reference}
+                Fetching verse text for {currentVerse.reference}
               </p>
-              <button
-                onClick={completePractice}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
-              >
-                Return to Practice List
-              </button>
             </div>
           )}
         </div>
