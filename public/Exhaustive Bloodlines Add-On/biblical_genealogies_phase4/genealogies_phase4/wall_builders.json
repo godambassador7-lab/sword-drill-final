@@ -1,0 +1,30 @@
+[
+  {
+    "id": "builder_hananiah",
+    "name": "Hananiah",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Neh 3:8"
+    ],
+    "notes": "One of the goldsmiths.",
+    "alt_names": []
+  },
+  {
+    "id": "builder_rephaiah",
+    "name": "Rephaiah",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Neh 3:9"
+    ],
+    "notes": "Ruler of half district of Jerusalem.",
+    "alt_names": []
+  }
+]

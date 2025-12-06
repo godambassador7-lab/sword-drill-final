@@ -1,0 +1,72 @@
+[
+  {
+    "id": "gad_head",
+    "name": "Gad",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "zilpah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:11"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "joel_gad",
+    "name": "Joel",
+    "gender": "M",
+    "father": "gad_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shapham",
+    "name": "Shapham",
+    "gender": "M",
+    "father": "gad_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "janai",
+    "name": "Janai",
+    "gender": "M",
+    "father": "gad_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shaphat",
+    "name": "Shaphat",
+    "gender": "M",
+    "father": "gad_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

@@ -1,0 +1,844 @@
+[
+  {
+    "id": "god",
+    "name": "God",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "adam"
+    ],
+    "refs": [
+      "Genesis 1:1",
+      "Luke 3:38"
+    ],
+    "notes": "Creator; source of all life in biblical genealogy.",
+    "alt_names": [
+      "YHWH",
+      "The LORD",
+      "Elohim"
+    ]
+  },
+  {
+    "id": "adam",
+    "name": "Adam",
+    "gender": "M",
+    "father": "god",
+    "mother": null,
+    "spouses": [
+      "eve"
+    ],
+    "children": [
+      "cain",
+      "abel",
+      "seth"
+    ],
+    "refs": [
+      "Genesis 2–5",
+      "Luke 3:38"
+    ],
+    "notes": "First man.",
+    "alt_names": []
+  },
+  {
+    "id": "eve",
+    "name": "Eve",
+    "gender": "F",
+    "father": "god",
+    "mother": null,
+    "spouses": [
+      "adam"
+    ],
+    "children": [
+      "cain",
+      "abel",
+      "seth"
+    ],
+    "refs": [
+      "Genesis 2–4"
+    ],
+    "notes": "Mother of all living.",
+    "alt_names": []
+  },
+  {
+    "id": "seth",
+    "name": "Seth",
+    "gender": "M",
+    "father": "adam",
+    "mother": "eve",
+    "spouses": [],
+    "children": [
+      "enosh"
+    ],
+    "refs": [
+      "Genesis 4:25–26",
+      "Genesis 5:3–8"
+    ],
+    "notes": "Ancestor of the godly line.",
+    "alt_names": []
+  },
+  {
+    "id": "noah",
+    "name": "Noah",
+    "gender": "M",
+    "father": "lamech_pre_flood",
+    "mother": null,
+    "spouses": [
+      "noahs_wife"
+    ],
+    "children": [
+      "shem",
+      "ham",
+      "japheth"
+    ],
+    "refs": [
+      "Genesis 5–9"
+    ],
+    "notes": "Builder of the ark.",
+    "alt_names": []
+  },
+  {
+    "id": "shem",
+    "name": "Shem",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "arpachshad"
+    ],
+    "refs": [
+      "Genesis 10:21–22"
+    ],
+    "notes": "Ancestor of Semites.",
+    "alt_names": []
+  },
+  {
+    "id": "ham",
+    "name": "Ham",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "cush",
+      "mizraim",
+      "phut",
+      "canaan"
+    ],
+    "refs": [
+      "Genesis 10:6"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "japheth",
+    "name": "Japheth",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "gomer",
+      "magog",
+      "madai",
+      "javan",
+      "tubal",
+      "meshech",
+      "tiras"
+    ],
+    "refs": [
+      "Genesis 10:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "terah",
+    "name": "Terah",
+    "gender": "M",
+    "father": "nahor_1",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "abram",
+      "nahor_2",
+      "haran"
+    ],
+    "refs": [
+      "Genesis 11:24–32"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "abram",
+    "name": "Abram",
+    "gender": "M",
+    "father": "terah",
+    "mother": null,
+    "spouses": [
+      "sarah"
+    ],
+    "children": [
+      "isaac"
+    ],
+    "refs": [
+      "Genesis 12–25"
+    ],
+    "notes": "Abraham, father of many nations.",
+    "alt_names": [
+      "Abraham"
+    ]
+  },
+  {
+    "id": "sarah",
+    "name": "Sarah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "abram"
+    ],
+    "children": [
+      "isaac"
+    ],
+    "refs": [
+      "Genesis 17–21"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Sarai"
+    ]
+  },
+  {
+    "id": "isaac",
+    "name": "Isaac",
+    "gender": "M",
+    "father": "abraham",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "rebekah",
+    "name": "Rebekah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "isaac"
+    ],
+    "children": [
+      "esau",
+      "jacob"
+    ],
+    "refs": [
+      "Genesis 24–27"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jacob",
+    "name": "Jacob",
+    "gender": "M",
+    "father": "isaac",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "judah",
+    "name": "Judah",
+    "gender": "M",
+    "father": "jacob",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "joseph",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "rachel",
+    "spouses": [],
+    "children": [
+      "manasseh",
+      "ephraim"
+    ],
+    "refs": [
+      "Genesis 37–50"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "levi",
+    "name": "Levi",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [
+      "gershon",
+      "kohath",
+      "merari"
+    ],
+    "refs": [
+      "Genesis 29:34"
+    ],
+    "notes": "Tribe of priests and Levites.",
+    "alt_names": []
+  },
+  {
+    "id": "perez",
+    "name": "Perez",
+    "gender": "M",
+    "father": "judah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "hezron",
+    "name": "Hezron",
+    "gender": "M",
+    "father": "perez",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "ram",
+    "name": "Ram",
+    "gender": "M",
+    "father": "hezron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "amminadab",
+    "name": "Amminadab",
+    "gender": "M",
+    "father": "ram",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "nahshon",
+    "name": "Nahshon",
+    "gender": "M",
+    "father": "amminadab",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon",
+    "gender": "M",
+    "father": "nahshon",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "boaz",
+    "name": "Boaz",
+    "gender": "M",
+    "father": "salmon",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "obed",
+    "name": "Obed",
+    "gender": "M",
+    "father": "boaz",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jesse",
+    "name": "Jesse",
+    "gender": "M",
+    "father": "obed",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "solomon",
+    "name": "Solomon",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "abraham",
+    "name": "Abraham",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "rehoboam",
+    "name": "Rehoboam",
+    "gender": "M",
+    "father": "solomon",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "abijah",
+    "name": "Abijah",
+    "gender": "M",
+    "father": "rehoboam",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "asa",
+    "name": "Asa",
+    "gender": "M",
+    "father": "abijah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jehoshaphat",
+    "name": "Jehoshaphat",
+    "gender": "M",
+    "father": "asa",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "joram",
+    "name": "Joram",
+    "gender": "M",
+    "father": "jehoshaphat",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "uzziah",
+    "name": "Uzziah",
+    "gender": "M",
+    "father": "joram",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jotham",
+    "name": "Jotham",
+    "gender": "M",
+    "father": "uzziah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "ahaz",
+    "name": "Ahaz",
+    "gender": "M",
+    "father": "jotham",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "hezekiah",
+    "name": "Hezekiah",
+    "gender": "M",
+    "father": "ahaz",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "manasseh",
+    "name": "Manasseh",
+    "gender": "M",
+    "father": "hezekiah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "amon",
+    "name": "Amon",
+    "gender": "M",
+    "father": "manasseh",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "josiah",
+    "name": "Josiah",
+    "gender": "M",
+    "father": "amon",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jeconiah",
+    "name": "Jeconiah",
+    "gender": "M",
+    "father": "josiah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "shealtiel",
+    "name": "Shealtiel",
+    "gender": "M",
+    "father": "jeconiah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "zerubbabel",
+    "name": "Zerubbabel",
+    "gender": "M",
+    "father": "shealtiel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "abiud",
+    "name": "Abiud",
+    "gender": "M",
+    "father": "zerubbabel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "eliakim",
+    "name": "Eliakim",
+    "gender": "M",
+    "father": "abiud",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "azor",
+    "name": "Azor",
+    "gender": "M",
+    "father": "eliakim",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "zadok",
+    "name": "Zadok",
+    "gender": "M",
+    "father": "azor",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "akim",
+    "name": "Akim",
+    "gender": "M",
+    "father": "zadok",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "eliud",
+    "name": "Eliud",
+    "gender": "M",
+    "father": "akim",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "eleazar",
+    "name": "Eleazar",
+    "gender": "M",
+    "father": "eliud",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "matthan",
+    "name": "Matthan",
+    "gender": "M",
+    "father": "eleazar",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jacob_matt",
+    "name": "Jacob",
+    "gender": "M",
+    "father": "matthan",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "joseph_matt",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "jacob_matt",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  },
+  {
+    "id": "jesus",
+    "name": "Jesus",
+    "gender": "M",
+    "father": "joseph_matt",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Matthew 1:1–17"
+    ],
+    "notes": "From Matthew's genealogy.",
+    "alt_names": []
+  }
+]

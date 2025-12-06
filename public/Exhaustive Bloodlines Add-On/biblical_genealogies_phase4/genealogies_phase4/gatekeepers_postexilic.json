@@ -1,0 +1,30 @@
+[
+  {
+    "id": "keeper_shallum_p4",
+    "name": "Shallum",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:42"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "keeper_akkub_p4",
+    "name": "Akkub",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:42"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

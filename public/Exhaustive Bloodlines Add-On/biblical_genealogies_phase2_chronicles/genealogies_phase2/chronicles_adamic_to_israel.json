@@ -1,0 +1,418 @@
+[
+  {
+    "id": "adam",
+    "name": "Adam",
+    "gender": "M",
+    "father": "god",
+    "mother": null,
+    "spouses": [
+      "eve"
+    ],
+    "children": [
+      "seth"
+    ],
+    "refs": [
+      "1 Chronicles 1:1"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "seth",
+    "name": "Seth",
+    "gender": "M",
+    "father": "adam",
+    "mother": "eve",
+    "spouses": [],
+    "children": [
+      "enosh"
+    ],
+    "refs": [
+      "1 Chronicles 1:1"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "enosh",
+    "name": "Enosh",
+    "gender": "M",
+    "father": "seth",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "kenan"
+    ],
+    "refs": [
+      "1 Chronicles 1:1"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Enos"
+    ]
+  },
+  {
+    "id": "kenan",
+    "name": "Kenan",
+    "gender": "M",
+    "father": "enosh",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "mahalalel"
+    ],
+    "refs": [
+      "1 Chronicles 1:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "mahalalel",
+    "name": "Mahalalel",
+    "gender": "M",
+    "father": "kenan",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jared"
+    ],
+    "refs": [
+      "1 Chronicles 1:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jared",
+    "name": "Jared",
+    "gender": "M",
+    "father": "mahalalel",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "enoch"
+    ],
+    "refs": [
+      "1 Chronicles 1:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "enoch",
+    "name": "Enoch",
+    "gender": "M",
+    "father": "jared",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "methuselah"
+    ],
+    "refs": [
+      "1 Chronicles 1:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "methuselah",
+    "name": "Methuselah",
+    "gender": "M",
+    "father": "enoch",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "lamech_pre_flood"
+    ],
+    "refs": [
+      "1 Chronicles 1:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "lamech_pre_flood",
+    "name": "Lamech",
+    "gender": "M",
+    "father": "methuselah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "noah"
+    ],
+    "refs": [
+      "1 Chronicles 1:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "noah",
+    "name": "Noah",
+    "gender": "M",
+    "father": "lamech_pre_flood",
+    "mother": null,
+    "spouses": [
+      "noahs_wife"
+    ],
+    "children": [
+      "shem",
+      "ham",
+      "japheth"
+    ],
+    "refs": [
+      "1 Chronicles 1:4"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shem",
+    "name": "Shem",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "arpachshad"
+    ],
+    "refs": [
+      "1 Chronicles 1:4,17"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ham",
+    "name": "Ham",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:4"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "japheth",
+    "name": "Japheth",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:4"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "arpachshad",
+    "name": "Arphaxad",
+    "gender": "M",
+    "father": "shem",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "shelah"
+    ],
+    "refs": [
+      "1 Chronicles 1:18"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shelah",
+    "name": "Shelah",
+    "gender": "M",
+    "father": "arpachshad",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "eber"
+    ],
+    "refs": [
+      "1 Chronicles 1:18"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "eber",
+    "name": "Eber",
+    "gender": "M",
+    "father": "shelah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "peleg",
+      "joktan"
+    ],
+    "refs": [
+      "1 Chronicles 1:18–19"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "peleg",
+    "name": "Peleg",
+    "gender": "M",
+    "father": "eber",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "reu"
+    ],
+    "refs": [
+      "1 Chronicles 1:19"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "reu",
+    "name": "Reu",
+    "gender": "M",
+    "father": "peleg",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "serug"
+    ],
+    "refs": [
+      "1 Chronicles 1:25"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "serug",
+    "name": "Serug",
+    "gender": "M",
+    "father": "reu",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "nahor_1"
+    ],
+    "refs": [
+      "1 Chronicles 1:26"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "nahor_1",
+    "name": "Nahor",
+    "gender": "M",
+    "father": "serug",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "terah"
+    ],
+    "refs": [
+      "1 Chronicles 1:26"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "terah",
+    "name": "Terah",
+    "gender": "M",
+    "father": "nahor_1",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "abram",
+      "nahor_2",
+      "haran"
+    ],
+    "refs": [
+      "1 Chronicles 1:26–27"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "abram",
+    "name": "Abram",
+    "gender": "M",
+    "father": "terah",
+    "mother": null,
+    "spouses": [
+      "sarah"
+    ],
+    "children": [
+      "isaac"
+    ],
+    "refs": [
+      "1 Chronicles 1:27"
+    ],
+    "notes": "Abram (Abraham).",
+    "alt_names": [
+      "Abraham"
+    ]
+  },
+  {
+    "id": "isaac",
+    "name": "Isaac",
+    "gender": "M",
+    "father": "abram",
+    "mother": "sarah",
+    "spouses": [
+      "rebekah"
+    ],
+    "children": [
+      "esau",
+      "jacob"
+    ],
+    "refs": [
+      "1 Chronicles 1:28"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jacob",
+    "name": "Jacob",
+    "gender": "M",
+    "father": "isaac",
+    "mother": "rebekah",
+    "spouses": [
+      "leah",
+      "rachel",
+      "bilhah",
+      "zilpah"
+    ],
+    "children": [
+      "reuben",
+      "simeon",
+      "levi",
+      "judah",
+      "dan",
+      "naphtali",
+      "gad",
+      "asher",
+      "issachar",
+      "zebulun",
+      "joseph",
+      "benjamin"
+    ],
+    "refs": [
+      "1 Chronicles 1:34"
+    ],
+    "notes": "Also called Israel.",
+    "alt_names": [
+      "Israel"
+    ]
+  }
+]

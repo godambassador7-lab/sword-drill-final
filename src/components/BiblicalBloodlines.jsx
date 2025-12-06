@@ -6,6 +6,7 @@ import {
 
 const BiblicalBloodlines = ({ onClose }) => {
   const baseUrl = process.env.PUBLIC_URL || '';
+  const addOnBase = `${baseUrl}/Exhaustive%20Bloodlines%20Add-On/biblical_genealogies_unabridged_core/genealogies`;
   const [allPeople, setAllPeople] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -15,6 +16,9 @@ const BiblicalBloodlines = ({ onClose }) => {
   const [availableTrees, setAvailableTrees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
+  const [dictionaryIndex, setDictionaryIndex] = useState(null);
+  const [dictionaryLoading, setDictionaryLoading] = useState(false);
+  const [dictionaryError, setDictionaryError] = useState(null);
   const treeRef = useRef(null);
 
   // Available family trees
@@ -55,10 +59,29 @@ const BiblicalBloodlines = ({ onClose }) => {
     { id: 'arameans', path: `${baseUrl}/biblical_lineages_json/arameans/aram_arameans.json`, name: 'Arameans', icon: '🏔️' }
   ];
 
+  // Exhaustive add-on trees (person-list format)
+  const exhaustiveTrees = [
+    { id: 'adamic_core', path: `${addOnBase}/adamic_core.json`, name: 'Adamic Core (Extended)', icon: '🌍', datasetType: 'genealogy-list' },
+    { id: 'table_of_nations', path: `${addOnBase}/table_of_nations.json`, name: 'Table of Nations (Genesis 10)', icon: '🧭', datasetType: 'genealogy-list' },
+    { id: 'abrahamic_family', path: `${addOnBase}/abrahamic_family.json`, name: 'Abrahamic Family (Extended)', icon: '⭐', datasetType: 'genealogy-list' },
+    { id: 'israel_heads', path: `${addOnBase}/israel_tribes_heads.json`, name: 'Israel Tribal Heads', icon: '🛡️', datasetType: 'genealogy-list' },
+    { id: 'judah_kings', path: `${addOnBase}/judah_kings.json`, name: 'Kings of Judah (Line of David)', icon: '👑', datasetType: 'genealogy-list' },
+    { id: 'priestly_levites', path: `${addOnBase}/priestly_levites.json`, name: 'Priestly Levites & Aaronic Line', icon: '🕎', datasetType: 'genealogy-list' },
+    { id: 'jesus_matthew', path: `${addOnBase}/jesus_genealogy_matthew.json`, name: 'Jesus Genealogy (Matthew)', icon: '📜', datasetType: 'genealogy-list' },
+    { id: 'jesus_luke', path: `${addOnBase}/jesus_genealogy_luke.json`, name: 'Jesus Genealogy (Luke)', icon: '📖', datasetType: 'genealogy-list' }
+  ];
+
   // Load tree data
   useEffect(() => {
     loadAvailableTrees();
   }, []);
+
+  // Lazy-load dictionary when a person is selected
+  useEffect(() => {
+    if (selectedPerson) {
+      ensureDictionaryLoaded();
+    }
+  }, [selectedPerson]);
 
   const fetchJsonStrict = async (path) => {
     const res = await fetch(path, { cache: 'no-cache' });
@@ -73,12 +96,98 @@ const BiblicalBloodlines = ({ onClose }) => {
     }
   };
 
+  // Build a tree from list-based genealogy (Exhaustive add-on format)
+  const buildGenealogyTree = (persons = [], label = 'Genealogy') => {
+    const map = new Map();
+    persons.forEach(p => {
+      const node = map.get(p.id) || { id: p.id, children: [] };
+      node.name = p.name || p.id;
+      node.type = 'person';
+      node.aka = p.alt_names || [];
+      node.notes = p.notes || '';
+      node.source_refs = p.refs || p.references || [];
+      node.gender = p.gender || 'U';
+      node.fatherId = p.father || null;
+      node.motherId = p.mother || null;
+      node.searchable = [
+        (node.name || '').toLowerCase(),
+        ...node.aka.map(a => a.toLowerCase())
+      ].filter(Boolean);
+      map.set(p.id, node);
+    });
+
+    const addChild = (parentId, childId) => {
+      if (!parentId || !childId) return;
+      const parent = map.get(parentId);
+      const child = map.get(childId);
+      if (!parent || !child) return;
+      if (!parent.children.some(c => c.id === child.id)) {
+        parent.children.push(child);
+      }
+    };
+
+    persons.forEach(p => {
+      // Explicit children
+      (p.children || []).forEach(cid => addChild(p.id, cid));
+      // Infer from father/mother
+      if (p.father) addChild(p.father, p.id);
+      if (p.mother) addChild(p.mother, p.id);
+    });
+
+    let roots = Array.from(map.values()).filter(n => !n.fatherId && !n.motherId);
+    if (roots.length === 0) {
+      roots = Array.from(map.values()).slice(0, 1);
+    }
+
+    const root = {
+      id: `root_${label}`,
+      name: label,
+      type: 'group',
+      children: roots
+    };
+
+    return { root, people: Array.from(map.values()) };
+  };
+
+  // Smith's Bible Dictionary loader
+  const ensureDictionaryLoaded = async () => {
+    if (dictionaryIndex || dictionaryLoading) return;
+    try {
+      setDictionaryLoading(true);
+      const dictPath = `${baseUrl}/Smith%27s%20Bible%20Dictionary.txt`;
+      const res = await fetch(dictPath, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`Dictionary fetch failed (${res.status})`);
+      const text = await res.text();
+      const idx = {};
+      text.split('\n').forEach(line => {
+        if (!line.trim()) return;
+        try {
+          const entry = JSON.parse(line);
+          if (entry?.term && Array.isArray(entry.definitions)) {
+            idx[entry.term.toLowerCase()] = entry.definitions;
+          }
+        } catch (_) {
+          // ignore bad lines
+        }
+      });
+      setDictionaryIndex(idx);
+      setDictionaryError(null);
+    } catch (err) {
+      console.error('Dictionary load failed:', err);
+      setDictionaryError(err.message);
+    } finally {
+      setDictionaryLoading(false);
+    }
+  };
+
   const loadAvailableTrees = async () => {
     setLoading(true);
     setLoadError(null);
     const trees = [];
 
-    for (const treeDef of treeDefinitions) {
+    const candidates = [...treeDefinitions, ...exhaustiveTrees];
+
+    for (const treeDef of candidates) {
       try {
         await fetchJsonStrict(treeDef.path);
         trees.push(treeDef);
@@ -93,7 +202,9 @@ const BiblicalBloodlines = ({ onClose }) => {
 
   const loadTree = async (treeDef) => {
     try {
-      const data = await fetchJsonStrict(treeDef.path);
+      const raw = await fetchJsonStrict(treeDef.path);
+      const dataIsList = Array.isArray(raw);
+      let data = raw;
 
       const shemData =
         treeDef.id === 'jesus' || treeDef.id === 'ishmael'
@@ -172,22 +283,33 @@ const BiblicalBloodlines = ({ onClose }) => {
         stitchToShem(data, ['Abraham']);
       }
 
-      setCurrentTree({ ...treeDef, data });
-
-      // Extract all people for search
-      const people = extractPeople(data);
-      setAllPeople(people);
-
-      // If this is Jesus's genealogy, mark the lineage
-      if (treeDef.id === 'jesus') {
-        const lineage = extractJesusLineage(data);
-        setJesusLineage(lineage);
-        // Auto-expand Jesus's line
-        setExpandedNodes(lineage);
-      } else {
+      // Convert list format to tree format
+      if (dataIsList && treeDef.datasetType === 'genealogy-list') {
+        const built = buildGenealogyTree(data, treeDef.name);
+        data = built.root;
+        setAllPeople(built.people);
         setJesusLineage(new Set());
         setExpandedNodes(new Set());
+      } else {
+        setCurrentTree({ ...treeDef, data });
+
+        // Extract all people for search
+        const people = extractPeople(data);
+        setAllPeople(people);
+
+        // If this is Jesus's genealogy, mark the lineage
+        if (treeDef.id === 'jesus') {
+          const lineage = extractJesusLineage(data);
+          setJesusLineage(lineage);
+          // Auto-expand Jesus's line
+          setExpandedNodes(lineage);
+        } else {
+          setJesusLineage(new Set());
+          setExpandedNodes(new Set());
+        }
       }
+
+      setCurrentTree({ ...treeDef, data });
     } catch (error) {
       console.error('Error loading tree:', error);
       setLoadError(error.message);
@@ -492,6 +614,15 @@ const BiblicalBloodlines = ({ onClose }) => {
       )
     : [];
 
+  const getDictionaryDefsForPerson = (person) => {
+    if (!person || !dictionaryIndex) return null;
+    const candidates = [person.name, ...(person.aka || [])].map(n => n.toLowerCase());
+    for (const key of candidates) {
+      if (dictionaryIndex[key]) return dictionaryIndex[key];
+    }
+    return null;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4">
       <div className="max-w-7xl mx-auto">
@@ -588,6 +719,28 @@ const BiblicalBloodlines = ({ onClose }) => {
             }`}>
               {selectedPerson ? (
                 <>
+                  {(() => {
+                    const defs = getDictionaryDefsForPerson(selectedPerson);
+                    return defs && defs.length > 0 ? (
+                      <div className="mb-4">
+                        <h3 className="text-sm font-semibold text-amber-300 mb-2 flex items-center gap-2">
+                          <BookOpen size={16} />
+                          Smith's Bible Dictionary
+                        </h3>
+                        <div className="space-y-2 max-h-32 overflow-y-auto">
+                          {defs.slice(0, 3).map((d, idx) => (
+                            <p key={idx} className="text-slate-200 text-sm leading-relaxed">
+                              {d}
+                            </p>
+                          ))}
+                        </div>
+                        {defs.length > 3 && (
+                          <p className="text-xs text-purple-200 mt-1">Showing first {Math.min(3, defs.length)} definitions.</p>
+                        )}
+                      </div>
+                    ) : null;
+                  })()}
+
                   <div className="flex items-center gap-3 mb-4">
                     {jesusLineage.has(selectedPerson.name) && (
                       <Sparkles className="text-amber-400" size={24} />

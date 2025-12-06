@@ -1,0 +1,16 @@
+[
+  {
+    "id": "singer_asaph",
+    "name": "Sons of Asaph",
+    "gender": "U",
+    "father": "asaph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:41"
+    ],
+    "notes": "Guild from Asaph.",
+    "alt_names": []
+  }
+]

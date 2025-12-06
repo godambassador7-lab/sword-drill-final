@@ -1,0 +1,44 @@
+[
+  {
+    "id": "simeon",
+    "name": "Simeon",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 4:24"
+    ],
+    "notes": "Tribal ancestor.",
+    "alt_names": []
+  },
+  {
+    "id": "reuben",
+    "name": "Reuben",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 5:1"
+    ],
+    "notes": "Firstborn of Jacob.",
+    "alt_names": []
+  },
+  {
+    "id": "gad",
+    "name": "Gad",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "zilpah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 5:11"
+    ],
+    "notes": "Tribal ancestor.",
+    "alt_names": []
+  }
+]

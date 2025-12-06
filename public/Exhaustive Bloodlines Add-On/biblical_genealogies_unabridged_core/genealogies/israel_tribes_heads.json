@@ -1,0 +1,210 @@
+[
+  {
+    "id": "reuben",
+    "name": "Reuben",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 29:32",
+      "Genesis 35:23"
+    ],
+    "notes": "Firstborn of Jacob.",
+    "alt_names": []
+  },
+  {
+    "id": "simeon",
+    "name": "Simeon",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 29:33"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "levi",
+    "name": "Levi",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [
+      "gershon",
+      "kohath",
+      "merari"
+    ],
+    "refs": [
+      "Genesis 29:34"
+    ],
+    "notes": "Tribe of priests and Levites.",
+    "alt_names": []
+  },
+  {
+    "id": "judah",
+    "name": "Judah",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 29:35",
+      "Genesis 38"
+    ],
+    "notes": "Tribe of kings and of Messiah.",
+    "alt_names": []
+  },
+  {
+    "id": "dan",
+    "name": "Dan",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "bilhah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:6"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "naphtali",
+    "name": "Naphtali",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "bilhah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:8"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "gad",
+    "name": "Gad",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "zilpah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:11"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "asher",
+    "name": "Asher",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "zilpah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:13"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "issachar",
+    "name": "Issachar",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:18"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "zebulun",
+    "name": "Zebulun",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 30:20"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "joseph",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "rachel",
+    "spouses": [],
+    "children": [
+      "manasseh",
+      "ephraim"
+    ],
+    "refs": [
+      "Genesis 30:24",
+      "Genesis 37–50"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "benjamin",
+    "name": "Benjamin",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "rachel",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 35:18"
+    ],
+    "notes": "Youngest son of Jacob.",
+    "alt_names": []
+  },
+  {
+    "id": "manasseh",
+    "name": "Manasseh",
+    "gender": "M",
+    "father": "joseph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 41:51",
+      "Genesis 48"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ephraim",
+    "name": "Ephraim",
+    "gender": "M",
+    "father": "joseph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 41:52",
+      "Genesis 48"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

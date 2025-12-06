@@ -1,0 +1,131 @@
+[
+  {
+    "id": "levi",
+    "name": "Levi",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [
+      "gershom",
+      "kohath",
+      "merari"
+    ],
+    "refs": [
+      "1 Chronicles 6:1"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "gershom",
+    "name": "Gershom",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 6:1"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "kohath",
+    "name": "Kohath",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "amram"
+    ],
+    "refs": [
+      "1 Chronicles 6:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "merari",
+    "name": "Merari",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 6:1"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "amram",
+    "name": "Amram",
+    "gender": "M",
+    "father": "kohath",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "aaron",
+      "moses",
+      "miriam"
+    ],
+    "refs": [
+      "1 Chronicles 6:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "aaron",
+    "name": "Aaron",
+    "gender": "M",
+    "father": "amram",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "nadab",
+      "abihu",
+      "eleazar",
+      "ithamar"
+    ],
+    "refs": [
+      "1 Chronicles 6:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "eleazar",
+    "name": "Eleazar",
+    "gender": "M",
+    "father": "aaron",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "phinehas"
+    ],
+    "refs": [
+      "1 Chronicles 6:4"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "phinehas",
+    "name": "Phinehas",
+    "gender": "M",
+    "father": "eleazar",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 6:4"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

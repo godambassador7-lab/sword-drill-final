@@ -1,0 +1,58 @@
+[
+  {
+    "id": "shallum",
+    "name": "Shallum",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 9:17"
+    ],
+    "notes": "Gatekeeper leader.",
+    "alt_names": []
+  },
+  {
+    "id": "akkub",
+    "name": "Akkub",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 9:17"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "talmon",
+    "name": "Talmon",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 9:17"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ahiman",
+    "name": "Ahiman",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 9:17"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

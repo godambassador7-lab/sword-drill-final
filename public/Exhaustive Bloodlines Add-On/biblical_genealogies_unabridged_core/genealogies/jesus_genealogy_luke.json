@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "jesus",
+    "name": "Jesus",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joseph",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "jesus",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "heli",
+    "name": "Heli",
+    "gender": "M",
+    "father": "joseph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "matthat",
+    "name": "Matthat",
+    "gender": "M",
+    "father": "heli",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "levi",
+    "name": "Levi",
+    "gender": "M",
+    "father": "matthat",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "melchi",
+    "name": "Melchi",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jannai",
+    "name": "Jannai",
+    "gender": "M",
+    "father": "melchi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joseph_2",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "jannai",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "mattathias_1",
+    "name": "Mattathias",
+    "gender": "M",
+    "father": "joseph_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "amos",
+    "name": "Amos",
+    "gender": "M",
+    "father": "mattathias_1",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "nahum",
+    "name": "Nahum",
+    "gender": "M",
+    "father": "amos",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "esli",
+    "name": "Esli",
+    "gender": "M",
+    "father": "nahum",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "naggai",
+    "name": "Naggai",
+    "gender": "M",
+    "father": "esli",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "maath",
+    "name": "Maath",
+    "gender": "M",
+    "father": "naggai",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "mattathias_2",
+    "name": "Mattathias",
+    "gender": "M",
+    "father": "maath",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "semein",
+    "name": "Semein",
+    "gender": "M",
+    "father": "mattathias_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "josech",
+    "name": "Josech",
+    "gender": "M",
+    "father": "semein",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joda",
+    "name": "Joda",
+    "gender": "M",
+    "father": "josech",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joanan",
+    "name": "Joanan",
+    "gender": "M",
+    "father": "joda",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "rhesa",
+    "name": "Rhesa",
+    "gender": "M",
+    "father": "joanan",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "zerubbabel",
+    "name": "Zerubbabel",
+    "gender": "M",
+    "father": "rhesa",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "shealtiel",
+    "name": "Shealtiel",
+    "gender": "M",
+    "father": "zerubbabel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "neri",
+    "name": "Neri",
+    "gender": "M",
+    "father": "shealtiel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "melchi_2",
+    "name": "Melchi",
+    "gender": "M",
+    "father": "neri",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "addi",
+    "name": "Addi",
+    "gender": "M",
+    "father": "melchi_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "cosam",
+    "name": "Cosam",
+    "gender": "M",
+    "father": "addi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "elmadam",
+    "name": "Elmadam",
+    "gender": "M",
+    "father": "cosam",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "er",
+    "name": "Er",
+    "gender": "M",
+    "father": "elmadam",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joshua",
+    "name": "Joshua",
+    "gender": "M",
+    "father": "er",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "eliezer",
+    "name": "Eliezer",
+    "gender": "M",
+    "father": "joshua",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jorim",
+    "name": "Jorim",
+    "gender": "M",
+    "father": "eliezer",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "matthat_2",
+    "name": "Matthat",
+    "gender": "M",
+    "father": "jorim",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "levi_2",
+    "name": "Levi",
+    "gender": "M",
+    "father": "matthat_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "simeon",
+    "name": "Simeon",
+    "gender": "M",
+    "father": "levi_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "judah_2",
+    "name": "Judah",
+    "gender": "M",
+    "father": "simeon",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "joseph_3",
+    "name": "Joseph",
+    "gender": "M",
+    "father": "judah_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jonam",
+    "name": "Jonam",
+    "gender": "M",
+    "father": "joseph_3",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "eliakim",
+    "name": "Eliakim",
+    "gender": "M",
+    "father": "jonam",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "melea",
+    "name": "Melea",
+    "gender": "M",
+    "father": "eliakim",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "menna",
+    "name": "Menna",
+    "gender": "M",
+    "father": "melea",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "mattatha",
+    "name": "Mattatha",
+    "gender": "M",
+    "father": "menna",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "nathan",
+    "name": "Nathan",
+    "gender": "M",
+    "father": "mattatha",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "david_2",
+    "name": "David",
+    "gender": "M",
+    "father": "nathan",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jesse_2",
+    "name": "Jesse",
+    "gender": "M",
+    "father": "david_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "obed_2",
+    "name": "Obed",
+    "gender": "M",
+    "father": "jesse_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "boaz_2",
+    "name": "Boaz",
+    "gender": "M",
+    "father": "obed_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "sala",
+    "name": "Sala",
+    "gender": "M",
+    "father": "boaz_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "nahshon_2",
+    "name": "Nahshon",
+    "gender": "M",
+    "father": "sala",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "amminadab_2",
+    "name": "Amminadab",
+    "gender": "M",
+    "father": "nahshon_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "admin",
+    "name": "Admin",
+    "gender": "M",
+    "father": "amminadab_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "arni",
+    "name": "Arni",
+    "gender": "M",
+    "father": "admin",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "hezron_2",
+    "name": "Hezron",
+    "gender": "M",
+    "father": "arni",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "perez_2",
+    "name": "Perez",
+    "gender": "M",
+    "father": "hezron_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "judah_3",
+    "name": "Judah",
+    "gender": "M",
+    "father": "perez_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jacob_2",
+    "name": "Jacob",
+    "gender": "M",
+    "father": "judah_3",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "isaac_2",
+    "name": "Isaac",
+    "gender": "M",
+    "father": "jacob_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "abraham_2",
+    "name": "Abraham",
+    "gender": "M",
+    "father": "isaac_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "terah_2",
+    "name": "Terah",
+    "gender": "M",
+    "father": "abraham_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "nahor_3",
+    "name": "Nahor",
+    "gender": "M",
+    "father": "terah_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "serug_2",
+    "name": "Serug",
+    "gender": "M",
+    "father": "nahor_3",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "reu_2",
+    "name": "Reu",
+    "gender": "M",
+    "father": "serug_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "peleg_2",
+    "name": "Peleg",
+    "gender": "M",
+    "father": "reu_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "eber_2",
+    "name": "Eber",
+    "gender": "M",
+    "father": "peleg_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "shelah_2",
+    "name": "Shelah",
+    "gender": "M",
+    "father": "eber_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "cainan",
+    "name": "Cainan",
+    "gender": "M",
+    "father": "shelah_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "arphaxad_2",
+    "name": "Arphaxad",
+    "gender": "M",
+    "father": "cainan",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "shem_2",
+    "name": "Shem",
+    "gender": "M",
+    "father": "arphaxad_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "noah_2",
+    "name": "Noah",
+    "gender": "M",
+    "father": "shem_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "lamech_2",
+    "name": "Lamech",
+    "gender": "M",
+    "father": "noah_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "methuselah_2",
+    "name": "Methuselah",
+    "gender": "M",
+    "father": "lamech_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "enoch_2",
+    "name": "Enoch",
+    "gender": "M",
+    "father": "methuselah_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "jared_2",
+    "name": "Jared",
+    "gender": "M",
+    "father": "enoch_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "mahalalel_2",
+    "name": "Mahalalel",
+    "gender": "M",
+    "father": "jared_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "kenan_2",
+    "name": "Kenan",
+    "gender": "M",
+    "father": "mahalalel_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "enosh_2",
+    "name": "Enosh",
+    "gender": "M",
+    "father": "kenan_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "seth_2",
+    "name": "Seth",
+    "gender": "M",
+    "father": "enosh_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "adam_2",
+    "name": "Adam",
+    "gender": "M",
+    "father": "seth_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  },
+  {
+    "id": "god_2",
+    "name": "God",
+    "gender": "U",
+    "father": "adam_2",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Luke 3:23–38"
+    ],
+    "notes": "From Luke's genealogy of Jesus; suffix numbers distinguish from identically named persons elsewhere in this dataset.",
+    "alt_names": []
+  }
+]
