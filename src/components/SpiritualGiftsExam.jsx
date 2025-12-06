@@ -11,6 +11,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [results, setResults] = useState(null);
   const [previousResults, setPreviousResults] = useState(null);
   const [showPreviousResults, setShowPreviousResults] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   // Background music effect
   useEffect(() => {
@@ -238,6 +239,102 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
           >
             Go Back
           </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Welcome screen - shows before exam starts
+  if (showWelcome && !showResults) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6 overflow-y-auto">
+        <div className="max-w-3xl mx-auto">
+          <button
+            onClick={onBack}
+            className="mb-4 flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Back to Menu
+          </button>
+
+          <div className="bg-slate-800/80 backdrop-blur rounded-xl p-8 border border-purple-500/30 mb-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Heart size={40} className="text-purple-400" />
+              <div>
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                  Spiritual Gifts Exam
+                </h1>
+              </div>
+            </div>
+            <p className="text-slate-300 text-lg leading-relaxed">
+              Discover your spiritual gifts through this comprehensive biblical assessment.
+              Answer thoughtfully and prayerfully to identify how the Holy Spirit has gifted you to serve the Body of Christ.
+            </p>
+          </div>
+
+          {/* Previous Results Section */}
+          {previousResults && (
+            <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 backdrop-blur rounded-xl p-6 border border-blue-500/50 mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <History size={28} className="text-blue-400" />
+                <h2 className="text-2xl font-bold text-blue-300">Your Previous Results</h2>
+              </div>
+              <p className="text-slate-300 mb-4">
+                You completed this exam on {new Date(previousResults.timestamp).toLocaleDateString()} at {new Date(previousResults.timestamp).toLocaleTimeString()}
+              </p>
+
+              {previousResults.gifts && (
+                <div className="bg-slate-900/50 rounded-lg p-4 mb-4">
+                  <h3 className="text-lg font-semibold text-blue-200 mb-3">Your Top 3 Gifts:</h3>
+                  <div className="space-y-2">
+                    {previousResults.gifts.slice(0, 3).map((gift, index) => (
+                      <div key={gift.id} className="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
+                        <div className="flex items-center gap-3">
+                          <div className={`
+                            w-8 h-8 rounded-full flex items-center justify-center font-bold
+                            ${index === 0 ? 'bg-yellow-500/20 text-yellow-300 border-2 border-yellow-400' : ''}
+                            ${index === 1 ? 'bg-slate-400/20 text-slate-300 border-2 border-slate-400' : ''}
+                            ${index === 2 ? 'bg-amber-600/20 text-amber-400 border-2 border-amber-500' : ''}
+                          `}>
+                            {index + 1}
+                          </div>
+                          <span className="text-white font-semibold">{gift.name}</span>
+                        </div>
+                        <span className="text-blue-300 font-bold">Score: {gift.score}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={() => {
+                  loadPreviousResults();
+                  setShowWelcome(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
+              >
+                <History size={20} />
+                View Full Previous Results
+              </button>
+            </div>
+          )}
+
+          {/* Start Exam Button */}
+          <div className="space-y-4">
+            <button
+              onClick={() => setShowWelcome(false)}
+              className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-bold text-lg transition-all shadow-lg shadow-purple-500/50"
+            >
+              {previousResults ? 'Retake Exam' : 'Begin Exam'}
+            </button>
+
+            {previousResults && (
+              <p className="text-center text-sm text-slate-400">
+                Taking the exam again will save new results and keep your previous results for comparison.
+              </p>
+            )}
+          </div>
         </div>
       </div>
     );
