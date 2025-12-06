@@ -376,8 +376,9 @@ const EnhancedReviewMultipleChoice = ({
   // INTRO SCREEN
   if (gamePhase === 'intro') {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-        <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl p-8 max-w-2xl w-full mx-4 border border-amber-500/30 shadow-2xl">
+      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm overflow-y-auto">
+        <div className="min-h-screen flex items-center justify-center p-4 py-8">
+          <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl p-8 max-w-2xl w-full my-8 border border-amber-500/30 shadow-2xl">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-4 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl">
               <Target className="text-white" size={40} />
@@ -477,6 +478,7 @@ const EnhancedReviewMultipleChoice = ({
               Skip
             </button>
           </div>
+          </div>
         </div>
       </div>
     );
@@ -487,8 +489,9 @@ const EnhancedReviewMultipleChoice = ({
     const allClues = clues();
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 overflow-y-auto">
-        <div className="bg-slate-800 rounded-2xl p-6 max-w-5xl w-full my-8 border border-amber-500/30 shadow-2xl">
+      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm overflow-y-auto">
+        <div className="min-h-screen flex items-center justify-center p-4 py-8">
+          <div className="bg-slate-800 rounded-2xl p-6 max-w-5xl w-full my-8 border border-amber-500/30 shadow-2xl">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -656,6 +659,7 @@ const EnhancedReviewMultipleChoice = ({
           >
             {selectedAnswer ? 'Submit Answer' : 'Select an Answer to Continue'}
           </button>
+          </div>
         </div>
       </div>
     );
@@ -667,8 +671,9 @@ const EnhancedReviewMultipleChoice = ({
     const earnedPoints = isCorrect ? calculatePoints() : -50;
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-        <div className="bg-slate-800 rounded-2xl p-8 max-w-2xl w-full mx-4 border border-amber-500/30 shadow-2xl">
+      <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm overflow-y-auto">
+        <div className="min-h-screen flex items-center justify-center p-4 py-8">
+          <div className="bg-slate-800 rounded-2xl p-8 max-w-2xl w-full my-8 border border-amber-500/30 shadow-2xl">
           {/* Result */}
           <div className={`${isCorrect ? 'bg-gradient-to-r from-emerald-600/20 to-emerald-700/20 border-emerald-500/50' : 'bg-gradient-to-r from-red-600/20 to-red-700/20 border-red-500/50'} border rounded-xl p-6 mb-6`}>
             <div className="flex items-center gap-4 mb-4">
@@ -741,6 +746,7 @@ const EnhancedReviewMultipleChoice = ({
               Continue
             </button>
           )}
+          </div>
         </div>
       </div>
     );

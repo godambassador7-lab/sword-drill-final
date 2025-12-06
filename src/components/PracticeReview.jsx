@@ -463,7 +463,7 @@ const PracticeReview = ({ onClose, userData }) => {
 
                       {/* Quiz Type Dropdown Menu */}
                       {showQuizTypeMenu === verse.reference && (
-                        <div className="absolute right-0 mt-2 w-56 bg-slate-700 rounded-lg shadow-xl border border-slate-600 z-10">
+                        <div className="absolute right-0 mt-2 w-56 bg-slate-700 rounded-lg shadow-xl border border-slate-600 z-[9999]">
                           <div className="p-2">
                             <div className="text-xs text-slate-400 uppercase font-semibold px-3 py-2">
                               Choose Quiz Type
@@ -471,7 +471,8 @@ const PracticeReview = ({ onClose, userData }) => {
                             {availableQuizTypes.map(quizType => (
                               <button
                                 key={quizType.id}
-                                onClick={() => {
+                                onClick={(e) => {
+                                  e.stopPropagation();
                                   startPractice(verse, quizType.id);
                                   setShowQuizTypeMenu(null);
                                 }}

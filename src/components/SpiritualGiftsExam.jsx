@@ -55,12 +55,15 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
     // Load previous results from Firebase (priority) or localStorage
     if (userData?.spiritualGiftsResults) {
+      console.log('Loading previous results from Firebase:', userData.spiritualGiftsResults);
       setPreviousResults(userData.spiritualGiftsResults);
     } else {
       const savedResults = localStorage.getItem('spiritualGiftsResults');
       if (savedResults) {
         try {
-          setPreviousResults(JSON.parse(savedResults));
+          const parsed = JSON.parse(savedResults);
+          console.log('Loading previous results from localStorage:', parsed);
+          setPreviousResults(parsed);
         } catch (err) {
           console.error('Error loading previous results:', err);
         }
@@ -279,16 +282,18 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                 <History size={28} className="text-blue-400" />
                 <h2 className="text-2xl font-bold text-blue-300">Your Previous Results</h2>
               </div>
-              <p className="text-slate-300 mb-4">
-                You completed this exam on {new Date(previousResults.timestamp).toLocaleDateString()} at {new Date(previousResults.timestamp).toLocaleTimeString()}
-              </p>
+              {previousResults.timestamp && (
+                <p className="text-slate-300 mb-4">
+                  You completed this exam on {new Date(previousResults.timestamp).toLocaleDateString()} at {new Date(previousResults.timestamp).toLocaleTimeString()}
+                </p>
+              )}
 
-              {previousResults.gifts && (
+              {previousResults.gifts && previousResults.gifts.length > 0 && (
                 <div className="bg-slate-900/50 rounded-lg p-4 mb-4">
                   <h3 className="text-lg font-semibold text-blue-200 mb-3">Your Top 3 Gifts:</h3>
                   <div className="space-y-2">
                     {previousResults.gifts.slice(0, 3).map((gift, index) => (
-                      <div key={gift.id} className="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
+                      <div key={gift.id || index} className="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
                         <div className="flex items-center gap-3">
                           <div className={`
                             w-8 h-8 rounded-full flex items-center justify-center font-bold
@@ -298,9 +303,9 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                           `}>
                             {index + 1}
                           </div>
-                          <span className="text-white font-semibold">{gift.name}</span>
+                          <span className="text-white font-semibold">{gift.name || 'Unknown'}</span>
                         </div>
-                        <span className="text-blue-300 font-bold">Score: {gift.score}</span>
+                        <span className="text-blue-300 font-bold">Score: {gift.score || 0}</span>
                       </div>
                     ))}
                   </div>
