@@ -24,7 +24,7 @@ import VerseScrambleQuiz from './VerseScrambleQuiz';
 import BookOrderQuiz from './BookOrderQuiz';
 import SwordDrillUltimate from './SwordDrillUltimate';
 import BiblicalSpellingBee from './BiblicalSpellingBee';
-import EnhancedReviewModal from './EnhancedReviewModal';
+import SimpleFillBlank from './SimpleFillBlank';
 import EnhancedReviewMultipleChoice from './EnhancedReviewMultipleChoice';
 import { getLocalVerseByReference } from '../services/localBibleProvider';
 
@@ -246,14 +246,11 @@ const PracticeReview = ({ onClose, userData }) => {
             />
           )}
           {practiceMode === 'fill-blank' && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
-            <EnhancedReviewModal
+            <SimpleFillBlank
               verse={currentVerseText}
               reference={currentVerse.reference}
               onComplete={completePractice}
               onSkip={completePractice}
-              userPoints={0}
-              isPaidMode={false}
-              completionHistory={[]}
             />
           )}
           {(practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
