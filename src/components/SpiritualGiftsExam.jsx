@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, CheckCircle, ArrowLeft, Download, History, RotateCcw } from 'lucide-react';
+import { Wind, CheckCircle, ArrowLeft, Download, History, RotateCcw } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 
 const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
@@ -219,9 +219,9 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
           <p>Loading Spiritual Gifts Exam...</p>
         </div>
       </div>
@@ -230,12 +230,12 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
   if (!examData) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-400">Error loading exam data</p>
           <button
             onClick={onBack}
-            className="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg"
+            className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg"
           >
             Go Back
           </button>
@@ -247,21 +247,21 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   // Welcome screen - shows before exam starts
   if (showWelcome && !showResults) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6 overflow-y-auto">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white p-6 overflow-y-auto">
         <div className="max-w-3xl mx-auto">
           <button
             onClick={onBack}
-            className="mb-4 flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors"
+            className="mb-4 flex items-center gap-2 text-blue-300 hover:text-blue-200 transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Menu
           </button>
 
-          <div className="bg-slate-800/80 backdrop-blur rounded-xl p-8 border border-purple-500/30 mb-6">
+          <div className="bg-slate-800/80 backdrop-blur rounded-xl p-8 border border-blue-500/30 mb-6">
             <div className="flex items-center gap-3 mb-4">
-              <Heart size={40} className="text-purple-400" />
+              <Wind size={40} className="text-blue-400" />
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
                   Spiritual Gifts Exam
                 </h1>
               </div>
@@ -324,7 +324,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
           <div className="space-y-4">
             <button
               onClick={() => setShowWelcome(false)}
-              className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-bold text-lg transition-all shadow-lg shadow-purple-500/50"
+              className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/50"
             >
               {previousResults ? 'Retake Exam' : 'Begin Exam'}
             </button>
@@ -345,20 +345,20 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
     const maxScore = Math.max(...results.map(r => r.score));
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6 overflow-y-auto">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white p-6 overflow-y-auto">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={onBack}
-            className="mb-4 flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors"
+            className="mb-4 flex items-center gap-2 text-blue-300 hover:text-blue-200 transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Menu
           </button>
 
-          <div className="bg-slate-800/80 backdrop-blur rounded-xl p-8 border border-purple-500/30 mb-6">
+          <div className="bg-slate-800/80 backdrop-blur rounded-xl p-8 border border-blue-500/30 mb-6">
             <div className="flex items-center gap-3 mb-4">
-              <Heart size={32} className="text-purple-400" />
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <Wind size={32} className="text-blue-400" />
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
                 Your Spiritual Gifts Profile
               </h1>
             </div>
@@ -370,12 +370,12 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
           {/* Top Three Gifts */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-purple-300">Your Top Three Gifts</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-300">Your Top Three Gifts</h2>
             <div className="space-y-4">
               {topThreeGifts.map((gift, index) => (
                 <div
                   key={gift.id}
-                  className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-6 border border-purple-500/30"
+                  className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-6 border border-blue-500/30"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">
@@ -387,18 +387,18 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                       `}>
                         {index + 1}
                       </div>
-                      <h3 className="text-xl font-bold text-purple-200">{gift.name}</h3>
+                      <h3 className="text-xl font-bold text-blue-200">{gift.name}</h3>
                     </div>
                     <div className="text-right">
                       <div className="text-sm text-slate-400">Score</div>
-                      <div className="text-2xl font-bold text-purple-300">{gift.score}</div>
+                      <div className="text-2xl font-bold text-blue-300">{gift.score}</div>
                     </div>
                   </div>
 
                   {/* Progress bar */}
                   <div className="mb-4 bg-slate-700/50 rounded-full h-3 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000"
+                      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000"
                       style={{ width: `${(gift.score / maxScore) * 100}%` }}
                     ></div>
                   </div>
@@ -406,21 +406,21 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                   <p className="text-slate-300 mb-3">{gift.summary}</p>
 
                   <div className="mb-3">
-                    <h4 className="font-semibold text-purple-300 mb-1">How to use this gift today:</h4>
+                    <h4 className="font-semibold text-blue-300 mb-1">How to use this gift today:</h4>
                     <p className="text-sm text-slate-300">{gift.how_to_use_today}</p>
                   </div>
 
                   <div className="mb-3">
-                    <h4 className="font-semibold text-purple-300 mb-1">Cultivation tips:</h4>
+                    <h4 className="font-semibold text-blue-300 mb-1">Cultivation tips:</h4>
                     <p className="text-sm text-slate-300">{gift.cultivation_tips}</p>
                   </div>
 
                   {gift.scripture_refs && gift.scripture_refs.length > 0 && (
                     <div className="mb-3">
-                      <h4 className="font-semibold text-purple-300 mb-1">Scripture references:</h4>
+                      <h4 className="font-semibold text-blue-300 mb-1">Scripture references:</h4>
                       <div className="flex flex-wrap gap-2">
                         {gift.scripture_refs.map((ref, idx) => (
-                          <span key={idx} className="text-xs bg-purple-900/30 px-2 py-1 rounded border border-purple-500/30">
+                          <span key={idx} className="text-xs bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30">
                             {ref}
                           </span>
                         ))}
@@ -430,7 +430,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
                   {gift.biblical_examples && gift.biblical_examples.length > 0 && (
                     <div>
-                      <h4 className="font-semibold text-purple-300 mb-1">Biblical examples:</h4>
+                      <h4 className="font-semibold text-blue-300 mb-1">Biblical examples:</h4>
                       <ul className="text-sm text-slate-300 list-disc list-inside">
                         {gift.biblical_examples.map((example, idx) => (
                           <li key={idx}>{example}</li>
@@ -445,16 +445,16 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
           {/* All Results Table */}
           <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-4 text-purple-300">Complete Results</h2>
-            <div className="bg-slate-800/80 backdrop-blur rounded-xl overflow-hidden border border-purple-500/30">
+            <h2 className="text-2xl font-bold mb-4 text-blue-300">Complete Results</h2>
+            <div className="bg-slate-800/80 backdrop-blur rounded-xl overflow-hidden border border-blue-500/30">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-slate-900/80">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-purple-300">Rank</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-purple-300">Gift</th>
-                      <th className="px-4 py-3 text-right text-sm font-semibold text-purple-300">Score</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-purple-300">Strength</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Rank</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Gift</th>
+                      <th className="px-4 py-3 text-right text-sm font-semibold text-blue-300">Score</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Strength</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-700">
@@ -462,11 +462,11 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                       <tr key={gift.id} className="hover:bg-slate-700/30 transition-colors">
                         <td className="px-4 py-3 text-sm">{index + 1}</td>
                         <td className="px-4 py-3 text-sm font-medium">{gift.name}</td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold text-purple-300">{gift.score}</td>
+                        <td className="px-4 py-3 text-sm text-right font-semibold text-blue-300">{gift.score}</td>
                         <td className="px-4 py-3">
                           <div className="w-full bg-slate-700/50 rounded-full h-2">
                             <div
-                              className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                              className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
                               style={{ width: `${(gift.score / maxScore) * 100}%` }}
                             ></div>
                           </div>
@@ -505,7 +505,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
             </button>
             <button
               onClick={resetExam}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
             >
               <RotateCcw size={20} />
               Retake Exam
@@ -529,12 +529,12 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const currentResponse = responses[question.id];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6 overflow-y-auto">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white p-6 overflow-y-auto">
       <div className="max-w-3xl mx-auto">
         <div className="mb-4 flex items-center justify-between">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors"
+            className="flex items-center gap-2 text-blue-300 hover:text-blue-200 transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Menu
@@ -552,11 +552,11 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
         </div>
 
         {/* Header */}
-        <div className="bg-slate-800/80 backdrop-blur rounded-xl p-6 border border-purple-500/30 mb-6">
+        <div className="bg-slate-800/80 backdrop-blur rounded-xl p-6 border border-blue-500/30 mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <Heart size={32} className="text-purple-400" />
+            <Wind size={32} className="text-blue-400" />
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent">
                 {examData.metadata.title}
               </h1>
               <p className="text-sm text-slate-400">
@@ -568,14 +568,14 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
           {/* Progress bar */}
           <div className="bg-slate-700/50 rounded-full h-3 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300"
+              className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
 
         {/* Question */}
-        <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-8 border border-purple-500/30 mb-6">
+        <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-8 border border-blue-500/30 mb-6">
           <p className="text-xl mb-8 leading-relaxed">{question.text}</p>
 
           {/* Response options */}
@@ -587,15 +587,15 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                 className={`
                   w-full p-4 rounded-lg text-left transition-all border-2
                   ${currentResponse === value
-                    ? 'bg-purple-600 border-purple-400 shadow-lg shadow-purple-500/50'
-                    : 'bg-slate-700/50 border-slate-600 hover:border-purple-500/50 hover:bg-slate-700'
+                    ? 'bg-blue-600 border-blue-400 shadow-lg shadow-blue-500/50'
+                    : 'bg-slate-700/50 border-slate-600 hover:border-blue-500/50 hover:bg-slate-700'
                   }
                 `}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{scaleLabels[value]}</span>
                   {currentResponse === value && (
-                    <CheckCircle size={20} className="text-purple-200" />
+                    <CheckCircle size={20} className="text-blue-200" />
                   )}
                 </div>
               </button>
@@ -615,7 +615,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
           <button
             onClick={handleNext}
             disabled={!currentResponse}
-            className="flex-1 px-6 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors"
+            className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-800 disabled:text-slate-600 disabled:cursor-not-allowed rounded-lg font-semibold transition-colors"
           >
             {currentQuestion === examData.questions.length - 1 ? 'See Results' : 'Next'}
           </button>

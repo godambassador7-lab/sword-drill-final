@@ -988,9 +988,8 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-  const verseIndex = dayOfYear % VERSE_DATABASE.length;
-  setVerseOfDay(VERSE_DATABASE[verseIndex]);
+  const verse = getDailyVerse(new Date());
+  setVerseOfDay(verse);
 
   // Check if verse of day was already read today
   const todayString = new Date().toISOString().split('T')[0];
@@ -6217,8 +6216,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   };
 
   const BonusQuizzesView = () => (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between mb-4">
+    <div className="space-y-6 min-h-[70vh] flex flex-col">
+      <div className="flex items-center justify-between mb-2 sm:mb-4 sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 py-3 -mx-4 px-4 sm:static sm:py-0 sm:px-0">
         <h2 className="text-2xl font-bold text-amber-400">Bonus Quizzes</h2>
         <button
           onClick={() => setCurrentView('home')}
@@ -6238,7 +6237,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 overflow-y-auto -mx-1 px-1 pb-4" style={{ maxHeight: 'calc(100vh - 200px)' }}>
         <button
           onClick={() => setCurrentView('spelling-bee')}
           disabled={loading}
@@ -6586,7 +6585,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-cyan-600/20 hover:to-blue-600/20 transition-all flex items-center gap-3"
                   >
-                    <GraduationCap size={18} className="text-cyan-400" /> Spiritual Gifts Exam
+                    <Wind size={18} className="text-cyan-400" /> Spiritual Gifts Exam
                   </button>
                 </div>
               </div>
