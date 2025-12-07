@@ -5728,13 +5728,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
             {userData.unlockables?.kjvStrongs ? (
               <div className="bg-emerald-600/20 text-emerald-200 font-semibold py-2 px-4 rounded-lg text-center">
-                バ" Unlocked
+                ✓ Unlocked
               </div>
             ) : (
               <button
                 onClick={() => {
                   if (userData.totalPoints >= 1000) {
-                    if (window.confirm('Unlock KJV w/ Strong\\'s interlinear for 1000 points?')) {
+                    if (window.confirm("Unlock KJV w/ Strong's interlinear for 1000 points?")) {
                       playChaChing();
                       if (currentUser?.uid) {
                         purchaseUnlockable(currentUser.uid, 'kjvStrongs', 1000).then(result => {
@@ -5744,7 +5744,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               totalPoints: result.validatedData.totalPoints,
                               unlockables: result.validatedData.unlockables
                             }));
-                            showToast("dY\"o KJV w/ Strong's unlocked!", 'success');
+                            showToast("KJV w/ Strong's unlocked!", 'success');
                           } else {
                             showToast(result.error || 'Failed to unlock', 'error');
                           }
