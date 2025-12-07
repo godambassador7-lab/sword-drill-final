@@ -3584,6 +3584,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <input
               key={`reference-recall-${quizState.quizId}`}
               type="text"
+              inputMode="text"
               value={quizState.userAnswer || ''}
               onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
               placeholder="Type the reference (e.g., John 3:16)..."
