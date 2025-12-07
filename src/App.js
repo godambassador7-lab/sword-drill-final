@@ -724,7 +724,11 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     ...(remoteProgress.achievementClickHistory || {})
   };
 
+  // Merge ALL unlockables (not just hardcoded ones) - includes courses, translations, etc.
   const unlockables = {
+    ...(localProgress.unlockables || {}),
+    ...(remoteProgress.unlockables || {}),
+    // Ensure default unlockables exist
     lxx: (localProgress.unlockables?.lxx || remoteProgress.unlockables?.lxx) || false,
     masoretic: (localProgress.unlockables?.masoretic || remoteProgress.unlockables?.masoretic) || false,
     sinaiticus: (localProgress.unlockables?.sinaiticus || remoteProgress.unlockables?.sinaiticus) || false,
