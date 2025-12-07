@@ -192,6 +192,13 @@ export const TRANSLATION_STYLES = {
     comparable: 'Similar era to KJV',
     year: '1560',
     description: 'First Bible with verse numbers, used by Pilgrims'
+  },
+  KJV_STRONGS: {
+    name: "KJV w/ Strong's Numbers",
+    style: 'Interlinear Study',
+    comparable: "KJV text tagged with Strong's",
+    year: "1611 + Strong's (1890)",
+    description: "KJV wording alongside Strong's numbers for rapid lexicon lookups"
   }
 };
 

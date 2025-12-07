@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Search, X, Columns, Heart, BookmarkPlus, BookOpen } from 'lucide-react';
 import { simplifyText } from '../services/simplifiedMode';
+import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
 
 const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, userData, onUpdateUserData }) => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -28,8 +29,9 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const [filteredVerses, setFilteredVerses] = useState([]);
 
   // Validate and fix translation (public domain only)
-  const validTranslations = ['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'];
-  const activeTranslation = validTranslations.includes(selectedTranslation?.toUpperCase())
+  const validTranslations = ['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA', 'KJV_STRONGS'];
+  const unlockedTranslations = validTranslations.filter(t => t !== 'KJV_STRONGS' || userData?.unlockables?.kjvStrongs);
+  const activeTranslation = unlockedTranslations.includes(selectedTranslation?.toUpperCase())
     ? selectedTranslation.toUpperCase()
     : 'KJV';
 
@@ -194,6 +196,18 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const loadChapter = async (book, chapter) => {
     setLoading(true);
     try {
+      if (activeTranslation === 'KJV_STRONGS') {
+        const verses = await getKjvStrongsChapter(book.name, chapter);
+        if (verses && verses.length > 0) {
+          setChapterContent(verses);
+        } else {
+          setChapterContent([
+            { verse: 1, text: `No Strong's data for ${book.name} ${chapter}` }
+          ]);
+        }
+        setLoading(false);
+        return;
+      }
       // Load from local Bible files using the validated translation
       // Files are named by book name (e.g., Genesis.json)
       // Using process.env.PUBLIC_URL to ensure correct path in all environments
@@ -256,6 +270,18 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const loadSecondaryChapter = async (book, chapter, translation) => {
     setLoadingSecondary(true);
     try {
+      if (translation === 'KJV_STRONGS') {
+        const verses = await getKjvStrongsChapter(book.name, chapter);
+        if (verses && verses.length > 0) {
+          setSecondaryChapterContent(verses);
+        } else {
+          setSecondaryChapterContent([
+            { verse: 1, text: `No Strong's data for ${book.name} ${chapter}` }
+          ]);
+        }
+        setLoadingSecondary(false);
+        return;
+      }
       const url = `${process.env.PUBLIC_URL}/bible/${translation.toLowerCase()}/${book.name}.json`;
       console.log('Fetching secondary translation:', url);
 
@@ -337,6 +363,26 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
     try {
       for (const book of bibleBooks) {
+        if (activeTranslation === 'KJV_STRONGS') {
+          for (let ch = 1; ch <= book.chapters; ch++) {
+            const verses = await getKjvStrongsChapter(book.name, ch);
+            if (!verses || verses.length === 0) continue;
+
+            verses.forEach(v => {
+              const cleanedText = (v.text || '').toLowerCase();
+              if (searchTerms.every(term => cleanedText.includes(term))) {
+                results.push({
+                  book: book.name,
+                  chapter: ch,
+                  verse: v.verse,
+                  text: v.text,
+                  bookData: book
+                });
+              }
+            });
+          }
+          continue;
+        }
         const url = `${process.env.PUBLIC_URL}/bible/${activeTranslation.toLowerCase()}/${book.name}.json`;
 
         try {
@@ -417,6 +463,10 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   };
 
   const handleSecondaryTranslationChange = (translation) => {
+    if (translation === 'KJV_STRONGS' && !userData?.unlockables?.kjvStrongs) {
+      alert("Unlock KJV w/ Strong's before using it as a parallel translation.");
+      return;
+    }
     setSecondaryTranslation(translation);
 
     // Reload secondary chapter with new translation if in parallel mode
@@ -521,7 +571,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             onChange={(e) => handleSecondaryTranslationChange(e.target.value)}
             className="w-full px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none"
           >
-            {validTranslations
+            {unlockedTranslations
               .filter(trans => trans !== activeTranslation)
               .map(trans => (
                 <option key={trans} value={trans}>

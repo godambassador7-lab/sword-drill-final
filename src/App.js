@@ -82,6 +82,7 @@ import { getRandomMemoryTip } from './data/memoryTips';
 import { getAllReferencesForDifficulty } from './data/versesByDifficulty';
 import { DAILY_VERSES_POOL } from './dailyVerses';
 import { getLocalVerseByReference, getLocalVersesRange } from './services/localBibleProvider';
+import { getKjvStrongsVerse, getKjvStrongsRange } from './services/kjvStrongsProvider';
 import { getVerseByReference as getStaticVerseByReference } from './services/assistant/retrieval/bibleProvider';
 import { recordQuizAttempt } from './services/quizTracker';
 import PracticeReview from './components/PracticeReview';
@@ -180,10 +181,12 @@ const ECONOMY = {
   }
 };
 
-const SUPPORTED_TRANSLATIONS = ['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT'];
+const SUPPORTED_TRANSLATIONS = ['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT', 'KJV_STRONGS'];
 const normalizeTranslation = (t) => {
-  const normalized = (t || '').toUpperCase().trim();
+  const raw = (t || '').toUpperCase().trim();
+  const normalized = raw.replace(/[\s-]+/g, '_');
   if (normalized === 'NKJV') return 'KJV'; // map NKJV to local KJV corpus
+  if (normalized === 'KJV_STRONGS') return 'KJV_STRONGS';
   return SUPPORTED_TRANSLATIONS.includes(normalized) ? normalized : 'KJV';
 };
 
@@ -726,7 +729,8 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     masoretic: (localProgress.unlockables?.masoretic || remoteProgress.unlockables?.masoretic) || false,
     sinaiticus: (localProgress.unlockables?.sinaiticus || remoteProgress.unlockables?.sinaiticus) || false,
     smithDictionary: (localProgress.unlockables?.smithDictionary || remoteProgress.unlockables?.smithDictionary) || false,
-    bloodlines: (localProgress.unlockables?.bloodlines || remoteProgress.unlockables?.bloodlines) || false
+    bloodlines: (localProgress.unlockables?.bloodlines || remoteProgress.unlockables?.bloodlines) || false,
+    kjvStrongs: (localProgress.unlockables?.kjvStrongs || remoteProgress.unlockables?.kjvStrongs) || false
   };
 
   // Merge quiz history (local + remote)
@@ -768,6 +772,11 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   // Account created (prefer remote, fallback to local, default to now)
   const accountCreated = remoteProgress.accountCreated || localProgress.accountCreated || Date.now();
 
+  const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
+  const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
+    ? 'KJV'
+    : preferredTranslation;
+
   return {
     name: remoteProgress.name || localProgress.name || 'Guest',
     versesMemorized: Math.max(localProgress.versesMemorized || 0, remoteProgress.versesMemorized || 0),
@@ -775,7 +784,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     currentStreak,
     totalPoints: Math.max(localProgress.totalPoints || 0, remoteProgress.totalPoints || 0),
     achievements,
-    selectedTranslation: normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV'),
+    selectedTranslation: safeTranslation,
     includeApocrypha: remoteProgress.includeApocrypha ?? localProgress.includeApocrypha ?? false,
     verseProgress,
     currentLevel: remoteProgress.currentLevel || localProgress.currentLevel || 'Beginner',
@@ -867,7 +876,8 @@ const SwordDrillApp = () => {
       masoretic: false,  // Masoretic Text (Hebrew OT) - Unlock at 7500 pts
       sinaiticus: false, // Codex Sinaiticus - Unlock at 10000 pts
       smithDictionary: false, // Smith's Bible Dictionary - Unlock at 500 pts
-      bloodlines: false // Bible Bloodlines unlock
+      bloodlines: false, // Bible Bloodlines unlock
+      kjvStrongs: false // KJV with Strong's numbers (interlinear)
     },
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
@@ -1023,7 +1033,7 @@ useEffect(() => {
           includeApocrypha: result.user.includeApocrypha || false,
           verseProgress: verseProgressData,
           currentLevel: result.progress.currentLevel || 'Beginner',
-          unlockables: result.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false },
+          unlockables: result.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
           newlyUnlockedAchievements: result.progress.newlyUnlockedAchievements || [],
           achievementClickHistory: result.progress.achievementClickHistory || {},
           quizHistory: result.progress.quizHistory || [],
@@ -1405,7 +1415,7 @@ const handleSignIn = async (e) => {
           includeApocrypha: data.user.includeApocrypha || false,
           verseProgress: verseProgressData,
           currentLevel: data.progress.currentLevel || 'Beginner',
-          unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false },
+          unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
           newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
           achievementClickHistory: data.progress.achievementClickHistory || {},
           quizHistory: data.progress.quizHistory || []
@@ -1443,7 +1453,7 @@ const handleSignIn = async (e) => {
       includeApocrypha: false,
       verseProgress: {},
       currentLevel: 'Beginner',
-      unlockables: { lxx: false, masoretic: false, sinaiticus: false }
+      unlockables: { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false }
     });
     setIsLoggedIn(true);
   } else {
@@ -1625,6 +1635,12 @@ const stripVerseNumbers = (text) => {
 
 const resolveVerseText = async (reference, translationPref, options = {}) => {
   const preferred = normalizeTranslation(translationPref || 'KJV');
+  if (preferred === 'KJV_STRONGS') {
+    const strongsRange = await getKjvStrongsRange(reference);
+    if (strongsRange) return strongsRange;
+    const strongs = await getKjvStrongsVerse(reference);
+    if (strongs) return strongs;
+  }
   // 1) Try local corpus (handles ranges)
   const localRange = await getLocalVersesRange(preferred, reference, options);
   if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || preferred };
@@ -5685,6 +5701,69 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
         </div>
 
+        {/* Translation Upgrades */}
+        <div className="bg-gradient-to-br from-slate-900/60 to-slate-800/60 rounded-2xl p-6 border-2 border-emerald-500/40 mt-6">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen size={28} className="text-emerald-400" />
+            <h2 className="text-2xl font-bold text-emerald-300">Translation Upgrades</h2>
+          </div>
+          <p className="text-slate-300 text-sm mb-4">
+            Unlock study-friendly translations with inline Strong&apos;s numbers
+          </p>
+
+          <div className={`bg-gradient-to-br from-emerald-900/30 to-cyan-900/30 rounded-xl p-4 border-2 ${
+            !userData.unlockables?.kjvStrongs && userData.totalPoints >= 1000
+              ? 'border-amber-500 animate-shimmer-border'
+              : 'border-emerald-600/30'
+          }`}>
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-bold text-emerald-300">KJV w/ Strong&apos;s</h3>
+                  {!userData.unlockables?.kjvStrongs && <Lock size={14} className="text-amber-400" />}
+                </div>
+                <p className="text-emerald-200 text-sm mt-1">Interlinear KJV with inline Strong&apos;s numbers</p>
+              </div>
+              <div className="text-amber-400 font-bold text-lg">1000 pts</div>
+            </div>
+            {userData.unlockables?.kjvStrongs ? (
+              <div className="bg-emerald-600/20 text-emerald-200 font-semibold py-2 px-4 rounded-lg text-center">
+                バ" Unlocked
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  if (userData.totalPoints >= 1000) {
+                    if (window.confirm('Unlock KJV w/ Strong\\'s interlinear for 1000 points?')) {
+                      playChaChing();
+                      if (currentUser?.uid) {
+                        purchaseUnlockable(currentUser.uid, 'kjvStrongs', 1000).then(result => {
+                          if (result.success && result.validatedData) {
+                            setUserData(prev => ({
+                              ...prev,
+                              totalPoints: result.validatedData.totalPoints,
+                              unlockables: result.validatedData.unlockables
+                            }));
+                            showToast("dY\"o KJV w/ Strong's unlocked!", 'success');
+                          } else {
+                            showToast(result.error || 'Failed to unlock', 'error');
+                          }
+                        }).catch(err => showToast(err.message || 'Failed to unlock', 'error'));
+                      }
+                    }
+                  } else {
+                    showToast('Need 1000 points to unlock KJV w/ Strong\\'s', 'error');
+                  }
+                }}
+                disabled={userData.totalPoints < 1000}
+                className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Purchase
+              </button>
+            )}
+          </div>
+        </div>
+
         <button
           onClick={() => setCurrentView('home')}
           className="w-full bg-slate-600 hover:bg-slate-500 text-white font-bold py-3 rounded-xl transition-all mt-6"
@@ -6096,17 +6175,29 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <label className="block text-white font-bold mb-3">Bible Translation</label>
           <select
             value={userData.selectedTranslation}
-            onChange={(e) => setUserData({...userData, selectedTranslation: e.target.value})}
+            onChange={(e) => {
+              const next = e.target.value;
+              if (next === 'KJV_STRONGS' && !userData.unlockables?.kjvStrongs) {
+                showToast("Unlock KJV w/ Strong's in the store (1000 pts)", 'error');
+                return;
+              }
+              setUserData({ ...userData, selectedTranslation: next });
+            }}
             className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
           >
             <option value="KJV">King James Version (KJV)</option>
+            <option value="KJV_STRONGS" disabled={!userData.unlockables?.kjvStrongs}>
+              KJV w/ Strong's (Interlinear with Strong's numbers)
+            </option>
             <option value="ASV">American Standard Version (ASV)</option>
             <option value="WEB">World English Bible (WEB)</option>
             <option value="YLT">Young's Literal Translation (YLT)</option>
             <option value="Bishops">Bishops' Bible</option>
             <option value="Geneva">Geneva Bible</option>
           </select>
-          <p className="text-slate-400 text-xs mt-2">All translations are stored locally - no internet connection required</p>
+          <p className="text-slate-400 text-xs mt-2">
+            All translations are stored locally - no internet connection required. Unlock Strong's tagging for KJV in the shop.
+          </p>
 
           {/* Translation Style Info */}
           {TRANSLATION_STYLES[userData.selectedTranslation?.toUpperCase()] && (
@@ -7174,7 +7265,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <SwordDrillUltimate
             userLevel={userData.currentLevel || 'Beginner'}
             verseProgress={userData.verseProgress || {}}
-            getLocalVerseByReference={(ref) => getLocalVerseByReference(userData.selectedTranslation || 'KJV', ref, { simplifiedMode: userData.simplifiedMode })}
+            getLocalVerseByReference={(ref) => {
+              const t = (userData.selectedTranslation || 'KJV').toUpperCase();
+              if (t === 'KJV_STRONGS') {
+                return getKjvStrongsVerse(ref);
+              }
+              return getLocalVerseByReference(t, ref, { simplifiedMode: userData.simplifiedMode });
+            }}
             onComplete={(results) => {
               // Fade out background music
               fadeOutMusic();
