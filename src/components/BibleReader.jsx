@@ -639,7 +639,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             </div>
           ) : searchResults.length > 0 ? (
             <div className="bg-slate-800/50 rounded-lg p-4 max-h-96 overflow-y-auto">
-              <h3 className="text-lg font-bold text-amber-400 mb-4 sticky top-0 bg-slate-800 pb-2 border-b border-slate-700">
+              <h3 className="text-lg font-bold text-amber-400 mb-4 sticky top-0 bg-slate-800 pb-2 border-b border-slate-700 z-10">
                 Found {searchResults.length} verses {searchResults.length === 100 && '(showing first 100)'}
               </h3>
               <div className="space-y-3">
