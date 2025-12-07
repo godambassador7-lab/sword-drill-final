@@ -372,29 +372,6 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
               Discover your spiritual gifts through this comprehensive biblical assessment.
               Answer thoughtfully and prayerfully to identify how the Holy Spirit has gifted you to serve the Body of Christ.
             </p>
-
-            {/* Debug info - always visible for troubleshooting */}
-            <div className="mt-4 p-3 bg-amber-900/30 rounded border border-amber-500/50 text-xs">
-              <p className="text-amber-200 font-bold mb-1">Debug Info:</p>
-              <p className="text-amber-200">• previousResults: {previousResults ? 'YES' : 'NO'}</p>
-              {previousResults && (
-                <>
-                  <p className="text-amber-200">• Gifts count: {previousResults.gifts?.length || 0}</p>
-                  <p className="text-amber-200">• Has timestamp: {previousResults.timestamp ? 'YES' : 'NO'}</p>
-                  {previousResults.timestamp && (
-                    <p className="text-amber-200">• Date: {new Date(previousResults.timestamp).toLocaleDateString()}</p>
-                  )}
-                </>
-              )}
-              <p className="text-amber-200">• userData exists: {userData ? 'YES' : 'NO'}</p>
-              <p className="text-amber-200">• userData.spiritualGiftsResults: {userData?.spiritualGiftsResults ? 'YES' : 'NO'}</p>
-              {userData?.spiritualGiftsResults && (
-                <p className="text-amber-200">• Firebase gifts count: {userData.spiritualGiftsResults.gifts?.length || (Array.isArray(userData.spiritualGiftsResults) ? userData.spiritualGiftsResults.length : 0)}</p>
-              )}
-              <p className="text-amber-200">• userId: {userId || 'NONE'}</p>
-              <p className="text-amber-200">• localStorage check: {localStorage.getItem('spiritualGiftsResults') ? 'EXISTS' : 'NONE'}</p>
-              <p className="text-amber-200">• dataLoaded: {dataLoaded ? 'YES' : 'NO'}</p>
-            </div>
           </div>
 
           {/* Previous Results Section */}
@@ -505,20 +482,20 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                   className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-6 border border-blue-500/30"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                       <div className={`
-                        w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl
+                        w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0
                         ${index === 0 ? 'bg-yellow-500/20 text-yellow-300 border-2 border-yellow-400' : ''}
                         ${index === 1 ? 'bg-slate-400/20 text-slate-300 border-2 border-slate-400' : ''}
                         ${index === 2 ? 'bg-amber-600/20 text-amber-400 border-2 border-amber-500' : ''}
                       `}>
                         {index + 1}
                       </div>
-                      <h3 className="text-xl font-bold text-blue-200">{gift.name}</h3>
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-blue-200 truncate">{gift.name}</h3>
                     </div>
-                    <div className="text-right">
-                      <div className="text-sm text-slate-400">Score</div>
-                      <div className="text-2xl font-bold text-blue-300">{gift.score}</div>
+                    <div className="text-right flex-shrink-0 ml-2">
+                      <div className="text-xs sm:text-sm text-slate-400">Score</div>
+                      <div className="text-xl sm:text-2xl font-bold text-blue-300">{gift.score}</div>
                     </div>
                   </div>
 
@@ -572,25 +549,25 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
           {/* All Results Table */}
           <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-4 text-blue-300">Complete Results</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-blue-300">Complete Results</h2>
             <div className="bg-slate-800/80 backdrop-blur rounded-xl overflow-hidden border border-blue-500/30">
               <div className="overflow-x-auto">
-                <table className="w-full">
+                <table className="w-full min-w-full">
                   <thead className="bg-slate-900/80">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Rank</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Gift</th>
-                      <th className="px-4 py-3 text-right text-sm font-semibold text-blue-300">Score</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-blue-300">Strength</th>
+                      <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-blue-300 w-12 sm:w-16">Rank</th>
+                      <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-blue-300">Gift</th>
+                      <th className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm font-semibold text-blue-300 w-16 sm:w-20">Score</th>
+                      <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-blue-300 w-24 sm:w-32">Strength</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-700">
                     {results.map((gift, index) => (
                       <tr key={gift.id} className="hover:bg-slate-700/30 transition-colors">
-                        <td className="px-4 py-3 text-sm">{index + 1}</td>
-                        <td className="px-4 py-3 text-sm font-medium">{gift.name}</td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold text-blue-300">{gift.score}</td>
-                        <td className="px-4 py-3">
+                        <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm">{index + 1}</td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium truncate max-w-[120px] sm:max-w-none">{gift.name}</td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-right font-semibold text-blue-300">{gift.score}</td>
+                        <td className="px-2 sm:px-4 py-2 sm:py-3">
                           <div className="w-full bg-slate-700/50 rounded-full h-2">
                             <div
                               className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
