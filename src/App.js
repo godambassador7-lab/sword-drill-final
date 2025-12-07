@@ -781,6 +781,11 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   // Merge spiritual gifts exam results (prefer remote, fallback to local)
   const spiritualGiftsResults = remoteProgress.spiritualGiftsResults || localProgress.spiritualGiftsResults || null;
 
+  // Merge course progress (prefer remote, fallback to local)
+  const kingsOfIsraelProgress = remoteProgress.kingsOfIsraelProgress || localProgress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] };
+  const ancientHebrewProgress = remoteProgress.ancientHebrewProgress || localProgress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] };
+  const hermeneuticsProgress = remoteProgress.hermeneuticsProgress || localProgress.hermeneuticsProgress || { beginner: [], intermediate: [], advanced: [] };
+
   const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
   const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
     ? 'KJV'
@@ -799,6 +804,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     currentLevel: remoteProgress.currentLevel || localProgress.currentLevel || 'Beginner',
     unlockables,
     spiritualGiftsResults,
+    kingsOfIsraelProgress,
+    ancientHebrewProgress,
+    hermeneuticsProgress,
     newlyUnlockedAchievements,
     achievementClickHistory,
     quizHistory,
@@ -890,6 +898,9 @@ const SwordDrillApp = () => {
       kjvStrongs: false // KJV with Strong's numbers (interlinear)
     },
     spiritualGiftsResults: null,
+    kingsOfIsraelProgress: { beginner: [], intermediate: [], advanced: [] },
+    ancientHebrewProgress: { beginner: [], intermediate: [], advanced: [] },
+    hermeneuticsProgress: { beginner: [], intermediate: [], advanced: [] },
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
     quizHistory: [], // Track individual quiz attempts (for calendar)
@@ -1053,6 +1064,9 @@ useEffect(() => {
           hintPurchases: result.progress.hintPurchases || [],
           activeBoosts: result.progress.activeBoosts || [],
           spiritualGiftsResults: result.progress.spiritualGiftsResults || null,
+          kingsOfIsraelProgress: result.progress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] },
+          ancientHebrewProgress: result.progress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] },
+          hermeneuticsProgress: result.progress.hermeneuticsProgress || { beginner: [], intermediate: [], advanced: [] },
           accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
@@ -1467,7 +1481,10 @@ const handleSignIn = async (e) => {
       verseProgress: {},
       currentLevel: 'Beginner',
       unlockables: { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
-      spiritualGiftsResults: null
+      spiritualGiftsResults: null,
+      kingsOfIsraelProgress: { beginner: [], intermediate: [], advanced: [] },
+      ancientHebrewProgress: { beginner: [], intermediate: [], advanced: [] },
+      hermeneuticsProgress: { beginner: [], intermediate: [], advanced: [] }
     });
     setIsLoggedIn(true);
   } else {
