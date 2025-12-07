@@ -679,9 +679,8 @@ const saveProgressToLocalStorage = (progress) => {
       hintPurchases,
       investments,
       activeBoosts,
-      spiritualGiftsResults
-      accountCreated,
-      spiritualGiftsResults
+      spiritualGiftsResults,
+      accountCreated
     };
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
