@@ -35,6 +35,34 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
   const [currentVerseText, setCurrentVerseText] = useState('');
   const [showQuizTypeMenu, setShowQuizTypeMenu] = useState(null); // Track which verse's menu is open
 
+  // Abbreviate book names for compact display
+  const abbreviateReference = (reference) => {
+    const bookAbbreviations = {
+      'Genesis': 'Gen', 'Exodus': 'Exod', 'Leviticus': 'Lev', 'Numbers': 'Num', 'Deuteronomy': 'Deut',
+      'Joshua': 'Josh', 'Judges': 'Judg', 'Ruth': 'Ruth', '1 Samuel': '1 Sam', '2 Samuel': '2 Sam',
+      '1 Kings': '1 Kgs', '2 Kings': '2 Kgs', '1 Chronicles': '1 Chr', '2 Chronicles': '2 Chr',
+      'Ezra': 'Ezra', 'Nehemiah': 'Neh', 'Esther': 'Esth', 'Job': 'Job', 'Psalm': 'Ps', 'Psalms': 'Ps',
+      'Proverbs': 'Prov', 'Ecclesiastes': 'Eccl', 'Song of Solomon': 'Song', 'Isaiah': 'Isa',
+      'Jeremiah': 'Jer', 'Lamentations': 'Lam', 'Ezekiel': 'Ezek', 'Daniel': 'Dan', 'Hosea': 'Hos',
+      'Joel': 'Joel', 'Amos': 'Amos', 'Obadiah': 'Obad', 'Jonah': 'Jonah', 'Micah': 'Mic',
+      'Nahum': 'Nah', 'Habakkuk': 'Hab', 'Zephaniah': 'Zeph', 'Haggai': 'Hag', 'Zechariah': 'Zech',
+      'Malachi': 'Mal', 'Matthew': 'Matt', 'Mark': 'Mark', 'Luke': 'Luke', 'John': 'John',
+      'Acts': 'Acts', 'Romans': 'Rom', '1 Corinthians': '1 Cor', '2 Corinthians': '2 Cor',
+      'Galatians': 'Gal', 'Ephesians': 'Eph', 'Philippians': 'Phil', 'Colossians': 'Col',
+      '1 Thessalonians': '1 Thess', '2 Thessalonians': '2 Thess', '1 Timothy': '1 Tim',
+      '2 Timothy': '2 Tim', 'Titus': 'Titus', 'Philemon': 'Phlm', 'Hebrews': 'Heb',
+      'James': 'Jas', '1 Peter': '1 Pet', '2 Peter': '2 Pet', '1 John': '1 John',
+      '2 John': '2 John', '3 John': '3 John', 'Jude': 'Jude', 'Revelation': 'Rev'
+    };
+
+    for (const [full, abbr] of Object.entries(bookAbbreviations)) {
+      if (reference.startsWith(full)) {
+        return reference.replace(full, abbr);
+      }
+    }
+    return reference;
+  };
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = () => {
@@ -293,10 +321,10 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20 z-40 overflow-y-auto">
+    <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20 z-40 overflow-y-auto overflow-x-hidden">
       {/* Header */}
       <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg z-10 border-b-2 border-blue-500/30">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <RefreshCw className="text-blue-100" size={32} />
             <div>
@@ -315,7 +343,7 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 py-6 space-y-6">
         {/* Info Banner */}
         <div className="bg-blue-900/40 border border-blue-600/50 rounded-lg p-6">
           <div className="flex items-start gap-4">
@@ -514,14 +542,14 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
                   key={verse.reference}
                   className="bg-slate-700/50 rounded-lg p-4 border border-slate-600 hover:border-blue-500/50 transition-all"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-lg font-bold text-amber-400">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
+                        <span className="text-base sm:text-lg font-bold text-amber-400 flex-shrink-0">
                           #{index + 1}
                         </span>
-                        <h4 className="text-lg font-bold text-slate-100">
-                          {verse.reference}
+                        <h4 className="text-base sm:text-lg font-bold text-slate-100 truncate">
+                          {abbreviateReference(verse.reference)}
                         </h4>
                         <span
                           className={`
@@ -537,17 +565,17 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
                           {verse.accuracy}% accuracy
                         </span>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-slate-400">
-                        <span>✓ {verse.correctCount} correct</span>
-                        <span>✗ {verse.incorrectCount} missed</span>
+                      <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-slate-400 flex-wrap">
+                        <span className="flex-shrink-0">✓ {verse.correctCount}</span>
+                        <span className="flex-shrink-0">✗ {verse.incorrectCount}</span>
                         {verse.lastReview && (
-                          <span>
-                            Last review: {new Date(verse.lastReview).toLocaleDateString()}
+                          <span className="hidden sm:inline">
+                            Last: {new Date(verse.lastReview).toLocaleDateString()}
                           </span>
                         )}
                       </div>
                     </div>
-                    <div className="relative">
+                    <div className="relative flex-shrink-0">
                       {/* Practice Button with Dropdown */}
                       <button
                         onClick={(e) => {
