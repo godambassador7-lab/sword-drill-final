@@ -91,8 +91,8 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     setCurrentVerse(verse);
     setPracticeMode(quizType);
 
-    // Fetch verse text for fill-blank, multiple-choice, and reference-recall
-    if (['fill-blank', 'multiple-choice', 'reference-recall'].includes(quizType)) {
+    // Fetch verse text for verse-scramble, fill-blank, multiple-choice, and reference-recall
+    if (['verse-scramble', 'fill-blank', 'multiple-choice', 'reference-recall'].includes(quizType)) {
       console.log('Fetching verse text for:', verse.reference);
       setCurrentVerseText(''); // Reset first
       try {
@@ -216,9 +216,9 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
           </div>
 
           {/* Render appropriate quiz */}
-          {practiceMode === 'verse-scramble' && (
+          {practiceMode === 'verse-scramble' && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
             <VerseScrambleQuiz
-              verse={practiceVerse}
+              verse={{ ...practiceVerse, text: currentVerseText }}
               onComplete={completePractice}
               onSkip={completePractice}
               isPracticeMode={true}
@@ -266,7 +266,7 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
               completionHistory={[]}
             />
           )}
-          {(practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && (!currentVerseText || currentVerseText.startsWith('ERROR:')) && (
+          {(practiceMode === 'verse-scramble' || practiceMode === 'fill-blank' || practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && (!currentVerseText || currentVerseText.startsWith('ERROR:')) && (
             <div className="bg-slate-800 rounded-lg p-8 border border-slate-700 text-center">
               <AlertCircle className="text-amber-400 mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold text-slate-100 mb-2">
