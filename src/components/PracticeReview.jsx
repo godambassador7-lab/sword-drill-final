@@ -18,7 +18,9 @@ import {
   AlertCircle,
   CheckCircle2,
   BookOpen,
-  ChevronDown
+  ChevronDown,
+  Award,
+  TrendingUp
 } from 'lucide-react';
 import VerseScrambleQuiz from './VerseScrambleQuiz';
 import BookOrderQuiz from './BookOrderQuiz';
@@ -28,12 +30,19 @@ import SimpleFillBlank from './SimpleFillBlank';
 import EnhancedReviewMultipleChoice from './EnhancedReviewMultipleChoice';
 import { getLocalVerseByReference } from '../services/localBibleProvider';
 
-const PracticeReview = ({ onClose, userData, showToast }) => {
+const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
   const [selectedFilter, setSelectedFilter] = useState('all'); // all, verse-scramble, book-order, sword-drill
   const [practiceMode, setPracticeMode] = useState(null);
   const [currentVerse, setCurrentVerse] = useState(null);
   const [currentVerseText, setCurrentVerseText] = useState('');
   const [showQuizTypeMenu, setShowQuizTypeMenu] = useState(null); // Track which verse's menu is open
+  const [showProgressModal, setShowProgressModal] = useState(null); // Track which verse's progress modal is open
+  const [lastQuizType, setLastQuizType] = useState(null); // Track last quiz type to prevent repeats
+  const [practiceResult, setPracticeResult] = useState(null); // Track if practice was correct
+
+  // Define practice quiz types that count toward mastery
+  const MASTERY_QUIZ_TYPES = ['book-order', 'verse-scramble', 'fill-blank'];
+  const REQUIRED_CONSECUTIVE_PERFECTS = 2;
 
   // Abbreviate book names for compact display
   const abbreviateReference = (reference) => {
@@ -75,12 +84,26 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [showQuizTypeMenu]);
 
+  // Check if a verse is mastered (all mastery quiz types have 2 consecutive perfects)
+  const isVerseMastered = (progress) => {
+    if (!progress || !progress.practiceMastery) return false;
+
+    // Check if all mastery quiz types have reached required consecutive perfects
+    return MASTERY_QUIZ_TYPES.every(quizType => {
+      const mastery = progress.practiceMastery[quizType];
+      return mastery && mastery.consecutivePerfects >= REQUIRED_CONSECUTIVE_PERFECTS;
+    });
+  };
+
   // Get missed verses from user data
   const missedVerses = useMemo(() => {
     if (!userData || !userData.verseProgress) return [];
 
     const verses = [];
     Object.entries(userData.verseProgress).forEach(([reference, progress]) => {
+      // Skip mastered verses
+      if (isVerseMastered(progress)) return;
+
       if (progress.incorrectCount > 0) {
         // Calculate struggle score (higher = needs more practice)
         const totalAttempts = progress.correctCount + progress.incorrectCount;
@@ -94,7 +117,8 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
           accuracy: Math.round(accuracy),
           struggleScore,
           lastReview: progress.lastReview,
-          quizTypes: progress.quizTypes || {}
+          quizTypes: progress.quizTypes || {},
+          practiceMastery: progress.practiceMastery || {}
         });
       }
     });
@@ -113,11 +137,35 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     });
   }, [missedVerses, selectedFilter]);
 
+  // Extract book name from reference
+  const getBookFromReference = (reference) => {
+    // Match book name (including books with numbers like "1 John")
+    const match = reference.match(/^(\d\s)?([A-Za-z\s]+)/);
+    return match ? match[0].trim() : '';
+  };
+
   // Start practice session
   const startPractice = async (verse, quizType) => {
+    // Prevent repeating same quiz type twice in a row
+    if (quizType === lastQuizType && lastQuizType !== null) {
+      if (showToast) {
+        showToast('Please choose a different quiz type - cannot repeat the same type twice in a row!', 'warning');
+      }
+      return;
+    }
+
     console.log('Starting practice:', quizType, verse.reference);
-    setCurrentVerse(verse);
+
+    // For book-order, set the book from the verse reference
+    const verseWithBook = {
+      ...verse,
+      book: getBookFromReference(verse.reference)
+    };
+
+    setCurrentVerse(verseWithBook);
     setPracticeMode(quizType);
+    setPracticeResult(null); // Reset practice result
+    setLastQuizType(quizType); // Track this quiz type
 
     // Fetch verse text for verse-scramble, fill-blank, multiple-choice, and reference-recall
     if (['verse-scramble', 'fill-blank', 'multiple-choice', 'reference-recall'].includes(quizType)) {
@@ -142,11 +190,61 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     }
   };
 
-  // Complete practice (no points affected)
-  const completePractice = () => {
+  // Complete practice and update mastery tracking
+  const completePractice = (isCorrect = null) => {
+    // Update practice mastery if this was a mastery quiz type and we have a result
+    if (isCorrect !== null && currentVerse && MASTERY_QUIZ_TYPES.includes(practiceMode) && onUpdateUserData) {
+      const reference = currentVerse.reference;
+      const progress = userData.verseProgress[reference] || {
+        correctCount: 0,
+        incorrectCount: 0,
+        lastReview: null,
+        nextReview: null,
+        quizTypes: {},
+        practiceMastery: {}
+      };
+
+      // Initialize practice mastery for this quiz type if needed
+      if (!progress.practiceMastery) {
+        progress.practiceMastery = {};
+      }
+      if (!progress.practiceMastery[practiceMode]) {
+        progress.practiceMastery[practiceMode] = {
+          consecutivePerfects: 0,
+          totalAttempts: 0,
+          lastAttemptDate: null
+        };
+      }
+
+      const mastery = progress.practiceMastery[practiceMode];
+      mastery.totalAttempts++;
+      mastery.lastAttemptDate = Date.now();
+
+      if (isCorrect) {
+        mastery.consecutivePerfects++;
+      } else {
+        mastery.consecutivePerfects = 0; // Reset on incorrect
+      }
+
+      // Update user data
+      onUpdateUserData({
+        ...userData,
+        verseProgress: {
+          ...userData.verseProgress,
+          [reference]: progress
+        }
+      });
+
+      // Show toast if verse is now mastered
+      if (isVerseMastered(progress) && showToast) {
+        showToast(`${reference} has been mastered! It will no longer appear in your practice list.`, 'success');
+      }
+    }
+
     setPracticeMode(null);
     setCurrentVerse(null);
     setCurrentVerseText('');
+    setPracticeResult(null);
   };
 
   // Generate wrong references for multiple choice
@@ -192,12 +290,11 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     return wrongRefs;
   };
 
-  // Available quiz types for practice (verse-based only)
+  // Available quiz types for practice mastery
   const availableQuizTypes = [
+    { id: 'book-order', name: 'Book Order', icon: '📚' },
     { id: 'verse-scramble', name: 'Verse Scramble', icon: '🔀' },
     { id: 'fill-blank', name: 'Fill in the Blank', icon: '📝' },
-    { id: 'multiple-choice', name: 'Multiple Choice', icon: '✔️' },
-    { id: 'reference-recall', name: 'Reference Recall', icon: '📖' },
   ];
 
   // Get quiz type name
@@ -247,15 +344,16 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
           {practiceMode === 'verse-scramble' && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
             <VerseScrambleQuiz
               verse={{ ...practiceVerse, text: currentVerseText }}
-              onComplete={completePractice}
-              onSkip={completePractice}
+              onComplete={(result) => completePractice(result?.isCorrect)}
+              onSkip={() => completePractice(false)}
               isPracticeMode={true}
             />
           )}
           {practiceMode === 'book-order' && (
             <BookOrderQuiz
-              onComplete={completePractice}
-              onCancel={completePractice}
+              specificBook={currentVerse?.book}
+              onComplete={(result) => completePractice(result?.isCorrect || result?.score >= 80)}
+              onCancel={() => completePractice(false)}
               isPracticeMode={true}
             />
           )}
@@ -277,8 +375,8 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
             <SimpleFillBlank
               verse={currentVerseText}
               reference={currentVerse.reference}
-              onComplete={completePractice}
-              onSkip={completePractice}
+              onComplete={(result) => completePractice(result?.isCorrect)}
+              onSkip={() => completePractice(false)}
             />
           )}
           {(practiceMode === 'multiple-choice' || practiceMode === 'reference-recall') && currentVerseText && !currentVerseText.startsWith('ERROR:') && (
@@ -320,8 +418,91 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
     );
   }
 
+  // Render Practice Progress Modal
+  const renderProgressModal = () => {
+    if (!showProgressModal) return null;
+
+    const verse = filteredVerses.find(v => v.reference === showProgressModal);
+    if (!verse) return null;
+
+    const progress = userData.verseProgress[verse.reference];
+    const mastery = progress?.practiceMastery || {};
+
+    return (
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={() => setShowProgressModal(null)}>
+        <div className="bg-slate-800 rounded-xl border-2 border-purple-500 max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <Award className="text-purple-400" size={24} />
+              <h3 className="text-xl font-bold text-white">Practice Progress</h3>
+            </div>
+            <button
+              onClick={() => setShowProgressModal(null)}
+              className="p-1 hover:bg-slate-700 rounded transition-colors"
+            >
+              <X className="text-slate-400" size={20} />
+            </button>
+          </div>
+
+          <div className="mb-4">
+            <h4 className="text-lg font-bold text-amber-400 mb-2">{abbreviateReference(verse.reference)}</h4>
+            <p className="text-sm text-slate-400">Complete all quiz types with {REQUIRED_CONSECUTIVE_PERFECTS} consecutive perfect scores each to master this verse.</p>
+          </div>
+
+          <div className="space-y-3">
+            {MASTERY_QUIZ_TYPES.map(quizType => {
+              const typeData = mastery[quizType] || { consecutivePerfects: 0, totalAttempts: 0 };
+              const isComplete = typeData.consecutivePerfects >= REQUIRED_CONSECUTIVE_PERFECTS;
+              const quizName = getQuizTypeName(quizType);
+
+              return (
+                <div key={quizType} className={`p-4 rounded-lg border-2 ${isComplete ? 'bg-green-900/20 border-green-500' : 'bg-slate-700/50 border-slate-600'}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-white">{quizName}</span>
+                    {isComplete && <CheckCircle2 className="text-green-400" size={20} />}
+                  </div>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-slate-400">Consecutive Perfects:</span>
+                      <span className={`font-bold ${isComplete ? 'text-green-300' : 'text-amber-300'}`}>
+                        {typeData.consecutivePerfects} / {REQUIRED_CONSECUTIVE_PERFECTS}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400">Total Attempts:</span>
+                      <span className="text-slate-300">{typeData.totalAttempts}</span>
+                    </div>
+                  </div>
+                  {/* Progress bar */}
+                  <div className="mt-2 h-2 bg-slate-600 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full transition-all ${isComplete ? 'bg-green-500' : 'bg-amber-500'}`}
+                      style={{ width: `${Math.min(100, (typeData.consecutivePerfects / REQUIRED_CONSECUTIVE_PERFECTS) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {isVerseMastered(progress) && (
+            <div className="mt-4 p-4 bg-purple-900/30 border border-purple-500 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Award className="text-purple-400" size={20} />
+                <span className="font-bold text-purple-300">Verse Mastered!</span>
+              </div>
+              <p className="text-sm text-purple-200">This verse will be removed from your practice list.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20 z-40 overflow-y-auto overflow-x-hidden">
+      {renderProgressModal()}
+
       {/* Header */}
       <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg z-10 border-b-2 border-blue-500/30">
         <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4 flex items-center justify-between gap-2">
@@ -575,43 +756,57 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
                         )}
                       </div>
                     </div>
-                    <div className="relative flex-shrink-0">
-                      {/* Practice Button with Dropdown */}
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      {/* Progress Button */}
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setShowQuizTypeMenu(showQuizTypeMenu === verse.reference ? null : verse.reference);
+                          setShowProgressModal(verse.reference);
                         }}
-                        className="flex items-center gap-1 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-1 px-3 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors"
+                        title="View Practice Progress"
                       >
-                        <Play size={16} />
-                        <ChevronDown size={16} />
+                        <TrendingUp size={16} />
                       </button>
 
-                      {/* Quiz Type Dropdown Menu */}
-                      {showQuizTypeMenu === verse.reference && (
-                        <div className="absolute right-0 mt-2 w-56 bg-slate-700 rounded-lg shadow-xl border border-slate-600 z-[9999]">
-                          <div className="p-2">
-                            <div className="text-xs text-slate-400 uppercase font-semibold px-3 py-2">
-                              Choose Quiz Type
+                      {/* Practice Button with Dropdown */}
+                      <div className="relative">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowQuizTypeMenu(showQuizTypeMenu === verse.reference ? null : verse.reference);
+                          }}
+                          className="flex items-center gap-1 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+                        >
+                          <Play size={16} />
+                          <ChevronDown size={16} />
+                        </button>
+
+                        {/* Quiz Type Dropdown Menu */}
+                        {showQuizTypeMenu === verse.reference && (
+                          <div className="absolute right-0 mt-2 w-56 bg-slate-700 rounded-lg shadow-xl border border-slate-600 z-[9999]">
+                            <div className="p-2">
+                              <div className="text-xs text-slate-400 uppercase font-semibold px-3 py-2">
+                                Choose Quiz Type
+                              </div>
+                              {availableQuizTypes.map(quizType => (
+                                <button
+                                  key={quizType.id}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    startPractice(verse, quizType.id);
+                                    setShowQuizTypeMenu(null);
+                                  }}
+                                  className="w-full text-left px-3 py-2 hover:bg-slate-600 rounded transition-colors flex items-center gap-3"
+                                >
+                                  <span className="text-xl">{quizType.icon}</span>
+                                  <span className="text-sm text-slate-200">{quizType.name}</span>
+                                </button>
+                              ))}
                             </div>
-                            {availableQuizTypes.map(quizType => (
-                              <button
-                                key={quizType.id}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  startPractice(verse, quizType.id);
-                                  setShowQuizTypeMenu(null);
-                                }}
-                                className="w-full text-left px-3 py-2 hover:bg-slate-600 rounded transition-colors flex items-center gap-3"
-                              >
-                                <span className="text-xl">{quizType.icon}</span>
-                                <span className="text-sm text-slate-200">{quizType.name}</span>
-                              </button>
-                            ))}
                           </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

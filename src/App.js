@@ -7815,6 +7815,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onClose={() => setCurrentView('home')}
             userData={userData}
             showToast={showToast}
+            onUpdateUserData={setUserData}
           />
         )}
         {currentView === 'spiritual-gifts-exam' && (
