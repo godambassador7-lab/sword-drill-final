@@ -346,8 +346,13 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                 </>
               )}
               <p className="text-amber-200">• userData exists: {userData ? 'YES' : 'NO'}</p>
+              <p className="text-amber-200">• userData.spiritualGiftsResults: {userData?.spiritualGiftsResults ? 'YES' : 'NO'}</p>
+              {userData?.spiritualGiftsResults && (
+                <p className="text-amber-200">• Firebase gifts count: {userData.spiritualGiftsResults.gifts?.length || (Array.isArray(userData.spiritualGiftsResults) ? userData.spiritualGiftsResults.length : 0)}</p>
+              )}
               <p className="text-amber-200">• userId: {userId || 'NONE'}</p>
               <p className="text-amber-200">• localStorage check: {localStorage.getItem('spiritualGiftsResults') ? 'EXISTS' : 'NONE'}</p>
+              <p className="text-amber-200">• dataLoaded: {dataLoaded ? 'YES' : 'NO'}</p>
             </div>
           </div>
 
