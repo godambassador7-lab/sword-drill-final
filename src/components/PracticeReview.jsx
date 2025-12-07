@@ -554,10 +554,9 @@ const PracticeReview = ({ onClose, userData, showToast }) => {
                           e.stopPropagation();
                           setShowQuizTypeMenu(showQuizTypeMenu === verse.reference ? null : verse.reference);
                         }}
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
+                        className="flex items-center gap-1 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors"
                       >
                         <Play size={16} />
-                        <span className="text-sm font-semibold">Practice</span>
                         <ChevronDown size={16} />
                       </button>
 
