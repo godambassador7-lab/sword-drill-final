@@ -54,21 +54,74 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
       });
 
     // Load previous results from Firebase (priority) or localStorage
+    console.log('=== Spiritual Gifts Exam - Loading Previous Results ===');
+    console.log('userData:', userData);
+    console.log('userData?.spiritualGiftsResults:', userData?.spiritualGiftsResults);
+
+    let loadedResults = null;
+
+    // Try Firebase first
     if (userData?.spiritualGiftsResults) {
-      console.log('Loading previous results from Firebase:', userData.spiritualGiftsResults);
-      setPreviousResults(userData.spiritualGiftsResults);
-    } else {
+      console.log('Firebase results found:', userData.spiritualGiftsResults);
+      const results = userData.spiritualGiftsResults;
+
+      // Check if it's the correct structure
+      if (results.gifts && Array.isArray(results.gifts) && results.gifts.length > 0) {
+        loadedResults = results;
+        console.log('✓ Valid results from Firebase - Gifts count:', results.gifts.length);
+      } else if (Array.isArray(results) && results.length > 0) {
+        // Handle old format where it might just be an array of gifts
+        loadedResults = {
+          gifts: results,
+          timestamp: new Date().toISOString()
+        };
+        console.log('✓ Converted old format Firebase results');
+      } else {
+        console.warn('⚠️ Firebase results exist but invalid structure:', results);
+      }
+    }
+
+    // Fallback to localStorage if Firebase didn't work
+    if (!loadedResults) {
+      console.log('Checking localStorage...');
       const savedResults = localStorage.getItem('spiritualGiftsResults');
+
       if (savedResults) {
         try {
           const parsed = JSON.parse(savedResults);
-          console.log('Loading previous results from localStorage:', parsed);
-          setPreviousResults(parsed);
+          console.log('localStorage results found:', parsed);
+
+          if (parsed.gifts && Array.isArray(parsed.gifts) && parsed.gifts.length > 0) {
+            loadedResults = parsed;
+            console.log('✓ Valid results from localStorage - Gifts count:', parsed.gifts.length);
+          } else if (Array.isArray(parsed) && parsed.length > 0) {
+            // Handle old format
+            loadedResults = {
+              gifts: parsed,
+              timestamp: new Date().toISOString()
+            };
+            console.log('✓ Converted old format localStorage results');
+          } else {
+            console.warn('⚠️ localStorage results exist but invalid structure');
+          }
         } catch (err) {
-          console.error('Error loading previous results:', err);
+          console.error('Error parsing localStorage results:', err);
         }
+      } else {
+        console.log('No localStorage results found');
       }
     }
+
+    // Set the results if we found any
+    if (loadedResults) {
+      setPreviousResults(loadedResults);
+      console.log('✓✓✓ Previous results SET successfully ✓✓✓');
+      console.log('Top 3 gifts:', loadedResults.gifts.slice(0, 3).map(g => g.name));
+    } else {
+      console.log('❌ No previous results found anywhere');
+      setPreviousResults(null);
+    }
+    console.log('=== End Loading Previous Results ===');
   }, [userData]);
 
   const handleResponse = (questionId, value) => {
@@ -273,10 +326,20 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
               Discover your spiritual gifts through this comprehensive biblical assessment.
               Answer thoughtfully and prayerfully to identify how the Holy Spirit has gifted you to serve the Body of Christ.
             </p>
+
+            {/* Debug info - can be removed later */}
+            {process.env.NODE_ENV === 'development' && (
+              <div className="mt-4 p-3 bg-amber-900/30 rounded border border-amber-500/50 text-xs">
+                <p className="text-amber-200">Debug: previousResults = {previousResults ? 'YES' : 'NO'}</p>
+                {previousResults && (
+                  <p className="text-amber-200">Gifts count: {previousResults.gifts?.length || 0}</p>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Previous Results Section */}
-          {previousResults && (
+          {previousResults && previousResults.gifts && previousResults.gifts.length > 0 && (
             <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 backdrop-blur rounded-xl p-6 border border-blue-500/50 mb-6">
               <div className="flex items-center gap-3 mb-4">
                 <History size={28} className="text-blue-400" />
