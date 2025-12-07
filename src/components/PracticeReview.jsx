@@ -28,7 +28,7 @@ import SimpleFillBlank from './SimpleFillBlank';
 import EnhancedReviewMultipleChoice from './EnhancedReviewMultipleChoice';
 import { getLocalVerseByReference } from '../services/localBibleProvider';
 
-const PracticeReview = ({ onClose, userData }) => {
+const PracticeReview = ({ onClose, userData, showToast }) => {
   const [selectedFilter, setSelectedFilter] = useState('all'); // all, verse-scramble, book-order, sword-drill
   const [practiceMode, setPracticeMode] = useState(null);
   const [currentVerse, setCurrentVerse] = useState(null);
@@ -449,7 +449,11 @@ const PracticeReview = ({ onClose, userData }) => {
               </div>
               <button
                 onClick={() => {
-                  alert('GeoGuessr practice coming soon! Access it from the main menu for now.');
+                  if (showToast) {
+                    showToast('Geoguessr quiz is coming soon! Enjoy our other quizzes for now!', 'info');
+                  } else {
+                    alert('Geoguessr quiz is coming soon! Enjoy our other quizzes for now!');
+                  }
                 }}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors font-semibold"
               >
