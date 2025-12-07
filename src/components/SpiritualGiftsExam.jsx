@@ -12,6 +12,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [previousResults, setPreviousResults] = useState(null);
   const [showPreviousResults, setShowPreviousResults] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   // Background music effect
   useEffect(() => {
@@ -33,10 +34,10 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
     };
   }, []);
 
+  // Load exam data once on mount
   useEffect(() => {
     const dataUrl = `${process.env.PUBLIC_URL || ''}/spiritual_gifts_exam_sword_drill/spiritual_gifts_exam.json`;
 
-    // Load the exam data
     fetch(dataUrl)
       .then(res => {
         if (!res.ok) {
@@ -52,25 +53,56 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
         console.error('Error loading spiritual gifts exam:', err);
         setLoading(false);
       });
+  }, []);
 
-    // Load previous results from Firebase (priority) or localStorage
+  // Load previous results - runs on mount and when userData changes
+  useEffect(() => {
     console.log('=== Spiritual Gifts Exam - Loading Previous Results ===');
     console.log('userData:', userData);
+    console.log('userId:', userId);
     console.log('userData?.spiritualGiftsResults:', userData?.spiritualGiftsResults);
 
     let loadedResults = null;
 
-    // Try Firebase first
+    // ALWAYS check localStorage first for immediate display
+    const savedResults = localStorage.getItem('spiritualGiftsResults');
+    console.log('localStorage spiritualGiftsResults:', savedResults ? 'EXISTS' : 'NONE');
+
+    if (savedResults) {
+      try {
+        const parsed = JSON.parse(savedResults);
+        console.log('localStorage results parsed:', parsed);
+
+        if (parsed.gifts && Array.isArray(parsed.gifts) && parsed.gifts.length > 0) {
+          loadedResults = parsed;
+          console.log('✓ Valid results from localStorage - Gifts count:', parsed.gifts.length);
+        } else if (Array.isArray(parsed) && parsed.length > 0) {
+          loadedResults = {
+            gifts: parsed,
+            timestamp: new Date().toISOString()
+          };
+          console.log('✓ Converted old format localStorage results');
+        }
+      } catch (err) {
+        console.error('Error parsing localStorage results:', err);
+      }
+    }
+
+    // Then check Firebase if available (will override localStorage if newer)
     if (userData?.spiritualGiftsResults) {
       console.log('Firebase results found:', userData.spiritualGiftsResults);
       const results = userData.spiritualGiftsResults;
 
-      // Check if it's the correct structure
       if (results.gifts && Array.isArray(results.gifts) && results.gifts.length > 0) {
-        loadedResults = results;
-        console.log('✓ Valid results from Firebase - Gifts count:', results.gifts.length);
+        // Only override localStorage if Firebase has a timestamp and it's newer
+        if (!loadedResults || !results.timestamp ||
+            new Date(results.timestamp) >= new Date(loadedResults.timestamp || 0)) {
+          loadedResults = results;
+          console.log('✓ Using Firebase results - Gifts count:', results.gifts.length);
+        } else {
+          console.log('ℹ️ localStorage is newer, keeping localStorage results');
+        }
       } else if (Array.isArray(results) && results.length > 0) {
-        // Handle old format where it might just be an array of gifts
         loadedResults = {
           gifts: results,
           timestamp: new Date().toISOString()
@@ -79,37 +111,8 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
       } else {
         console.warn('⚠️ Firebase results exist but invalid structure:', results);
       }
-    }
-
-    // Fallback to localStorage if Firebase didn't work
-    if (!loadedResults) {
-      console.log('Checking localStorage...');
-      const savedResults = localStorage.getItem('spiritualGiftsResults');
-
-      if (savedResults) {
-        try {
-          const parsed = JSON.parse(savedResults);
-          console.log('localStorage results found:', parsed);
-
-          if (parsed.gifts && Array.isArray(parsed.gifts) && parsed.gifts.length > 0) {
-            loadedResults = parsed;
-            console.log('✓ Valid results from localStorage - Gifts count:', parsed.gifts.length);
-          } else if (Array.isArray(parsed) && parsed.length > 0) {
-            // Handle old format
-            loadedResults = {
-              gifts: parsed,
-              timestamp: new Date().toISOString()
-            };
-            console.log('✓ Converted old format localStorage results');
-          } else {
-            console.warn('⚠️ localStorage results exist but invalid structure');
-          }
-        } catch (err) {
-          console.error('Error parsing localStorage results:', err);
-        }
-      } else {
-        console.log('No localStorage results found');
-      }
+    } else {
+      console.log('No Firebase results available');
     }
 
     // Set the results if we found any
@@ -121,8 +124,10 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
       console.log('❌ No previous results found anywhere');
       setPreviousResults(null);
     }
+
+    setDataLoaded(true);
     console.log('=== End Loading Previous Results ===');
-  }, [userData]);
+  }, [userData, userId]);
 
   const handleResponse = (questionId, value) => {
     setResponses(prev => ({
@@ -327,15 +332,23 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
               Answer thoughtfully and prayerfully to identify how the Holy Spirit has gifted you to serve the Body of Christ.
             </p>
 
-            {/* Debug info - can be removed later */}
-            {process.env.NODE_ENV === 'development' && (
-              <div className="mt-4 p-3 bg-amber-900/30 rounded border border-amber-500/50 text-xs">
-                <p className="text-amber-200">Debug: previousResults = {previousResults ? 'YES' : 'NO'}</p>
-                {previousResults && (
-                  <p className="text-amber-200">Gifts count: {previousResults.gifts?.length || 0}</p>
-                )}
-              </div>
-            )}
+            {/* Debug info - always visible for troubleshooting */}
+            <div className="mt-4 p-3 bg-amber-900/30 rounded border border-amber-500/50 text-xs">
+              <p className="text-amber-200 font-bold mb-1">Debug Info:</p>
+              <p className="text-amber-200">• previousResults: {previousResults ? 'YES' : 'NO'}</p>
+              {previousResults && (
+                <>
+                  <p className="text-amber-200">• Gifts count: {previousResults.gifts?.length || 0}</p>
+                  <p className="text-amber-200">• Has timestamp: {previousResults.timestamp ? 'YES' : 'NO'}</p>
+                  {previousResults.timestamp && (
+                    <p className="text-amber-200">• Date: {new Date(previousResults.timestamp).toLocaleDateString()}</p>
+                  )}
+                </>
+              )}
+              <p className="text-amber-200">• userData exists: {userData ? 'YES' : 'NO'}</p>
+              <p className="text-amber-200">• userId: {userId || 'NONE'}</p>
+              <p className="text-amber-200">• localStorage check: {localStorage.getItem('spiritualGiftsResults') ? 'EXISTS' : 'NONE'}</p>
+            </div>
           </div>
 
           {/* Previous Results Section */}
