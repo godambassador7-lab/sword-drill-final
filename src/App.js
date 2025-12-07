@@ -5752,7 +5752,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       }
                     }
                   } else {
-                    showToast('Need 1000 points to unlock KJV w/ Strong\\'s', 'error');
+                    showToast("Need 1000 points to unlock KJV w/ Strong's", 'error');
                   }
                 }}
                 disabled={userData.totalPoints < 1000}
