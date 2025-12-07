@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Lightbulb
@@ -6,16 +6,75 @@ import {
 import quizData from '../data/hermeneutics_course/quiz_content.json';
 import lessonContent from '../data/hermeneutics_course/lesson_content.json';
 import HermeneuticsQuiz from './HermeneuticsQuiz';
+import { updateUserProgress } from '../services/dbService';
 
-const HermeneuticsCourse = ({ onComplete, onCancel }) => {
+const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
-  const [completedLessons, setCompletedLessons] = useState({
-    beginner: [],
-    intermediate: [],
-    advanced: []
+  const [completedLessons, setCompletedLessons] = useState(() => {
+    // Load from Firebase first, then localStorage as fallback
+    if (userData?.hermeneuticsProgress) {
+      return userData.hermeneuticsProgress;
+    }
+
+    const saved = localStorage.getItem('hermeneuticsProgress');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error('Error parsing hermeneutics progress:', e);
+      }
+    }
+    return { beginner: [], intermediate: [], advanced: [] };
   });
   const [showQuiz, setShowQuiz] = useState(false);
+
+  // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
+  useEffect(() => {
+    const localSaved = localStorage.getItem('hermeneuticsProgress');
+    if (localSaved && userId && setUserData && updateUserProgress && !userData?.hermeneuticsProgress) {
+      try {
+        const localProgress = JSON.parse(localSaved);
+        console.log('🔄 AUTO-SYNC: Found localStorage progress but missing in Firebase. Syncing Hermeneutics progress...');
+
+        setUserData(prev => ({
+          ...prev,
+          hermeneuticsProgress: localProgress
+        }));
+
+        updateUserProgress(userId, {
+          hermeneuticsProgress: localProgress
+        })
+          .then(() => {
+            console.log('✓ AUTO-SYNC: Successfully synced Hermeneutics progress to Firebase');
+          })
+          .catch(err => {
+            console.error('❌ AUTO-SYNC: Error syncing Hermeneutics progress to Firebase:', err);
+          });
+      } catch (e) {
+        console.error('Error parsing local Hermeneutics progress for auto-sync:', e);
+      }
+    }
+  }, [userId, userData, setUserData]);
+
+  // Save progress to both localStorage and Firebase whenever completedLessons changes
+  useEffect(() => {
+    localStorage.setItem('hermeneuticsProgress', JSON.stringify(completedLessons));
+
+    // Sync to Firebase if user is logged in
+    if (userId && setUserData && updateUserProgress) {
+      setUserData(prev => ({
+        ...prev,
+        hermeneuticsProgress: completedLessons
+      }));
+
+      updateUserProgress(userId, {
+        hermeneuticsProgress: completedLessons
+      }).catch(err => {
+        console.error('Error saving Hermeneutics progress to Firebase:', err);
+      });
+    }
+  }, [completedLessons, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {

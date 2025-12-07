@@ -1,17 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll
 } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const AncientHebrewCourse = ({ onComplete, onCancel }) => {
+const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null); // 'beginner', 'intermediate', 'advanced'
   const [selectedLesson, setSelectedLesson] = useState(null);
-  const [completedLessons, setCompletedLessons] = useState({
-    beginner: [],
-    intermediate: [],
-    advanced: []
+  const [completedLessons, setCompletedLessons] = useState(() => {
+    // Load from Firebase first, then localStorage as fallback
+    if (userData?.ancientHebrewProgress) {
+      return userData.ancientHebrewProgress;
+    }
+
+    const saved = localStorage.getItem('ancientHebrewProgress');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error('Error parsing ancient Hebrew progress:', e);
+      }
+    }
+    return { beginner: [], intermediate: [], advanced: [] };
   });
+
+  // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
+  useEffect(() => {
+    const localSaved = localStorage.getItem('ancientHebrewProgress');
+    if (localSaved && userId && setUserData && updateUserProgress && !userData?.ancientHebrewProgress) {
+      try {
+        const localProgress = JSON.parse(localSaved);
+        console.log('🔄 AUTO-SYNC: Found localStorage progress but missing in Firebase. Syncing Ancient Hebrew progress...');
+
+        setUserData(prev => ({
+          ...prev,
+          ancientHebrewProgress: localProgress
+        }));
+
+        updateUserProgress(userId, {
+          ancientHebrewProgress: localProgress
+        })
+          .then(() => {
+            console.log('✓ AUTO-SYNC: Successfully synced Ancient Hebrew progress to Firebase');
+          })
+          .catch(err => {
+            console.error('❌ AUTO-SYNC: Error syncing Ancient Hebrew progress to Firebase:', err);
+          });
+      } catch (e) {
+        console.error('Error parsing local Ancient Hebrew progress for auto-sync:', e);
+      }
+    }
+  }, [userId, userData, setUserData]);
+
+  // Save progress to both localStorage and Firebase whenever completedLessons changes
+  useEffect(() => {
+    localStorage.setItem('ancientHebrewProgress', JSON.stringify(completedLessons));
+
+    // Sync to Firebase if user is logged in
+    if (userId && setUserData && updateUserProgress) {
+      setUserData(prev => ({
+        ...prev,
+        ancientHebrewProgress: completedLessons
+      }));
+
+      updateUserProgress(userId, {
+        ancientHebrewProgress: completedLessons
+      }).catch(err => {
+        console.error('Error saving Ancient Hebrew progress to Firebase:', err);
+      });
+    }
+  }, [completedLessons, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {

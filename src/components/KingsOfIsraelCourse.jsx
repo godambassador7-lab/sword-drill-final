@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy, Crown, ArrowLeft, Scroll, Shield } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
+const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentKingIndex, setCurrentKingIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [kingsData, setKingsData] = useState({ beginner: [], intermediate: [], advanced: [] });
   const [completedKings, setCompletedKings] = useState(() => {
-    // Load from localStorage
+    // Load from Firebase first, then localStorage as fallback
+    if (userData?.kingsOfIsraelProgress) {
+      return userData.kingsOfIsraelProgress;
+    }
+
     const saved = localStorage.getItem('kingsOfIsraelProgress');
     if (saved) {
       try {
@@ -26,10 +31,52 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
   const [shuffledOptions, setShuffledOptions] = useState({});
   const [isStudyMode, setIsStudyMode] = useState(true); // Track study vs quiz mode for intermediate/advanced
 
-  // Save progress to localStorage whenever completedKings changes
+  // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
+  useEffect(() => {
+    const localSaved = localStorage.getItem('kingsOfIsraelProgress');
+    if (localSaved && userId && setUserData && updateUserProgress && !userData?.kingsOfIsraelProgress) {
+      try {
+        const localProgress = JSON.parse(localSaved);
+        console.log('🔄 AUTO-SYNC: Found localStorage progress but missing in Firebase. Syncing Kings of Israel progress...');
+
+        setUserData(prev => ({
+          ...prev,
+          kingsOfIsraelProgress: localProgress
+        }));
+
+        updateUserProgress(userId, {
+          kingsOfIsraelProgress: localProgress
+        })
+          .then(() => {
+            console.log('✓ AUTO-SYNC: Successfully synced Kings of Israel progress to Firebase');
+          })
+          .catch(err => {
+            console.error('❌ AUTO-SYNC: Error syncing Kings of Israel progress to Firebase:', err);
+          });
+      } catch (e) {
+        console.error('Error parsing local Kings of Israel progress for auto-sync:', e);
+      }
+    }
+  }, [userId, userData, setUserData]);
+
+  // Save progress to both localStorage and Firebase whenever completedKings changes
   useEffect(() => {
     localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(completedKings));
-  }, [completedKings]);
+
+    // Sync to Firebase if user is logged in
+    if (userId && setUserData && updateUserProgress) {
+      setUserData(prev => ({
+        ...prev,
+        kingsOfIsraelProgress: completedKings
+      }));
+
+      updateUserProgress(userId, {
+        kingsOfIsraelProgress: completedKings
+      }).catch(err => {
+        console.error('Error saving Kings of Israel progress to Firebase:', err);
+      });
+    }
+  }, [completedKings, userId, setUserData]);
 
   // Shuffle array helper
   const shuffleArray = (array) => {

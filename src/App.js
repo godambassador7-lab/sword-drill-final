@@ -7560,6 +7560,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'paleo-hebrew-course' && (
@@ -7741,6 +7744,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               // Don't navigate away, stay in the course
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'kings-of-israel-course' && (
@@ -7765,6 +7771,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'church-history-course' && (
