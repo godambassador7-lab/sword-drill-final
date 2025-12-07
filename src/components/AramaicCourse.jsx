@@ -124,7 +124,7 @@ const AramaicCourse = ({ onComplete, onCancel }) => {
   if (showExam) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-4 flex items-center justify-center">
-        <div className="bg-slate-800 rounded-2xl p-8 border-2 border-purple-500 max-w-2xl w-full">
+        <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-purple-500 max-w-2xl w-full">
           <h2 className="text-2xl font-bold text-purple-400 mb-6">Level Certification Exam</h2>
           <p className="text-slate-300 mb-6">Complete this exam with 80% or higher to unlock the next level!</p>
           <div className="space-y-4">
@@ -153,7 +153,7 @@ const AramaicCourse = ({ onComplete, onCancel }) => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-4 pb-24">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8 border-2 border-cyan-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-cyan-500">
             <div className="flex items-center justify-between mb-6">
               <button
                 onClick={handleBackToLevels}
@@ -220,7 +220,7 @@ const AramaicCourse = ({ onComplete, onCancel }) => {
                 Complete Lesson (+100 points)
               </button>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-2 sm:p-4">
                 <button
                   onClick={handleLessonComplete}
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all flex items-center justify-center gap-2"

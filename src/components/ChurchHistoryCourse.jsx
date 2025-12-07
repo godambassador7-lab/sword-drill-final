@@ -93,9 +93,9 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
     const isCompleted = completedLessons[selectedLevel]?.includes(selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8 border-2 border-purple-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-purple-500">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -174,8 +174,8 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
                           <BookOpen size={24} />
                           {section.title}
                         </h3>
-                        <div className="bg-slate-900/50 rounded-xl p-6">
-                          <div className="text-white whitespace-pre-line leading-relaxed">
+                        <div className="bg-slate-900/50 rounded-xl p-4 sm:p-6">
+                          <div className="text-white whitespace-pre-line leading-relaxed text-sm sm:text-base">
                             {section.content}
                           </div>
                         </div>
@@ -191,7 +191,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
                       <BookOpen size={24} />
                       Topics Covered
                     </h3>
-                    <div className="bg-slate-900/50 rounded-xl p-6">
+                    <div className="bg-slate-900/50 rounded-xl p-4 sm:p-6">
                       <ul className="space-y-3">
                         {lessonData.topics.map((topic, index) => (
                           <li key={index} className="flex items-start gap-3 text-white">
@@ -211,7 +211,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
                       <Target size={24} />
                       Key Learning Points
                     </h3>
-                    <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-2 border-purple-500/30 rounded-xl p-6">
+                    <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-2 border-purple-500/30 rounded-xl p-4 sm:p-6">
                       <ul className="space-y-4">
                         {lessonData.keyPoints.map((point, index) => (
                           <li key={index} className="flex items-start gap-3">
@@ -260,7 +260,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-6">
@@ -311,7 +311,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 sm:p-4">
                       <div className="text-4xl">{lesson.icon}</div>
                       <div>
                         <h3 className="text-xl font-bold text-white mb-1">{lesson.title}</h3>
@@ -365,7 +365,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Course Header */}
         <div className="text-center mb-12">
@@ -441,7 +441,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
         </div>
 
         {/* Course Info */}
-        <div className="bg-slate-800/50 rounded-xl p-8 border-2 border-purple-500/30">
+        <div className="bg-slate-800/50 rounded-xl p-4 sm:p-6 md:p-8 border-2 border-purple-500/30">
           <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
             <GraduationCap size={28} className="text-purple-400" />
             What You'll Learn

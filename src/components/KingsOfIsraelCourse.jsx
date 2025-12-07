@@ -135,7 +135,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
   // Level selection view
   if (!selectedLevel) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-slate-800 rounded-2xl p-8 border-4 border-amber-500">
             {/* Header */}
@@ -157,7 +157,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
 
             {/* Overview */}
             <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-6 mb-8 border-2 border-amber-500/30">
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-2 sm:p-4">
                 <Shield className="text-amber-400 flex-shrink-0" size={32} />
                 <div>
                   <h3 className="text-xl font-bold text-amber-300 mb-2">About This Course</h3>
@@ -366,7 +366,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                     <BookOpen size={24} />
                     About This King
                   </h3>
-                  <p className="text-slate-200 text-lg leading-relaxed">{currentKing.description}</p>
+                  <p className="text-slate-200 text-base sm:text-lg leading-relaxed">{currentKing.description}</p>
                 </div>
 
                 {/* Key Events */}
@@ -388,7 +388,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                 )}
 
                 {/* Scripture & Verdict */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2 sm:p-4">
                   <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-green-500/30">
                     <h4 className="text-sm font-bold text-green-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
@@ -490,7 +490,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                      score >= 3 ? '👍 Good effort! Review the details and try again.' :
                      '📚 Keep studying! Review the material above.'}
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex gap-2 sm:p-4">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -628,7 +628,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                       <Scroll size={24} />
                       Prophetic Ministry During This Reign
                     </h3>
-                    <p className="text-slate-200 text-lg leading-relaxed">{currentKing.description}</p>
+                    <p className="text-slate-200 text-base sm:text-lg leading-relaxed">{currentKing.description}</p>
                   </div>
 
                   {/* Prophetic Details */}
@@ -757,7 +757,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                      score >= 3 ? '👍 Good effort! Review the prophetic details and try again.' :
                      '📚 Keep studying! Review the prophetic ministry section above.'}
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex gap-2 sm:p-4">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -898,7 +898,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                       <Scroll size={24} />
                       Historical Overview
                     </h3>
-                    <p className="text-slate-200 text-lg leading-relaxed">{currentKing.description}</p>
+                    <p className="text-slate-200 text-base sm:text-lg leading-relaxed">{currentKing.description}</p>
                   </div>
 
                   {/* Key Events */}
@@ -1027,7 +1027,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
                      score >= 3 ? '👍 Good effort! Review the events and try again.' :
                      '📚 Keep studying! Review the events section above.'}
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex gap-2 sm:p-4">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -1120,8 +1120,8 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
   // Error state
   if (loadError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-4">
-        <div className="bg-slate-800 rounded-2xl p-8 border-2 border-red-500 max-w-md">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-2 sm:p-4">
+        <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-red-500 max-w-md">
           <h2 className="text-2xl font-bold text-red-400 mb-4">Error Loading Course</h2>
           <p className="text-white mb-4">{loadError}</p>
           <button

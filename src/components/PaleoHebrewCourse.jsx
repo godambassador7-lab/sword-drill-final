@@ -83,9 +83,9 @@ const PaleoHebrewCourse = ({ onComplete, onCancel }) => {
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-900 to-orange-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-900 to-orange-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8 border-2 border-amber-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-amber-500">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -123,7 +123,7 @@ const PaleoHebrewCourse = ({ onComplete, onCancel }) => {
             </div>
 
             {/* Complete Lesson Button */}
-            <div className="flex gap-4">
+            <div className="flex gap-2 sm:p-4">
               <button
                 onClick={handleLessonComplete}
                 className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 px-6 rounded-xl hover:from-green-500 hover:to-emerald-500 transition-all flex items-center justify-center gap-2"

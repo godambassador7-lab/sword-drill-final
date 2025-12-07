@@ -140,9 +140,9 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
     const isCompleted = completedLessons[selectedLevel]?.includes(selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8 border-2 border-teal-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-teal-500">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -204,8 +204,8 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
                           <BookOpen size={24} />
                           {section.title}
                         </h3>
-                        <div className="bg-slate-900/50 rounded-xl p-6">
-                          <div className="text-white whitespace-pre-line leading-relaxed">
+                        <div className="bg-slate-900/50 rounded-xl p-4 sm:p-6">
+                          <div className="text-white whitespace-pre-line leading-relaxed text-sm sm:text-base">
                             {section.content}
                           </div>
                         </div>
@@ -213,8 +213,8 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="bg-slate-900/50 rounded-xl p-6 mb-8 text-white space-y-4">
-                    <p className="text-lg leading-relaxed">
+                  <div className="bg-slate-900/50 rounded-xl p-4 sm:p-6 mb-8 text-white space-y-4">
+                    <p className="text-base sm:text-lg leading-relaxed">
                       📚 This lesson provides comprehensive instruction on {lesson?.title.toLowerCase()}.
                     </p>
                     <p className="text-slate-300">

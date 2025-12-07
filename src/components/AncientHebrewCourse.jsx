@@ -85,9 +85,9 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
     const lesson = lessons.find(l => l.id === selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8 border-2 border-amber-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-amber-500">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -113,7 +113,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
 
             {/* Lesson Content */}
             <div className="bg-slate-900/50 rounded-xl p-6 mb-6 text-white space-y-4">
-              <p className="text-lg leading-relaxed">
+              <p className="text-base sm:text-lg leading-relaxed">
                 📚 This lesson covers fundamental concepts of Ancient Hebrew.
               </p>
               <p className="text-slate-300">
@@ -151,7 +151,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
@@ -209,7 +209,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 sm:p-4">
                       <div className="text-4xl">{lesson.icon}</div>
                       <div>
                         <h3 className="text-xl font-bold text-white mb-1">{lesson.title}</h3>
@@ -240,7 +240,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
 
   // Main Course Overview
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
