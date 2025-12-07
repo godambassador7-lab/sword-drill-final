@@ -422,9 +422,9 @@ const BiblicalBloodlines = ({ onClose }) => {
                        node.line_through_mary;
 
     return (
-      <div key={nodePath} className="ml-4">
+      <div key={nodePath} className="ml-2 sm:ml-4">
         <div
-          className={`group flex items-center gap-2 py-2 px-3 rounded-lg cursor-pointer transition-all ${
+          className={`group flex items-center gap-1 sm:gap-2 py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg cursor-pointer transition-all text-sm sm:text-base ${
             selectedPerson?.name === node.name
               ? 'bg-purple-600 text-white'
               : isInJesusLine
@@ -456,21 +456,21 @@ const BiblicalBloodlines = ({ onClose }) => {
 
           {!hasChildren && <div className="w-4" />}
 
-          <div className="flex items-center gap-2 flex-1">
-            {isInJesusLine && <Sparkles size={14} className="text-amber-400" />}
+          <div className="flex items-center gap-1 sm:gap-2 flex-1 min-w-0">
+            {isInJesusLine && <Sparkles size={12} className="text-amber-400 flex-shrink-0 hidden sm:inline" />}
 
-            <span className={`font-semibold ${isInJesusLine ? 'text-amber-100' : 'text-white'}`}>
+            <span className={`font-semibold truncate ${isInJesusLine ? 'text-amber-100' : 'text-white'}`}>
               {node.name}
             </span>
 
             {node.aka && node.aka.length > 0 && (
-              <span className="text-xs text-purple-300">
-                (aka {node.aka.join(', ')})
+              <span className="text-xs text-purple-300 truncate hidden sm:inline">
+                (aka {node.aka[0]})
               </span>
             )}
 
             {node.type && (
-              <span className={`text-xs px-2 py-0.5 rounded ${
+              <span className={`text-xs px-1.5 sm:px-2 py-0.5 rounded flex-shrink-0 hidden sm:inline ${
                 node.type === 'person' ? 'bg-blue-600/50' :
                 node.type === 'tribe' ? 'bg-green-600/50' :
                 node.type === 'nation' ? 'bg-red-600/50' :
@@ -484,7 +484,7 @@ const BiblicalBloodlines = ({ onClose }) => {
         </div>
 
         {isExpanded && (
-          <div className="ml-2 border-l-2 border-purple-500/30">
+          <div className="ml-1 sm:ml-2 border-l-2 border-purple-500/30">
             {/* Render regular children */}
             {node.children && node.children.map((child, idx) => (
               renderNode(child, level + 1, [...parentPath, node.name])
@@ -492,9 +492,9 @@ const BiblicalBloodlines = ({ onClose }) => {
 
             {/* Render Joseph's line */}
             {node.legal_line_through_joseph && (
-              <div className="ml-4">
-                <div className="text-sm text-amber-300 font-semibold py-1">
-                  Legal Line (through Joseph):
+              <div className="ml-2 sm:ml-4">
+                <div className="text-xs sm:text-sm text-amber-300 font-semibold py-1">
+                  Legal Line (Joseph):
                 </div>
                 {renderNode(node.legal_line_through_joseph, level + 1, [...parentPath, node.name])}
               </div>
@@ -502,9 +502,9 @@ const BiblicalBloodlines = ({ onClose }) => {
 
             {/* Render Mary's line */}
             {node.line_through_mary && (
-              <div className="ml-4">
-                <div className="text-sm text-amber-300 font-semibold py-1">
-                  Biological Line (through Mary):
+              <div className="ml-2 sm:ml-4">
+                <div className="text-xs sm:text-sm text-amber-300 font-semibold py-1">
+                  Biological Line (Mary):
                 </div>
                 {renderNode(node.line_through_mary, level + 1, [...parentPath, node.name])}
               </div>
@@ -696,23 +696,23 @@ const BiblicalBloodlines = ({ onClose }) => {
           )}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6">
           {/* Family Tree */}
-          <div className="lg:col-span-2">
-            <div className="bg-slate-800 rounded-xl p-6 border-2 border-purple-500 overflow-x-auto" ref={treeRef}>
-              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <Users size={28} className="text-purple-400" />
+          <div className="lg:col-span-2 order-2 lg:order-1">
+            <div className="bg-slate-800 rounded-xl p-3 sm:p-6 border-2 border-purple-500 overflow-hidden" ref={treeRef}>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
+                <Users size={24} className="text-purple-400 sm:w-7 sm:h-7" />
                 Family Tree
               </h2>
-              <div className="text-white">
+              <div className="text-white overflow-x-hidden">
                 {currentTree.data && renderNode(currentTree.data, 0, [])}
               </div>
             </div>
           </div>
 
           {/* Profile Panel */}
-          <div className="lg:col-span-1">
-            <div className={`bg-slate-800 rounded-xl p-6 border-2 sticky top-4 ${
+          <div className="lg:col-span-1 order-1 lg:order-2">
+            <div className={`bg-slate-800 rounded-xl p-4 sm:p-6 border-2 lg:sticky lg:top-4 ${
               selectedPerson && jesusLineage.has(selectedPerson.name)
                 ? 'border-amber-500 bg-gradient-to-br from-amber-900/20 to-slate-800'
                 : 'border-purple-500'
