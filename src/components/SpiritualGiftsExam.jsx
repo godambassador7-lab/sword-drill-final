@@ -127,7 +127,29 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
     setDataLoaded(true);
     console.log('=== End Loading Previous Results ===');
-  }, [userData, userId]);
+
+    // AUTO-SYNC: If we have localStorage results but NOT Firebase results, sync to Firebase
+    if (loadedResults && userId && setUserData && updateUserProgress && !userData?.spiritualGiftsResults) {
+      console.log('🔄 AUTO-SYNC: Found localStorage results but missing in Firebase. Syncing...');
+
+      // Update React state
+      setUserData(prev => ({
+        ...prev,
+        spiritualGiftsResults: loadedResults
+      }));
+
+      // Save to Firebase
+      updateUserProgress(userId, {
+        spiritualGiftsResults: loadedResults
+      })
+        .then(() => {
+          console.log('✓ AUTO-SYNC: Successfully synced results to Firebase');
+        })
+        .catch(err => {
+          console.error('❌ AUTO-SYNC: Error syncing results to Firebase:', err);
+        });
+    }
+  }, [userData, userId, setUserData, updateUserProgress]);
 
   const handleResponse = (questionId, value) => {
     setResponses(prev => ({
@@ -170,11 +192,18 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
     };
 
     // Save to localStorage
-    localStorage.setItem('spiritualGiftsResults', JSON.stringify(resultsToSave));
-    setPreviousResults(resultsToSave);
+    try {
+      localStorage.setItem('spiritualGiftsResults', JSON.stringify(resultsToSave));
+      console.log('✓ Saved to localStorage successfully');
+      setPreviousResults(resultsToSave);
+    } catch (err) {
+      console.error('❌ Error saving to localStorage:', err);
+    }
 
     // Sync to Firebase
-    if (userId && setUserData) {
+    if (userId && setUserData && updateUserProgress) {
+      console.log('🔄 Syncing results to Firebase for userId:', userId);
+
       setUserData(prev => ({
         ...prev,
         spiritualGiftsResults: resultsToSave
@@ -182,7 +211,19 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
       updateUserProgress(userId, {
         spiritualGiftsResults: resultsToSave
-      }).catch(err => console.error('Error saving spiritual gifts results to Firebase:', err));
+      })
+        .then(() => {
+          console.log('✓ Successfully saved to Firebase');
+        })
+        .catch(err => {
+          console.error('❌ Error saving spiritual gifts results to Firebase:', err);
+        });
+    } else {
+      console.warn('⚠️ Cannot sync to Firebase - Missing:', {
+        userId: !!userId,
+        setUserData: !!setUserData,
+        updateUserProgress: !!updateUserProgress
+      });
     }
 
     setResults(sortedGifts);
