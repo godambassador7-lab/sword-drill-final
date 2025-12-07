@@ -280,29 +280,29 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
           {/* Beginner Level */}
           <div
             onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('beginner')
                 ? 'border-green-500 hover:border-green-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">🌱</div>
-              <h3 className="text-2xl font-bold text-green-400 mb-1">Beginner</h3>
-              <p className="text-slate-400 text-sm">Foundation Level</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">🌱</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-green-400 mb-1">Beginner</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Foundation Level</p>
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-amber-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Hebrew Alphabet</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Pronunciation & Vowels</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-amber-400 flex-shrink-0" />
                 <span>150 Essential Words</span>
               </div>
             </div>
@@ -328,16 +328,16 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
           {/* Intermediate Level */}
           <div
             onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('intermediate')
                 ? 'border-blue-500 hover:border-blue-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">🔥</div>
-              <h3 className="text-2xl font-bold text-blue-400 mb-1">Intermediate</h3>
-              <p className="text-slate-400 text-sm">Development Level</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">🔥</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">Intermediate</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Development Level</p>
               {!isLevelUnlocked('intermediate') && (
                 <div className="flex items-center justify-center gap-1 text-orange-400 text-xs mt-2">
                   <Lock size={12} />
@@ -346,17 +346,17 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
               )}
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-amber-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Verb System (Binyanim)</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Nouns & Construct State</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Biblical Text Reading</span>
               </div>
             </div>
@@ -382,16 +382,16 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
           {/* Advanced Level */}
           <div
             onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('advanced')
                 ? 'border-purple-500 hover:border-purple-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">💎</div>
-              <h3 className="text-2xl font-bold text-purple-400 mb-1">Advanced</h3>
-              <p className="text-slate-400 text-sm">Mastery Level</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">💎</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">Advanced</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Mastery Level</p>
               {!isLevelUnlocked('advanced') && (
                 <div className="flex items-center justify-center gap-1 text-orange-400 text-xs mt-2">
                   <Lock size={12} />
@@ -400,17 +400,17 @@ const AncientHebrewCourse = ({ onComplete, onCancel }) => {
               )}
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-amber-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Advanced Syntax</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Poetry & Prophecy</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-amber-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-amber-400 flex-shrink-0" />
                 <span>Biblical Aramaic</span>
               </div>
             </div>

@@ -333,7 +333,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
                         <h3 className="text-xl font-bold text-white mb-1">{lesson.title}</h3>
                         <div className="flex items-center gap-3 text-sm text-slate-400">
                           <span>⏱️ {lesson.duration}</span>
-                          {lesson.isExam && <span className="text-teal-400">🎓 Certification</span>}
+                          {lesson.isExam && <span className="text-teal-400 flex-shrink-0">🎓 Certification</span>}
                         </div>
                       </div>
                     </div>
@@ -343,7 +343,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
                       ) : isCompleted ? (
                         <CheckCircle className="text-green-400" size={28} />
                       ) : (
-                        <ChevronRight className="text-teal-400" size={28} />
+                        <ChevronRight className="text-teal-400 flex-shrink-0" size={28} />
                       )}
                     </div>
                   </div>
@@ -363,7 +363,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center items-center gap-3 mb-4">
-            <Lightbulb className="text-teal-400" size={64} />
+            <Lightbulb className="text-teal-400 flex-shrink-0" size={64} />
             <h1 className="text-5xl font-bold text-teal-400">Hermeneutics</h1>
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Biblical Interpretation Complete Course</h2>
@@ -398,29 +398,29 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
           {/* Beginner Level */}
           <div
             onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('beginner')
                 ? 'border-green-500 hover:border-green-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">🌱</div>
-              <h3 className="text-2xl font-bold text-green-400 mb-1">Beginner</h3>
-              <p className="text-slate-400 text-sm">Foundations</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">🌱</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-green-400 mb-1">Beginner</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Foundations</p>
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-teal-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-teal-400 flex-shrink-0" />
                 <span>What Is Hermeneutics?</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Four Pillars of Interpretation</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Star size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Star size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Context & Genre Study</span>
               </div>
             </div>
@@ -446,16 +446,16 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
           {/* Intermediate Level */}
           <div
             onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('intermediate')
                 ? 'border-blue-500 hover:border-blue-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">🔥</div>
-              <h3 className="text-2xl font-bold text-blue-400 mb-1">Intermediate</h3>
-              <p className="text-slate-400 text-sm">Methods</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">🔥</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">Intermediate</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Methods</p>
               {!isLevelUnlocked('intermediate') && (
                 <div className="flex items-center justify-center gap-1 text-orange-400 text-xs mt-2">
                   <Lock size={12} />
@@ -464,17 +464,17 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
               )}
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-teal-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Grammatical-Historical Method</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Interpreting Genres</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Zap size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Zap size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Typology & Symbolism</span>
               </div>
             </div>
@@ -500,16 +500,16 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
           {/* Advanced Level */}
           <div
             onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-            className={`bg-slate-800 rounded-2xl p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
               isLevelUnlocked('advanced')
                 ? 'border-purple-500 hover:border-purple-400 hover:scale-105'
                 : 'border-slate-600 opacity-50 cursor-not-allowed'
             }`}
           >
-            <div className="text-center mb-4">
-              <div className="text-6xl mb-3">💎</div>
-              <h3 className="text-2xl font-bold text-purple-400 mb-1">Advanced</h3>
-              <p className="text-slate-400 text-sm">Mastery</p>
+            <div className="text-center mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl mb-2 sm:mb-3">💎</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">Advanced</h3>
+              <p className="text-slate-400 text-xs sm:text-sm">Mastery</p>
               {!isLevelUnlocked('advanced') && (
                 <div className="flex items-center justify-center gap-1 text-orange-400 text-xs mt-2">
                   <Lock size={12} />
@@ -518,17 +518,17 @@ const HermeneuticsCourse = ({ onComplete, onCancel }) => {
               )}
             </div>
 
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-teal-400" />
+            <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Textual Criticism</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Canonical Interpretation</span>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm">
-                <Target size={16} className="text-teal-400" />
+              <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
+                <Target size={14} className="text-teal-400 flex-shrink-0" />
                 <span>Application Principles</span>
               </div>
             </div>

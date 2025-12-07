@@ -178,35 +178,35 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
               {/* Beginner */}
               <div
                 onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-                className={`p-6 rounded-xl border-2 transition-all ${
+                className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
                   isLevelUnlocked('beginner')
                     ? 'bg-gradient-to-r from-green-600/20 to-emerald-600/20 border-green-500/50 hover:border-green-400 cursor-pointer'
                     : 'bg-slate-700/30 border-slate-600 opacity-50 cursor-not-allowed'
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-start sm:items-center justify-between mb-3 gap-3">
+                  <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
                     {isLevelUnlocked('beginner') ? (
-                      <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
-                        <BookOpen className="text-white" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
+                        <BookOpen className="text-white" size={20} />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-slate-600 flex items-center justify-center">
-                        <Lock className="text-slate-400" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0">
+                        <Lock className="text-slate-400" size={20} />
                       </div>
                     )}
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Beginner Level</h3>
-                      <p className="text-sm text-slate-300">Study each king's history and pass quizzes (5 questions each)</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Beginner Level</h3>
+                      <p className="text-xs sm:text-sm text-slate-300">Study each king's history and pass quizzes (5 questions each)</p>
                     </div>
                   </div>
-                  {isLevelUnlocked('beginner') && <ChevronRight className="text-green-400" size={28} />}
+                  {isLevelUnlocked('beginner') && <ChevronRight className="text-green-400 flex-shrink-0 hidden sm:block" size={28} />}
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-slate-300">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="text-xs sm:text-sm text-slate-300">
                     {getLevelProgress('beginner').completed} / {getLevelProgress('beginner').total} Kings Learned
                   </div>
-                  <div className="w-1/3 bg-slate-700 rounded-full h-2">
+                  <div className="w-full sm:w-1/3 bg-slate-700 rounded-full h-2">
                     <div
                       className="bg-green-500 h-2 rounded-full transition-all"
                       style={{ width: `${getLevelProgress('beginner').percentage}%` }}
@@ -218,36 +218,36 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
               {/* Intermediate */}
               <div
                 onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-                className={`p-6 rounded-xl border-2 transition-all ${
+                className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
                   isLevelUnlocked('intermediate')
                     ? 'bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border-blue-500/50 hover:border-blue-400 cursor-pointer'
                     : 'bg-slate-700/30 border-slate-600 opacity-50 cursor-not-allowed'
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-start sm:items-center justify-between mb-3 gap-3">
+                  <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
                     {isLevelUnlocked('intermediate') ? (
-                      <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
-                        <Scroll className="text-white" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                        <Scroll className="text-white" size={20} />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-slate-600 flex items-center justify-center">
-                        <Lock className="text-slate-400" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0">
+                        <Lock className="text-slate-400" size={20} />
                       </div>
                     )}
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Intermediate Level</h3>
-                      <p className="text-sm text-slate-300">Learn which prophets served during each reign</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Intermediate Level</h3>
+                      <p className="text-xs sm:text-sm text-slate-300">Learn which prophets served during each reign</p>
                     </div>
                   </div>
-                  {isLevelUnlocked('intermediate') && <ChevronRight className="text-blue-400" size={28} />}
+                  {isLevelUnlocked('intermediate') && <ChevronRight className="text-blue-400 flex-shrink-0 hidden sm:block" size={28} />}
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-slate-300">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="text-xs sm:text-sm text-slate-300">
                     {isLevelUnlocked('intermediate') ? `${getLevelProgress('intermediate').completed} / ${getLevelProgress('intermediate').total} Kings Learned` : 'Complete 10 beginner kings to unlock'}
                   </div>
                   {isLevelUnlocked('intermediate') && (
-                    <div className="w-1/3 bg-slate-700 rounded-full h-2">
+                    <div className="w-full sm:w-1/3 bg-slate-700 rounded-full h-2">
                       <div
                         className="bg-blue-500 h-2 rounded-full transition-all"
                         style={{ width: `${getLevelProgress('intermediate').percentage}%` }}
@@ -260,36 +260,36 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel }) => {
               {/* Advanced */}
               <div
                 onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-                className={`p-6 rounded-xl border-2 transition-all ${
+                className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
                   isLevelUnlocked('advanced')
                     ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-purple-500/50 hover:border-purple-400 cursor-pointer'
                     : 'bg-slate-700/30 border-slate-600 opacity-50 cursor-not-allowed'
                 }`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-start sm:items-center justify-between mb-3 gap-3">
+                  <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
                     {isLevelUnlocked('advanced') ? (
-                      <div className="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center">
-                        <Trophy className="text-white" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                        <Trophy className="text-white" size={20} />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-slate-600 flex items-center justify-center">
-                        <Lock className="text-slate-400" size={24} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0">
+                        <Lock className="text-slate-400" size={20} />
                       </div>
                     )}
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Advanced Level</h3>
-                      <p className="text-sm text-slate-300">Study prophetic ministry and pass harder quizzes (5 questions each)</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Advanced Level</h3>
+                      <p className="text-xs sm:text-sm text-slate-300">Study prophetic ministry and pass harder quizzes (5 questions each)</p>
                     </div>
                   </div>
-                  {isLevelUnlocked('advanced') && <ChevronRight className="text-purple-400" size={28} />}
+                  {isLevelUnlocked('advanced') && <ChevronRight className="text-purple-400 flex-shrink-0 hidden sm:block" size={28} />}
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-slate-300">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="text-xs sm:text-sm text-slate-300">
                     {isLevelUnlocked('advanced') ? `${getLevelProgress('advanced').completed} / ${getLevelProgress('advanced').total} Kings Learned` : 'Complete 10 intermediate kings to unlock'}
                   </div>
                   {isLevelUnlocked('advanced') && (
-                    <div className="w-1/3 bg-slate-700 rounded-full h-2">
+                    <div className="w-full sm:w-1/3 bg-slate-700 rounded-full h-2">
                       <div
                         className="bg-purple-500 h-2 rounded-full transition-all"
                         style={{ width: `${getLevelProgress('advanced').percentage}%` }}
