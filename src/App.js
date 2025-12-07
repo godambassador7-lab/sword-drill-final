@@ -6706,7 +6706,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                   >
-                    <BookOpen size={18} className="text-indigo-400" /> Greek Lexicon
+                    <span className="text-indigo-400 text-xl font-bold">Ω</span> Greek Lexicon
                   </button>
                   <button
                     onClick={() => {
@@ -6715,7 +6715,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
                   >
-                    <BookOpen size={18} className="text-amber-400" /> Hebrew Lexicon
+                    <span className="text-amber-400 text-xl font-bold">א</span> Hebrew Lexicon
                   </button>
                   <button
                     onClick={() => {
