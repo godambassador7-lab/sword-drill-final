@@ -376,35 +376,35 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
 
           {/* Previous Results Section */}
           {previousResults && previousResults.gifts && previousResults.gifts.length > 0 && (
-            <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 backdrop-blur rounded-xl p-6 border border-blue-500/50 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <History size={28} className="text-blue-400" />
-                <h2 className="text-2xl font-bold text-blue-300">Your Previous Results</h2>
+            <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 backdrop-blur rounded-xl p-4 sm:p-6 border border-blue-500/50 mb-6">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <History size={24} className="text-blue-400 flex-shrink-0" />
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-blue-300">Your Previous Results</h2>
               </div>
               {previousResults.timestamp && (
-                <p className="text-slate-300 mb-4">
+                <p className="text-slate-300 text-sm sm:text-base mb-3 sm:mb-4">
                   You completed this exam on {new Date(previousResults.timestamp).toLocaleDateString()} at {new Date(previousResults.timestamp).toLocaleTimeString()}
                 </p>
               )}
 
               {previousResults.gifts && previousResults.gifts.length > 0 && (
-                <div className="bg-slate-900/50 rounded-lg p-4 mb-4">
-                  <h3 className="text-lg font-semibold text-blue-200 mb-3">Your Top 3 Gifts:</h3>
+                <div className="bg-slate-900/50 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold text-blue-200 mb-2 sm:mb-3">Your Top 3 Gifts:</h3>
                   <div className="space-y-2">
                     {previousResults.gifts.slice(0, 3).map((gift, index) => (
-                      <div key={gift.id || index} className="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
-                        <div className="flex items-center gap-3">
+                      <div key={gift.id || index} className="flex items-center justify-between bg-slate-800/50 rounded-lg p-2 sm:p-3 gap-2">
+                        <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                           <div className={`
-                            w-8 h-8 rounded-full flex items-center justify-center font-bold
+                            w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-sm sm:text-base flex-shrink-0
                             ${index === 0 ? 'bg-yellow-500/20 text-yellow-300 border-2 border-yellow-400' : ''}
                             ${index === 1 ? 'bg-slate-400/20 text-slate-300 border-2 border-slate-400' : ''}
                             ${index === 2 ? 'bg-amber-600/20 text-amber-400 border-2 border-amber-500' : ''}
                           `}>
                             {index + 1}
                           </div>
-                          <span className="text-white font-semibold">{gift.name || 'Unknown'}</span>
+                          <span className="text-white font-semibold text-sm sm:text-base truncate">{gift.name || 'Unknown'}</span>
                         </div>
-                        <span className="text-blue-300 font-bold">Score: {gift.score || 0}</span>
+                        <span className="text-blue-300 font-bold text-sm sm:text-base whitespace-nowrap">Score: {gift.score || 0}</span>
                       </div>
                     ))}
                   </div>
@@ -416,9 +416,9 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                   loadPreviousResults();
                   setShowWelcome(false);
                 }}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-sm sm:text-base transition-colors"
               >
-                <History size={20} />
+                <History size={18} className="sm:w-5 sm:h-5" />
                 View Full Previous Results
               </button>
             </div>

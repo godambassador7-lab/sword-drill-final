@@ -19,6 +19,8 @@ const BiblicalBloodlines = ({ onClose }) => {
   const [dictionaryIndex, setDictionaryIndex] = useState(null);
   const [dictionaryLoading, setDictionaryLoading] = useState(false);
   const [dictionaryError, setDictionaryError] = useState(null);
+  const [currentNode, setCurrentNode] = useState(null); // Current person being viewed in tier view
+  const [navigationPath, setNavigationPath] = useState([]); // Breadcrumb path
   const treeRef = useRef(null);
 
   // Available family trees
@@ -310,6 +312,10 @@ const BiblicalBloodlines = ({ onClose }) => {
       }
 
       setCurrentTree({ ...treeDef, data });
+
+      // Set initial node for tier navigation (root of tree)
+      setCurrentNode(data);
+      setNavigationPath([]);
     } catch (error) {
       console.error('Error loading tree:', error);
       setLoadError(error.message);
@@ -395,6 +401,31 @@ const BiblicalBloodlines = ({ onClose }) => {
       }
       return newSet;
     });
+  };
+
+  // Navigate to a specific person in tier view
+  const navigateToPerson = (person) => {
+    setCurrentNode(person);
+    setSelectedPerson(person);
+  };
+
+  // Navigate back in breadcrumb trail
+  const navigateBack = () => {
+    if (navigationPath.length > 0) {
+      const previous = navigationPath[navigationPath.length - 1];
+      setNavigationPath(navigationPath.slice(0, -1));
+      setCurrentNode(previous);
+      setSelectedPerson(previous);
+    }
+  };
+
+  // Navigate to child and add current to path
+  const navigateToChild = (child) => {
+    if (currentNode) {
+      setNavigationPath([...navigationPath, currentNode]);
+    }
+    setCurrentNode(child);
+    setSelectedPerson(child);
   };
 
   const handleSearch = (term) => {
@@ -697,16 +728,186 @@ const BiblicalBloodlines = ({ onClose }) => {
         </div>
 
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6">
-          {/* Family Tree */}
+          {/* Tiered Navigation View */}
           <div className="lg:col-span-2 order-2 lg:order-1">
             <div className="bg-slate-800 rounded-xl p-3 sm:p-6 border-2 border-purple-500 overflow-hidden" ref={treeRef}>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
                 <Users size={24} className="text-purple-400 sm:w-7 sm:h-7" />
-                Family Tree
+                Explore Generations
               </h2>
-              <div className="text-white overflow-x-hidden">
-                {currentTree.data && renderNode(currentTree.data, 0, [])}
-              </div>
+
+              {/* Breadcrumb Navigation */}
+              {navigationPath.length > 0 && (
+                <div className="mb-4 flex items-center gap-2 flex-wrap">
+                  <button
+                    onClick={() => {
+                      setCurrentNode(currentTree.data);
+                      setNavigationPath([]);
+                    }}
+                    className="flex items-center gap-1 px-2 py-1 bg-purple-600/30 hover:bg-purple-600/50 rounded text-sm text-purple-200 transition-colors"
+                  >
+                    <Home size={14} />
+                    Start
+                  </button>
+                  {navigationPath.map((person, idx) => (
+                    <React.Fragment key={idx}>
+                      <ChevronRight size={14} className="text-purple-400" />
+                      <button
+                        onClick={() => {
+                          setNavigationPath(navigationPath.slice(0, idx + 1));
+                          setCurrentNode(person);
+                          setSelectedPerson(person);
+                        }}
+                        className="px-2 py-1 bg-purple-600/30 hover:bg-purple-600/50 rounded text-sm text-purple-200 truncate max-w-[120px] transition-colors"
+                      >
+                        {person.name}
+                      </button>
+                    </React.Fragment>
+                  ))}
+                  {currentNode && (
+                    <>
+                      <ChevronRight size={14} className="text-purple-400" />
+                      <span className="px-2 py-1 bg-purple-600 rounded text-sm text-white font-semibold truncate max-w-[120px]">
+                        {currentNode.name}
+                      </span>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* Current Person Card */}
+              {currentNode && (
+                <div className={`mb-4 p-4 rounded-xl border-2 ${
+                  jesusLineage.has(currentNode.name)
+                    ? 'bg-gradient-to-r from-amber-900/30 to-amber-800/30 border-amber-500'
+                    : 'bg-slate-700/50 border-purple-500/50'
+                }`}>
+                  <div className="flex items-center gap-3 mb-2">
+                    {jesusLineage.has(currentNode.name) && (
+                      <Sparkles className="text-amber-400 flex-shrink-0" size={20} />
+                    )}
+                    <h3 className={`text-xl sm:text-2xl font-bold ${
+                      jesusLineage.has(currentNode.name) ? 'text-amber-100' : 'text-white'
+                    }`}>
+                      {currentNode.name}
+                    </h3>
+                  </div>
+                  {currentNode.aka && currentNode.aka.length > 0 && (
+                    <p className="text-sm text-purple-300 mb-2">
+                      Also known as: {currentNode.aka.join(', ')}
+                    </p>
+                  )}
+                  {currentNode.type && (
+                    <span className={`inline-block px-2 py-1 rounded text-xs font-semibold ${
+                      currentNode.type === 'person' ? 'bg-blue-600' :
+                      currentNode.type === 'tribe' ? 'bg-green-600' :
+                      currentNode.type === 'nation' ? 'bg-red-600' :
+                      currentNode.type === 'clan' ? 'bg-yellow-600' :
+                      'bg-purple-600'
+                    } text-white`}>
+                      {currentNode.type}
+                    </span>
+                  )}
+                </div>
+              )}
+
+              {/* Children/Descendants Grid - Ancestry DNA style */}
+              {currentNode && currentNode.children && currentNode.children.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-semibold text-purple-200 mb-3">
+                    Children & Descendants ({currentNode.children.length})
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {currentNode.children.map((child, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => navigateToChild(child)}
+                        className={`p-4 rounded-lg border-2 transition-all text-left group ${
+                          jesusLineage.has(child.name)
+                            ? 'bg-amber-900/20 border-amber-500/50 hover:bg-amber-900/30 hover:border-amber-400'
+                            : 'bg-slate-700/50 border-purple-500/30 hover:bg-slate-700 hover:border-purple-400'
+                        }`}
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            {jesusLineage.has(child.name) && (
+                              <Sparkles size={14} className="text-amber-400 flex-shrink-0" />
+                            )}
+                            <span className={`font-semibold truncate ${
+                              jesusLineage.has(child.name) ? 'text-amber-100' : 'text-white'
+                            }`}>
+                              {child.name}
+                            </span>
+                          </div>
+                          <ChevronRight size={18} className={`flex-shrink-0 transition-transform group-hover:translate-x-1 ${
+                            jesusLineage.has(child.name) ? 'text-amber-400' : 'text-purple-400'
+                          }`} />
+                        </div>
+                        {child.aka && child.aka.length > 0 && (
+                          <p className="text-xs text-purple-300 mb-1 truncate">
+                            aka {child.aka[0]}
+                          </p>
+                        )}
+                        {child.type && (
+                          <span className={`inline-block px-2 py-0.5 rounded text-xs ${
+                            child.type === 'person' ? 'bg-blue-600/50' :
+                            child.type === 'tribe' ? 'bg-green-600/50' :
+                            child.type === 'nation' ? 'bg-red-600/50' :
+                            child.type === 'clan' ? 'bg-yellow-600/50' :
+                            'bg-purple-600/50'
+                          } text-white`}>
+                            {child.type}
+                          </span>
+                        )}
+                        {child.children && child.children.length > 0 && (
+                          <p className="text-xs text-purple-400 mt-2">
+                            {child.children.length} descendant{child.children.length !== 1 ? 's' : ''}
+                          </p>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Special Jesus genealogy lines */}
+              {currentNode && currentNode.legal_line_through_joseph && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-amber-300 mb-3">Legal Line (Joseph):</h3>
+                  <button
+                    onClick={() => navigateToChild(currentNode.legal_line_through_joseph)}
+                    className="w-full p-4 rounded-lg bg-amber-900/20 border-2 border-amber-500/50 hover:bg-amber-900/30 hover:border-amber-400 transition-all text-left group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-amber-100">{currentNode.legal_line_through_joseph.name}</span>
+                      <ChevronRight size={18} className="text-amber-400 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </button>
+                </div>
+              )}
+
+              {currentNode && currentNode.line_through_mary && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-amber-300 mb-3">Biological Line (Mary):</h3>
+                  <button
+                    onClick={() => navigateToChild(currentNode.line_through_mary)}
+                    className="w-full p-4 rounded-lg bg-amber-900/20 border-2 border-amber-500/50 hover:bg-amber-900/30 hover:border-amber-400 transition-all text-left group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-amber-100">{currentNode.line_through_mary.name}</span>
+                      <ChevronRight size={18} className="text-amber-400 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </button>
+                </div>
+              )}
+
+              {/* No children message */}
+              {currentNode && !currentNode.children?.length && !currentNode.legal_line_through_joseph && !currentNode.line_through_mary && (
+                <div className="text-center py-8 text-purple-300">
+                  <Users size={48} className="mx-auto mb-3 opacity-50" />
+                  <p>No recorded descendants for {currentNode.name}</p>
+                </div>
+              )}
             </div>
           </div>
 
