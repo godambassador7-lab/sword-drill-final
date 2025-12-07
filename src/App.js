@@ -651,6 +651,7 @@ const saveProgressToLocalStorage = (progress) => {
       verseProgress,
       currentLevel,
       unlockables,
+      spiritualGiftsResults,
       newlyUnlockedAchievements,
       achievementClickHistory,
       purchaseHistory,
@@ -678,7 +679,9 @@ const saveProgressToLocalStorage = (progress) => {
       hintPurchases,
       investments,
       activeBoosts,
-      accountCreated
+      spiritualGiftsResults
+      accountCreated,
+      spiritualGiftsResults
     };
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
@@ -776,6 +779,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   // Account created (prefer remote, fallback to local, default to now)
   const accountCreated = remoteProgress.accountCreated || localProgress.accountCreated || Date.now();
 
+  // Merge spiritual gifts exam results (prefer remote, fallback to local)
+  const spiritualGiftsResults = remoteProgress.spiritualGiftsResults || localProgress.spiritualGiftsResults || null;
+
   const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
   const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
     ? 'KJV'
@@ -793,6 +799,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     verseProgress,
     currentLevel: remoteProgress.currentLevel || localProgress.currentLevel || 'Beginner',
     unlockables,
+    spiritualGiftsResults,
     newlyUnlockedAchievements,
     achievementClickHistory,
     quizHistory,
@@ -883,6 +890,7 @@ const SwordDrillApp = () => {
       bloodlines: false, // Bible Bloodlines unlock
       kjvStrongs: false // KJV with Strong's numbers (interlinear)
     },
+    spiritualGiftsResults: null,
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
     quizHistory: [], // Track individual quiz attempts (for calendar)
@@ -1044,7 +1052,9 @@ useEffect(() => {
           investments: result.progress.investments || [],
           purchaseHistory: result.progress.purchaseHistory || [],
           hintPurchases: result.progress.hintPurchases || [],
-          activeBoosts: result.progress.activeBoosts || []
+          activeBoosts: result.progress.activeBoosts || [],
+          spiritualGiftsResults: result.progress.spiritualGiftsResults || null,
+          accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
         const mergedProgress = mergeProgressRecords(localSavedProgress, loadedUserData, localStreak);
@@ -1457,7 +1467,8 @@ const handleSignIn = async (e) => {
       includeApocrypha: false,
       verseProgress: {},
       currentLevel: 'Beginner',
-      unlockables: { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false }
+      unlockables: { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
+      spiritualGiftsResults: null
     });
     setIsLoggedIn(true);
   } else {

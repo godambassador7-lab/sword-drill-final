@@ -25,7 +25,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   useEffect(() => {
     const loadPuzzles = async () => {
       try {
-        const puzzleFiles = Array.from({ length: 250 }, (_, i) =>
+        const puzzleFiles = Array.from({ length: 260 }, (_, i) =>
           `ws_${String(i + 1).padStart(3, '0')}.json`
         );
 
@@ -482,7 +482,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                       onMouseUp={handleMouseUp}
                       onTouchStart={(e) => handleTouchStart(e, rowIndex, colIndex)}
                       className={`
-                        w-10 h-10 flex items-center justify-center font-bold text-lg rounded cursor-pointer
+                        w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center font-bold text-xs sm:text-sm md:text-base rounded cursor-pointer
                         select-none transition-all
                         ${isSelected
                           ? 'bg-gradient-to-br from-blue-500 to-purple-500 text-white scale-110 shadow-lg'
