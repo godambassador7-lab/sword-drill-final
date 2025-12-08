@@ -570,18 +570,45 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                       Retake Quiz
                     </button>
                     <button
-                      onClick={() => {
+                      onClick={async () => {
                         console.log(`🎯 Quiz Results - Score: ${score}/5, King Index: ${currentKingIndex}, Level: beginner`);
                         console.log(`📋 Current completedKings.beginner:`, completedKings.beginner);
+
+                        let updatedCompletedKings = completedKings;
+
                         if (score >= 4) {
                           console.log('✅ Score >= 4, checking if already completed...');
                           // Mark as completed and move to next
                           if (!completedKings.beginner.includes(currentKingIndex)) {
                             console.log('➕ Adding king to completed list');
-                            setCompletedKings(prev => ({
-                              ...prev,
-                              beginner: [...prev.beginner, currentKingIndex]
-                            }));
+                            updatedCompletedKings = {
+                              ...completedKings,
+                              beginner: [...completedKings.beginner, currentKingIndex]
+                            };
+
+                            // Save immediately to localStorage and Firebase
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            console.log('💾 Saved to localStorage immediately');
+
+                            setCompletedKings(updatedCompletedKings);
+
+                            // Save to Firebase synchronously before navigation
+                            if (userId && setUserData && updateUserProgress) {
+                              console.log('☁️ Saving to Firebase immediately before navigation');
+                              setUserData(prev => ({
+                                ...prev,
+                                kingsOfIsraelProgress: updatedCompletedKings
+                              }));
+
+                              try {
+                                await updateUserProgress(userId, {
+                                  kingsOfIsraelProgress: updatedCompletedKings
+                                });
+                                console.log('✅ Successfully saved to Firebase before navigation');
+                              } catch (err) {
+                                console.error('❌ Error saving to Firebase:', err);
+                              }
+                            }
                           } else {
                             console.log('ℹ️ King already in completed list');
                           }
@@ -846,14 +873,38 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                       Study Again
                     </button>
                     <button
-                      onClick={() => {
+                      onClick={async () => {
                         if (score >= 4) {
                           // Mark as completed and move to next
                           if (!completedKings.advanced.includes(currentKingIndex)) {
-                            setCompletedKings(prev => ({
-                              ...prev,
-                              advanced: [...prev.advanced, currentKingIndex]
-                            }));
+                            const updatedCompletedKings = {
+                              ...completedKings,
+                              advanced: [...completedKings.advanced, currentKingIndex]
+                            };
+
+                            // Save immediately to localStorage and Firebase
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            console.log('💾 [Advanced] Saved to localStorage immediately');
+
+                            setCompletedKings(updatedCompletedKings);
+
+                            // Save to Firebase synchronously before navigation
+                            if (userId && setUserData && updateUserProgress) {
+                              console.log('☁️ [Advanced] Saving to Firebase immediately before navigation');
+                              setUserData(prev => ({
+                                ...prev,
+                                kingsOfIsraelProgress: updatedCompletedKings
+                              }));
+
+                              try {
+                                await updateUserProgress(userId, {
+                                  kingsOfIsraelProgress: updatedCompletedKings
+                                });
+                                console.log('✅ [Advanced] Successfully saved to Firebase before navigation');
+                              } catch (err) {
+                                console.error('❌ [Advanced] Error saving to Firebase:', err);
+                              }
+                            }
                           }
 
                           if (currentKingIndex < kingsData.advanced.length - 1) {
@@ -1116,14 +1167,38 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                       Study Again
                     </button>
                     <button
-                      onClick={() => {
+                      onClick={async () => {
                         if (score >= 4) {
                           // Mark as completed and move to next
                           if (!completedKings.intermediate.includes(currentKingIndex)) {
-                            setCompletedKings(prev => ({
-                              ...prev,
-                              intermediate: [...prev.intermediate, currentKingIndex]
-                            }));
+                            const updatedCompletedKings = {
+                              ...completedKings,
+                              intermediate: [...completedKings.intermediate, currentKingIndex]
+                            };
+
+                            // Save immediately to localStorage and Firebase
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            console.log('💾 [Intermediate] Saved to localStorage immediately');
+
+                            setCompletedKings(updatedCompletedKings);
+
+                            // Save to Firebase synchronously before navigation
+                            if (userId && setUserData && updateUserProgress) {
+                              console.log('☁️ [Intermediate] Saving to Firebase immediately before navigation');
+                              setUserData(prev => ({
+                                ...prev,
+                                kingsOfIsraelProgress: updatedCompletedKings
+                              }));
+
+                              try {
+                                await updateUserProgress(userId, {
+                                  kingsOfIsraelProgress: updatedCompletedKings
+                                });
+                                console.log('✅ [Intermediate] Successfully saved to Firebase before navigation');
+                              } catch (err) {
+                                console.error('❌ [Intermediate] Error saving to Firebase:', err);
+                              }
+                            }
                           }
 
                           if (currentKingIndex < kingsData.intermediate.length - 1) {
