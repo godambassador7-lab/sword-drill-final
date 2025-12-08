@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy, Crown, ArrowLeft, Scroll, Shield } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 
@@ -7,132 +7,103 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [currentKingIndex, setCurrentKingIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [kingsData, setKingsData] = useState({ beginner: [], intermediate: [], advanced: [] });
-  const [completedKings, setCompletedKings] = useState(() => {
-    // Load from Firebase first, then localStorage as fallback
-    if (userData?.kingsOfIsraelProgress) {
-      return userData.kingsOfIsraelProgress;
-    }
-
-    const saved = localStorage.getItem('kingsOfIsraelProgress');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error('Error parsing kings progress:', e);
-      }
-    }
-    return { beginner: [], intermediate: [], advanced: [] };
-  });
+  const [completedKings, setCompletedKings] = useState({ beginner: [], intermediate: [], advanced: [] });
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState({});
-  const [isStudyMode, setIsStudyMode] = useState(true); // Track study vs quiz mode for intermediate/advanced
-  const [isInitialMount, setIsInitialMount] = useState(true); // Track initial mount to prevent overwriting Firebase data
+  const [isStudyMode, setIsStudyMode] = useState(true);
 
-  // Sync completed kings when userData loads/changes (handles late-arriving Firebase data)
+  // Use ref to track if we've loaded initial data to prevent auto-save on mount
+  const hasLoadedInitialData = useRef(false);
+  const firebaseDataLoaded = useRef(false);
+
+  // Load progress from Firebase/localStorage on mount
   useEffect(() => {
+    if (hasLoadedInitialData.current) return;
+
+    console.log('🔄 [KingsOfIsrael] Initial load - checking userData:', userData?.kingsOfIsraelProgress);
+
+    // Priority 1: Load from Firebase if available
     if (userData?.kingsOfIsraelProgress) {
-      console.log('🔄 [KingsOfIsrael] Syncing from userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
-      console.log('📊 [KingsOfIsrael] Progress details:', {
-        beginner: userData.kingsOfIsraelProgress.beginner || [],
-        intermediate: userData.kingsOfIsraelProgress.intermediate || [],
-        advanced: userData.kingsOfIsraelProgress.advanced || []
-      });
-      setCompletedKings(userData.kingsOfIsraelProgress);
-      // Don't mark as initialized here - let the timer do it to avoid immediate saves
-    }
-  }, [userData?.kingsOfIsraelProgress]);
+      const firebaseProgress = userData.kingsOfIsraelProgress;
+      const hasAnyProgress =
+        (firebaseProgress.beginner && firebaseProgress.beginner.length > 0) ||
+        (firebaseProgress.intermediate && firebaseProgress.intermediate.length > 0) ||
+        (firebaseProgress.advanced && firebaseProgress.advanced.length > 0);
 
-  // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
-  useEffect(() => {
-    const localSaved = localStorage.getItem('kingsOfIsraelProgress');
-    if (localSaved && userId && setUserData && updateUserProgress && !userData?.kingsOfIsraelProgress) {
-      try {
-        const localProgress = JSON.parse(localSaved);
-        console.log('🔄 AUTO-SYNC: Found localStorage progress but missing in Firebase. Syncing Kings of Israel progress...');
-
-        setUserData(prev => ({
-          ...prev,
-          kingsOfIsraelProgress: localProgress
-        }));
-
-        updateUserProgress(userId, {
-          kingsOfIsraelProgress: localProgress
-        })
-          .then(() => {
-            console.log('✓ AUTO-SYNC: Successfully synced Kings of Israel progress to Firebase');
-            // Don't mark as initialized here - let the timer do it to avoid immediate saves
-          })
-          .catch(err => {
-            console.error('❌ AUTO-SYNC: Error syncing Kings of Israel progress to Firebase:', err);
-          });
-      } catch (e) {
-        console.error('Error parsing local Kings of Israel progress for auto-sync:', e);
-      }
-    }
-  }, [userId, userData, setUserData]);
-
-  // Mark as initialized ONLY after Firebase data has been processed or confirmed absent
-  useEffect(() => {
-    if (userData !== null && userData !== undefined) {
-      // Check if we've already loaded Firebase progress data
-      const hasLoadedProgress = userData.kingsOfIsraelProgress !== undefined;
-
-      if (hasLoadedProgress && !isInitialMount) {
-        // Already initialized, nothing to do
-        return;
-      }
-
-      // Wait for progress to load or confirm it doesn't exist
-      const timer = setTimeout(() => {
-        if (isInitialMount) {
-          // After delay, check if we've received Firebase data (could be empty object or have data)
-          // Only initialize if userData has the kingsOfIsraelProgress property (even if empty)
-          if (hasLoadedProgress) {
-            console.log('✅ [KingsOfIsrael] Marking as initialized - Firebase data loaded:', userData.kingsOfIsraelProgress);
-            setIsInitialMount(false);
-          } else {
-            console.log('⏳ [KingsOfIsrael] Still waiting for Firebase data... userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
-          }
-        }
-      }, 1500); // 1.5 second delay to ensure Firebase loads
-      return () => clearTimeout(timer);
-    }
-  }, [userData, isInitialMount]);
-
-  // Save progress to both localStorage and Firebase whenever completedKings changes
-  useEffect(() => {
-    // Skip saving on initial mount to avoid overwriting Firebase data
-    if (isInitialMount) {
-      console.log('⏭️ [KingsOfIsrael] Skipping save on initial mount');
+      console.log('📊 [KingsOfIsrael] Loading from Firebase:', firebaseProgress, 'Has progress:', hasAnyProgress);
+      setCompletedKings(firebaseProgress);
+      firebaseDataLoaded.current = true;
+      hasLoadedInitialData.current = true;
       return;
     }
 
-    console.log('💾 [KingsOfIsrael] Saving completedKings to localStorage and Firebase:', completedKings);
+    // Priority 2: Load from localStorage if no Firebase data
+    const localSaved = localStorage.getItem('kingsOfIsraelProgress');
+    if (localSaved) {
+      try {
+        const localProgress = JSON.parse(localSaved);
+        console.log('💾 [KingsOfIsrael] Loading from localStorage:', localProgress);
+        setCompletedKings(localProgress);
+        hasLoadedInitialData.current = true;
+
+        // Auto-sync to Firebase if user is logged in
+        if (userId && setUserData && updateUserProgress) {
+          console.log('🔄 [KingsOfIsrael] Auto-syncing localStorage to Firebase');
+          setUserData(prev => ({
+            ...prev,
+            kingsOfIsraelProgress: localProgress
+          }));
+          updateUserProgress(userId, { kingsOfIsraelProgress: localProgress })
+            .then(() => console.log('✅ [KingsOfIsrael] Auto-sync complete'))
+            .catch(err => console.error('❌ [KingsOfIsrael] Auto-sync failed:', err));
+        }
+        return;
+      } catch (e) {
+        console.error('❌ [KingsOfIsrael] Error parsing localStorage:', e);
+      }
+    }
+
+    // Priority 3: No data anywhere, mark as loaded with empty state
+    console.log('ℹ️ [KingsOfIsrael] No existing progress found, starting fresh');
+    hasLoadedInitialData.current = true;
+  }, [userData, userId, setUserData]);
+
+  // Sync when Firebase data changes after initial load
+  useEffect(() => {
+    if (!hasLoadedInitialData.current) return;
+    if (!userData?.kingsOfIsraelProgress) return;
+    if (firebaseDataLoaded.current) return; // Don't sync if we already loaded from Firebase
+
+    console.log('🔄 [KingsOfIsrael] Syncing updated Firebase data:', userData.kingsOfIsraelProgress);
+    setCompletedKings(userData.kingsOfIsraelProgress);
+  }, [userData?.kingsOfIsraelProgress]);
+
+  // Save progress whenever completedKings changes (but not on initial load)
+  useEffect(() => {
+    if (!hasLoadedInitialData.current) {
+      console.log('⏭️ [KingsOfIsrael] Skipping save - initial data not loaded yet');
+      return;
+    }
+
+    console.log('💾 [KingsOfIsrael] Saving progress:', completedKings);
     localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(completedKings));
 
-    // Sync to Firebase if user is logged in
     if (userId && setUserData && updateUserProgress) {
-      console.log('☁️ [KingsOfIsrael] Syncing to Firebase for user:', userId);
+      console.log('☁️ [KingsOfIsrael] Syncing to Firebase');
       setUserData(prev => ({
         ...prev,
         kingsOfIsraelProgress: completedKings
       }));
 
-      updateUserProgress(userId, {
-        kingsOfIsraelProgress: completedKings
-      }).then(() => {
-        console.log('✅ [KingsOfIsrael] Successfully saved to Firebase');
-      }).catch(err => {
-        console.error('❌ [KingsOfIsrael] Error saving to Firebase:', err);
-      });
-    } else {
-      console.log('ℹ️ [KingsOfIsrael] Not syncing to Firebase - userId:', userId, 'setUserData:', !!setUserData, 'updateUserProgress:', !!updateUserProgress);
+      updateUserProgress(userId, { kingsOfIsraelProgress: completedKings })
+        .then(() => console.log('✅ [KingsOfIsrael] Firebase save complete'))
+        .catch(err => console.error('❌ [KingsOfIsrael] Firebase save failed:', err));
     }
-  }, [completedKings, userId, setUserData, isInitialMount]);
+  }, [completedKings, userId, setUserData]);
 
   // Shuffle array helper
   const shuffleArray = (array) => {
