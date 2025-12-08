@@ -589,20 +589,19 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                           console.log('❌ Score < 4, not marking as completed');
                         }
 
-                          if (currentKingIndex < kingsData.beginner.length - 1) {
-                            setCurrentKingIndex(currentKingIndex + 1);
-                            setCurrentQuestionIndex(0);
-                            setQuizAnswers({});
-                            setShowQuizResults(false);
-                          } else {
-                            alert(`🎉 Beginner Level Complete!\n\nYou've learned about all ${kingsData.beginner.length} kings!`);
-                            onComplete({ type: 'level', level: 'beginner', kings: kingsData.beginner.length });
-                            setSelectedLevel(null);
-                            setCurrentKingIndex(0);
-                            setCurrentQuestionIndex(0);
-                            setQuizAnswers({});
-                            setShowQuizResults(false);
-                          }
+                        if (currentKingIndex < kingsData.beginner.length - 1) {
+                          setCurrentKingIndex(currentKingIndex + 1);
+                          setCurrentQuestionIndex(0);
+                          setQuizAnswers({});
+                          setShowQuizResults(false);
+                        } else {
+                          alert(`🎉 Beginner Level Complete!\n\nYou've learned about all ${kingsData.beginner.length} kings!`);
+                          onComplete({ type: 'level', level: 'beginner', kings: kingsData.beginner.length });
+                          setSelectedLevel(null);
+                          setCurrentKingIndex(0);
+                          setCurrentQuestionIndex(0);
+                          setQuizAnswers({});
+                          setShowQuizResults(false);
                         }
                       }}
                       disabled={score < 4}
