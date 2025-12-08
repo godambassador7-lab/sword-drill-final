@@ -1119,9 +1119,17 @@ useEffect(() => {
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
         const mergedProgress = mergeProgressRecords(localSavedProgress, loadedUserData, localStreak);
-        // Recalculate streak from normalized local storage to avoid drift
-        const recalculatedStreak = calculateCurrentStreak();
-        mergedProgress.currentStreak = Math.max(mergedProgress.currentStreak || 0, recalculatedStreak);
+
+        // CRITICAL FIX: Use Firebase as authoritative source for streak and points
+        // Prevents device drift where each device calculates different values
+        console.log('🔄 Sync Strategy: Using Firebase as source of truth');
+        console.log('📊 Firebase streak:', firebaseStreak, '| Local calc:', calculateCurrentStreak());
+        console.log('💰 Firebase points:', result.progress.totalPoints, '| Local:', mergedProgress.totalPoints);
+
+        // Force Firebase values (don't recalculate, causes drift!)
+        mergedProgress.currentStreak = firebaseStreak; // Firebase is authoritative
+        mergedProgress.totalPoints = result.progress.totalPoints || 0; // Firebase is authoritative
+
         // Rebuild streakData from Firebase + quizHistory + existing localStorage and persist
         const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
         const firebaseStreakData = normalizeStreakData(result.progress.streakData || {});
@@ -1145,8 +1153,10 @@ useEffect(() => {
           }
         });
         localStorage.setItem('streakData', JSON.stringify(rebuilt));
-        mergedProgress.currentStreak = calculateCurrentStreak();
+        // DON'T recalculate streak here - Firebase value is already set above (line 1130)
+        // Recalculating causes device drift!
         console.log('[App.js] Setting userData with merged achievements:', mergedProgress.achievements);
+        console.log('✅ Final values - Streak:', mergedProgress.currentStreak, '| Points:', mergedProgress.totalPoints);
         setUserData(mergedProgress);
         setIsLoggedIn(true);
       }
@@ -1498,8 +1508,12 @@ const handleSignIn = async (e) => {
         Math.max(localStreak, firebaseStreak)
       );
 
-      // Recalculate streak after merging all data
-      mergedUserData.currentStreak = calculateCurrentStreak();
+      // CRITICAL FIX: Use Firebase as authoritative source
+      // Don't recalculate - prevents device drift!
+      console.log('🔄 Sign-in Sync: Using Firebase values');
+      console.log('📊 Firebase streak:', firebaseStreak, '| Local calc would be:', calculateCurrentStreak());
+      mergedUserData.currentStreak = firebaseStreak; // Firebase is authoritative
+      mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
 
       setUserData(mergedUserData);
       setIsLoggedIn(true);
