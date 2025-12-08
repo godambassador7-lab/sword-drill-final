@@ -58,6 +58,7 @@ import AmharicCourse from './components/AmharicCourse';
 import GeezCourse from './components/GeezCourse';
 import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
+import ApologeticsCourse from './components/ApologeticsCourse';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
 import TutorialHelp from './components/TutorialHelp';
@@ -865,7 +866,8 @@ const SwordDrillApp = () => {
     'hermeneutics-course': { cost: 800, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
     'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
     'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
-    'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' }
+    'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
+    'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' }
   };
 
   const [currentView, setCurrentView] = useState('home');
@@ -928,6 +930,8 @@ const SwordDrillApp = () => {
       lxx: false,        // Septuagint (Greek OT) - Unlock at 5000 pts
       masoretic: false,  // Masoretic Text (Hebrew OT) - Unlock at 7500 pts
       sinaiticus: false, // Codex Sinaiticus - Unlock at 10000 pts
+      targumJonathan: false, // Targum Jonathan (Prophets) - Unlock at 6000 pts
+      targumOnkelos: false, // Targum Onkelos (Torah) - Unlock at 6000 pts
       smithDictionary: false, // Smith's Bible Dictionary - Unlock at 500 pts
       bloodlines: false, // Bible Bloodlines unlock
       kjvStrongs: false // KJV with Strong's numbers (interlinear)
@@ -5800,6 +5804,128 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </button>
               )}
             </div>
+
+            {/* Targum Jonathan - Aramaic Prophets */}
+            <div className={`bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl p-4 border-2 ${
+              !userData.unlockables?.targumJonathan && userData.totalPoints >= 6000
+                ? 'border-amber-500 animate-shimmer-border'
+                : 'border-cyan-600/30'
+            }`}>
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-cyan-300">Targum Jonathan</h3>
+                    {!userData.unlockables?.targumJonathan && <Lock size={14} className="text-amber-400" />}
+                  </div>
+                  <p className="text-cyan-200 text-sm mt-1">Aramaic Prophets Translation (Nevi&apos;im)</p>
+                </div>
+                <div className="text-amber-400 font-bold text-lg">6000 pts</div>
+              </div>
+              {userData.unlockables?.targumJonathan ? (
+                <div className="bg-cyan-600/20 text-cyan-300 font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-between">
+                  <span>✓ Unlocked</span>
+                  <a
+                    href={`${process.env.PUBLIC_URL}/The-Targum-of-Jonathan-Ben-Uzziel.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-200 hover:text-cyan-100 underline text-sm"
+                  >
+                    View PDF
+                  </a>
+                </div>
+              ) : (
+                <button
+                  onClick={() => {
+                    if (userData.totalPoints >= 6000) {
+                      if (window.confirm('Unlock Targum Jonathan (Aramaic Prophets) for 6000 points?')) {
+                        playChaChing();
+                        if (currentUser?.uid) {
+                          purchaseUnlockable(currentUser.uid, 'targumJonathan', 6000).then(result => {
+                            if (result.success && result.validatedData) {
+                              setUserData(prev => ({
+                                ...prev,
+                                totalPoints: result.validatedData.totalPoints,
+                                unlockables: result.validatedData.unlockables
+                              }));
+                              showToast('📜 Targum Jonathan unlocked!', 'success');
+                            } else {
+                              showToast(result.error || 'Failed to unlock', 'error');
+                            }
+                          });
+                        }
+                      }
+                    } else {
+                      showToast('Need 6000 points to unlock Targum Jonathan', 'error');
+                    }
+                  }}
+                  disabled={userData.totalPoints < 6000}
+                  className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Purchase
+                </button>
+              )}
+            </div>
+
+            {/* Targum Onkelos - Aramaic Torah (Second file) */}
+            <div className={`bg-gradient-to-br from-teal-900/30 to-emerald-900/30 rounded-xl p-4 border-2 ${
+              !userData.unlockables?.targumOnkelos && userData.totalPoints >= 6000
+                ? 'border-amber-500 animate-shimmer-border'
+                : 'border-teal-600/30'
+            }`}>
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-teal-300">Targum Onkelos</h3>
+                    {!userData.unlockables?.targumOnkelos && <Lock size={14} className="text-amber-400" />}
+                  </div>
+                  <p className="text-teal-200 text-sm mt-1">Aramaic Torah Translation (Pentateuch)</p>
+                </div>
+                <div className="text-amber-400 font-bold text-lg">6000 pts</div>
+              </div>
+              {userData.unlockables?.targumOnkelos ? (
+                <div className="bg-teal-600/20 text-teal-300 font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-between">
+                  <span>✓ Unlocked</span>
+                  <a
+                    href={`${process.env.PUBLIC_URL}/targumjonathant00churgoog.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-teal-200 hover:text-teal-100 underline text-sm"
+                  >
+                    View PDF
+                  </a>
+                </div>
+              ) : (
+                <button
+                  onClick={() => {
+                    if (userData.totalPoints >= 6000) {
+                      if (window.confirm('Unlock Targum Onkelos (Aramaic Torah) for 6000 points?')) {
+                        playChaChing();
+                        if (currentUser?.uid) {
+                          purchaseUnlockable(currentUser.uid, 'targumOnkelos', 6000).then(result => {
+                            if (result.success && result.validatedData) {
+                              setUserData(prev => ({
+                                ...prev,
+                                totalPoints: result.validatedData.totalPoints,
+                                unlockables: result.validatedData.unlockables
+                              }));
+                              showToast('📜 Targum Onkelos unlocked!', 'success');
+                            } else {
+                              showToast(result.error || 'Failed to unlock', 'error');
+                            }
+                          });
+                        }
+                      }
+                    } else {
+                      showToast('Need 6000 points to unlock Targum Onkelos', 'error');
+                    }
+                  }}
+                  disabled={userData.totalPoints < 6000}
+                  className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Purchase
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
@@ -7974,6 +8100,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               }));
 
               setCurrentView('home');
+            }}
+            onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
+          />
+        )}
+        {currentView === 'apologetics-course' && (
+          <ApologeticsCourse
+            onComplete={(results) => {
+              console.log('Apologetics course results:', results);
+
+              // Award points for lesson completion
+              const pointsEarned = awardBonusPoints('courseLesson');
+              showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              // Don't navigate away, stay in course
             }}
             onCancel={() => setCurrentView('home')}
             userId={currentUser?.uid}
