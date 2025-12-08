@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Search, X, Columns, Heart, BookmarkPlus, BookOpen } from 'lucide-react';
 import { simplifyText } from '../services/simplifiedMode';
 import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
@@ -16,6 +16,9 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('');
+
+  // Track if this is the initial load
+  const isInitialLoad = useRef(true);
 
   // Parallel view states
   const [parallelMode, setParallelMode] = useState(false);
@@ -164,8 +167,9 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   }, [chapterContent, startVerse, endVerse]);
 
   // Parse and navigate to initial reference (e.g., "John 3:16")
+  // Only applies if explicitly provided, otherwise use saved passage
   useEffect(() => {
-    if (initialReference && bibleBooks.length > 0) {
+    if (initialReference && bibleBooks.length > 0 && isInitialLoad.current) {
       const parseReference = (ref) => {
         const match = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
         if (match) {
@@ -189,9 +193,39 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
       if (parsed) {
         setSelectedBook(parsed.book);
         setSelectedChapter(parsed.chapter);
+        isInitialLoad.current = false;
       }
+    } else if (!initialReference && isInitialLoad.current && bibleBooks.length > 0) {
+      // Load saved passage on initial mount if no initialReference provided
+      const saved = localStorage.getItem('bibleReaderLastPassage');
+      if (saved) {
+        try {
+          const { bookName, chapter } = JSON.parse(saved);
+          const book = bibleBooks.find(b => b.name === bookName);
+          if (book) {
+            console.log('📖 [BibleReader] Restoring last passage:', bookName, chapter);
+            setSelectedBook(book);
+            setSelectedChapter(chapter);
+          }
+        } catch (e) {
+          console.error('Error restoring saved passage:', e);
+        }
+      }
+      isInitialLoad.current = false;
     }
-  }, [initialReference]);
+  }, [initialReference, bibleBooks]);
+
+  // Save current passage to localStorage whenever book or chapter changes
+  useEffect(() => {
+    if (selectedBook && selectedChapter) {
+      const passageData = {
+        bookName: selectedBook.name,
+        chapter: selectedChapter
+      };
+      localStorage.setItem('bibleReaderLastPassage', JSON.stringify(passageData));
+      console.log('💾 [BibleReader] Saved passage:', selectedBook.name, selectedChapter);
+    }
+  }, [selectedBook, selectedChapter]);
 
   const loadChapter = async (book, chapter) => {
     setLoading(true);
