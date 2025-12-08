@@ -651,14 +651,24 @@ const saveProgressToLocalStorage = (progress) => {
       verseProgress,
       currentLevel,
       unlockables,
-      spiritualGiftsResults,
       newlyUnlockedAchievements,
       achievementClickHistory,
       purchaseHistory,
       hintPurchases,
       investments,
       activeBoosts,
-      accountCreated
+      accountCreated,
+      kingsOfIsraelProgress,
+      ancientHebrewProgress,
+      hermeneuticsProgress,
+      koineGreekProgress,
+      amharicProgress,
+      geezProgress,
+      aramaicProgress,
+      paleoHebrewProgress,
+      churchHistoryProgress,
+      textualCriticismProgress,
+      spiritualGiftsResults
     } = progress;
 
     const payload = {
@@ -680,6 +690,16 @@ const saveProgressToLocalStorage = (progress) => {
       investments,
       activeBoosts,
       spiritualGiftsResults,
+      kingsOfIsraelProgress,
+      ancientHebrewProgress,
+      hermeneuticsProgress,
+      koineGreekProgress,
+      amharicProgress,
+      geezProgress,
+      aramaicProgress,
+      paleoHebrewProgress,
+      churchHistoryProgress,
+      textualCriticismProgress,
       accountCreated
     };
 
@@ -785,6 +805,13 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const kingsOfIsraelProgress = remoteProgress.kingsOfIsraelProgress || localProgress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] };
   const ancientHebrewProgress = remoteProgress.ancientHebrewProgress || localProgress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] };
   const hermeneuticsProgress = remoteProgress.hermeneuticsProgress || localProgress.hermeneuticsProgress || { beginner: [], intermediate: [], advanced: [] };
+  const koineGreekProgress = remoteProgress.koineGreekProgress || localProgress.koineGreekProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
+  const amharicProgress = remoteProgress.amharicProgress || localProgress.amharicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
+  const geezProgress = remoteProgress.geezProgress || localProgress.geezProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
+  const aramaicProgress = remoteProgress.aramaicProgress || localProgress.aramaicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
+  const paleoHebrewProgress = remoteProgress.paleoHebrewProgress || localProgress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } };
+  const churchHistoryProgress = remoteProgress.churchHistoryProgress || localProgress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
+  const textualCriticismProgress = remoteProgress.textualCriticismProgress || localProgress.textualCriticismProgress || { completedModules: [], quizScores: {} };
 
   const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
   const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
@@ -807,6 +834,13 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     kingsOfIsraelProgress,
     ancientHebrewProgress,
     hermeneuticsProgress,
+    koineGreekProgress,
+    amharicProgress,
+    geezProgress,
+    aramaicProgress,
+    paleoHebrewProgress,
+    churchHistoryProgress,
+    textualCriticismProgress,
     newlyUnlockedAchievements,
     achievementClickHistory,
     quizHistory,
@@ -901,6 +935,13 @@ const SwordDrillApp = () => {
     kingsOfIsraelProgress: { beginner: [], intermediate: [], advanced: [] },
     ancientHebrewProgress: { beginner: [], intermediate: [], advanced: [] },
     hermeneuticsProgress: { beginner: [], intermediate: [], advanced: [] },
+    koineGreekProgress: { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
+    amharicProgress: { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+    geezProgress: { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+    aramaicProgress: { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+    paleoHebrewProgress: { completedLessons: { level1: [], level2: [], level3: [] } },
+    churchHistoryProgress: { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
+    textualCriticismProgress: { completedModules: [], quizScores: {} },
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
     quizHistory: [], // Track individual quiz attempts (for calendar)
@@ -1067,6 +1108,13 @@ useEffect(() => {
           kingsOfIsraelProgress: result.progress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] },
           ancientHebrewProgress: result.progress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] },
           hermeneuticsProgress: result.progress.hermeneuticsProgress || { beginner: [], intermediate: [], advanced: [] },
+          koineGreekProgress: result.progress.koineGreekProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
+          amharicProgress: result.progress.amharicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+          geezProgress: result.progress.geezProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+          aramaicProgress: result.progress.aramaicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] },
+          paleoHebrewProgress: result.progress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } },
+          churchHistoryProgress: result.progress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
+          textualCriticismProgress: result.progress.textualCriticismProgress || { completedModules: [], quizScores: {} },
           accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
@@ -3106,6 +3154,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center gap-2">
             {(() => {
               const currentStreak = userData.currentStreak || 0;
+              console.log('🔥 Streak Debug:', { currentStreak, type: typeof currentStreak });
 
               if (currentStreak === 0) {
                 return (
@@ -3116,7 +3165,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 );
               }
 
-              // Determine flame colors based on streak milestones
+              // Determine flame colors based on streak milestones (every 10 days)
               let outerColor, middleColor, innerColor, textColor;
 
               if (currentStreak >= 100) {
@@ -3131,26 +3180,32 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 middleColor = "#60a5fa"; // blue-400
                 innerColor = "#93c5fd"; // blue-300
                 textColor = "text-blue-400";
+              } else if (currentStreak >= 40) {
+                // Cyan flame (40-49 days)
+                outerColor = "#0891b2"; // cyan-600
+                middleColor = "#22d3ee"; // cyan-400
+                innerColor = "#67e8f9"; // cyan-300
+                textColor = "text-cyan-400";
               } else if (currentStreak >= 30) {
-                // Green flame (30-49 days)
+                // Green flame (30-39 days)
                 outerColor = "#059669"; // emerald-600
                 middleColor = "#34d399"; // emerald-400
                 innerColor = "#6ee7b7"; // emerald-300
                 textColor = "text-emerald-400";
-              } else if (currentStreak >= 14) {
-                // Yellow flame (14-29 days)
+              } else if (currentStreak >= 20) {
+                // Yellow flame (20-29 days)
                 outerColor = "#d97706"; // amber-600
                 middleColor = "#fbbf24"; // amber-400
                 innerColor = "#fde047"; // yellow-300
                 textColor = "text-amber-400";
-              } else if (currentStreak >= 7) {
-                // Orange flame (7-13 days)
+              } else if (currentStreak >= 10) {
+                // Orange flame (10-19 days)
                 outerColor = "#ea580c"; // orange-600
                 middleColor = "#fb923c"; // orange-400
                 innerColor = "#fdba74"; // orange-300
                 textColor = "text-orange-400";
               } else {
-                // Red/Orange flame (1-6 days)
+                // Red/Orange flame (1-9 days)
                 outerColor = "#dc2626"; // red-600
                 middleColor = "#f97316"; // orange-500
                 innerColor = "#fbbf24"; // amber-400
@@ -7123,16 +7178,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
-              // Save quiz results
-              addQuizResult({
-                type: 'spelling-bee',
-                score: results.score,
-                questionsAnswered: results.questionsAnswered,
-                bestStreak: results.bestStreak,
-                hintsUsed: results.hintsUsed,
-                points: pointsEarned,
-                timestamp: new Date().toISOString()
-              });
+              // Save quiz results to Firebase if logged in
+              if (currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
+                  type: 'spelling-bee',
+                  score: results.score,
+                  questionsAnswered: results.questionsAnswered,
+                  bestStreak: results.bestStreak,
+                  hintsUsed: results.hintsUsed,
+                  points: pointsEarned,
+                  timestamp: new Date().toISOString()
+                }).catch(err => console.error('Error saving spelling bee result:', err));
+              }
 
               showToast(`🐝 Spelling Bee Complete!\n\nScore: ${results.score}\n+${pointsEarned} points\n\n💰 New Balance: ${newTotalPoints} points`, 'success');
               setCurrentView('home');
@@ -7171,17 +7228,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
-              // Save quiz results
-              addQuizResult({
-                type: 'words-of-jesus',
-                score: results.score,
-                correctAnswers: results.correctAnswers,
-                totalQuestions: results.totalQuestions,
-                accuracy: results.accuracy,
-                timeUsed: results.timeUsed,
-                points: pointsEarned,
-                timestamp: new Date().toISOString()
-              });
+              // Save quiz results to Firebase if logged in
+              if (currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
+                  type: 'words-of-jesus',
+                  score: results.score,
+                  correctAnswers: results.correctAnswers,
+                  totalQuestions: results.totalQuestions,
+                  accuracy: results.accuracy,
+                  timeUsed: results.timeUsed,
+                  points: pointsEarned,
+                  timestamp: new Date().toISOString()
+                }).catch(err => console.error('Error saving Words of Jesus result:', err));
+              }
 
               showToast(`✝️ Words of Jesus Quiz Complete!\n\nScore: ${results.score} points\nAccuracy: ${results.accuracy}%\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
               setCurrentView('home');
@@ -7230,15 +7289,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               }
 
               // Save quiz results
-              if (results.score > 0) {
-                addQuizResult({
+              if (results.score > 0 && currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
                   type: 'book-order',
                   score: results.score,
                   questionsAnswered: results.questionsAnswered,
                   bestStreak: results.bestStreak,
                   points: pointsEarned,
                   timestamp: new Date().toISOString()
-                });
+                }).catch(err => console.error('Error saving book order result:', err));
               }
 
               showToast(`📚 Book Order Quiz Complete!\n\nScore: ${results.score} pts\n+${pointsEarned} points\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
@@ -7277,16 +7336,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
-              // Save quiz results
-              addQuizResult({
-                type: 'storyline-quiz',
-                packId: results.packId,
-                score: results.score,
-                perfect: results.perfect,
-                timeLeft: results.timeLeft,
-                points: pointsEarned,
-                timestamp: new Date().toISOString()
-              });
+              // Save quiz results to Firebase if logged in
+              if (currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
+                  type: 'storyline-quiz',
+                  packId: results.packId,
+                  score: results.score,
+                  perfect: results.perfect,
+                  timeLeft: results.timeLeft,
+                  points: pointsEarned,
+                  timestamp: new Date().toISOString()
+                }).catch(err => console.error('Error saving storyline result:', err));
+              }
 
               showToast(`⚡ Storyline Quiz Complete!\n\nScore: ${results.score} points\n${results.perfect ? '🏆 Perfect Order!' : ''}\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
             }}
@@ -7338,15 +7399,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               }
 
               // Save quiz results
-              if (results.score > 0) {
-                addQuizResult({
+              if (results.score > 0 && currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
                   type: 'sword-drill-ultimate',
                   score: results.score,
                   grade: results.grade,
                   details: results.details,
                   points: pointsEarned,
                   timestamp: new Date().toISOString()
-                });
+                }).catch(err => console.error('Error saving Sword Drill result:', err));
               }
 
               showToast(`⚔️ Sword Drill Ultimate Complete!\n\nGrade: ${results.grade}\nScore: ${results.score}%\n+${pointsEarned} points\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
@@ -7367,14 +7428,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             wrongReferences={verseDetectiveData.wrongReferences}
             isPersonalVerse={verseDetectiveData.isPersonalVerse}
             onComplete={(results) => {
-              const isPersonal = verseDetectiveData.isPersonalVerse;
-              const canEarn = verseDetectiveData.canEarnPoints;
-              let pointsEarned = results.pointsEarned || 0;
+            const isPersonal = verseDetectiveData.isPersonalVerse;
+            const canEarn = verseDetectiveData.canEarnPoints;
+            let pointsEarned = results.pointsEarned || 0;
+            const newQuizzesCompleted = (userData.quizzesCompleted || 0) + 1;
+            let updatedVerseDetectiveCompleted = (userData.verseDetectiveCompleted || 0) + 1;
+            let updatedVerseDetectiveCorrect = (userData.verseDetectiveCorrect || 0) + (results.success ? 1 : 0);
+            let updatedCompletions = null;
+            let newStreakValue = userData.currentStreak || 0;
 
-              // Cap points for personal verses
-              if (isPersonal) {
-                if (canEarn && results.success) {
-                  // Personal verses award max 5 points
+            // Cap points for personal verses
+            if (isPersonal) {
+              if (canEarn && results.success) {
+                // Personal verses award max 5 points
                   pointsEarned = Math.min(5, Math.max(0, pointsEarned));
                 } else if (!canEarn && results.success) {
                   // Over daily limit - no points
@@ -7384,41 +7450,55 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   pointsEarned = -10;
                 }
 
-                // Update daily completion count
-                const today = new Date().toISOString().split('T')[0];
-                const updatedCompletions = { ...(userData.personalVerseDetectiveCompletions || {}) };
-                updatedCompletions[today] = (updatedCompletions[today] || 0) + 1;
+              // Update daily completion count
+              const today = new Date().toISOString().split('T')[0];
+              updatedCompletions = { ...(userData.personalVerseDetectiveCompletions || {}) };
+              updatedCompletions[today] = (updatedCompletions[today] || 0) + 1;
 
-                // Update streak data
-                const newStreak = updateStreakData(results.success, 'personal-verse-detective', results.reference, pointsEarned);
+              // Update streak data
+              const newStreak = updateStreakData(results.success, 'personal-verse-detective', results.reference, pointsEarned);
+              newStreakValue = newStreak !== null ? newStreak : userData.currentStreak;
 
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                  quizzesCompleted: prev.quizzesCompleted + 1,
-                  currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
-                  personalVerseDetectiveCompletions: updatedCompletions,
-                  verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
-                  verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
-                }));
-              } else {
-                // Regular verse detective
-                // Update streak data
-                const newStreak = updateStreakData(results.success, 'verse-detective', results.reference, pointsEarned);
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
+                quizzesCompleted: newQuizzesCompleted,
+                currentStreak: newStreakValue,
+                personalVerseDetectiveCompletions: updatedCompletions,
+                verseDetectiveCompleted: updatedVerseDetectiveCompleted,
+                verseDetectiveCorrect: updatedVerseDetectiveCorrect
+              }));
+            } else {
+              // Regular verse detective
+              // Update streak data
+              const newStreak = updateStreakData(results.success, 'verse-detective', results.reference, pointsEarned);
+              newStreakValue = newStreak !== null ? newStreak : userData.currentStreak;
 
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                  quizzesCompleted: prev.quizzesCompleted + 1,
-                  currentStreak: newStreak !== null ? newStreak : prev.currentStreak,
-                  verseDetectiveCompleted: (prev.verseDetectiveCompleted || 0) + 1,
-                  verseDetectiveCorrect: (prev.verseDetectiveCorrect || 0) + (results.success ? 1 : 0)
-                }));
-              }
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
+                quizzesCompleted: newQuizzesCompleted,
+                currentStreak: newStreakValue,
+                verseDetectiveCompleted: updatedVerseDetectiveCompleted,
+                verseDetectiveCorrect: updatedVerseDetectiveCorrect
+              }));
+            }
+
+            const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+            if (currentUser?.uid) {
+              updateUserProgress(currentUser.uid, {
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted,
+                currentStreak: newStreakValue,
+                verseDetectiveCompleted: updatedVerseDetectiveCompleted,
+                verseDetectiveCorrect: updatedVerseDetectiveCorrect,
+                ...(updatedCompletions ? { personalVerseDetectiveCompletions: updatedCompletions } : {})
+              }).catch(err => console.error('Error updating progress (verse detective):', err));
+            }
 
               // Save quiz results
-              if (results.success || pointsEarned !== 0) {
-                addQuizResult({
+              if ((results.success || pointsEarned !== 0) && currentUser?.uid) {
+                addQuizResult(currentUser.uid, {
                   type: isPersonal ? 'personal-verse-detective' : 'verse-detective',
                   reference: results.reference,
                   success: results.success,
@@ -7426,7 +7506,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   completionTime: results.completionTime,
                   hintsUsed: results.hintsUsed,
                   timestamp: new Date().toISOString()
-                });
+                }).catch(err => console.error('Error saving verse detective result:', err));
               }
 
               // Show completion message
@@ -7525,6 +7605,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'hebrew-course' && (
@@ -7632,6 +7715,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'amharic-course' && (
@@ -7664,6 +7750,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               });
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'geez-course' && (
@@ -7694,6 +7783,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               });
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'aramaic-course' && (
@@ -7724,6 +7816,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               });
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'hermeneutics-course' && (
@@ -7819,6 +7914,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'textual-criticism-course' && (
@@ -7844,6 +7942,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'practice-review' && (
@@ -7890,25 +7991,37 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               pointsEarned += speedBonus;
 
               // Update user data
+              const newTotalPoints = Math.max(0, userData.totalPoints + pointsEarned);
+              const newQuizzesCompleted = (userData.quizzesCompleted || 0) + 1;
               setUserData(prev => ({
                 ...prev,
-                totalPoints: Math.max(0, prev.totalPoints + pointsEarned),
-                quizzesCompleted: prev.quizzesCompleted + 1
+                totalPoints: newTotalPoints,
+                quizzesCompleted: newQuizzesCompleted
               }));
+
+              // Persist to Firebase
+              if (currentUser?.uid) {
+                updateUserProgress(currentUser.uid, {
+                  totalPoints: newTotalPoints,
+                  quizzesCompleted: newQuizzesCompleted
+                }).catch(err => console.error('Error updating progress (bible trivia):', err));
+              }
 
               // Save quiz results
               if (results.score > 0) {
-                addQuizResult({
-                  type: 'bible-trivia',
-                  difficulty: results.difficulty,
-                  score: results.score,
-                  total: results.total,
-                  percentage: results.percentage,
-                  maxStreak: results.maxStreak,
-                  fastAnswers: results.fastAnswers,
-                  points: pointsEarned,
-                  timestamp: new Date().toISOString()
-                });
+                if (currentUser?.uid) {
+                  addQuizResult(currentUser.uid, {
+                    type: 'bible-trivia',
+                    difficulty: results.difficulty,
+                    score: results.score,
+                    total: results.total,
+                    percentage: results.percentage,
+                    maxStreak: results.maxStreak,
+                    fastAnswers: results.fastAnswers,
+                    points: pointsEarned,
+                    timestamp: new Date().toISOString()
+                  }).catch(err => console.error('Error saving Bible Trivia result:', err));
+                }
 
                 // Track in calendar
                 recordQuizAttempt({
