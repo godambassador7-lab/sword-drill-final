@@ -62,7 +62,12 @@
     "B60": { "type": "words_of_jesus_completed", "value": 1, "name": "Red Letter Reader 📕" },
     "B61": { "type": "words_of_jesus_completed", "value": 3, "name": "Gospel Explorer 📖" },
     "B62": { "type": "words_of_jesus_correct", "value": 5, "name": "Jesus' Words 💬" },
-    "B63": { "type": "words_of_jesus_correct", "value": 10, "name": "Master's Voice 🗣️" }
+    "B63": { "type": "words_of_jesus_correct", "value": 10, "name": "Master's Voice 🗣️" },
+    "B64": { "type": "biblical_or_nah_completed", "value": 1, "name": "Truth Seeker 🧠" },
+    "B65": { "type": "biblical_or_nah_completed", "value": 3, "name": "Fact Checker 📋" },
+    "B66": { "type": "biblical_or_nah_correct", "value": 5, "name": "Biblical Detective 🔎" },
+    "B67": { "type": "biblical_or_nah_correct", "value": 10, "name": "Scripture Validator ✅" },
+    "B68": { "type": "biblical_or_nah_correct", "value": 25, "name": "Cliché Buster 💥" }
   },
   "intermediate": {
     "I1": { "type": "quiz_count", "value": 50, "name": "Steady Scholar 📗" },
@@ -129,7 +134,12 @@
     "I62": { "type": "words_of_jesus_completed", "value": 20, "name": "Red Letter Scholar 📕" },
     "I63": { "type": "words_of_jesus_correct", "value": 25, "name": "Christ's Teachings 🙏" },
     "I64": { "type": "words_of_jesus_correct", "value": 50, "name": "Gospel Messenger 📣" },
-    "I65": { "type": "words_of_jesus_accuracy", "value": 75, "name": "Discerning Listener 👂" }
+    "I65": { "type": "words_of_jesus_accuracy", "value": 75, "name": "Discerning Listener 👂" },
+    "I66": { "type": "biblical_or_nah_completed", "value": 10, "name": "Truth Examiner 🔬" },
+    "I67": { "type": "biblical_or_nah_completed", "value": 20, "name": "Myth Debunker 🚫" },
+    "I68": { "type": "biblical_or_nah_correct", "value": 50, "name": "Scripture Analyst 📊" },
+    "I69": { "type": "biblical_or_nah_correct", "value": 75, "name": "Fact Verifier 🔍" },
+    "I70": { "type": "biblical_or_nah_correct", "value": 100, "name": "Biblical Authenticator ✔️" }
   },
   "advanced": {
     "A1": { "type": "quiz_count", "value": 200, "name": "Scroll Commander 🪖" },
@@ -196,7 +206,12 @@
     "A62": { "type": "words_of_jesus_completed", "value": 60, "name": "Red Letter Expert 🔴" },
     "A63": { "type": "words_of_jesus_correct", "value": 75, "name": "Word Discerner 🗣️" },
     "A64": { "type": "words_of_jesus_correct", "value": 100, "name": "Sayings Scholar 💭" },
-    "A65": { "type": "words_of_jesus_accuracy", "value": 85, "name": "Master Listener 👂" }
+    "A65": { "type": "words_of_jesus_accuracy", "value": 85, "name": "Master Listener 👂" },
+    "A66": { "type": "biblical_or_nah_completed", "value": 40, "name": "Master Fact Checker ⚖️" },
+    "A67": { "type": "biblical_or_nah_completed", "value": 60, "name": "Ultimate Truth Seeker 🎯" },
+    "A68": { "type": "biblical_or_nah_correct", "value": 150, "name": "Misinformation Destroyer 💪" },
+    "A69": { "type": "biblical_or_nah_correct", "value": 200, "name": "Cliché Annihilator 💥" },
+    "A70": { "type": "biblical_or_nah_correct", "value": 250, "name": "Biblical Truth Guardian 🛡️" }
   },
   "elite": {
     "E1": { "type": "quiz_count", "value": 500, "name": "Flamebearer Prime 🔥👑" },

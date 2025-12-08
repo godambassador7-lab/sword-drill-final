@@ -13,6 +13,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
   const [gameComplete, setGameComplete] = useState(false);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
+  const [totalCorrect, setTotalCorrect] = useState(0);
   const [difficulty, setDifficulty] = useState('beginner');
   const [startTime, setStartTime] = useState(null);
   const [questionStartTime, setQuestionStartTime] = useState(null);
@@ -84,6 +85,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
       }
 
       setScore(prevScore => prevScore + points);
+      setTotalCorrect(prev => prev + 1);
       setStreak(prevStreak => {
         const newStreak = prevStreak + 1;
         if (newStreak > bestStreak) {
@@ -125,7 +127,8 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
           gamesPlayed: (prev.biblicalOrNahStats?.gamesPlayed || 0) + 1,
           bestStreak: Math.max(bestStreak, prev.biblicalOrNahStats?.bestStreak || 0),
           totalScore: (prev.biblicalOrNahStats?.totalScore || 0) + score,
-          questionsAnswered: (prev.biblicalOrNahStats?.questionsAnswered || 0) + questionsAnswered
+          questionsAnswered: (prev.biblicalOrNahStats?.questionsAnswered || 0) + questionsAnswered,
+          totalCorrect: (prev.biblicalOrNahStats?.totalCorrect || 0) + totalCorrect
         }
       }));
 
@@ -135,7 +138,8 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
           gamesPlayed: (userData.biblicalOrNahStats?.gamesPlayed || 0) + 1,
           bestStreak: Math.max(bestStreak, userData.biblicalOrNahStats?.bestStreak || 0),
           totalScore: (userData.biblicalOrNahStats?.totalScore || 0) + score,
-          questionsAnswered: (userData.biblicalOrNahStats?.questionsAnswered || 0) + questionsAnswered
+          questionsAnswered: (userData.biblicalOrNahStats?.questionsAnswered || 0) + questionsAnswered,
+          totalCorrect: (userData.biblicalOrNahStats?.totalCorrect || 0) + totalCorrect
         }
       }).catch(err => console.error('Error saving Biblical or Nah stats:', err));
     }
@@ -147,6 +151,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
     setShowExplanation(false);
     setScore(0);
     setQuestionsAnswered(0);
+    setTotalCorrect(0);
     setGameComplete(false);
     setStreak(0);
     setBestStreak(0);
