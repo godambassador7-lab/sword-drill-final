@@ -1,0 +1,68 @@
+{
+  "id": "GOS-A-001",
+  "title": "Birth & Early Life of Jesus",
+  "reference": "Matthew 1–2; Luke 1–2",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "An angel announces Jesus’ birth to Mary",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Joseph receives a dream confirming the child is from the Spirit",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus is born in Bethlehem",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Shepherds visit following angelic revelation",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus is presented at the temple",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Wise men arrive from the east",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Herod plots to kill the child",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Joseph is warned to flee to Egypt",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Herod orders the massacre of infants",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "After Herod’s death, Joseph returns",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus grows in wisdom and stature",
+      "correctIndex": 10
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Birth"
+  ]
+}

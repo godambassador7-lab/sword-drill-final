@@ -1,0 +1,114 @@
+[
+  {
+    "id": "bela",
+    "name": "Bela",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:43"
+    ],
+    "notes": "Bela son of Beor; king in Edom.",
+    "alt_names": []
+  },
+  {
+    "id": "jobab",
+    "name": "Jobab",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:44"
+    ],
+    "notes": "Jobab son of Zerah.",
+    "alt_names": []
+  },
+  {
+    "id": "husham",
+    "name": "Husham",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:45"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "hadad_edom",
+    "name": "Hadad",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:46"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "samla",
+    "name": "Samla",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:47"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shaul_edom",
+    "name": "Shaul",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:48"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "baal_hanan",
+    "name": "Baal-hanan",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:49"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "hadad_2",
+    "name": "Hadad",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:50"
+    ],
+    "notes": "Another Hadad; last king listed.",
+    "alt_names": []
+  }
+]

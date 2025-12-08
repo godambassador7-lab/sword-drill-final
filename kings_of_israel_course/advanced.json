@@ -1,0 +1,765 @@
+[
+  {
+    "king": "Jeroboam I",
+    "reign": "931-910 BC",
+    "prophets": ["Ahijah"],
+    "description": "The prophet Ahijah initially anointed Jeroboam with God's promise of ten tribes. However, after Jeroboam established idolatrous worship, Ahijah delivered devastating prophecies of judgment. When Jeroboam's wife came in disguise seeking healing for their son, Ahijah (though blind) recognized her and prophesied the child's death and the eventual destruction of Jeroboam's dynasty.",
+    "propheticDetails": [
+      "Ahijah tore his cloak into 12 pieces, giving 10 to Jeroboam (1 Kings 11:30-31)",
+      "Ahijah prophesied Jeroboam's son would die (1 Kings 14:12)",
+      "Ahijah foretold complete destruction of Jeroboam's house (1 Kings 14:10-11)",
+      "Ahijah predicted Israel's future exile beyond the Euphrates (1 Kings 14:15)"
+    ],
+    "scripture": "1 Kings 11:29-39; 14:1-18",
+    "questions": [
+      {
+        "question": "What prophetic action did Ahijah perform to show Jeroboam would receive ten tribes?",
+        "options": ["Tore his cloak into 12 pieces and gave 10 to Jeroboam", "Anointed him with oil", "Broke ten arrows", "Drew a map dividing the kingdom"],
+        "answer": "Tore his cloak into 12 pieces and gave 10 to Jeroboam"
+      },
+      {
+        "question": "Why did Jeroboam's wife come to Ahijah in disguise?",
+        "options": ["To inquire about their sick son", "To ask about political matters", "To warn him of danger", "To seek blessing for Jeroboam"],
+        "answer": "To inquire about their sick son"
+      },
+      {
+        "question": "What tragic prophecy did Ahijah deliver about Jeroboam's son?",
+        "options": ["He would die as soon as she returned home", "He would become king but die young", "He would be taken captive", "He would betray his father"],
+        "answer": "He would die as soon as she returned home"
+      },
+      {
+        "question": "What long-term judgment did Ahijah prophesy for Israel due to Jeroboam's sins?",
+        "options": ["Exile beyond the Euphrates River", "Conquest by Egypt", "Plague and famine", "Division into more kingdoms"],
+        "answer": "Exile beyond the Euphrates River"
+      },
+      {
+        "question": "Despite being blind, how did Ahijah recognize Jeroboam's wife?",
+        "options": ["The LORD told him who was coming", "He heard her footsteps", "A servant informed him", "He recognized her voice"],
+        "answer": "The LORD told him who was coming"
+      }
+    ]
+  },
+  {
+    "king": "Nadab",
+    "reign": "910-909 BC",
+    "prophets": [],
+    "description": "No prophets are specifically recorded during Nadab's brief two-year reign. However, his assassination fulfilled Ahijah's earlier prophecy against Jeroboam's house. The silence of prophetic activity during his reign may itself be significant - God's word had been spoken, and judgment was coming.",
+    "propheticDetails": [
+      "His death fulfilled Ahijah's prophecy (1 Kings 14:10-11)",
+      "No new prophetic words recorded during his reign",
+      "His assassination marked the beginning of dynastic instability in the north"
+    ],
+    "scripture": "1 Kings 15:25-32",
+    "questions": [
+      {
+        "question": "Whose earlier prophecy was fulfilled when Nadab was assassinated?",
+        "options": ["Ahijah's", "Elijah's", "Jehu's", "Elisha's"],
+        "answer": "Ahijah's"
+      },
+      {
+        "question": "What is significant about the lack of prophetic activity during Nadab's reign?",
+        "options": ["God's judgment had already been pronounced", "The prophets had all died", "Nadab forbade prophecy", "There were no prophets in Israel"],
+        "answer": "God's judgment had already been pronounced"
+      },
+      {
+        "question": "How long did Nadab reign before God's judgment came?",
+        "options": ["Two years", "Seven days", "Six months", "Ten years"],
+        "answer": "Two years"
+      },
+      {
+        "question": "What did the fulfillment of Ahijah's prophecy demonstrate?",
+        "options": ["God's word always comes to pass", "Prophets could predict the future randomly", "Human destiny is unchangeable", "Kings have no free will"],
+        "answer": "God's word always comes to pass"
+      },
+      {
+        "question": "What pattern did Nadab's assassination establish in the northern kingdom?",
+        "options": ["Dynastic instability and violent succession", "Peaceful transitions of power", "Prophetic kingship", "Foreign invasions"],
+        "answer": "Dynastic instability and violent succession"
+      }
+    ]
+  },
+  {
+    "king": "Baasha",
+    "reign": "909-886 BC",
+    "prophets": ["Jehu son of Hanani"],
+    "description": "The prophet Jehu son of Hanani confronted Baasha with a scathing prophecy. Though God used Baasha to execute judgment on Jeroboam's house, Baasha then walked in the same sins. Jehu prophesied that Baasha's dynasty would suffer the exact same fate as Jeroboam's - a powerful message that being God's instrument of judgment doesn't excuse one's own sins.",
+    "propheticDetails": [
+      "Jehu prophesied Baasha's house would be destroyed like Jeroboam's (1 Kings 16:3)",
+      "Condemned Baasha for walking in Jeroboam's sins despite being exalted by God (1 Kings 16:2)",
+      "Prophesied dogs would eat Baasha's descendants who died in the city (1 Kings 16:4)",
+      "The prophecy was fulfilled in Baasha's son Elah's assassination"
+    ],
+    "scripture": "1 Kings 16:1-7",
+    "questions": [
+      {
+        "question": "Why was Jehu's prophecy to Baasha particularly ironic?",
+        "options": ["Baasha would suffer the same fate as Jeroboam whom he destroyed", "Baasha would be killed by his own son", "Baasha would die of the same illness as his enemy", "Baasha would lose everything he gained"],
+        "answer": "Baasha would suffer the same fate as Jeroboam whom he destroyed"
+      },
+      {
+        "question": "What was God's main accusation against Baasha through Jehu?",
+        "options": ["Walking in Jeroboam's sins despite being exalted by God", "Killing innocent people", "Worshiping foreign gods", "Neglecting the temple"],
+        "answer": "Walking in Jeroboam's sins despite being exalted by God"
+      },
+      {
+        "question": "What does Jehu's prophecy teach about being used by God for judgment?",
+        "options": ["It doesn't excuse your own sins", "It guarantees your own righteousness", "It makes you immune to judgment", "It ensures dynasty survival"],
+        "answer": "It doesn't excuse your own sins"
+      },
+      {
+        "question": "How specifically would Baasha's descendants who died in the city be treated?",
+        "options": ["Dogs would eat them", "They would have no burial", "Birds would consume them", "They would be burned"],
+        "answer": "Dogs would eat them"
+      },
+      {
+        "question": "Which king's assassination fulfilled Jehu son of Hanani's prophecy?",
+        "options": ["Elah (Baasha's son)", "Zimri", "Omri", "Ahab"],
+        "answer": "Elah (Baasha's son)"
+      }
+    ]
+  },
+  {
+    "king": "Elah",
+    "reign": "886-885 BC",
+    "prophets": [],
+    "description": "Like Nadab, no prophets ministered during Elah's brief reign. His assassination while drunk was the direct fulfillment of Jehu son of Hanani's prophecy against Baasha's house. The absence of prophetic intervention highlights that the word already spoken was now being executed.",
+    "propheticDetails": [
+      "His death fulfilled Jehu son of Hanani's prophecy",
+      "Killed in a drunken state, showing moral corruption",
+      "Zimri destroyed all of Baasha's house as prophesied"
+    ],
+    "scripture": "1 Kings 16:8-14",
+    "questions": [
+      {
+        "question": "What was Elah doing when he was assassinated, revealing his character?",
+        "options": ["Getting drunk in his steward's house", "Worshiping idols", "Fighting a battle", "Meeting with advisors"],
+        "answer": "Getting drunk in his steward's house"
+      },
+      {
+        "question": "Whose prophecy was being fulfilled through Elah's assassination?",
+        "options": ["Jehu son of Hanani's prophecy against Baasha", "Ahijah's prophecy", "Elijah's prophecy", "A prophecy from Moses"],
+        "answer": "Jehu son of Hanani's prophecy against Baasha"
+      },
+      {
+        "question": "What did Zimri do after killing Elah to completely fulfill the prophecy?",
+        "options": ["Destroyed all of Baasha's house", "Burned the palace", "Made peace with Judah", "Reformed worship"],
+        "answer": "Destroyed all of Baasha's house"
+      },
+      {
+        "question": "What does the pattern of Nadab and Elah teach about prophetic judgment?",
+        "options": ["God's word will be fulfilled even without ongoing prophetic ministry", "New prophecies are needed for each generation", "Prophets must be present for judgment to occur", "Only major kings receive prophetic attention"],
+        "answer": "God's word will be fulfilled even without ongoing prophetic ministry"
+      },
+      {
+        "question": "How long did Elah reign before divine judgment came?",
+        "options": ["Two years", "Seven days", "Twenty-three years", "One month"],
+        "answer": "Two years"
+      }
+    ]
+  },
+  {
+    "king": "Zimri",
+    "reign": "885 BC (7 days)",
+    "prophets": [],
+    "description": "Zimri's seven-day reign was the shortest in Israel's history. Though he fulfilled God's judgment on Baasha's house, he himself committed evil and faced immediate judgment. The absence of prophetic ministry during his week-long rule underscores the swiftness of divine justice when someone is merely an instrument of judgment without personal righteousness.",
+    "propheticDetails": [
+      "Fulfilled prophecy against Baasha while himself sinning",
+      "His brief reign demonstrates God's sovereignty over all rulers",
+      "Committed suicide, showing despair without God"
+    ],
+    "scripture": "1 Kings 16:15-20",
+    "questions": [
+      {
+        "question": "What does Zimri's seven-day reign teach about being God's instrument of judgment?",
+        "options": ["Executing God's judgment doesn't guarantee your own success", "Divine favor ensures long reign", "Assassins always prosper", "Military leaders make the best kings"],
+        "answer": "Executing God's judgment doesn't guarantee your own success"
+      },
+      {
+        "question": "How did Zimri die, showing his spiritual state?",
+        "options": ["Burned himself in the palace", "Killed in battle", "Poisoned by enemies", "Struck by lightning"],
+        "answer": "Burned himself in the palace"
+      },
+      {
+        "question": "What sin did Zimri commit even during his brief reign?",
+        "options": ["Walked in the way of Jeroboam", "Murdered the innocent", "Worshiped Baal", "Oppressed the poor"],
+        "answer": "Walked in the way of Jeroboam"
+      },
+      {
+        "question": "Why was no prophet sent to Zimri during his seven days?",
+        "options": ["His judgment was swift and he served only as God's instrument", "There were no prophets available", "He refused to meet prophets", "Prophets were in hiding"],
+        "answer": "His judgment was swift and he served only as God's instrument"
+      },
+      {
+        "question": "What does the rapid succession of Nadab, Elah, and Zimri demonstrate?",
+        "options": ["The instability caused by abandoning God", "The weakness of Israel's army", "The power of assassination", "The futility of kingship"],
+        "answer": "The instability caused by abandoning God"
+      }
+    ]
+  },
+  {
+    "king": "Omri",
+    "reign": "885-874 BC",
+    "prophets": [],
+    "description": "Remarkably, no prophets are recorded during Omri's reign, despite him being one of the most politically successful but spiritually wicked kings of Israel. He built Samaria and established a powerful dynasty, yet did more evil than all before him. The prophetic silence during his reign may reflect God's impending judgment being stored up for the next generation.",
+    "propheticDetails": [
+      "No recorded prophetic confrontation despite great wickedness",
+      "Set the sinful pattern ('statutes of Omri') that later prophets condemned (Micah 6:16)",
+      "His sins became proverbial, mentioned by later prophets",
+      "Prophetic judgment waited for his son Ahab's reign"
+    ],
+    "scripture": "1 Kings 16:23-28; Micah 6:16",
+    "questions": [
+      {
+        "question": "What is significant about the absence of prophets during Omri's reign?",
+        "options": ["Sometimes God's silence precedes greater judgment on the next generation", "God approved of Omri's political success", "Prophets feared Omri too much to speak", "Israel had no prophets at this time"],
+        "answer": "Sometimes God's silence precedes greater judgment on the next generation"
+      },
+      {
+        "question": "Which later prophet specifically condemned the 'statutes of Omri'?",
+        "options": ["Micah", "Isaiah", "Hosea", "Jeremiah"],
+        "answer": "Micah"
+      },
+      {
+        "question": "What did Omri accomplish that had lasting political impact?",
+        "options": ["Built Samaria as the new capital", "Defeated Assyria", "Made peace with Judah", "Restored temple worship"],
+        "answer": "Built Samaria as the new capital"
+      },
+      {
+        "question": "How was Omri's wickedness compared to previous kings?",
+        "options": ["He did more evil than all before him", "He was slightly less evil", "He was the most righteous so far", "He was morally neutral"],
+        "answer": "He did more evil than all before him"
+      },
+      {
+        "question": "Who would face the accumulated prophetic judgment for both Omri and his own sins?",
+        "options": ["His son Ahab", "His grandson", "Jehu", "No one"],
+        "answer": "His son Ahab"
+      }
+    ]
+  },
+  {
+    "king": "Ahab",
+    "reign": "874-853 BC",
+    "prophets": ["Elijah", "Micaiah"],
+    "description": "Ahab's reign saw intense prophetic activity with Elijah as the dominant prophetic voice. Elijah confronted Ahab's Baal worship, called down fire on Mount Carmel, prophesied drought and rain, and pronounced judgment for Naboth's murder. Micaiah also prophesied Ahab's death in battle. The prophetic confrontations were dramatic, including the contest on Carmel, Elijah's flight to Horeb, and Ahab's temporary humility.",
+    "propheticDetails": [
+      "Elijah prophesied three-year drought (1 Kings 17:1)",
+      "Mount Carmel contest proved Yahweh's supremacy (1 Kings 18)",
+      "Elijah pronounced dogs would lick Ahab's blood where they licked Naboth's (1 Kings 21:19)",
+      "Micaiah prophesied Ahab's death in battle despite 400 false prophets (1 Kings 22:17-28)",
+      "Ahab's temporary repentance delayed but didn't cancel judgment (1 Kings 21:27-29)"
+    ],
+    "scripture": "1 Kings 17-22",
+    "questions": [
+      {
+        "question": "What dramatic prophetic act did Elijah perform to prove Yahweh's power over Baal?",
+        "options": ["Called down fire on Mount Carmel", "Parted the Jordan River", "Raised the dead", "Stopped the sun"],
+        "answer": "Called down fire on Mount Carmel"
+      },
+      {
+        "question": "How long did Elijah prophesy there would be no rain in Israel?",
+        "options": ["Three years", "Seven years", "Forty days", "One year"],
+        "answer": "Three years"
+      },
+      {
+        "question": "What specific judgment did Elijah prophesy regarding Ahab's death?",
+        "options": ["Dogs would lick his blood where they licked Naboth's", "He would be burned alive", "He would die by the sword of Syria", "He would be thrown from a window"],
+        "answer": "Dogs would lick his blood where they licked Naboth's"
+      },
+      {
+        "question": "How did the prophet Micaiah's prophecy differ from the 400 court prophets?",
+        "options": ["He alone prophesied Ahab's death in battle", "He prophesied victory", "He refused to speak", "He predicted peace"],
+        "answer": "He alone prophesied Ahab's death in battle"
+      },
+      {
+        "question": "What happened when Ahab temporarily humbled himself after Elijah's judgment?",
+        "options": ["Judgment was postponed to his son's days", "Judgment was completely canceled", "Nothing changed", "He was immediately forgiven"],
+        "answer": "Judgment was postponed to his son's days"
+      }
+    ]
+  },
+  {
+    "king": "Ahaziah",
+    "reign": "853-852 BC",
+    "prophets": ["Elijah"],
+    "description": "Elijah's final recorded confrontation with the house of Ahab came with Ahaziah. After the king fell through a lattice and was injured, he sent messengers to consult Baal-zebub god of Ekron. Elijah intercepted them with a devastating question: 'Is it because there is no God in Israel?' The prophet then called down fire on two companies of soldiers before pronouncing Ahaziah's death.",
+    "propheticDetails": [
+      "Elijah intercepted messengers sent to Baal-zebub (2 Kings 1:3-4)",
+      "Called down fire on two companies of fifty soldiers (2 Kings 1:9-12)",
+      "Showed mercy to the third captain who humbled himself (2 Kings 1:13-15)",
+      "Personally delivered death sentence to Ahaziah (2 Kings 1:16)",
+      "Demonstrated God's jealousy for His own glory"
+    ],
+    "scripture": "2 Kings 1:1-18",
+    "questions": [
+      {
+        "question": "What penetrating question did Elijah ask about Ahaziah consulting Baal-zebub?",
+        "options": ["'Is it because there is no God in Israel?'", "'Why do you fear Ekron?'", "'Have you forgotten the LORD?'", "'Where is your faith?'"],
+        "answer": "'Is it because there is no God in Israel?'"
+      },
+      {
+        "question": "What happened to the first two companies of soldiers sent to Elijah?",
+        "options": ["Fire came down from heaven and consumed them", "They were struck with blindness", "They converted and served Elijah", "They arrested Elijah"],
+        "answer": "Fire came down from heaven and consumed them"
+      },
+      {
+        "question": "Why did Elijah spare the third company of soldiers?",
+        "options": ["Their captain humbled himself and begged for mercy", "God told him the judgment was complete", "They refused to follow orders", "Ahaziah had repented"],
+        "answer": "Their captain humbled himself and begged for mercy"
+      },
+      {
+        "question": "What did Elijah's confrontation with Ahaziah demonstrate about idolatry?",
+        "options": ["Consulting other gods provokes God's jealous anger", "All gods are equally acceptable", "Political alliances matter more than worship", "Syncretism is permissible"],
+        "answer": "Consulting other gods provokes God's jealous anger"
+      },
+      {
+        "question": "How did Elijah's ministry to Ahab's house end?",
+        "options": ["Pronouncing death on Ahaziah for consulting Baal-zebub", "Blessing Ahaziah for repentance", "Being taken up to heaven immediately after", "Retiring in peace"],
+        "answer": "Pronouncing death on Ahaziah for consulting Baal-zebub"
+      }
+    ]
+  },
+  {
+    "king": "Joram (Jehoram)",
+    "reign": "852-841 BC",
+    "prophets": ["Elisha"],
+    "description": "Elisha's ministry marked Joram's reign with numerous miracles and prophetic interventions. While Joram removed some Baal worship, he continued in Jeroboam's sins. Elisha prophesied military victories, provided miraculous oil for a widow, purified poisoned food, fed a hundred men with little food, and healed Naaman. The prophet revealed Syrian battle plans and struck Syrian soldiers with blindness.",
+    "propheticDetails": [
+      "Elisha prophesied victory over Moab with water in the valley (2 Kings 3:16-20)",
+      "Multiplied a widow's oil to save her sons from slavery (2 Kings 4:1-7)",
+      "Prophesied and brought about the Shunammite's son (2 Kings 4:16-17)",
+      "Healed Naaman the Syrian of leprosy (2 Kings 5)",
+      "Revealed Syrian battle plans multiple times (2 Kings 6:8-12)",
+      "Prophesied plenty during siege of Samaria (2 Kings 7:1-2)"
+    ],
+    "scripture": "2 Kings 3-9",
+    "questions": [
+      {
+        "question": "What miracle did Elisha perform for a widow to prevent her sons being sold into slavery?",
+        "options": ["Multiplied her oil to fill many jars", "Gave her gold", "Made her son a prophet", "Restored her land"],
+        "answer": "Multiplied her oil to fill many jars"
+      },
+      {
+        "question": "Which foreign military commander did Elisha heal of leprosy?",
+        "options": ["Naaman the Syrian", "Hazael", "Ben-hadad", "Rezin"],
+        "answer": "Naaman the Syrian"
+      },
+      {
+        "question": "How did Elisha repeatedly frustrate Syria's military campaigns?",
+        "options": ["Revealed their secret battle plans to Israel's king", "Called down fire on their armies", "Caused blindness permanently", "Destroyed their weapons"],
+        "answer": "Revealed their secret battle plans to Israel's king"
+      },
+      {
+        "question": "During the siege of Samaria, what did Elisha prophesy would happen?",
+        "options": ["Abundant food would be available by the next day", "The siege would last 40 days", "Israel would be defeated", "Rain would save them"],
+        "answer": "Abundant food would be available by the next day"
+      },
+      {
+        "question": "What characterized Elisha's prophetic ministry compared to Elijah's?",
+        "options": ["More miracles of provision and fewer confrontations", "More fire from heaven", "Stronger political involvement", "Constant travels abroad"],
+        "answer": "More miracles of provision and fewer confrontations"
+      }
+    ]
+  },
+  {
+    "king": "Jehu",
+    "reign": "841-814 BC",
+    "prophets": ["Elisha"],
+    "description": "Elisha's most dramatic political intervention was anointing Jehu through a young prophet. The anointing came with specific divine commission: destroy Ahab's house and execute judgment on Jezebel. Elisha's prophecy gave Jehu both authority and mission. After the violent purge of Ahab's house and Baal worshipers, God promised Jehu a four-generation dynasty - the longest in Israel - yet Jehu failed to turn from Jeroboam's sins.",
+    "propheticDetails": [
+      "Elisha sent a prophet to anoint Jehu as king (2 Kings 9:1-10)",
+      "The prophet specifically commanded destruction of Ahab's house (2 Kings 9:7-8)",
+      "Prophesied dogs would devour Jezebel with no burial (2 Kings 9:10)",
+      "God promised Jehu four generations on throne for destroying Baal worship (2 Kings 10:30)",
+      "Yet condemned Jehu for not turning from Jeroboam's sins (2 Kings 10:31)"
+    ],
+    "scripture": "2 Kings 9-10",
+    "questions": [
+      {
+        "question": "How did Elisha anoint Jehu as king?",
+        "options": ["Sent a young prophet to do it privately", "Did it publicly in Samaria", "Through a letter", "In the presence of all Israel"],
+        "answer": "Sent a young prophet to do it privately"
+      },
+      {
+        "question": "What specific task did the prophetic anointing commission Jehu to do?",
+        "options": ["Destroy Ahab's entire house", "Make peace with Syria", "Rebuild the temple", "Reform worship practices"],
+        "answer": "Destroy Ahab's entire house"
+      },
+      {
+        "question": "What gruesome prophecy about Jezebel did the prophet deliver?",
+        "options": ["Dogs would devour her with no burial", "She would be burned alive", "She would die in exile", "She would be stoned"],
+        "answer": "Dogs would devour her with no burial"
+      },
+      {
+        "question": "What reward did God promise Jehu for destroying Baal worship?",
+        "options": ["Four generations would sit on Israel's throne", "Eternal dynasty", "Great wealth", "Victory over all enemies"],
+        "answer": "Four generations would sit on Israel's throne"
+      },
+      {
+        "question": "Despite God's blessing, what was Jehu's fatal flaw?",
+        "options": ["Did not turn from Jeroboam's sins (golden calves)", "Worshiped Baal secretly", "Oppressed the poor", "Made alliances with pagans"],
+        "answer": "Did not turn from Jeroboam's sins (golden calves)"
+      }
+    ]
+  },
+  {
+    "king": "Jehoahaz",
+    "reign": "814-798 BC",
+    "prophets": ["Elisha"],
+    "description": "During Jehoahaz's oppressed reign under Syrian domination, Elisha continued his prophetic ministry. Though Jehoahaz did evil, when he sought the LORD, God provided a deliverer. The prophetic ministry during this time emphasized God's mercy even toward imperfect repentance, though the people did not fully turn from sin.",
+    "propheticDetails": [
+      "Elisha's ministry continued during severe Syrian oppression",
+      "God heard Jehoahaz's prayer despite his continuing sins (2 Kings 13:4)",
+      "God provided a deliverer for Israel (2 Kings 13:5)",
+      "Prophetic mercy shown despite incomplete repentance"
+    ],
+    "scripture": "2 Kings 13:1-9",
+    "questions": [
+      {
+        "question": "What did Jehoahaz do when Israel was severely oppressed by Syria?",
+        "options": ["Sought the LORD in prayer", "Surrendered completely", "Allied with Assyria", "Fled to Egypt"],
+        "answer": "Sought the LORD in prayer"
+      },
+      {
+        "question": "How did God respond to Jehoahaz's prayer despite his ongoing sins?",
+        "options": ["Provided a deliverer for Israel", "Ignored him completely", "Increased the oppression", "Demanded perfect repentance first"],
+        "answer": "Provided a deliverer for Israel"
+      },
+      {
+        "question": "What does God's response to Jehoahaz teach about divine mercy?",
+        "options": ["God responds with compassion even to imperfect repentance", "Only perfect people receive help", "Prayers of sinners are never heard", "Political success proves righteousness"],
+        "answer": "God responds with compassion even to imperfect repentance"
+      },
+      {
+        "question": "What was the people's response after God delivered them?",
+        "options": ["They did not turn away from sin", "They destroyed all idols", "They rebuilt the temple", "They made Elisha their leader"],
+        "answer": "They did not turn away from sin"
+      },
+      {
+        "question": "Which prophet's ministry provided spiritual hope during this dark period?",
+        "options": ["Elisha", "Elijah", "Jonah", "Amos"],
+        "answer": "Elisha"
+      }
+    ]
+  },
+  {
+    "king": "Jehoash (Joash)",
+    "reign": "798-782 BC",
+    "prophets": ["Elisha"],
+    "description": "Elisha's final prophetic act came during Jehoash's reign. The dying prophet instructed the king to shoot arrows and strike the ground, symbolizing victories over Syria. When Jehoash struck only three times, Elisha was angry - the king's lack of faith limited his victories. After Elisha died, his bones still held prophetic power, raising a dead man to life.",
+    "propheticDetails": [
+      "Elisha on his deathbed prophesied victories over Syria (2 Kings 13:14-19)",
+      "The arrow-striking incident revealed Jehoash's limited faith",
+      "Elisha prophesied three victories, not complete triumph",
+      "Even Elisha's dead bones raised a man to life (2 Kings 13:20-21)",
+      "Demonstrated prophetic power transcends even death"
+    ],
+    "scripture": "2 Kings 13:14-25",
+    "questions": [
+      {
+        "question": "What symbolic act did Elisha have the dying king perform?",
+        "options": ["Shoot an arrow and strike the ground", "Break his bow", "Wash in the Jordan", "Sacrifice a bull"],
+        "answer": "Shoot an arrow and strike the ground"
+      },
+      {
+        "question": "Why was Elisha angry when Jehoash struck the ground only three times?",
+        "options": ["Limited faith resulted in limited victory", "He disobeyed direct instructions", "He showed disrespect", "He used the wrong arrows"],
+        "answer": "Limited faith resulted in limited victory"
+      },
+      {
+        "question": "How many times would Jehoash defeat Syria according to Elisha's prophecy?",
+        "options": ["Three times", "Seven times", "Until complete victory", "Only once"],
+        "answer": "Three times"
+      },
+      {
+        "question": "What miraculous event occurred involving Elisha's bones?",
+        "options": ["A dead man came to life when touching them", "They turned to gold", "They couldn't decay", "They glowed with light"],
+        "answer": "A dead man came to life when touching them"
+      },
+      {
+        "question": "What does the bones miracle teach about God's prophetic word?",
+        "options": ["God's word and power transcend even death", "Relics have inherent power", "Prophets become divine after death", "Miracles require living prophets"],
+        "answer": "God's word and power transcend even death"
+      }
+    ]
+  },
+  {
+    "king": "Jeroboam II",
+    "reign": "782-753 BC",
+    "prophets": ["Jonah", "Amos", "Hosea"],
+    "description": "Jeroboam II's prosperous reign saw the most prophetic activity since Ahab. Jonah prophesied territorial expansion which came true. Amos delivered scathing denunciations of Israel's social injustice, empty ritualism, and coming judgment. Hosea used his tragic marriage as a living parable of God's relationship with unfaithful Israel. Despite unprecedented prosperity and multiple prophetic warnings, Israel did not repent.",
+    "propheticDetails": [
+      "Jonah prophesied restoration of Israel's borders (2 Kings 14:25)",
+      "Amos denounced social injustice and religious hypocrisy (Amos 2:6-8; 5:21-24)",
+      "Amos prophesied exile and destruction (Amos 7:11, 17)",
+      "Hosea's marriage illustrated God's faithful love for unfaithful Israel (Hosea 1-3)",
+      "Hosea warned of coming judgment but promised eventual restoration (Hosea 14)"
+    ],
+    "scripture": "2 Kings 14:23-29; Amos; Hosea",
+    "questions": [
+      {
+        "question": "Which prophet prophesied Jeroboam II's successful territorial expansion?",
+        "options": ["Jonah", "Amos", "Hosea", "Micah"],
+        "answer": "Jonah"
+      },
+      {
+        "question": "What was Amos's main prophetic message to prosperous Israel?",
+        "options": ["God hates religious ritual without justice and righteousness", "Economic success proves God's favor", "Ritual observance ensures blessing", "Prosperity will continue forever"],
+        "answer": "God hates religious ritual without justice and righteousness"
+      },
+      {
+        "question": "How did Hosea illustrate God's relationship with Israel?",
+        "options": ["Through his marriage to an unfaithful wife", "By building a temple model", "Through his children's names only", "By living in the wilderness"],
+        "answer": "Through his marriage to an unfaithful wife"
+      },
+      {
+        "question": "What ultimate fate did Amos prophesy for Israel?",
+        "options": ["Exile from the land", "Economic collapse only", "Foreign tribute", "Natural disasters"],
+        "answer": "Exile from the land"
+      },
+      {
+        "question": "What does the presence of three prophets during prosperity teach?",
+        "options": ["External success doesn't indicate spiritual health", "Prosperity always brings prophets", "Wealth prevents moral decay", "Many prophets guarantee repentance"],
+        "answer": "External success doesn't indicate spiritual health"
+      }
+    ]
+  },
+  {
+    "king": "Zechariah",
+    "reign": "753 BC (6 months)",
+    "prophets": [],
+    "description": "Zechariah's six-month reign marked the end of Jehu's dynasty in the fourth generation, exactly as God promised. No prophets are recorded during his brief time - God's word spoken to Jehu had set the limit, and that limit was now reached. The fulfillment demonstrated God's precise control over history.",
+    "propheticDetails": [
+      "His reign ended Jehu's dynasty in the fourth generation as promised (2 Kings 10:30; 15:12)",
+      "Demonstrated God's word is precisely fulfilled",
+      "Marked beginning of rapid dynastic chaos"
+    ],
+    "scripture": "2 Kings 15:8-12",
+    "questions": [
+      {
+        "question": "What prophecy was fulfilled when Zechariah was assassinated?",
+        "options": ["Jehu's dynasty would last four generations", "Israel would have no more kings", "The nation would be divided again", "Peace would come to Israel"],
+        "answer": "Jehu's dynasty would last four generations"
+      },
+      {
+        "question": "Which generation of Jehu's line was Zechariah?",
+        "options": ["Fourth", "Second", "Seventh", "Tenth"],
+        "answer": "Fourth"
+      },
+      {
+        "question": "What does the precise fulfillment of the four-generation promise demonstrate?",
+        "options": ["God's word is exactly and perfectly fulfilled", "Prophecies are approximate predictions", "Human plans determine outcomes", "History is random"],
+        "answer": "God's word is exactly and perfectly fulfilled"
+      },
+      {
+        "question": "Why was no new prophetic word needed during Zechariah's reign?",
+        "options": ["The prophecy given to Jehu was sufficient and being fulfilled", "God had abandoned Israel", "There were no prophets left", "Zechariah forbade prophecy"],
+        "answer": "The prophecy given to Jehu was sufficient and being fulfilled"
+      },
+      {
+        "question": "What period began after Zechariah's assassination?",
+        "options": ["Rapid dynastic instability and chaos", "Long peace", "Religious revival", "Foreign occupation"],
+        "answer": "Rapid dynastic instability and chaos"
+      }
+    ]
+  },
+  {
+    "king": "Shallum",
+    "reign": "752 BC (1 month)",
+    "prophets": [],
+    "description": "Shallum's one-month reign was Israel's shortest. No prophets spoke during this chaotic time - the nation was reaping the whirlwind of generations of sin. The prophetic silence reflected the spiritual darkness and political chaos that resulted from persistent rejection of God's word.",
+    "propheticDetails": [
+      "His brief reign illustrated complete breakdown of order",
+      "No prophetic word because judgment was accelerating",
+      "Part of rapid succession fulfilling earlier warnings of instability"
+    ],
+    "scripture": "2 Kings 15:13-15",
+    "questions": [
+      {
+        "question": "What does the absence of prophets during this chaotic period suggest?",
+        "options": ["Israel was reaping judgment from ignoring previous prophetic warnings", "God had no more to say", "Prophets were all dead", "Shallum silenced all prophets"],
+        "answer": "Israel was reaping judgment from ignoring previous prophetic warnings"
+      },
+      {
+        "question": "How long did Shallum reign?",
+        "options": ["One month", "Seven days", "Six months", "Two years"],
+        "answer": "One month"
+      },
+      {
+        "question": "What prophetic principle is illustrated by this period of instability?",
+        "options": ["Persistent disobedience leads to chaos and breakdown", "Chaos is random and meaningless", "Political instability is unrelated to spiritual condition", "God doesn't care about governance"],
+        "answer": "Persistent disobedience leads to chaos and breakdown"
+      },
+      {
+        "question": "Whose earlier prophecies about Israel's decline were being fulfilled?",
+        "options": ["Amos and Hosea's warnings", "Jonah's predictions", "Elijah's words", "Moses' blessings"],
+        "answer": "Amos and Hosea's warnings"
+      },
+      {
+        "question": "What was Israel 'reaping' during this time of rapid king changes?",
+        "options": ["The whirlwind of sowing rebellion against God", "Benefits of prosperity", "Peace from obedience", "Rewards of reform"],
+        "answer": "The whirlwind of sowing rebellion against God"
+      }
+    ]
+  },
+  {
+    "king": "Menahem",
+    "reign": "752-742 BC",
+    "prophets": [],
+    "description": "Menahem's brutal reign brought temporary stability through Assyrian vassalage, but no prophets are recorded. The prophetic silence continued as Israel spiraled toward its inevitable end. The earlier warnings from Amos and Hosea about Assyrian invasion were beginning to materialize.",
+    "propheticDetails": [
+      "Earlier prophecies about Assyria coming were being fulfilled",
+      "No new prophets because previous warnings ignored",
+      "His tribute to Assyria fulfilled prophetic warnings about foreign oppression",
+      "Part of the final decline foretold by prophets"
+    ],
+    "scripture": "2 Kings 15:16-22",
+    "questions": [
+      {
+        "question": "Which earlier prophecies were beginning to be fulfilled through Assyrian pressure?",
+        "options": ["Amos and Hosea's warnings about foreign invasion", "Elijah's predictions", "Jonah's promises", "Ahijah's blessings"],
+        "answer": "Amos and Hosea's warnings about foreign invasion"
+      },
+      {
+        "question": "What did Menahem do to maintain his throne?",
+        "options": ["Paid heavy tribute to Assyria", "Reformed worship", "Made alliance with Egypt", "Strengthened the army"],
+        "answer": "Paid heavy tribute to Assyria"
+      },
+      {
+        "question": "Why were no new prophets sent during Menahem's reign?",
+        "options": ["Previous prophetic warnings had been ignored and judgment was proceeding", "God had finished speaking", "Israel had become righteous", "Prophets were unnecessary"],
+        "answer": "Previous prophetic warnings had been ignored and judgment was proceeding"
+      },
+      {
+        "question": "What does Menahem's brutality demonstrate about the nation's condition?",
+        "options": ["Complete moral collapse from rejecting God's word", "Necessary political tactics", "Strength and wisdom", "God's blessing"],
+        "answer": "Complete moral collapse from rejecting God's word"
+      },
+      {
+        "question": "Assyria's growing power over Israel fulfilled which prophetic theme?",
+        "options": ["Foreign oppression as judgment for covenant breaking", "Blessing for faithfulness", "Protection from enemies", "Political success"],
+        "answer": "Foreign oppression as judgment for covenant breaking"
+      }
+    ]
+  },
+  {
+    "king": "Pekahiah",
+    "reign": "742-740 BC",
+    "prophets": [],
+    "description": "Pekahiah's two-year reign continued the pattern of violence and instability. The prophetic silence remained - the die had been cast, and Israel's fate was sealed. The nation was living out the consequences of generations of ignoring prophetic warnings.",
+    "propheticDetails": [
+      "Continued fulfillment of prophetic warnings about chaos",
+      "No new word needed as previous prophecies unfolding",
+      "Part of final decline toward exile"
+    ],
+    "scripture": "2 Kings 15:23-26",
+    "questions": [
+      {
+        "question": "What does continued prophetic silence during this period indicate?",
+        "options": ["Israel's fate was sealed by persistent rejection of God", "God had nothing more to say to any generation", "Prophets had all been killed", "Israel had become perfect"],
+        "answer": "Israel's fate was sealed by persistent rejection of God"
+      },
+      {
+        "question": "How was Pekahiah removed from power?",
+        "options": ["Assassinated by his captain Pekah", "Died naturally", "Fled to Assyria", "Abdicated"],
+        "answer": "Assassinated by his captain Pekah"
+      },
+      {
+        "question": "What prophetic pattern was Pekahiah's violent death part of?",
+        "options": ["Warnings about instability from abandoning God", "Blessings for faithfulness", "Promises of peace", "Covenant renewal"],
+        "answer": "Warnings about instability from abandoning God"
+      },
+      {
+        "question": "Which prophets had warned about this type of chaos?",
+        "options": ["Amos and Hosea", "Elijah and Elisha", "Jonah alone", "None"],
+        "answer": "Amos and Hosea"
+      },
+      {
+        "question": "What was Israel 'living out' during these violent transitions?",
+        "options": ["Consequences of ignoring prophetic warnings", "Divine blessing", "Political wisdom", "Economic prosperity"],
+        "answer": "Consequences of ignoring prophetic warnings"
+      }
+    ]
+  },
+  {
+    "king": "Pekah",
+    "reign": "740-732 BC",
+    "prophets": ["Isaiah (to Judah)"],
+    "description": "During Pekah's reign, Isaiah prophesied in Judah about the Syro-Ephraimite crisis when Pekah allied with Syria against Judah. Though Isaiah's ministry was primarily to Judah, his prophecies concerned Israel's fate. Isaiah warned that Syria and Israel (Ephraim) would soon be destroyed, which came true when Assyria conquered much of northern Israel.",
+    "propheticDetails": [
+      "Isaiah prophesied destruction of Syria and Israel (Isaiah 7:8-9, 16)",
+      "Isaiah warned Judah not to fear Pekah and Syria (Isaiah 7:4)",
+      "Predicted within 65 years Ephraim would be shattered (Isaiah 7:8)",
+      "Immanuel prophecy given during this crisis (Isaiah 7:14)",
+      "Assyria began conquering northern Israel during Pekah's reign"
+    ],
+    "scripture": "2 Kings 15:27-31; Isaiah 7",
+    "questions": [
+      {
+        "question": "Which prophet, though ministering in Judah, prophesied about Israel's fate during Pekah's reign?",
+        "options": ["Isaiah", "Jeremiah", "Micah", "Zephaniah"],
+        "answer": "Isaiah"
+      },
+      {
+        "question": "What alliance did Pekah form that prompted Isaiah's prophecies?",
+        "options": ["Alliance with Syria against Judah", "Alliance with Assyria", "Alliance with Egypt", "Alliance with Moab"],
+        "answer": "Alliance with Syria against Judah"
+      },
+      {
+        "question": "What did Isaiah prophesy would happen to both Syria and Israel?",
+        "options": ["They would be destroyed by Assyria", "They would conquer Judah", "They would prosper", "They would make peace"],
+        "answer": "They would be destroyed by Assyria"
+      },
+      {
+        "question": "What famous messianic prophecy did Isaiah give during this crisis?",
+        "options": ["The Immanuel prophecy", "The suffering servant", "The branch of Jesse", "The new covenant"],
+        "answer": "The Immanuel prophecy"
+      },
+      {
+        "question": "What happened to northern Israel during Pekah's reign?",
+        "options": ["Assyria conquered much of it and deported people", "It gained independence", "It defeated all enemies", "It experienced revival"],
+        "answer": "Assyria conquered much of it and deported people"
+      }
+    ]
+  },
+  {
+    "king": "Hoshea",
+    "reign": "732-722 BC",
+    "prophets": ["Hosea (final prophecies)"],
+    "description": "Hoshea was Israel's last king. The prophet Hosea's final oracles came during this time, mixing warnings of imminent judgment with promises of future restoration. Hosea prophesied Israel would be exiled for their harlotry but God would eventually restore them. When Hoshea rebelled against Assyria, the end came - Samaria fell after a three-year siege in 722 BC, fulfilling all the prophetic warnings.",
+    "propheticDetails": [
+      "Hosea's final prophecies mixed judgment and hope (Hosea 13-14)",
+      "Prophesied exile: 'My God will reject them because they have not listened to Him' (Hosea 9:17)",
+      "Promised eventual restoration: 'I will heal their apostasy' (Hosea 14:4)",
+      "All previous prophetic warnings (Amos, Hosea, Isaiah) were fulfilled in fall of Samaria",
+      "Demonstrated that prophetic word, though delayed, is certain"
+    ],
+    "scripture": "2 Kings 17; Hosea 9-14",
+    "questions": [
+      {
+        "question": "What did Hosea prophesy would happen to Israel because they refused to listen?",
+        "options": ["God would reject them and send them into exile", "They would prosper greatly", "They would defeat Assyria", "They would have peace"],
+        "answer": "God would reject them and send them into exile"
+      },
+      {
+        "question": "Despite pronouncing judgment, what future hope did Hosea offer?",
+        "options": ["God would eventually heal their apostasy and restore them", "They would never be restored", "Another nation would replace them", "They would immediately repent"],
+        "answer": "God would eventually heal their apostasy and restore them"
+      },
+      {
+        "question": "What triggered the final Assyrian invasion that ended Israel?",
+        "options": ["Hoshea's rebellion and conspiracy with Egypt", "A natural disaster", "Internal civil war", "Judah's betrayal"],
+        "answer": "Hoshea's rebellion and conspiracy with Egypt"
+      },
+      {
+        "question": "How long did Assyria besiege Samaria before it fell?",
+        "options": ["Three years", "Seven days", "Forty days", "One year"],
+        "answer": "Three years"
+      },
+      {
+        "question": "What did the fall of Israel in 722 BC prove about all the previous prophets?",
+        "options": ["God's word through prophets is certain and will be fulfilled", "Prophets were merely guessing", "Prophecy is symbolic only", "Political events are random"],
+        "answer": "God's word through prophets is certain and will be fulfilled"
+      }
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "instructions": "Graph API to be filled once full dataset merged.",
+  "fields": [
+    "ancestors",
+    "descendants",
+    "siblings",
+    "tribe_links"
+  ]
+}

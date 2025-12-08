@@ -1,0 +1,1566 @@
+{
+  "title": "Ge'ez (Classical Ethiopic) Root Dictionary",
+  "description": "Real and constructed Ge'ez triconsonantal roots with reconstructed meanings.",
+  "roots": [
+    {
+      "root_word": "መምህ",
+      "pattern": "m-m-h",
+      "meaning": "to teach",
+      "theoretical_semantics": "The Ge'ez root m-m-h is historically tied to the general Afro-Semitic meaning: to teach."
+    },
+    {
+      "root_word": "ተስፈ",
+      "pattern": "t-s-f",
+      "meaning": "to hope",
+      "theoretical_semantics": "The Ge'ez root t-s-f is historically tied to the general Afro-Semitic meaning: to hope."
+    },
+    {
+      "root_word": "አምስ",
+      "pattern": "ʾ-m-s",
+      "meaning": "to measure",
+      "theoretical_semantics": "The Ge'ez root ʾ-m-s is historically tied to the general Afro-Semitic meaning: to measure."
+    },
+    {
+      "root_word": "ፈለገ",
+      "pattern": "f-l-g",
+      "meaning": "to choose",
+      "theoretical_semantics": "The Ge'ez root f-l-g is historically tied to the general Afro-Semitic meaning: to choose."
+    },
+    {
+      "root_word": "ሰገደ",
+      "pattern": "s-g-d",
+      "meaning": "to worship",
+      "theoretical_semantics": "The Ge'ez root s-g-d is historically tied to the general Afro-Semitic meaning: to worship."
+    },
+    {
+      "root_word": "ከበረ",
+      "pattern": "k-b-r",
+      "meaning": "to honor",
+      "theoretical_semantics": "The Ge'ez root k-b-r is historically tied to the general Afro-Semitic meaning: to honor."
+    },
+    {
+      "root_word": "ዐመተ",
+      "pattern": "ʿ-m-t",
+      "meaning": "to learn / to discipline",
+      "theoretical_semantics": "The Ge'ez root ʿ-m-t is historically tied to the general Afro-Semitic meaning: to learn / to discipline."
+    },
+    {
+      "root_word": "skm",
+      "pattern": "s-k-m",
+      "meaning": "A constructed teaching root demonstrating the s,k,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-k-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣml",
+      "pattern": "ṣ-m-l",
+      "meaning": "A constructed teaching root demonstrating the ṣ,m,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-m-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gtḥ",
+      "pattern": "g-t-ḥ",
+      "meaning": "A constructed teaching root demonstrating the g,t,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-t-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾkb",
+      "pattern": "ʾ-k-b",
+      "meaning": "A constructed teaching root demonstrating the ʾ,k,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-k-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kqḥ",
+      "pattern": "k-q-ḥ",
+      "meaning": "A constructed teaching root demonstrating the k,q,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-q-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zḥk",
+      "pattern": "z-ḥ-k",
+      "meaning": "A constructed teaching root demonstrating the z,ḥ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ḥ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rʾm",
+      "pattern": "r-ʾ-m",
+      "meaning": "A constructed teaching root demonstrating the r,ʾ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ʾ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bsʾ",
+      "pattern": "b-s-ʾ",
+      "meaning": "A constructed teaching root demonstrating the b,s,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-s-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tsz",
+      "pattern": "t-s-z",
+      "meaning": "A constructed teaching root demonstrating the t,s,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-s-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tnṣ",
+      "pattern": "t-n-ṣ",
+      "meaning": "A constructed teaching root demonstrating the t,n,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tfb",
+      "pattern": "t-f-b",
+      "meaning": "A constructed teaching root demonstrating the t,f,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-f-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rzḥ",
+      "pattern": "r-z-ḥ",
+      "meaning": "A constructed teaching root demonstrating the r,z,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-z-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mṣḥ",
+      "pattern": "m-ṣ-ḥ",
+      "meaning": "A constructed teaching root demonstrating the m,ṣ,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ṣ-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rsf",
+      "pattern": "r-s-f",
+      "meaning": "A constructed teaching root demonstrating the r,s,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-s-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gʾḥ",
+      "pattern": "g-ʾ-ḥ",
+      "meaning": "A constructed teaching root demonstrating the g,ʾ,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ʾ-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kfs",
+      "pattern": "k-f-s",
+      "meaning": "A constructed teaching root demonstrating the k,f,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-f-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "snk",
+      "pattern": "s-n-k",
+      "meaning": "A constructed teaching root demonstrating the s,n,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-n-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lsf",
+      "pattern": "l-s-f",
+      "meaning": "A constructed teaching root demonstrating the l,s,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-s-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fmz",
+      "pattern": "f-m-z",
+      "meaning": "A constructed teaching root demonstrating the f,m,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-m-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zrg",
+      "pattern": "z-r-g",
+      "meaning": "A constructed teaching root demonstrating the z,r,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-r-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣkt",
+      "pattern": "ṣ-k-t",
+      "meaning": "A constructed teaching root demonstrating the ṣ,k,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-k-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zrl",
+      "pattern": "z-r-l",
+      "meaning": "A constructed teaching root demonstrating the z,r,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-r-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qḥk",
+      "pattern": "q-ḥ-k",
+      "meaning": "A constructed teaching root demonstrating the q,ḥ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-ḥ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tḥz",
+      "pattern": "t-ḥ-z",
+      "meaning": "A constructed teaching root demonstrating the t,ḥ,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-ḥ-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bḥk",
+      "pattern": "b-ḥ-k",
+      "meaning": "A constructed teaching root demonstrating the b,ḥ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-ḥ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tʾr",
+      "pattern": "t-ʾ-r",
+      "meaning": "A constructed teaching root demonstrating the t,ʾ,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-ʾ-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nbs",
+      "pattern": "n-b-s",
+      "meaning": "A constructed teaching root demonstrating the n,b,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-b-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mḥq",
+      "pattern": "m-ḥ-q",
+      "meaning": "A constructed teaching root demonstrating the m,ḥ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ḥ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥbq",
+      "pattern": "ḥ-b-q",
+      "meaning": "A constructed teaching root demonstrating the ḥ,b,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-b-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kḥl",
+      "pattern": "k-ḥ-l",
+      "meaning": "A constructed teaching root demonstrating the k,ḥ,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-ḥ-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lfq",
+      "pattern": "l-f-q",
+      "meaning": "A constructed teaching root demonstrating the l,f,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-f-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nṣl",
+      "pattern": "n-ṣ-l",
+      "meaning": "A constructed teaching root demonstrating the n,ṣ,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-ṣ-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fnṣ",
+      "pattern": "f-n-ṣ",
+      "meaning": "A constructed teaching root demonstrating the f,n,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-n-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kʾz",
+      "pattern": "k-ʾ-z",
+      "meaning": "A constructed teaching root demonstrating the k,ʾ,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-ʾ-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tḥṣ",
+      "pattern": "t-ḥ-ṣ",
+      "meaning": "A constructed teaching root demonstrating the t,ḥ,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-ḥ-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zbq",
+      "pattern": "z-b-q",
+      "meaning": "A constructed teaching root demonstrating the z,b,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-b-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾbm",
+      "pattern": "ʾ-b-m",
+      "meaning": "A constructed teaching root demonstrating the ʾ,b,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-b-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ksṣ",
+      "pattern": "k-s-ṣ",
+      "meaning": "A constructed teaching root demonstrating the k,s,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-s-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tnl",
+      "pattern": "t-n-l",
+      "meaning": "A constructed teaching root demonstrating the t,n,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kgm",
+      "pattern": "k-g-m",
+      "meaning": "A constructed teaching root demonstrating the k,g,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-g-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣls",
+      "pattern": "ṣ-l-s",
+      "meaning": "A constructed teaching root demonstrating the ṣ,l,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-l-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zṣf",
+      "pattern": "z-ṣ-f",
+      "meaning": "A constructed teaching root demonstrating the z,ṣ,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ṣ-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "blr",
+      "pattern": "b-l-r",
+      "meaning": "A constructed teaching root demonstrating the b,l,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-l-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lsg",
+      "pattern": "l-s-g",
+      "meaning": "A constructed teaching root demonstrating the l,s,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-s-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gḥs",
+      "pattern": "g-ḥ-s",
+      "meaning": "A constructed teaching root demonstrating the g,ḥ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ḥ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zrm",
+      "pattern": "z-r-m",
+      "meaning": "A constructed teaching root demonstrating the z,r,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-r-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rkb",
+      "pattern": "r-k-b",
+      "meaning": "A constructed teaching root demonstrating the r,k,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-k-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥtg",
+      "pattern": "ḥ-t-g",
+      "meaning": "A constructed teaching root demonstrating the ḥ,t,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-t-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "blʾ",
+      "pattern": "b-l-ʾ",
+      "meaning": "A constructed teaching root demonstrating the b,l,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-l-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rsk",
+      "pattern": "r-s-k",
+      "meaning": "A constructed teaching root demonstrating the r,s,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-s-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣḥf",
+      "pattern": "ṣ-ḥ-f",
+      "meaning": "A constructed teaching root demonstrating the ṣ,ḥ,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-ḥ-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rks",
+      "pattern": "r-k-s",
+      "meaning": "A constructed teaching root demonstrating the r,k,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-k-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zḥl",
+      "pattern": "z-ḥ-l",
+      "meaning": "A constructed teaching root demonstrating the z,ḥ,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ḥ-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bmḥ",
+      "pattern": "b-m-ḥ",
+      "meaning": "A constructed teaching root demonstrating the b,m,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-m-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qlz",
+      "pattern": "q-l-z",
+      "meaning": "A constructed teaching root demonstrating the q,l,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-l-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mzn",
+      "pattern": "m-z-n",
+      "meaning": "A constructed teaching root demonstrating the m,z,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-z-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gsn",
+      "pattern": "g-s-n",
+      "meaning": "A constructed teaching root demonstrating the g,s,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-s-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥqṣ",
+      "pattern": "ḥ-q-ṣ",
+      "meaning": "A constructed teaching root demonstrating the ḥ,q,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-q-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zṣr",
+      "pattern": "z-ṣ-r",
+      "meaning": "A constructed teaching root demonstrating the z,ṣ,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ṣ-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lqk",
+      "pattern": "l-q-k",
+      "meaning": "A constructed teaching root demonstrating the l,q,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-q-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥlz",
+      "pattern": "ḥ-l-z",
+      "meaning": "A constructed teaching root demonstrating the ḥ,l,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-l-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "klʾ",
+      "pattern": "k-l-ʾ",
+      "meaning": "A constructed teaching root demonstrating the k,l,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-l-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣḥn",
+      "pattern": "ṣ-ḥ-n",
+      "meaning": "A constructed teaching root demonstrating the ṣ,ḥ,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-ḥ-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣgz",
+      "pattern": "ṣ-g-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,g,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-g-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rʾq",
+      "pattern": "r-ʾ-q",
+      "meaning": "A constructed teaching root demonstrating the r,ʾ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ʾ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥnʾ",
+      "pattern": "ḥ-n-ʾ",
+      "meaning": "A constructed teaching root demonstrating the ḥ,n,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-n-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bkz",
+      "pattern": "b-k-z",
+      "meaning": "A constructed teaching root demonstrating the b,k,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-k-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥqf",
+      "pattern": "ḥ-q-f",
+      "meaning": "A constructed teaching root demonstrating the ḥ,q,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-q-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tng",
+      "pattern": "t-n-g",
+      "meaning": "A constructed teaching root demonstrating the t,n,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bmk",
+      "pattern": "b-m-k",
+      "meaning": "A constructed teaching root demonstrating the b,m,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-m-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tzg",
+      "pattern": "t-z-g",
+      "meaning": "A constructed teaching root demonstrating the t,z,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-z-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ksq",
+      "pattern": "k-s-q",
+      "meaning": "A constructed teaching root demonstrating the k,s,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-s-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bzt",
+      "pattern": "b-z-t",
+      "meaning": "A constructed teaching root demonstrating the b,z,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-z-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qʾb",
+      "pattern": "q-ʾ-b",
+      "meaning": "A constructed teaching root demonstrating the q,ʾ,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-ʾ-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gml",
+      "pattern": "g-m-l",
+      "meaning": "A constructed teaching root demonstrating the g,m,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-m-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tnb",
+      "pattern": "t-n-b",
+      "meaning": "A constructed teaching root demonstrating the t,n,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qtg",
+      "pattern": "q-t-g",
+      "meaning": "A constructed teaching root demonstrating the q,t,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-t-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tḥq",
+      "pattern": "t-ḥ-q",
+      "meaning": "A constructed teaching root demonstrating the t,ḥ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-ḥ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣzl",
+      "pattern": "ṣ-z-l",
+      "meaning": "A constructed teaching root demonstrating the ṣ,z,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-z-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾsf",
+      "pattern": "ʾ-s-f",
+      "meaning": "A constructed teaching root demonstrating the ʾ,s,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-s-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣtn",
+      "pattern": "ṣ-t-n",
+      "meaning": "A constructed teaching root demonstrating the ṣ,t,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-t-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣmz",
+      "pattern": "ṣ-m-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,m,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-m-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nfg",
+      "pattern": "n-f-g",
+      "meaning": "A constructed teaching root demonstrating the n,f,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-f-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rfz",
+      "pattern": "r-f-z",
+      "meaning": "A constructed teaching root demonstrating the r,f,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-f-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥzq",
+      "pattern": "ḥ-z-q",
+      "meaning": "A constructed teaching root demonstrating the ḥ,z,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-z-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mṣn",
+      "pattern": "m-ṣ-n",
+      "meaning": "A constructed teaching root demonstrating the m,ṣ,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ṣ-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gfn",
+      "pattern": "g-f-n",
+      "meaning": "A constructed teaching root demonstrating the g,f,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-f-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ftz",
+      "pattern": "f-t-z",
+      "meaning": "A constructed teaching root demonstrating the f,t,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-t-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mṣḥ",
+      "pattern": "m-ṣ-ḥ",
+      "meaning": "A constructed teaching root demonstrating the m,ṣ,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ṣ-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣʾz",
+      "pattern": "ṣ-ʾ-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,ʾ,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-ʾ-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lʾṣ",
+      "pattern": "l-ʾ-ṣ",
+      "meaning": "A constructed teaching root demonstrating the l,ʾ,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-ʾ-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bzq",
+      "pattern": "b-z-q",
+      "meaning": "A constructed teaching root demonstrating the b,z,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-z-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rʾs",
+      "pattern": "r-ʾ-s",
+      "meaning": "A constructed teaching root demonstrating the r,ʾ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ʾ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rḥm",
+      "pattern": "r-ḥ-m",
+      "meaning": "A constructed teaching root demonstrating the r,ḥ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ḥ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kst",
+      "pattern": "k-s-t",
+      "meaning": "A constructed teaching root demonstrating the k,s,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-s-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kqg",
+      "pattern": "k-q-g",
+      "meaning": "A constructed teaching root demonstrating the k,q,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-q-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lṣm",
+      "pattern": "l-ṣ-m",
+      "meaning": "A constructed teaching root demonstrating the l,ṣ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-ṣ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lṣb",
+      "pattern": "l-ṣ-b",
+      "meaning": "A constructed teaching root demonstrating the l,ṣ,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-ṣ-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tnl",
+      "pattern": "t-n-l",
+      "meaning": "A constructed teaching root demonstrating the t,n,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tqḥ",
+      "pattern": "t-q-ḥ",
+      "meaning": "A constructed teaching root demonstrating the t,q,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-q-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥbf",
+      "pattern": "ḥ-b-f",
+      "meaning": "A constructed teaching root demonstrating the ḥ,b,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-b-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zgr",
+      "pattern": "z-g-r",
+      "meaning": "A constructed teaching root demonstrating the z,g,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-g-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "slm",
+      "pattern": "s-l-m",
+      "meaning": "A constructed teaching root demonstrating the s,l,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-l-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bnr",
+      "pattern": "b-n-r",
+      "meaning": "A constructed teaching root demonstrating the b,n,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-n-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣsz",
+      "pattern": "ṣ-s-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,s,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-s-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tkz",
+      "pattern": "t-k-z",
+      "meaning": "A constructed teaching root demonstrating the t,k,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-k-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mḥr",
+      "pattern": "m-ḥ-r",
+      "meaning": "A constructed teaching root demonstrating the m,ḥ,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ḥ-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kqr",
+      "pattern": "k-q-r",
+      "meaning": "A constructed teaching root demonstrating the k,q,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-q-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qkb",
+      "pattern": "q-k-b",
+      "meaning": "A constructed teaching root demonstrating the q,k,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-k-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nfr",
+      "pattern": "n-f-r",
+      "meaning": "A constructed teaching root demonstrating the n,f,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-f-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gqʾ",
+      "pattern": "g-q-ʾ",
+      "meaning": "A constructed teaching root demonstrating the g,q,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-q-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lqm",
+      "pattern": "l-q-m",
+      "meaning": "A constructed teaching root demonstrating the l,q,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-q-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rlz",
+      "pattern": "r-l-z",
+      "meaning": "A constructed teaching root demonstrating the r,l,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-l-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zfn",
+      "pattern": "z-f-n",
+      "meaning": "A constructed teaching root demonstrating the z,f,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-f-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qṣt",
+      "pattern": "q-ṣ-t",
+      "meaning": "A constructed teaching root demonstrating the q,ṣ,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-ṣ-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tnr",
+      "pattern": "t-n-r",
+      "meaning": "A constructed teaching root demonstrating the t,n,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-n-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rnm",
+      "pattern": "r-n-m",
+      "meaning": "A constructed teaching root demonstrating the r,n,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-n-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gkb",
+      "pattern": "g-k-b",
+      "meaning": "A constructed teaching root demonstrating the g,k,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-k-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gmṣ",
+      "pattern": "g-m-ṣ",
+      "meaning": "A constructed teaching root demonstrating the g,m,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-m-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥlt",
+      "pattern": "ḥ-l-t",
+      "meaning": "A constructed teaching root demonstrating the ḥ,l,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-l-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tḥʾ",
+      "pattern": "t-ḥ-ʾ",
+      "meaning": "A constructed teaching root demonstrating the t,ḥ,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-ḥ-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lgq",
+      "pattern": "l-g-q",
+      "meaning": "A constructed teaching root demonstrating the l,g,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-g-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nṣq",
+      "pattern": "n-ṣ-q",
+      "meaning": "A constructed teaching root demonstrating the n,ṣ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-ṣ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾzḥ",
+      "pattern": "ʾ-z-ḥ",
+      "meaning": "A constructed teaching root demonstrating the ʾ,z,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-z-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zḥʾ",
+      "pattern": "z-ḥ-ʾ",
+      "meaning": "A constructed teaching root demonstrating the z,ḥ,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ḥ-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥrl",
+      "pattern": "ḥ-r-l",
+      "meaning": "A constructed teaching root demonstrating the ḥ,r,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-r-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾṣr",
+      "pattern": "ʾ-ṣ-r",
+      "meaning": "A constructed teaching root demonstrating the ʾ,ṣ,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-ṣ-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mfl",
+      "pattern": "m-f-l",
+      "meaning": "A constructed teaching root demonstrating the m,f,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-f-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gṣq",
+      "pattern": "g-ṣ-q",
+      "meaning": "A constructed teaching root demonstrating the g,ṣ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ṣ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zḥk",
+      "pattern": "z-ḥ-k",
+      "meaning": "A constructed teaching root demonstrating the z,ḥ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ḥ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gft",
+      "pattern": "g-f-t",
+      "meaning": "A constructed teaching root demonstrating the g,f,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-f-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tml",
+      "pattern": "t-m-l",
+      "meaning": "A constructed teaching root demonstrating the t,m,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-m-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fkḥ",
+      "pattern": "f-k-ḥ",
+      "meaning": "A constructed teaching root demonstrating the f,k,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-k-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bʾs",
+      "pattern": "b-ʾ-s",
+      "meaning": "A constructed teaching root demonstrating the b,ʾ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-ʾ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zkn",
+      "pattern": "z-k-n",
+      "meaning": "A constructed teaching root demonstrating the z,k,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-k-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "skl",
+      "pattern": "s-k-l",
+      "meaning": "A constructed teaching root demonstrating the s,k,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-k-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kgb",
+      "pattern": "k-g-b",
+      "meaning": "A constructed teaching root demonstrating the k,g,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-g-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rsb",
+      "pattern": "r-s-b",
+      "meaning": "A constructed teaching root demonstrating the r,s,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-s-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mfʾ",
+      "pattern": "m-f-ʾ",
+      "meaning": "A constructed teaching root demonstrating the m,f,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-f-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣkz",
+      "pattern": "ṣ-k-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,k,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-k-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bʾm",
+      "pattern": "b-ʾ-m",
+      "meaning": "A constructed teaching root demonstrating the b,ʾ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-ʾ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gbl",
+      "pattern": "g-b-l",
+      "meaning": "A constructed teaching root demonstrating the g,b,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-b-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lts",
+      "pattern": "l-t-s",
+      "meaning": "A constructed teaching root demonstrating the l,t,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-t-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qḥk",
+      "pattern": "q-ḥ-k",
+      "meaning": "A constructed teaching root demonstrating the q,ḥ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-ḥ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣks",
+      "pattern": "ṣ-k-s",
+      "meaning": "A constructed teaching root demonstrating the ṣ,k,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-k-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nqk",
+      "pattern": "n-q-k",
+      "meaning": "A constructed teaching root demonstrating the n,q,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-q-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gsn",
+      "pattern": "g-s-n",
+      "meaning": "A constructed teaching root demonstrating the g,s,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-s-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gqḥ",
+      "pattern": "g-q-ḥ",
+      "meaning": "A constructed teaching root demonstrating the g,q,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-q-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥrs",
+      "pattern": "ḥ-r-s",
+      "meaning": "A constructed teaching root demonstrating the ḥ,r,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-r-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ktn",
+      "pattern": "k-t-n",
+      "meaning": "A constructed teaching root demonstrating the k,t,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-t-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kṣg",
+      "pattern": "k-ṣ-g",
+      "meaning": "A constructed teaching root demonstrating the k,ṣ,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-ṣ-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mḥs",
+      "pattern": "m-ḥ-s",
+      "meaning": "A constructed teaching root demonstrating the m,ḥ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ḥ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "blk",
+      "pattern": "b-l-k",
+      "meaning": "A constructed teaching root demonstrating the b,l,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-l-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nbg",
+      "pattern": "n-b-g",
+      "meaning": "A constructed teaching root demonstrating the n,b,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-b-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gṣk",
+      "pattern": "g-ṣ-k",
+      "meaning": "A constructed teaching root demonstrating the g,ṣ,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ṣ-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rms",
+      "pattern": "r-m-s",
+      "meaning": "A constructed teaching root demonstrating the r,m,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-m-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gmz",
+      "pattern": "g-m-z",
+      "meaning": "A constructed teaching root demonstrating the g,m,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-m-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "msn",
+      "pattern": "m-s-n",
+      "meaning": "A constructed teaching root demonstrating the m,s,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-s-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾnl",
+      "pattern": "ʾ-n-l",
+      "meaning": "A constructed teaching root demonstrating the ʾ,n,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-n-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lgn",
+      "pattern": "l-g-n",
+      "meaning": "A constructed teaching root demonstrating the l,g,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-g-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nḥb",
+      "pattern": "n-ḥ-b",
+      "meaning": "A constructed teaching root demonstrating the n,ḥ,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-ḥ-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rzk",
+      "pattern": "r-z-k",
+      "meaning": "A constructed teaching root demonstrating the r,z,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-z-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾgq",
+      "pattern": "ʾ-g-q",
+      "meaning": "A constructed teaching root demonstrating the ʾ,g,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-g-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tkr",
+      "pattern": "t-k-r",
+      "meaning": "A constructed teaching root demonstrating the t,k,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-k-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gḥq",
+      "pattern": "g-ḥ-q",
+      "meaning": "A constructed teaching root demonstrating the g,ḥ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ḥ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "glʾ",
+      "pattern": "g-l-ʾ",
+      "meaning": "A constructed teaching root demonstrating the g,l,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-l-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lkq",
+      "pattern": "l-k-q",
+      "meaning": "A constructed teaching root demonstrating the l,k,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-k-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tzs",
+      "pattern": "t-z-s",
+      "meaning": "A constructed teaching root demonstrating the t,z,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-z-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mgt",
+      "pattern": "m-g-t",
+      "meaning": "A constructed teaching root demonstrating the m,g,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-g-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "srm",
+      "pattern": "s-r-m",
+      "meaning": "A constructed teaching root demonstrating the s,r,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-r-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥʾf",
+      "pattern": "ḥ-ʾ-f",
+      "meaning": "A constructed teaching root demonstrating the ḥ,ʾ,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-ʾ-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ztl",
+      "pattern": "z-t-l",
+      "meaning": "A constructed teaching root demonstrating the z,t,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-t-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lfk",
+      "pattern": "l-f-k",
+      "meaning": "A constructed teaching root demonstrating the l,f,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-f-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "frn",
+      "pattern": "f-r-n",
+      "meaning": "A constructed teaching root demonstrating the f,r,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-r-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nmr",
+      "pattern": "n-m-r",
+      "meaning": "A constructed teaching root demonstrating the n,m,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-m-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "skg",
+      "pattern": "s-k-g",
+      "meaning": "A constructed teaching root demonstrating the s,k,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-k-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥnr",
+      "pattern": "ḥ-n-r",
+      "meaning": "A constructed teaching root demonstrating the ḥ,n,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-n-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mfg",
+      "pattern": "m-f-g",
+      "meaning": "A constructed teaching root demonstrating the m,f,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-f-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kbz",
+      "pattern": "k-b-z",
+      "meaning": "A constructed teaching root demonstrating the k,b,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-b-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gʾz",
+      "pattern": "g-ʾ-z",
+      "meaning": "A constructed teaching root demonstrating the g,ʾ,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ʾ-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fnk",
+      "pattern": "f-n-k",
+      "meaning": "A constructed teaching root demonstrating the f,n,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-n-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾḥm",
+      "pattern": "ʾ-ḥ-m",
+      "meaning": "A constructed teaching root demonstrating the ʾ,ḥ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-ḥ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qbḥ",
+      "pattern": "q-b-ḥ",
+      "meaning": "A constructed teaching root demonstrating the q,b,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-b-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tbf",
+      "pattern": "t-b-f",
+      "meaning": "A constructed teaching root demonstrating the t,b,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-b-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "sbn",
+      "pattern": "s-b-n",
+      "meaning": "A constructed teaching root demonstrating the s,b,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-b-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ftl",
+      "pattern": "f-t-l",
+      "meaning": "A constructed teaching root demonstrating the f,t,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-t-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zlṣ",
+      "pattern": "z-l-ṣ",
+      "meaning": "A constructed teaching root demonstrating the z,l,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-l-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾqn",
+      "pattern": "ʾ-q-n",
+      "meaning": "A constructed teaching root demonstrating the ʾ,q,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-q-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gbs",
+      "pattern": "g-b-s",
+      "meaning": "A constructed teaching root demonstrating the g,b,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-b-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lḥs",
+      "pattern": "l-ḥ-s",
+      "meaning": "A constructed teaching root demonstrating the l,ḥ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-ḥ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gḥṣ",
+      "pattern": "g-ḥ-ṣ",
+      "meaning": "A constructed teaching root demonstrating the g,ḥ,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ḥ-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fgṣ",
+      "pattern": "f-g-ṣ",
+      "meaning": "A constructed teaching root demonstrating the f,g,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-g-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "frz",
+      "pattern": "f-r-z",
+      "meaning": "A constructed teaching root demonstrating the f,r,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-r-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾṣf",
+      "pattern": "ʾ-ṣ-f",
+      "meaning": "A constructed teaching root demonstrating the ʾ,ṣ,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-ṣ-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nsṣ",
+      "pattern": "n-s-ṣ",
+      "meaning": "A constructed teaching root demonstrating the n,s,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-s-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rmf",
+      "pattern": "r-m-f",
+      "meaning": "A constructed teaching root demonstrating the r,m,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-m-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qgz",
+      "pattern": "q-g-z",
+      "meaning": "A constructed teaching root demonstrating the q,g,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-g-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥms",
+      "pattern": "ḥ-m-s",
+      "meaning": "A constructed teaching root demonstrating the ḥ,m,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-m-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "slg",
+      "pattern": "s-l-g",
+      "meaning": "A constructed teaching root demonstrating the s,l,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-l-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥlṣ",
+      "pattern": "ḥ-l-ṣ",
+      "meaning": "A constructed teaching root demonstrating the ḥ,l,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-l-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣls",
+      "pattern": "ṣ-l-s",
+      "meaning": "A constructed teaching root demonstrating the ṣ,l,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-l-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tgk",
+      "pattern": "t-g-k",
+      "meaning": "A constructed teaching root demonstrating the t,g,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-g-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣkz",
+      "pattern": "ṣ-k-z",
+      "meaning": "A constructed teaching root demonstrating the ṣ,k,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-k-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gṣb",
+      "pattern": "g-ṣ-b",
+      "meaning": "A constructed teaching root demonstrating the g,ṣ,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-ṣ-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mʾt",
+      "pattern": "m-ʾ-t",
+      "meaning": "A constructed teaching root demonstrating the m,ʾ,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-ʾ-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rzṣ",
+      "pattern": "r-z-ṣ",
+      "meaning": "A constructed teaching root demonstrating the r,z,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-z-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥʾq",
+      "pattern": "ḥ-ʾ-q",
+      "meaning": "A constructed teaching root demonstrating the ḥ,ʾ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-ʾ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fmk",
+      "pattern": "f-m-k",
+      "meaning": "A constructed teaching root demonstrating the f,m,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-m-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mlʾ",
+      "pattern": "m-l-ʾ",
+      "meaning": "A constructed teaching root demonstrating the m,l,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-l-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fḥt",
+      "pattern": "f-ḥ-t",
+      "meaning": "A constructed teaching root demonstrating the f,ḥ,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-ḥ-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nkf",
+      "pattern": "n-k-f",
+      "meaning": "A constructed teaching root demonstrating the n,k,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-k-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "grs",
+      "pattern": "g-r-s",
+      "meaning": "A constructed teaching root demonstrating the g,r,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-r-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nfs",
+      "pattern": "n-f-s",
+      "meaning": "A constructed teaching root demonstrating the n,f,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-f-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lmq",
+      "pattern": "l-m-q",
+      "meaning": "A constructed teaching root demonstrating the l,m,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-m-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "kmb",
+      "pattern": "k-m-b",
+      "meaning": "A constructed teaching root demonstrating the k,m,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root k-m-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "sfḥ",
+      "pattern": "s-f-ḥ",
+      "meaning": "A constructed teaching root demonstrating the s,f,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-f-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qfg",
+      "pattern": "q-f-g",
+      "meaning": "A constructed teaching root demonstrating the q,f,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-f-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rḥg",
+      "pattern": "r-ḥ-g",
+      "meaning": "A constructed teaching root demonstrating the r,ḥ,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ḥ-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lqm",
+      "pattern": "l-q-m",
+      "meaning": "A constructed teaching root demonstrating the l,q,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-q-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mkʾ",
+      "pattern": "m-k-ʾ",
+      "meaning": "A constructed teaching root demonstrating the m,k,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-k-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lbt",
+      "pattern": "l-b-t",
+      "meaning": "A constructed teaching root demonstrating the l,b,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-b-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "snz",
+      "pattern": "s-n-z",
+      "meaning": "A constructed teaching root demonstrating the s,n,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-n-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rʾf",
+      "pattern": "r-ʾ-f",
+      "meaning": "A constructed teaching root demonstrating the r,ʾ,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ʾ-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zln",
+      "pattern": "z-l-n",
+      "meaning": "A constructed teaching root demonstrating the z,l,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-l-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ḥtr",
+      "pattern": "ḥ-t-r",
+      "meaning": "A constructed teaching root demonstrating the ḥ,t,r pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ḥ-t-r reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣks",
+      "pattern": "ṣ-k-s",
+      "meaning": "A constructed teaching root demonstrating the ṣ,k,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-k-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fʾḥ",
+      "pattern": "f-ʾ-ḥ",
+      "meaning": "A constructed teaching root demonstrating the f,ʾ,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-ʾ-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gnṣ",
+      "pattern": "g-n-ṣ",
+      "meaning": "A constructed teaching root demonstrating the g,n,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-n-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣsk",
+      "pattern": "ṣ-s-k",
+      "meaning": "A constructed teaching root demonstrating the ṣ,s,k pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-s-k reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "tbʾ",
+      "pattern": "t-b-ʾ",
+      "meaning": "A constructed teaching root demonstrating the t,b,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root t-b-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zṣb",
+      "pattern": "z-ṣ-b",
+      "meaning": "A constructed teaching root demonstrating the z,ṣ,b pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ṣ-b reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rmt",
+      "pattern": "r-m-t",
+      "meaning": "A constructed teaching root demonstrating the r,m,t pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-m-t reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "rṣm",
+      "pattern": "r-ṣ-m",
+      "meaning": "A constructed teaching root demonstrating the r,ṣ,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root r-ṣ-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "skg",
+      "pattern": "s-k-g",
+      "meaning": "A constructed teaching root demonstrating the s,k,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-k-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "bgm",
+      "pattern": "b-g-m",
+      "meaning": "A constructed teaching root demonstrating the b,g,m pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root b-g-m reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "sṣg",
+      "pattern": "s-ṣ-g",
+      "meaning": "A constructed teaching root demonstrating the s,ṣ,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-ṣ-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nṣq",
+      "pattern": "n-ṣ-q",
+      "meaning": "A constructed teaching root demonstrating the n,ṣ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-ṣ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gkl",
+      "pattern": "g-k-l",
+      "meaning": "A constructed teaching root demonstrating the g,k,l pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-k-l reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "msḥ",
+      "pattern": "m-s-ḥ",
+      "meaning": "A constructed teaching root demonstrating the m,s,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-s-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nbʾ",
+      "pattern": "n-b-ʾ",
+      "meaning": "A constructed teaching root demonstrating the n,b,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-b-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "smḥ",
+      "pattern": "s-m-ḥ",
+      "meaning": "A constructed teaching root demonstrating the s,m,ḥ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root s-m-ḥ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "zḥq",
+      "pattern": "z-ḥ-q",
+      "meaning": "A constructed teaching root demonstrating the z,ḥ,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root z-ḥ-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "lgz",
+      "pattern": "l-g-z",
+      "meaning": "A constructed teaching root demonstrating the l,g,z pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root l-g-z reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "fks",
+      "pattern": "f-k-s",
+      "meaning": "A constructed teaching root demonstrating the f,k,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root f-k-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nbf",
+      "pattern": "n-b-f",
+      "meaning": "A constructed teaching root demonstrating the n,b,f pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-b-f reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "gsʾ",
+      "pattern": "g-s-ʾ",
+      "meaning": "A constructed teaching root demonstrating the g,s,ʾ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root g-s-ʾ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾts",
+      "pattern": "ʾ-t-s",
+      "meaning": "A constructed teaching root demonstrating the ʾ,t,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-t-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ntṣ",
+      "pattern": "n-t-ṣ",
+      "meaning": "A constructed teaching root demonstrating the n,t,ṣ pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-t-ṣ reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "mrq",
+      "pattern": "m-r-q",
+      "meaning": "A constructed teaching root demonstrating the m,r,q pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root m-r-q reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ṣbg",
+      "pattern": "ṣ-b-g",
+      "meaning": "A constructed teaching root demonstrating the ṣ,b,g pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ṣ-b-g reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "nṣs",
+      "pattern": "n-ṣ-s",
+      "meaning": "A constructed teaching root demonstrating the n,ṣ,s pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root n-ṣ-s reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "qʾn",
+      "pattern": "q-ʾ-n",
+      "meaning": "A constructed teaching root demonstrating the q,ʾ,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root q-ʾ-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    },
+    {
+      "root_word": "ʾzn",
+      "pattern": "ʾ-z-n",
+      "meaning": "A constructed teaching root demonstrating the ʾ,z,n pattern.",
+      "theoretical_semantics": "This hypothetical Ge'ez root ʾ-z-n reflects tri-consonantal structure and helps learners recognize Semitic meaning formation."
+    }
+  ]
+}

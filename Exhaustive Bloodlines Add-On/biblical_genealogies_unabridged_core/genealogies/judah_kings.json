@@ -1,0 +1,325 @@
+[
+  {
+    "id": "jesse",
+    "name": "Jesse",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "david"
+    ],
+    "refs": [
+      "1 Samuel 16:1–13"
+    ],
+    "notes": "Father of David.",
+    "alt_names": []
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "solomon"
+    ],
+    "refs": [
+      "1 Samuel 16–31",
+      "2 Samuel",
+      "1 Chronicles 11–29"
+    ],
+    "notes": "King of Israel; ancestor of Messiah.",
+    "alt_names": []
+  },
+  {
+    "id": "solomon",
+    "name": "Solomon",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "rehoboam"
+    ],
+    "refs": [
+      "2 Samuel 12:24",
+      "1 Kings 1–11"
+    ],
+    "notes": "Son of David and Bathsheba.",
+    "alt_names": []
+  },
+  {
+    "id": "rehoboam",
+    "name": "Rehoboam",
+    "gender": "M",
+    "father": "solomon",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "abijah"
+    ],
+    "refs": [
+      "1 Kings 11:43–14:31",
+      "2 Chronicles 10–12"
+    ],
+    "notes": "First king of Judah after division.",
+    "alt_names": [
+      "Roboam"
+    ]
+  },
+  {
+    "id": "abijah",
+    "name": "Abijah",
+    "gender": "M",
+    "father": "rehoboam",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "asa"
+    ],
+    "refs": [
+      "1 Kings 15:1–8",
+      "2 Chronicles 13"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Abijam"
+    ]
+  },
+  {
+    "id": "asa",
+    "name": "Asa",
+    "gender": "M",
+    "father": "abijah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jehoshaphat"
+    ],
+    "refs": [
+      "1 Kings 15:8–24"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jehoshaphat",
+    "name": "Jehoshaphat",
+    "gender": "M",
+    "father": "asa",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "joram"
+    ],
+    "refs": [
+      "1 Kings 22:41–50",
+      "2 Chronicles 17–20"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Josaphat"
+    ]
+  },
+  {
+    "id": "joram",
+    "name": "Joram",
+    "gender": "M",
+    "father": "jehoshaphat",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "uzziah"
+    ],
+    "refs": [
+      "2 Kings 8:16–24",
+      "2 Chronicles 21"
+    ],
+    "notes": "In Matthew some generations are telescoped here.",
+    "alt_names": [
+      "Jehoram"
+    ]
+  },
+  {
+    "id": "uzziah",
+    "name": "Uzziah",
+    "gender": "M",
+    "father": "joram",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jotham"
+    ],
+    "refs": [
+      "2 Kings 15:1–7",
+      "2 Chronicles 26"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Azariah"
+    ]
+  },
+  {
+    "id": "jotham",
+    "name": "Jotham",
+    "gender": "M",
+    "father": "uzziah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "ahaz"
+    ],
+    "refs": [
+      "2 Kings 15:32–38",
+      "2 Chronicles 27"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ahaz",
+    "name": "Ahaz",
+    "gender": "M",
+    "father": "jotham",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "hezekiah"
+    ],
+    "refs": [
+      "2 Kings 16",
+      "2 Chronicles 28"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "hezekiah",
+    "name": "Hezekiah",
+    "gender": "M",
+    "father": "ahaz",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "manasseh"
+    ],
+    "refs": [
+      "2 Kings 18–20",
+      "2 Chronicles 29–32"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Ezekias"
+    ]
+  },
+  {
+    "id": "manasseh",
+    "name": "Manasseh",
+    "gender": "M",
+    "father": "hezekiah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "amon"
+    ],
+    "refs": [
+      "2 Kings 21:1–18",
+      "2 Chronicles 33"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Manasses"
+    ]
+  },
+  {
+    "id": "amon",
+    "name": "Amon",
+    "gender": "M",
+    "father": "manasseh",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "josiah"
+    ],
+    "refs": [
+      "2 Kings 21:19–26"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "josiah",
+    "name": "Josiah",
+    "gender": "M",
+    "father": "amon",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jeconiah"
+    ],
+    "refs": [
+      "2 Kings 22–23",
+      "2 Chronicles 34–35"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Josias"
+    ]
+  },
+  {
+    "id": "jeconiah",
+    "name": "Jeconiah",
+    "gender": "M",
+    "father": "josiah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "shealtiel"
+    ],
+    "refs": [
+      "2 Kings 24:6–17",
+      "1 Chronicles 3:16–17"
+    ],
+    "notes": "Also called Coniah/Jehoiachin.",
+    "alt_names": [
+      "Jehoiachin",
+      "Coniah"
+    ]
+  },
+  {
+    "id": "shealtiel",
+    "name": "Shealtiel",
+    "gender": "M",
+    "father": "jeconiah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "zerubbabel"
+    ],
+    "refs": [
+      "Ezra 3:2",
+      "Haggai 1:1"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Salathiel"
+    ]
+  },
+  {
+    "id": "zerubbabel",
+    "name": "Zerubbabel",
+    "gender": "M",
+    "father": "shealtiel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 3–5",
+      "Haggai 1–2"
+    ],
+    "notes": "Governor of Judah after the exile.",
+    "alt_names": []
+  }
+]

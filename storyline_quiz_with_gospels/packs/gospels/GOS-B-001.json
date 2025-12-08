@@ -1,0 +1,43 @@
+{
+  "id": "GOS-B-001",
+  "title": "Calling of the First Disciples",
+  "reference": "Matthew 4:18–22",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus walks by the Sea of Galilee",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus sees Simon Peter and Andrew",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus tells them “Follow Me”",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "They leave their nets immediately",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus calls James and John",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "They also leave their boat and follow Him",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Calling"
+  ]
+}

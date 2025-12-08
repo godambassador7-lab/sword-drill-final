@@ -1,0 +1,124 @@
+[
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "amnon",
+      "daniel_chileab",
+      "absalom",
+      "adonijah",
+      "shephatiah",
+      "ithream",
+      "solomon"
+    ],
+    "refs": [
+      "1 Chronicles 3:1–9"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "amnon",
+    "name": "Amnon",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:1"
+    ],
+    "notes": "Firstborn of David.",
+    "alt_names": []
+  },
+  {
+    "id": "daniel_chileab",
+    "name": "Daniel",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:1"
+    ],
+    "notes": "Also called Chileab.",
+    "alt_names": [
+      "Chileab"
+    ]
+  },
+  {
+    "id": "absalom",
+    "name": "Absalom",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "adonijah",
+    "name": "Adonijah",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shephatiah",
+    "name": "Shephatiah",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ithream",
+    "name": "Ithream",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "solomon",
+    "name": "Solomon",
+    "gender": "M",
+    "father": "david",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:5"
+    ],
+    "notes": "Son of Bathsheba; successor king.",
+    "alt_names": []
+  }
+]

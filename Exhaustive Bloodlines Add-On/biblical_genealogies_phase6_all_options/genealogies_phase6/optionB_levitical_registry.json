@@ -1,0 +1,128 @@
+[
+  {
+    "id": "priest_jedaiah",
+    "name": "House of Jedaiah",
+    "gender": "U",
+    "father": "jedaiah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:36"
+    ],
+    "notes": "Priestly family.",
+    "alt_names": []
+  },
+  {
+    "id": "priest_immer",
+    "name": "House of Immer",
+    "gender": "U",
+    "father": "immer",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:37"
+    ],
+    "notes": "Priestly family.",
+    "alt_names": []
+  },
+  {
+    "id": "priest_pashhur",
+    "name": "House of Pashhur",
+    "gender": "U",
+    "father": "pashhur",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:38"
+    ],
+    "notes": "Priestly family.",
+    "alt_names": []
+  },
+  {
+    "id": "priest_harim",
+    "name": "House of Harim",
+    "gender": "U",
+    "father": "harim",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:39"
+    ],
+    "notes": "Priestly family.",
+    "alt_names": []
+  },
+  {
+    "id": "levite_jeshua_kadmiel",
+    "name": "Jeshua and Kadmiel (Levites)",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:40"
+    ],
+    "notes": "Levites over the house of God.",
+    "alt_names": []
+  },
+  {
+    "id": "singers_asaph",
+    "name": "Singers, sons of Asaph",
+    "gender": "U",
+    "father": "asaph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:41"
+    ],
+    "notes": "Temple singers.",
+    "alt_names": []
+  },
+  {
+    "id": "gate_keepers_collection",
+    "name": "Gatekeepers collection",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:42"
+    ],
+    "notes": "Shallum, Ater, Talmon, Akkub, Hatita, Shobai.",
+    "alt_names": []
+  },
+  {
+    "id": "nethinim_collection",
+    "name": "Temple servants (Nethinim)",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:43–54"
+    ],
+    "notes": "Grouped Nethinim families.",
+    "alt_names": []
+  },
+  {
+    "id": "sons_solomon_servants",
+    "name": "Sons of Solomon's servants",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:55–58"
+    ],
+    "notes": "Attached service families.",
+    "alt_names": []
+  }
+]

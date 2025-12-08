@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ezra_case_shecaniah",
+    "name": "Shecaniah",
+    "gender": "M",
+    "father": "jehiel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 10:2"
+    ],
+    "notes": "Spoke to Ezra about foreign marriages.",
+    "alt_names": []
+  },
+  {
+    "id": "ezra_case_jehiel",
+    "name": "Jehiel",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "ezra_case_shecaniah"
+    ],
+    "refs": [
+      "Ezra 10:2"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

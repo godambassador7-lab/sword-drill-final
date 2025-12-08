@@ -1,0 +1,299 @@
+{
+  "name": "Ham",
+  "type": "person",
+  "notes": "One of the three sons of Noah; ancestor of many African and Near Eastern peoples.",
+  "source_refs": [
+    "Genesis 5:32",
+    "Genesis 9–10"
+  ],
+  "children": [
+    {
+      "name": "Cush",
+      "type": "person",
+      "notes": "Associated with regions south of Egypt (Nubia/Ethiopia).",
+      "source_refs": [
+        "Genesis 10:6–8"
+      ],
+      "children": [
+        {
+          "name": "Seba",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:7"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Havilah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:7"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Sabtah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:7"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Raamah",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:7"
+          ],
+          "notes": "",
+          "children": [
+            {
+              "name": "Sheba",
+              "type": "clan",
+              "source_refs": [
+                "Genesis 10:7"
+              ],
+              "notes": "",
+              "children": []
+            },
+            {
+              "name": "Dedan",
+              "type": "clan",
+              "source_refs": [
+                "Genesis 10:7"
+              ],
+              "notes": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Sabteca",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:7"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Nimrod",
+          "type": "person",
+          "source_refs": [
+            "Genesis 10:8–12"
+          ],
+          "notes": "Mighty hunter; associated with Babel, Assyria, and early Mesopotamian kingdoms.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Mizraim",
+      "type": "person",
+      "notes": "Ancestor of the Egyptians.",
+      "source_refs": [
+        "Genesis 10:6,13–14"
+      ],
+      "children": [
+        {
+          "name": "Ludim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Anamim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Lehabim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Naphtuhim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:13"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Pathrusim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:14"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Casluhim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:14"
+          ],
+          "notes": "From whom the Philistines came.",
+          "children": [
+            {
+              "name": "Philistines",
+              "type": "nation",
+              "notes": "Sea-people group settled on the southern coast of Canaan; major adversaries of Israel.",
+              "source_refs": [
+                "Genesis 10:14",
+                "1 Samuel 4–7"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Caphtorim",
+          "type": "clan",
+          "source_refs": [
+            "Genesis 10:14"
+          ],
+          "notes": "Associated with Caphtor, often linked with Crete.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Put",
+      "type": "person",
+      "notes": "Often associated with Libya or regions west of Egypt.",
+      "source_refs": [
+        "Genesis 10:6"
+      ],
+      "children": []
+    },
+    {
+      "name": "Canaan",
+      "type": "person",
+      "notes": "Son of Ham; ancestor of the Canaanite nations inhabiting the land promised to Israel.",
+      "source_refs": [
+        "Genesis 9:18–27",
+        "Genesis 10:15–19"
+      ],
+      "children": [
+        {
+          "name": "Sidon",
+          "type": "person",
+          "notes": "Firstborn of Canaan; associated with Phoenician Sidon.",
+          "source_refs": [
+            "Genesis 10:15"
+          ],
+          "children": []
+        },
+        {
+          "name": "Heth",
+          "type": "person",
+          "notes": "Ancestor of the Hittites.",
+          "source_refs": [
+            "Genesis 10:15"
+          ],
+          "children": []
+        },
+        {
+          "name": "Jebusites",
+          "type": "nation",
+          "notes": "Original inhabitants of Jerusalem (Jebus).",
+          "source_refs": [
+            "Genesis 10:16",
+            "Joshua 15:63"
+          ],
+          "children": []
+        },
+        {
+          "name": "Amorites",
+          "type": "nation",
+          "notes": "Major Canaanite group; often symbolic of wickedness.",
+          "source_refs": [
+            "Genesis 10:16",
+            "Genesis 15:16"
+          ],
+          "children": []
+        },
+        {
+          "name": "Girgashites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:16"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Hivites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:17"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Arkites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:17"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Sinites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:17"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Arvadites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:18"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Zemarites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:18"
+          ],
+          "notes": "",
+          "children": []
+        },
+        {
+          "name": "Hamathites",
+          "type": "nation",
+          "source_refs": [
+            "Genesis 10:18"
+          ],
+          "notes": "",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

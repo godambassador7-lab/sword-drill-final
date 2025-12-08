@@ -1,0 +1,54 @@
+{
+  "id": "I-001",
+  "title": "Joseph Sold into Slavery",
+  "reference": "Genesis 37",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Joseph’s brothers see him approaching",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "They strip Joseph of his robe",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "They throw Joseph into the pit",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "They sit down to eat",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Judah suggests selling Joseph",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Joseph is sold to passing traders",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Joseph is taken down to Egypt",
+      "correctIndex": 6
+    }
+  ],
+  "distractors": [
+    {
+      "id": "d1",
+      "text": "Joseph interprets Pharaoh’s dreams",
+      "note": "Occurs later in Genesis 41"
+    }
+  ],
+  "tags": [
+    "Genesis",
+    "Joseph"
+  ]
+}

@@ -1,0 +1,228 @@
+[
+  {
+    "id": "esau",
+    "name": "Esau",
+    "gender": "M",
+    "father": "isaac",
+    "mother": "rebekah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:35"
+    ],
+    "notes": "Also called Edom.",
+    "alt_names": [
+      "Edom"
+    ]
+  },
+  {
+    "id": "eliphaz_esau",
+    "name": "Eliphaz",
+    "gender": "M",
+    "father": "esau",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "teman",
+      "omar",
+      "zepho",
+      "gatam",
+      "kenaz"
+    ],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "teman",
+    "name": "Teman",
+    "gender": "M",
+    "father": "eliphaz_esau",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "omar",
+    "name": "Omar",
+    "gender": "M",
+    "father": "eliphaz_esau",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "zepho",
+    "name": "Zepho",
+    "gender": "M",
+    "father": "eliphaz_esau",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "gatam",
+    "name": "Gatam",
+    "gender": "M",
+    "father": "eliphaz_esau",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "kenaz",
+    "name": "Kenaz",
+    "gender": "M",
+    "father": "eliphaz_esau",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:36"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "seir",
+    "name": "Seir",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "lotan",
+      "shobal",
+      "zibeon",
+      "anah",
+      "dishon",
+      "ezer",
+      "dishan"
+    ],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "Seir the Horite.",
+    "alt_names": []
+  },
+  {
+    "id": "lotan",
+    "name": "Lotan",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shobal",
+    "name": "Shobal",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "zibeon",
+    "name": "Zibeon",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "anah_horite",
+    "name": "Anah",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "Horite Anah.",
+    "alt_names": []
+  },
+  {
+    "id": "dishon",
+    "name": "Dishon",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ezer",
+    "name": "Ezer",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "dishan",
+    "name": "Dishan",
+    "gender": "M",
+    "father": "seir",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 1:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "quizType": "StorylineQuiz",
+  "version": "1.0.0",
+  "difficultyProfiles": {
+    "Beginner": {
+      "minEvents": 4,
+      "maxEvents": 6,
+      "basePointsPerCorrect": 10,
+      "nearMissPoints": 5,
+      "halfCorrectPoints": 1,
+      "perfectBonus": 20,
+      "distractorBonus": 15,
+      "maxTimeSeconds": 180
+    },
+    "Intermediate": {
+      "minEvents": 6,
+      "maxEvents": 8,
+      "basePointsPerCorrect": 15,
+      "nearMissPoints": 5,
+      "halfCorrectPoints": 2,
+      "perfectBonus": 40,
+      "distractorBonus": 20,
+      "maxTimeSeconds": 210
+    },
+    "Advanced": {
+      "minEvents": 8,
+      "maxEvents": 12,
+      "basePointsPerCorrect": 20,
+      "nearMissPoints": 7,
+      "halfCorrectPoints": 3,
+      "perfectBonus": 60,
+      "distractorBonus": 25,
+      "maxTimeSeconds": 240
+    },
+    "Legendary": {
+      "minEvents": 10,
+      "maxEvents": 18,
+      "basePointsPerCorrect": 25,
+      "nearMissPoints": 10,
+      "halfCorrectPoints": 5,
+      "perfectBonus": 100,
+      "distractorBonus": 30,
+      "maxTimeSeconds": 300
+    }
+  },
+  "unlockSystem": {
+    "type": "sequential-by-difficulty",
+    "rules": [
+      {
+        "difficulty": "Beginner",
+        "requiresCompletedPercent": 0,
+        "requiresAvgScore": 0
+      },
+      {
+        "difficulty": "Intermediate",
+        "requiresCompletedPercent": 60,
+        "requiresAvgScore": 400,
+        "requiresDifficultiesCompleted": [
+          "Beginner"
+        ]
+      },
+      {
+        "difficulty": "Advanced",
+        "requiresCompletedPercent": 70,
+        "requiresAvgScore": 550,
+        "requiresDifficultiesCompleted": [
+          "Intermediate"
+        ]
+      },
+      {
+        "difficulty": "Legendary",
+        "requiresCompletedPercent": 75,
+        "requiresAvgScore": 700,
+        "requiresDifficultiesCompleted": [
+          "Advanced"
+        ]
+      }
+    ]
+  },
+  "uiConfig": {
+    "nearMissAnimation": {
+      "enabled": true,
+      "type": "shake-and-soft-glow",
+      "intensity": "medium"
+    },
+    "perfectPlacementAnimation": {
+      "enabled": true,
+      "type": "golden-flash-and-coin-drop"
+    },
+    "timerMode": {
+      "enabled": true,
+      "bonusThresholds": [
+        {
+          "percentTimeLeft": 0.5,
+          "bonusPoints": 30
+        },
+        {
+          "percentTimeLeft": 0.75,
+          "bonusPoints": 50
+        }
+      ]
+    }
+  }
+}

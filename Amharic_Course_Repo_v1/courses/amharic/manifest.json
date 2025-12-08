@@ -1,0 +1,18 @@
+{
+  "course_id": "amharic_full",
+  "title": "Full Amharic Course",
+  "levels": [
+    {
+      "id": "level1",
+      "title": "Foundations"
+    },
+    {
+      "id": "level2",
+      "title": "Intermediate"
+    },
+    {
+      "id": "level3",
+      "title": "Advanced"
+    }
+  ]
+}

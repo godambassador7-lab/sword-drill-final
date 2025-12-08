@@ -1,0 +1,68 @@
+{
+  "id": "L-006",
+  "title": "Kings and Exile Sweep",
+  "reference": "1–2 Samuel, 1–2 Kings, 2 Chronicles",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Saul becomes the first king of Israel",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "David reigns and unites the kingdom",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Solomon builds the temple in Jerusalem",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The kingdom divides into Israel and Judah",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Various kings lead Israel and Judah into sin or reform",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Prophets call the nations to repentance",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Assyria conquers the northern kingdom of Israel",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Judah continues with righteous and wicked kings",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Babylon rises and threatens Judah",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jerusalem and the temple are destroyed",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "The people of Judah are carried into exile in Babylon",
+      "correctIndex": 10
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Kings",
+    "Exile"
+  ]
+}

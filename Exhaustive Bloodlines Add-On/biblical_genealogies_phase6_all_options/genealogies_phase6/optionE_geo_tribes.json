@@ -1,0 +1,68 @@
+[
+  {
+    "id": "tribe_judah",
+    "name": "Tribe of Judah",
+    "center_lat": 31.7,
+    "center_lng": 35.2,
+    "approx_region": "Southern hill country around Jerusalem, Hebron, Bethlehem",
+    "refs": [
+      "Joshua 15"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "tribe_benjamin",
+    "name": "Tribe of Benjamin",
+    "center_lat": 31.9,
+    "center_lng": 35.3,
+    "approx_region": "North of Judah, around Gibeah and Mizpah",
+    "refs": [
+      "Joshua 18"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "tribe_ephraim",
+    "name": "Tribe of Ephraim",
+    "center_lat": 32.1,
+    "center_lng": 35.1,
+    "approx_region": "Central hill country north of Benjamin",
+    "refs": [
+      "Joshua 16"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "tribe_manasseh",
+    "name": "Tribe of Manasseh",
+    "center_lat": 32.4,
+    "center_lng": 35.3,
+    "approx_region": "West and east of Jordan in two portions",
+    "refs": [
+      "Joshua 17"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "tribe_reuben",
+    "name": "Tribe of Reuben",
+    "center_lat": 31.5,
+    "center_lng": 35.7,
+    "approx_region": "East of the Dead Sea",
+    "refs": [
+      "Joshua 13:15–23"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "tribe_gad",
+    "name": "Tribe of Gad",
+    "center_lat": 32.0,
+    "center_lng": 35.7,
+    "approx_region": "East of Jordan, north of Reuben",
+    "refs": [
+      "Joshua 13:24–28"
+    ],
+    "notes": ""
+  }
+]

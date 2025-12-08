@@ -1,0 +1,30 @@
+[
+  {
+    "id": "levi_jeshua",
+    "name": "Jeshua (Levite)",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:40"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "levi_kadmiel",
+    "name": "Kadmiel",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:40"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

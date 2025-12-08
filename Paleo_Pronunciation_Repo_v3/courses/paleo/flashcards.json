@@ -1,0 +1,2028 @@
+{
+  "title": "Paleo-Hebrew Course Flashcards",
+  "cards": [
+    {
+      "id": 1,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤀",
+      "back": {
+        "name": "Aleph",
+        "approx_pronunciation": "glottal stop / carrier vowel"
+      }
+    },
+    {
+      "id": 2,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Aleph",
+      "back": {
+        "core_meanings": [
+          "strength",
+          "leader",
+          "first",
+          "ox",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤁",
+      "back": {
+        "name": "Beit",
+        "approx_pronunciation": "b as in 'boy'"
+      }
+    },
+    {
+      "id": 4,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Beit",
+      "back": {
+        "core_meanings": [
+          "house",
+          "family",
+          "inside",
+          "tent",
+          "structure"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤂",
+      "back": {
+        "name": "Gimel",
+        "approx_pronunciation": "g as in 'go'"
+      }
+    },
+    {
+      "id": 6,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Gimel",
+      "back": {
+        "core_meanings": [
+          "walk",
+          "carry",
+          "foot",
+          "camel",
+          "supply"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤃",
+      "back": {
+        "name": "Dalet",
+        "approx_pronunciation": "d as in 'door'"
+      }
+    },
+    {
+      "id": 8,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Dalet",
+      "back": {
+        "core_meanings": [
+          "door",
+          "path",
+          "enter",
+          "move"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤄",
+      "back": {
+        "name": "Hey",
+        "approx_pronunciation": "h as in 'hallelujah'"
+      }
+    },
+    {
+      "id": 10,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Hey",
+      "back": {
+        "core_meanings": [
+          "behold",
+          "reveal",
+          "breath",
+          "window"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤅",
+      "back": {
+        "name": "Waw",
+        "approx_pronunciation": "w as in 'way'"
+      }
+    },
+    {
+      "id": 12,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Waw",
+      "back": {
+        "core_meanings": [
+          "hook",
+          "add",
+          "secure",
+          "connect"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤆",
+      "back": {
+        "name": "Zayin",
+        "approx_pronunciation": "z as in 'zoo'"
+      }
+    },
+    {
+      "id": 14,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Zayin",
+      "back": {
+        "core_meanings": [
+          "cut",
+          "weapon",
+          "divide",
+          "nourish"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤇",
+      "back": {
+        "name": "Chet",
+        "approx_pronunciation": "kh as in German 'Bach'"
+      }
+    },
+    {
+      "id": 16,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Chet",
+      "back": {
+        "core_meanings": [
+          "fence",
+          "separate",
+          "protect"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤈",
+      "back": {
+        "name": "Tet",
+        "approx_pronunciation": "emphatic t"
+      }
+    },
+    {
+      "id": 18,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Tet",
+      "back": {
+        "core_meanings": [
+          "surround",
+          "coil",
+          "contain"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤉",
+      "back": {
+        "name": "Yod",
+        "approx_pronunciation": "y as in 'yes'"
+      }
+    },
+    {
+      "id": 20,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Yod",
+      "back": {
+        "core_meanings": [
+          "hand",
+          "work",
+          "deed",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤊",
+      "back": {
+        "name": "Kaph",
+        "approx_pronunciation": "k as in 'king'"
+      }
+    },
+    {
+      "id": 22,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Kaph",
+      "back": {
+        "core_meanings": [
+          "palm",
+          "bend",
+          "tame",
+          "subdue"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤋",
+      "back": {
+        "name": "Lamed",
+        "approx_pronunciation": "l as in 'lift'"
+      }
+    },
+    {
+      "id": 24,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Lamed",
+      "back": {
+        "core_meanings": [
+          "staff",
+          "authority",
+          "teach"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤌",
+      "back": {
+        "name": "Mem",
+        "approx_pronunciation": "m as in 'mother'"
+      }
+    },
+    {
+      "id": 26,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Mem",
+      "back": {
+        "core_meanings": [
+          "water",
+          "chaos",
+          "peoples",
+          "flow"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤍",
+      "back": {
+        "name": "Nun",
+        "approx_pronunciation": "n as in 'now'"
+      }
+    },
+    {
+      "id": 28,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Nun",
+      "back": {
+        "core_meanings": [
+          "seed",
+          "life",
+          "continue",
+          "offspring"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤎",
+      "back": {
+        "name": "Samekh",
+        "approx_pronunciation": "s as in 'see'"
+      }
+    },
+    {
+      "id": 30,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Samekh",
+      "back": {
+        "core_meanings": [
+          "support",
+          "uphold",
+          "surround"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤏",
+      "back": {
+        "name": "Ayin",
+        "approx_pronunciation": "deep pharyngeal voiced sound"
+      }
+    },
+    {
+      "id": 32,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Ayin",
+      "back": {
+        "core_meanings": [
+          "eye",
+          "see",
+          "know",
+          "experience"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤐",
+      "back": {
+        "name": "Pe",
+        "approx_pronunciation": "p as in 'pray'"
+      }
+    },
+    {
+      "id": 34,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Pe",
+      "back": {
+        "core_meanings": [
+          "mouth",
+          "speak",
+          "blow"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤑",
+      "back": {
+        "name": "Tsade",
+        "approx_pronunciation": "ts as in 'cats'"
+      }
+    },
+    {
+      "id": 36,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Tsade",
+      "back": {
+        "core_meanings": [
+          "hunt",
+          "trail",
+          "righteous path"
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤒",
+      "back": {
+        "name": "Qoph",
+        "approx_pronunciation": "deep back-of-throat k"
+      }
+    },
+    {
+      "id": 38,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Qoph",
+      "back": {
+        "core_meanings": [
+          "circle",
+          "time",
+          "horizon",
+          "behind"
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤓",
+      "back": {
+        "name": "Resh",
+        "approx_pronunciation": "tapped or trilled r"
+      }
+    },
+    {
+      "id": 40,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Resh",
+      "back": {
+        "core_meanings": [
+          "head",
+          "chief",
+          "first",
+          "top"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤔",
+      "back": {
+        "name": "Shin",
+        "approx_pronunciation": "sh as in 'ship'"
+      }
+    },
+    {
+      "id": 42,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Shin",
+      "back": {
+        "core_meanings": [
+          "teeth",
+          "consume",
+          "press"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "level": "level1",
+      "mode": "symbol_to_name",
+      "front": "𐤕",
+      "back": {
+        "name": "Tav",
+        "approx_pronunciation": "t as in 'time'"
+      }
+    },
+    {
+      "id": 44,
+      "level": "level1",
+      "mode": "name_to_meanings",
+      "front": "Tav",
+      "back": {
+        "core_meanings": [
+          "mark",
+          "sign",
+          "covenant"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 46,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אדמה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 47,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אמן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 48,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אור",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 49,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אחד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 50,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אלהים",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 51,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "אכל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 52,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "בית",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 53,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "בן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 54,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ברית",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 55,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "בכור",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 56,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "בשר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 57,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ברך",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 58,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גמל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 59,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 60,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גבעה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 61,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 62,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גלה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 63,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "גדול",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 64,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דלת",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 65,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 66,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דבר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 67,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דרך",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 68,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דוד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 69,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "דום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 70,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "הר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 71,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "הן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 72,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "היה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 73,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "הלל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 74,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "הוד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 75,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "הושע",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+        "associated_letter": "Hey"
+      }
+    },
+    {
+      "id": 76,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ו",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 77,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "וד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 78,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ורד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 79,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ונתן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 80,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "וירא",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 81,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "והיה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 82,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זהב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 83,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זכר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 84,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זבח",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 85,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 86,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זית",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 87,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "זמן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 88,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חסד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 89,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חיים",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 90,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חכמה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 91,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חטא",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 92,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חיל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 93,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "חסל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 94,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "טוב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 95,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "טהור",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 96,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "טעם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 97,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "טף",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 98,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "טמן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 99,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "יד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 100,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "יום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 101,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ישראל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 102,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "יער",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 103,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "יבש",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 104,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "יצא",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+        "associated_letter": "Yod"
+      }
+    },
+    {
+      "id": 105,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כבד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 106,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כהן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 107,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 108,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כסף",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 109,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כרם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 110,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "כתר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    },
+    {
+      "id": 111,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "לב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 112,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "למד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 113,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "לחם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 114,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "לילה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 115,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "לשון",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 116,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ליל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+        "associated_letter": "Lamed"
+      }
+    },
+    {
+      "id": 117,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מים",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 118,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מלך",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 119,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מלאך",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 120,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מנוחה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 121,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מרום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 122,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "מרד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 123,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נפש",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 124,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נביא",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 125,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נוח",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 126,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נס",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 127,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נדר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 128,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "נחלה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 129,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "סמך",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 130,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "סוכה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 131,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ספר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 132,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "סוד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 133,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "סבל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 134,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "סוס",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+        "associated_letter": "Samekh"
+      }
+    },
+    {
+      "id": 135,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "עם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 136,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "עבד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 137,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ערב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 138,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "עץ",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 139,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "עור",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 140,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "עוף",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+        "associated_letter": "Ayin"
+      }
+    },
+    {
+      "id": 141,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 142,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פיה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 143,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פסח",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 144,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פלא",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 145,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פנה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 146,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "פרי",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+        "associated_letter": "Pe"
+      }
+    },
+    {
+      "id": 147,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צדיק",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 148,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צאן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 149,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צעק",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 150,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צלם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 151,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 152,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "צר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+        "associated_letter": "Tsade"
+      }
+    },
+    {
+      "id": 153,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קדש",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 154,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קהל",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 155,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 156,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קול",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 157,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קצר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 158,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "קצה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 159,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ראש",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 160,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "רוח",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 161,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "רם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 162,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "רב",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 163,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "רנן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 164,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "רגע",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 165,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שלום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 166,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שמע",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 167,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שקר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 168,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שבט",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 169,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שמן",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 170,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "שיר",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+        "associated_letter": "Shin"
+      }
+    },
+    {
+      "id": 171,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תורה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 172,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תום",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 173,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תלם",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 174,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תמיד",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 175,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תשובה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 176,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "תקוה",
+      "back": {
+        "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+        "associated_letter": "Tav"
+      }
+    },
+    {
+      "id": 177,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ṭʿg",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+        "associated_letter": "Nun"
+      }
+    },
+    {
+      "id": 178,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "gʾz",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+        "associated_letter": "Tet"
+      }
+    },
+    {
+      "id": 179,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "wyr",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 180,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "nʾʿ",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 181,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ʿʾl",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+        "associated_letter": "Zayin"
+      }
+    },
+    {
+      "id": 182,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "gwr",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 183,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "szn",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 184,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "ymʾ",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+        "associated_letter": "Dalet"
+      }
+    },
+    {
+      "id": 185,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "sbʿ",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+        "associated_letter": "Chet"
+      }
+    },
+    {
+      "id": 186,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "hmt",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+        "associated_letter": "Waw"
+      }
+    },
+    {
+      "id": 187,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "lšʾ",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+        "associated_letter": "Beit"
+      }
+    },
+    {
+      "id": 188,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "hqn",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+        "associated_letter": "Gimel"
+      }
+    },
+    {
+      "id": 189,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "zṭm",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 190,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "hdṭ",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+        "associated_letter": "Qoph"
+      }
+    },
+    {
+      "id": 191,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "skz",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+        "associated_letter": "Resh"
+      }
+    },
+    {
+      "id": 192,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "šyw",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+        "associated_letter": "Mem"
+      }
+    },
+    {
+      "id": 193,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "zkt",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+        "associated_letter": "Aleph"
+      }
+    },
+    {
+      "id": 194,
+      "level": "level2",
+      "mode": "root_to_meaning",
+      "front": "lṣb",
+      "back": {
+        "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+        "associated_letter": "Kaph"
+      }
+    }
+  ]
+}

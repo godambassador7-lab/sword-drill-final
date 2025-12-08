@@ -1,0 +1,480 @@
+{
+  "level_id": "level1",
+  "lessons": [
+    {
+      "lesson_id": "l1_1",
+      "content": [
+        {
+          "name": "Ha",
+          "base_symbol": "ሀ",
+          "transliteration": "h",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "hä",
+              "ipa": "hä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "hu",
+              "ipa": "hu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "hi",
+              "ipa": "hi"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ha",
+              "ipa": "ha"
+            },
+            {
+              "order_number": 5,
+              "syllable": "he",
+              "ipa": "he"
+            },
+            {
+              "order_number": 6,
+              "syllable": "hə",
+              "ipa": "hə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "ho",
+              "ipa": "ho"
+            }
+          ],
+          "usage_notes": "Ha consonant family used in Amharic.",
+          "examples": [
+            "ሀ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Le",
+          "base_symbol": "ለ",
+          "transliteration": "l",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "lä",
+              "ipa": "lä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "lu",
+              "ipa": "lu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "li",
+              "ipa": "li"
+            },
+            {
+              "order_number": 4,
+              "syllable": "la",
+              "ipa": "la"
+            },
+            {
+              "order_number": 5,
+              "syllable": "le",
+              "ipa": "le"
+            },
+            {
+              "order_number": 6,
+              "syllable": "lə",
+              "ipa": "lə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "lo",
+              "ipa": "lo"
+            }
+          ],
+          "usage_notes": "Le consonant family used in Amharic.",
+          "examples": [
+            "ለ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Me",
+          "base_symbol": "መ",
+          "transliteration": "m",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "mä",
+              "ipa": "mä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "mu",
+              "ipa": "mu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "mi",
+              "ipa": "mi"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ma",
+              "ipa": "ma"
+            },
+            {
+              "order_number": 5,
+              "syllable": "me",
+              "ipa": "me"
+            },
+            {
+              "order_number": 6,
+              "syllable": "mə",
+              "ipa": "mə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "mo",
+              "ipa": "mo"
+            }
+          ],
+          "usage_notes": "Me consonant family used in Amharic.",
+          "examples": [
+            "መ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Se",
+          "base_symbol": "ሰ",
+          "transliteration": "s",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "sä",
+              "ipa": "sä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "su",
+              "ipa": "su"
+            },
+            {
+              "order_number": 3,
+              "syllable": "si",
+              "ipa": "si"
+            },
+            {
+              "order_number": 4,
+              "syllable": "sa",
+              "ipa": "sa"
+            },
+            {
+              "order_number": 5,
+              "syllable": "se",
+              "ipa": "se"
+            },
+            {
+              "order_number": 6,
+              "syllable": "sə",
+              "ipa": "sə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "so",
+              "ipa": "so"
+            }
+          ],
+          "usage_notes": "Se consonant family used in Amharic.",
+          "examples": [
+            "ሰ as used in teaching words"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_2",
+      "content": [
+        {
+          "name": "She",
+          "base_symbol": "ሸ",
+          "transliteration": "ʃ",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "šä",
+              "ipa": "šä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "šu",
+              "ipa": "šu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "ši",
+              "ipa": "ši"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ša",
+              "ipa": "ša"
+            },
+            {
+              "order_number": 5,
+              "syllable": "še",
+              "ipa": "še"
+            },
+            {
+              "order_number": 6,
+              "syllable": "šə",
+              "ipa": "šə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "šo",
+              "ipa": "šo"
+            }
+          ],
+          "usage_notes": "She consonant family used in Amharic.",
+          "examples": [
+            "ሸ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Qe",
+          "base_symbol": "ቀ",
+          "transliteration": "q",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "qä",
+              "ipa": "qä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "qu",
+              "ipa": "qu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "qi",
+              "ipa": "qi"
+            },
+            {
+              "order_number": 4,
+              "syllable": "qa",
+              "ipa": "qa"
+            },
+            {
+              "order_number": 5,
+              "syllable": "qe",
+              "ipa": "qe"
+            },
+            {
+              "order_number": 6,
+              "syllable": "qə",
+              "ipa": "qə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "qo",
+              "ipa": "qo"
+            }
+          ],
+          "usage_notes": "Qe consonant family used in Amharic.",
+          "examples": [
+            "ቀ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Te",
+          "base_symbol": "ተ",
+          "transliteration": "t",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "tä",
+              "ipa": "tä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "tu",
+              "ipa": "tu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "ti",
+              "ipa": "ti"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ta",
+              "ipa": "ta"
+            },
+            {
+              "order_number": 5,
+              "syllable": "te",
+              "ipa": "te"
+            },
+            {
+              "order_number": 6,
+              "syllable": "tə",
+              "ipa": "tə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "to",
+              "ipa": "to"
+            }
+          ],
+          "usage_notes": "Te consonant family used in Amharic.",
+          "examples": [
+            "ተ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Be",
+          "base_symbol": "በ",
+          "transliteration": "b",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "bä",
+              "ipa": "bä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "bu",
+              "ipa": "bu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "bi",
+              "ipa": "bi"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ba",
+              "ipa": "ba"
+            },
+            {
+              "order_number": 5,
+              "syllable": "be",
+              "ipa": "be"
+            },
+            {
+              "order_number": 6,
+              "syllable": "bə",
+              "ipa": "bə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "bo",
+              "ipa": "bo"
+            }
+          ],
+          "usage_notes": "Be consonant family used in Amharic.",
+          "examples": [
+            "በ as used in teaching words"
+          ]
+        }
+      ]
+    },
+    {
+      "lesson_id": "l1_3",
+      "content": [
+        {
+          "name": "Ne",
+          "base_symbol": "ነ",
+          "transliteration": "n",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "nä",
+              "ipa": "nä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "nu",
+              "ipa": "nu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "ni",
+              "ipa": "ni"
+            },
+            {
+              "order_number": 4,
+              "syllable": "na",
+              "ipa": "na"
+            },
+            {
+              "order_number": 5,
+              "syllable": "ne",
+              "ipa": "ne"
+            },
+            {
+              "order_number": 6,
+              "syllable": "nə",
+              "ipa": "nə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "no",
+              "ipa": "no"
+            }
+          ],
+          "usage_notes": "Ne consonant family used in Amharic.",
+          "examples": [
+            "ነ as used in teaching words"
+          ]
+        },
+        {
+          "name": "Ye",
+          "base_symbol": "የ",
+          "transliteration": "y",
+          "orders": [
+            {
+              "order_number": 1,
+              "syllable": "yä",
+              "ipa": "yä"
+            },
+            {
+              "order_number": 2,
+              "syllable": "yu",
+              "ipa": "yu"
+            },
+            {
+              "order_number": 3,
+              "syllable": "yi",
+              "ipa": "yi"
+            },
+            {
+              "order_number": 4,
+              "syllable": "ya",
+              "ipa": "ya"
+            },
+            {
+              "order_number": 5,
+              "syllable": "ye",
+              "ipa": "ye"
+            },
+            {
+              "order_number": 6,
+              "syllable": "yə",
+              "ipa": "yə"
+            },
+            {
+              "order_number": 7,
+              "syllable": "yo",
+              "ipa": "yo"
+            }
+          ],
+          "usage_notes": "Ye consonant family used in Amharic.",
+          "examples": [
+            "የ as used in teaching words"
+          ]
+        }
+      ]
+    }
+  ]
+}

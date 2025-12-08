@@ -1,0 +1,21 @@
+{
+  "course_id": "paleo_hebrew_core",
+  "title": "Paleo-Hebrew Foundations Course",
+  "levels": [
+    {
+      "id": "level1",
+      "title": "Level 1 – Letters and Symbols",
+      "description": "Learn the Paleo-Hebrew alphabet, symbols, and core meanings."
+    },
+    {
+      "id": "level2",
+      "title": "Level 2 – Roots and Word Building",
+      "description": "Discover how letters combine into roots with layered meanings."
+    },
+    {
+      "id": "level3",
+      "title": "Level 3 – Scripture and Interpretation",
+      "description": "Apply Paleo-Hebrew concepts to biblical words and key passages."
+    }
+  ]
+}

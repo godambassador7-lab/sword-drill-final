@@ -1,0 +1,3 @@
+# Understanding Textual Criticism
+
+This course provides a comprehensive exploration of biblical textual criticism...

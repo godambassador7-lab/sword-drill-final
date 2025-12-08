@@ -1,0 +1,1038 @@
+{
+  "title": "Paleo-Hebrew Course Quizzes",
+  "levels": {
+    "level1": [
+      {
+        "quiz_id": "l1_symbol_to_name",
+        "title": "Match Symbols to Names",
+        "questions": [
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤀?",
+            "options": [
+              "Aleph",
+              "Pe"
+            ],
+            "answer": "Aleph"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤁?",
+            "options": [
+              "Beit",
+              "Ayin"
+            ],
+            "answer": "Beit"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤂?",
+            "options": [
+              "Gimel",
+              "Qoph"
+            ],
+            "answer": "Gimel"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤃?",
+            "options": [
+              "Dalet",
+              "Chet"
+            ],
+            "answer": "Dalet"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤄?",
+            "options": [
+              "Hey",
+              "Pe"
+            ],
+            "answer": "Hey"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤅?",
+            "options": [
+              "Waw",
+              "Nun"
+            ],
+            "answer": "Waw"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤆?",
+            "options": [
+              "Zayin",
+              "Dalet"
+            ],
+            "answer": "Zayin"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤇?",
+            "options": [
+              "Chet",
+              "Shin"
+            ],
+            "answer": "Chet"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤈?",
+            "options": [
+              "Tet",
+              "Beit"
+            ],
+            "answer": "Tet"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤉?",
+            "options": [
+              "Yod",
+              "Beit"
+            ],
+            "answer": "Yod"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤊?",
+            "options": [
+              "Kaph",
+              "Resh"
+            ],
+            "answer": "Kaph"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤋?",
+            "options": [
+              "Lamed",
+              "Hey"
+            ],
+            "answer": "Lamed"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤌?",
+            "options": [
+              "Mem",
+              "Pe"
+            ],
+            "answer": "Mem"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤍?",
+            "options": [
+              "Nun",
+              "Qoph"
+            ],
+            "answer": "Nun"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤎?",
+            "options": [
+              "Samekh",
+              "Aleph"
+            ],
+            "answer": "Samekh"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤏?",
+            "options": [
+              "Ayin",
+              "Waw"
+            ],
+            "answer": "Ayin"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤐?",
+            "options": [
+              "Pe",
+              "Shin"
+            ],
+            "answer": "Pe"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤑?",
+            "options": [
+              "Tsade",
+              "Yod"
+            ],
+            "answer": "Tsade"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤒?",
+            "options": [
+              "Qoph",
+              "Samekh"
+            ],
+            "answer": "Qoph"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤓?",
+            "options": [
+              "Resh",
+              "Waw"
+            ],
+            "answer": "Resh"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤔?",
+            "options": [
+              "Shin",
+              "Mem"
+            ],
+            "answer": "Shin"
+          },
+          {
+            "type": "multiple_choice",
+            "prompt": "Which name matches the Paleo symbol 𐤕?",
+            "options": [
+              "Tav",
+              "Lamed"
+            ],
+            "answer": "Tav"
+          }
+        ]
+      },
+      {
+        "quiz_id": "l1_name_to_meaning",
+        "title": "Letter Meanings",
+        "questions": [
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Aleph (𐤀).",
+            "expected_keywords": [
+              "strength",
+              "leader",
+              "first",
+              "ox",
+              "power"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Beit (𐤁).",
+            "expected_keywords": [
+              "house",
+              "family",
+              "inside",
+              "tent",
+              "structure"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Gimel (𐤂).",
+            "expected_keywords": [
+              "walk",
+              "carry",
+              "foot",
+              "camel",
+              "supply"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Dalet (𐤃).",
+            "expected_keywords": [
+              "door",
+              "path",
+              "enter",
+              "move"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Hey (𐤄).",
+            "expected_keywords": [
+              "behold",
+              "reveal",
+              "breath",
+              "window"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Waw (𐤅).",
+            "expected_keywords": [
+              "hook",
+              "add",
+              "secure",
+              "connect"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Zayin (𐤆).",
+            "expected_keywords": [
+              "cut",
+              "weapon",
+              "divide",
+              "nourish"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Chet (𐤇).",
+            "expected_keywords": [
+              "fence",
+              "separate",
+              "protect"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Tet (𐤈).",
+            "expected_keywords": [
+              "surround",
+              "coil",
+              "contain"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Yod (𐤉).",
+            "expected_keywords": [
+              "hand",
+              "work",
+              "deed",
+              "power"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Kaph (𐤊).",
+            "expected_keywords": [
+              "palm",
+              "bend",
+              "tame",
+              "subdue"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Lamed (𐤋).",
+            "expected_keywords": [
+              "staff",
+              "authority",
+              "teach"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Mem (𐤌).",
+            "expected_keywords": [
+              "water",
+              "chaos",
+              "peoples",
+              "flow"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Nun (𐤍).",
+            "expected_keywords": [
+              "seed",
+              "life",
+              "continue",
+              "offspring"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Samekh (𐤎).",
+            "expected_keywords": [
+              "support",
+              "uphold",
+              "surround"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Ayin (𐤏).",
+            "expected_keywords": [
+              "eye",
+              "see",
+              "know",
+              "experience"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Pe (𐤐).",
+            "expected_keywords": [
+              "mouth",
+              "speak",
+              "blow"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Tsade (𐤑).",
+            "expected_keywords": [
+              "hunt",
+              "trail",
+              "righteous path"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Qoph (𐤒).",
+            "expected_keywords": [
+              "circle",
+              "time",
+              "horizon",
+              "behind"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Resh (𐤓).",
+            "expected_keywords": [
+              "head",
+              "chief",
+              "first",
+              "top"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Shin (𐤔).",
+            "expected_keywords": [
+              "teeth",
+              "consume",
+              "press"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Write one or two core meanings for the letter Tav (𐤕).",
+            "expected_keywords": [
+              "mark",
+              "sign",
+              "covenant"
+            ]
+          }
+        ]
+      }
+    ],
+    "level2": [
+      {
+        "quiz_id": "l2_root_semantics",
+        "title": "Root Semantics",
+        "questions": [
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אב.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אדמה.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אמן.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אור.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אחד.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אלהים.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root אכל.",
+            "expected_keywords": [
+              "Aleph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root בית.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root בן.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ברית.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root בכור.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root בשר.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ברך.",
+            "expected_keywords": [
+              "Beit"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גמל.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גר.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גבעה.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גל.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גלה.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root גדול.",
+            "expected_keywords": [
+              "Gimel"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דלת.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דם.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דבר.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דרך.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דוד.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root דום.",
+            "expected_keywords": [
+              "Dalet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root הר.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root הן.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root היה.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root הלל.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root הוד.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root הושע.",
+            "expected_keywords": [
+              "Hey"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ו.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root וד.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ורד.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ונתן.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root וירא.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root והיה.",
+            "expected_keywords": [
+              "Waw"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זהב.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זכר.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זבח.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זד.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זית.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root זמן.",
+            "expected_keywords": [
+              "Zayin"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חסד.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חיים.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חכמה.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חטא.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חיל.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root חסל.",
+            "expected_keywords": [
+              "Chet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root טוב.",
+            "expected_keywords": [
+              "Tet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root טהור.",
+            "expected_keywords": [
+              "Tet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root טעם.",
+            "expected_keywords": [
+              "Tet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root טף.",
+            "expected_keywords": [
+              "Tet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root טמן.",
+            "expected_keywords": [
+              "Tet"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root יד.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root יום.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ישראל.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root יער.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root יבש.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root יצא.",
+            "expected_keywords": [
+              "Yod"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כבד.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כהן.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כל.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כסף.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כרם.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root כתר.",
+            "expected_keywords": [
+              "Kaph"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root לב.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root למד.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root לחם.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root לילה.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root לשון.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root ליל.",
+            "expected_keywords": [
+              "Lamed"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מים.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מלך.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מלאך.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מנוחה.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מרום.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root מרד.",
+            "expected_keywords": [
+              "Mem"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root נפש.",
+            "expected_keywords": [
+              "Nun"
+            ]
+          },
+          {
+            "type": "short_answer",
+            "prompt": "Summarize the Paleo-style idea behind the root נביא.",
+            "expected_keywords": [
+              "Nun"
+            ]
+          }
+        ]
+      }
+    ],
+    "level3": [
+      {
+        "quiz_id": "l3_scripture_reflection",
+        "title": "Scripture and Paleo-Hebrew",
+        "questions": [
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in בראשית shape your reading of Genesis 1:1-5?",
+            "guidance": "Explores the root בראש with Resh-head and Aleph-strength themes."
+          },
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in אלהים shape your reading of Genesis 1:1-5?",
+            "guidance": "Considers Aleph-strength and plural structure in a Paleo frame."
+          },
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in ישראל shape your reading of Genesis 32:28, Exodus 3:14?",
+            "guidance": "Looks at the consonants in Israel and how struggle and ruling imagery appear in Paleo symbols."
+          },
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in אהיה shape your reading of Genesis 32:28, Exodus 3:14?",
+            "guidance": "Reviews the verb of being with Aleph and Hey as revelation of existence."
+          },
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in תורה shape your reading of Exodus 19-20?",
+            "guidance": "Tav-mark and Resh-head combine to show guidance marked out for the covenant people."
+          },
+          {
+            "type": "reflection",
+            "prompt": "How might the Paleo-Hebrew pictograph ideas behind the consonants in ברית shape your reading of Exodus 19-20?",
+            "guidance": "Beit-house and Tav-mark express a marked relationship that binds households."
+          }
+        ]
+      }
+    ]
+  }
+}

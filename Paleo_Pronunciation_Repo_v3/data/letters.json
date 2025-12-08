@@ -1,0 +1,898 @@
+{
+  "title": "Paleo-Hebrew Letters: Reconstructed Phonology and Semantics",
+  "description": "Each letter includes Paleo symbol, transliteration, approximate sound, reconstructed phonology notes, core meanings, common roots, and Scripture examples.",
+  "letters": [
+    {
+      "name": "Aleph",
+      "symbol": "𐤀",
+      "transliteration": "ʾ",
+      "approx_pronunciation": "glottal stop / carrier vowel",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "ʔ",
+        "early_hebrew_ipa": "ʔ",
+        "notes": "Likely realized as a glottal stop or silent carrier for adjacent vowels; often lost in later pronunciation."
+      },
+      "core_meanings": [
+        "strength",
+        "leader",
+        "first",
+        "ox",
+        "power"
+      ],
+      "common_roots": [
+        {
+          "root": "אב"
+        },
+        {
+          "root": "אדמה"
+        },
+        {
+          "root": "אמן"
+        },
+        {
+          "root": "אור"
+        },
+        {
+          "root": "אחד"
+        },
+        {
+          "root": "אלהים"
+        },
+        {
+          "root": "אכל"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 1:1",
+        "Genesis 2:7",
+        "Exodus 3:14"
+      ]
+    },
+    {
+      "name": "Beit",
+      "symbol": "𐤁",
+      "transliteration": "b",
+      "approx_pronunciation": "b as in 'boy'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "b",
+        "early_hebrew_ipa": "b",
+        "notes": "Plain voiced bilabial stop; no evidence of spirantization in the Paleo period."
+      },
+      "core_meanings": [
+        "house",
+        "family",
+        "inside",
+        "tent",
+        "structure"
+      ],
+      "common_roots": [
+        {
+          "root": "בית"
+        },
+        {
+          "root": "בן"
+        },
+        {
+          "root": "ברית"
+        },
+        {
+          "root": "בכור"
+        },
+        {
+          "root": "בשר"
+        },
+        {
+          "root": "ברך"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 7:1",
+        "Deuteronomy 6:7",
+        "Psalm 122:1"
+      ]
+    },
+    {
+      "name": "Gimel",
+      "symbol": "𐤂",
+      "transliteration": "g",
+      "approx_pronunciation": "g as in 'go'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "g",
+        "early_hebrew_ipa": "g",
+        "notes": "Plain voiced velar stop; later dialects show possible spirantization between vowels."
+      },
+      "core_meanings": [
+        "walk",
+        "carry",
+        "foot",
+        "camel",
+        "supply"
+      ],
+      "common_roots": [
+        {
+          "root": "גמל"
+        },
+        {
+          "root": "גר"
+        },
+        {
+          "root": "גבעה"
+        },
+        {
+          "root": "גל"
+        },
+        {
+          "root": "גלה"
+        },
+        {
+          "root": "גדול"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 24:10",
+        "Psalm 37:25"
+      ]
+    },
+    {
+      "name": "Dalet",
+      "symbol": "𐤃",
+      "transliteration": "d",
+      "approx_pronunciation": "d as in 'door'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "d",
+        "early_hebrew_ipa": "d",
+        "notes": "Voiced dental stop; later Hebrew developed a fricative allophone in some positions."
+      },
+      "core_meanings": [
+        "door",
+        "path",
+        "enter",
+        "move"
+      ],
+      "common_roots": [
+        {
+          "root": "דלת"
+        },
+        {
+          "root": "דם"
+        },
+        {
+          "root": "דבר"
+        },
+        {
+          "root": "דרך"
+        },
+        {
+          "root": "דוד"
+        },
+        {
+          "root": "דום"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 4:7",
+        "Psalm 23:4"
+      ]
+    },
+    {
+      "name": "Hey",
+      "symbol": "𐤄",
+      "transliteration": "h",
+      "approx_pronunciation": "h as in 'hallelujah'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "h",
+        "early_hebrew_ipa": "h",
+        "notes": "Voiceless glottal fricative; also used as mater lectionis for final vowels."
+      },
+      "core_meanings": [
+        "behold",
+        "reveal",
+        "breath",
+        "window"
+      ],
+      "common_roots": [
+        {
+          "root": "הר"
+        },
+        {
+          "root": "הן"
+        },
+        {
+          "root": "היה"
+        },
+        {
+          "root": "הלל"
+        },
+        {
+          "root": "הוד"
+        },
+        {
+          "root": "הושע"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 3:14-15",
+        "Psalm 150"
+      ]
+    },
+    {
+      "name": "Waw",
+      "symbol": "𐤅",
+      "transliteration": "w",
+      "approx_pronunciation": "w as in 'way'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "w",
+        "early_hebrew_ipa": "w~ʋ",
+        "notes": "Labial approximant; later developed into consonantal v and vowel markers for /u/ and /o/."
+      },
+      "core_meanings": [
+        "hook",
+        "add",
+        "secure",
+        "connect"
+      ],
+      "common_roots": [
+        {
+          "root": "ו"
+        },
+        {
+          "root": "וד"
+        },
+        {
+          "root": "ורד"
+        },
+        {
+          "root": "ונתן"
+        },
+        {
+          "root": "וירא"
+        },
+        {
+          "root": "והיה"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 1:1-31"
+      ]
+    },
+    {
+      "name": "Zayin",
+      "symbol": "𐤆",
+      "transliteration": "z",
+      "approx_pronunciation": "z as in 'zoo'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "z",
+        "early_hebrew_ipa": "z",
+        "notes": "Voiced alveolar fricative; no strong evidence for emphatic contrast at this letter."
+      },
+      "core_meanings": [
+        "cut",
+        "weapon",
+        "divide",
+        "nourish"
+      ],
+      "common_roots": [
+        {
+          "root": "זהב"
+        },
+        {
+          "root": "זכר"
+        },
+        {
+          "root": "זבח"
+        },
+        {
+          "root": "זד"
+        },
+        {
+          "root": "זית"
+        },
+        {
+          "root": "זמן"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 8:11"
+      ]
+    },
+    {
+      "name": "Chet",
+      "symbol": "𐤇",
+      "transliteration": "ḥ",
+      "approx_pronunciation": "kh as in German 'Bach'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "χ",
+        "early_hebrew_ipa": "χ~ħ",
+        "notes": "Voiceless or weakly voiced uvular or pharyngeal fricative; often merged with /ħ/ in later stages."
+      },
+      "core_meanings": [
+        "fence",
+        "separate",
+        "protect"
+      ],
+      "common_roots": [
+        {
+          "root": "חסד"
+        },
+        {
+          "root": "חיים"
+        },
+        {
+          "root": "חכמה"
+        },
+        {
+          "root": "חטא"
+        },
+        {
+          "root": "חיל"
+        },
+        {
+          "root": "חסל"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 34:6",
+        "Psalm 119:57"
+      ]
+    },
+    {
+      "name": "Tet",
+      "symbol": "𐤈",
+      "transliteration": "ṭ",
+      "approx_pronunciation": "emphatic t",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "tˤ",
+        "early_hebrew_ipa": "tˤ",
+        "notes": "Emphatic dental stop, likely pharyngealized or velarized, distinct from plain /t/."
+      },
+      "core_meanings": [
+        "surround",
+        "coil",
+        "contain"
+      ],
+      "common_roots": [
+        {
+          "root": "טוב"
+        },
+        {
+          "root": "טהור"
+        },
+        {
+          "root": "טעם"
+        },
+        {
+          "root": "טף"
+        },
+        {
+          "root": "טמן"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 1:4"
+      ]
+    },
+    {
+      "name": "Yod",
+      "symbol": "𐤉",
+      "transliteration": "y",
+      "approx_pronunciation": "y as in 'yes'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "j",
+        "early_hebrew_ipa": "j",
+        "notes": "Palatal approximant; later serves as consonant and vowel letter for /i/ and /e/."
+      },
+      "core_meanings": [
+        "hand",
+        "work",
+        "deed",
+        "power"
+      ],
+      "common_roots": [
+        {
+          "root": "יד"
+        },
+        {
+          "root": "יום"
+        },
+        {
+          "root": "ישראל"
+        },
+        {
+          "root": "יער"
+        },
+        {
+          "root": "יבש"
+        },
+        {
+          "root": "יצא"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 32:28",
+        "Psalm 19:1"
+      ]
+    },
+    {
+      "name": "Kaph",
+      "symbol": "𐤊",
+      "transliteration": "k",
+      "approx_pronunciation": "k as in 'king'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "k",
+        "early_hebrew_ipa": "k",
+        "notes": "Plain voiceless velar stop; spirantization appeared after the Paleo period."
+      },
+      "core_meanings": [
+        "palm",
+        "bend",
+        "tame",
+        "subdue"
+      ],
+      "common_roots": [
+        {
+          "root": "כבד"
+        },
+        {
+          "root": "כהן"
+        },
+        {
+          "root": "כל"
+        },
+        {
+          "root": "כסף"
+        },
+        {
+          "root": "כרם"
+        },
+        {
+          "root": "כתר"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 28:1"
+      ]
+    },
+    {
+      "name": "Lamed",
+      "symbol": "𐤋",
+      "transliteration": "l",
+      "approx_pronunciation": "l as in 'lift'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "l",
+        "early_hebrew_ipa": "l",
+        "notes": "Clear alveolar lateral approximant; strongly connected to teaching and guiding imagery."
+      },
+      "core_meanings": [
+        "staff",
+        "authority",
+        "teach"
+      ],
+      "common_roots": [
+        {
+          "root": "לב"
+        },
+        {
+          "root": "למד"
+        },
+        {
+          "root": "לחם"
+        },
+        {
+          "root": "לילה"
+        },
+        {
+          "root": "לשון"
+        },
+        {
+          "root": "ליל"
+        }
+      ],
+      "scripture_examples": [
+        "Psalm 119 (Lamed section)"
+      ]
+    },
+    {
+      "name": "Mem",
+      "symbol": "𐤌",
+      "transliteration": "m",
+      "approx_pronunciation": "m as in 'mother'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "m",
+        "early_hebrew_ipa": "m",
+        "notes": "Bilabial nasal; its water pictograph resonates with fluid, people-groups, and chaos themes."
+      },
+      "core_meanings": [
+        "water",
+        "chaos",
+        "peoples",
+        "flow"
+      ],
+      "common_roots": [
+        {
+          "root": "מים"
+        },
+        {
+          "root": "מלך"
+        },
+        {
+          "root": "מלאך"
+        },
+        {
+          "root": "מנוחה"
+        },
+        {
+          "root": "מרום"
+        },
+        {
+          "root": "מרד"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 7",
+        "Psalm 1"
+      ]
+    },
+    {
+      "name": "Nun",
+      "symbol": "𐤍",
+      "transliteration": "n",
+      "approx_pronunciation": "n as in 'now'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "n",
+        "early_hebrew_ipa": "n",
+        "notes": "Alveolar nasal; pictograph of seed or fish links to continuity and offspring."
+      },
+      "core_meanings": [
+        "seed",
+        "life",
+        "continue",
+        "offspring"
+      ],
+      "common_roots": [
+        {
+          "root": "נפש"
+        },
+        {
+          "root": "נביא"
+        },
+        {
+          "root": "נוח"
+        },
+        {
+          "root": "נס"
+        },
+        {
+          "root": "נדר"
+        },
+        {
+          "root": "נחלה"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 6-9",
+        "Numbers 6"
+      ]
+    },
+    {
+      "name": "Samekh",
+      "symbol": "𐤎",
+      "transliteration": "s",
+      "approx_pronunciation": "s as in 'see'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "s",
+        "early_hebrew_ipa": "s",
+        "notes": "Voiceless alveolar fricative; especially associated with support and surrounding structures."
+      },
+      "core_meanings": [
+        "support",
+        "uphold",
+        "surround"
+      ],
+      "common_roots": [
+        {
+          "root": "סמך"
+        },
+        {
+          "root": "סוכה"
+        },
+        {
+          "root": "ספר"
+        },
+        {
+          "root": "סוד"
+        },
+        {
+          "root": "סבל"
+        },
+        {
+          "root": "סוס"
+        }
+      ],
+      "scripture_examples": [
+        "Psalm 119 (Samekh section)"
+      ]
+    },
+    {
+      "name": "Ayin",
+      "symbol": "𐤏",
+      "transliteration": "ʿ",
+      "approx_pronunciation": "deep pharyngeal voiced sound",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "ʕ",
+        "early_hebrew_ipa": "ʕ",
+        "notes": "Voiced pharyngeal fricative or approximant; strongly marked consonant often lost in later traditions."
+      },
+      "core_meanings": [
+        "eye",
+        "see",
+        "know",
+        "experience"
+      ],
+      "common_roots": [
+        {
+          "root": "עם"
+        },
+        {
+          "root": "עבד"
+        },
+        {
+          "root": "ערב"
+        },
+        {
+          "root": "עץ"
+        },
+        {
+          "root": "עור"
+        },
+        {
+          "root": "עוף"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 3",
+        "Exodus 20"
+      ]
+    },
+    {
+      "name": "Pe",
+      "symbol": "𐤐",
+      "transliteration": "p",
+      "approx_pronunciation": "p as in 'pray'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "p",
+        "early_hebrew_ipa": "p",
+        "notes": "Voiceless bilabial stop; in later Hebrew a fricative allophone /f/ developed."
+      },
+      "core_meanings": [
+        "mouth",
+        "speak",
+        "blow"
+      ],
+      "common_roots": [
+        {
+          "root": "פה"
+        },
+        {
+          "root": "פיה"
+        },
+        {
+          "root": "פסח"
+        },
+        {
+          "root": "פלא"
+        },
+        {
+          "root": "פנה"
+        },
+        {
+          "root": "פרי"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 12",
+        "Psalm 34"
+      ]
+    },
+    {
+      "name": "Tsade",
+      "symbol": "𐤑",
+      "transliteration": "ṣ",
+      "approx_pronunciation": "ts as in 'cats'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "sˤ",
+        "early_hebrew_ipa": "sˤ~tsˤ",
+        "notes": "Emphatic sibilant, probably pharyngealized; later realized as affricate /ts/."
+      },
+      "core_meanings": [
+        "hunt",
+        "trail",
+        "righteous path"
+      ],
+      "common_roots": [
+        {
+          "root": "צדיק"
+        },
+        {
+          "root": "צאן"
+        },
+        {
+          "root": "צעק"
+        },
+        {
+          "root": "צלם"
+        },
+        {
+          "root": "צום"
+        },
+        {
+          "root": "צר"
+        }
+      ],
+      "scripture_examples": [
+        "Psalm 4",
+        "Psalm 23"
+      ]
+    },
+    {
+      "name": "Qoph",
+      "symbol": "𐤒",
+      "transliteration": "q",
+      "approx_pronunciation": "deep back-of-throat k",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "q",
+        "early_hebrew_ipa": "q",
+        "notes": "Voiceless uvular stop; distinct from /k/ by place of articulation."
+      },
+      "core_meanings": [
+        "circle",
+        "time",
+        "horizon",
+        "behind"
+      ],
+      "common_roots": [
+        {
+          "root": "קדש"
+        },
+        {
+          "root": "קהל"
+        },
+        {
+          "root": "קום"
+        },
+        {
+          "root": "קול"
+        },
+        {
+          "root": "קצר"
+        },
+        {
+          "root": "קצה"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 19",
+        "Genesis 22"
+      ]
+    },
+    {
+      "name": "Resh",
+      "symbol": "𐤓",
+      "transliteration": "r",
+      "approx_pronunciation": "tapped or trilled r",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "r",
+        "early_hebrew_ipa": "r",
+        "notes": "Likely an alveolar tap or trill; associated with leadership and headship."
+      },
+      "core_meanings": [
+        "head",
+        "chief",
+        "first",
+        "top"
+      ],
+      "common_roots": [
+        {
+          "root": "ראש"
+        },
+        {
+          "root": "רוח"
+        },
+        {
+          "root": "רם"
+        },
+        {
+          "root": "רב"
+        },
+        {
+          "root": "רנן"
+        },
+        {
+          "root": "רגע"
+        }
+      ],
+      "scripture_examples": [
+        "Genesis 1:2"
+      ]
+    },
+    {
+      "name": "Shin",
+      "symbol": "𐤔",
+      "transliteration": "š",
+      "approx_pronunciation": "sh as in 'ship'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "ʃ",
+        "early_hebrew_ipa": "ʃ",
+        "notes": "Voiceless postalveolar fricative; visually associated with teeth and consuming."
+      },
+      "core_meanings": [
+        "teeth",
+        "consume",
+        "press"
+      ],
+      "common_roots": [
+        {
+          "root": "שלום"
+        },
+        {
+          "root": "שמע"
+        },
+        {
+          "root": "שקר"
+        },
+        {
+          "root": "שבט"
+        },
+        {
+          "root": "שמן"
+        },
+        {
+          "root": "שיר"
+        }
+      ],
+      "scripture_examples": [
+        "Psalm 29",
+        "Deuteronomy 6:4"
+      ]
+    },
+    {
+      "name": "Tav",
+      "symbol": "𐤕",
+      "transliteration": "t",
+      "approx_pronunciation": "t as in 'time'",
+      "reconstructed_phonology": {
+        "proto_canaanite_ipa": "t",
+        "early_hebrew_ipa": "t",
+        "notes": "Plain voiceless dental stop; pictograph of a mark or cross reinforces covenant imagery."
+      },
+      "core_meanings": [
+        "mark",
+        "sign",
+        "covenant"
+      ],
+      "common_roots": [
+        {
+          "root": "תורה"
+        },
+        {
+          "root": "תום"
+        },
+        {
+          "root": "תלם"
+        },
+        {
+          "root": "תמיד"
+        },
+        {
+          "root": "תשובה"
+        },
+        {
+          "root": "תקוה"
+        }
+      ],
+      "scripture_examples": [
+        "Exodus 20",
+        "Psalm 19"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "I-004",
+  "title": "Elijah on Mount Carmel",
+  "reference": "1 Kings 18",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Elijah challenges the prophets of Baal",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The altar of Baal is prepared",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "The prophets of Baal cry out with no answer",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Elijah repairs the altar of the Lord",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Elijah pours water over the sacrifice",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Fire from the Lord falls and consumes the offering",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "The people declare that the Lord is God",
+      "correctIndex": 6
+    }
+  ],
+  "distractors": [
+    {
+      "id": "d1",
+      "text": "Elijah is fed by ravens",
+      "note": "Earlier in 1 Kings 17"
+    }
+  ],
+  "tags": [
+    "Elijah",
+    "Carmel"
+  ]
+}

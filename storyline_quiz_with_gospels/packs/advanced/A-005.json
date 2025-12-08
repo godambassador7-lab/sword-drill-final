@@ -1,0 +1,63 @@
+{
+  "id": "A-005",
+  "title": "Acts: From Pentecost to Persecution",
+  "reference": "Acts 2–8",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "The Spirit is poured out at Pentecost",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Peter preaches and many are baptized",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Believers share possessions and gather regularly",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Peter and John heal the man at the temple gate",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "The apostles are arrested and then released",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Ananias and Sapphira lie and die in judgment",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Seven servants are chosen to help with daily distribution",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Stephen preaches before the council",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Stephen is stoned and calls on the Lord",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Persecution scatters the church from Jerusalem",
+      "correctIndex": 9
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "EarlyChurch"
+  ]
+}

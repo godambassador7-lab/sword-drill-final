@@ -1,0 +1,2046 @@
+{
+  "title": "Paleo-Hebrew Mega Root Pack",
+  "description": "An expanded collection of reconstructed Hebrew roots with Paleo-style semantic explanations.",
+  "roots": [
+    {
+      "root": "אב",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אב would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אדמה",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אדמה would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אמן",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אמן would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אור",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אור would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אחד",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אחד would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אלהים",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אלהים would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "אכל",
+      "associated_letter": "Aleph",
+      "summary_meaning": "This root draws on the imagery of Aleph and expresses ideas connected to strength, leader, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root אכל would be pictured through the core themes of Aleph: strength, leader, first, ox, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "בית",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בית would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "בן",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בן would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ברית",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ברית would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "בכור",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בכור would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "בשר",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root בשר would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ברך",
+      "associated_letter": "Beit",
+      "summary_meaning": "This root draws on the imagery of Beit and expresses ideas connected to house, family, inside.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ברך would be pictured through the core themes of Beit: house, family, inside, tent, structure. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גמל",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גמל would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גר",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גר would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גבעה",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גבעה would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גל",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גל would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גלה",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גלה would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "גדול",
+      "associated_letter": "Gimel",
+      "summary_meaning": "This root draws on the imagery of Gimel and expresses ideas connected to walk, carry, foot.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root גדול would be pictured through the core themes of Gimel: walk, carry, foot, camel, supply. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דלת",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דלת would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דם",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דם would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דבר",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דבר would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דרך",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דרך would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דוד",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דוד would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "דום",
+      "associated_letter": "Dalet",
+      "summary_meaning": "This root draws on the imagery of Dalet and expresses ideas connected to door, path, enter.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root דום would be pictured through the core themes of Dalet: door, path, enter, move. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "הר",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הר would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "הן",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הן would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "היה",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root היה would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "הלל",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הלל would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "הוד",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הוד would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "הושע",
+      "associated_letter": "Hey",
+      "summary_meaning": "This root draws on the imagery of Hey and expresses ideas connected to behold, reveal, breath.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root הושע would be pictured through the core themes of Hey: behold, reveal, breath, window. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ו",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ו would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "וד",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root וד would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ורד",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ורד would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ונתן",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ונתן would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "וירא",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root וירא would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "והיה",
+      "associated_letter": "Waw",
+      "summary_meaning": "This root draws on the imagery of Waw and expresses ideas connected to hook, add, secure.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root והיה would be pictured through the core themes of Waw: hook, add, secure, connect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זהב",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זהב would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זכר",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זכר would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זבח",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זבח would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זד",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זד would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זית",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זית would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "זמן",
+      "associated_letter": "Zayin",
+      "summary_meaning": "This root draws on the imagery of Zayin and expresses ideas connected to cut, weapon, divide.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root זמן would be pictured through the core themes of Zayin: cut, weapon, divide, nourish. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חסד",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חסד would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חיים",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חיים would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חכמה",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חכמה would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חטא",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חטא would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חיל",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חיל would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "חסל",
+      "associated_letter": "Chet",
+      "summary_meaning": "This root draws on the imagery of Chet and expresses ideas connected to fence, separate, protect.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root חסל would be pictured through the core themes of Chet: fence, separate, protect. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "טוב",
+      "associated_letter": "Tet",
+      "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טוב would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "טהור",
+      "associated_letter": "Tet",
+      "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טהור would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "טעם",
+      "associated_letter": "Tet",
+      "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טעם would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "טף",
+      "associated_letter": "Tet",
+      "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טף would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "טמן",
+      "associated_letter": "Tet",
+      "summary_meaning": "This root draws on the imagery of Tet and expresses ideas connected to surround, coil, contain.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root טמן would be pictured through the core themes of Tet: surround, coil, contain. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "יד",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יד would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "יום",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יום would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ישראל",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ישראל would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "יער",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יער would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "יבש",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יבש would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "יצא",
+      "associated_letter": "Yod",
+      "summary_meaning": "This root draws on the imagery of Yod and expresses ideas connected to hand, work, deed.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root יצא would be pictured through the core themes of Yod: hand, work, deed, power. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כבד",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כבד would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כהן",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כהן would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כל",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כל would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כסף",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כסף would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כרם",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כרם would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "כתר",
+      "associated_letter": "Kaph",
+      "summary_meaning": "This root draws on the imagery of Kaph and expresses ideas connected to palm, bend, tame.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root כתר would be pictured through the core themes of Kaph: palm, bend, tame, subdue. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "לב",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root לב would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "למד",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root למד would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "לחם",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root לחם would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "לילה",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root לילה would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "לשון",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root לשון would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ליל",
+      "associated_letter": "Lamed",
+      "summary_meaning": "This root draws on the imagery of Lamed and expresses ideas connected to staff, authority, teach.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ליל would be pictured through the core themes of Lamed: staff, authority, teach. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מים",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מים would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מלך",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מלך would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מלאך",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מלאך would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מנוחה",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מנוחה would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מרום",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מרום would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "מרד",
+      "associated_letter": "Mem",
+      "summary_meaning": "This root draws on the imagery of Mem and expresses ideas connected to water, chaos, peoples.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root מרד would be pictured through the core themes of Mem: water, chaos, peoples, flow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נפש",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נפש would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נביא",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נביא would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נוח",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נוח would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נס",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נס would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נדר",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נדר would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "נחלה",
+      "associated_letter": "Nun",
+      "summary_meaning": "This root draws on the imagery of Nun and expresses ideas connected to seed, life, continue.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root נחלה would be pictured through the core themes of Nun: seed, life, continue, offspring. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "סמך",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root סמך would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "סוכה",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root סוכה would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ספר",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ספר would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "סוד",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root סוד would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "סבל",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root סבל would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "סוס",
+      "associated_letter": "Samekh",
+      "summary_meaning": "This root draws on the imagery of Samekh and expresses ideas connected to support, uphold, surround.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root סוס would be pictured through the core themes of Samekh: support, uphold, surround. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "עם",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root עם would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "עבד",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root עבד would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ערב",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ערב would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "עץ",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root עץ would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "עור",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root עור would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "עוף",
+      "associated_letter": "Ayin",
+      "summary_meaning": "This root draws on the imagery of Ayin and expresses ideas connected to eye, see, know.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root עוף would be pictured through the core themes of Ayin: eye, see, know, experience. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פה",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פה would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פיה",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פיה would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פסח",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פסח would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פלא",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פלא would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פנה",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פנה would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "פרי",
+      "associated_letter": "Pe",
+      "summary_meaning": "This root draws on the imagery of Pe and expresses ideas connected to mouth, speak, blow.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root פרי would be pictured through the core themes of Pe: mouth, speak, blow. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צדיק",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צדיק would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צאן",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צאן would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צעק",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צעק would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צלם",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צלם would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צום",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צום would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "צר",
+      "associated_letter": "Tsade",
+      "summary_meaning": "This root draws on the imagery of Tsade and expresses ideas connected to hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root צר would be pictured through the core themes of Tsade: hunt, trail, righteous path. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קדש",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קדש would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קהל",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קהל would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קום",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קום would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קול",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קול would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קצר",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קצר would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "קצה",
+      "associated_letter": "Qoph",
+      "summary_meaning": "This root draws on the imagery of Qoph and expresses ideas connected to circle, time, horizon.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root קצה would be pictured through the core themes of Qoph: circle, time, horizon, behind. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ראש",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root ראש would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "רוח",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root רוח would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "רם",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root רם would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "רב",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root רב would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "רנן",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root רנן would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "רגע",
+      "associated_letter": "Resh",
+      "summary_meaning": "This root draws on the imagery of Resh and expresses ideas connected to head, chief, first.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root רגע would be pictured through the core themes of Resh: head, chief, first, top. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שלום",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שלום would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שמע",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שמע would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שקר",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שקר would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שבט",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שבט would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שמן",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שמן would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "שיר",
+      "associated_letter": "Shin",
+      "summary_meaning": "This root draws on the imagery of Shin and expresses ideas connected to teeth, consume, press.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root שיר would be pictured through the core themes of Shin: teeth, consume, press. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תורה",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תורה would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תום",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תום would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תלם",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תלם would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תמיד",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תמיד would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תשובה",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תשובה would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "תקוה",
+      "associated_letter": "Tav",
+      "summary_meaning": "This root draws on the imagery of Tav and expresses ideas connected to mark, sign, covenant.",
+      "paleo_semantic_explanation": "In a Paleo-Hebrew frame, the root תקוה would be pictured through the core themes of Tav: mark, sign, covenant. These layers shape how the word group expresses action, identity, and covenant reality in Scripture."
+    },
+    {
+      "root": "ṭʿg",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root ṭʿg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gʾz",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root gʾz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wyr",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root wyr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "nʾʿ",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root nʾʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿʾl",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root ʿʾl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gwr",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root gwr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "szn",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root szn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ymʾ",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ymʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "sbʿ",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root sbʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hmt",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root hmt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lšʾ",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root lšʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hqn",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root hqn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zṭm",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root zṭm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hdṭ",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root hdṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "skz",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root skz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šyw",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root šyw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zkt",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root zkt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lṣb",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root lṣb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dsṣ",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root dsṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "krš",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root krš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭbm",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ṭbm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥṭʾ",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root ḥṭʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥʿṭ",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root ḥʿṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿgy",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root ʿgy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾḥp",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root ʾḥp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rzt",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root rzt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥkz",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root ḥkz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "yʿṭ",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root yʿṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wgd",
+      "associated_letter": "Ayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Ayin and its ideas of eye, see, know.",
+      "paleo_semantic_explanation": "This educational root wgd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Ayin contributes its imagery of eye, see, know, experience, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rnṣ",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root rnṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pdṣ",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root pdṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gwṣ",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root gwṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tṭw",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root tṭw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hḥd",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root hḥd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥrh",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ḥrh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lsp",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root lsp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qht",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root qht combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿḥb",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ʿḥb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ybt",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root ybt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zds",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root zds combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hḥw",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root hḥw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tšk",
+      "associated_letter": "Ayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Ayin and its ideas of eye, see, know.",
+      "paleo_semantic_explanation": "This educational root tšk combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Ayin contributes its imagery of eye, see, know, experience, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šsq",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root šsq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lnʾ",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root lnʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pny",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root pny combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ydq",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root ydq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ygq",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root ygq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿsd",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root ʿsd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dsʾ",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root dsʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lrg",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root lrg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qyʾ",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root qyʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥnq",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ḥnq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣšz",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root ṣšz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qʿṭ",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root qʿṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣʾʿ",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root ṣʾʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿtš",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ʿtš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭhr",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ṭhr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gʿš",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root gʿš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿdḥ",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root ʿdḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dtṣ",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root dtṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾlb",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root ʾlb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣmd",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root ṣmd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pṭr",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root pṭr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "kgw",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root kgw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥyṭ",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root ḥyṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zyb",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root zyb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šʾh",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root šʾh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾṭq",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root ʾṭq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ztb",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root ztb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lhn",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root lhn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gṣḥ",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root gṣḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭwl",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root ṭwl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bmq",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root bmq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾzy",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root ʾzy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾṭb",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root ʾṭb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qrn",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root qrn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šsḥ",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root šsḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wṭd",
+      "associated_letter": "Ayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Ayin and its ideas of eye, see, know.",
+      "paleo_semantic_explanation": "This educational root wṭd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Ayin contributes its imagery of eye, see, know, experience, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pḥz",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root pḥz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿḥr",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root ʿḥr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wlš",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root wlš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣʾb",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root ṣʾb combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gtṭ",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root gtṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿyw",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root ʿyw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "nbp",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root nbp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šḥʾ",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root šḥʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gzš",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root gzš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mzn",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root mzn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ybq",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root ybq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hlt",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root hlt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "kṣz",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root kṣz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zhḥ",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root zhḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾkh",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root ʾkh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "psn",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root psn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pnq",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root pnq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rpʿ",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root rpʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "glz",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root glz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šḥw",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root šḥw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣšḥ",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ṣšḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bqd",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root bqd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣʾt",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root ṣʾt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭdʾ",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root ṭdʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "nhq",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root nhq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾʿṭ",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ʾʿṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾlg",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root ʾlg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bmʾ",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root bmʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "sgq",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root sgq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾhn",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root ʾhn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hṭd",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root hṭd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gnʿ",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root gnʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mbh",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root mbh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾgy",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root ʾgy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "stp",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root stp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "trw",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root trw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾyz",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root ʾyz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qḥʾ",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root qḥʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šḥy",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root šḥy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gšm",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root gšm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "krn",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root krn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qtm",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root qtm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "kbw",
+      "associated_letter": "Lamed",
+      "summary_meaning": "A constructed teaching root built around the themes of Lamed and its ideas of staff, authority, teach.",
+      "paleo_semantic_explanation": "This educational root kbw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Lamed contributes its imagery of staff, authority, teach, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rṣm",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root rṣm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hyʿ",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root hyʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šnz",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root šnz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qnp",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root qnp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣʾk",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root ṣʾk combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṣmq",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root ṣmq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rʿd",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root rʿd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bmz",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root bmz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qdʿ",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root qdʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gzs",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root gzs combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wpl",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root wpl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭṣp",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root ṭṣp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tʿq",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root tʿq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pḥg",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root pḥg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mṭy",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root mṭy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿym",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root ʿym combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lwh",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root lwh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾqk",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root ʾqk combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tʾṭ",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root tʾṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿmṭ",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root ʿmṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "skq",
+      "associated_letter": "Hey",
+      "summary_meaning": "A constructed teaching root built around the themes of Hey and its ideas of behold, reveal, breath.",
+      "paleo_semantic_explanation": "This educational root skq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Hey contributes its imagery of behold, reveal, breath, window, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "khq",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root khq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lrh",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root lrh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hbn",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root hbn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bmḥ",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root bmḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "htš",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root htš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hʿl",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root hʿl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dṭm",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root dṭm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "yht",
+      "associated_letter": "Ayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Ayin and its ideas of eye, see, know.",
+      "paleo_semantic_explanation": "This educational root yht combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Ayin contributes its imagery of eye, see, know, experience, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "kʿʾ",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root kʿʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gḥt",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root gḥt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "phš",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root phš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bpy",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root bpy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ylṭ",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root ylṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bpq",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root bpq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pzl",
+      "associated_letter": "Qoph",
+      "summary_meaning": "A constructed teaching root built around the themes of Qoph and its ideas of circle, time, horizon.",
+      "paleo_semantic_explanation": "This educational root pzl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Qoph contributes its imagery of circle, time, horizon, behind, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zth",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root zth combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "rpš",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root rpš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hṣn",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root hṣn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zkḥ",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root zkḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tṣg",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root tṣg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "nzg",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root nzg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "sgṣ",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root sgṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mhq",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root mhq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mšṭ",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root mšṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gtz",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root gtz combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bʿw",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root bʿw combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾky",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ʾky combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gḥl",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root gḥl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tnp",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root tnp combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿʾg",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root ʿʾg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dwt",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root dwt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥsm",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root ḥsm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pšṣ",
+      "associated_letter": "Tet",
+      "summary_meaning": "A constructed teaching root built around the themes of Tet and its ideas of surround, coil, contain.",
+      "paleo_semantic_explanation": "This educational root pšṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tet contributes its imagery of surround, coil, contain, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "kpṭ",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root kpṭ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "sṭl",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root sṭl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "pšr",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root pšr combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "šnl",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root šnl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥgn",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root ḥgn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lʿn",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root lʿn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "mgs",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root mgs combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qdʾ",
+      "associated_letter": "Nun",
+      "summary_meaning": "A constructed teaching root built around the themes of Nun and its ideas of seed, life, continue.",
+      "paleo_semantic_explanation": "This educational root qdʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Nun contributes its imagery of seed, life, continue, offspring, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾšt",
+      "associated_letter": "Mem",
+      "summary_meaning": "A constructed teaching root built around the themes of Mem and its ideas of water, chaos, peoples.",
+      "paleo_semantic_explanation": "This educational root ʾšt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Mem contributes its imagery of water, chaos, peoples, flow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "dḥy",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root dḥy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qdg",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root qdg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾmḥ",
+      "associated_letter": "Samekh",
+      "summary_meaning": "A constructed teaching root built around the themes of Samekh and its ideas of support, uphold, surround.",
+      "paleo_semantic_explanation": "This educational root ʾmḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Samekh contributes its imagery of support, uphold, surround, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wpṣ",
+      "associated_letter": "Ayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Ayin and its ideas of eye, see, know.",
+      "paleo_semantic_explanation": "This educational root wpṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Ayin contributes its imagery of eye, see, know, experience, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "nḥh",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root nḥh combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "gln",
+      "associated_letter": "Waw",
+      "summary_meaning": "A constructed teaching root built around the themes of Waw and its ideas of hook, add, secure.",
+      "paleo_semantic_explanation": "This educational root gln combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Waw contributes its imagery of hook, add, secure, connect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥns",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root ḥns combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hṣʾ",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root hṣʾ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qšm",
+      "associated_letter": "Gimel",
+      "summary_meaning": "A constructed teaching root built around the themes of Gimel and its ideas of walk, carry, foot.",
+      "paleo_semantic_explanation": "This educational root qšm combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Gimel contributes its imagery of walk, carry, foot, camel, supply, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lhd",
+      "associated_letter": "Pe",
+      "summary_meaning": "A constructed teaching root built around the themes of Pe and its ideas of mouth, speak, blow.",
+      "paleo_semantic_explanation": "This educational root lhd combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Pe contributes its imagery of mouth, speak, blow, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾts",
+      "associated_letter": "Beit",
+      "summary_meaning": "A constructed teaching root built around the themes of Beit and its ideas of house, family, inside.",
+      "paleo_semantic_explanation": "This educational root ʾts combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Beit contributes its imagery of house, family, inside, tent, structure, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʿrg",
+      "associated_letter": "Kaph",
+      "summary_meaning": "A constructed teaching root built around the themes of Kaph and its ideas of palm, bend, tame.",
+      "paleo_semantic_explanation": "This educational root ʿrg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Kaph contributes its imagery of palm, bend, tame, subdue, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ḥbn",
+      "associated_letter": "Tsade",
+      "summary_meaning": "A constructed teaching root built around the themes of Tsade and its ideas of hunt, trail, righteous path.",
+      "paleo_semantic_explanation": "This educational root ḥbn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tsade contributes its imagery of hunt, trail, righteous path, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "lšy",
+      "associated_letter": "Resh",
+      "summary_meaning": "A constructed teaching root built around the themes of Resh and its ideas of head, chief, first.",
+      "paleo_semantic_explanation": "This educational root lšy combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Resh contributes its imagery of head, chief, first, top, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "qsʿ",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root qsʿ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wʾg",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root wʾg combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "bhq",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root bhq combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "tṣḥ",
+      "associated_letter": "Zayin",
+      "summary_meaning": "A constructed teaching root built around the themes of Zayin and its ideas of cut, weapon, divide.",
+      "paleo_semantic_explanation": "This educational root tṣḥ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Zayin contributes its imagery of cut, weapon, divide, nourish, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "hšk",
+      "associated_letter": "Tav",
+      "summary_meaning": "A constructed teaching root built around the themes of Tav and its ideas of mark, sign, covenant.",
+      "paleo_semantic_explanation": "This educational root hšk combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Tav contributes its imagery of mark, sign, covenant, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zdš",
+      "associated_letter": "Aleph",
+      "summary_meaning": "A constructed teaching root built around the themes of Aleph and its ideas of strength, leader, first.",
+      "paleo_semantic_explanation": "This educational root zdš combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Aleph contributes its imagery of strength, leader, first, ox, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ʾrt",
+      "associated_letter": "Shin",
+      "summary_meaning": "A constructed teaching root built around the themes of Shin and its ideas of teeth, consume, press.",
+      "paleo_semantic_explanation": "This educational root ʾrt combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Shin contributes its imagery of teeth, consume, press, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "wsl",
+      "associated_letter": "Chet",
+      "summary_meaning": "A constructed teaching root built around the themes of Chet and its ideas of fence, separate, protect.",
+      "paleo_semantic_explanation": "This educational root wsl combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Chet contributes its imagery of fence, separate, protect, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "ṭṣn",
+      "associated_letter": "Yod",
+      "summary_meaning": "A constructed teaching root built around the themes of Yod and its ideas of hand, work, deed.",
+      "paleo_semantic_explanation": "This educational root ṭṣn combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Yod contributes its imagery of hand, work, deed, power, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    },
+    {
+      "root": "zwṣ",
+      "associated_letter": "Dalet",
+      "summary_meaning": "A constructed teaching root built around the themes of Dalet and its ideas of door, path, enter.",
+      "paleo_semantic_explanation": "This educational root zwṣ combines three consonants in a way that lets students meditate on Paleo-Hebrew thinking. The anchor letter Dalet contributes its imagery of door, path, enter, move, and the tri-consonantal form encourages reflection on how early Israelites might connect letters into a family of verbs and nouns with related shades of meaning."
+    }
+  ]
+}

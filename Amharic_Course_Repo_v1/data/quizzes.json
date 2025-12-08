@@ -1,0 +1,455 @@
+{
+  "title": "Amharic Course Quizzes",
+  "quizzes": [
+    {
+      "id": "symbol_to_name",
+      "questions": [
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ሀ",
+          "options": [
+            "Ha",
+            "Ye"
+          ],
+          "answer": "Ha"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ለ",
+          "options": [
+            "Le",
+            "Ha"
+          ],
+          "answer": "Le"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify መ",
+          "options": [
+            "Me",
+            "Se"
+          ],
+          "answer": "Me"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ሰ",
+          "options": [
+            "Se",
+            "Te"
+          ],
+          "answer": "Se"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ሸ",
+          "options": [
+            "She",
+            "Le"
+          ],
+          "answer": "She"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ቀ",
+          "options": [
+            "Qe",
+            "Be"
+          ],
+          "answer": "Qe"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ተ",
+          "options": [
+            "Te",
+            "Se"
+          ],
+          "answer": "Te"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify በ",
+          "options": [
+            "Be",
+            "Te"
+          ],
+          "answer": "Be"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify ነ",
+          "options": [
+            "Ne",
+            "Ha"
+          ],
+          "answer": "Ne"
+        },
+        {
+          "type": "multiple_choice",
+          "prompt": "Identify የ",
+          "options": [
+            "Ye",
+            "Ha"
+          ],
+          "answer": "Ye"
+        }
+      ]
+    },
+    {
+      "id": "syllables",
+      "questions": [
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 1",
+          "answer": "hä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 2",
+          "answer": "hu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 3",
+          "answer": "hi"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 4",
+          "answer": "ha"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 5",
+          "answer": "he"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 6",
+          "answer": "hə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሀ order 7",
+          "answer": "ho"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 1",
+          "answer": "lä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 2",
+          "answer": "lu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 3",
+          "answer": "li"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 4",
+          "answer": "la"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 5",
+          "answer": "le"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 6",
+          "answer": "lə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ለ order 7",
+          "answer": "lo"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 1",
+          "answer": "mä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 2",
+          "answer": "mu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 3",
+          "answer": "mi"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 4",
+          "answer": "ma"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 5",
+          "answer": "me"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 6",
+          "answer": "mə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for መ order 7",
+          "answer": "mo"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 1",
+          "answer": "sä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 2",
+          "answer": "su"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 3",
+          "answer": "si"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 4",
+          "answer": "sa"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 5",
+          "answer": "se"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 6",
+          "answer": "sə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሰ order 7",
+          "answer": "so"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 1",
+          "answer": "šä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 2",
+          "answer": "šu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 3",
+          "answer": "ši"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 4",
+          "answer": "ša"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 5",
+          "answer": "še"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 6",
+          "answer": "šə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ሸ order 7",
+          "answer": "šo"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 1",
+          "answer": "qä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 2",
+          "answer": "qu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 3",
+          "answer": "qi"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 4",
+          "answer": "qa"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 5",
+          "answer": "qe"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 6",
+          "answer": "qə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ቀ order 7",
+          "answer": "qo"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 1",
+          "answer": "tä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 2",
+          "answer": "tu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 3",
+          "answer": "ti"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 4",
+          "answer": "ta"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 5",
+          "answer": "te"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 6",
+          "answer": "tə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ተ order 7",
+          "answer": "to"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 1",
+          "answer": "bä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 2",
+          "answer": "bu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 3",
+          "answer": "bi"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 4",
+          "answer": "ba"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 5",
+          "answer": "be"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 6",
+          "answer": "bə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for በ order 7",
+          "answer": "bo"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 1",
+          "answer": "nä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 2",
+          "answer": "nu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 3",
+          "answer": "ni"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 4",
+          "answer": "na"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 5",
+          "answer": "ne"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 6",
+          "answer": "nə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for ነ order 7",
+          "answer": "no"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 1",
+          "answer": "yä"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 2",
+          "answer": "yu"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 3",
+          "answer": "yi"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 4",
+          "answer": "ya"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 5",
+          "answer": "ye"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 6",
+          "answer": "yə"
+        },
+        {
+          "type": "matching",
+          "prompt": "Syllable for የ order 7",
+          "answer": "yo"
+        }
+      ]
+    }
+  ]
+}

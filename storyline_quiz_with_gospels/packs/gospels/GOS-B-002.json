@@ -1,0 +1,43 @@
+{
+  "id": "GOS-B-002",
+  "title": "Temptation of Jesus",
+  "reference": "Matthew 4:1–11",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus is led into the wilderness",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus fasts forty days",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "The tempter challenges Him to turn stones to bread",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Satan takes Him to the pinnacle of the temple",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Satan shows Him the kingdoms of the world",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus commands Satan to depart",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Temptation"
+  ]
+}

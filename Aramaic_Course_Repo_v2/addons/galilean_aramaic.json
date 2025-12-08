@@ -1,0 +1,27 @@
+{
+  "dialect": "Galilean Aramaic",
+  "notes": "This represents the likely spoken dialect of Jesus and 1st century Galilee.",
+  "features": [
+    "Shift of ayin toward a lighter pharyngeal sound",
+    "Short vowels reduced in unstressed syllables",
+    "Loss of emphatic distinction in some consonants",
+    "Frequent use of -on plural endings"
+  ],
+  "example_phrases": [
+    {
+      "aramaic": "ܐܒܐ",
+      "translit": "abba",
+      "meaning": "father"
+    },
+    {
+      "aramaic": "ܫܠܡܐ",
+      "translit": "shalma",
+      "meaning": "peace"
+    },
+    {
+      "aramaic": "ܡܪܢ ܐܬܐ",
+      "translit": "maran atha",
+      "meaning": "Our Lord comes"
+    }
+  ]
+}

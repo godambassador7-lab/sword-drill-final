@@ -1,0 +1,35 @@
+{
+  "id": "ws_259",
+  "title": "Biblical Places — Easy",
+  "theme": "Biblical Places",
+  "difficulty": "Easy",
+  "gridSize": 13,
+  "grid": [
+    "JERUSALEMQXZW",
+    "EBETHLEHEMP",
+    "RNAZARETHQXPZ",
+    "UZWVTPQBNMJXZ",
+    "SJERICHOQXWVM",
+    "AEGALILEEQXZW",
+    "LREDSEAQBNMJP",
+    "EEGYPTXZWVTPQ",
+    "MMOUNTSINAIXZ",
+    "QXZWVTPQBNMJZ",
+    "CAPERNAUMPQXZ",
+    "HJORDANQXZWVP",
+    "ROMEXPQBNMJZW"
+  ],
+  "words": [
+    "JERUSALEM",
+    "BETHLEHEM",
+    "NAZARETH",
+    "GALILEE",
+    "JERICHO",
+    "RED SEA",
+    "EGYPT",
+    "MOUNT SINAI",
+    "CAPERNAUM",
+    "JORDAN",
+    "ROME"
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "division_asaph",
+    "name": "Asaphite Singers",
+    "gender": "U",
+    "father": "asaph",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 25:1"
+    ],
+    "notes": "Musicians division.",
+    "alt_names": []
+  },
+  {
+    "id": "division_korah",
+    "name": "Sons of Korah",
+    "gender": "U",
+    "father": "korah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 9:19"
+    ],
+    "notes": "Gatekeepers and singers.",
+    "alt_names": []
+  }
+]

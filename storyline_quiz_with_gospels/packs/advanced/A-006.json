@@ -1,0 +1,58 @@
+{
+  "id": "A-006",
+  "title": "First Missionary Journey",
+  "reference": "Acts 13–14",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "The church at Antioch fasts and prays",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The Spirit sets apart Barnabas and Saul",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "They sail to Cyprus and preach",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "A sorcerer is opposed and struck blind",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "They travel to Pisidian Antioch and preach in the synagogue",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Some believe while others oppose them",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "They face persecution and move on to other cities",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "They strengthen disciples and appoint elders",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "They return to Antioch and report what God has done",
+      "correctIndex": 8
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "Missions"
+  ]
+}

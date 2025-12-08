@@ -1,0 +1,38 @@
+{
+  "id": "B-005",
+  "title": "David and Goliath Simple",
+  "reference": "1 Samuel 17",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "David arrives at the battlefield",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "David hears Goliath’s challenge",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "David chooses five smooth stones",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "David slings the stone at Goliath",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Goliath falls to the ground",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "David",
+    "Goliath"
+  ]
+}

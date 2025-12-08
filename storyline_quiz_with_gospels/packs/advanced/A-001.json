@@ -1,0 +1,63 @@
+{
+  "id": "A-001",
+  "title": "Early Life of David",
+  "reference": "1 Samuel 16–18",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Samuel anoints David in Bethlehem",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The Spirit of the Lord comes upon David",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "David plays the harp for Saul",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Israel faces Goliath and the Philistines",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "David volunteers to fight Goliath",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "David kills Goliath with a sling and a stone",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Saul sets David over the men of war",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jonathan and David form a covenant",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Women sing of David’s victories",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Saul grows jealous of David",
+      "correctIndex": 9
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "David",
+    "1Samuel"
+  ]
+}

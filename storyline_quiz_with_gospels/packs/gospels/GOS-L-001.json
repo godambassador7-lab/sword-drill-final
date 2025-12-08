@@ -1,0 +1,143 @@
+{
+  "id": "GOS-L-001",
+  "title": "Full Ministry of Jesus",
+  "reference": "Harmony",
+  "difficulty": "Legendary",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus is baptized and anointed by the Spirit",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus is tempted in the wilderness",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus calls His earliest disciples",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus begins ministry in Galilee",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus teaches and heals widely",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus gathers twelve apostles",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus preaches major teachings",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jesus performs many miracles",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus calms storms and displays authority",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus sends disciples two by two",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus feeds multitudes",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Jesus is transfigured",
+      "correctIndex": 11
+    },
+    {
+      "id": "e13",
+      "text": "Jesus raises Lazarus",
+      "correctIndex": 12
+    },
+    {
+      "id": "e14",
+      "text": "Jesus journeys to Jerusalem",
+      "correctIndex": 13
+    },
+    {
+      "id": "e15",
+      "text": "Triumphal Entry",
+      "correctIndex": 14
+    },
+    {
+      "id": "e16",
+      "text": "Temple cleansing",
+      "correctIndex": 15
+    },
+    {
+      "id": "e17",
+      "text": "Final teachings",
+      "correctIndex": 16
+    },
+    {
+      "id": "e18",
+      "text": "Last Supper",
+      "correctIndex": 17
+    },
+    {
+      "id": "e19",
+      "text": "Gethsemane prayer",
+      "correctIndex": 18
+    },
+    {
+      "id": "e20",
+      "text": "Betrayal and arrest",
+      "correctIndex": 19
+    },
+    {
+      "id": "e21",
+      "text": "Trials",
+      "correctIndex": 20
+    },
+    {
+      "id": "e22",
+      "text": "Crucifixion",
+      "correctIndex": 21
+    },
+    {
+      "id": "e23",
+      "text": "Burial",
+      "correctIndex": 22
+    },
+    {
+      "id": "e24",
+      "text": "Resurrection",
+      "correctIndex": 23
+    },
+    {
+      "id": "e25",
+      "text": "Post-resurrection appearances",
+      "correctIndex": 24
+    },
+    {
+      "id": "e26",
+      "text": "Great Commission",
+      "correctIndex": 25
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Legendary"
+  ]
+}

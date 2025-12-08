@@ -1,0 +1,213 @@
+[
+  {
+    "id": "gershon",
+    "name": "Gershon",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:16–17"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Gershom"
+    ]
+  },
+  {
+    "id": "kohath",
+    "name": "Kohath",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "amram"
+    ],
+    "refs": [
+      "Exodus 6:16–18"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "merari",
+    "name": "Merari",
+    "gender": "M",
+    "father": "levi",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:16–19"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "amram",
+    "name": "Amram",
+    "gender": "M",
+    "father": "kohath",
+    "mother": null,
+    "spouses": [
+      "jochebed"
+    ],
+    "children": [
+      "aaron",
+      "moses",
+      "miriam"
+    ],
+    "refs": [
+      "Exodus 6:18–20"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jochebed",
+    "name": "Jochebed",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "amram"
+    ],
+    "children": [
+      "aaron",
+      "moses",
+      "miriam"
+    ],
+    "refs": [
+      "Exodus 6:20"
+    ],
+    "notes": "Daughter of Levi, mother of Moses, Aaron, Miriam.",
+    "alt_names": []
+  },
+  {
+    "id": "aaron",
+    "name": "Aaron",
+    "gender": "M",
+    "father": "amram",
+    "mother": "jochebed",
+    "spouses": [],
+    "children": [
+      "nadab",
+      "abihu",
+      "eleazar",
+      "ithamar"
+    ],
+    "refs": [
+      "Exodus 4–40",
+      "Leviticus 8–10"
+    ],
+    "notes": "First high priest of Israel.",
+    "alt_names": []
+  },
+  {
+    "id": "moses",
+    "name": "Moses",
+    "gender": "M",
+    "father": "amram",
+    "mother": "jochebed",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus–Deuteronomy"
+    ],
+    "notes": "Prophet and lawgiver.",
+    "alt_names": []
+  },
+  {
+    "id": "miriam",
+    "name": "Miriam",
+    "gender": "F",
+    "father": "amram",
+    "mother": "jochebed",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 15:20",
+      "Numbers 12:1–15"
+    ],
+    "notes": "Prophetess, sister of Moses and Aaron.",
+    "alt_names": []
+  },
+  {
+    "id": "nadab",
+    "name": "Nadab",
+    "gender": "M",
+    "father": "aaron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:23",
+      "Leviticus 10:1–2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "abihu",
+    "name": "Abihu",
+    "gender": "M",
+    "father": "aaron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:23",
+      "Leviticus 10:1–2"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "eleazar",
+    "name": "Eleazar",
+    "gender": "M",
+    "father": "aaron",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "phinehas"
+    ],
+    "refs": [
+      "Exodus 6:23",
+      "Numbers 20:23–28"
+    ],
+    "notes": "Succeeded Aaron as high priest.",
+    "alt_names": []
+  },
+  {
+    "id": "ithamar",
+    "name": "Ithamar",
+    "gender": "M",
+    "father": "aaron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:23"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "phinehas",
+    "name": "Phinehas",
+    "gender": "M",
+    "father": "eleazar",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Exodus 6:25",
+      "Numbers 25:7–13"
+    ],
+    "notes": "Zealous for the LORD's covenant.",
+    "alt_names": []
+  }
+]

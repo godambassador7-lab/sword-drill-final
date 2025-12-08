@@ -1,0 +1,445 @@
+[
+  {
+    "id": "shelah",
+    "name": "Shelah",
+    "gender": "M",
+    "father": "arpachshad",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "eber"
+    ],
+    "refs": [
+      "Genesis 11:12–15"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Sala"
+    ]
+  },
+  {
+    "id": "eber",
+    "name": "Eber",
+    "gender": "M",
+    "father": "shelah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "peleg",
+      "joktan"
+    ],
+    "refs": [
+      "Genesis 10:24–25",
+      "Genesis 11:16–19"
+    ],
+    "notes": "Eponym of 'Hebrew'.",
+    "alt_names": []
+  },
+  {
+    "id": "peleg",
+    "name": "Peleg",
+    "gender": "M",
+    "father": "eber",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "reu"
+    ],
+    "refs": [
+      "Genesis 10:25",
+      "Genesis 11:18–19"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "reu",
+    "name": "Reu",
+    "gender": "M",
+    "father": "peleg",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "serug"
+    ],
+    "refs": [
+      "Genesis 11:20–21"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "serug",
+    "name": "Serug",
+    "gender": "M",
+    "father": "reu",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "nahor_1"
+    ],
+    "refs": [
+      "Genesis 11:22–23"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "nahor_1",
+    "name": "Nahor",
+    "gender": "M",
+    "father": "serug",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "terah"
+    ],
+    "refs": [
+      "Genesis 11:22–25"
+    ],
+    "notes": "Nahor, grandfather of Abram.",
+    "alt_names": []
+  },
+  {
+    "id": "terah",
+    "name": "Terah",
+    "gender": "M",
+    "father": "nahor_1",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "abram",
+      "nahor_2",
+      "haran"
+    ],
+    "refs": [
+      "Genesis 11:24–32"
+    ],
+    "notes": "Father of Abram, Nahor, and Haran.",
+    "alt_names": []
+  },
+  {
+    "id": "haran",
+    "name": "Haran",
+    "gender": "M",
+    "father": "terah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "lot",
+      "milcah",
+      "iscah"
+    ],
+    "refs": [
+      "Genesis 11:27–29"
+    ],
+    "notes": "Brother of Abram.",
+    "alt_names": []
+  },
+  {
+    "id": "lot",
+    "name": "Lot",
+    "gender": "M",
+    "father": "haran",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 11:27–31",
+      "Genesis 13–19"
+    ],
+    "notes": "Nephew of Abram.",
+    "alt_names": []
+  },
+  {
+    "id": "nahor_2",
+    "name": "Nahor",
+    "gender": "M",
+    "father": "terah",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 11:26–29"
+    ],
+    "notes": "Brother of Abram; father of Bethuel.",
+    "alt_names": []
+  },
+  {
+    "id": "abram",
+    "name": "Abram",
+    "gender": "M",
+    "father": "terah",
+    "mother": null,
+    "spouses": [
+      "sarah",
+      "hagar",
+      "keturah"
+    ],
+    "children": [
+      "ishmael",
+      "isaac"
+    ],
+    "refs": [
+      "Genesis 11:26–32",
+      "Genesis 12–25"
+    ],
+    "notes": "Later named Abraham.",
+    "alt_names": [
+      "Abraham"
+    ]
+  },
+  {
+    "id": "sarah",
+    "name": "Sarah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "abram"
+    ],
+    "children": [
+      "isaac"
+    ],
+    "refs": [
+      "Genesis 11:29–31",
+      "Genesis 17–18",
+      "Genesis 21"
+    ],
+    "notes": "Originally Sarai.",
+    "alt_names": [
+      "Sarai"
+    ]
+  },
+  {
+    "id": "hagar",
+    "name": "Hagar",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "abram"
+    ],
+    "children": [
+      "ishmael"
+    ],
+    "refs": [
+      "Genesis 16",
+      "Genesis 21:8–21"
+    ],
+    "notes": "Egyptian maidservant.",
+    "alt_names": []
+  },
+  {
+    "id": "keturah",
+    "name": "Keturah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "abram"
+    ],
+    "children": [
+      "zimran",
+      "jokshan",
+      "medan",
+      "midian",
+      "ishbak",
+      "shuah"
+    ],
+    "refs": [
+      "Genesis 25:1–4"
+    ],
+    "notes": "Later wife/concubine of Abraham.",
+    "alt_names": []
+  },
+  {
+    "id": "ishmael",
+    "name": "Ishmael",
+    "gender": "M",
+    "father": "abram",
+    "mother": "hagar",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 16",
+      "Genesis 17:18–26",
+      "Genesis 25:12–18"
+    ],
+    "notes": "Ancestor of Ishmaelites.",
+    "alt_names": []
+  },
+  {
+    "id": "isaac",
+    "name": "Isaac",
+    "gender": "M",
+    "father": "abram",
+    "mother": "sarah",
+    "spouses": [
+      "rebekah"
+    ],
+    "children": [
+      "esau",
+      "jacob"
+    ],
+    "refs": [
+      "Genesis 17:19–21",
+      "Genesis 21–27"
+    ],
+    "notes": "Child of promise.",
+    "alt_names": []
+  },
+  {
+    "id": "rebekah",
+    "name": "Rebekah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "isaac"
+    ],
+    "children": [
+      "esau",
+      "jacob"
+    ],
+    "refs": [
+      "Genesis 24–27"
+    ],
+    "notes": "Daughter of Bethuel, sister of Laban.",
+    "alt_names": [
+      "Rebecca"
+    ]
+  },
+  {
+    "id": "esau",
+    "name": "Esau",
+    "gender": "M",
+    "father": "isaac",
+    "mother": "rebekah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 25–36"
+    ],
+    "notes": "Also called Edom; ancestor of Edomites.",
+    "alt_names": [
+      "Edom"
+    ]
+  },
+  {
+    "id": "jacob",
+    "name": "Jacob",
+    "gender": "M",
+    "father": "isaac",
+    "mother": "rebekah",
+    "spouses": [
+      "leah",
+      "rachel",
+      "bilhah",
+      "zilpah"
+    ],
+    "children": [
+      "reuben",
+      "simeon",
+      "levi",
+      "judah",
+      "dan",
+      "naphtali",
+      "gad",
+      "asher",
+      "issachar",
+      "zebulun",
+      "joseph",
+      "benjamin"
+    ],
+    "refs": [
+      "Genesis 25–50"
+    ],
+    "notes": "Later named Israel; father of the twelve tribes.",
+    "alt_names": [
+      "Israel"
+    ]
+  },
+  {
+    "id": "leah",
+    "name": "Leah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "jacob"
+    ],
+    "children": [
+      "reuben",
+      "simeon",
+      "levi",
+      "judah",
+      "issachar",
+      "zebulun",
+      "dinah"
+    ],
+    "refs": [
+      "Genesis 29–30"
+    ],
+    "notes": "Elder daughter of Laban.",
+    "alt_names": []
+  },
+  {
+    "id": "rachel",
+    "name": "Rachel",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "jacob"
+    ],
+    "children": [
+      "joseph",
+      "benjamin"
+    ],
+    "refs": [
+      "Genesis 29–30",
+      "Genesis 35:16–20"
+    ],
+    "notes": "Younger daughter of Laban; loved wife of Jacob.",
+    "alt_names": []
+  },
+  {
+    "id": "bilhah",
+    "name": "Bilhah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "jacob"
+    ],
+    "children": [
+      "dan",
+      "naphtali"
+    ],
+    "refs": [
+      "Genesis 30:3–8"
+    ],
+    "notes": "Servant of Rachel.",
+    "alt_names": []
+  },
+  {
+    "id": "zilpah",
+    "name": "Zilpah",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "jacob"
+    ],
+    "children": [
+      "gad",
+      "asher"
+    ],
+    "refs": [
+      "Genesis 30:9–13"
+    ],
+    "notes": "Servant of Leah.",
+    "alt_names": []
+  }
+]

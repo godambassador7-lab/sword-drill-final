@@ -1,0 +1,86 @@
+[
+  {
+    "id": "simeon_head",
+    "name": "Simeon",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "Tribal ancestor.",
+    "alt_names": []
+  },
+  {
+    "id": "nemuel",
+    "name": "Nemuel",
+    "gender": "M",
+    "father": "simeon_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jamin",
+    "name": "Jamin",
+    "gender": "M",
+    "father": "simeon_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jarib",
+    "name": "Jarib",
+    "gender": "M",
+    "father": "simeon_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "zeri",
+    "name": "Zeri",
+    "gender": "M",
+    "father": "simeon_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "shaul_simeonite",
+    "name": "Shaul",
+    "gender": "M",
+    "father": "simeon_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 4:24"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

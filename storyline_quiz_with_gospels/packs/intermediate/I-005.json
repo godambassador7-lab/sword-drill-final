@@ -1,0 +1,43 @@
+{
+  "id": "I-005",
+  "title": "Early Ministry of Jesus",
+  "reference": "Matthew 3–4; John 1",
+  "difficulty": "Intermediate",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus is baptized in the Jordan",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "The Spirit descends on Jesus",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus is tempted in the wilderness",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Jesus begins to preach the kingdom of heaven",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus calls His first disciples",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Crowds begin to follow Jesus",
+      "correctIndex": 5
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "MinistryOfJesus"
+  ]
+}

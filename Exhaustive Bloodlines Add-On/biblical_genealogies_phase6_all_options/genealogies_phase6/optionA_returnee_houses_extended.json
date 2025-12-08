@@ -1,0 +1,213 @@
+[
+  {
+    "id": "house_parosh",
+    "name": "Sons of Parosh",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:3",
+      "Nehemiah 7:8"
+    ],
+    "notes": "Returnee family unit.",
+    "alt_names": []
+  },
+  {
+    "id": "house_shephatiah",
+    "name": "Sons of Shephatiah",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:4",
+      "Nehemiah 7:9"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_arah",
+    "name": "Sons of Arah",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:5",
+      "Nehemiah 7:10"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_pahath_moab",
+    "name": "Sons of Pahath-moab",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:6",
+      "Nehemiah 7:11"
+    ],
+    "notes": "Of the sons of Jeshua and Joab.",
+    "alt_names": []
+  },
+  {
+    "id": "house_elam",
+    "name": "Sons of Elam",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:7",
+      "Nehemiah 7:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_zattu",
+    "name": "Sons of Zattu",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:8",
+      "Nehemiah 7:13"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_zaccai",
+    "name": "Sons of Zaccai",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:9",
+      "Nehemiah 7:14"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_bani",
+    "name": "Sons of Bani",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:10"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Binnui"
+    ]
+  },
+  {
+    "id": "house_bebai",
+    "name": "Sons of Bebai",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:11",
+      "Nehemiah 7:16"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_azgad",
+    "name": "Sons of Azgad",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:12",
+      "Nehemiah 7:17"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_adonikam",
+    "name": "Sons of Adonikam",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:13",
+      "Nehemiah 7:18"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_bigvai",
+    "name": "Sons of Bigvai",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:14",
+      "Nehemiah 7:19"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_adin",
+    "name": "Sons of Adin",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:15",
+      "Nehemiah 7:20"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "house_ater",
+    "name": "Sons of Ater of Hezekiah",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:16",
+      "Nehemiah 7:21"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

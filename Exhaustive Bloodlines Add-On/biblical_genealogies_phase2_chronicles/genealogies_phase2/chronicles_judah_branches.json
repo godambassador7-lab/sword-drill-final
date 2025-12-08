@@ -1,0 +1,298 @@
+[
+  {
+    "id": "judah",
+    "name": "Judah",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [
+      "perez",
+      "zerah"
+    ],
+    "refs": [
+      "1 Chronicles 2:3–5"
+    ],
+    "notes": "Focus on Perez branch.",
+    "alt_names": []
+  },
+  {
+    "id": "perez",
+    "name": "Perez",
+    "gender": "M",
+    "father": "judah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "hezron",
+      "hamul"
+    ],
+    "refs": [
+      "1 Chronicles 2:4–5"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "hezron",
+    "name": "Hezron",
+    "gender": "M",
+    "father": "perez",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "ram",
+      "caleb_hezronite",
+      "jerahmeel"
+    ],
+    "refs": [
+      "1 Chronicles 2:5,9"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ram",
+    "name": "Ram",
+    "gender": "M",
+    "father": "hezron",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "amminadab"
+    ],
+    "refs": [
+      "1 Chronicles 2:9–10"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "amminadab",
+    "name": "Amminadab",
+    "gender": "M",
+    "father": "ram",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "nahshon"
+    ],
+    "refs": [
+      "1 Chronicles 2:10"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "nahshon",
+    "name": "Nahshon",
+    "gender": "M",
+    "father": "amminadab",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "salmon"
+    ],
+    "refs": [
+      "1 Chronicles 2:10–11"
+    ],
+    "notes": "Leader of Judah in wilderness.",
+    "alt_names": []
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon",
+    "gender": "M",
+    "father": "nahshon",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "boaz"
+    ],
+    "refs": [
+      "1 Chronicles 2:11"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "boaz",
+    "name": "Boaz",
+    "gender": "M",
+    "father": "salmon",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "obed"
+    ],
+    "refs": [
+      "1 Chronicles 2:11–12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "obed",
+    "name": "Obed",
+    "gender": "M",
+    "father": "boaz",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jesse"
+    ],
+    "refs": [
+      "1 Chronicles 2:12"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "jesse",
+    "name": "Jesse",
+    "gender": "M",
+    "father": "obed",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "eliab",
+      "abinadab",
+      "shimea",
+      "nethanel",
+      "radai",
+      "ozem",
+      "david"
+    ],
+    "refs": [
+      "1 Chronicles 2:12–15"
+    ],
+    "notes": "Father of David and his brothers.",
+    "alt_names": []
+  },
+  {
+    "id": "eliab",
+    "name": "Eliab",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:13"
+    ],
+    "notes": "Firstborn of Jesse.",
+    "alt_names": []
+  },
+  {
+    "id": "abinadab_brother",
+    "name": "Abinadab",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:13"
+    ],
+    "notes": "Second son of Jesse.",
+    "alt_names": []
+  },
+  {
+    "id": "shimea",
+    "name": "Shimea",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:13"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "nethanel",
+    "name": "Nethanel",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:14"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "radai",
+    "name": "Radai",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:14"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "ozem",
+    "name": "Ozem",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:15"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "gender": "M",
+    "father": "jesse",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:15"
+    ],
+    "notes": "Youngest of Jesse's sons.",
+    "alt_names": []
+  },
+  {
+    "id": "caleb_hezronite",
+    "name": "Caleb",
+    "gender": "M",
+    "father": "hezron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:18–20"
+    ],
+    "notes": "Caleb son of Hezron (not Caleb son of Jephunneh).",
+    "alt_names": []
+  },
+  {
+    "id": "jerahmeel",
+    "name": "Jerahmeel",
+    "gender": "M",
+    "father": "hezron",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 2:9,25"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

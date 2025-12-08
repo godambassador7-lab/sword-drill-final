@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/sword-drill-final/static/css/main.5602eab5.css",
+    "main.js": "/sword-drill-final/static/js/main.3319b511.js",
+    "static/js/206.1ad84ac1.chunk.js": "/sword-drill-final/static/js/206.1ad84ac1.chunk.js",
+    "index.html": "/sword-drill-final/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.5602eab5.css",
+    "static/js/main.3319b511.js"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "course_id": "geez_core",
+  "title": "Ge'ez (Classical Ethiopic) Reading Course",
+  "levels": [
+    {
+      "id": "level1",
+      "title": "Level 1 – Fidäl (Alphabet)"
+    },
+    {
+      "id": "level2",
+      "title": "Level 2 – Roots & Verb System"
+    },
+    {
+      "id": "level3",
+      "title": "Level 3 – Scripture Reading & Parsing"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "zerubbabel",
+    "name": "Zerubbabel",
+    "gender": "M",
+    "father": "shealtiel",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:2",
+      "Neh 7:7"
+    ],
+    "notes": "Governor of Judah.",
+    "alt_names": []
+  },
+  {
+    "id": "yeshua_hs",
+    "name": "Jeshua",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:2"
+    ],
+    "notes": "High priest with Zerubbabel.",
+    "alt_names": [
+      "Joshua"
+    ]
+  },
+  {
+    "id": "nehemiah_ret",
+    "name": "Nehemiah",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Neh 7:7"
+    ],
+    "notes": "Leader in return list.",
+    "alt_names": []
+  }
+]

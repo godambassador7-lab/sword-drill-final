@@ -1,0 +1,72 @@
+[
+  {
+    "id": "reuben_head",
+    "name": "Reuben",
+    "gender": "M",
+    "father": "jacob",
+    "mother": "leah",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:1"
+    ],
+    "notes": "Lost birthright.",
+    "alt_names": []
+  },
+  {
+    "id": "hanoch",
+    "name": "Hanoch",
+    "gender": "M",
+    "father": "reuben_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "pallu",
+    "name": "Pallu",
+    "gender": "M",
+    "father": "reuben_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "hezron_r",
+    "name": "Hezron",
+    "gender": "M",
+    "father": "reuben_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "carmi",
+    "name": "Carmi",
+    "gender": "M",
+    "father": "reuben_head",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chr 5:3"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "priest_jeraiah",
+    "name": "Jeraiah",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:36"
+    ],
+    "notes": "Family of Jedaiah.",
+    "alt_names": []
+  },
+  {
+    "id": "priest_immer",
+    "name": "Immer",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:37"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "priest_pashhur",
+    "name": "Pashhur",
+    "gender": "M",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Ezra 2:38"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

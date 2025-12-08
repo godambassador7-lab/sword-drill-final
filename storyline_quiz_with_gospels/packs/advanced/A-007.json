@@ -1,0 +1,53 @@
+{
+  "id": "A-007",
+  "title": "Council at Jerusalem",
+  "reference": "Acts 15",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Certain men teach that circumcision is required",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Paul and Barnabas dispute with them",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "The church sends them to Jerusalem",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "The apostles and elders gather to consider the matter",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Peter speaks about God giving the Spirit to Gentiles",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "James gives his judgment and cites the prophets",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "A letter is drafted to the Gentile believers",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "The letter is delivered and received with joy",
+      "correctIndex": 7
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Acts",
+    "Council"
+  ]
+}

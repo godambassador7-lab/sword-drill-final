@@ -1,0 +1,360 @@
+[
+  {
+    "id": "god",
+    "name": "God",
+    "gender": "U",
+    "father": null,
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "adam"
+    ],
+    "refs": [
+      "Genesis 1:1",
+      "Luke 3:38"
+    ],
+    "notes": "Creator; source of all life in biblical genealogy.",
+    "alt_names": [
+      "YHWH",
+      "The LORD",
+      "Elohim"
+    ]
+  },
+  {
+    "id": "adam",
+    "name": "Adam",
+    "gender": "M",
+    "father": "god",
+    "mother": null,
+    "spouses": [
+      "eve"
+    ],
+    "children": [
+      "cain",
+      "abel",
+      "seth"
+    ],
+    "refs": [
+      "Genesis 2–5",
+      "Luke 3:38"
+    ],
+    "notes": "First man. Federal head of humanity in Scripture.",
+    "alt_names": []
+  },
+  {
+    "id": "eve",
+    "name": "Eve",
+    "gender": "F",
+    "father": "god",
+    "mother": null,
+    "spouses": [
+      "adam"
+    ],
+    "children": [
+      "cain",
+      "abel",
+      "seth"
+    ],
+    "refs": [
+      "Genesis 2–4"
+    ],
+    "notes": "First woman. Mother of all living.",
+    "alt_names": []
+  },
+  {
+    "id": "cain",
+    "name": "Cain",
+    "gender": "M",
+    "father": "adam",
+    "mother": "eve",
+    "spouses": [],
+    "children": [
+      "enoch_cainite"
+    ],
+    "refs": [
+      "Genesis 4:1–17"
+    ],
+    "notes": "Eldest son of Adam and Eve; killed Abel.",
+    "alt_names": []
+  },
+  {
+    "id": "abel",
+    "name": "Abel",
+    "gender": "M",
+    "father": "adam",
+    "mother": "eve",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 4:2–10",
+      "Hebrews 11:4"
+    ],
+    "notes": "Righteous shepherd, murdered by Cain.",
+    "alt_names": []
+  },
+  {
+    "id": "seth",
+    "name": "Seth",
+    "gender": "M",
+    "father": "adam",
+    "mother": "eve",
+    "spouses": [],
+    "children": [
+      "enosh"
+    ],
+    "refs": [
+      "Genesis 4:25–26",
+      "Genesis 5:3–8"
+    ],
+    "notes": "Given to Eve in place of Abel. Ancestor of the godly line.",
+    "alt_names": []
+  },
+  {
+    "id": "enoch_cainite",
+    "name": "Enoch",
+    "gender": "M",
+    "father": "cain",
+    "mother": null,
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "Genesis 4:17"
+    ],
+    "notes": "Cainite Enoch (distinct from Enoch son of Jared).",
+    "alt_names": [
+      "Enoch (son of Cain)"
+    ]
+  },
+  {
+    "id": "enosh",
+    "name": "Enosh",
+    "gender": "M",
+    "father": "seth",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "kenan"
+    ],
+    "refs": [
+      "Genesis 4:26",
+      "Genesis 5:6–11"
+    ],
+    "notes": "In his days men began to call on the name of the LORD.",
+    "alt_names": [
+      "Enos"
+    ]
+  },
+  {
+    "id": "kenan",
+    "name": "Kenan",
+    "gender": "M",
+    "father": "enosh",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "mahalalel"
+    ],
+    "refs": [
+      "Genesis 5:9–14"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Cainan (LXX form)"
+    ]
+  },
+  {
+    "id": "mahalalel",
+    "name": "Mahalalel",
+    "gender": "M",
+    "father": "kenan",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "jared"
+    ],
+    "refs": [
+      "Genesis 5:12–17"
+    ],
+    "notes": "",
+    "alt_names": [
+      "Maleleel (LXX)"
+    ]
+  },
+  {
+    "id": "jared",
+    "name": "Jared",
+    "gender": "M",
+    "father": "mahalalel",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "enoch"
+    ],
+    "refs": [
+      "Genesis 5:15–20"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "enoch",
+    "name": "Enoch",
+    "gender": "M",
+    "father": "jared",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "methuselah"
+    ],
+    "refs": [
+      "Genesis 5:21–24",
+      "Hebrews 11:5"
+    ],
+    "notes": "Walked with God; God took him.",
+    "alt_names": [
+      "Enoch (son of Jared)"
+    ]
+  },
+  {
+    "id": "methuselah",
+    "name": "Methuselah",
+    "gender": "M",
+    "father": "enoch",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "lamech_pre_flood"
+    ],
+    "refs": [
+      "Genesis 5:25–27"
+    ],
+    "notes": "Lived 969 years.",
+    "alt_names": []
+  },
+  {
+    "id": "lamech_pre_flood",
+    "name": "Lamech",
+    "gender": "M",
+    "father": "methuselah",
+    "mother": null,
+    "spouses": [],
+    "children": [
+      "noah"
+    ],
+    "refs": [
+      "Genesis 5:28–31"
+    ],
+    "notes": "Father of Noah; not to be confused with Cainite Lamech.",
+    "alt_names": [
+      "Lamech (Noah's father)"
+    ]
+  },
+  {
+    "id": "noah",
+    "name": "Noah",
+    "gender": "M",
+    "father": "lamech_pre_flood",
+    "mother": null,
+    "spouses": [
+      "noahs_wife"
+    ],
+    "children": [
+      "shem",
+      "ham",
+      "japheth"
+    ],
+    "refs": [
+      "Genesis 5:29–32",
+      "Genesis 6–9",
+      "Hebrews 11:7"
+    ],
+    "notes": "Builder of the ark; survivor of the Flood.",
+    "alt_names": []
+  },
+  {
+    "id": "noahs_wife",
+    "name": "Noah's wife",
+    "gender": "F",
+    "father": null,
+    "mother": null,
+    "spouses": [
+      "noah"
+    ],
+    "children": [
+      "shem",
+      "ham",
+      "japheth"
+    ],
+    "refs": [
+      "Genesis 7:7"
+    ],
+    "notes": "Unnamed in canonical Scripture.",
+    "alt_names": []
+  },
+  {
+    "id": "shem",
+    "name": "Shem",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "elam",
+      "asshur",
+      "arpachshad",
+      "lud",
+      "aram"
+    ],
+    "refs": [
+      "Genesis 5:32",
+      "Genesis 10:21–31",
+      "Genesis 11:10–11"
+    ],
+    "notes": "Ancestor of the Semites and of Abraham.",
+    "alt_names": []
+  },
+  {
+    "id": "ham",
+    "name": "Ham",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "cush",
+      "mizraim",
+      "phut",
+      "canaan"
+    ],
+    "refs": [
+      "Genesis 5:32",
+      "Genesis 9:18–27",
+      "Genesis 10:6–20"
+    ],
+    "notes": "",
+    "alt_names": []
+  },
+  {
+    "id": "japheth",
+    "name": "Japheth",
+    "gender": "M",
+    "father": "noah",
+    "mother": "noahs_wife",
+    "spouses": [],
+    "children": [
+      "gomer",
+      "magog",
+      "madai",
+      "javan",
+      "tubal",
+      "meshech",
+      "tiras"
+    ],
+    "refs": [
+      "Genesis 5:32",
+      "Genesis 10:2–5"
+    ],
+    "notes": "",
+    "alt_names": []
+  }
+]

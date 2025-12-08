@@ -1,0 +1,38 @@
+{
+  "id": "B-003",
+  "title": "Abraham’s Call",
+  "reference": "Genesis 12",
+  "difficulty": "Beginner",
+  "events": [
+    {
+      "id": "e1",
+      "text": "God tells Abram to leave his country",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Abram departs from Haran",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Abram travels through Canaan",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "God promises the land to Abram’s descendants",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Abram builds an altar to the Lord",
+      "correctIndex": 4
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Genesis",
+    "Abraham"
+  ]
+}

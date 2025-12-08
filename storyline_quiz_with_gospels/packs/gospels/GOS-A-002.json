@@ -1,0 +1,73 @@
+{
+  "id": "GOS-A-002",
+  "title": "Extended Ministry in Galilee",
+  "reference": "Matthew 4–7; Mark 1–3",
+  "difficulty": "Advanced",
+  "events": [
+    {
+      "id": "e1",
+      "text": "Jesus begins preaching the kingdom",
+      "correctIndex": 0
+    },
+    {
+      "id": "e2",
+      "text": "Jesus calls His first disciples",
+      "correctIndex": 1
+    },
+    {
+      "id": "e3",
+      "text": "Jesus heals the sick throughout Galilee",
+      "correctIndex": 2
+    },
+    {
+      "id": "e4",
+      "text": "Crowds gather from every direction",
+      "correctIndex": 3
+    },
+    {
+      "id": "e5",
+      "text": "Jesus goes up the mountain to teach",
+      "correctIndex": 4
+    },
+    {
+      "id": "e6",
+      "text": "Jesus proclaims the Beatitudes",
+      "correctIndex": 5
+    },
+    {
+      "id": "e7",
+      "text": "Jesus teaches about fulfilling the Law",
+      "correctIndex": 6
+    },
+    {
+      "id": "e8",
+      "text": "Jesus instructs on prayer and fasting",
+      "correctIndex": 7
+    },
+    {
+      "id": "e9",
+      "text": "Jesus warns against hypocrisy",
+      "correctIndex": 8
+    },
+    {
+      "id": "e10",
+      "text": "Jesus teaches on anxiety and trust",
+      "correctIndex": 9
+    },
+    {
+      "id": "e11",
+      "text": "Jesus warns about judging others",
+      "correctIndex": 10
+    },
+    {
+      "id": "e12",
+      "text": "Jesus teaches about the narrow gate",
+      "correctIndex": 11
+    }
+  ],
+  "distractors": [],
+  "tags": [
+    "Gospels",
+    "Teaching"
+  ]
+}
