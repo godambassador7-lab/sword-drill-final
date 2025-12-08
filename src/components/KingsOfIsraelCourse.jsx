@@ -36,6 +36,11 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   useEffect(() => {
     if (userData?.kingsOfIsraelProgress) {
       console.log('🔄 [KingsOfIsrael] Syncing from userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
+      console.log('📊 [KingsOfIsrael] Progress details:', {
+        beginner: userData.kingsOfIsraelProgress.beginner || [],
+        intermediate: userData.kingsOfIsraelProgress.intermediate || [],
+        advanced: userData.kingsOfIsraelProgress.advanced || []
+      });
       setCompletedKings(userData.kingsOfIsraelProgress);
       // Don't mark as initialized here - let the timer do it to avoid immediate saves
     }
@@ -612,8 +617,10 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                             // Save immediately to localStorage and Firebase
                             localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
                             console.log('💾 Saved to localStorage immediately');
+                            console.log('💾 localStorage data:', JSON.stringify(updatedCompletedKings));
 
                             setCompletedKings(updatedCompletedKings);
+                            console.log('📝 Updated completedKings state with:', updatedCompletedKings);
 
                             // Save to Firebase synchronously before navigation
                             if (userId && setUserData && updateUserProgress) {
