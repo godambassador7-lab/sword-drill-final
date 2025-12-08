@@ -59,6 +59,7 @@ import GeezCourse from './components/GeezCourse';
 import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
+import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
 import TutorialHelp from './components/TutorialHelp';
@@ -5822,13 +5823,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="text-amber-400 font-bold text-lg">6000 pts</div>
               </div>
               {userData.unlockables?.targumJonathan ? (
-                <div className="bg-cyan-600/20 text-cyan-300 font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-between">
-                  <span>✓ Unlocked</span>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => setCurrentView('targum-jonathan-reader')}
+                    className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold py-2 rounded-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    <BookOpen size={18} />
+                    Read in App
+                  </button>
                   <a
                     href={`${process.env.PUBLIC_URL}/The-Targum-of-Jonathan-Ben-Uzziel.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-200 hover:text-cyan-100 underline text-sm"
+                    className="block text-center text-cyan-200 hover:text-cyan-100 underline text-sm py-1"
                   >
                     View PDF
                   </a>
@@ -5883,13 +5890,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="text-amber-400 font-bold text-lg">6000 pts</div>
               </div>
               {userData.unlockables?.targumOnkelos ? (
-                <div className="bg-teal-600/20 text-teal-300 font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-between">
-                  <span>✓ Unlocked</span>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => setCurrentView('targum-onkelos-reader')}
+                    className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold py-2 rounded-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    <BookOpen size={18} />
+                    Read in App
+                  </button>
                   <a
                     href={`${process.env.PUBLIC_URL}/targumjonathant00churgoog.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-teal-200 hover:text-teal-100 underline text-sm"
+                    className="block text-center text-teal-200 hover:text-teal-100 underline text-sm py-1"
                   >
                     View PDF
                   </a>
@@ -8127,6 +8140,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+          />
+        )}
+        {currentView === 'targum-jonathan-reader' && (
+          <TargumReader
+            onBack={() => setCurrentView('home')}
+            userData={userData}
+            targumType="jonathan"
+          />
+        )}
+        {currentView === 'targum-onkelos-reader' && (
+          <TargumReader
+            onBack={() => setCurrentView('home')}
+            userData={userData}
+            targumType="onkelos"
           />
         )}
         {currentView === 'practice-review' && (
