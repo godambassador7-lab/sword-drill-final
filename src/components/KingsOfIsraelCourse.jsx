@@ -75,16 +75,29 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
   }, [userId, userData, setUserData]);
 
-  // Mark as initialized after a delay if userData is present (whether or not it has kingsOfIsraelProgress)
+  // Mark as initialized ONLY after Firebase data has been processed or confirmed absent
   useEffect(() => {
     if (userData !== null && userData !== undefined) {
-      // userData has loaded, safe to start saving changes after a delay
+      // Check if we've already loaded Firebase progress data
+      const hasLoadedProgress = userData.kingsOfIsraelProgress !== undefined;
+
+      if (hasLoadedProgress && !isInitialMount) {
+        // Already initialized, nothing to do
+        return;
+      }
+
+      // Wait for progress to load or confirm it doesn't exist
       const timer = setTimeout(() => {
         if (isInitialMount) {
-          console.log('✅ [KingsOfIsrael] Marking as initialized - userData loaded');
-          setIsInitialMount(false);
+          // After delay, check again if progress exists
+          if (userData.kingsOfIsraelProgress !== undefined || userData.kingsOfIsraelProgress === null) {
+            console.log('✅ [KingsOfIsrael] Marking as initialized - Firebase data processed');
+            setIsInitialMount(false);
+          } else {
+            console.log('⏳ [KingsOfIsrael] Still waiting for Firebase data...');
+          }
         }
-      }, 1000); // 1 second delay to ensure all syncing and loading is complete
+      }, 1500); // 1.5 second delay to ensure Firebase loads
       return () => clearTimeout(timer);
     }
   }, [userData, isInitialMount]);
