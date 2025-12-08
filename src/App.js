@@ -37,7 +37,8 @@ import {
   Plus,
   FileText,
   AlertTriangle,
-  Coins
+  Coins,
+  Shield
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
