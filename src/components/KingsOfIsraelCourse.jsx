@@ -30,12 +30,14 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState({});
   const [isStudyMode, setIsStudyMode] = useState(true); // Track study vs quiz mode for intermediate/advanced
+  const [isInitialMount, setIsInitialMount] = useState(true); // Track initial mount to prevent overwriting Firebase data
 
   // Sync completed kings when userData loads/changes (handles late-arriving Firebase data)
   useEffect(() => {
     if (userData?.kingsOfIsraelProgress) {
       console.log('🔄 [KingsOfIsrael] Syncing from userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
       setCompletedKings(userData.kingsOfIsraelProgress);
+      setIsInitialMount(false); // Mark that we've loaded data from Firebase
     }
   }, [userData?.kingsOfIsraelProgress]);
 
@@ -57,6 +59,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         })
           .then(() => {
             console.log('✓ AUTO-SYNC: Successfully synced Kings of Israel progress to Firebase');
+            setIsInitialMount(false); // Mark as initialized after auto-sync
           })
           .catch(err => {
             console.error('❌ AUTO-SYNC: Error syncing Kings of Israel progress to Firebase:', err);
@@ -67,8 +70,28 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
   }, [userId, userData, setUserData]);
 
+  // Mark as initialized after a short delay if userData is present (whether or not it has kingsOfIsraelProgress)
+  useEffect(() => {
+    if (userData !== null && userData !== undefined) {
+      // userData has loaded, safe to start saving changes
+      const timer = setTimeout(() => {
+        if (isInitialMount) {
+          console.log('✅ [KingsOfIsrael] Marking as initialized - userData loaded');
+          setIsInitialMount(false);
+        }
+      }, 500); // Small delay to ensure all syncing is complete
+      return () => clearTimeout(timer);
+    }
+  }, [userData, isInitialMount]);
+
   // Save progress to both localStorage and Firebase whenever completedKings changes
   useEffect(() => {
+    // Skip saving on initial mount to avoid overwriting Firebase data
+    if (isInitialMount) {
+      console.log('⏭️ [KingsOfIsrael] Skipping save on initial mount');
+      return;
+    }
+
     console.log('💾 [KingsOfIsrael] Saving completedKings to localStorage and Firebase:', completedKings);
     localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(completedKings));
 
@@ -90,7 +113,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     } else {
       console.log('ℹ️ [KingsOfIsrael] Not syncing to Firebase - userId:', userId, 'setUserData:', !!setUserData, 'updateUserProgress:', !!updateUserProgress);
     }
-  }, [completedKings, userId, setUserData]);
+  }, [completedKings, userId, setUserData, isInitialMount]);
 
   // Shuffle array helper
   const shuffleArray = (array) => {
