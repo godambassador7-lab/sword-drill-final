@@ -165,6 +165,25 @@ const TutorialHelp = ({ onBack }) => {
             'Time bonuses: +30-50 points for fast completion',
             'Includes special Gospel-focused packs'
           ]
+        },
+        {
+          title: '🧠 Biblical or Nah? (NEW!)',
+          content: 'Challenge your knowledge of what\'s actually in the Bible! Over 200 phrases test whether common sayings, church clichés, and popular quotes are truly biblical or not.',
+          tips: [
+            'Identify if phrases are actually found in Scripture',
+            'Learn about commonly misattributed quotes',
+            'Discover the real context of misapplied verses',
+            'Beginner tier: 35 common church sayings',
+            'Intermediate tier: 36 trickier phrases',
+            'Advanced tier: 129 challenging cultural proverbs',
+            'Each answer includes detailed explanations',
+            'Scripture references provided for context',
+            'Time bonuses for quick correct answers (under 5 seconds)',
+            'Streak tracking rewards consecutive correct answers',
+            'Difficulty multipliers: Beginner (1x), Intermediate (1.5x), Advanced (2x)',
+            'Examples: "God helps those who help themselves" (NOT in Bible!)',
+            'Perfect for apologetics and biblical literacy'
+          ]
         }
       ]
     },
@@ -806,12 +825,23 @@ const TutorialHelp = ({ onBack }) => {
           title: 'Version 2.5 - December 2025',
           content: 'Major update bringing powerful new financial features, comprehensive analytics, and quality-of-life improvements!',
           tips: [
+            '🧠 NEW: Biblical or Nah? - 200+ phrases testing if sayings are actually in the Bible',
+            '❓ Challenges common church clichés and misattributed quotes',
+            '📚 Detailed explanations with scripture references for each answer',
+            '🎯 3 difficulty tiers: Beginner (35), Intermediate (36), Advanced (129)',
+            '⚡ Streak tracking and time-based scoring bonuses',
             '⚡ NEW: Storyline Quiz - Order biblical events chronologically with drag-and-drop',
             '📖 44+ quiz packs covering Genesis to Gospels with 4 difficulty tiers',
             '⏱️ Timed challenges: 180s (Beginner) to 300s (Legendary)',
             '🎯 Smart scoring: Perfect placement, near-miss bonuses, time bonuses',
             '🏆 Perfect Order Bonus: +20 to +100 points based on difficulty',
             '⚡ Time completion bonuses: +30-50 points for fast solvers',
+            '🔍 FIXED: Word Search highlighting for multi-word phrases (WATER TO WINE, WALK ON WATER)',
+            '🔥 FIXED: Streak flame colors now change every 10 days (10, 20, 30, 40, 50, 100+)',
+            '☁️ FIXED: Cross-device sync - Firebase is now authoritative source for streak/points',
+            '📊 FIXED: Course progress now syncs properly across all devices',
+            '📱 IMPROVED: Mobile responsiveness for all course layouts',
+            '🌳 NEW: Biblical Bloodlines tiered navigation - Ancestry DNA-style family tree exploration',
             '💰 NEW: Points Bank - Complete investment system with ROI based on activity',
             '📊 Invest points for 7-90 days and earn returns based on your streak and quiz rate',
             '⚠️ Early withdrawal penalty (50%) discourages premature withdrawals',

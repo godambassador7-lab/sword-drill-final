@@ -3,8 +3,9 @@ import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll, AlertCircle
 } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const AmharicCourse = ({ onComplete, onCancel }) => {
+const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [courseData, setCourseData] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
@@ -13,12 +14,16 @@ const AmharicCourse = ({ onComplete, onCancel }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showExam, setShowExam] = useState(false);
   const [quizScore, setQuizScore] = useState(null);
-  const [completedLessons, setCompletedLessons] = useState({
-    level1: [],
-    level2: [],
-    level3: []
-  });
-  const [completedLevels, setCompletedLevels] = useState([]);
+  const [completedLessons, setCompletedLessons] = useState(
+    userData?.amharicProgress?.completedLessons || {
+      level1: [],
+      level2: [],
+      level3: []
+    }
+  );
+  const [completedLevels, setCompletedLevels] = useState(
+    userData?.amharicProgress?.completedLevels || []
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -43,6 +48,26 @@ const AmharicCourse = ({ onComplete, onCancel }) => {
         setLoading(false);
       });
   }, []);
+
+  // Hydrate from userData when it updates
+  useEffect(() => {
+    if (userData?.amharicProgress) {
+      setCompletedLessons(userData.amharicProgress.completedLessons || { level1: [], level2: [], level3: [] });
+      setCompletedLevels(userData.amharicProgress.completedLevels || []);
+    }
+  }, [userData?.amharicProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedLessons, completedLevels };
+    localStorage.setItem('amharicProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, amharicProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { amharicProgress: progress }).catch(err => console.error('Error saving Amharic progress:', err));
+    }
+  }, [completedLessons, completedLevels, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (levelId) => {

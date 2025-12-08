@@ -31,6 +31,14 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [shuffledOptions, setShuffledOptions] = useState({});
   const [isStudyMode, setIsStudyMode] = useState(true); // Track study vs quiz mode for intermediate/advanced
 
+  // Sync completed kings when userData loads/changes (handles late-arriving Firebase data)
+  useEffect(() => {
+    if (userData?.kingsOfIsraelProgress) {
+      console.log('🔄 [KingsOfIsrael] Syncing from userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
+      setCompletedKings(userData.kingsOfIsraelProgress);
+    }
+  }, [userData?.kingsOfIsraelProgress]);
+
   // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
   useEffect(() => {
     const localSaved = localStorage.getItem('kingsOfIsraelProgress');
@@ -61,10 +69,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
   // Save progress to both localStorage and Firebase whenever completedKings changes
   useEffect(() => {
+    console.log('💾 [KingsOfIsrael] Saving completedKings to localStorage and Firebase:', completedKings);
     localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(completedKings));
 
     // Sync to Firebase if user is logged in
     if (userId && setUserData && updateUserProgress) {
+      console.log('☁️ [KingsOfIsrael] Syncing to Firebase for user:', userId);
       setUserData(prev => ({
         ...prev,
         kingsOfIsraelProgress: completedKings
@@ -72,9 +82,13 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
       updateUserProgress(userId, {
         kingsOfIsraelProgress: completedKings
+      }).then(() => {
+        console.log('✅ [KingsOfIsrael] Successfully saved to Firebase');
       }).catch(err => {
-        console.error('Error saving Kings of Israel progress to Firebase:', err);
+        console.error('❌ [KingsOfIsrael] Error saving to Firebase:', err);
       });
+    } else {
+      console.log('ℹ️ [KingsOfIsrael] Not syncing to Firebase - userId:', userId, 'setUserData:', !!setUserData, 'updateUserProgress:', !!updateUserProgress);
     }
   }, [completedKings, userId, setUserData]);
 
@@ -136,6 +150,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const getLevelProgress = (level) => {
     const total = kingsData[level]?.length || 0;
     const completed = completedKings[level]?.length || 0;
+    console.log(`📊 [getLevelProgress] Level: ${level}, Completed: ${completed}, Total: ${total}, Array:`, completedKings[level]);
     return { completed, total, percentage: total > 0 ? (completed / total) * 100 : 0 };
   };
 
@@ -556,14 +571,23 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     </button>
                     <button
                       onClick={() => {
+                        console.log(`🎯 Quiz Results - Score: ${score}/5, King Index: ${currentKingIndex}, Level: beginner`);
+                        console.log(`📋 Current completedKings.beginner:`, completedKings.beginner);
                         if (score >= 4) {
+                          console.log('✅ Score >= 4, checking if already completed...');
                           // Mark as completed and move to next
                           if (!completedKings.beginner.includes(currentKingIndex)) {
+                            console.log('➕ Adding king to completed list');
                             setCompletedKings(prev => ({
                               ...prev,
                               beginner: [...prev.beginner, currentKingIndex]
                             }));
+                          } else {
+                            console.log('ℹ️ King already in completed list');
                           }
+                        } else {
+                          console.log('❌ Score < 4, not marking as completed');
+                        }
 
                           if (currentKingIndex < kingsData.beginner.length - 1) {
                             setCurrentKingIndex(currentKingIndex + 1);

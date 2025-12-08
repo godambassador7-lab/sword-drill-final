@@ -3,11 +3,21 @@
 Bible memorization and study companion built with React. Includes Sword Drill Ultimate quizzes, Bible reader, verse detective, achievements, and progress tracking backed by Firebase. Deploys to GitHub Pages and is PWA-ready once the service worker and manifest are wired in.
 
 ## Features
-- Sword Drill Ultimate timed quiz with sound effects, background music, and streaks.
-- Bible reader with references, lexicon links, and study plans (97+ plans in data files).
-- Achievements and progress saved to Firebase Realtime Database.
-- Personal Verse Detective, multiple-choice flows, Hebrew calendar integrations, and more ancillary study tools.
-- Responsive Tailwind UI (Tailwind via CDN in `public/index.html`).
+- **Sword Drill Ultimate** timed quiz with sound effects, background music, and streaks.
+- **Biblical or Nah?** 🆕 - 200+ quiz testing if common phrases are actually in the Bible
+- **Storyline Quiz** - Chronological drag-and-drop event ordering with 44+ packs
+- **Bible Word Search Journey** - 250 puzzles with hints, time bonuses, and progress tracking
+- **Words of Jesus or Not?** - Fast-paced 30-second challenge
+- **Biblical Spelling Bee** - Unscramble biblical words
+- **Bible Trivia Challenge** - 750+ questions across 3 difficulty levels
+- **Bible reader** with references, lexicon links, and 97+ study plans
+- **Courses**: Kings of Israel, Ancient Hebrew, Koine Greek, Hermeneutics, Church History, Textual Criticism
+- **Biblical Bloodlines** - Ancestry DNA-style family tree exploration
+- **Spiritual Gifts Exam** - Discover your spiritual gifts with detailed analysis
+- **Points Bank** - Investment system with ROI based on activity
+- **Achievements and progress** saved to Firebase with cross-device sync
+- **Personal Verse Detective**, multiple-choice flows, Hebrew calendar integrations
+- **Responsive mobile-optimized** Tailwind UI
 
 ## Tech Stack
 - React 19 / react-scripts 5

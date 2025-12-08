@@ -44,6 +44,7 @@ import BookOrderQuiz from './components/BookOrderQuiz';
 import SwordDrillUltimate from './components/SwordDrillUltimate';
 import BiblicalSpellingBee from './components/BiblicalSpellingBee';
 import BiblicalBloodlines from './components/BiblicalBloodlines';
+import BiblicalOrNah from './components/BiblicalOrNah';
 import WordsOfJesus from './components/WordsOfJesus';
 import StorylineQuiz from './components/StorylineQuiz';
 import StableInput from './components/StableInput';
@@ -6450,6 +6451,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-yellow-50 text-sm font-semibold">750+ Questions • 3 Levels • Extra Points!</div>
         </button>
         <button
+          onClick={() => setCurrentView('biblical-or-nah')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white p-4 rounded-xl border-2 border-fuchsia-400 hover:border-fuchsia-300 transition-all text-left disabled:opacity-50 shadow-lg"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            🧠 Biblical or Nah?
+            <span className="text-fuchsia-200 text-sm">🆕 NEW!</span>
+          </div>
+          <div className="text-fuchsia-100 text-sm">200+ phrases • Is it really in the Bible? • Test your knowledge!</div>
+        </button>
+        <button
           onClick={() => setCurrentView('words-of-jesus')}
           disabled={loading}
           className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
@@ -7209,6 +7221,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-or-nah' && (
+          <BiblicalOrNah
+            onBack={() => setCurrentView('bonus-quizzes')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
           />
         )}
         {currentView === 'words-of-jesus' && (

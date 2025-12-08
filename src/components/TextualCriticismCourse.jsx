@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Lightbulb, Scroll, Search
@@ -6,11 +6,12 @@ import {
 import quizData from '../data/textual_criticism_course/quiz_content.json';
 import lessonContent from '../data/textual_criticism_course/lesson_content.json';
 import TextualCriticismQuiz from './TextualCriticismQuiz';
+import { updateUserProgress } from '../services/dbService';
 
-const TextualCriticismCourse = ({ onComplete, onCancel }) => {
+const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedModule, setSelectedModule] = useState(null);
-  const [completedModules, setCompletedModules] = useState([]);
-  const [quizScores, setQuizScores] = useState({});
+  const [completedModules, setCompletedModules] = useState(userData?.textualCriticismProgress?.completedModules || []);
+  const [quizScores, setQuizScores] = useState(userData?.textualCriticismProgress?.quizScores || {});
   const [showQuiz, setShowQuiz] = useState(false);
 
   // Course modules based on the folder structure
@@ -79,6 +80,26 @@ const TextualCriticismCourse = ({ onComplete, onCancel }) => {
     const completed = completedModules.length;
     return { completed, total, percentage: (completed / total) * 100 };
   };
+
+  // Hydrate from userData changes
+  useEffect(() => {
+    if (userData?.textualCriticismProgress) {
+      setCompletedModules(userData.textualCriticismProgress.completedModules || []);
+      setQuizScores(userData.textualCriticismProgress.quizScores || {});
+    }
+  }, [userData?.textualCriticismProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedModules, quizScores };
+    localStorage.setItem('textualCriticismProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, textualCriticismProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { textualCriticismProgress: progress }).catch(err => console.error('Error saving Textual Criticism progress:', err));
+    }
+  }, [completedModules, quizScores, userId, setUserData]);
 
   const handleStartQuiz = () => {
     setShowQuiz(true);

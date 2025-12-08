@@ -3,19 +3,18 @@ import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Book
 } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const AramaicCourse = ({ onComplete, onCancel }) => {
+const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
   const [biblicalTexts, setBiblicalTexts] = useState(null);
   const [galileanData, setGalileanData] = useState(null);
   const [showExam, setShowExam] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState({
-    level1: [],
-    level2: [],
-    level3: []
-  });
-  const [completedLevels, setCompletedLevels] = useState([]);
+  const [completedLessons, setCompletedLessons] = useState(
+    userData?.aramaicProgress?.completedLessons || { level1: [], level2: [], level3: [] }
+  );
+  const [completedLevels, setCompletedLevels] = useState(userData?.aramaicProgress?.completedLevels || []);
   const [loading, setLoading] = useState(true);
 
   // Define course structure inline since there's no manifest
@@ -59,6 +58,26 @@ const AramaicCourse = ({ onComplete, onCancel }) => {
         setLoading(false);
       });
   }, []);
+
+  // Hydrate from user data
+  useEffect(() => {
+    if (userData?.aramaicProgress) {
+      setCompletedLessons(userData.aramaicProgress.completedLessons || { level1: [], level2: [], level3: [] });
+      setCompletedLevels(userData.aramaicProgress.completedLevels || []);
+    }
+  }, [userData?.aramaicProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedLessons, completedLevels };
+    localStorage.setItem('aramaicProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, aramaicProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { aramaicProgress: progress }).catch(err => console.error('Error saving Aramaic progress:', err));
+    }
+  }, [completedLessons, completedLevels, userId, setUserData]);
 
   const isLevelUnlocked = (levelId) => {
     if (levelId === 'level1') return true;

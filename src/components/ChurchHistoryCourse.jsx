@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Church, Globe, Scroll
@@ -7,16 +7,38 @@ import courseData from '../data/church_history_course/course_content.json';
 import quizData from '../data/church_history_course/quiz_content.json';
 import lessonContent from '../data/church_history_course/lesson_content.json';
 import ChurchHistoryQuiz from './ChurchHistoryQuiz';
+import { updateUserProgress } from '../services/dbService';
 
-const ChurchHistoryCourse = ({ onComplete, onCancel }) => {
+const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState({
-    beginner: [],
-    intermediate: [],
-    advanced: []
-  });
+  const [completedLessons, setCompletedLessons] = useState(
+    userData?.churchHistoryProgress?.completedLessons || {
+      beginner: [],
+      intermediate: [],
+      advanced: []
+    }
+  );
+
+  // Hydrate from userData
+  useEffect(() => {
+    if (userData?.churchHistoryProgress?.completedLessons) {
+      setCompletedLessons(userData.churchHistoryProgress.completedLessons);
+    }
+  }, [userData?.churchHistoryProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedLessons };
+    localStorage.setItem('churchHistoryProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, churchHistoryProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { churchHistoryProgress: progress }).catch(err => console.error('Error saving Church History progress:', err));
+    }
+  }, [completedLessons, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {

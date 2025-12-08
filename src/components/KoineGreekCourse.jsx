@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Play
@@ -6,16 +6,42 @@ import {
 import { koineGreekModules } from '../data/koineGreekCourse';
 import { koineLessonContent } from '../data/koineGreekLessonContent';
 import GreekQuizManager from './GreekQuizManager';
+import { updateUserProgress } from '../services/dbService';
 
-const KoineGreekCourse = ({ onComplete, onCancel }) => {
+const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null); // 'beginner', 'intermediate', 'advanced'
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showQuizManager, setShowQuizManager] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState({
-    beginner: [],
-    intermediate: [],
-    advanced: []
+  const [completedLessons, setCompletedLessons] = useState(() => {
+    return userData?.koineGreekProgress?.completedLessons || {
+      beginner: [],
+      intermediate: [],
+      advanced: []
+    };
   });
+
+  // Hydrate from userData when it changes (handles late Firebase load)
+  useEffect(() => {
+    if (userData?.koineGreekProgress?.completedLessons) {
+      setCompletedLessons(userData.koineGreekProgress.completedLessons);
+    }
+  }, [userData?.koineGreekProgress]);
+
+  // Persist progress to localStorage + Firebase
+  useEffect(() => {
+    const progressPayload = { completedLessons };
+    localStorage.setItem('koineGreekProgress', JSON.stringify(progressPayload));
+
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, koineGreekProgress: progressPayload }));
+    }
+
+    if (userId) {
+      updateUserProgress(userId, { koineGreekProgress: progressPayload }).catch(err =>
+        console.error('Error saving Koine Greek progress:', err)
+      );
+    }
+  }, [completedLessons, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {

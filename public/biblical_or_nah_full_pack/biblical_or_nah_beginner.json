@@ -1,0 +1,457 @@
+{
+  "quizTitle": "Biblical or Nah \u2013 Beginner Pack",
+  "description": "Entry-level phrases and clich\u00e9s, ideal for new players testing what is and is not actually in the Bible.",
+  "difficultyTier": "beginner",
+  "items": [
+    {
+      "id": 1,
+      "saying": "God will not put more on you than you can bear",
+      "truthType": "MisappliedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "1 Corinthians 10:13",
+        "2 Corinthians 1:8-9"
+      ],
+      "explanation": "This saying is not a Bible verse. It blends language from 1 Corinthians 10:13 with a modern clich\u00e9. In context, Paul is talking about temptation, not all forms of suffering. The Bible actually shows believers facing trials that are beyond their own strength so that they will rely on God (2 Corinthians 1:8\u20139)."
+    },
+    {
+      "id": 2,
+      "saying": "Cleanliness is next to godliness",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Matthew 23:25-28"
+      ],
+      "explanation": "This line is famously associated with John Wesley and older moralist sayings, not with Scripture. The Bible does speak about purity of heart and moral cleanliness, but it does not equate physical hygiene with godliness nor use this phrase. Jesus actually rebuked those who were outwardly clean but inwardly corrupt (Matthew 23:25\u201328)."
+    },
+    {
+      "id": 3,
+      "saying": "This too shall pass",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Psalm 30:5",
+        "2 Corinthians 4:17"
+      ],
+      "explanation": "People often quote this as if it were a verse, but the exact phrase is not in the Bible. It likely comes from medieval or later proverbial wisdom. The general idea that suffering is temporary does match biblical themes like Psalm 30:5 and 2 Corinthians 4:17, but the wording itself is not Scripture."
+    },
+    {
+      "id": 4,
+      "saying": "God helps those who help themselves",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Romans 5:6",
+        "Psalm 121:1-2"
+      ],
+      "explanation": "This line is often wrongly attributed to the Bible but actually comes from Greek philosophy and was popularized by Benjamin Franklin. Scripture repeatedly shows God helping the weak, helpless, and undeserving\u2014those who cannot help themselves (Romans 5:6). It emphasizes dependence on God, not self-reliance."
+    },
+    {
+      "id": 5,
+      "saying": "Spare the rod, spoil the child",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "MisquotedVerse",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Proverbs 13:24"
+      ],
+      "explanation": "This phrase is a rhyming proverb from English literature, not a direct Bible quotation. The Bible does speak about the 'rod' as a metaphor for discipline in places like Proverbs 13:24, but it never uses the phrase 'spoil the child.' The modern wording can oversimplify a broader biblical teaching about loving, measured discipline."
+    },
+    {
+      "id": 6,
+      "saying": "Only God can judge me",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "1 Corinthians 5:12-13",
+        "John 7:24"
+      ],
+      "explanation": "It is true that God is the ultimate Judge of all people. However, this slogan is often used to shut down any correction or accountability. Scripture actually commands the church to practice righteous judgment within the community (1 Corinthians 5:12\u201313) and to judge with right judgment (John 7:24). The phrase, as commonly used, does not reflect the full biblical picture."
+    },
+    {
+      "id": 7,
+      "saying": "Follow your heart",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Jeremiah 17:9",
+        "Proverbs 3:5-6"
+      ],
+      "explanation": "Modern culture encourages people to 'follow their heart,' but Scripture warns that the heart is deceitful and corrupt apart from God (Jeremiah 17:9). Instead of following our own impulses, the Bible calls us to trust in the Lord, submit to His ways, and have our hearts transformed by Him (Proverbs 3:5\u20136)."
+    },
+    {
+      "id": 8,
+      "saying": "The lion shall lay down with the lamb",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Isaiah 11:6"
+      ],
+      "explanation": "This is one of the most famous misquotations of Scripture. Isaiah 11:6 actually says that 'the wolf shall dwell with the lamb.' Later prophetic imagery uses lions, but the specific peaceful pairing in that verse is between a wolf and a lamb, not a lion and a lamb."
+    },
+    {
+      "id": 9,
+      "saying": "God works in mysterious ways",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Isaiah 55:8-9"
+      ],
+      "explanation": "The Bible does teach that God's thoughts and ways are higher than ours (Isaiah 55:8\u20139), but the exact phrase 'God works in mysterious ways' comes from an 18th-century hymn by William Cowper. It reflects a true idea about God's wisdom but is not itself a verse."
+    },
+    {
+      "id": 10,
+      "saying": "The devil made me do it",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "James 1:13-15"
+      ],
+      "explanation": "Blaming Satan for sin is a common joke, but Scripture puts responsibility on the human heart. James 1:13\u201315 teaches that people are drawn away by their own desires. The devil may tempt, but he does not remove personal accountability for sin."
+    },
+    {
+      "id": 11,
+      "saying": "God knows my heart",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Jeremiah 17:10",
+        "Hebrews 4:13"
+      ],
+      "explanation": "This is true in itself\u2014God does know the heart (Jeremiah 17:10). However, people often say it to excuse sin or disobedience. Biblically, God knowing the heart is usually a warning, because nothing is hidden from Him (Hebrews 4:13). It is a call to repentance, not a shield from correction."
+    },
+    {
+      "id": 12,
+      "saying": "A family that prays together stays together",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Ephesians 6:1-4",
+        "Colossians 3:18-21"
+      ],
+      "explanation": "This slogan is not found in Scripture. While prayer is vital for families, the Bible does not promise that prayer will automatically keep every family intact. Scripture emphasizes obedience to God's commands, love, forgiveness, and humility in the home."
+    },
+    {
+      "id": 13,
+      "saying": "Let go and let God",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Philippians 2:12-13",
+        "Ephesians 6:10-13"
+      ],
+      "explanation": "This phrase suggests a kind of passive surrender that can be misleading. Scripture calls believers both to trust in God and to actively obey, fight sin, and stand firm (Philippians 2:12\u201313; Ephesians 6:10\u201313). The Christian life is not passive resignation but Spirit-empowered effort rooted in God's grace."
+    },
+    {
+      "id": 14,
+      "saying": "What goes around comes around",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Galatians 6:7"
+      ],
+      "explanation": "This saying reflects a general idea similar to the biblical principle of sowing and reaping (Galatians 6:7), but it is more closely related to concepts of karma and impersonal fate. Scripture teaches moral consequences under a personal God, not an automatic force built into the universe."
+    },
+    {
+      "id": 15,
+      "saying": "God won't bring you to it if He won't bring you through it",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Isaiah 43:2",
+        "Revelation 2:10"
+      ],
+      "explanation": "This line is meant to encourage, but it can oversimplify suffering. God does promise to be with His people in trials (Isaiah 43:2), yet some believers are called even to suffer unto death (Revelation 2:10). Deliverance may be ultimate and eternal rather than immediate and earthly."
+    },
+    {
+      "id": 16,
+      "saying": "Pride comes before a fall",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "easy",
+      "category": "Proverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Proverbs 16:18"
+      ],
+      "explanation": "This saying is very close to Proverbs 16:18: 'Pride goes before destruction, and a haughty spirit before a fall.' The shortened form captures the biblical warning that arrogant self-confidence leads to ruin."
+    },
+    {
+      "id": 17,
+      "saying": "The meek shall inherit the earth",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "easy",
+      "category": "BiblicalQuote",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Matthew 5:5"
+      ],
+      "explanation": "This is a direct quotation from Jesus' Sermon on the Mount (Matthew 5:5). Biblically, meekness is not weakness but strength under God's control\u2014those who trust God rather than asserting themselves will ultimately share in His kingdom."
+    },
+    {
+      "id": 18,
+      "saying": "The truth will set you free",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "easy",
+      "category": "BiblicalQuote",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "John 8:31-32"
+      ],
+      "explanation": "Jesus speaks these words in John 8:31\u201332 to those who believe in Him: 'You will know the truth, and the truth will set you free.' In context, the truth that frees is the truth about Christ and His word, not merely general facts or honesty."
+    },
+    {
+      "id": 19,
+      "saying": "Judge not, lest ye be judged",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "medium",
+      "category": "BiblicalQuote",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Matthew 7:1-5"
+      ],
+      "explanation": "This quote comes from Matthew 7:1. However, Jesus goes on to explain that we must remove the log from our own eye before addressing the speck in our brother\u2019s eye, and later He warns against false prophets. The passage condemns hypocritical judgment, not all moral discernment."
+    },
+    {
+      "id": 20,
+      "saying": "Sticks and stones may break my bones, but words will never hurt me",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "CulturalProverb",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Proverbs 18:21",
+        "James 3:5-8"
+      ],
+      "explanation": "This playground rhyme directly contradicts Scripture. The Bible teaches that words can wound, destroy, and bring death (Proverbs 18:21; James 3:5\u20138). God takes speech seriously because it reflects the heart."
+    },
+    {
+      "id": 21,
+      "saying": "God wants you to be happy",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "1 Thessalonians 4:3",
+        "Psalm 16:11"
+      ],
+      "explanation": "God does delight in His people's joy, but Scripture never says His main goal is our earthly happiness. The Bible emphasizes holiness and conformity to Christ (1 Thessalonians 4:3). True, lasting joy is found in God's presence and righteousness (Psalm 16:11), not in chasing comfort."
+    },
+    {
+      "id": 22,
+      "saying": "We are all God\u2019s children",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "Doctrine",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Acts 17:28-29",
+        "John 1:12"
+      ],
+      "explanation": "All humans are God's creatures and bear His image, but the New Testament reserves the title 'children of God' in a special sense for those who receive and believe in Christ (John 1:12). Paul can speak of humanity as God's offspring in a creational sense (Acts 17:28\u201329), but spiritual adoption is tied to faith."
+    },
+    {
+      "id": 23,
+      "saying": "Hate the sin, love the sinner",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Jude 1:22-23",
+        "Romans 5:8"
+      ],
+      "explanation": "This phrase does not appear in the Bible but summarizes an important tension. God shows love to sinners (Romans 5:8) while hating sin. Jude 1:22\u201323 urges believers to show mercy while hating even the garment stained by the flesh. The danger is using the slogan without truly confronting sin or truly loving people."
+    },
+    {
+      "id": 24,
+      "saying": "God never gives you more than you can handle",
+      "truthType": "MisappliedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "1 Corinthians 10:13",
+        "2 Corinthians 12:9-10"
+      ],
+      "explanation": "This is another version of the earlier clich\u00e9 about God not putting more on you than you can bear. The Bible shows God allowing overwhelming weakness so that His power may be displayed in human frailty (2 Corinthians 12:9\u201310). The promise of 1 Corinthians 10:13 concerns temptation, not every kind of burden."
+    },
+    {
+      "id": 25,
+      "saying": "God will never leave you nor forsake you",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "easy",
+      "category": "BiblicalQuote",
+      "xpReward": 10,
+      "scriptureRefs": [
+        "Deuteronomy 31:6",
+        "Hebrews 13:5"
+      ],
+      "explanation": "This is a faithful summary of a promise God gives His people. In Deuteronomy 31:6 and Hebrews 13:5, God assures those who trust in Him that He will not abandon them. The fullness of this promise belongs to those who are in Christ."
+    },
+    {
+      "id": 157,
+      "saying": "God will fix it somehow",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'God will fix it somehow' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 158,
+      "saying": "Prayer changes things",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'Prayer changes things' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 159,
+      "saying": "If you take one step, God will take two",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'If you take one step, God will take two' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 160,
+      "saying": "God never makes mistakes",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'God never makes mistakes' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 161,
+      "saying": "God is good all the time",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'God is good all the time' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 162,
+      "saying": "He\u2019s an on-time God",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'He\u2019s an on-time God' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 163,
+      "saying": "Put it in God\u2019s hands",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'Put it in God\u2019s hands' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 164,
+      "saying": "Let go of the wheel and let God drive",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'Let go of the wheel and let God drive' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 165,
+      "saying": "God sits high and looks low",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'God sits high and looks low' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    },
+    {
+      "id": 166,
+      "saying": "He may not come when you want Him, but He\u2019s right on time",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 10,
+      "scriptureRefs": [],
+      "explanation": "The phrase 'He may not come when you want Him, but He\u2019s right on time' is not a direct Bible verse but expresses a common sentiment in many churches. Some of the ideas behind it can reflect biblical truths about trusting God's timing and sovereignty, yet the wording itself comes from tradition, songs, and devotional speech rather than from a specific passage. Believers should enjoy such phrases while still grounding their faith in what Scripture actually says."
+    }
+  ]
+}

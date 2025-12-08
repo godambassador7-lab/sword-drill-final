@@ -1,0 +1,18 @@
+{
+  "title": "Biblical or Nah \u2013 Full 200+ Pack",
+  "totalItems": 200,
+  "packs": [
+    {
+      "file": "biblical_or_nah_beginner.json",
+      "count": 35
+    },
+    {
+      "file": "biblical_or_nah_intermediate.json",
+      "count": 36
+    },
+    {
+      "file": "biblical_or_nah_advanced.json",
+      "count": 129
+    }
+  ]
+}

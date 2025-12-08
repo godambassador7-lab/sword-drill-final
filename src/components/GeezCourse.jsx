@@ -3,20 +3,19 @@ import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll
 } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const GeezCourse = ({ onComplete, onCancel }) => {
+const GeezCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [courseData, setCourseData] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
   const [quizData, setQuizData] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showExam, setShowExam] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState({
-    level1: [],
-    level2: [],
-    level3: []
-  });
-  const [completedLevels, setCompletedLevels] = useState([]);
+  const [completedLessons, setCompletedLessons] = useState(
+    userData?.geezProgress?.completedLessons || { level1: [], level2: [], level3: [] }
+  );
+  const [completedLevels, setCompletedLevels] = useState(userData?.geezProgress?.completedLevels || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,6 +36,26 @@ const GeezCourse = ({ onComplete, onCancel }) => {
         setLoading(false);
       });
   }, []);
+
+  // Hydrate from user data
+  useEffect(() => {
+    if (userData?.geezProgress) {
+      setCompletedLessons(userData.geezProgress.completedLessons || { level1: [], level2: [], level3: [] });
+      setCompletedLevels(userData.geezProgress.completedLevels || []);
+    }
+  }, [userData?.geezProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedLessons, completedLevels };
+    localStorage.setItem('geezProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, geezProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { geezProgress: progress }).catch(err => console.error('Error saving Ge\'ez progress:', err));
+    }
+  }, [completedLessons, completedLevels, userId, setUserData]);
 
   const isLevelUnlocked = (levelId) => {
     if (levelId === 'level1') return true;

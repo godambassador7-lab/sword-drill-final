@@ -1,0 +1,468 @@
+{
+  "quizTitle": "Biblical or Nah \u2013 Intermediate Pack",
+  "description": "Mixed clich\u00e9s, misquotes, and doctrines that require more careful thinking and biblical familiarity.",
+  "difficultyTier": "intermediate",
+  "items": [
+    {
+      "id": 26,
+      "saying": "God will open a door that no man can shut",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Revelation 3:7-8"
+      ],
+      "explanation": "This phrase paraphrases language from Revelation 3:7\u20138, where Christ speaks of opening and shutting doors. In context, it refers to His sovereign authority over opportunities for witness and the advance of the gospel. The popular saying can become a vague promise about careers or life choices instead of pointing to Christ's kingdom work."
+    },
+    {
+      "id": 27,
+      "saying": "When praises go up, blessings come down",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Psalm 67:3-7",
+        "Ephesians 1:3"
+      ],
+      "explanation": "This line comes from a modern gospel song, not from Scripture. The Bible teaches that God is worthy of praise and does bless His people, but blessings are rooted in His grace and eternal purpose in Christ (Ephesians 1:3), not a mechanical exchange triggered by our praise."
+    },
+    {
+      "id": 28,
+      "saying": "The safest place to be is in the will of God",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Acts 9:15-16",
+        "2 Timothy 3:12"
+      ],
+      "explanation": "In one sense, being in God's will is the only truly secure place eternally. However, in terms of earthly life, doing God's will often leads into danger, persecution, and suffering (Acts 9:15\u201316; 2 Timothy 3:12). The slogan can confuse eternal safety with earthly comfort."
+    },
+    {
+      "id": 29,
+      "saying": "Once saved, always saved",
+      "truthType": "Doctrine",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "Doctrine",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "John 10:28-29",
+        "Hebrews 3:12-14"
+      ],
+      "explanation": "This phrase is not in Scripture and can oversimplify complex doctrines of perseverance and apostasy. The Bible teaches that Christ keeps His sheep (John 10:28\u201329), yet it also warns believers to hold fast and not fall away (Hebrews 3:12\u201314). How these truths fit together is a matter of careful theological discussion, not a slogan."
+    },
+    {
+      "id": 30,
+      "saying": "The sinner\u2019s prayer saves you",
+      "truthType": "Doctrine",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "Doctrine",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Romans 10:9-10",
+        "Acts 2:37-38"
+      ],
+      "explanation": "The Bible never mentions a scripted 'sinner\u2019s prayer.' Salvation comes through repentance and faith in Christ (Romans 10:9\u201310). Praying can be one way of expressing that faith, but the words themselves are not a magic formula. The danger is trusting in a moment and a script instead of in the living Christ."
+    },
+    {
+      "id": 31,
+      "saying": "God accepts you just as you are",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Luke 5:31-32",
+        "Titus 2:11-12"
+      ],
+      "explanation": "Christ welcomes sinners as they are, calling the sick, not the healthy (Luke 5:31\u201332). Yet He does not leave people as they are. Grace trains believers to renounce ungodliness (Titus 2:11\u201312). The slogan is half-true if it ignores God's transforming holiness."
+    },
+    {
+      "id": 32,
+      "saying": "The Bible says \u2018moderation in all things\u2019",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Philippians 4:5"
+      ],
+      "explanation": "The exact phrase 'moderation in all things' is not in Scripture. Philippians 4:5 speaks of believers' reasonableness or gentleness being known to all. The Bible does commend self-control, but the common wording is a paraphrase, not a verse."
+    },
+    {
+      "id": 33,
+      "saying": "The eye is the window to the soul",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "CulturalProverb",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Matthew 6:22-23"
+      ],
+      "explanation": "Jesus teaches that the eye is the lamp of the body (Matthew 6:22\u201323), meaning that how we look at things reveals our inner orientation. The saying 'window to the soul' is a poetic development, not a direct biblical quote."
+    },
+    {
+      "id": 34,
+      "saying": "The Lord works in mysterious ways",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Isaiah 55:8-9"
+      ],
+      "explanation": "This popular line comes from a hymn, not from a specific verse. It gestures toward the true biblical teaching that God\u2019s ways are higher than ours (Isaiah 55:8\u20139), but the exact phrase is not Scripture."
+    },
+    {
+      "id": 35,
+      "saying": "To be absent from the body is to be present with the Lord",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "2 Corinthians 5:6-8",
+        "Philippians 1:23"
+      ],
+      "explanation": "This is a compressed paraphrase of Paul's teaching in 2 Corinthians 5:6\u20138. He expresses confidence that being away from the body means being at home with the Lord, but the exact slogan oversimplifies complex questions about the intermediate state and is not a word-for-word quotation."
+    },
+    {
+      "id": 36,
+      "saying": "The power of life and death is in the tongue",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "medium",
+      "category": "BiblicalQuote",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Proverbs 18:21"
+      ],
+      "explanation": "This is a close rendering of Proverbs 18:21, which teaches that the tongue holds the power of death and life. The verse is about the serious impact of speech on others, not about humans literally creating reality by words in a magical sense."
+    },
+    {
+      "id": 37,
+      "saying": "Where God guides, He provides",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Matthew 6:31-33",
+        "Philippians 4:11-13"
+      ],
+      "explanation": "This slogan captures an element of truth: God cares for His people and provides what they truly need as they seek His kingdom (Matthew 6:33). Yet Scripture also shows believers facing hunger, persecution, and need (Philippians 4:11\u201313). Provision is not always material comfort."
+    },
+    {
+      "id": 38,
+      "saying": "The Lord will fight for you, you need only be still",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "medium",
+      "category": "BiblicalQuote",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Exodus 14:13-14"
+      ],
+      "explanation": "This statement is drawn from Moses\u2019 words to Israel at the Red Sea in Exodus 14:13\u201314. It is a true description of God's saving work in that historical moment. However, later God tells them to go forward, showing that divine fighting does not always mean total human passivity."
+    },
+    {
+      "id": 39,
+      "saying": "God is a gentleman and will never force Himself on you",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Acts 9:3-6"
+      ],
+      "explanation": "The Bible never calls God 'a gentleman.' While God often deals patiently and tenderly, He can also confront and overtake people powerfully, as in Saul's conversion on the Damascus Road (Acts 9:3\u20136). The slogan can shrink God down to modern social expectations."
+    },
+    {
+      "id": 40,
+      "saying": "The center of God\u2019s will is the safest place on earth",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Daniel 3:16-18",
+        "Acts 20:22-24"
+      ],
+      "explanation": "Obedience to God is eternally safe, but historically many who were squarely in God's will faced fire, swords, prisons, and martyrdom (Daniel 3; Acts 20:22\u201324). The saying confuses eternal security with earthly safety."
+    },
+    {
+      "id": 41,
+      "saying": "God will never give you a burden you can\u2019t carry",
+      "truthType": "MisappliedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Psalm 55:22",
+        "2 Corinthians 1:8-9"
+      ],
+      "explanation": "Psalm 55:22 calls believers to cast their burden on the Lord, not to carry it alone. Paul openly admits he faced burdens beyond his strength (2 Corinthians 1:8\u20139). The saying subtly encourages self-reliance instead of radical dependence on God."
+    },
+    {
+      "id": 42,
+      "saying": "Every promise in the Book is mine",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "Doctrine",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "2 Corinthians 1:20",
+        "Genesis 12:1-3"
+      ],
+      "explanation": "All of God's promises find their 'Yes' in Christ (2 Corinthians 1:20), but not every promise in Scripture applies in the same way to every believer today. Some promises are tied to specific covenants, individuals, or historical situations. The slogan can flatten important biblical distinctions."
+    },
+    {
+      "id": 43,
+      "saying": "The Bible says \u2018God will never put more on you than you can bear\u2019",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "1 Corinthians 10:13"
+      ],
+      "explanation": "This phrasing is widely quoted but not found in any Bible verse. It is a loose reinterpretation of 1 Corinthians 10:13, which speaks about God providing a way of escape in temptation, not a guarantee about all suffering or pressure."
+    },
+    {
+      "id": 44,
+      "saying": "The Lord moves in mysterious ways His wonders to perform",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Romans 11:33"
+      ],
+      "explanation": "This comes from a hymn by William Cowper. It reflects a true biblical sentiment about the depth of God's wisdom and ways (Romans 11:33), but the wording itself is hymnody, not direct Scripture."
+    },
+    {
+      "id": 45,
+      "saying": "God wants you to live your best life now",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ProsperitySlogan",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Luke 9:23-25",
+        "Hebrews 11:35-40"
+      ],
+      "explanation": "This slogan aligns more with modern self-fulfillment thinking than with biblical teaching. Scripture calls believers to take up their cross and lose their life for Christ's sake (Luke 9:23\u201325). Many faithful saints in Hebrews 11 did not receive what was promised in this life but looked to a better resurrection."
+    },
+    {
+      "id": 46,
+      "saying": "Name it and claim it",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "ProsperitySlogan",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "James 4:3",
+        "1 John 5:14-15"
+      ],
+      "explanation": "This phrase expresses a distorted view of prayer that treats God as obligated to fulfill spoken desires. The Bible teaches that prayers are answered according to God's will (1 John 5:14\u201315) and that selfish motives hinder prayer (James 4:3)."
+    },
+    {
+      "id": 47,
+      "saying": "Sow a seed and reap a miracle",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "hard",
+      "category": "ProsperitySlogan",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "2 Corinthians 9:6-8"
+      ],
+      "explanation": "Scripture uses sowing and reaping as a metaphor for generosity and spiritual fruit (2 Corinthians 9:6\u20138), but the popular slogan often turns giving into a technique to purchase miracles or wealth. That is foreign to the New Testament."
+    },
+    {
+      "id": 48,
+      "saying": "God will never share His glory with another",
+      "truthType": "AccurateBiblical",
+      "isBiblical": true,
+      "difficulty": "medium",
+      "category": "BiblicalQuote",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Isaiah 42:8"
+      ],
+      "explanation": "This reflects Isaiah 42:8, where God declares He will not give His glory to another. In context, it emphasizes God's uniqueness over idols. In the New Testament, the sharing of glory with the Son shows Christ's divine identity."
+    },
+    {
+      "id": 49,
+      "saying": "The Bible says \u2018money is the root of all evil\u2019",
+      "truthType": "MisquotedVerse",
+      "isBiblical": false,
+      "difficulty": "easy",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "1 Timothy 6:10"
+      ],
+      "explanation": "Scripture actually says that 'the love of money is a root of all kinds of evils' (1 Timothy 6:10). Money itself is not inherently evil; the problem is the heart's attachment to it."
+    },
+    {
+      "id": 50,
+      "saying": "God said it, I believe it, that settles it",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "Psalm 119:89"
+      ],
+      "explanation": "While Scripture is indeed settled and authoritative regardless of human opinion (Psalm 119:89), the slogan can create a shallow attitude toward serious interpretation. What God said must be rightly understood in context, not reduced to a bumper sticker."
+    },
+    {
+      "id": 51,
+      "saying": "Christianity is not a religion, it\u2019s a relationship",
+      "truthType": "PartialTruth",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "ChurchCliche",
+      "xpReward": 15,
+      "scriptureRefs": [
+        "James 1:26-27",
+        "John 17:3"
+      ],
+      "explanation": "The Bible uses the language of true 'religion' positively (James 1:26\u201327) and also highlights personal knowledge of God through Christ (John 17:3). The slogan rightly emphasizes relationship but wrongly rejects the category of religion altogether, which Scripture does not do."
+    },
+    {
+      "id": 167,
+      "saying": "Let your conscience be your guide",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'Let your conscience be your guide' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 168,
+      "saying": "Just follow the peace in your heart",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'Just follow the peace in your heart' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 169,
+      "saying": "If it makes you happy, God must be in it",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'If it makes you happy, God must be in it' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 170,
+      "saying": "God closes one door and opens another",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'God closes one door and opens another' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 171,
+      "saying": "The Bible says God helps those who help themselves",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says God helps those who help themselves' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 172,
+      "saying": "The Bible says to thine own self be true",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says to thine own self be true' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 173,
+      "saying": "The Bible says God won\u2019t give you more than you can handle",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says God won\u2019t give you more than you can handle' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 174,
+      "saying": "The Bible says heaven helps those who help themselves",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says heaven helps those who help themselves' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 175,
+      "saying": "The Bible says money is the root of all evil",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says money is the root of all evil' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    },
+    {
+      "id": 176,
+      "saying": "The Bible says God wants you to be rich",
+      "truthType": "NotInBible",
+      "isBiblical": false,
+      "difficulty": "medium",
+      "category": "MisquotedVerse",
+      "xpReward": 15,
+      "scriptureRefs": [],
+      "explanation": "People sometimes claim that 'The Bible says God wants you to be rich' is in the Bible, but it is either a paraphrase, a misquotation, or a line from literature or popular wisdom. Scripture calls believers to submit their conscience, desires, and sense of peace to God's revealed word rather than treating feelings or success as final authorities."
+    }
+  ]
+}

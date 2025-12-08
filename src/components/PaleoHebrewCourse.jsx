@@ -3,16 +3,15 @@ import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll
 } from 'lucide-react';
+import { updateUserProgress } from '../services/dbService';
 
-const PaleoHebrewCourse = ({ onComplete, onCancel }) => {
+const PaleoHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [courseData, setCourseData] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
-  const [completedLessons, setCompletedLessons] = useState({
-    level1: [],
-    level2: [],
-    level3: []
-  });
+  const [completedLessons, setCompletedLessons] = useState(
+    userData?.paleoHebrewProgress?.completedLessons || { level1: [], level2: [], level3: [] }
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,6 +29,25 @@ const PaleoHebrewCourse = ({ onComplete, onCancel }) => {
         setLoading(false);
       });
   }, []);
+
+  // Hydrate from user data
+  useEffect(() => {
+    if (userData?.paleoHebrewProgress?.completedLessons) {
+      setCompletedLessons(userData.paleoHebrewProgress.completedLessons);
+    }
+  }, [userData?.paleoHebrewProgress]);
+
+  // Persist progress
+  useEffect(() => {
+    const progress = { completedLessons };
+    localStorage.setItem('paleoHebrewProgress', JSON.stringify(progress));
+    if (setUserData) {
+      setUserData(prev => ({ ...prev, paleoHebrewProgress: progress }));
+    }
+    if (userId) {
+      updateUserProgress(userId, { paleoHebrewProgress: progress }).catch(err => console.error('Error saving Paleo Hebrew progress:', err));
+    }
+  }, [completedLessons, userId, setUserData]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (levelId) => {
