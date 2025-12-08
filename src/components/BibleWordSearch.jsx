@@ -169,8 +169,12 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
 
     const reversedWord = selectedWord.split('').reverse().join('');
 
+    // Normalize words by removing spaces for comparison
     const foundWord = currentPuzzle.words.find(
-      word => word === selectedWord || word === reversedWord
+      word => {
+        const normalizedWord = word.replace(/\s+/g, '');
+        return normalizedWord === selectedWord || normalizedWord === reversedWord;
+      }
     );
 
     if (foundWord && !foundWords.includes(foundWord)) {
@@ -270,6 +274,9 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   };
 
   const checkWordAt = (row, col, word) => {
+    // Normalize word by removing spaces
+    const normalizedWord = word.replace(/\s+/g, '');
+
     const directions = [
       [0, 1], [1, 0], [1, 1], [1, -1],
       [0, -1], [-1, 0], [-1, -1], [-1, 1]
@@ -277,13 +284,13 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
 
     for (const [dr, dc] of directions) {
       let match = true;
-      for (let i = 0; i < word.length; i++) {
+      for (let i = 0; i < normalizedWord.length; i++) {
         const newRow = row + dr * i;
         const newCol = col + dc * i;
         if (
           newRow < 0 || newRow >= currentPuzzle.grid.length ||
           newCol < 0 || newCol >= currentPuzzle.grid[0].length ||
-          currentPuzzle.grid[newRow][newCol] !== word[i]
+          currentPuzzle.grid[newRow][newCol] !== normalizedWord[i]
         ) {
           match = false;
           break;
