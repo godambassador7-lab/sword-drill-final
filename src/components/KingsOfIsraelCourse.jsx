@@ -37,7 +37,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     if (userData?.kingsOfIsraelProgress) {
       console.log('🔄 [KingsOfIsrael] Syncing from userData.kingsOfIsraelProgress:', userData.kingsOfIsraelProgress);
       setCompletedKings(userData.kingsOfIsraelProgress);
-      setIsInitialMount(false); // Mark that we've loaded data from Firebase
+      // Don't mark as initialized here - let the timer do it to avoid immediate saves
     }
   }, [userData?.kingsOfIsraelProgress]);
 
@@ -59,7 +59,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         })
           .then(() => {
             console.log('✓ AUTO-SYNC: Successfully synced Kings of Israel progress to Firebase');
-            setIsInitialMount(false); // Mark as initialized after auto-sync
+            // Don't mark as initialized here - let the timer do it to avoid immediate saves
           })
           .catch(err => {
             console.error('❌ AUTO-SYNC: Error syncing Kings of Israel progress to Firebase:', err);
@@ -70,16 +70,16 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
   }, [userId, userData, setUserData]);
 
-  // Mark as initialized after a short delay if userData is present (whether or not it has kingsOfIsraelProgress)
+  // Mark as initialized after a delay if userData is present (whether or not it has kingsOfIsraelProgress)
   useEffect(() => {
     if (userData !== null && userData !== undefined) {
-      // userData has loaded, safe to start saving changes
+      // userData has loaded, safe to start saving changes after a delay
       const timer = setTimeout(() => {
         if (isInitialMount) {
           console.log('✅ [KingsOfIsrael] Marking as initialized - userData loaded');
           setIsInitialMount(false);
         }
-      }, 500); // Small delay to ensure all syncing is complete
+      }, 1000); // 1 second delay to ensure all syncing and loading is complete
       return () => clearTimeout(timer);
     }
   }, [userData, isInitialMount]);
