@@ -4625,11 +4625,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       return (baseROI + activityBonus) * timeMultiplier;
     };
 
-    const metrics = calculateActivityMetrics();
-    const roi = calculateROI(investmentDays, metrics.activityScore);
+  const metrics = calculateActivityMetrics();
+  const roi = calculateROI(investmentDays, metrics.activityScore);
 
-    // Normalize timestamps from numbers, strings, Date objects, or Firestore Timestamps
-    const normalizeTimestamp = (value) => {
+  // Normalize timestamps from numbers, strings, Date objects, or Firestore Timestamps
+  const normalizeTimestamp = (value) => {
       if (!value) return Date.now();
       if (typeof value === 'number') return value;
       if (typeof value === 'string') {
@@ -4648,6 +4648,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       return Date.now();
     };
 
+    // Helper to push normalized transactions with signed deltas
+    const pushTransaction = (list, entry) => {
+      const delta = entry.delta || 0;
+      list.push({
+        ...entry,
+        delta,
+        amount: Math.abs(delta),
+        type: delta > 0 ? 'earn' : delta < 0 ? (entry.type || 'spend') : (entry.type || 'neutral')
+      });
+    };
+
     // Get all transactions from quiz history and purchases
     const getTransactions = () => {
       const transactions = [];
@@ -4656,47 +4667,33 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       (userData.quizHistory || []).forEach(quiz => {
         if (quiz.points !== undefined && (quiz.timestamp || quiz.ts || quiz.date)) {
           const timestamp = normalizeTimestamp(quiz.timestamp || quiz.ts || quiz.date);
-          const points = quiz.points || 0;
+          const points = Number(quiz.points) || 0;
+          const description = quiz.type ? `Quiz: ${quiz.type}` : 'Quiz';
 
-          // Determine transaction type based on points
-          let transactionType, icon, description;
-          if (points > 0) {
-            transactionType = 'earn';
-            icon = '';
-            description = `Quiz completed: ${quiz.type}`;
-          } else if (points < 0) {
-            transactionType = 'penalty';
-            icon = '';
-            description = `Quiz failed: ${quiz.type}`;
-          } else {
-            // Zero points (quiz attempted but no points)
-            transactionType = 'neutral';
-            icon = '';
-            description = `Quiz attempted: ${quiz.type}`;
-          }
-
-          transactions.push({
-            id: `quiz_${timestamp}_${Math.random().toString(36).slice(2)}`,
+          pushTransaction(transactions, {
+            id: `quiz_${timestamp}_${quiz.type || 'quiz'}`,
             date: timestamp,
-            type: transactionType,
-            amount: Math.abs(points),
-            description: description,
-            icon: icon
+            delta: points,
+            description,
+            category: 'quiz'
           });
         }
       });
 
-      // Add purchases/unlockables from purchase history
+      // Add purchases/unlockables/powerups from purchase history
       (userData.purchaseHistory || []).forEach(purchase => {
         if (purchase.cost) {
           const timestamp = normalizeTimestamp(purchase.timestamp);
-          transactions.push({
-            id: `purchase_${timestamp}`,
+          const label = (purchase.unlockableId || 'purchase')
+            .replace(/_/g, ' ')
+            .replace(/course /gi, 'Course ');
+
+          pushTransaction(transactions, {
+            id: `purchase_${timestamp}_${purchase.unlockableId || 'item'}`,
             date: timestamp,
-            type: 'spend',
-            amount: purchase.cost,
-            description: `Unlocked: ${purchase.unlockableId.replace(/_/g, ' ').replace(/course/g, 'Course')}`,
-            icon: ''
+            delta: -(purchase.cost || 0),
+            description: `Purchase: ${label}`,
+            category: purchase.type || 'purchase'
           });
         }
       });
@@ -4705,13 +4702,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       (userData.hintPurchases || []).forEach(hint => {
         if (hint.cost) {
           const timestamp = normalizeTimestamp(hint.timestamp);
-          transactions.push({
+          pushTransaction(transactions, {
             id: `hint_${timestamp}`,
             date: timestamp,
-            type: 'spend',
-            amount: hint.cost,
+            delta: -(hint.cost || 0),
             description: `Hint purchased: ${hint.quizType || 'quiz'}`,
-            icon: ''
+            category: 'hint'
           });
         }
       });
@@ -4719,34 +4715,33 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       // Add investments
       (userData.investments || []).forEach(inv => {
         const start = normalizeTimestamp(inv.startDate);
-        transactions.push({
-          id: `invest_${start}`,
+        pushTransaction(transactions, {
+          id: `invest_${start}_${inv.id || ''}`,
           date: start,
-          type: 'invest',
-          amount: inv.amount,
+          delta: -(inv.amount || 0),
           description: `Investment locked for ${inv.lockDays} days`,
-          icon: ''
+          category: 'investment',
+          type: 'invest'
         });
 
         if (inv.status === 'matured' && inv.withdrawnDate) {
           const withdrawn = normalizeTimestamp(inv.withdrawnDate);
-          transactions.push({
-            id: `withdraw_${withdrawn}`,
+          pushTransaction(transactions, {
+            id: `withdraw_${withdrawn}_${inv.id || ''}`,
             date: withdrawn,
-            type: 'earn',
-            amount: Math.floor(inv.amount * (1 + inv.roi / 100)),
+            delta: Math.floor(inv.amount * (1 + inv.roi / 100)),
             description: `Investment matured (+${inv.roi.toFixed(1)}% ROI)`,
-            icon: ''
+            category: 'investment'
           });
         } else if (inv.status === 'withdrawn_early' && inv.withdrawnDate) {
           const withdrawn = normalizeTimestamp(inv.withdrawnDate);
-          transactions.push({
-            id: `withdraw_early_${withdrawn}`,
+          pushTransaction(transactions, {
+            id: `withdraw_early_${withdrawn}_${inv.id || ''}`,
             date: withdrawn,
-            type: 'penalty',
-            amount: Math.floor(inv.amount * 0.5),
+            delta: -Math.floor(inv.amount * 0.5),
             description: `Early withdrawal penalty (-50%)`,
-            icon: '️'
+            category: 'investment',
+            type: 'penalty'
           });
         }
       });
@@ -4758,13 +4753,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     const transactions = getTransactions();
 
     // Calculate totals
-    const totalEarned = transactions
-      .filter(t => t.type === 'earn')
-      .reduce((sum, t) => sum + t.amount, 0);
-
-    const totalSpent = transactions
-      .filter(t => t.type === 'spend' || t.type === 'invest' || t.type === 'penalty')
-      .reduce((sum, t) => sum + t.amount, 0);
+    const totals = transactions.reduce(
+      (acc, t) => {
+        if (t.delta > 0) acc.totalEarned += t.delta;
+        if (t.delta < 0) acc.totalSpent += Math.abs(t.delta);
+        return acc;
+      },
+      { totalEarned: 0, totalSpent: 0 }
+    );
 
     const activeInvestments = (userData.investments || []).filter(inv => inv.status === 'active');
     const totalInvested = activeInvestments.reduce((sum, inv) => inv.amount + sum, 0);
@@ -4880,7 +4876,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <TrendingUp size={20} className="text-emerald-400" />
               <div className="text-xs text-emerald-300 font-semibold">Total Earned</div>
             </div>
-            <div className="text-2xl font-bold text-emerald-400">{totalEarned.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-emerald-400">{totals.totalEarned.toLocaleString()}</div>
             <div className="text-xs text-slate-400 mt-1">All-time earnings</div>
           </div>
 
@@ -4889,7 +4885,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <TrendingDown size={20} className="text-red-400" />
               <div className="text-xs text-red-300 font-semibold">Total Spent</div>
             </div>
-            <div className="text-2xl font-bold text-red-400">{totalSpent.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-red-400">{totals.totalSpent.toLocaleString()}</div>
             <div className="text-xs text-slate-400 mt-1">Purchases & investments</div>
           </div>
 
@@ -5074,14 +5070,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   </div>
                   <div
                     className={`font-bold text-lg ${
-                      transaction.type === 'earn'
+                      transaction.delta > 0
                         ? 'text-emerald-400'
-                        : transaction.type === 'penalty'
+                        : transaction.delta < 0
                         ? 'text-red-400'
                         : 'text-slate-400'
                     }`}
                   >
-                    {transaction.type === 'earn' ? '+' : '-'}
+                    {transaction.delta > 0 ? '+' : transaction.delta < 0 ? '-' : '0 '}
                     {transaction.amount}
                   </div>
                 </div>
@@ -5548,17 +5544,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       };
 
       const updatedBoosts = [...(userData.activeBoosts || []), newBoost];
+      const purchaseRecord = {
+        unlockableId: `powerup_${powerUpType.toLowerCase()}`,
+        cost: powerUp.cost,
+        timestamp: Date.now(),
+        type: 'powerup'
+      };
+      const updatedPurchaseHistory = [...(userData.purchaseHistory || []), purchaseRecord];
 
       setUserData(prev => ({
         ...prev,
         totalPoints: newPoints,
-        activeBoosts: updatedBoosts
+        activeBoosts: updatedBoosts,
+        purchaseHistory: updatedPurchaseHistory
       }));
 
       if (currentUser?.uid) {
         updateUserProgress(currentUser.uid, {
           totalPoints: newPoints,
-          activeBoosts: updatedBoosts
+          activeBoosts: updatedBoosts,
+          purchaseHistory: updatedPurchaseHistory
         });
       }
 
