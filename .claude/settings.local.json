@@ -10,7 +10,8 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run deploy:*)"
+      "Bash(npm run deploy:*)",
+      "Bash(git init:*)"
     ],
     "deny": [],
     "ask": []

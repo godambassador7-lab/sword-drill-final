@@ -38,6 +38,25 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     ? selectedTranslation.toUpperCase()
     : 'KJV';
 
+  const renderStrongsTokens = (tokens = []) => {
+    return (
+      <span className="inline-flex flex-wrap gap-2">
+        {tokens.map((tok, idx) => (
+          <span
+            key={`${tok.word}-${tok.strongs}-${idx}`}
+            className="group inline-flex flex-col items-center leading-tight cursor-help transition-colors"
+            title={tok.strongs}
+          >
+            <span className="text-emerald-400 text-[10px] font-semibold leading-none transition-colors group-hover:text-red-400">
+              {tok.strongs}
+            </span>
+            <span className="text-slate-200">{tok.word}</span>
+          </span>
+        ))}
+      </span>
+    );
+  };
+
   // Bible book structure with chapter counts
   const bibleBooks = [
     // Old Testament
@@ -865,9 +884,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                             <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                               {verse.verse}
                             </span>
-                            <p className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
-                              {verse.text}
-                            </p>
+                            <div className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
+                              {activeTranslation === 'KJV_STRONGS' && verse.tokens
+                                ? renderStrongsTokens(verse.tokens)
+                                : verse.text}
+                            </div>
                           </div>
 
                           {/* Divider for mobile */}
@@ -878,9 +899,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                             <span className="text-emerald-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0 md:hidden">
                               {verse.verse}
                             </span>
-                            <p className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
-                              {secondaryVerse ? secondaryVerse.text : '...'}
-                            </p>
+                            <div className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
+                              {secondaryTranslation === 'KJV_STRONGS' && secondaryVerse?.tokens
+                                ? renderStrongsTokens(secondaryVerse.tokens)
+                                : (secondaryVerse ? secondaryVerse.text : '...')}
+                            </div>
                           </div>
 
                           {/* Add to Memory Verse Button */}
@@ -915,9 +938,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                         <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                           {verse.verse}
                         </span>
-                        <p className="text-slate-200 leading-relaxed text-sm md:text-base flex-1 break-words">
-                          {verse.text}
-                        </p>
+                        <div className="text-slate-200 leading-relaxed text-sm md:text-base flex-1 break-words">
+                          {activeTranslation === 'KJV_STRONGS' && verse.tokens
+                            ? renderStrongsTokens(verse.tokens)
+                            : verse.text}
+                        </div>
                         <button
                           onClick={() => addToPersonalMemoryVerses(verse)}
                           disabled={inBank}

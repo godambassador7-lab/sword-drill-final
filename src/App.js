@@ -1,4 +1,4 @@
-import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
+﻿import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
 import { getUserData, addQuizResult, updateUserProgress, purchaseUnlockable, recordVerseOfDayRead } from './services/dbService';
 import { simplifyText, TRANSLATION_STYLES, getComparisonLabel, isSimplificationRecommended } from './services/simplifiedMode';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
@@ -165,6 +165,17 @@ const localDateString = (date = new Date()) => {
   return `${y}-${m}-${day}`;
 };
 
+// Normalize Firestore/Date/number timestamps to epoch ms
+const normalizeTimestampValue = (ts) => {
+  if (!ts) return null;
+  if (typeof ts.toDate === 'function') return ts.toDate().getTime();
+  if (typeof ts === 'object' && ts.seconds !== undefined) {
+    return ts.seconds * 1000 + Math.floor((ts.nanoseconds || 0) / 1e6);
+  }
+  const num = Number(ts);
+  return Number.isFinite(num) ? num : null;
+};
+
 // Point Economy Constants
 const ECONOMY = {
   MISSED_DAY_TAX: 10, // Daily upkeep if no activity
@@ -263,7 +274,7 @@ const ProgressMeters = ({ userData, isEliChallenge = false }) => {
         <div className="text-center">
           <h3 className="text-2xl font-bold text-amber-400 mb-2 flex items-center justify-center gap-2">
             <Trophy size={28} />
-            Elite Master Achieved! 💎
+            Elite Master Achieved! ðŸ’Ž
           </h3>
           <p className="text-slate-300">You've reached the highest level!</p>
         </div>
@@ -301,7 +312,7 @@ const ProgressMeters = ({ userData, isEliChallenge = false }) => {
                     <Icon size={16} className="text-amber-400" />
                     {label}
                   </span>
-                  <span className="text-amber-200 text-sm font-bold">∞</span>
+                  <span className="text-amber-200 text-sm font-bold">âˆž</span>
                 </div>
                 <div className="relative h-8 bg-slate-800/80 rounded-full border-2 border-amber-600/50 overflow-hidden shadow-inner">
                   <div
@@ -322,7 +333,7 @@ const ProgressMeters = ({ userData, isEliChallenge = false }) => {
 
           <div className="mt-6 text-center">
             <p className="text-amber-200 text-sm font-bold animate-pulse">
-              🔥 ALL LIMITS REMOVED 🔥
+              ðŸ”¥ ALL LIMITS REMOVED ðŸ”¥
             </p>
           </div>
         </div>
@@ -430,7 +441,7 @@ const ProgressMeters = ({ userData, isEliChallenge = false }) => {
       {versesPercent === 100 && quizzesPercent === 100 && streakPercent === 100 && (
         <div className="mt-4 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border-2 border-amber-400/50 rounded-lg p-3 text-center">
           <p className="text-amber-400 font-bold text-sm animate-pulse">
-            🎉 Ready to level up! Complete one more quiz to advance to {nextLevel}!
+            ðŸŽ‰ Ready to level up! Complete one more quiz to advance to {nextLevel}!
           </p>
         </div>
       )}
@@ -609,7 +620,7 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
     return {
       pointsEarned: 0,
       isFirstCompletion: false,
-      message: `📖 ${sectionTitle} Complete!\n\nYou've already earned points for this section.\nYou can repeat it anytime for practice!`
+      message: `ðŸ“– ${sectionTitle} Complete!\n\nYou've already earned points for this section.\nYou can repeat it anytime for practice!`
     };
   }
 
@@ -632,7 +643,7 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
   return {
     pointsEarned,
     isFirstCompletion: true,
-    message: `🎓 ${sectionTitle} Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`
+    message: `ðŸŽ“ ${sectionTitle} Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!\n\nðŸ’° New Balance: ${userData.totalPoints + pointsEarned} points`
   };
 };
 
@@ -672,8 +683,11 @@ const saveProgressToLocalStorage = (progress) => {
       paleoHebrewProgress,
       churchHistoryProgress,
       textualCriticismProgress,
-      spiritualGiftsResults
+      spiritualGiftsResults,
+      lastVerseOfDayRead
     } = progress;
+
+    const normalizedLastVerseOfDayRead = normalizeTimestampValue(lastVerseOfDayRead);
 
     const payload = {
       name,
@@ -704,7 +718,8 @@ const saveProgressToLocalStorage = (progress) => {
       paleoHebrewProgress,
       churchHistoryProgress,
       textualCriticismProgress,
-      accountCreated
+      accountCreated,
+      lastVerseOfDayRead: normalizedLastVerseOfDayRead
     };
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
@@ -817,6 +832,11 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const churchHistoryProgress = remoteProgress.churchHistoryProgress || localProgress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
   const textualCriticismProgress = remoteProgress.textualCriticismProgress || localProgress.textualCriticismProgress || { completedModules: [], quizScores: {} };
 
+  // Merge verse-of-day read timestamp (newest wins)
+  const remoteLastVerse = normalizeTimestampValue(remoteProgress.lastVerseOfDayRead);
+  const localLastVerse = normalizeTimestampValue(localProgress.lastVerseOfDayRead);
+  const lastVerseOfDayRead = Math.max(remoteLastVerse || 0, localLastVerse || 0) || null;
+
   const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
   const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
     ? 'KJV'
@@ -845,6 +865,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     paleoHebrewProgress,
     churchHistoryProgress,
     textualCriticismProgress,
+    lastVerseOfDayRead,
     newlyUnlockedAchievements,
     achievementClickHistory,
     quizHistory,
@@ -859,12 +880,12 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
 const SwordDrillApp = () => {
   // Course admission costs
   const COURSE_ADMISSION = {
-    'greek-course': { cost: 800, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
-    'hebrew-course': { cost: 800, name: 'עברית עתיקה', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
+    'greek-course': { cost: 800, name: 'ÎšÎ¿Î¹Î½Î® Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
+    'hebrew-course': { cost: 800, name: '×¢×‘×¨×™×ª ×¢×ª×™×§×”', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
     'paleo-hebrew-course': { cost: 800, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
-    'amharic-course': { cost: 800, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
-    'geez-course': { cost: 800, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
-    'aramaic-course': { cost: 800, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
+    'amharic-course': { cost: 800, name: 'áŠ áˆ›áˆ­áŠ› Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
+    'geez-course': { cost: 800, name: 'áŒá‹•á‹ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
+    'aramaic-course': { cost: 800, name: 'ÜÜªÜ¡ÜÜ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
     'hermeneutics-course': { cost: 800, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
     'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
     'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
@@ -949,6 +970,7 @@ const SwordDrillApp = () => {
     paleoHebrewProgress: { completedLessons: { level1: [], level2: [], level3: [] } },
     churchHistoryProgress: { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
     textualCriticismProgress: { completedModules: [], quizScores: {} },
+    lastVerseOfDayRead: null,
     newlyUnlockedAchievements: [], // Track achievements unlocked in current session
     achievementClickHistory: {}, // Track when achievements were clicked/viewed
     quizHistory: [], // Track individual quiz attempts (for calendar)
@@ -990,6 +1012,23 @@ const SwordDrillApp = () => {
   const referenceInputRef = useRef(null);
   const [verseOfDay, setVerseOfDay] = useState(null);
   const [verseOfDayRead, setVerseOfDayRead] = useState(false);
+  const syncVerseOfDayReadState = useCallback((progress) => {
+    const todayString = localDateString();
+    const verseReadData = JSON.parse(localStorage.getItem('verseOfDayRead') || '{}');
+    const remoteMs = normalizeTimestampValue(progress?.lastVerseOfDayRead);
+    const remoteToday = remoteMs ? localDateString(new Date(remoteMs)) === todayString : false;
+    const alreadyRead = verseReadData[todayString] === true || remoteToday;
+
+    if (alreadyRead) {
+      if (!verseReadData[todayString]) {
+        verseReadData[todayString] = true;
+        localStorage.setItem('verseOfDayRead', JSON.stringify(verseReadData));
+      }
+      setVerseOfDayRead(true);
+    } else {
+      setVerseOfDayRead(false);
+    }
+  }, []);
   const [showCorrectToast, setShowCorrectToast] = useState(false);
   const [showIncorrectToast, setShowIncorrectToast] = useState(false);
   const [toastPoints, setToastPoints] = useState(0);
@@ -1070,11 +1109,7 @@ useEffect(() => {
 useEffect(() => {
   const verse = getDailyVerse(new Date());
   setVerseOfDay(verse);
-
-  // Check if verse of day was already read today
-  const todayString = new Date().toISOString().split('T')[0];
-  const verseReadData = JSON.parse(localStorage.getItem('verseOfDayRead') || '{}');
-  setVerseOfDayRead(verseReadData[todayString] === true);
+  syncVerseOfDayReadState();
   
   // Firebase auth listener
   const unsubscribe = onAuthChange(async (user) => {
@@ -1122,6 +1157,7 @@ useEffect(() => {
           paleoHebrewProgress: result.progress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } },
           churchHistoryProgress: result.progress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
           textualCriticismProgress: result.progress.textualCriticismProgress || { completedModules: [], quizScores: {} },
+          lastVerseOfDayRead: normalizeTimestampValue(result.progress.lastVerseOfDayRead),
           accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
@@ -1129,9 +1165,9 @@ useEffect(() => {
 
         // CRITICAL FIX: Use Firebase as authoritative source for streak and points
         // Prevents device drift where each device calculates different values
-        console.log('🔄 Sync Strategy: Using Firebase as source of truth');
-        console.log('📊 Firebase streak:', firebaseStreak, '| Local calc:', calculateCurrentStreak());
-        console.log('💰 Firebase points:', result.progress.totalPoints, '| Local:', mergedProgress.totalPoints);
+        console.log('ðŸ”„ Sync Strategy: Using Firebase as source of truth');
+        console.log('ðŸ“Š Firebase streak:', firebaseStreak, '| Local calc:', calculateCurrentStreak());
+        console.log('ðŸ’° Firebase points:', result.progress.totalPoints, '| Local:', mergedProgress.totalPoints);
 
         // Force Firebase values (don't recalculate, causes drift!)
         mergedProgress.currentStreak = firebaseStreak; // Firebase is authoritative
@@ -1163,7 +1199,7 @@ useEffect(() => {
         // DON'T recalculate streak here - Firebase value is already set above (line 1130)
         // Recalculating causes device drift!
         console.log('[App.js] Setting userData with merged achievements:', mergedProgress.achievements);
-        console.log('✅ Final values - Streak:', mergedProgress.currentStreak, '| Points:', mergedProgress.totalPoints);
+        console.log('âœ… Final values - Streak:', mergedProgress.currentStreak, '| Points:', mergedProgress.totalPoints);
         setUserData(mergedProgress);
         setIsLoggedIn(true);
       }
@@ -1173,14 +1209,14 @@ useEffect(() => {
   });
   
   return () => unsubscribe();
-}, []);
+}, [syncVerseOfDayReadState]);
 
 // Set loading to false after initial setup
 useEffect(() => {
   // Simulate minimum loading time for better UX
   const timer = setTimeout(() => {
     setIsInitialLoading(false);
-  }, 2400); // 8 stages × 300ms = 2400ms
+  }, 2400); // 8 stages Ã— 300ms = 2400ms
 
   return () => clearTimeout(timer);
 }, []);
@@ -1190,6 +1226,12 @@ useEffect(() => {
   if (!hasHydratedProgress) return;
   saveProgressToLocalStorage(userData);
 }, [userData, hasHydratedProgress]);
+
+// Keep verse-of-day read state in sync across devices
+useEffect(() => {
+  if (!hasHydratedProgress) return;
+  syncVerseOfDayReadState(userData);
+}, [userData.lastVerseOfDayRead, hasHydratedProgress, syncVerseOfDayReadState]);
 
 // Check for time decay and missed day tax on app load
 useEffect(() => {
@@ -1219,7 +1261,7 @@ useEffect(() => {
         });
       }
 
-      showToast(`⏰ ${decayPenalty} points deducted due to ${decayDays} day(s) of inactivity`, 'error');
+      showToast(`â° ${decayPenalty} points deducted due to ${decayDays} day(s) of inactivity`, 'error');
     }
   }
 
@@ -1310,7 +1352,7 @@ useEffect(() => {
       }
 
       // Show toast notification
-      showToast(`🎉 Level Up! You're now ${currentLevel}!`, 'success');
+      showToast(`ðŸŽ‰ Level Up! You're now ${currentLevel}!`, 'success');
     }
 
     // Update the previous level ref
@@ -1434,10 +1476,10 @@ useEffect(() => {
 }, [showPlanDetail, selectedPlan, userData.selectedTranslation, currentDayIndex]);
 
 // Handle verse of the day read checkbox
-const handleVerseOfDayRead = () => {
+const handleVerseOfDayRead = async () => {
   if (verseOfDayRead) return; // Already marked as read today
 
-  const todayString = new Date().toISOString().split('T')[0];
+  const todayString = localDateString();
   const verseReadData = JSON.parse(localStorage.getItem('verseOfDayRead') || '{}');
 
   // Mark today as read
@@ -1448,14 +1490,26 @@ const handleVerseOfDayRead = () => {
   // Award points
   const pointsEarned = awardBonusPoints('verseOfDayChecked');
   const newTotalPoints = userData.totalPoints + pointsEarned;
+  const now = Date.now();
 
   setUserData(prev => ({
     ...prev,
-    totalPoints: newTotalPoints
+    totalPoints: newTotalPoints,
+    lastVerseOfDayRead: now
   }));
 
-  showToast(`✅ Verse of the Day marked as read!\n\n+${pointsEarned} points earned!\n\n💰 New Balance: ${newTotalPoints} points`, 'success');
+  if (currentUser?.uid) {
+    try {
+      await recordVerseOfDayRead(currentUser.uid);
+      await updateUserProgress(currentUser.uid, { totalPoints: newTotalPoints });
+    } catch (err) {
+      console.error('[VerseOfDay] Failed to sync read status:', err);
+    }
+  }
+
+  showToast(`Verse of the Day marked as read!\n\n+${pointsEarned} points earned!\n\nNew Balance: ${newTotalPoints} points`, 'success');
 };
+
 
 const handleSignIn = async (e) => {
   e.preventDefault();
@@ -1510,15 +1564,16 @@ const handleSignIn = async (e) => {
           unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
           newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
           achievementClickHistory: data.progress.achievementClickHistory || {},
-          quizHistory: data.progress.quizHistory || []
+          quizHistory: data.progress.quizHistory || [],
+          lastVerseOfDayRead: normalizeTimestampValue(data.progress.lastVerseOfDayRead)
         },
         Math.max(localStreak, firebaseStreak)
       );
 
       // CRITICAL FIX: Use Firebase as authoritative source
       // Don't recalculate - prevents device drift!
-      console.log('🔄 Sign-in Sync: Using Firebase values');
-      console.log('📊 Firebase streak:', firebaseStreak, '| Local calc would be:', calculateCurrentStreak());
+      console.log('ðŸ”„ Sign-in Sync: Using Firebase values');
+      console.log('ðŸ“Š Firebase streak:', firebaseStreak, '| Local calc would be:', calculateCurrentStreak());
       mergedUserData.currentStreak = firebaseStreak; // Firebase is authoritative
       mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
 
@@ -1553,7 +1608,8 @@ const handleSignIn = async (e) => {
       spiritualGiftsResults: null,
       kingsOfIsraelProgress: { beginner: [], intermediate: [], advanced: [] },
       ancientHebrewProgress: { beginner: [], intermediate: [], advanced: [] },
-      hermeneuticsProgress: { beginner: [], intermediate: [], advanced: [] }
+      hermeneuticsProgress: { beginner: [], intermediate: [], advanced: [] },
+      lastVerseOfDayRead: null
     });
     setIsLoggedIn(true);
   } else {
@@ -1665,7 +1721,7 @@ const handleCourseAccess = (courseId) => {
                 totalPoints: result.validatedData.totalPoints,
                 unlockables: result.validatedData.unlockables
               }));
-              showToast(`🎓 ${course.name} unlocked! Welcome to class!`, 'success');
+              showToast(`ðŸŽ“ ${course.name} unlocked! Welcome to class!`, 'success');
               setCurrentView(courseId);
               setShowMenu(false);
             } else {
@@ -1681,7 +1737,7 @@ const handleCourseAccess = (courseId) => {
             totalPoints: Math.max(0, prev.totalPoints - course.cost),
             unlockables: { ...(prev.unlockables || {}), [unlockKey]: true }
           }));
-          showToast(`🎓 ${course.name} unlocked! Welcome to class!`, 'success');
+          showToast(`ðŸŽ“ ${course.name} unlocked! Welcome to class!`, 'success');
           setCurrentView(courseId);
           setShowMenu(false);
         }
@@ -2953,33 +3009,33 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   if (isCorrect) {
     // Build detailed point breakdown message
-    let message = `✅ Correct!\n\n`;
+    let message = `âœ… Correct!\n\n`;
     const basePoints = POINT_SYSTEM.BASE_QUIZ_POINTS[quizType] || 10;
     const levelMultiplier = POINT_SYSTEM.DIFFICULTY_MULTIPLIERS[userLevel]?.multiplier || 1.0;
 
-    message += `📊 Points Breakdown:\n`;
+    message += `ðŸ“Š Points Breakdown:\n`;
     message += `  Base: ${basePoints} pts\n`;
-    message += `  Level (${userLevel}): ×${levelMultiplier} = ${Math.floor(basePoints * levelMultiplier)} pts\n`;
+    message += `  Level (${userLevel}): Ã—${levelMultiplier} = ${Math.floor(basePoints * levelMultiplier)} pts\n`;
 
     if (isFirstQuizToday) {
-      message += `  🌅 First Quiz Today: +${POINT_SYSTEM.BONUSES.firstQuizOfDay} pts\n`;
+      message += `  ðŸŒ… First Quiz Today: +${POINT_SYSTEM.BONUSES.firstQuizOfDay} pts\n`;
     }
 
     if (currentStreakValue > 0) {
       const streakBonus = POINT_SYSTEM.BONUSES.dailyStreakMaintained * Math.min(currentStreakValue, 10);
-      message += `  🔥 Streak Bonus (${currentStreakValue} days): +${streakBonus} pts\n`;
+      message += `  ðŸ”¥ Streak Bonus (${currentStreakValue} days): +${streakBonus} pts\n`;
     }
 
     if (inactivityPenalty < 0) {
-      message += `  ⚠️ Inactivity Penalty: ${inactivityPenalty} pts\n`;
+      message += `  âš ï¸ Inactivity Penalty: ${inactivityPenalty} pts\n`;
     }
 
-    message += `\n💰 Total: ${points > 0 ? '+' : ''}${points} points`;
-    message += `\n🏆 New Balance: ${newTotalPoints} points`;
+    message += `\nðŸ’° Total: ${points > 0 ? '+' : ''}${points} points`;
+    message += `\nðŸ† New Balance: ${newTotalPoints} points`;
 
     const progress = currentProgress.quizTypes[quizType];
     if (progress.correct >= 3 && progress.incorrect === 0) {
-      message += `\n\n🎯 Mastered this verse! You won't see it again for a while.`;
+      message += `\n\nðŸŽ¯ Mastered this verse! You won't see it again for a while.`;
     }
 
     // Show toast notification instead of alert
@@ -3128,13 +3184,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   disabled={verseOfDayRead}
                 />
                 <span className={`text-sm font-semibold ${verseOfDayRead ? 'text-green-400' : 'text-amber-400 group-hover:text-amber-300'} transition-colors`}>
-                  {verseOfDayRead ? '✓ Read' : 'Mark as Read'}
+                  {verseOfDayRead ? 'âœ“ Read' : 'Mark as Read'}
                 </span>
               </label>
             </div>
           </div>
           <p className="text-white text-lg mb-3 leading-relaxed">{verseOfDay.text}</p>
-          <p className="text-amber-300 font-semibold">— {verseOfDay.reference}</p>
+          <p className="text-amber-300 font-semibold">â€” {verseOfDay.reference}</p>
         </div>
       )}
 
@@ -3144,11 +3200,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white p-4 rounded-xl border-2 border-amber-500 hover:border-amber-400 transition-all shadow-lg"
       >
         <div className="font-bold text-lg flex items-center justify-center gap-2">
-          <span className="text-2xl">📖</span>
+          <span className="text-2xl">ðŸ“–</span>
           Open Bible Reader
         </div>
         <div className="text-amber-100 text-sm">
-          Read Scripture by Chapter • {['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'].includes(userData.selectedTranslation?.toUpperCase()) ? userData.selectedTranslation.toUpperCase() : 'KJV'}
+          Read Scripture by Chapter â€¢ {['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'].includes(userData.selectedTranslation?.toUpperCase()) ? userData.selectedTranslation.toUpperCase() : 'KJV'}
         </div>
       </button>
 
@@ -3158,11 +3214,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white p-4 rounded-xl border-2 border-cyan-500 hover:border-cyan-400 transition-all shadow-lg"
       >
         <div className="font-bold text-lg flex items-center justify-center gap-2">
-          <span className="text-2xl">📘</span>
+          <span className="text-2xl">ðŸ“˜</span>
           Personal Verse Bank
         </div>
         <div className="text-cyan-100 text-sm">
-          Your Memory Verses • {(userData.personalMemoryVerses || []).length} verses saved
+          Your Memory Verses â€¢ {(userData.personalMemoryVerses || []).length} verses saved
         </div>
       </button>
 
@@ -3175,12 +3231,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center gap-2">
             {(() => {
               const currentStreak = userData.currentStreak || 0;
-              console.log('🔥 Streak Debug:', { currentStreak, type: typeof currentStreak });
+              console.log('ðŸ”¥ Streak Debug:', { currentStreak, type: typeof currentStreak });
 
               if (currentStreak === 0) {
                 return (
                   <>
-                    <span className="shivering-ice text-2xl">🧊</span>
+                    <span className="shivering-ice text-2xl">ðŸ§Š</span>
                     <span className="text-cyan-400 text-3xl font-bold">0</span>
                   </>
                 );
@@ -3327,7 +3383,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             disabled={loading}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
-           <div className="font-bold text-lg">{loading ? '⏳ Loading...' : 'Multiple Choice'}</div>
+           <div className="font-bold text-lg">{loading ? 'â³ Loading...' : 'Multiple Choice'}</div>
             <div className="text-slate-400 text-sm">Identify the correct reference</div>
           </button>
           <button
@@ -3351,7 +3407,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             disabled={loading}
             className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-4 rounded-xl border border-emerald-500 hover:border-emerald-400 transition-all text-left disabled:opacity-50 shadow-lg"
           >
-            <div className="font-bold text-lg">🔍 Verse Detective</div>
+            <div className="font-bold text-lg">ðŸ” Verse Detective</div>
             <div className="text-emerald-100 text-sm">Uncover the mystery verse through clues</div>
           </button>
           <button
@@ -3359,8 +3415,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             disabled={loading}
             className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white p-4 rounded-xl border border-purple-500 hover:border-purple-400 transition-all text-left disabled:opacity-50 shadow-lg"
           >
-            <div className="font-bold text-lg">📚 Book Order Challenge</div>
-            <div className="text-purple-100 text-sm">Name the books before and after • Timed</div>
+            <div className="font-bold text-lg">ðŸ“š Book Order Challenge</div>
+            <div className="text-purple-100 text-sm">Name the books before and after â€¢ Timed</div>
           </button>
           <button
             onClick={() => {
@@ -3384,7 +3440,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <Sword size={24} className="text-amber-900" />
               Sword Drill Ultimate
             </div>
-            <div className="text-amber-900 font-semibold text-sm">Book Order + Verse Scramble • Ranked Grading</div>
+            <div className="text-amber-900 font-semibold text-sm">Book Order + Verse Scramble â€¢ Ranked Grading</div>
           </button>
           <button
             onClick={() => setCurrentView('bonus-quizzes')}
@@ -3395,7 +3451,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <Trophy size={20} />
               Bonus Quizzes
             </div>
-            <div className="text-red-100 text-sm">Spelling Bee • Bible Trivia • Extra Points!</div>
+            <div className="text-red-100 text-sm">Spelling Bee â€¢ Bible Trivia â€¢ Extra Points!</div>
           </button>
         </div>
       </div>
@@ -3594,22 +3650,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   // Show first letter of first blank answer
                   if (quizState.answers && quizState.answers[0]) {
                     const firstAnswer = quizState.answers[0];
-                    hint = `💡 Hint: First word starts with "${firstAnswer.charAt(0).toUpperCase()}"`;
+                    hint = `ðŸ’¡ Hint: First word starts with "${firstAnswer.charAt(0).toUpperCase()}"`;
                   } else if (quizState.answer) {
-                    hint = `💡 Hint: Answer starts with "${quizState.answer.charAt(0).toUpperCase()}"`;
+                    hint = `ðŸ’¡ Hint: Answer starts with "${quizState.answer.charAt(0).toUpperCase()}"`;
                   }
                 } else if (quizState.type === 'multiple-choice') {
                   // Eliminate one wrong answer
                   const wrongOptions = quizState.options.filter(opt => opt !== quizState.correctAnswer);
                   if (wrongOptions.length > 0) {
                     const eliminate = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
-                    hint = `💡 Hint: It's NOT "${eliminate.replace(/:\d+$/, '')}"`;
+                    hint = `ðŸ’¡ Hint: It's NOT "${eliminate.replace(/:\d+$/, '')}"`;
                   }
                 } else if (quizState.type === 'reference-recall') {
                   // Show the book name
                   const bookMatch = quizState.answer.match(/^([1-3]?\s*[A-Za-z]+)/);
                   if (bookMatch) {
-                    hint = `💡 Hint: The book is ${bookMatch[1]}`;
+                    hint = `ðŸ’¡ Hint: The book is ${bookMatch[1]}`;
                   }
                 }
 
@@ -3831,7 +3887,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     return (
       <div className="space-y-6">
         <div className="text-center mb-6">
-          <span className="text-6xl block mb-2">🏆</span>
+          <span className="text-6xl block mb-2">ðŸ†</span>
           <h2 className="text-2xl font-bold text-amber-400">Achievements</h2>
           <p className="text-slate-300">
             Unlocked {unlockedCount} of {totalCount} achievements
@@ -3935,11 +3991,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     {achievement.type === 'points' && `Earn ${achievement.value} points`}
                   </div>
                   <div className="text-xs text-slate-500 mt-1">
-                    {achievement.tier} • {achievement.id}
+                    {achievement.tier} â€¢ {achievement.id}
                   </div>
                 </div>
                 <div className={`text-3xl ${achievement.isUnlocked ? 'text-amber-400' : 'text-slate-600'}`}>
-                  {achievement.isUnlocked ? '✓' : '🔒'}
+                  {achievement.isUnlocked ? 'âœ“' : 'ðŸ”’'}
                 </div>
               </div>
             </div>
@@ -4106,7 +4162,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {/* Verse List */}
         {totalVerses === 0 ? (
           <div className="bg-slate-700/50 rounded-xl p-8 border border-slate-600 text-center">
-            <div className="text-4xl mb-3">📖</div>
+            <div className="text-4xl mb-3">ðŸ“–</div>
             <p className="text-slate-300">Complete some quizzes to see your verse mastery progress!</p>
           </div>
         ) : (
@@ -4132,7 +4188,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       {verse.accuracy}%
                     </div>
                     <div className="text-xs text-slate-400">
-                      {verse.correct}✓ / {verse.incorrect}✗
+                      {verse.correct}âœ“ / {verse.incorrect}âœ—
                     </div>
                   </div>
                 </div>
@@ -4159,9 +4215,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     return (
                       <div key={type} className="bg-slate-800/50 rounded px-2 py-1">
                         <div className="text-slate-400 truncate">
-                          {type === 'fill-blank' ? '✏️ Fill' : 
-                           type === 'multiple-choice' ? '📝 Choice' : 
-                           '🔍 Recall'}
+                          {type === 'fill-blank' ? 'âœï¸ Fill' : 
+                           type === 'multiple-choice' ? 'ðŸ“ Choice' : 
+                           'ðŸ” Recall'}
                         </div>
                         <div className="text-white font-bold">{typeAccuracy}%</div>
                       </div>
@@ -4606,16 +4662,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           let transactionType, icon, description;
           if (points > 0) {
             transactionType = 'earn';
-            icon = '📝';
+            icon = 'ðŸ“';
             description = `Quiz completed: ${quiz.type}`;
           } else if (points < 0) {
             transactionType = 'penalty';
-            icon = '❌';
+            icon = 'âŒ';
             description = `Quiz failed: ${quiz.type}`;
           } else {
             // Zero points (quiz attempted but no points)
             transactionType = 'neutral';
-            icon = '📝';
+            icon = 'ðŸ“';
             description = `Quiz attempted: ${quiz.type}`;
           }
 
@@ -4640,7 +4696,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             type: 'spend',
             amount: purchase.cost,
             description: `Unlocked: ${purchase.unlockableId.replace(/_/g, ' ').replace(/course/g, 'Course')}`,
-            icon: '🔓'
+            icon: 'ðŸ”“'
           });
         }
       });
@@ -4655,7 +4711,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             type: 'spend',
             amount: hint.cost,
             description: `Hint purchased: ${hint.quizType || 'quiz'}`,
-            icon: '💡'
+            icon: 'ðŸ’¡'
           });
         }
       });
@@ -4669,7 +4725,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           type: 'invest',
           amount: inv.amount,
           description: `Investment locked for ${inv.lockDays} days`,
-          icon: '💰'
+          icon: 'ðŸ’°'
         });
 
         if (inv.status === 'matured' && inv.withdrawnDate) {
@@ -4680,7 +4736,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             type: 'earn',
             amount: Math.floor(inv.amount * (1 + inv.roi / 100)),
             description: `Investment matured (+${inv.roi.toFixed(1)}% ROI)`,
-            icon: '🎉'
+            icon: 'ðŸŽ‰'
           });
         } else if (inv.status === 'withdrawn_early' && inv.withdrawnDate) {
           const withdrawn = normalizeTimestamp(inv.withdrawnDate);
@@ -4690,7 +4746,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             type: 'penalty',
             amount: Math.floor(inv.amount * 0.5),
             description: `Early withdrawal penalty (-50%)`,
-            icon: '⚠️'
+            icon: 'âš ï¸'
           });
         }
       });
@@ -4757,7 +4813,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         });
       }
 
-      showToast(`💰 ${amount} points invested for ${investmentDays} days!`, 'success');
+      showToast(`ðŸ’° ${amount} points invested for ${investmentDays} days!`, 'success');
       setShowInvestmentModal(false);
       setInvestmentAmount('');
     };
@@ -4773,12 +4829,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         // Full return + ROI
         pointsReturned = Math.floor(investment.amount * (1 + investment.roi / 100));
         updatedInvestment = { ...investment, status: 'matured', withdrawnDate: now };
-        showToast(`🎉 Investment matured! +${Math.floor(investment.amount * investment.roi / 100)} bonus points!`, 'success');
+        showToast(`ðŸŽ‰ Investment matured! +${Math.floor(investment.amount * investment.roi / 100)} bonus points!`, 'success');
       } else {
         // 50% penalty for early withdrawal
         pointsReturned = Math.floor(investment.amount * 0.5);
         updatedInvestment = { ...investment, status: 'withdrawn_early', withdrawnDate: now };
-        showToast(`⚠️ Early withdrawal: 50% penalty applied`, 'error');
+        showToast(`âš ï¸ Early withdrawal: 50% penalty applied`, 'error');
       }
 
       const updatedInvestments = userData.investments.map(inv =>
@@ -5231,7 +5287,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       </div>
                       {isMatured && (
                         <div className="text-emerald-400 text-sm text-center mt-2">
-                          +{(pointsIfWithdraw - selectedInvestment.amount).toLocaleString()} bonus points! 🎉
+                          +{(pointsIfWithdraw - selectedInvestment.amount).toLocaleString()} bonus points! ðŸŽ‰
                         </div>
                       )}
                       {!isMatured && (
@@ -5443,10 +5499,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="text-blue-400 font-bold text-sm mb-1 pr-6">{plan.topic}</div>
                 <div className="text-slate-400 text-xs line-clamp-2">{plan.theme}</div>
                 {isCompleted && (
-                  <div className="mt-2 text-xs text-emerald-400 font-semibold">✓ Completed</div>
+                  <div className="mt-2 text-xs text-emerald-400 font-semibold">âœ“ Completed</div>
                 )}
                 {isInProgress && !isCompleted && (
-                  <div className="mt-2 text-xs text-amber-400 font-semibold">⏱ In Progress</div>
+                  <div className="mt-2 text-xs text-amber-400 font-semibold">â± In Progress</div>
                 )}
               </button>
             );
@@ -5506,7 +5562,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         });
       }
 
-      showToast(`🎉 ${powerUp.name} activated for ${Math.ceil(powerUp.duration / 60000)} minutes!`, 'success');
+      showToast(`ðŸŽ‰ ${powerUp.name} activated for ${Math.ceil(powerUp.duration / 60000)} minutes!`, 'success');
     };
 
     return (
@@ -5550,7 +5606,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {(userData.activeBoosts || []).some(b => b.type === 'DOUBLE_POINTS' && b.expiresAt > Date.now())
-                ? '✓ Active'
+                ? 'âœ“ Active'
                 : 'Purchase'}
             </button>
           </div>
@@ -5577,7 +5633,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {(userData.activeBoosts || []).some(b => b.type === 'STREAK_FREEZE' && b.expiresAt > Date.now())
-                ? '✓ Active'
+                ? 'âœ“ Active'
                 : 'Purchase'}
             </button>
           </div>
@@ -5604,7 +5660,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {(userData.activeBoosts || []).some(b => b.type === 'EXTRA_TIME' && b.expiresAt > Date.now())
-                ? '✓ Active'
+                ? 'âœ“ Active'
                 : 'Purchase'}
             </button>
           </div>
@@ -5631,7 +5687,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {(userData.activeBoosts || []).some(b => b.type === 'POINT_SHIELD' && b.expiresAt > Date.now())
-                ? '✓ Active'
+                ? 'âœ“ Active'
                 : 'Purchase'}
             </button>
           </div>
@@ -5666,7 +5722,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </div>
               {userData.unlockables?.lxx ? (
                 <div className="bg-purple-600/20 text-purple-300 font-semibold py-2 px-4 rounded-lg text-center">
-                  ✓ Unlocked
+                  âœ“ Unlocked
                 </div>
               ) : (
                 <button
@@ -5682,7 +5738,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 totalPoints: result.validatedData.totalPoints,
                                 unlockables: result.validatedData.unlockables
                               }));
-                              showToast('📜 Septuagint (LXX) unlocked!', 'success');
+                              showToast('ðŸ“œ Septuagint (LXX) unlocked!', 'success');
                             } else {
                               showToast(result.error || 'Failed to unlock', 'error');
                             }
@@ -5719,7 +5775,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </div>
               {userData.unlockables?.masoretic ? (
                 <div className="bg-amber-600/20 text-amber-300 font-semibold py-2 px-4 rounded-lg text-center">
-                  ✓ Unlocked
+                  âœ“ Unlocked
                 </div>
               ) : (
                 <button
@@ -5735,7 +5791,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 totalPoints: result.validatedData.totalPoints,
                                 unlockables: result.validatedData.unlockables
                               }));
-                              showToast('📜 Masoretic Text (WLC) unlocked!', 'success');
+                              showToast('ðŸ“œ Masoretic Text (WLC) unlocked!', 'success');
                             } else {
                               showToast(result.error || 'Failed to unlock', 'error');
                             }
@@ -5772,7 +5828,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </div>
               {userData.unlockables?.sinaiticus ? (
                 <div className="bg-blue-600/20 text-blue-300 font-semibold py-2 px-4 rounded-lg text-center">
-                  ✓ Unlocked
+                  âœ“ Unlocked
                 </div>
               ) : (
                 <button
@@ -5788,7 +5844,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 totalPoints: result.validatedData.totalPoints,
                                 unlockables: result.validatedData.unlockables
                               }));
-                              showToast('📜 Codex Sinaiticus unlocked!', 'success');
+                              showToast('ðŸ“œ Codex Sinaiticus unlocked!', 'success');
                             } else {
                               showToast(result.error || 'Failed to unlock', 'error');
                             }
@@ -5855,7 +5911,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 totalPoints: result.validatedData.totalPoints,
                                 unlockables: result.validatedData.unlockables
                               }));
-                              showToast('📜 Targum Jonathan unlocked!', 'success');
+                              showToast('ðŸ“œ Targum Jonathan unlocked!', 'success');
                             } else {
                               showToast(result.error || 'Failed to unlock', 'error');
                             }
@@ -5922,7 +5978,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 totalPoints: result.validatedData.totalPoints,
                                 unlockables: result.validatedData.unlockables
                               }));
-                              showToast('📜 Targum Onkelos unlocked!', 'success');
+                              showToast('ðŸ“œ Targum Onkelos unlocked!', 'success');
                             } else {
                               showToast(result.error || 'Failed to unlock', 'error');
                             }
@@ -5969,8 +6025,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <div className="text-amber-400 font-bold text-lg">1000 pts</div>
             </div>
             {userData.unlockables?.kjvStrongs ? (
-              <div className="bg-emerald-600/20 text-emerald-200 font-semibold py-2 px-4 rounded-lg text-center">
-                ✓ Unlocked
+              <div className="space-y-2">
+                <div className="bg-emerald-600/20 text-emerald-200 font-semibold py-2 px-4 rounded-lg text-center">
+                  âœ“ Unlocked - Available in Bible Reader
+                </div>
+                <div className="bg-slate-700/50 rounded-lg p-3 border border-slate-600">
+                  <p className="text-xs text-slate-300 mb-2">
+                    <strong>Advanced:</strong> Download SWORD Bible module for use with external apps
+                  </p>
+                  <a
+                    href={`${process.env.PUBLIC_URL}/KJV Strong`}
+                    download
+                    className="block text-center bg-slate-600 hover:bg-slate-500 text-white text-sm font-semibold py-2 px-3 rounded transition-all"
+                  >
+                    Download SWORD Module
+                  </a>
+                </div>
               </div>
             ) : (
               <button
@@ -6212,10 +6282,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <div className="text-green-400 font-bold text-sm mb-1 pr-6">{plan.topic}</div>
                   <div className="text-slate-400 text-xs line-clamp-2">{plan.theme}</div>
                   {isCompleted && (
-                    <div className="mt-2 text-xs text-emerald-400 font-semibold">✓ Completed</div>
+                    <div className="mt-2 text-xs text-emerald-400 font-semibold">âœ“ Completed</div>
                   )}
                   {isInProgress && !isCompleted && (
-                    <div className="mt-2 text-xs text-amber-400 font-semibold">⏱ In Progress</div>
+                    <div className="mt-2 text-xs text-amber-400 font-semibold">â± In Progress</div>
                   )}
                 </button>
               );
@@ -6282,7 +6352,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </>
               ) : (
                 <>
-                  <span className="shivering-ice text-3xl">🧊</span>
+                  <span className="shivering-ice text-3xl">ðŸ§Š</span>
                   <span className="text-cyan-400 text-3xl font-bold">0</span>
                 </>
               );
@@ -6346,7 +6416,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {/* Sound Settings */}
         <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
           <h3 className="text-white font-bold mb-4 flex items-center gap-2">
-            <span className="text-xl">🔊</span>
+            <span className="text-xl">ðŸ”Š</span>
             Sound Settings
           </h3>
 
@@ -6473,11 +6543,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             />
           </label>
           <p className="text-slate-400 text-sm mt-2">
-            Modernize archaic language: "thee/thou" → "you", "hath" → "has", etc.
+            Modernize archaic language: "thee/thou" â†’ "you", "hath" â†’ "has", etc.
           </p>
           {userData.selectedTranslation?.toUpperCase() === 'ASV' && userData.simplifiedMode && (
             <p className="text-amber-400 text-xs mt-2 italic">
-              Also converts "Jehovah" → "LORD"
+              Also converts "Jehovah" â†’ "LORD"
             </p>
           )}
         </div>
@@ -6507,22 +6577,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Donation Section */}
       <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-6">
         <div className="text-center mb-4">
-          <div className="text-4xl mb-3">🙏🏾</div>
+          <div className="text-4xl mb-3">ðŸ™ðŸ¾</div>
           <h3 className="text-2xl font-bold text-amber-400 mb-2">Support This Ministry</h3>
         </div>
         
         <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
           <p className="text-slate-200 text-sm leading-relaxed mb-4">
-            ✨ <span className="font-bold text-amber-400">Fuel the Fire of the Word</span>
+            âœ¨ <span className="font-bold text-amber-400">Fuel the Fire of the Word</span>
           </p>
           <p className="text-slate-300 text-sm leading-relaxed mb-3">
             Every gift given to Sword Drill carries eternal impact. Your donation helps place Bibles into the hands of those seeking the light of God, bring aid to those in need, and keep this app alive for every soul hungry to know His Word.
           </p>
           <p className="text-slate-300 text-sm leading-relaxed mb-3">
-            When you give, you're not just supporting an app — you're helping to ignite faith, spread hope, and equip believers with the Sword of the Spirit across the world.
+            When you give, you're not just supporting an app â€” you're helping to ignite faith, spread hope, and equip believers with the Sword of the Spirit across the world.
           </p>
           <p className="text-slate-300 text-sm leading-relaxed">
-            Together, we stand as torchbearers for the Kingdom — letting His Word cut through darkness and bring life to those who long for it. 🙏🏾⚔️
+            Together, we stand as torchbearers for the Kingdom â€” letting His Word cut through darkness and bring life to those who long for it. ðŸ™ðŸ¾âš”ï¸
           </p>
         </div>
 
@@ -6532,7 +6602,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           rel="noopener noreferrer"
           className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"
         >
-          💝 Donate via PayPal
+          ðŸ’ Donate via PayPal
         </a>
         
         <p className="text-center text-slate-400 text-xs mt-3">
@@ -6562,7 +6632,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       <div className="bg-gradient-to-br from-pink-500/10 to-rose-500/10 border-2 border-pink-500/30 rounded-2xl p-6">
         <div className="text-center">
-          <div className="text-5xl mb-3">🎁</div>
+          <div className="text-5xl mb-3">ðŸŽ</div>
           <h3 className="text-xl font-bold text-pink-400 mb-2">Earn Extra Points!</h3>
           <p className="text-slate-300 text-sm">
             Challenge yourself with these special quizzes and earn bonus points toward your progression!
@@ -6576,8 +6646,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           disabled={loading}
           className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white p-4 rounded-xl border-2 border-indigo-400 hover:border-indigo-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
-          <div className="font-bold text-lg">🐝 Biblical Spelling Bee</div>
-          <div className="text-indigo-100 text-sm">Unscramble biblical words • Timed • Hints available</div>
+          <div className="font-bold text-lg">ðŸ Biblical Spelling Bee</div>
+          <div className="text-indigo-100 text-sm">Unscramble biblical words â€¢ Timed â€¢ Hints available</div>
         </button>
         <button
           onClick={() => setCurrentView('bible-trivia')}
@@ -6588,7 +6658,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <Trophy size={20} />
             Bible Trivia Challenge - BONUS POINTS!
           </div>
-          <div className="text-yellow-50 text-sm font-semibold">750+ Questions • 3 Levels • Extra Points!</div>
+          <div className="text-yellow-50 text-sm font-semibold">750+ Questions â€¢ 3 Levels â€¢ Extra Points!</div>
         </button>
         <button
           onClick={() => setCurrentView('biblical-or-nah')}
@@ -6596,10 +6666,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           className="w-full bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white p-4 rounded-xl border-2 border-fuchsia-400 hover:border-fuchsia-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
-            🧠 Biblical or Nah?
-            <span className="text-fuchsia-200 text-sm">🆕 NEW!</span>
+            ðŸ§  Biblical or Nah?
+            <span className="text-fuchsia-200 text-sm">ðŸ†• NEW!</span>
           </div>
-          <div className="text-fuchsia-100 text-sm">200+ phrases • Is it really in the Bible? • Test your knowledge!</div>
+          <div className="text-fuchsia-100 text-sm">200+ phrases â€¢ Is it really in the Bible? â€¢ Test your knowledge!</div>
         </button>
         <button
           onClick={() => setCurrentView('words-of-jesus')}
@@ -6607,10 +6677,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
-            ✝️ Words of Jesus or Not?
-            <span className="text-purple-200 text-sm">⚡ FAST-PACED</span>
+            âœï¸ Words of Jesus or Not?
+            <span className="text-purple-200 text-sm">âš¡ FAST-PACED</span>
           </div>
-          <div className="text-purple-100 text-sm">Time-based quiz • 30 seconds • Can you identify Jesus' words?</div>
+          <div className="text-purple-100 text-sm">Time-based quiz â€¢ 30 seconds â€¢ Can you identify Jesus' words?</div>
         </button>
         <button
           onClick={() => setCurrentView('word-search')}
@@ -6618,10 +6688,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white p-4 rounded-xl border-2 border-emerald-400 hover:border-emerald-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
-            🔍 Bible Word Search Journey
-            <span className="text-emerald-200 text-sm">⭐ 250 PUZZLES</span>
+            ðŸ” Bible Word Search Journey
+            <span className="text-emerald-200 text-sm">â­ 250 PUZZLES</span>
           </div>
-          <div className="text-emerald-100 text-sm">Glowing orb checkpoints • Hints with points • Time bonuses • Progress tracking</div>
+          <div className="text-emerald-100 text-sm">Glowing orb checkpoints â€¢ Hints with points â€¢ Time bonuses â€¢ Progress tracking</div>
         </button>
         <button
           onClick={() => setCurrentView('storyline-quiz')}
@@ -6629,10 +6699,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
-            ⚡ Storyline Quiz
-            <span className="text-purple-200 text-sm">🆕 NEW!</span>
+            âš¡ Storyline Quiz
+            <span className="text-purple-200 text-sm">ðŸ†• NEW!</span>
           </div>
-          <div className="text-purple-100 text-sm">Put biblical events in order • Chronological challenges • Gospels included • Timed</div>
+          <div className="text-purple-100 text-sm">Put biblical events in order â€¢ Chronological challenges â€¢ Gospels included â€¢ Timed</div>
         </button>
       </div>
     </div>
@@ -6662,7 +6732,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         `}</style>
         <div className="bg-slate-700 rounded-2xl p-8 max-w-md w-full shadow-2xl border border-amber-500/20">
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">⚔️</div>
+            <div className="text-6xl mb-4">âš”ï¸</div>
             <div className="mb-2">
               <h1 className="text-5xl font-bold sword-drill-title">
                 Sword Drill
@@ -6750,7 +6820,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               {!resetSuccess ? (
                 <>
                   <div className="text-center mb-6">
-                    <div className="text-5xl mb-3">🔑</div>
+                    <div className="text-5xl mb-3">ðŸ”‘</div>
                     <h2 className="text-2xl font-bold text-amber-400 mb-2">Reset Password</h2>
                     <p className="text-slate-300 text-sm">
                       Enter your email address and we'll send you a link to reset your password.
@@ -6797,7 +6867,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               ) : (
                 <>
                   <div className="text-center">
-                    <div className="text-6xl mb-4">✅</div>
+                    <div className="text-6xl mb-4">âœ…</div>
                     <h2 className="text-2xl font-bold text-emerald-400 mb-3">Email Sent!</h2>
                     <p className="text-slate-300 mb-6">
                       We've sent a password reset link to your email address. Please check your inbox and follow the instructions to reset your password.
@@ -6954,7 +7024,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                   >
-                    <span className="text-indigo-400 text-xl font-bold">Ω</span> Greek Lexicon
+                    <span className="text-indigo-400 text-xl font-bold">Î©</span> Greek Lexicon
                   </button>
                   <button
                     onClick={() => {
@@ -6963,7 +7033,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
                   >
-                    <span className="text-amber-400 text-xl font-bold">א</span> Hebrew Lexicon
+                    <span className="text-amber-400 text-xl font-bold">×</span> Hebrew Lexicon
                   </button>
                   <button
                     onClick={() => {
@@ -6979,7 +7049,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                     totalPoints: result.validatedData.totalPoints,
                                     unlockables: result.validatedData.unlockables
                                   }));
-                                  showToast('📖 Smith\'s Bible Dictionary unlocked!', 'success');
+                                  showToast('ðŸ“– Smith\'s Bible Dictionary unlocked!', 'success');
                                   setCurrentView('smith-dictionary');
                                   setShowMenu(false);
                                 } else {
@@ -7032,7 +7102,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                       totalPoints: result.validatedData.totalPoints,
                                       unlockables: result.validatedData.unlockables
                                     }));
-                                    showToast('🎉 Biblical Bloodlines unlocked!', 'success');
+                                    showToast('ðŸŽ‰ Biblical Bloodlines unlocked!', 'success');
                                     setCurrentView('biblical-bloodlines');
                                     setShowMenu(false);
                                   } else {
@@ -7048,7 +7118,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   totalPoints: Math.max(0, prev.totalPoints - 500),
                                   unlockables: { ...(prev.unlockables || {}), bloodlines: true }
                                 }));
-                                showToast('🎉 Biblical Bloodlines unlocked!', 'success');
+                                showToast('ðŸŽ‰ Biblical Bloodlines unlocked!', 'success');
                                 setCurrentView('biblical-bloodlines');
                                 setShowMenu(false);
                               }
@@ -7102,12 +7172,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         <div className="font-semibold text-sm">Courses</div>
                         <div className="text-xs text-slate-400">Language & Theology</div>
                       </div>
-                      <span className="text-slate-400">{showCoursesDropdown ? '▼' : '▶'}</span>
+                      <span className="text-slate-400">{showCoursesDropdown ? 'â–¼' : 'â–¶'}</span>
                     </button>
 
                     {showCoursesDropdown && (
                       <div className="ml-4 mt-1 space-y-1 border-l-2 border-amber-500/30 pl-2">
-                        {Object.entries(COURSE_ADMISSION).map(([courseId, course]) => {
+                        {[
+                          ...Object.entries(COURSE_ADMISSION)
+                            .filter(([courseId]) => userData.unlockables?.[`course_${courseId}`])
+                            .sort((a, b) => a[1].name.localeCompare(b[1].name)),
+                          ...Object.entries(COURSE_ADMISSION)
+                            .filter(([courseId]) => !userData.unlockables?.[`course_${courseId}`])
+                            .sort((a, b) => a[1].name.localeCompare(b[1].name))
+                        ].map(([courseId, course]) => {
                           const IconComponent = course.icon;
                           const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                           return (
@@ -7357,7 +7434,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error saving spelling bee result:', err));
               }
 
-              showToast(`🐝 Spelling Bee Complete!\n\nScore: ${results.score}\n+${pointsEarned} points\n\n💰 New Balance: ${newTotalPoints} points`, 'success');
+              showToast(`ðŸ Spelling Bee Complete!\n\nScore: ${results.score}\n+${pointsEarned} points\n\nðŸ’° New Balance: ${newTotalPoints} points`, 'success');
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
@@ -7416,7 +7493,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error saving Words of Jesus result:', err));
               }
 
-              showToast(`✝️ Words of Jesus Quiz Complete!\n\nScore: ${results.score} points\nAccuracy: ${results.accuracy}%\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+              showToast(`âœï¸ Words of Jesus Quiz Complete!\n\nScore: ${results.score} points\nAccuracy: ${results.accuracy}%\n\nðŸ’° New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
@@ -7474,7 +7551,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error saving book order result:', err));
               }
 
-              showToast(`📚 Book Order Quiz Complete!\n\nScore: ${results.score} pts\n+${pointsEarned} points\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+              showToast(`ðŸ“š Book Order Quiz Complete!\n\nScore: ${results.score} pts\n+${pointsEarned} points\n\nðŸ’° New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
@@ -7523,7 +7600,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error saving storyline result:', err));
               }
 
-              showToast(`⚡ Storyline Quiz Complete!\n\nScore: ${results.score} points\n${results.perfect ? '🏆 Perfect Order!' : ''}\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+              showToast(`âš¡ Storyline Quiz Complete!\n\nScore: ${results.score} points\n${results.perfect ? 'ðŸ† Perfect Order!' : ''}\n\nðŸ’° New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
             }}
             onBack={() => setCurrentView('bonus-quizzes')}
           />
@@ -7584,7 +7661,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 }).catch(err => console.error('Error saving Sword Drill result:', err));
               }
 
-              showToast(`⚔️ Sword Drill Ultimate Complete!\n\nGrade: ${results.grade}\nScore: ${results.score}%\n+${pointsEarned} points\n\n💰 New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
+              showToast(`âš”ï¸ Sword Drill Ultimate Complete!\n\nGrade: ${results.grade}\nScore: ${results.score}%\n+${pointsEarned} points\n\nðŸ’° New Balance: ${userData.totalPoints + pointsEarned} points`, 'success');
               setCurrentView('home');
             }}
             onCancel={() => {
@@ -7684,17 +7761,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               }
 
               // Show completion message
-              let message = `🔍 ${isPersonal ? 'Personal' : ''} Verse Detective Complete!\n\n${results.success ? '✅ Case Solved!' : '❌ Incorrect'}`;
+              let message = `ðŸ” ${isPersonal ? 'Personal' : ''} Verse Detective Complete!\n\n${results.success ? 'âœ… Case Solved!' : 'âŒ Incorrect'}`;
               if (pointsEarned !== 0) {
                 message += `\n${pointsEarned > 0 ? '+' : ''}${pointsEarned} points`;
               } else if (isPersonal && !canEarn && results.success) {
-                message += `\n📊 Daily limit reached (3/3)\nNo points awarded, but great practice!`;
+                message += `\nðŸ“Š Daily limit reached (3/3)\nNo points awarded, but great practice!`;
               }
-              message += `\n\n💰 New Balance: ${Math.max(0, userData.totalPoints + pointsEarned)} points`;
+              message += `\n\nðŸ’° New Balance: ${Math.max(0, userData.totalPoints + pointsEarned)} points`;
 
               if (isPersonal && canEarn && results.success) {
                 const completionsAfter = (verseDetectiveData.completionsToday || 0) + 1;
-                message += `\n\n📈 Personal Verse Detective: ${completionsAfter}/3 today`;
+                message += `\n\nðŸ“ˆ Personal Verse Detective: ${completionsAfter}/3 today`;
               }
 
               showToast(message, 'success');
@@ -7738,7 +7815,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               let pointsEarned = 0;
               if (results.type === 'lesson') {
                 pointsEarned = awardBonusPoints('courseLesson');
-                showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                showToast(`ðŸŽ“ Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
                 // Track lesson completion
                 recordQuizAttempt({
@@ -7749,7 +7826,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'level') {
                 pointsEarned = awardBonusPoints('courseLevel');
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
                 // Track level completion
                 recordQuizAttempt({
@@ -7760,7 +7837,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'course') {
                 pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Greek course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Greek course!`, 'success');
 
                 // Track course completion
                 recordQuizAttempt({
@@ -7793,7 +7870,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               let pointsEarned = 0;
               if (results.type === 'lesson') {
                 pointsEarned = awardBonusPoints('courseLesson');
-                showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                showToast(`ðŸŽ“ Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
                 // Track lesson completion
                 recordQuizAttempt({
@@ -7804,7 +7881,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'level') {
                 pointsEarned = awardBonusPoints('courseLevel');
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
                 // Track level completion
                 recordQuizAttempt({
@@ -7815,7 +7892,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'course') {
                 pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hebrew course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hebrew course!`, 'success');
 
                 // Track course completion
                 recordQuizAttempt({
@@ -7848,7 +7925,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               let pointsEarned = 0;
               if (results.type === 'lesson') {
                 pointsEarned = awardBonusPoints('courseLesson');
-                showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                showToast(`ðŸŽ“ Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
                 // Track lesson completion
                 recordQuizAttempt({
@@ -7859,7 +7936,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'level') {
                 pointsEarned = awardBonusPoints('courseLevel');
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
                 // Track level completion
                 recordQuizAttempt({
@@ -7870,7 +7947,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 });
               } else if (results.type === 'course') {
                 pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Paleo Hebrew course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Paleo Hebrew course!`, 'success');
 
                 // Track course completion
                 recordQuizAttempt({
@@ -7903,11 +7980,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               const pointsEarned = results.points || 100;
 
               if (results.type === 'lesson') {
-                showToast(`🎓 Amharic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nአማርኛ mastery in progress!`, 'success');
+                showToast(`ðŸŽ“ Amharic Lesson Complete!\n\n+${pointsEarned} points earned!\n\náŠ áˆ›áˆ­áŠ› mastery in progress!`, 'success');
               } else if (results.type === 'level') {
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nየተሳካ! (Success!) You've mastered ${results.levelTitle}!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\ná‹¨á‰°áˆ³áŠ«! (Success!) You've mastered ${results.levelTitle}!`, 'success');
               } else if (results.type === 'quiz') {
-                showToast(`📝 Quiz Complete!\n\n+${pointsEarned} points earned!\n\nScore: ${results.score}%`, 'success');
+                showToast(`ðŸ“ Quiz Complete!\n\n+${pointsEarned} points earned!\n\nScore: ${results.score}%`, 'success');
               }
 
               setUserData(prev => ({
@@ -7938,9 +8015,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               const pointsEarned = results.points || 100;
 
               if (results.type === 'lesson') {
-                showToast(`🎓 Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\nግዕዝ mastery in progress!`, 'success');
+                showToast(`ðŸŽ“ Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\náŒá‹•á‹ mastery in progress!`, 'success');
               } else if (results.type === 'level') {
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nዓቢይ! (Great!) You've mastered ${results.levelTitle}!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\ná‹“á‰¢á‹­! (Great!) You've mastered ${results.levelTitle}!`, 'success');
               }
 
               setUserData(prev => ({
@@ -7971,9 +8048,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               const pointsEarned = results.points || 100;
 
               if (results.type === 'lesson') {
-                showToast(`🎓 Aramaic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nܐܪܡܝܐ - The language of Jesus!`, 'success');
+                showToast(`ðŸŽ“ Aramaic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nÜÜªÜ¡ÜÜ - The language of Jesus!`, 'success');
               } else if (results.type === 'level') {
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nܫܦܝܪ! (Excellent!) You've mastered ${results.levelTitle}!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nÜ«Ü¦ÜÜª! (Excellent!) You've mastered ${results.levelTitle}!`, 'success');
               }
 
               setUserData(prev => ({
@@ -8013,14 +8090,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 showToast(result.message, 'success');
               } else if (results.type === 'course-level') {
                 const pointsEarned = awardBonusPoints('courseLevel');
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: prev.totalPoints + pointsEarned
                 }));
               } else if (results.type === 'course') {
                 const pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hermeneutics course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hermeneutics course!`, 'success');
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: prev.totalPoints + pointsEarned
@@ -8045,7 +8122,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               if (results.type === 'level') {
                 pointsEarned = awardBonusPoints('courseLevel');
                 const levelName = results.level.charAt(0).toUpperCase() + results.level.slice(1);
-                showToast(`👑 ${levelName} Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've learned about ${results.kings} kings of Israel!`, 'success');
+                showToast(`ðŸ‘‘ ${levelName} Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've learned about ${results.kings} kings of Israel!`, 'success');
               }
 
               setUserData(prev => ({
@@ -8071,13 +8148,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               let pointsEarned = 0;
               if (results.type === 'lesson') {
                 pointsEarned = awardBonusPoints('courseLesson');
-                showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                showToast(`ðŸŽ“ Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
               } else if (results.type === 'level') {
                 pointsEarned = awardBonusPoints('courseLevel');
-                showToast(`🏆 Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                showToast(`ðŸ† Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
               } else if (results.type === 'course') {
                 pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Church History & Bible Culture course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Church History & Bible Culture course!`, 'success');
               }
 
               setUserData(prev => ({
@@ -8102,10 +8179,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               let pointsEarned = 0;
               if (results.type === 'module') {
                 pointsEarned = awardBonusPoints('courseLesson');
-                showToast(`🎓 Module Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this module!`, 'success');
+                showToast(`ðŸŽ“ Module Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this module!`, 'success');
               } else if (results.type === 'course') {
                 pointsEarned = awardBonusPoints('courseComplete');
-                showToast(`🎉 Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Textual Criticism course!`, 'success');
+                showToast(`ðŸŽ‰ Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Textual Criticism course!`, 'success');
               }
 
               setUserData(prev => ({
@@ -8128,7 +8205,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
               // Award points for lesson completion
               const pointsEarned = awardBonusPoints('courseLesson');
-              showToast(`🎓 Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
+              showToast(`ðŸŽ“ Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
 
               setUserData(prev => ({
                 ...prev,
@@ -8243,28 +8320,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               }
 
               // Create detailed results message
-              let message = `🏆 Bible Trivia Complete!\n\n`;
-              message += `📊 Results:\n`;
+              let message = `ðŸ† Bible Trivia Complete!\n\n`;
+              message += `ðŸ“Š Results:\n`;
               message += `  Difficulty: ${results.difficulty.charAt(0).toUpperCase() + results.difficulty.slice(1)}\n`;
               message += `  Score: ${results.score}/${results.total} (${results.percentage}%)\n`;
               message += `  Best Streak: ${results.maxStreak}\n`;
               message += `  Fast Answers: ${results.fastAnswers}\n\n`;
 
-              message += `💰 Bonus Points Breakdown:\n`;
-              message += `  Base (${results.score} × ${baseBonusPerCorrect} × ${difficultyMultiplier}x): ${Math.floor(results.score * baseBonusPerCorrect * difficultyMultiplier)} pts\n`;
+              message += `ðŸ’° Bonus Points Breakdown:\n`;
+              message += `  Base (${results.score} Ã— ${baseBonusPerCorrect} Ã— ${difficultyMultiplier}x): ${Math.floor(results.score * baseBonusPerCorrect * difficultyMultiplier)} pts\n`;
 
               if (results.isPerfect) {
-                message += `  🎯 Perfect Score Bonus: +${Math.floor(results.score * baseBonusPerCorrect * difficultyMultiplier * 0.5)} pts\n`;
+                message += `  ðŸŽ¯ Perfect Score Bonus: +${Math.floor(results.score * baseBonusPerCorrect * difficultyMultiplier * 0.5)} pts\n`;
               }
               if (streakBonus > 0) {
-                message += `  🔥 Streak Bonus: +${streakBonus} pts\n`;
+                message += `  ðŸ”¥ Streak Bonus: +${streakBonus} pts\n`;
               }
               if (speedBonus > 0) {
-                message += `  ⚡ Speed Bonus: +${speedBonus} pts\n`;
+                message += `  âš¡ Speed Bonus: +${speedBonus} pts\n`;
               }
 
-              message += `\n💎 Total Bonus: +${pointsEarned} points`;
-              message += `\n🏆 New Balance: ${userData.totalPoints + pointsEarned} points`;
+              message += `\nðŸ’Ž Total Bonus: +${pointsEarned} points`;
+              message += `\nðŸ† New Balance: ${userData.totalPoints + pointsEarned} points`;
 
               showToast(message, 'success');
               setCurrentView('home');
@@ -8379,14 +8456,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               disabled={currentDayIndex === 0}
                               className="px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded text-sm font-semibold transition-all"
                             >
-                              ← Previous
+                              â† Previous
                             </button>
                             <button
                               onClick={() => setCurrentDayIndex(prev => Math.min(selectedPlan.days.length - 1, prev + 1))}
                               disabled={currentDayIndex === selectedPlan.days.length - 1}
                               className="px-3 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded text-sm font-semibold transition-all"
                             >
-                              Next →
+                              Next â†’
                             </button>
                           </div>
                         </div>
@@ -8534,7 +8611,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         });
                       }
 
-                      showToast('✅ Bible study plan marked as complete!', 'success');
+                      showToast('âœ… Bible study plan marked as complete!', 'success');
                     }}
                     className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2"
                   >
@@ -8597,7 +8674,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="bg-slate-800 rounded-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6 sticky top-0 bg-slate-800 pb-4 border-b border-slate-700 z-10">
               <div className="flex items-center gap-3">
-                <div className="text-4xl">📖</div>
+                <div className="text-4xl">ðŸ“–</div>
                 <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
               </div>
               <button onClick={() => { setShowBibleReader(false); setPendingReference(null); }} className="text-white hover:text-amber-400 transition-all">
@@ -8621,7 +8698,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="flex justify-between items-center mb-6">
               <div>
                 <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-3xl">📘</span>
+                  <span className="text-3xl">ðŸ“˜</span>
                   Personal Verse Quiz
                 </h2>
                 <p className="text-slate-400 text-sm mt-1">
@@ -8690,8 +8767,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-4 rounded-xl border-2 border-emerald-500 hover:border-emerald-400 transition-all text-left disabled:opacity-50"
               >
-                <div className="font-bold text-lg">🔍 Verse Detective</div>
-                <div className="text-emerald-100 text-sm">Solve clues to identify your verses • 5 points • -10 penalty • Limited to 3 completions per day</div>
+                <div className="font-bold text-lg">ðŸ” Verse Detective</div>
+                <div className="text-emerald-100 text-sm">Solve clues to identify your verses â€¢ 5 points â€¢ -10 penalty â€¢ Limited to 3 completions per day</div>
               </button>
 
             </div>
@@ -8762,7 +8839,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
           <div className="achievement-unlock-notification bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 rounded-2xl p-8 border-4 border-amber-300 shadow-2xl max-w-md animate-achievement-unlock pointer-events-auto">
             <div className="text-center">
-              <div className="text-6xl mb-4 animate-bounce">{showAchievementUnlock.icon || '🏆'}</div>
+              <div className="text-6xl mb-4 animate-bounce">{showAchievementUnlock.icon || 'ðŸ†'}</div>
               <div className="text-2xl font-bold text-slate-900 mb-2">Achievement Unlocked!</div>
               <div className="text-xl font-semibold text-slate-800">{showAchievementUnlock.name}</div>
               <div className="mt-4 text-sm text-slate-700">
@@ -8815,7 +8892,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
           <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-2xl p-8 border-2 border-purple-500/50 shadow-2xl max-w-lg w-full animate-fade-in">
             <div className="text-center">
-              <div className="text-5xl mb-4">💡</div>
+              <div className="text-5xl mb-4">ðŸ’¡</div>
               <h3 className="text-2xl font-bold text-purple-200 mb-4">Memory Tip</h3>
               <p className="text-white text-lg leading-relaxed mb-2">
                 {typeof memoryTip === 'string' ? memoryTip : memoryTip.tip}

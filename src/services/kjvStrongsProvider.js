@@ -123,7 +123,7 @@ async function loadBook(slug) {
 }
 
 function formatTokens(tokens = []) {
-  if (!Array.isArray(tokens) || tokens.length === 0) return null;
+  if (!Array.isArray(tokens) || tokens.length === 0) return { text: null, tokens: [] };
 
   const sorted = tokens
     .map((t, idx) => ({ ...t, __idx: idx }))
@@ -134,15 +134,20 @@ function formatTokens(tokens = []) {
       return ai - bi;
     });
 
-  const parts = sorted.map(tok => {
+  const formattedTokens = sorted.map(tok => {
     const baseWord = (tok.text || '').trim() || (tok.word || '').trim();
     const strongs = tok.number ? tok.number.toUpperCase() : '';
     if (!baseWord && !strongs) return null;
-    const tagged = strongs ? `${baseWord} [${strongs}]`.trim() : baseWord;
-    return tagged;
+    return { word: baseWord || '', strongs };
   }).filter(Boolean);
 
-  return parts.join(' ').replace(/\s+/g, ' ').trim();
+  const text = formattedTokens
+    .map(t => (t.strongs ? `${t.word} [${t.strongs}]` : t.word))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return { text, tokens: formattedTokens };
 }
 
 export async function getKjvStrongsVerse(reference) {
@@ -156,13 +161,14 @@ export async function getKjvStrongsVerse(reference) {
   const tokens = book[`${parsed.chapter}:${parsed.verse}`];
   if (!tokens) return null;
 
-  const text = formatTokens(tokens);
+  const { text, tokens: formattedTokens } = formatTokens(tokens);
   if (!text) return null;
 
   return {
     reference: parsed.normalized,
     text,
-    translation: TRANSLATION_CODE
+    translation: TRANSLATION_CODE,
+    tokens: formattedTokens
   };
 }
 
@@ -181,10 +187,11 @@ export async function getKjvStrongsRange(reference) {
   for (let v = start; v <= end; v++) {
     const tokens = book[`${parsed.chapter}:${v}`];
     if (!tokens) continue;
-    const text = formatTokens(tokens);
+    const { text, tokens: formattedTokens } = formatTokens(tokens);
     if (text) {
       parts.push(`${v}. ${text}`);
     }
+    // For ranges, token detail per verse is not returned to keep payload small
   }
 
   if (parts.length === 0) return null;
@@ -205,9 +212,9 @@ export async function getKjvStrongsChapter(bookName, chapter) {
     .map(([key, tokens]) => {
       const [ch, v] = key.split(':').map(num => parseInt(num, 10));
       if (ch !== chapter) return null;
-      const text = formatTokens(tokens);
+      const { text, tokens: formattedTokens } = formatTokens(tokens);
       if (!text) return null;
-      return { verse: v, text };
+      return { verse: v, text, tokens: formattedTokens };
     })
     .filter(Boolean)
     .sort((a, b) => a.verse - b.verse);
