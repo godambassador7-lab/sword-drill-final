@@ -73,6 +73,37 @@ const BiblicalBloodlines = ({ onClose }) => {
     { id: 'jesus_luke', path: `${addOnBase}/jesus_genealogy_luke.json`, name: 'Jesus Genealogy (Luke)', icon: '📖', datasetType: 'genealogy-list' }
   ];
 
+  const normalizeName = (name = '') => name.trim().toLowerCase();
+
+  const dedupeTree = (node) => {
+    if (!node) return node;
+
+    if (Array.isArray(node.children)) {
+      const unique = new Map();
+      node.children.forEach(child => {
+        if (!child || !child.name) return;
+        const key = normalizeName(child.name);
+        if (unique.has(key)) {
+          const existing = unique.get(key);
+          if (Array.isArray(child.children)) {
+            existing.children = Array.isArray(existing.children) ? existing.children : [];
+            existing.children.push(...child.children);
+          }
+        } else {
+          unique.set(key, child);
+        }
+      });
+      node.children = Array.from(unique.values());
+    }
+
+    if (node.legal_line_through_joseph) dedupeTree(node.legal_line_through_joseph);
+    if (node.line_through_mary) dedupeTree(node.line_through_mary);
+    if (Array.isArray(node.children)) {
+      node.children.forEach(child => dedupeTree(child));
+    }
+    return node;
+  };
+
   // Load tree data
   useEffect(() => {
     loadAvailableTrees();
@@ -285,6 +316,9 @@ const BiblicalBloodlines = ({ onClose }) => {
         stitchToShem(data, ['Abraham']);
       }
 
+      // Remove duplicate descendants that may exist in source data
+      dedupeTree(data);
+
       // Convert list format to tree format
       if (dataIsList && treeDef.datasetType === 'genealogy-list') {
         const built = buildGenealogyTree(data, treeDef.name);
@@ -334,7 +368,7 @@ const BiblicalBloodlines = ({ onClose }) => {
       results.push({
         ...node,
         path: [...path, node.name],
-        fullPath: path.join(' → '),
+        fullPath: path.join(' › '),
         searchable: [
           node.name,
           ...akaNames,
@@ -445,7 +479,7 @@ const BiblicalBloodlines = ({ onClose }) => {
   const renderNode = (node, level = 0, parentPath = []) => {
     if (!node) return null;
 
-    const nodePath = [...parentPath, node.name].join('→');
+    const nodePath = [...parentPath, node.name].join(' › ');
     const isExpanded = expandedNodes.has(nodePath);
     const isInJesusLine = jesusLineage.has(node.name);
     const hasChildren = (node.children && node.children.length > 0) ||

@@ -651,6 +651,7 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
 
 // Local persistence helpers for guest/offline progress
 const PROGRESS_STORAGE_KEY = 'swordDrillProgress';
+const LAST_TRANSLATION_KEY = 'lastSelectedTranslation';
 
 const saveProgressToLocalStorage = (progress) => {
   try {
@@ -837,13 +838,21 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const localLastVerse = normalizeTimestampValue(localProgress.lastVerseOfDayRead);
   const lastVerseOfDayRead = Math.max(remoteLastVerse || 0, localLastVerse || 0) || null;
 
-  const preferredTranslation = normalizeTranslation(remoteProgress.selectedTranslation || localProgress.selectedTranslation || 'KJV');
-  const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
-    ? 'KJV'
-    : preferredTranslation;
+  const lastSelected = (() => {
+    try { return localStorage.getItem(LAST_TRANSLATION_KEY); } catch (_) { return null; }
+  })();
+  const preferredTranslation = normalizeTranslation(
+    lastSelected ||
+    remoteProgress.selectedTranslation ||
+    localProgress.selectedTranslation ||
+    'KJV'
+  );
+    const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
+      ? 'KJV'
+      : preferredTranslation;
 
-  return {
-    name: remoteProgress.name || localProgress.name || 'Guest',
+    return {
+      name: remoteProgress.name || localProgress.name || 'Guest',
     versesMemorized: Math.max(localProgress.versesMemorized || 0, remoteProgress.versesMemorized || 0),
     quizzesCompleted: Math.max(localProgress.quizzesCompleted || 0, remoteProgress.quizzesCompleted || 0),
     currentStreak,
@@ -873,9 +882,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     hintPurchases,
     investments,
     activeBoosts,
-    accountCreated
+      accountCreated
+    };
   };
-};
 
 const SwordDrillApp = () => {
   // Course admission costs
@@ -1093,18 +1102,23 @@ const SwordDrillApp = () => {
   }, []);
 
 // Load guest/local progress on first render before auth resolves
-useEffect(() => {
-  const savedProgress = loadProgressFromLocalStorage();
-  if (savedProgress) {
-    const localStreak = calculateCurrentStreak();
-    setUserData((prev) => ({
-      ...prev,
-      ...savedProgress,
-      currentStreak: Math.max(localStreak, savedProgress.currentStreak || 0)
-    }));
-  }
-  setHasHydratedProgress(true);
-}, []);
+  useEffect(() => {
+    const savedProgress = loadProgressFromLocalStorage();
+    if (savedProgress) {
+      const localStreak = calculateCurrentStreak();
+      setUserData((prev) => ({
+        ...prev,
+        ...savedProgress,
+        currentStreak: Math.max(localStreak, savedProgress.currentStreak || 0)
+      }));
+    }
+    // Restore last selected translation for guests/offline
+    const lastTranslation = localStorage.getItem(LAST_TRANSLATION_KEY);
+    if (lastTranslation) {
+      setUserData(prev => ({ ...prev, selectedTranslation: normalizeTranslation(lastTranslation) }));
+    }
+    setHasHydratedProgress(true);
+  }, []);
 
 useEffect(() => {
   const verse = getDailyVerse(new Date());
@@ -1685,9 +1699,16 @@ const getQuizCooldownMs = (quizType) => {
   return hours * 60 * 60 * 1000;
 };
 
-// Handle course access with admission payment
-const handleCourseAccess = (courseId) => {
-  const course = COURSE_ADMISSION[courseId];
+  const recordLocalPurchase = (unlockableId, cost, type = 'purchase') => ({
+    unlockableId,
+    cost,
+    timestamp: Date.now(),
+    type
+  });
+
+  // Handle course access with admission payment
+  const handleCourseAccess = (courseId) => {
+    const course = COURSE_ADMISSION[courseId];
   if (!course) {
     setCurrentView(courseId);
     setShowMenu(false);
@@ -1712,35 +1733,37 @@ const handleCourseAccess = (courseId) => {
       description: course.description,
       isAdmission: true,
       onConfirm: () => {
-        playChaChing();
-        if (currentUser?.uid) {
-          purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
-            if (result.success && result.validatedData) {
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: result.validatedData.totalPoints,
-                unlockables: result.validatedData.unlockables
-              }));
-              showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
-              setCurrentView(courseId);
-              setShowMenu(false);
-            } else {
+          playChaChing();
+          if (currentUser?.uid) {
+            purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
+              if (result.success && result.validatedData) {
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: result.validatedData.totalPoints,
+                  unlockables: result.validatedData.unlockables,
+                  purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
+                }));
+                showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
+                setCurrentView(courseId);
+                setShowMenu(false);
+              } else {
               showToast(result.error || 'Failed to unlock course', 'error');
             }
           }).catch(err => {
             showToast('Error: ' + err.message, 'error');
           });
-        } else {
-          // Offline/guest unlock
-          setUserData(prev => ({
-            ...prev,
-            totalPoints: Math.max(0, prev.totalPoints - course.cost),
-            unlockables: { ...(prev.unlockables || {}), [unlockKey]: true }
-          }));
-          showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
-          setCurrentView(courseId);
-          setShowMenu(false);
-        }
+          } else {
+            // Offline/guest unlock
+            setUserData(prev => ({
+              ...prev,
+              totalPoints: Math.max(0, prev.totalPoints - course.cost),
+              unlockables: { ...(prev.unlockables || {}), [unlockKey]: true },
+              purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
+            }));
+            showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
+            setCurrentView(courseId);
+            setShowMenu(false);
+          }
         setShowPurchaseModal(false);
       }
     });
@@ -3204,7 +3227,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           Open Bible Reader
         </div>
         <div className="text-amber-100 text-sm">
-          Read Scripture by Chapter  {['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA'].includes(userData.selectedTranslation?.toUpperCase()) ? userData.selectedTranslation.toUpperCase() : 'KJV'}
+          Read Bible by selected translation
         </div>
       </button>
 
@@ -4721,7 +4744,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           delta: -(inv.amount || 0),
           description: `Investment locked for ${inv.lockDays} days`,
           category: 'investment',
-          type: 'invest'
+          type: 'transfer',
+          isTransfer: true
         });
 
         if (inv.status === 'matured' && inv.withdrawnDate) {
@@ -4747,23 +4771,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       });
 
       // Sort by date descending
-      return transactions.sort((a, b) => b.date - a.date);
+      const seen = new Set();
+      const deduped = transactions.filter(t => {
+        const key = `${t.id || t.description}-${t.date}-${t.delta}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+      return deduped.sort((a, b) => b.date - a.date);
     };
 
     const transactions = getTransactions();
 
     // Calculate totals
-    const totals = transactions.reduce(
-      (acc, t) => {
-        if (t.delta > 0) acc.totalEarned += t.delta;
-        if (t.delta < 0) acc.totalSpent += Math.abs(t.delta);
-        return acc;
+  const totals = transactions.reduce(
+    (acc, t) => {
+      if (t.delta > 0) acc.totalEarned += t.delta;
+      if (t.delta < 0 && !t.isTransfer) acc.totalSpent += Math.abs(t.delta);
+      return acc;
       },
       { totalEarned: 0, totalSpent: 0 }
     );
 
     const activeInvestments = (userData.investments || []).filter(inv => inv.status === 'active');
     const totalInvested = activeInvestments.reduce((sum, inv) => inv.amount + sum, 0);
+    // Inferred earnings (spent + balance + active transfers) to guard against missing history
+    const inferredEarned = totals.totalSpent + (userData.totalPoints || 0) + totalInvested;
+    const displayEarned = Math.max(totals.totalEarned, inferredEarned);
 
     const handleCreateInvestment = () => {
       const amount = parseInt(investmentAmount);
@@ -4876,7 +4911,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <TrendingUp size={20} className="text-emerald-400" />
               <div className="text-xs text-emerald-300 font-semibold">Total Earned</div>
             </div>
-            <div className="text-2xl font-bold text-emerald-400">{totals.totalEarned.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-emerald-400">{displayEarned.toLocaleString()}</div>
             <div className="text-xs text-slate-400 mt-1">All-time earnings</div>
           </div>
 
@@ -5741,7 +5776,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               setUserData(prev => ({
                                 ...prev,
                                 totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables
+                                unlockables: result.validatedData.unlockables,
+                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('lxx', 5000, 'unlockable')]
                               }));
                               showToast(' Septuagint (LXX) unlocked!', 'success');
                             } else {
@@ -5794,7 +5830,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               setUserData(prev => ({
                                 ...prev,
                                 totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables
+                                unlockables: result.validatedData.unlockables,
+                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('masoretic', 7500, 'unlockable')]
                               }));
                               showToast(' Masoretic Text (WLC) unlocked!', 'success');
                             } else {
@@ -5847,7 +5884,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               setUserData(prev => ({
                                 ...prev,
                                 totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables
+                                unlockables: result.validatedData.unlockables,
+                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('sinaiticus', 10000, 'unlockable')]
                               }));
                               showToast(' Codex Sinaiticus unlocked!', 'success');
                             } else {
@@ -5914,7 +5952,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               setUserData(prev => ({
                                 ...prev,
                                 totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables
+                                unlockables: result.validatedData.unlockables,
+                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('targumJonathan', 6000, 'unlockable')]
                               }));
                               showToast(' Targum Jonathan unlocked!', 'success');
                             } else {
@@ -5981,7 +6020,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                               setUserData(prev => ({
                                 ...prev,
                                 totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables
+                                unlockables: result.validatedData.unlockables,
+                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('targumOnkelos', 6000, 'unlockable')]
                               }));
                               showToast(' Targum Onkelos unlocked!', 'success');
                             } else {
@@ -6059,7 +6099,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                             setUserData(prev => ({
                               ...prev,
                               totalPoints: result.validatedData.totalPoints,
-                              unlockables: result.validatedData.unlockables
+                              unlockables: result.validatedData.unlockables,
+                              purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('kjvStrongs', 1000, 'unlockable')]
                             }));
                             showToast("KJV w/ Strong's unlocked!", 'success');
                           } else {
@@ -6498,7 +6539,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 showToast("Unlock KJV w/ Strong's in the store (1000 pts)", 'error');
                 return;
               }
-              setUserData({ ...userData, selectedTranslation: next });
+                setUserData({ ...userData, selectedTranslation: next });
+                try { localStorage.setItem(LAST_TRANSLATION_KEY, next); } catch (_) {}
+                if (currentUser?.uid) {
+                  updateUserProgress(currentUser.uid, { selectedTranslation: next });
+                }
             }}
             className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
           >
@@ -7052,7 +7097,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   setUserData(prev => ({
                                     ...prev,
                                     totalPoints: result.validatedData.totalPoints,
-                                    unlockables: result.validatedData.unlockables
+                                    unlockables: result.validatedData.unlockables,
+                                    purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('smithDictionary', 500, 'unlockable')]
                                   }));
                                   showToast(' Smith\'s Bible Dictionary unlocked!', 'success');
                                   setCurrentView('smith-dictionary');
@@ -7100,17 +7146,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                             onConfirm: () => {
                               playChaChing();
                               if (currentUser?.uid) {
-                                purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
-                                  if (result.success && result.validatedData) {
-                                    setUserData(prev => ({
-                                      ...prev,
-                                      totalPoints: result.validatedData.totalPoints,
-                                      unlockables: result.validatedData.unlockables
-                                    }));
-                                    showToast(' Biblical Bloodlines unlocked!', 'success');
-                                    setCurrentView('biblical-bloodlines');
-                                    setShowMenu(false);
-                                  } else {
+                              purchaseUnlockable(currentUser.uid, 'bloodlines', 500).then(result => {
+                                if (result.success && result.validatedData) {
+                                  setUserData(prev => ({
+                                    ...prev,
+                                    totalPoints: result.validatedData.totalPoints,
+                                    unlockables: result.validatedData.unlockables,
+                                    purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('bloodlines', 500, 'unlockable')]
+                                  }));
+                                  showToast(' Biblical Bloodlines unlocked!', 'success');
+                                  setCurrentView('biblical-bloodlines');
+                                  setShowMenu(false);
+                                } else {
                                     showToast(result.error || 'Failed to unlock Biblical Bloodlines', 'error');
                                   }
                                 }).catch(err => {
@@ -7121,7 +7168,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                 setUserData(prev => ({
                                   ...prev,
                                   totalPoints: Math.max(0, prev.totalPoints - 500),
-                                  unlockables: { ...(prev.unlockables || {}), bloodlines: true }
+                                  unlockables: { ...(prev.unlockables || {}), bloodlines: true },
+                                  purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('bloodlines', 500, 'unlockable')]
                                 }));
                                 showToast(' Biblical Bloodlines unlocked!', 'success');
                                 setCurrentView('biblical-bloodlines');
@@ -8675,9 +8723,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {/* Bible Reader Modal */}
       {showBibleReader && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => { setShowBibleReader(false); setPendingReference(null); }}>
-          <div className="bg-slate-800 rounded-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-6 sticky top-0 bg-slate-800 pb-4 border-b border-slate-700 z-10">
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => { setShowBibleReader(false); setPendingReference(null); }}>
+          <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700">
               <div className="flex items-center gap-3">
                 <div className="text-4xl"></div>
                 <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
@@ -8686,12 +8734,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <X size={24} />
               </button>
             </div>
-            <BibleReader
-              selectedTranslation={userData.selectedTranslation}
-              initialReference={pendingReference}
-              userData={userData}
-              onUpdateUserData={setUserData}
-            />
+            <div className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6">
+              <BibleReader
+                selectedTranslation={userData.selectedTranslation}
+                initialReference={pendingReference}
+                userData={userData}
+                onUpdateUserData={setUserData}
+              />
+            </div>
           </div>
         </div>
       )}
