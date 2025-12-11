@@ -949,7 +949,7 @@ const SwordDrillApp = () => {
     name: 'Guest',
     versesMemorized: 0,
     quizzesCompleted: 0,
-    currentStreak: calculateCurrentStreak(), // Load from localStorage
+    currentStreak: 0, // Will be loaded from localStorage in useEffect to prevent bouncing
     totalPoints: 0,
     achievements: [],
     selectedTranslation: 'KJV',
@@ -1246,6 +1246,23 @@ useEffect(() => {
   if (!hasHydratedProgress) return;
   syncVerseOfDayReadState(userData);
 }, [userData.lastVerseOfDayRead, hasHydratedProgress, syncVerseOfDayReadState]);
+
+// Enable pinch-to-zoom ONLY for Bible Reader and Bloodlines pages
+useEffect(() => {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (!viewport) return;
+
+  // Allow pinch-to-zoom only on Bible Reader and Bloodlines pages
+  const shouldAllowZoom = showBibleReader || currentView === 'biblical-bloodlines';
+
+  if (shouldAllowZoom) {
+    // Enable pinch-to-zoom
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover');
+  } else {
+    // Disable pinch-to-zoom on all other pages
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');
+  }
+}, [showBibleReader, currentView]);
 
 // Check for time decay and missed day tax on app load
 useEffect(() => {
@@ -8724,7 +8741,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Bible Reader Modal */}
       {showBibleReader && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => { setShowBibleReader(false); setPendingReference(null); }}>
-          <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ touchAction: 'pinch-zoom' }}>
             <div className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700">
               <div className="flex items-center gap-3">
                 <div className="text-4xl"></div>
@@ -8734,7 +8751,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <X size={24} />
               </button>
             </div>
-            <div className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6">
+            <div className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6" style={{ touchAction: 'pan-y pinch-zoom' }}>
               <BibleReader
                 selectedTranslation={userData.selectedTranslation}
                 initialReference={pendingReference}
