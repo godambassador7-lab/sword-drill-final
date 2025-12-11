@@ -13,6 +13,9 @@
       "adonijah",
       "shephatiah",
       "ithream",
+      "shimea",
+      "shobab",
+      "nathan",
       "solomon"
     ],
     "refs": [
@@ -108,17 +111,63 @@
     "alt_names": []
   },
   {
-    "id": "solomon",
-    "name": "Solomon",
+    "id": "shimea",
+    "name": "Shimea",
     "gender": "M",
     "father": "david",
-    "mother": null,
+    "mother": "bathsheba",
     "spouses": [],
     "children": [],
     "refs": [
       "1 Chronicles 3:5"
     ],
-    "notes": "Son of Bathsheba; successor king.",
+    "notes": "Son of David and Bathsheba, born in Jerusalem.",
+    "alt_names": [
+      "Shammua"
+    ]
+  },
+  {
+    "id": "shobab",
+    "name": "Shobab",
+    "gender": "M",
+    "father": "david",
+    "mother": "bathsheba",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:5"
+    ],
+    "notes": "Son of David and Bathsheba, born in Jerusalem.",
+    "alt_names": []
+  },
+  {
+    "id": "nathan",
+    "name": "Nathan",
+    "gender": "M",
+    "father": "david",
+    "mother": "bathsheba",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:5",
+      "2 Samuel 5:14",
+      "Luke 3:31"
+    ],
+    "notes": "Son of David and Bathsheba, born in Jerusalem. Ancestor of Jesus through Mary's lineage (Luke 3:31). Not to be confused with Nathan the prophet.",
+    "alt_names": []
+  },
+  {
+    "id": "solomon",
+    "name": "Solomon",
+    "gender": "M",
+    "father": "david",
+    "mother": "bathsheba",
+    "spouses": [],
+    "children": [],
+    "refs": [
+      "1 Chronicles 3:5"
+    ],
+    "notes": "Son of David and Bathsheba; successor king.",
     "alt_names": []
   }
 ]
