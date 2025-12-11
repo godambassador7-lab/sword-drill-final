@@ -17,9 +17,21 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   const [showCelebration, setShowCelebration] = useState(false);
   const [earnedBonus, setEarnedBonus] = useState(0);
   const [dragStart, setDragStart] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [tapSelectMode, setTapSelectMode] = useState(true); // Mobile-friendly tap mode
 
   const currentPuzzle = puzzles[currentPuzzleIndex];
   const totalPoints = userData?.totalPoints || 0;
+
+  // Detect if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Load puzzles and progress
   useEffect(() => {
@@ -89,6 +101,31 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   }, [currentPuzzle?.id, completedPuzzles]);
 
   const getCellKey = (row, col) => `${row}-${col}`;
+
+  // Mobile tap-to-select mode handler
+  const handleCellTap = (row, col) => {
+    const cellKey = getCellKey(row, col);
+
+    // Haptic feedback for mobile
+    if (navigator.vibrate) {
+      navigator.vibrate(10);
+    }
+
+    if (selectedCells.length === 0) {
+      // First tap - start selection
+      setDragStart({ row, col });
+      setSelectedCells([cellKey]);
+    } else {
+      // Second tap - complete selection
+      const newSelection = getSelectionBetween(dragStart, { row, col });
+      setSelectedCells(newSelection);
+      // Small delay before checking to show selection
+      setTimeout(() => {
+        checkWord();
+        setDragStart(null);
+      }, 200);
+    }
+  };
 
   const handleMouseDown = (row, col) => {
     setDragStart({ row, col });
@@ -178,6 +215,11 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
     );
 
     if (foundWord && !foundWords.includes(foundWord)) {
+      // Success haptic feedback
+      if (navigator.vibrate) {
+        navigator.vibrate([50, 30, 50]); // Success pattern
+      }
+
       setFoundWords(prev => [...prev, foundWord]);
 
       // Store the cells of this found word for permanent highlighting
@@ -186,6 +228,11 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
       // Check if puzzle complete
       if (foundWords.length + 1 === currentPuzzle.words.length) {
         completePuzzle();
+      }
+    } else if (selectedCells.length > 1) {
+      // Wrong word - gentle feedback
+      if (navigator.vibrate) {
+        navigator.vibrate(30);
       }
     }
 
@@ -443,36 +490,75 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
             )}
           </div>
 
-          {/* Hint Button */}
-          {!isPuzzleCompleted && (
-            <button
-              onClick={buyHint}
-              disabled={totalPoints < hintCost}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded-lg font-semibold transition-all"
-            >
-              <Lightbulb size={18} />
-              Get Hint ({hintCost} pts)
-            </button>
+          {/* Mobile Instructions */}
+          {isMobile && tapSelectMode && !isPuzzleCompleted && (
+            <div className="bg-blue-600/20 border border-blue-500/50 rounded-lg p-3 mb-3">
+              <p className="text-blue-200 text-sm font-semibold flex items-center gap-2">
+                <span className="text-xl">👆</span>
+                Tap Mode: Tap start letter, then tap end letter to select word
+              </p>
+            </div>
           )}
+
+          {/* Control Buttons */}
+          <div className="flex gap-3">
+            {!isPuzzleCompleted && (
+              <button
+                onClick={buyHint}
+                disabled={totalPoints < hintCost}
+                className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed rounded-lg font-semibold transition-all"
+              >
+                <Lightbulb size={18} />
+                Get Hint ({hintCost} pts)
+              </button>
+            )}
+
+            {isMobile && (
+              <button
+                onClick={() => setTapSelectMode(!tapSelectMode)}
+                className="flex items-center gap-2 px-4 py-2 bg-slate-600 hover:bg-slate-500 rounded-lg font-semibold transition-all"
+              >
+                {tapSelectMode ? '👆 Tap' : '👉 Drag'}
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Word Grid */}
-        <div className="bg-slate-800/90 backdrop-blur rounded-xl p-6 border border-blue-500/30 mb-6">
-          <div
-            className="inline-block mx-auto"
-            onMouseLeave={() => {
-              setDragStart(null);
-              setSelectedCells([]);
-            }}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
+        <div className="bg-slate-800/90 backdrop-blur rounded-xl p-4 sm:p-6 border border-blue-500/30 mb-6">
+          {/* Cancel Selection Button for Tap Mode */}
+          {isMobile && tapSelectMode && selectedCells.length > 0 && (
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={() => {
+                  setSelectedCells([]);
+                  setDragStart(null);
+                }}
+                className="px-6 py-3 bg-red-600/20 hover:bg-red-600/30 border border-red-500/50 text-red-300 rounded-lg font-semibold transition-all"
+              >
+                ✕ Cancel Selection
+              </button>
+            </div>
+          )}
+
+          <div className="overflow-x-auto pb-2">
             <div
-              className="grid gap-1"
-              style={{
-                gridTemplateColumns: `repeat(${currentPuzzle.gridSize}, minmax(0, 1fr))`
+              className="inline-block mx-auto"
+              onMouseLeave={() => {
+                if (!tapSelectMode) {
+                  setDragStart(null);
+                  setSelectedCells([]);
+                }
               }}
+              onTouchMove={!tapSelectMode ? handleTouchMove : undefined}
+              onTouchEnd={!tapSelectMode ? handleTouchEnd : undefined}
             >
+              <div
+                className={`grid ${isMobile ? 'gap-2' : 'gap-1'}`}
+                style={{
+                  gridTemplateColumns: `repeat(${currentPuzzle.gridSize}, minmax(0, 1fr))`
+                }}
+              >
               {currentPuzzle.grid.map((row, rowIndex) =>
                 row.split('').map((letter, colIndex) => {
                   const key = getCellKey(rowIndex, colIndex);
@@ -484,18 +570,25 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                       key={key}
                       data-row={rowIndex}
                       data-col={colIndex}
-                      onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
-                      onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
-                      onMouseUp={handleMouseUp}
-                      onTouchStart={(e) => handleTouchStart(e, rowIndex, colIndex)}
+                      onClick={isMobile && tapSelectMode ? () => handleCellTap(rowIndex, colIndex) : undefined}
+                      onMouseDown={!isMobile || !tapSelectMode ? () => handleMouseDown(rowIndex, colIndex) : undefined}
+                      onMouseEnter={!isMobile || !tapSelectMode ? () => handleMouseEnter(rowIndex, colIndex) : undefined}
+                      onMouseUp={!isMobile || !tapSelectMode ? handleMouseUp : undefined}
+                      onTouchStart={!tapSelectMode ? (e) => handleTouchStart(e, rowIndex, colIndex) : undefined}
                       className={`
-                        w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center font-bold text-xs sm:text-sm md:text-base rounded cursor-pointer
+                        flex items-center justify-center font-bold rounded cursor-pointer
                         select-none transition-all
+                        ${isMobile
+                          ? 'w-10 h-10 text-base sm:w-11 sm:h-11 sm:text-lg'
+                          : 'w-7 h-7 text-sm md:w-8 md:h-8 md:text-base'
+                        }
                         ${isSelected
-                          ? 'bg-gradient-to-br from-blue-500 to-purple-500 text-white scale-110 shadow-lg'
+                          ? selectedCells.length === 1
+                            ? 'bg-gradient-to-br from-amber-500 to-orange-500 text-white scale-110 shadow-lg shadow-amber-500/50 ring-2 ring-amber-300 animate-pulse'
+                            : 'bg-gradient-to-br from-blue-500 to-purple-500 text-white scale-105 shadow-lg shadow-blue-500/50 ring-2 ring-white'
                           : isFoundWord
                           ? 'bg-gradient-to-br from-green-600/60 to-emerald-600/60 text-white'
-                          : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50'
+                          : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50 active:bg-slate-600'
                         }
                       `}
                     >

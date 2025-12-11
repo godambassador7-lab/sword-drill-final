@@ -583,7 +583,7 @@ const BiblicalBloodlines = ({ onClose }) => {
   // Error view
   if (loadError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4 flex items-center justify-center" style={{ touchAction: 'pan-y pinch-zoom' }}>
         <div className="bg-slate-800 rounded-2xl p-8 border-2 border-red-500 max-w-lg w-full">
           <h2 className="text-2xl font-bold text-red-400 mb-3">Error Loading Lineage</h2>
           <p className="text-white mb-6">{loadError}</p>
@@ -609,7 +609,7 @@ const BiblicalBloodlines = ({ onClose }) => {
   // Tree selection view
   if (!currentTree) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4" style={{ touchAction: 'pan-y pinch-zoom' }}>
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
@@ -689,7 +689,7 @@ const BiblicalBloodlines = ({ onClose }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4" style={{ touchAction: 'pan-y pinch-zoom' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
