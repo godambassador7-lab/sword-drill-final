@@ -599,6 +599,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
               )}
             </div>
           </div>
+          </div>
         </div>
 
         {/* Word List */}
