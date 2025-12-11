@@ -602,31 +602,82 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
           </div>
         </div>
 
-        {/* Word List */}
+        {/* Word List - Split into Two Banks on Mobile */}
         <div className="bg-slate-800/90 backdrop-blur rounded-xl p-6 border border-blue-500/30 mb-6">
           <h4 className="text-lg font-bold text-blue-300 mb-4">
             Words to Find ({foundWords.length}/{currentPuzzle.words.length})
           </h4>
-          <div className="grid grid-cols-2 gap-2">
-            {currentPuzzle.words.map(word => {
-              // Add space between compound words (e.g., "ElElyon" -> "El Elyon")
-              const displayWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
 
-              return (
-                <div
-                  key={word}
-                  className={`px-3 py-2 rounded-lg font-semibold transition-all break-words ${
-                    foundWords.includes(word)
-                      ? 'bg-green-600/20 text-green-300 line-through'
-                      : 'bg-slate-700/50 text-slate-300'
-                  }`}
-                >
-                  {foundWords.includes(word) && <CheckCircle size={16} className="inline mr-2" />}
-                  {displayWord}
+          {isMobile ? (
+            // Mobile: Split word list into two columns
+            <div className="grid grid-cols-2 gap-4">
+              {/* Left Bank */}
+              <div>
+                <div className="text-xs font-semibold text-blue-400 mb-2">Bank 1</div>
+                <div className="space-y-2">
+                  {currentPuzzle.words.slice(0, Math.ceil(currentPuzzle.words.length / 2)).map(word => {
+                    const displayWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+                    return (
+                      <div
+                        key={word}
+                        className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all break-words ${
+                          foundWords.includes(word)
+                            ? 'bg-green-600/20 text-green-300 line-through'
+                            : 'bg-slate-700/50 text-slate-300'
+                        }`}
+                      >
+                        {foundWords.includes(word) && <CheckCircle size={12} className="inline mr-1" />}
+                        {displayWord}
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
+              </div>
+
+              {/* Right Bank */}
+              <div>
+                <div className="text-xs font-semibold text-purple-400 mb-2">Bank 2</div>
+                <div className="space-y-2">
+                  {currentPuzzle.words.slice(Math.ceil(currentPuzzle.words.length / 2)).map(word => {
+                    const displayWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+                    return (
+                      <div
+                        key={word}
+                        className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all break-words ${
+                          foundWords.includes(word)
+                            ? 'bg-green-600/20 text-green-300 line-through'
+                            : 'bg-slate-700/50 text-slate-300'
+                        }`}
+                      >
+                        {foundWords.includes(word) && <CheckCircle size={12} className="inline mr-1" />}
+                        {displayWord}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          ) : (
+            // Desktop: Original grid layout
+            <div className="grid grid-cols-2 gap-2">
+              {currentPuzzle.words.map(word => {
+                const displayWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+                return (
+                  <div
+                    key={word}
+                    className={`px-3 py-2 rounded-lg font-semibold transition-all break-words ${
+                      foundWords.includes(word)
+                        ? 'bg-green-600/20 text-green-300 line-through'
+                        : 'bg-slate-700/50 text-slate-300'
+                    }`}
+                  >
+                    {foundWords.includes(word) && <CheckCircle size={16} className="inline mr-2" />}
+                    {displayWord}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Navigation */}
