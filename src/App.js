@@ -1183,8 +1183,22 @@ useEffect(() => {
         console.log(' Firebase streak:', firebaseStreak, '| Local calc:', calculateCurrentStreak());
         console.log(' Firebase points:', result.progress.totalPoints, '| Local:', mergedProgress.totalPoints);
 
-        // Force Firebase values (don't recalculate, causes drift!)
-        mergedProgress.currentStreak = firebaseStreak; // Firebase is authoritative
+        // Streak update logic: Only update if streak increases or goes to 0
+        const currentDisplayedStreak = userData.currentStreak || 0;
+        let finalStreak = firebaseStreak;
+
+        // Only update streak display if:
+        // 1. Streak is going up (new streak > current)
+        // 2. Streak broke and went to 0
+        // Otherwise, keep the current displayed value
+        if (firebaseStreak > currentDisplayedStreak || firebaseStreak === 0) {
+          finalStreak = firebaseStreak;
+        } else {
+          // Keep current streak display (don't let it decrease unless it's 0)
+          finalStreak = currentDisplayedStreak;
+        }
+
+        mergedProgress.currentStreak = finalStreak; // Use calculated streak value
         mergedProgress.totalPoints = result.progress.totalPoints || 0; // Firebase is authoritative
 
         // Rebuild streakData from Firebase + quizHistory + existing localStorage and persist
@@ -3276,7 +3290,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               if (currentStreak === 0) {
                 return (
                   <>
-                    <span className="shivering-ice text-2xl"></span>
+                    <span className="shivering-ice text-2xl">🧊</span>
                     <span className="text-cyan-400 text-3xl font-bold">0</span>
                   </>
                 );
@@ -6415,7 +6429,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </>
               ) : (
                 <>
-                  <span className="shivering-ice text-3xl"></span>
+                  <span className="shivering-ice text-3xl">🧊</span>
                   <span className="text-cyan-400 text-3xl font-bold">0</span>
                 </>
               );

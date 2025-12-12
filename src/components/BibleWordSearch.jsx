@@ -19,18 +19,33 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   const [dragStart, setDragStart] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [tapSelectMode, setTapSelectMode] = useState(true); // Mobile-friendly tap mode
+  const [isLandscape, setIsLandscape] = useState(true);
 
   const currentPuzzle = puzzles[currentPuzzleIndex];
   const totalPoints = userData?.totalPoints || 0;
 
-  // Detect if device is mobile
+  // Detect if device is mobile and orientation
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    const checkMobileAndOrientation = () => {
+      const mobile = window.innerWidth < 768 || 'ontouchstart' in window;
+      setIsMobile(mobile);
+
+      // Check if landscape (width > height)
+      if (mobile) {
+        setIsLandscape(window.innerWidth > window.innerHeight);
+      } else {
+        setIsLandscape(true); // Desktop always allowed
+      }
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+
+    checkMobileAndOrientation();
+    window.addEventListener('resize', checkMobileAndOrientation);
+    window.addEventListener('orientationchange', checkMobileAndOrientation);
+
+    return () => {
+      window.removeEventListener('resize', checkMobileAndOrientation);
+      window.removeEventListener('orientationchange', checkMobileAndOrientation);
+    };
   }, []);
 
   // Load puzzles and progress
@@ -385,6 +400,73 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
 
   const progress = (completedPuzzles.length / puzzles.length) * 100;
   const isPuzzleCompleted = completedPuzzles.includes(currentPuzzle.id);
+
+  // Show rotate screen prompt for mobile portrait mode
+  if (isMobile && !isLandscape) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white flex items-center justify-center p-6">
+        <div className="max-w-md text-center">
+          {/* Animated rotating phone */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              {/* Phone illustration */}
+              <div className="w-32 h-48 bg-slate-700 rounded-3xl border-4 border-slate-600 flex items-center justify-center relative animate-[wiggle_1.5s_ease-in-out_infinite]">
+                <div className="w-24 h-40 bg-slate-800 rounded-xl flex items-center justify-center">
+                  <div className="text-4xl">📱</div>
+                </div>
+              </div>
+
+              {/* Rotation arrow */}
+              <div className="absolute -right-16 top-1/2 -translate-y-1/2">
+                <div className="text-5xl animate-bounce">↻</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Message */}
+          <h2 className="text-3xl font-bold text-blue-300 mb-4">
+            Rotate Your Device
+          </h2>
+          <p className="text-lg text-slate-300 mb-6">
+            Please turn your device to landscape mode to play Bible Word Search
+          </p>
+
+          {/* Animated hands gesture */}
+          <div className="flex justify-center gap-4 mb-6">
+            <div className="text-6xl animate-[wave_2s_ease-in-out_infinite]">🤚</div>
+            <div className="text-6xl animate-[wave_2s_ease-in-out_0.3s_infinite]">🤚</div>
+          </div>
+
+          <div className="bg-blue-600/20 border border-blue-500/50 rounded-lg p-4">
+            <p className="text-sm text-blue-200">
+              💡 Word Search works best in landscape mode for easier gameplay
+            </p>
+          </div>
+
+          {/* Back button */}
+          <button
+            onClick={onBack}
+            className="mt-6 flex items-center gap-2 text-blue-300 hover:text-blue-200 mx-auto"
+          >
+            <ArrowLeft size={20} />
+            Back to Home
+          </button>
+        </div>
+
+        <style jsx>{`
+          @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+          }
+          @keyframes wave {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(10px) rotate(-10deg); }
+          }
+        `}</style>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-slate-900 text-white p-6 pb-32 overflow-y-auto">
