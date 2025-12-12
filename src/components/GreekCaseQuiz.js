@@ -169,7 +169,7 @@ const GreekCaseQuiz = ({ onComplete, onCancel }) => {
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-br from-violet-900 via-purple-900 to-fuchsia-900 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-violet-900 via-purple-900 to-cyan-900 flex items-center justify-center p-4">
       <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-violet-500/30">
         {/* Header */}
@@ -199,14 +199,14 @@ const GreekCaseQuiz = ({ onComplete, onCancel }) => {
           </div>
           <div className="bg-slate-700/50 rounded-lg p-3 text-center">
             <div className="text-slate-400 text-xs mb-1">Score</div>
-            <div className="text-fuchsia-300 text-xl font-bold">{score}</div>
+            <div className="text-cyan-300 text-xl font-bold">{score}</div>
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden mb-6">
           <div
-            className="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-violet-500 to-cyan-500 transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>

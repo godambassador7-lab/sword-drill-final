@@ -249,7 +249,7 @@ const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) 
                 </button>
                 <button
                   onClick={() => setShowExam(true)}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all flex items-center justify-center gap-2"
+                  className="bg-gradient-to-r from-purple-600 to-teal-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-purple-500 hover:to-teal-500 transition-all flex items-center justify-center gap-2"
                 >
                   <Trophy size={18} />
                   Level Exam

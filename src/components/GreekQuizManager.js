@@ -47,7 +47,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       title: 'Pronunciation Quiz',
       description: 'Match letters to their sounds',
       icon: 'φ',
-      color: 'from-purple-600 to-pink-600',
+      color: 'from-purple-600 to-teal-600',
       difficulty: 'beginner',
       component: (
         <GreekAlphabetQuiz
@@ -93,7 +93,7 @@ const GreekQuizManager = ({ level = 'beginner', onClose, onComplete }) => {
       title: 'English → Greek Quiz',
       description: 'Translate English words to Greek',
       icon: 'En',
-      color: 'from-pink-600 to-rose-600',
+      color: 'from-teal-600 to-indigo-600',
       difficulty: 'beginner',
       component: (
         <GreekVocabularyQuiz

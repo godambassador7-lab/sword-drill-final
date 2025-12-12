@@ -53,7 +53,7 @@ const LoadingScreen = ({ onComplete }) => {
     } else if (progress < 100) {
       return 'from-green-500 via-blue-500 to-purple-500';
     } else {
-      return 'from-blue-500 via-purple-500 to-pink-500';
+      return 'from-blue-500 via-purple-500 to-teal-500';
     }
   };
 

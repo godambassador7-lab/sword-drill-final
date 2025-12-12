@@ -30,7 +30,7 @@ const FeastDayList = ({ daysAhead = 60, className = '' }) => {
       fall: 'text-orange-400 bg-orange-900/30 border-orange-700',
       weekly: 'text-blue-400 bg-blue-900/30 border-blue-700',
       monthly: 'text-purple-400 bg-purple-900/30 border-purple-700',
-      'post-exilic': 'text-pink-400 bg-pink-900/30 border-pink-700',
+      'post-exilic': 'text-teal-400 bg-teal-900/30 border-teal-700',
       'second-temple': 'text-cyan-400 bg-cyan-900/30 border-cyan-700',
       other: 'text-slate-400 bg-slate-900/30 border-slate-700'
     };

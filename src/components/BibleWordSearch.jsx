@@ -502,7 +502,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
           {/* Orb Progress */}
           <div className="relative h-8 bg-slate-700/50 rounded-full overflow-hidden mb-2">
             <div
-              className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-500"
+              className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 transition-all duration-500"
               style={{ width: `${progress}%` }}
             ></div>
             {/* Glowing orbs at checkpoints */}
@@ -783,7 +783,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
         {/* Celebration Modal */}
         {showCelebration && (
           <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-            <div className="animate-achievement-unlock bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl p-8 border-4 border-white/30 animate-pulse-glow pointer-events-auto">
+            <div className="animate-achievement-unlock bg-gradient-to-br from-blue-600 via-purple-600 to-teal-600 rounded-2xl shadow-2xl p-8 border-4 border-white/30 animate-pulse-glow pointer-events-auto">
               <div className="text-center">
                 <Trophy size={64} className="text-amber-300 mx-auto mb-4 animate-bounce" />
                 <h2 className="text-4xl font-bold text-white mb-2">Puzzle Complete!</h2>

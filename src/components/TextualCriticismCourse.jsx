@@ -193,7 +193,7 @@ const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUse
             {/* Content Area */}
             {module.isExam ? (
               <div className="bg-slate-900 rounded-xl p-6 mb-6 border border-purple-500/30">
-                <div className="prose prose-invert max-w-none">
+                <div className="prose pindigo-invert max-w-none">
                   <div className="text-slate-300 leading-relaxed space-y-4">
                     <h2 className="text-2xl font-bold text-purple-400 mb-4">📝 Final Certification Exam</h2>
                     <p className="text-lg">

@@ -321,7 +321,7 @@ const SwordDrillUltimate = ({ userLevel = 'Beginner', verseProgress = {}, getLoc
   const getGradeColor = (grade) => {
     switch(grade) {
       case 'U': return 'from-yellow-300 via-amber-400 to-orange-500';
-      case 'SS': return 'from-purple-400 via-pink-500 to-red-500';
+      case 'SS': return 'from-purple-400 via-teal-500 to-red-500';
       case 'S': return 'from-purple-500 via-purple-600 to-indigo-600';
       case 'A': return 'from-green-400 to-emerald-500';
       case 'B': return 'from-blue-400 to-cyan-500';

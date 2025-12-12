@@ -301,7 +301,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData 
                 </div>
                 <div className="bg-slate-700 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-full transition-all"
+                    className="bg-gradient-to-r from-purple-500 to-teal-500 h-full transition-all"
                     style={{ width: `${getLevelProgress('advanced').percentage}%` }}
                   />
                 </div>
@@ -486,7 +486,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData 
               <p className="text-slate-400">{selectedLesson.duration} • {selectedLevel} level</p>
             </div>
 
-            <div className="prose prose-invert max-w-none">
+            <div className="prose pindigo-invert max-w-none">
               <div className="bg-slate-900 rounded-lg p-6 mb-6">
                 <p className="text-slate-300 leading-relaxed">
                   This lesson covers essential concepts in Koine Greek. Content includes interactive

@@ -186,7 +186,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
             Back to Bonus Quizzes
           </button>
 
-          <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 border-2 border-purple-500 rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-br from-purple-600/20 to-teal-600/20 border-2 border-purple-500 rounded-2xl p-8 text-center">
             <Trophy size={64} className="text-amber-400 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-purple-300 mb-4">Game Complete!</h2>
 
@@ -267,7 +267,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
 
         {/* Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent mb-2">
             Biblical or Nah?
           </h1>
           <p className="text-slate-300">Is this phrase actually in the Bible?</p>
@@ -327,7 +327,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
               <button
                 onClick={() => handleAnswer(false)}
                 disabled={selectedAnswer !== null}
-                className="bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-500 hover:to-pink-500 disabled:from-slate-700 disabled:to-slate-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all border-2 border-red-500 hover:border-red-400 disabled:border-slate-600"
+                className="bg-gradient-to-r from-red-600 to-teal-600 hover:from-red-500 hover:to-teal-500 disabled:from-slate-700 disabled:to-slate-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all border-2 border-red-500 hover:border-red-400 disabled:border-slate-600"
               >
                 <XCircle size={24} className="inline mr-2" />
                 Nah
@@ -385,7 +385,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white py-3 px-6 rounded-lg font-bold text-lg transition-all"
+                className="w-full bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-500 hover:to-teal-500 text-white py-3 px-6 rounded-lg font-bold text-lg transition-all"
               >
                 {currentQuestionIndex < allQuestions.length - 1 ? 'Next Question' : 'View Results'}
               </button>

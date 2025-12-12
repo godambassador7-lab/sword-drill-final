@@ -115,6 +115,23 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return shuffled;
   };
 
+  // Auto-resume: Start at first incomplete level when course loads
+  useEffect(() => {
+    if (!isLoading && selectedLevel === null && kingsData.beginner.length > 0) {
+      // Find first incomplete level
+      const beginnerComplete = completedKings.beginner.length === kingsData.beginner.length && kingsData.beginner.length > 0;
+      const intermediateComplete = completedKings.intermediate.length === kingsData.intermediate.length && kingsData.intermediate.length > 0;
+
+      if (!beginnerComplete) {
+        setSelectedLevel('beginner');
+      } else if (!intermediateComplete && beginnerComplete) {
+        setSelectedLevel('intermediate');
+      } else if (beginnerComplete && intermediateComplete) {
+        setSelectedLevel('advanced');
+      }
+    }
+  }, [isLoading, kingsData, completedKings]);
+
   useEffect(() => {
     // Load all three levels (support subdirectory deploys via PUBLIC_URL)
     const base = process.env.PUBLIC_URL || '';
@@ -337,7 +354,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                 onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
                 className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
                   isLevelUnlocked('advanced')
-                    ? 'bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-purple-500/50 hover:border-purple-400 cursor-pointer'
+                    ? 'bg-gradient-to-r from-purple-600/20 to-teal-600/20 border-purple-500/50 hover:border-purple-400 cursor-pointer'
                     : 'bg-slate-700/30 border-slate-600 opacity-50 cursor-not-allowed'
                 }`}
               >

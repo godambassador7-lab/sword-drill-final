@@ -360,7 +360,7 @@ const GreekExam = ({ level = 'beginner', onComplete, onCancel }) => {
           </div>
           <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-purple-500 to-teal-500 transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>

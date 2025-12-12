@@ -150,7 +150,7 @@ const GreekVocabularyQuiz = ({ level = 'beginner', direction = 'greek-to-english
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-indigo-900 via-purple-900 to-teal-900 flex items-center justify-center p-4">
       <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-indigo-500/30">
         {/* Header */}

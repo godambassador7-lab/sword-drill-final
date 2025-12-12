@@ -156,7 +156,7 @@ const GreekVerbConjugationQuiz = ({ onComplete, onCancel }) => {
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-orange-900 via-red-900 to-teal-900 flex items-center justify-center p-4">
       <CorrectToast points={10} show={showCorrectToast} />
       <div className="bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full border-2 border-orange-500/30">
         {/* Header */}
@@ -186,14 +186,14 @@ const GreekVerbConjugationQuiz = ({ onComplete, onCancel }) => {
           </div>
           <div className="bg-slate-700/50 rounded-lg p-3 text-center">
             <div className="text-slate-400 text-xs mb-1">Score</div>
-            <div className="text-pink-300 text-xl font-bold">{score}</div>
+            <div className="text-teal-300 text-xl font-bold">{score}</div>
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden mb-6">
           <div
-            className="h-full bg-gradient-to-r from-orange-500 to-pink-500 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-orange-500 to-teal-500 transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>

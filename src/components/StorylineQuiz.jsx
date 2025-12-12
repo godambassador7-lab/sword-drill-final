@@ -374,7 +374,7 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
           </button>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Zap className="text-purple-400" size={48} />
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-400">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-teal-400">
               Storyline Quizzes
             </h1>
           </div>

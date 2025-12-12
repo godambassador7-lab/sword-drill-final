@@ -951,7 +951,7 @@ const TutorialHelp = ({ onBack }) => {
       id: 'troubleshooting',
       title: 'Troubleshooting & FAQ',
       icon: AlertCircle,
-      color: 'from-red-500 to-pink-600',
+      color: 'from-red-500 to-teal-600',
       subsections: [
         {
           title: 'Common Issues',
@@ -1003,7 +1003,7 @@ const TutorialHelp = ({ onBack }) => {
           </button>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Info className="text-blue-400 animate-pulse" size={48} />
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400">
               Tutorial & Help Center
             </h1>
           </div>
@@ -1107,7 +1107,7 @@ const TutorialHelp = ({ onBack }) => {
         </div>
 
         {/* Footer Call to Action */}
-        <div className="mt-8 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-2 border-purple-500/50 rounded-2xl p-6">
+        <div className="mt-8 bg-gradient-to-r from-purple-600/20 to-teal-600/20 border-2 border-purple-500/50 rounded-2xl p-6">
           <div className="text-center">
             <Award className="mx-auto text-purple-400 mb-3" size={40} />
             <h3 className="text-2xl font-bold text-purple-400 mb-2">Ready to Begin Your Journey?</h3>
@@ -1116,7 +1116,7 @@ const TutorialHelp = ({ onBack }) => {
             </p>
             <button
               onClick={onBack}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-500 hover:to-teal-500 text-white font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg"
             >
               Start Training Now! →
             </button>

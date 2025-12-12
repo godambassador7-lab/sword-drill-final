@@ -28,6 +28,42 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
   }, [userData?.churchHistoryProgress]);
 
+  // Auto-resume: Start at first incomplete level/lesson
+  useEffect(() => {
+    if (selectedLevel === null && courseData) {
+      // Check which level to start with
+      const beginnerComplete = completedLessons.beginner.length === courseData.levels.beginner.lessons.length;
+      const intermediateComplete = completedLessons.intermediate.length === courseData.levels.intermediate.lessons.length;
+
+      if (!beginnerComplete) {
+        setSelectedLevel('beginner');
+        // Find first incomplete lesson in beginner
+        const firstIncomplete = courseData.levels.beginner.lessons.findIndex((_, idx) => !completedLessons.beginner.includes(idx));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(firstIncomplete);
+        } else {
+          setSelectedLesson(0);
+        }
+      } else if (!intermediateComplete && beginnerComplete) {
+        setSelectedLevel('intermediate');
+        const firstIncomplete = courseData.levels.intermediate.lessons.findIndex((_, idx) => !completedLessons.intermediate.includes(idx));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(firstIncomplete);
+        } else {
+          setSelectedLesson(0);
+        }
+      } else if (beginnerComplete && intermediateComplete) {
+        setSelectedLevel('advanced');
+        const firstIncomplete = courseData.levels.advanced.lessons.findIndex((_, idx) => !completedLessons.advanced.includes(idx));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(firstIncomplete);
+        } else {
+          setSelectedLesson(0);
+        }
+      }
+    }
+  }, [courseData, completedLessons]);
+
   // Persist progress
   useEffect(() => {
     const progress = { completedLessons };
@@ -380,7 +416,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       title: 'Advanced',
       subtitle: courseData.levels.advanced.title,
       icon: <Scroll className="w-12 h-12" />,
-      color: 'from-purple-600 to-pink-600',
+      color: 'from-purple-600 to-teal-600',
       borderColor: 'border-purple-500',
       unlocked: isLevelUnlocked('advanced')
     }

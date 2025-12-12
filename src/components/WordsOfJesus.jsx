@@ -246,7 +246,7 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
             <div className="flex gap-4">
               <button
                 onClick={handlePlayAgain}
-                className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2"
+                className="flex-1 bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-500 hover:to-teal-500 text-white font-bold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2"
               >
                 <Zap size={20} />
                 Play Again
@@ -315,7 +315,7 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
             </div>
             <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
+                className="h-full bg-gradient-to-r from-purple-500 to-teal-500 transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>

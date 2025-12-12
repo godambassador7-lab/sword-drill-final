@@ -3185,7 +3185,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     <div className="space-y-6">
       {/* Active Boosts Display */}
       {hasActiveBoosts && (
-        <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border-2 border-purple-500/50 rounded-2xl p-4 animate-pulse-glow">
+        <div className="bg-gradient-to-r from-purple-900/40 to-teal-900/40 border-2 border-purple-500/50 rounded-2xl p-4 animate-pulse-glow">
           <div className="flex items-center gap-2 mb-3">
             <Crown size={24} className="text-yellow-400 animate-bounce" />
             <h3 className="text-lg font-bold text-purple-300">Active Boosts</h3>
@@ -4946,7 +4946,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-xs text-slate-400 mt-1">All-time earnings</div>
           </div>
 
-          <div className="bg-gradient-to-br from-red-900/40 to-rose-900/40 rounded-xl p-4 border border-red-700/50">
+          <div className="bg-gradient-to-br from-red-900/40 to-indigo-900/40 rounded-xl p-4 border border-red-700/50">
             <div className="flex items-center gap-2 mb-2">
               <TrendingDown size={20} className="text-red-400" />
               <div className="text-xs text-red-300 font-semibold">Total Spent</div>
@@ -5385,7 +5385,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         className={`flex-1 ${
                           isMatured
                             ? 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700'
-                            : 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700'
+                            : 'bg-gradient-to-r from-red-600 to-indigo-600 hover:from-red-700 hover:to-indigo-700'
                         } text-white font-bold py-3 px-4 rounded-lg transition-all`}
                       >
                         {isMatured ? 'Collect Returns' : 'Withdraw Anyway'}
@@ -5417,10 +5417,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         focus: 'focus:border-blue-500'
       },
       red: {
-        gradient: 'from-red-900/50 to-rose-800/50',
+        gradient: 'from-red-900/50 to-indigo-800/50',
         border: 'border-red-500/60',
         title: 'text-red-200',
-        count: 'text-rose-300',
+        count: 'text-indigo-300',
         focus: 'focus:border-red-400'
       }
     };
@@ -5638,7 +5638,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
     return (
       <div className="space-y-6">
-        <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-2xl p-6 border-2 border-purple-500/50">
+        <div className="bg-gradient-to-br from-purple-900/40 to-teal-900/40 rounded-2xl p-6 border-2 border-purple-500/50">
           <div className="flex items-center gap-3 mb-2">
             <Crown size={32} className="text-yellow-400" />
             <h2 className="text-2xl font-bold text-purple-200">Power-Up Shop</h2>
@@ -6711,10 +6711,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </button>
       </div>
 
-      <div className="bg-gradient-to-br from-pink-500/10 to-rose-500/10 border-2 border-pink-500/30 rounded-2xl p-6">
+      <div className="bg-gradient-to-br from-teal-500/10 to-indigo-500/10 border-2 border-teal-500/30 rounded-2xl p-6">
         <div className="text-center">
           <div className="text-5xl mb-3"></div>
-          <h3 className="text-xl font-bold text-pink-400 mb-2">Earn Extra Points!</h3>
+          <h3 className="text-xl font-bold text-teal-400 mb-2">Earn Extra Points!</h3>
           <p className="text-slate-300 text-sm">
             Challenge yourself with these special quizzes and earn bonus points toward your progression!
           </p>
@@ -6744,18 +6744,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <button
           onClick={() => setCurrentView('biblical-or-nah')}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white p-4 rounded-xl border-2 border-fuchsia-400 hover:border-fuchsia-300 transition-all text-left disabled:opacity-50 shadow-lg"
+          className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white p-4 rounded-xl border-2 border-cyan-400 hover:border-cyan-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
              Biblical or Nah?
-            <span className="text-fuchsia-200 text-sm"> NEW!</span>
+            <span className="text-cyan-200 text-sm"> NEW!</span>
           </div>
-          <div className="text-fuchsia-100 text-sm">200+ phrases  Is it really in the Bible?  Test your knowledge!</div>
+          <div className="text-cyan-100 text-sm">200+ phrases  Is it really in the Bible?  Test your knowledge!</div>
         </button>
         <button
           onClick={() => setCurrentView('words-of-jesus')}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
+          className="w-full bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-500 hover:to-teal-500 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
             ️ Words of Jesus or Not?
@@ -6777,7 +6777,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <button
           onClick={() => setCurrentView('storyline-quiz')}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
+          className="w-full bg-gradient-to-r from-purple-500 to-teal-500 hover:from-purple-600 hover:to-teal-600 text-white p-4 rounded-xl border-2 border-purple-400 hover:border-purple-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
           <div className="font-bold text-lg flex items-center gap-2">
              Storyline Quiz
@@ -7069,9 +7069,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setCurrentView('personal-verses');
                       setShowMenu(false);
                     }}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-pink-600/20 hover:to-rose-600/20 transition-all flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-teal-600/20 hover:to-indigo-600/20 transition-all flex items-center gap-3"
                   >
-                    <Heart size={18} className="text-pink-400" /> Personal Verse Bank
+                    <Heart size={18} className="text-teal-400" /> Personal Verse Bank
                   </button>
                   <button
                     onClick={() => {
@@ -7347,11 +7347,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setCurrentView('powerup-shop');
                       setShowMenu(false);
                     }}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 transition-all flex items-center gap-3 relative"
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3 relative"
                   >
                     <Crown size={18} className="text-purple-400" /> Power-Ups & Unlockables
                     {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length > 0 && (
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse shadow-lg">
                         {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length}
                       </span>
                     )}
@@ -7443,7 +7443,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="mt-6 pt-6 border-t border-slate-700">
               <button
                 onClick={() => handleSignOut()}
-                className="w-full text-left px-4 py-3 rounded-lg text-red-400 hover:bg-gradient-to-r hover:from-red-600/20 hover:to-rose-600/20 transition-all flex items-center gap-3"
+                className="w-full text-left px-4 py-3 rounded-lg text-red-400 hover:bg-gradient-to-r hover:from-red-600/20 hover:to-indigo-600/20 transition-all flex items-center gap-3"
               >
                 <LogOut size={20} /> Sign Out
               </button>
@@ -8608,7 +8608,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       {planVerseLoading ? (
                         <p className="text-slate-300 text-sm">Loading verses for this plan...</p>
                       ) : planVerseError ? (
-                        <p className="text-rose-300 text-sm">{planVerseError}</p>
+                        <p className="text-indigo-300 text-sm">{planVerseError}</p>
                       ) : planVerseTexts.length > 0 ? (
                         planVerseTexts.map((verse, index) => (
                           <div key={index} className="bg-slate-800 rounded-lg p-3 border border-slate-600">
@@ -8646,7 +8646,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
                   {/* Reflection */}
                   {selectedPlan.reflection && (
-                    <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-4 border border-purple-700/50">
+                    <div className="bg-gradient-to-br from-purple-900/40 to-teal-900/40 rounded-xl p-4 border border-purple-700/50">
                       <h3 className="text-purple-300 font-bold mb-2">Daily Reflection</h3>
                       <p className="text-slate-300 text-sm italic">{selectedPlan.reflection}</p>
                     </div>
@@ -8976,7 +8976,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Memory Tip Modal */}
       {showMemoryTip && memoryTip && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 rounded-2xl p-8 border-2 border-purple-500/50 shadow-2xl max-w-lg w-full animate-fade-in">
+          <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-teal-900 rounded-2xl p-8 border-2 border-purple-500/50 shadow-2xl max-w-lg w-full animate-fade-in">
             <div className="text-center">
               <div className="text-5xl mb-4"></div>
               <h3 className="text-2xl font-bold text-purple-200 mb-4">Memory Tip</h3>

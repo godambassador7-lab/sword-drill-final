@@ -106,6 +106,25 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
     }
   }, [userData?.apologeticsProgress]);
 
+  // Auto-resume: Start at first incomplete lesson when course loads
+  useEffect(() => {
+    if (lessons.length > 0 && currentLessonIndex === null) {
+      // Find first incomplete lesson
+      const firstIncomplete = lessons.findIndex((_, index) => !completedLessons.includes(index));
+
+      // If found an incomplete lesson, start there. Otherwise start at first lesson.
+      if (firstIncomplete !== -1) {
+        setCurrentLessonIndex(firstIncomplete);
+      } else if (completedLessons.length > 0) {
+        // All lessons complete, show lesson list
+        // Don't auto-start any lesson
+      } else {
+        // No progress yet, start at first lesson
+        setCurrentLessonIndex(0);
+      }
+    }
+  }, [lessons, completedLessons]); // Only run when lessons load or completed lessons change initially
+
   const markLessonComplete = (index) => {
     if (!completedLessons.includes(index)) {
       setCompletedLessons(prev => [...prev, index]);
@@ -242,7 +261,7 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
             </div>
             <div className="w-full bg-slate-600 rounded-full h-3 overflow-hidden">
               <div
-                className="bg-gradient-to-r from-purple-500 to-pink-500 h-full transition-all duration-500"
+                className="bg-gradient-to-r from-purple-500 to-teal-500 h-full transition-all duration-500"
                 style={{ width: `${progress.percentage}%` }}
               />
             </div>
