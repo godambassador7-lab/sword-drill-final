@@ -498,10 +498,16 @@ const calculateCurrentStreak = () => {
     return 0; // Streak is broken if neither today nor yesterday is marked
   }
 
-  // Start counting from the most recent marked day
-  let startDate = todayMarked ? todayDate : yesterdayDate;
+  // If today is not marked but yesterday is, count from yesterday
+  // This maintains the streak count on a new day before the user completes a quiz
+  let startDate = yesterdayDate; // Always start from yesterday
 
-  // Count consecutive days backwards
+  // If today is marked, include it in the count
+  if (todayMarked) {
+    currentStreak = 1;
+  }
+
+  // Count consecutive days backwards from yesterday
   for (let i = 0; i <= 365; i++) {
     const checkDate = new Date(startDate);
     checkDate.setDate(startDate.getDate() - i);

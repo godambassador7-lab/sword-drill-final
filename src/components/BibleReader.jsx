@@ -255,6 +255,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             console.log('📖 [BibleReader] Restoring last passage:', bookName, chapter);
             setSelectedBook(book);
             setSelectedChapter(chapter);
+            // Auto-load the chapter content when restoring from localStorage
+            loadChapter(book, chapter);
+            if (parallelMode) {
+              loadSecondaryChapter(book, chapter, secondaryTranslation);
+            }
           }
         } catch (e) {
           console.error('Error restoring saved passage:', e);
@@ -262,7 +267,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
       }
       isInitialLoad.current = false;
     }
-  }, [initialReference, bibleBooks]);
+  }, [initialReference, bibleBooks, parallelMode, secondaryTranslation]);
 
   // Save current passage to localStorage whenever book or chapter changes
   useEffect(() => {
