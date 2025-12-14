@@ -72,6 +72,40 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
   }, [completedLessons, userId, setUserData]);
 
+  // Auto-resume: Start at first incomplete level/lesson
+  useEffect(() => {
+    if (selectedLevel === null) {
+      // Check which level to start with
+      const beginnerLessons = getLessonsForLevel('beginner');
+      const intermediateLessons = getLessonsForLevel('intermediate');
+      const advancedLessons = getLessonsForLevel('advanced');
+
+      const beginnerComplete = completedLessons.beginner.length === beginnerLessons.length;
+      const intermediateComplete = completedLessons.intermediate.length === intermediateLessons.length;
+
+      if (!beginnerComplete) {
+        setSelectedLevel('beginner');
+        // Find first incomplete lesson in beginner
+        const firstIncomplete = beginnerLessons.findIndex((lesson) => !completedLessons.beginner.includes(lesson.id));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(beginnerLessons[firstIncomplete].id);
+        }
+      } else if (!intermediateComplete && isLevelUnlocked('intermediate')) {
+        setSelectedLevel('intermediate');
+        const firstIncomplete = intermediateLessons.findIndex((lesson) => !completedLessons.intermediate.includes(lesson.id));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(intermediateLessons[firstIncomplete].id);
+        }
+      } else if (beginnerComplete && intermediateComplete && isLevelUnlocked('advanced')) {
+        setSelectedLevel('advanced');
+        const firstIncomplete = advancedLessons.findIndex((lesson) => !completedLessons.advanced.includes(lesson.id));
+        if (firstIncomplete !== -1) {
+          setSelectedLesson(advancedLessons[firstIncomplete].id);
+        }
+      }
+    }
+  }, [completedLessons]);
+
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {
     if (level === 'beginner') return true;

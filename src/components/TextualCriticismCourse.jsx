@@ -101,6 +101,16 @@ const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUse
     }
   }, [completedModules, quizScores, userId, setUserData]);
 
+  // Auto-resume: Start at first incomplete module
+  useEffect(() => {
+    if (selectedModule === null && modules.length > 0) {
+      const firstIncomplete = modules.findIndex(module => !completedModules.includes(module.id));
+      if (firstIncomplete !== -1) {
+        setSelectedModule(modules[firstIncomplete].id);
+      }
+    }
+  }, [completedModules]);
+
   const handleStartQuiz = () => {
     setShowQuiz(true);
   };

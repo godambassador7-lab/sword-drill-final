@@ -498,20 +498,14 @@ const calculateCurrentStreak = () => {
     return 0; // Streak is broken if neither today nor yesterday is marked
   }
 
-  // If today is not marked but yesterday is, count from yesterday
-  // This maintains the streak count on a new day before the user completes a quiz
-  let startDate = yesterdayDate; // Always start from yesterday
+  // Count from today if marked, otherwise from yesterday
+  let checkDate = todayMarked ? new Date(todayDate) : new Date(yesterdayDate);
 
-  // If today is marked, include it in the count
-  if (todayMarked) {
-    currentStreak = 1;
-  }
-
-  // Count consecutive days backwards from yesterday
+  // Count consecutive days backwards
   for (let i = 0; i <= 365; i++) {
-    const checkDate = new Date(startDate);
-    checkDate.setDate(startDate.getDate() - i);
-    const checkDateString = localDateString(checkDate);
+    const currentCheckDate = new Date(checkDate);
+    currentCheckDate.setDate(checkDate.getDate() - i);
+    const checkDateString = localDateString(currentCheckDate);
 
     // Only count days that have been marked with at least one correct quiz
     if (streakData[checkDateString]?.marked) {
@@ -590,6 +584,53 @@ const updateStreakData = (isCorrect, quizType, reference, points) => {
     return calculateCurrentStreak();
   }
   return null; // Don't update streak for incorrect answers
+};
+
+// Daily quiz limiter - 20 quizzes per quiz type per day
+const DAILY_QUIZ_LIMIT = 20;
+
+const getDailyQuizCounts = () => {
+  const today = localDateString();
+  const dailyQuizData = JSON.parse(localStorage.getItem('dailyQuizCounts') || '{}');
+
+  // Clean up old data (keep only today's data)
+  const cleanData = dailyQuizData[today] || {};
+  localStorage.setItem('dailyQuizCounts', JSON.stringify({ [today]: cleanData }));
+
+  return cleanData;
+};
+
+const incrementQuizCount = (quizType) => {
+  const today = localDateString();
+  const dailyQuizData = JSON.parse(localStorage.getItem('dailyQuizCounts') || '{}');
+
+  if (!dailyQuizData[today]) {
+    dailyQuizData[today] = {};
+  }
+
+  if (!dailyQuizData[today][quizType]) {
+    dailyQuizData[today][quizType] = 0;
+  }
+
+  dailyQuizData[today][quizType]++;
+
+  // Clean up old dates
+  const cleanData = { [today]: dailyQuizData[today] };
+  localStorage.setItem('dailyQuizCounts', JSON.stringify(cleanData));
+
+  return dailyQuizData[today][quizType];
+};
+
+const canTakeQuiz = (quizType) => {
+  const counts = getDailyQuizCounts();
+  const currentCount = counts[quizType] || 0;
+  return currentCount < DAILY_QUIZ_LIMIT;
+};
+
+const getRemainingQuizzes = (quizType) => {
+  const counts = getDailyQuizCounts();
+  const currentCount = counts[quizType] || 0;
+  return Math.max(0, DAILY_QUIZ_LIMIT - currentCount);
 };
 
 // Helper function to check and apply inactivity penalties
@@ -1899,6 +1940,13 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   return picked || DEFAULT_VERSE_FALLBACK.reference;
 };
   const startQuiz = async (type, usePersonalVerses = false) => {
+    // Check daily quiz limit
+    if (!canTakeQuiz(type)) {
+      const remaining = getRemainingQuizzes(type);
+      showToast(`Daily limit reached!\n\nYou've completed ${DAILY_QUIZ_LIMIT} ${type} quizzes today.\nCome back tomorrow for more!`, 'error');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -2202,6 +2250,12 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
 
 // Start Verse Detective quiz
 const startVerseDetective = async () => {
+  // Check daily quiz limit
+  if (!canTakeQuiz('verse-detective')) {
+    showToast(`Daily limit reached!\n\nYou've completed ${DAILY_QUIZ_LIMIT} verse-detective quizzes today.\nCome back tomorrow for more!`, 'error');
+    return;
+  }
+
   setLoading(true);
 
   try {
@@ -2826,6 +2880,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     dateKey: localDateString(today)
   };
 
+  // Increment daily quiz counter for this quiz type
+  incrementQuizCount(effectiveQuizState.type);
+
   // Initialize or update day's data
   if (!streakData[dateString]) {
     streakData[dateString] = {
@@ -3425,10 +3482,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div className="space-y-3">
           <button
   onClick={() => startQuiz('fill-blank')}
-  disabled={loading}
+  disabled={loading || !canTakeQuiz('fill-blank')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
 >
-  <div className="font-bold text-lg">Fill in the Blank</div>
+  <div className="flex items-center justify-between">
+    <div className="font-bold text-lg">Fill in the Blank</div>
+    <div className={`text-xs font-semibold ${getRemainingQuizzes('fill-blank') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('fill-blank')}/{DAILY_QUIZ_LIMIT} left
+    </div>
+  </div>
   <div className="text-slate-300 text-sm">
     Complete verses with {
       userData.quizzesCompleted > 200 ? '7' :
@@ -3440,34 +3502,54 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 </button>
           <button
             onClick={() => startQuiz('multiple-choice')}
-            disabled={loading}
+            disabled={loading || !canTakeQuiz('multiple-choice')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
-           <div className="font-bold text-lg">{loading ? '⏳ Loading...' : 'Multiple Choice'}</div>
+  <div className="flex items-center justify-between">
+    <div className="font-bold text-lg">{loading ? '⏳ Loading...' : 'Multiple Choice'}</div>
+    <div className={`text-xs font-semibold ${getRemainingQuizzes('multiple-choice') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('multiple-choice')}/{DAILY_QUIZ_LIMIT} left
+    </div>
+  </div>
             <div className="text-slate-400 text-sm">Identify the correct reference</div>
           </button>
           <button
             onClick={() => startQuiz('reference-recall')}
-            disabled={loading}
+            disabled={loading || !canTakeQuiz('reference-recall')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
-            <div className="font-bold text-lg">Reference Recall</div>
+  <div className="flex items-center justify-between">
+    <div className="font-bold text-lg">Reference Recall</div>
+    <div className={`text-xs font-semibold ${getRemainingQuizzes('reference-recall') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('reference-recall')}/{DAILY_QUIZ_LIMIT} left
+    </div>
+  </div>
             <div className="text-slate-400 text-sm">Name the verse reference</div>
           </button>
           <button
             onClick={() => startQuiz('verse-scramble')}
-            disabled={loading}
+            disabled={loading || !canTakeQuiz('verse-scramble')}
             className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
-            <div className="font-bold text-lg">Verse Scramble</div>
+  <div className="flex items-center justify-between">
+    <div className="font-bold text-lg">Verse Scramble</div>
+    <div className={`text-xs font-semibold ${getRemainingQuizzes('verse-scramble') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('verse-scramble')}/{DAILY_QUIZ_LIMIT} left
+    </div>
+  </div>
             <div className="text-slate-400 text-sm">Unscramble the words of the verse</div>
           </button>
           <button
             onClick={startVerseDetective}
-            disabled={loading}
+            disabled={loading || !canTakeQuiz('verse-detective')}
             className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-4 rounded-xl border border-emerald-500 hover:border-emerald-400 transition-all text-left disabled:opacity-50 shadow-lg"
           >
-            <div className="font-bold text-lg"> Verse Detective</div>
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-lg">Verse Detective</div>
+              <div className={`text-xs font-semibold ${getRemainingQuizzes('verse-detective') === 0 ? 'text-red-400' : 'text-emerald-200'}`}>
+                {getRemainingQuizzes('verse-detective')}/{DAILY_QUIZ_LIMIT} left
+              </div>
+            </div>
             <div className="text-emerald-100 text-sm">Uncover the mystery verse through clues</div>
           </button>
           <button

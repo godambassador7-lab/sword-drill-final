@@ -29,29 +29,71 @@ const PRONOUN_MAP = {
 // Archaic verb endings
 const VERB_PATTERNS = [
   // -eth endings (he doeth -> he does)
-  { pattern: /(\w+)eth\b/gi, replacement: (match, stem) => {
-    // Common irregular verbs
+  { pattern: /\b(\w+)eth\b/gi, replacement: (match, stem) => {
+    // Common irregular verbs and special cases
     const irregulars = {
       'do': 'does',
       'go': 'goes',
       'have': 'has',
       'say': 'says',
+      'make': 'makes',
+      'take': 'takes',
+      'give': 'gives',
+      'come': 'comes',
+      'see': 'sees',
+      'know': 'knows',
+      'show': 'shows',
+      'love': 'loves',
+      'live': 'lives',
+      'save': 'saves',
+      'serve': 'serves',
+      'believe': 'believes',
+      'receive': 'receives',
+      'forgive': 'forgives',
     };
     const lower = stem.toLowerCase();
-    if (irregulars[lower]) return irregulars[lower];
-    // Regular verbs: add 's'
+
+    // Check irregulars first
+    if (irregulars[lower]) {
+      return match[0] === match[0].toUpperCase()
+        ? irregulars[lower].charAt(0).toUpperCase() + irregulars[lower].slice(1)
+        : irregulars[lower];
+    }
+
+    // For words ending in 'e', just add 's'
+    if (lower.endsWith('e')) {
+      return stem + 's';
+    }
+
+    // Regular verbs: add 's' or 'es'
     if (lower.endsWith('s') || lower.endsWith('sh') || lower.endsWith('ch') ||
-        lower.endsWith('x') || lower.endsWith('z')) {
+        lower.endsWith('x') || lower.endsWith('z') || lower.endsWith('o')) {
       return stem + 'es';
     }
+
+    // Words ending in consonant + y: change y to ies
+    if (lower.endsWith('y') && lower.length > 1) {
+      const beforeY = lower[lower.length - 2];
+      if (!'aeiou'.includes(beforeY)) {
+        return stem.slice(0, -1) + 'ies';
+      }
+    }
+
     return stem + 's';
   }},
 
   // -est endings (thou goest -> you go)
-  { pattern: /(\w+)est\b/gi, replacement: (match, stem) => stem },
+  { pattern: /\b(\w+)est\b/gi, replacement: (match, stem) => {
+    // Don't transform if it's a superlative (greatest, best, etc.)
+    const superlatives = ['great', 'small', 'high', 'low', 'long', 'short', 'strong', 'weak', 'fast', 'slow'];
+    if (superlatives.some(s => stem.toLowerCase() === s)) {
+      return match; // Keep superlative form
+    }
+    return stem;
+  }},
 
   // -edst endings (thou lovedst -> you loved)
-  { pattern: /(\w+)edst\b/gi, replacement: (match, stem) => stem + 'ed' },
+  { pattern: /\b(\w+)edst\b/gi, replacement: (match, stem) => stem + 'ed' },
 ];
 
 // Archaic word replacements

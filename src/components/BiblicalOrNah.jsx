@@ -1,51 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, CheckCircle, XCircle, Book, Trophy, Zap, Star, Brain } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Book, Trophy, Zap, Star, Brain, Target } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 
 const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
+  const [selectedDifficulty, setSelectedDifficulty] = useState(null);
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [gameComplete, setGameComplete] = useState(false);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [totalCorrect, setTotalCorrect] = useState(0);
-  const [difficulty, setDifficulty] = useState('beginner');
   const [startTime, setStartTime] = useState(null);
   const [questionStartTime, setQuestionStartTime] = useState(null);
 
   const totalPoints = userData?.totalPoints || 0;
 
-  // Load questions
+  // Load questions for selected difficulty
   useEffect(() => {
+    if (!selectedDifficulty) return;
+
     const loadQuestions = async () => {
+      setLoading(true);
       try {
         const baseUrl = process.env.PUBLIC_URL || '';
-
-        // Load all difficulty levels
-        const [beginnerRes, intermediateRes, advancedRes] = await Promise.all([
-          fetch(`${baseUrl}/biblical_or_nah_full_pack/biblical_or_nah_beginner.json`),
-          fetch(`${baseUrl}/biblical_or_nah_full_pack/biblical_or_nah_intermediate.json`),
-          fetch(`${baseUrl}/biblical_or_nah_full_pack/biblical_or_nah_advanced.json`)
-        ]);
-
-        const beginner = await beginnerRes.json();
-        const intermediate = await intermediateRes.json();
-        const advanced = await advancedRes.json();
-
-        // Combine all questions and shuffle
-        const combined = [
-          ...beginner.items.map(q => ({ ...q, difficultyTier: 'beginner' })),
-          ...intermediate.items.map(q => ({ ...q, difficultyTier: 'intermediate' })),
-          ...advanced.items.map(q => ({ ...q, difficultyTier: 'advanced' }))
-        ];
+        const fileName = `biblical_or_nah_${selectedDifficulty}.json`;
+        const response = await fetch(`${baseUrl}/biblical_or_nah_full_pack/${fileName}`);
+        const data = await response.json();
 
         // Shuffle questions
-        const shuffled = combined.sort(() => Math.random() - 0.5);
+        const shuffled = [...data.items].sort(() => Math.random() - 0.5);
         setAllQuestions(shuffled);
         setLoading(false);
         setStartTime(Date.now());
@@ -57,7 +45,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
     };
 
     loadQuestions();
-  }, []);
+  }, [selectedDifficulty]);
 
   const currentQuestion = allQuestions[currentQuestionIndex];
 
@@ -78,9 +66,9 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
       }
 
       // Difficulty multiplier
-      if (currentQuestion.difficultyTier === 'intermediate') {
+      if (selectedDifficulty === 'intermediate') {
         points = Math.floor(points * 1.5);
-      } else if (currentQuestion.difficultyTier === 'advanced') {
+      } else if (selectedDifficulty === 'advanced') {
         points = Math.floor(points * 2);
       }
 
@@ -161,34 +149,151 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
     setAllQuestions(prev => [...prev].sort(() => Math.random() - 0.5));
   };
 
+  const backToDifficulty = () => {
+    setSelectedDifficulty(null);
+    setAllQuestions([]);
+    setCurrentQuestionIndex(0);
+    setSelectedAnswer(null);
+    setShowExplanation(false);
+    setScore(0);
+    setQuestionsAnswered(0);
+    setTotalCorrect(0);
+    setGameComplete(false);
+    setStreak(0);
+    setBestStreak(0);
+  };
+
+  // Difficulty selection screen
+  if (!selectedDifficulty) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6">
+        <div className="max-w-4xl mx-auto">
+          <button
+            onClick={onBack}
+            className="flex items-center gap-2 text-purple-300 hover:text-purple-200 mb-6 transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Back to Bonus Quizzes
+          </button>
+
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent mb-4">
+              Biblical or Nah?
+            </h1>
+            <p className="text-xl text-slate-300">Test your knowledge of what's actually in the Bible!</p>
+            <p className="text-sm text-slate-400 mt-2">Choose your difficulty level to begin</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Beginner */}
+            <button
+              onClick={() => setSelectedDifficulty('beginner')}
+              className="bg-gradient-to-br from-green-600/20 to-emerald-600/20 hover:from-green-600/30 hover:to-emerald-600/30 border-2 border-green-500 hover:border-green-400 rounded-2xl p-6 transition-all transform hover:scale-105"
+            >
+              <div className="text-4xl mb-3">🌱</div>
+              <h3 className="text-2xl font-bold text-green-400 mb-2">Beginner</h3>
+              <p className="text-slate-300 text-sm mb-4">
+                Start here! Common phrases and well-known sayings.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-green-300">
+                <Target size={16} />
+                <span className="text-xs font-semibold">~70 Questions</span>
+              </div>
+            </button>
+
+            {/* Intermediate */}
+            <button
+              onClick={() => setSelectedDifficulty('intermediate')}
+              className="bg-gradient-to-br from-yellow-600/20 to-amber-600/20 hover:from-yellow-600/30 hover:to-amber-600/30 border-2 border-yellow-500 hover:border-yellow-400 rounded-2xl p-6 transition-all transform hover:scale-105"
+            >
+              <div className="text-4xl mb-3">⚡</div>
+              <h3 className="text-2xl font-bold text-yellow-400 mb-2">Intermediate</h3>
+              <p className="text-slate-300 text-sm mb-4">
+                More challenging. Requires deeper Bible knowledge.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-yellow-300">
+                <Target size={16} />
+                <span className="text-xs font-semibold">~70 Questions</span>
+              </div>
+              <div className="mt-2 text-amber-300 text-xs font-bold">1.5x Points</div>
+            </button>
+
+            {/* Advanced */}
+            <button
+              onClick={() => setSelectedDifficulty('advanced')}
+              className="bg-gradient-to-br from-red-600/20 to-orange-600/20 hover:from-red-600/30 hover:to-orange-600/30 border-2 border-red-500 hover:border-red-400 rounded-2xl p-6 transition-all transform hover:scale-105"
+            >
+              <div className="text-4xl mb-3">🔥</div>
+              <h3 className="text-2xl font-bold text-red-400 mb-2">Advanced</h3>
+              <p className="text-slate-300 text-sm mb-4">
+                Expert level. Very tricky phrases and obscure references.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-red-300">
+                <Target size={16} />
+                <span className="text-xs font-semibold">~70 Questions</span>
+              </div>
+              <div className="mt-2 text-orange-300 text-xs font-bold">2x Points</div>
+            </button>
+          </div>
+
+          {/* Instructions */}
+          <div className="mt-12 bg-purple-600/10 border border-purple-500/30 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-purple-300 mb-3">How to Play</h3>
+            <ul className="text-slate-300 text-sm space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400">•</span>
+                <span>Read each phrase carefully and decide if it's actually in the Bible</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400">•</span>
+                <span>Answer quickly for bonus points (under 5 seconds)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400">•</span>
+                <span>Build your streak for maximum points</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400">•</span>
+                <span>Learn the truth behind each phrase with detailed explanations and scripture references</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
-          <p>Loading Biblical or Nah...</p>
+          <p>Loading questions...</p>
         </div>
       </div>
     );
   }
 
   if (gameComplete) {
-    const accuracy = questionsAnswered > 0 ? Math.round((score / (questionsAnswered * 20)) * 100) : 0;
+    const accuracy = questionsAnswered > 0 ? Math.round((totalCorrect / questionsAnswered) * 100) : 0;
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6">
         <div className="max-w-2xl mx-auto">
           <button
-            onClick={onBack}
+            onClick={backToDifficulty}
             className="flex items-center gap-2 text-purple-300 hover:text-purple-200 mb-4 transition-colors"
           >
             <ArrowLeft size={20} />
-            Back to Bonus Quizzes
+            Back to Difficulty Select
           </button>
 
           <div className="bg-gradient-to-br from-purple-600/20 to-teal-600/20 border-2 border-purple-500 rounded-2xl p-8 text-center">
             <Trophy size={64} className="text-amber-400 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-purple-300 mb-4">Game Complete!</h2>
+            <h2 className="text-3xl font-bold text-purple-300 mb-2">
+              {selectedDifficulty.charAt(0).toUpperCase() + selectedDifficulty.slice(1)} Complete!
+            </h2>
+            <p className="text-slate-400 mb-6">Great job testing your Bible knowledge!</p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="bg-slate-800/50 rounded-lg p-4">
@@ -196,8 +301,8 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
                 <div className="text-slate-300 text-sm">Points Earned</div>
               </div>
               <div className="bg-slate-800/50 rounded-lg p-4">
-                <div className="text-green-400 text-3xl font-bold">{questionsAnswered}</div>
-                <div className="text-slate-300 text-sm">Questions Answered</div>
+                <div className="text-green-400 text-3xl font-bold">{totalCorrect}/{questionsAnswered}</div>
+                <div className="text-slate-300 text-sm">Correct Answers</div>
               </div>
               <div className="bg-slate-800/50 rounded-lg p-4">
                 <div className="text-purple-400 text-3xl font-bold">{bestStreak}</div>
@@ -214,13 +319,13 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
                 onClick={restartGame}
                 className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-bold transition-all"
               >
-                Play Again
+                Play Again ({selectedDifficulty})
               </button>
               <button
-                onClick={onBack}
+                onClick={backToDifficulty}
                 className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 px-6 rounded-lg font-bold transition-all"
               >
-                Exit
+                Change Difficulty
               </button>
             </div>
           </div>
@@ -235,7 +340,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-red-400">No questions available</p>
           <button
-            onClick={onBack}
+            onClick={backToDifficulty}
             className="mt-4 bg-purple-600 hover:bg-purple-700 text-white py-2 px-6 rounded-lg"
           >
             Go Back
@@ -245,13 +350,21 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
     );
   }
 
+  const difficultyColors = {
+    beginner: { bg: 'bg-green-600/20', text: 'text-green-300', border: 'border-green-500' },
+    intermediate: { bg: 'bg-yellow-600/20', text: 'text-yellow-300', border: 'border-yellow-500' },
+    advanced: { bg: 'bg-red-600/20', text: 'text-red-300', border: 'border-red-500' }
+  };
+
+  const colors = difficultyColors[selectedDifficulty];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 text-white p-6">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={onBack}
+            onClick={backToDifficulty}
             className="flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors"
           >
             <ArrowLeft size={20} />
@@ -270,7 +383,9 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent mb-2">
             Biblical or Nah?
           </h1>
-          <p className="text-slate-300">Is this phrase actually in the Bible?</p>
+          <p className={`text-sm font-semibold px-3 py-1 rounded-full ${colors.bg} ${colors.text} inline-block`}>
+            {selectedDifficulty.toUpperCase()} MODE
+          </p>
         </div>
 
         {/* Stats Bar */}
@@ -298,13 +413,6 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
             <Brain className="text-purple-400 flex-shrink-0 mt-1" size={28} />
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-3">
-                <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                  currentQuestion.difficultyTier === 'beginner' ? 'bg-green-600/20 text-green-300' :
-                  currentQuestion.difficultyTier === 'intermediate' ? 'bg-yellow-600/20 text-yellow-300' :
-                  'bg-red-600/20 text-red-300'
-                }`}>
-                  {currentQuestion.difficultyTier.toUpperCase()}
-                </span>
                 <span className="text-slate-400 text-sm">Category: {currentQuestion.category}</span>
               </div>
               <p className="text-2xl font-bold text-white leading-relaxed">
@@ -327,7 +435,7 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
               <button
                 onClick={() => handleAnswer(false)}
                 disabled={selectedAnswer !== null}
-                className="bg-gradient-to-r from-red-600 to-teal-600 hover:from-red-500 hover:to-teal-500 disabled:from-slate-700 disabled:to-slate-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all border-2 border-red-500 hover:border-red-400 disabled:border-slate-600"
+                className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 disabled:from-slate-700 disabled:to-slate-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all border-2 border-red-500 hover:border-red-400 disabled:border-slate-600"
               >
                 <XCircle size={24} className="inline mr-2" />
                 Nah
@@ -369,12 +477,27 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
                   {currentQuestion.explanation}
                 </p>
 
-                {currentQuestion.scriptureRefs && currentQuestion.scriptureRefs.length > 0 && (
+                {/* Scripture References - Always show for biblical items */}
+                {currentQuestion.isBiblical && currentQuestion.scriptureRefs && currentQuestion.scriptureRefs.length > 0 && (
                   <div className="mt-3 pt-3 border-t border-slate-600">
-                    <p className="text-xs text-slate-400 mb-1">Related Scriptures:</p>
+                    <p className="text-xs text-slate-400 mb-1">Scripture References:</p>
                     <div className="flex flex-wrap gap-2">
                       {currentQuestion.scriptureRefs.map((ref, idx) => (
-                        <span key={idx} className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded">
+                        <span key={idx} className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono">
+                          {ref}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Related context for non-biblical items */}
+                {!currentQuestion.isBiblical && currentQuestion.scriptureRefs && currentQuestion.scriptureRefs.length > 0 && (
+                  <div className="mt-3 pt-3 border-t border-slate-600">
+                    <p className="text-xs text-slate-400 mb-1">Related Biblical Concepts:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {currentQuestion.scriptureRefs.map((ref, idx) => (
+                        <span key={idx} className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono">
                           {ref}
                         </span>
                       ))}
