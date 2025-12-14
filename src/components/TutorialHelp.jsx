@@ -45,13 +45,28 @@ const TutorialHelp = ({ onBack }) => {
       color: 'from-purple-500 to-purple-600',
       subsections: [
         {
+          title: 'Daily Quiz Limits - Healthy Engagement',
+          content: 'To encourage balanced daily practice and prevent burnout, each quiz type has a daily limit of 20 quizzes. This resets automatically at midnight based on your local time.',
+          tips: [
+            'Each quiz type limited to 20 per day (Fill-in-Blank, Multiple Choice, Reference Recall, Verse Scramble, Verse Detective)',
+            'Quiz buttons show "X/20 left" indicator with color-coding',
+            'Green indicator: quizzes available | Red indicator: limit reached',
+            'Automatic reset at midnight (local time)',
+            'Encourages balanced practice across different quiz types',
+            'Prevents fatigue and promotes sustainable daily habits',
+            'Biblical or Nah also has daily limits per difficulty level',
+            'Come back tomorrow when you hit your limit!'
+          ]
+        },
+        {
           title: 'Memory Verse Practice (Fill-in-the-Blank)',
           content: 'The core of Sword Drill! Practice memorizing verses through fill-in-the-blank exercises. Verses use spaced repetition - you\'ll see difficult verses more often until you master them.',
           tips: [
             'A verse is "mastered" after 3+ correct answers with 0 incorrect',
             'Mastered verses appear less frequently',
             'Use the Enhanced Review feature after wrong answers to reinforce learning',
-            'Points earned: 10-40 based on your level'
+            'Points earned: 10-40 based on your level',
+            'Daily limit: 20 quizzes per day'
           ]
         },
         {
@@ -61,7 +76,8 @@ const TutorialHelp = ({ onBack }) => {
             'Common variations are accepted (e.g., "Psalms" vs "Psalm")',
             'Include chapter and verse numbers (e.g., "John 3:16")',
             'Fuzzy matching helps with minor spelling variations',
-            'Points earned: 15-60 based on your level'
+            'Points earned: 15-60 based on your level',
+            'Daily limit: 20 quizzes per day'
           ]
         },
         {
@@ -72,7 +88,8 @@ const TutorialHelp = ({ onBack }) => {
             'Use the "Undo Last Word" button to fix mistakes',
             'Reset the quiz anytime if you get stuck',
             'Available in Practice Review for missed verses',
-            'Points earned: 20-80 based on your level'
+            'Points earned: 20-80 based on your level',
+            'Daily limit: 20 quizzes per day'
           ]
         },
         {
@@ -167,22 +184,27 @@ const TutorialHelp = ({ onBack }) => {
           ]
         },
         {
-          title: '🧠 Biblical or Nah? (NEW!)',
-          content: 'Challenge your knowledge of what\'s actually in the Bible! Over 200 phrases test whether common sayings, church clichés, and popular quotes are truly biblical or not.',
+          title: '🧠 Biblical or Nah?',
+          content: 'Challenge your knowledge of what\'s actually in the Bible! Choose from 3 difficulty levels, each with ~70 unique questions testing whether common sayings, church clichés, and popular quotes are truly biblical or not.',
           tips: [
+            'NEW: Choose your difficulty before starting (Beginner 🌱, Intermediate ⚡, or Advanced 🔥)',
+            'Each difficulty has its own set of ~70 questions',
+            'Beginner (1x points): Common church sayings and well-known phrases',
+            'Intermediate (1.5x points): Trickier phrases requiring deeper Bible knowledge',
+            'Advanced (2x points): Expert-level challenges with obscure references',
+            'Beautiful difficulty selection screen with clear descriptions',
+            'Ability to switch difficulties after completing a session',
             'Identify if phrases are actually found in Scripture',
             'Learn about commonly misattributed quotes',
             'Discover the real context of misapplied verses',
-            'Beginner tier: 35 common church sayings',
-            'Intermediate tier: 36 trickier phrases',
-            'Advanced tier: 129 challenging cultural proverbs',
             'Each answer includes detailed explanations',
-            'Scripture references provided for context',
+            'Scripture references provided for biblical phrases',
+            'Related biblical concepts shown for non-biblical phrases',
             'Time bonuses for quick correct answers (under 5 seconds)',
             'Streak tracking rewards consecutive correct answers',
-            'Difficulty multipliers: Beginner (1x), Intermediate (1.5x), Advanced (2x)',
             'Examples: "God helps those who help themselves" (NOT in Bible!)',
-            'Perfect for apologetics and biblical literacy'
+            'Perfect for apologetics and biblical literacy',
+            'Daily limit: 20 questions per difficulty level'
           ]
         }
       ]
@@ -823,19 +845,36 @@ const TutorialHelp = ({ onBack }) => {
       subsections: [
         {
           title: 'Version 2.5 - December 2025',
-          content: 'Major update bringing powerful new financial features, comprehensive analytics, and quality-of-life improvements!',
+          content: 'Major update bringing powerful new features, quality-of-life improvements, and comprehensive enhancements across the entire app!',
           tips: [
-            '🧠 NEW: Biblical or Nah? - 200+ phrases testing if sayings are actually in the Bible',
-            '❓ Challenges common church clichés and misattributed quotes',
-            '📚 Detailed explanations with scripture references for each answer',
-            '🎯 3 difficulty tiers: Beginner (35), Intermediate (36), Advanced (129)',
-            '⚡ Streak tracking and time-based scoring bonuses',
+            '✅ NEW: Daily Quiz Limiter - Healthy usage limits of 20 quizzes per quiz type per day',
+            '📊 Each quiz button shows "X/20 left" with color-coded indicators',
+            '🔄 Automatic reset at midnight based on your local time',
+            '🎯 Encourages balanced daily engagement across all quiz types',
+            '🧠 ENHANCED: Biblical or Nah - Now split by difficulty with better UX!',
+            '🌱 Choose your difficulty: Beginner (70), Intermediate (70), or Advanced (70)',
+            '⚡ Point multipliers: Beginner 1x, Intermediate 1.5x, Advanced 2x',
+            '📚 Enhanced scripture references for every question',
+            '🎨 Beautiful difficulty selection screen with clear descriptions',
+            '🔄 Ability to change difficulty after completing a session',
+            '🎓 IMPROVED: Course Auto-Resume - All courses now continue where you left off',
+            '📖 Hermeneutics, Textual Criticism, and Ancient Hebrew now auto-resume',
+            '✨ Jump directly to your next incomplete lesson automatically',
+            '📈 No more manual navigation through completed lessons',
+            '🔥 FIXED: Streak Display Bug - Now shows correct streak on app refresh',
+            '📊 Previously showed "1" instead of actual streak (e.g., 18)',
+            '✓ Fixed double-counting issue in streak calculation',
+            '💯 Streak correctly persists across all app sessions',
+            '📖 IMPROVED: Simplified Mode Text Transformation',
+            '✅ "maketh" → "makes" (and 15+ other verbs)',
+            '✓ Proper handling of irregular verbs (give, take, see, know, etc.)',
+            '✓ Superlatives preserved (greatest, best, highest)',
+            '✓ Consonant+y rule applied (carry → carries)',
             '⚡ NEW: Storyline Quiz - Order biblical events chronologically with drag-and-drop',
             '📖 44+ quiz packs covering Genesis to Gospels with 4 difficulty tiers',
             '⏱️ Timed challenges: 180s (Beginner) to 300s (Legendary)',
             '🎯 Smart scoring: Perfect placement, near-miss bonuses, time bonuses',
             '🏆 Perfect Order Bonus: +20 to +100 points based on difficulty',
-            '⚡ Time completion bonuses: +30-50 points for fast solvers',
             '🔍 FIXED: Word Search highlighting for multi-word phrases (WATER TO WINE, WALK ON WATER)',
             '🔥 FIXED: Streak flame colors now change every 10 days (10, 20, 30, 40, 50, 100+)',
             '☁️ FIXED: Cross-device sync - Firebase is now authoritative source for streak/points',

@@ -91,6 +91,9 @@ import { getVerseByReference as getStaticVerseByReference } from './services/ass
 import { recordQuizAttempt } from './services/quizTracker';
 import PracticeReview from './components/PracticeReview';
 import SpiritualGiftsExam from './components/SpiritualGiftsExam';
+import DailyMissionBoard from './components/DailyMissionBoard';
+import ChallengeLadders from './components/ChallengeLadders';
+import StreakChests from './components/StreakChests';
 import SharpAssistant from './services/SharpAssistant';
 import CORE from "./core/core/index.js";
 
@@ -3477,6 +3480,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Memory Meters - Level Progress */}
       <ProgressMeters userData={userData} isEliChallenge={quizState?.mode === 'eli-challenge'} />
 
+      {/* Streak Reward Chests */}
+      <div className="mb-6">
+        <StreakChests
+          userData={userData}
+          setUserData={setUserData}
+          showToast={showToast}
+        />
+      </div>
+
+      {/* Daily Mission Board */}
+      <div className="mb-6">
+        <DailyMissionBoard
+          userData={userData}
+          setUserData={setUserData}
+          onMissionComplete={(mission) => {
+            showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
+          }}
+        />
+      </div>
+
       <div>
         <h3 className="text-xl font-bold text-amber-400 mb-4">Start Training</h3>
         <div className="space-y-3">
@@ -6811,6 +6834,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       <div className="space-y-4 overflow-y-auto -mx-1 px-1 pb-4" style={{ maxHeight: 'calc(100vh - 200px)' }}>
         <button
+          onClick={() => setCurrentView('challenge-ladders')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white p-4 rounded-xl border-2 border-amber-400 hover:border-amber-300 transition-all text-left disabled:opacity-50 shadow-lg animate-pulse hover:animate-none"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            <Trophy size={20} />
+            🎯 Challenge Ladders
+            <span className="text-amber-200 text-sm">⭐ NEW!</span>
+          </div>
+          <div className="text-amber-50 text-sm font-semibold">Themed ladders  Escalating timers  Earn exclusive badges!</div>
+        </button>
+        <button
           onClick={() => setCurrentView('spelling-bee')}
           disabled={loading}
           className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white p-4 rounded-xl border-2 border-indigo-400 hover:border-indigo-300 transition-all text-left disabled:opacity-50 shadow-lg"
@@ -7610,6 +7645,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }}
             onCancel={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'challenge-ladders' && (
+          <ChallengeLadders
+            onBack={() => setCurrentView('bonus-quizzes')}
+            userData={userData}
+            setUserData={setUserData}
+            onStartQuiz={(ladderInfo) => {
+              // Start a ladder challenge quiz
+              console.log('Starting ladder challenge:', ladderInfo);
+              showToast(`Challenge started!\n\nTime limit: ${ladderInfo.timeLimit}s\nPoints reward: ${ladderInfo.pointReward}`, 'success');
+              // You can integrate this with the quiz system
+            }}
           />
         )}
         {currentView === 'biblical-or-nah' && (
