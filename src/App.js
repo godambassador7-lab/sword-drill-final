@@ -1170,6 +1170,31 @@ const SwordDrillApp = () => {
     setHasHydratedProgress(true);
   }, []);
 
+  // Recalculate streak on mount and when returning to the app
+  useEffect(() => {
+    const recalculateStreak = () => {
+      const currentCalculatedStreak = calculateCurrentStreak();
+      setUserData(prev => ({
+        ...prev,
+        currentStreak: currentCalculatedStreak
+      }));
+    };
+
+    // Recalculate immediately
+    recalculateStreak();
+
+    // Recalculate when window regains focus (user returns to app)
+    const handleFocus = () => {
+      recalculateStreak();
+    };
+
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, []);
+
 useEffect(() => {
   const verse = getDailyVerse(new Date());
   setVerseOfDay(verse);

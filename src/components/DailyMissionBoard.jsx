@@ -13,7 +13,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 Bible Word Search',
       reward: 100,
       icon: '🔍',
-      checkCompletion: (data) => (data.dailyMissionProgress?.wordSearchCompleted || 0) >= 1
+      checkCompletion: (data) => (data?.dailyMissionProgress?.wordSearchCompleted || 0) >= 1
     },
     {
       id: 'storyline',
@@ -21,7 +21,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 Storyline Quiz',
       reward: 100,
       icon: '📜',
-      checkCompletion: (data) => (data.dailyMissionProgress?.storylineCompleted || 0) >= 1
+      checkCompletion: (data) => (data?.dailyMissionProgress?.storylineCompleted || 0) >= 1
     },
     {
       id: 'bible-reader',
@@ -29,7 +29,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Read 1 Bible chapter',
       reward: 75,
       icon: '📖',
-      checkCompletion: (data) => (data.dailyMissionProgress?.chaptersRead || 0) >= 1
+      checkCompletion: (data) => (data?.dailyMissionProgress?.chaptersRead || 0) >= 1
     },
     {
       id: 'quiz-streak',
@@ -37,7 +37,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 5 quizzes',
       reward: 150,
       icon: '🎯',
-      checkCompletion: (data) => (data.dailyMissionProgress?.quizzesCompleted || 0) >= 5
+      checkCompletion: (data) => (data?.quizzesCompleted || 0) >= 5
     },
     {
       id: 'perfect-score',
@@ -45,7 +45,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Get 3 perfect scores',
       reward: 200,
       icon: '💯',
-      checkCompletion: (data) => (data.dailyMissionProgress?.perfectScores || 0) >= 3
+      checkCompletion: (data) => (data?.dailyMissionProgress?.perfectScores || 0) >= 3
     },
     {
       id: 'course-lesson',
@@ -53,7 +53,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 course lesson',
       reward: 125,
       icon: '🎓',
-      checkCompletion: (data) => (data.dailyMissionProgress?.courseLessons || 0) >= 1
+      checkCompletion: (data) => (data?.dailyMissionProgress?.courseLessons || 0) >= 1
     },
     {
       id: 'biblical-or-nah',
@@ -61,7 +61,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 10 Biblical or Nah questions',
       reward: 100,
       icon: '🧠',
-      checkCompletion: (data) => (data.dailyMissionProgress?.biblicalOrNahQuestions || 0) >= 10
+      checkCompletion: (data) => (data?.dailyMissionProgress?.biblicalOrNahQuestions || 0) >= 10
     },
     {
       id: 'verse-detective',
@@ -69,7 +69,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 3 Verse Detective quizzes',
       reward: 150,
       icon: '🔍',
-      checkCompletion: (data) => (data.dailyMissionProgress?.verseDetectiveCompleted || 0) >= 3
+      checkCompletion: (data) => (data?.dailyMissionProgress?.verseDetectiveCompleted || 0) >= 3
     },
     {
       id: 'quick-answer',
@@ -77,7 +77,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Answer 5 questions under 5 seconds',
       reward: 175,
       icon: '⚡',
-      checkCompletion: (data) => (data.dailyMissionProgress?.quickAnswers || 0) >= 5
+      checkCompletion: (data) => (data?.dailyMissionProgress?.quickAnswers || 0) >= 5
     }
   ];
 
@@ -125,7 +125,8 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
     if (!userData || missions.length === 0) return;
 
     missions.forEach(mission => {
-      if (!completedMissions.includes(mission.id) && mission.checkCompletion(userData)) {
+      try {
+        if (!completedMissions.includes(mission.id) && mission.checkCompletion(userData)) {
         // Mission just completed!
         const newCompleted = [...completedMissions, mission.id];
         setCompletedMissions(newCompleted);
@@ -147,6 +148,9 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
         if (onMissionComplete) {
           onMissionComplete(mission);
         }
+        }
+      } catch (error) {
+        console.error('Error checking mission completion:', error);
       }
     });
   }, [userData, missions, completedMissions]);
