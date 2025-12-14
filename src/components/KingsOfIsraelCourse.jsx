@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy, Crown, ArrowLeft, Scroll, Shield } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import { getLocalChapterRange } from '../services/localBibleProvider';
 
 const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
@@ -15,6 +16,8 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState({});
   const [isStudyMode, setIsStudyMode] = useState(true);
+  const [scripturePassage, setScripturePassage] = useState(null);
+  const [loadingPassage, setLoadingPassage] = useState(false);
 
   // Use ref to track if we've loaded initial data to prevent auto-save on mount
   const hasLoadedInitialData = useRef(false);
@@ -124,10 +127,16 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
       if (!beginnerComplete) {
         setSelectedLevel('beginner');
+        // Set to first incomplete king in beginner level
+        setCurrentKingIndex(completedKings.beginner.length);
       } else if (!intermediateComplete && beginnerComplete) {
         setSelectedLevel('intermediate');
+        // Set to first incomplete king in intermediate level
+        setCurrentKingIndex(completedKings.intermediate.length);
       } else if (beginnerComplete && intermediateComplete) {
         setSelectedLevel('advanced');
+        // Set to first incomplete king in advanced level
+        setCurrentKingIndex(completedKings.advanced.length);
       }
     }
   }, [isLoading, kingsData, completedKings]);
@@ -167,6 +176,33 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       setIsLoading(false);
     });
   }, []);
+
+  // Load scripture passage when king changes
+  useEffect(() => {
+    if (!selectedLevel || !kingsData[selectedLevel]?.[currentKingIndex]) {
+      setScripturePassage(null);
+      return;
+    }
+
+    const currentKing = kingsData[selectedLevel][currentKingIndex];
+    if (!currentKing.scripture) return;
+
+    setLoadingPassage(true);
+    getLocalChapterRange('KJV', currentKing.scripture, { simplifiedMode: userData?.simplifiedMode })
+      .then(result => {
+        if (result) {
+          setScripturePassage(result);
+        } else {
+          setScripturePassage(null);
+        }
+        setLoadingPassage(false);
+      })
+      .catch(err => {
+        console.error('Error loading scripture passage:', err);
+        setScripturePassage(null);
+        setLoadingPassage(false);
+      });
+  }, [selectedLevel, currentKingIndex, kingsData, userData?.simplifiedMode]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {
@@ -490,6 +526,25 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     <p className="text-slate-200">{currentKing.verdict}</p>
                   </div>
                 </div>
+
+                {/* Full Scripture Passage */}
+                {loadingPassage ? (
+                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30 text-center">
+                    <p className="text-slate-400">Loading scripture passage...</p>
+                  </div>
+                ) : scripturePassage ? (
+                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30">
+                    <h3 className="text-xl font-bold text-green-300 mb-3 flex items-center gap-2">
+                      <Scroll size={24} />
+                      Full Scripture Passage ({currentKing.scripture})
+                    </h3>
+                    <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                      <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
+                        {scripturePassage.text}
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
               </div>
 
               {/* Quiz Section */}
@@ -784,6 +839,25 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
 
+                  {/* Full Scripture Passage */}
+                  {loadingPassage ? (
+                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30 text-center">
+                      <p className="text-slate-400">Loading scripture passage...</p>
+                    </div>
+                  ) : scripturePassage ? (
+                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30">
+                      <h3 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
+                        <Scroll size={24} />
+                        Full Scripture Passage ({currentKing.scripture})
+                      </h3>
+                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                        <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
+                          {scripturePassage.text}
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+
                   {/* Start Quiz Button */}
                   <div className="text-center">
                     <button
@@ -1077,6 +1151,25 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     <h4 className="text-sm font-bold text-blue-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
+
+                  {/* Full Scripture Passage */}
+                  {loadingPassage ? (
+                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30 text-center">
+                      <p className="text-slate-400">Loading scripture passage...</p>
+                    </div>
+                  ) : scripturePassage ? (
+                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30">
+                      <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2">
+                        <Scroll size={24} />
+                        Full Scripture Passage ({currentKing.scripture})
+                      </h3>
+                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                        <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
+                          {scripturePassage.text}
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
 
                   {/* Start Quiz Button */}
                   <div className="text-center">

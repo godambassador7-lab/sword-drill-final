@@ -1250,29 +1250,24 @@ useEffect(() => {
         const localSavedProgress = loadProgressFromLocalStorage() || {};
         const mergedProgress = mergeProgressRecords(localSavedProgress, loadedUserData, localStreak);
 
-        // CRITICAL FIX: Use Firebase as authoritative source for streak and points
-        // Prevents device drift where each device calculates different values
-        console.log(' Sync Strategy: Using Firebase as source of truth');
-        console.log(' Firebase streak:', firebaseStreak, '| Local calc:', calculateCurrentStreak());
+        // CRITICAL FIX: Use HIGHEST streak across all devices
+        // This prevents device drift and ensures consistency
+        console.log(' Sync Strategy: Using highest streak from any source');
+        console.log(' Firebase streak:', firebaseStreak, '| Local calc:', localStreak, '| Using:', mergedStreak);
         console.log(' Firebase points:', result.progress.totalPoints, '| Local:', mergedProgress.totalPoints);
 
-        // Streak update logic: Only update if streak increases or goes to 0
-        const currentDisplayedStreak = userData.currentStreak || 0;
-        let finalStreak = firebaseStreak;
-
-        // Only update streak display if:
-        // 1. Streak is going up (new streak > current)
-        // 2. Streak broke and went to 0
-        // Otherwise, keep the current displayed value
-        if (firebaseStreak > currentDisplayedStreak || firebaseStreak === 0) {
-          finalStreak = firebaseStreak;
-        } else {
-          // Keep current streak display (don't let it decrease unless it's 0)
-          finalStreak = currentDisplayedStreak;
-        }
-
-        mergedProgress.currentStreak = finalStreak; // Use calculated streak value
+        // Always use the merged streak (highest value)
+        mergedProgress.currentStreak = mergedStreak;
         mergedProgress.totalPoints = result.progress.totalPoints || 0; // Firebase is authoritative
+
+        // If local streak is higher, sync it back to Firebase immediately
+        if (localStreak > firebaseStreak) {
+          console.log(' Local streak higher - syncing to Firebase:', localStreak);
+          updateUserProgress(user.uid, {
+            currentStreak: localStreak,
+            streakData: JSON.parse(localStorage.getItem('streakData') || '{}')
+          }).catch(err => console.error('Error syncing streak to Firebase:', err));
+        }
 
         // Rebuild streakData from Firebase + quizHistory + existing localStorage and persist
         const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
@@ -1688,12 +1683,21 @@ const handleSignIn = async (e) => {
         Math.max(localStreak, firebaseStreak)
       );
 
-      // CRITICAL FIX: Use Firebase as authoritative source
-      // Don't recalculate - prevents device drift!
-      console.log(' Sign-in Sync: Using Firebase values');
-      console.log(' Firebase streak:', firebaseStreak, '| Local calc would be:', calculateCurrentStreak());
-      mergedUserData.currentStreak = firebaseStreak; // Firebase is authoritative
+      // CRITICAL FIX: Use HIGHEST streak across all devices
+      const mergedStreak = Math.max(localStreak, firebaseStreak);
+      console.log(' Sign-in Sync: Using highest streak from any source');
+      console.log(' Firebase streak:', firebaseStreak, '| Local calc:', localStreak, '| Using:', mergedStreak);
+      mergedUserData.currentStreak = mergedStreak;
       mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
+
+      // If local streak is higher, sync it back to Firebase
+      if (localStreak > firebaseStreak) {
+        console.log(' Local streak higher - syncing to Firebase:', localStreak);
+        updateUserProgress(result.user.uid, {
+          currentStreak: localStreak,
+          streakData: JSON.parse(localStorage.getItem('streakData') || '{}')
+        }).catch(err => console.error('Error syncing streak to Firebase:', err));
+      }
 
       setUserData(mergedUserData);
       setIsLoggedIn(true);

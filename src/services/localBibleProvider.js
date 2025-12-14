@@ -110,6 +110,44 @@ const DEFAULT_BOOKS = [
   'Jude', 'Revelation'
 ];
 
+// Fetch chapter range (e.g., "1 Kings 11-14") and return all verses from those chapters
+export async function getLocalChapterRange(translation, reference, options = {}) {
+  const folder = folderFor(translation);
+  if (!folder) return null;
+
+  // Parse reference like "1 Kings 11-14" or "John 3"
+  const match = reference.match(/^(.+?)\s+(\d+)(?:-(\d+))?$/);
+  if (!match) return null;
+
+  const bookName = match[1].trim();
+  const startChapter = parseInt(match[2]);
+  const endChapter = match[3] ? parseInt(match[3]) : startChapter;
+
+  const bookJson = await loadBookJson(folder, bookName);
+  if (!bookJson || !bookJson.chapters) return null;
+
+  const allText = [];
+  for (let ch = startChapter; ch <= endChapter; ch++) {
+    const chapterData = bookJson.chapters?.[String(ch)];
+    if (chapterData) {
+      const verses = Object.keys(chapterData).sort((a, b) => parseInt(a) - parseInt(b));
+      for (const verseNum of verses) {
+        let text = chapterData[verseNum];
+        if (text) {
+          text = cleanVerseText(text);
+          if (options.simplifiedMode) {
+            text = simplifyText(text, translation);
+          }
+          allText.push(`${ch}:${verseNum} ${text}`);
+        }
+      }
+    }
+  }
+
+  if (allText.length === 0) return null;
+  return { reference, text: allText.join('\n\n'), translation };
+}
+
 export async function getRandomLocalVerse(translation, bookNames = null) {
   const folder = folderFor(translation);
   if (!folder) return null;
@@ -135,4 +173,4 @@ export async function getRandomLocalVerse(translation, bookNames = null) {
   return null;
 }
 
-export default { getLocalVerseByReference, getLocalVersesRange, getRandomLocalVerse };
+export default { getLocalVerseByReference, getLocalVersesRange, getLocalChapterRange, getRandomLocalVerse };
