@@ -1154,38 +1154,36 @@ const SwordDrillApp = () => {
 // Load guest/local progress on first render before auth resolves
   useEffect(() => {
     const savedProgress = loadProgressFromLocalStorage();
+    const localStreak = calculateCurrentStreak();
+
     if (savedProgress) {
-      const localStreak = calculateCurrentStreak();
       setUserData((prev) => ({
         ...prev,
         ...savedProgress,
-        currentStreak: Math.max(localStreak, savedProgress.currentStreak || 0)
+        currentStreak: localStreak // Always use calculated streak, not saved one
+      }));
+    } else {
+      // Even if no saved progress, update streak
+      setUserData(prev => ({
+        ...prev,
+        currentStreak: localStreak
       }));
     }
+
     // Restore last selected translation for guests/offline
     const lastTranslation = localStorage.getItem(LAST_TRANSLATION_KEY);
     if (lastTranslation) {
       setUserData(prev => ({ ...prev, selectedTranslation: normalizeTranslation(lastTranslation) }));
     }
     setHasHydratedProgress(true);
-  }, []);
 
-  // Recalculate streak on mount and when returning to the app
-  useEffect(() => {
-    const recalculateStreak = () => {
+    // Set up focus listener to recalculate when user returns to app
+    const handleFocus = () => {
       const currentCalculatedStreak = calculateCurrentStreak();
       setUserData(prev => ({
         ...prev,
         currentStreak: currentCalculatedStreak
       }));
-    };
-
-    // Recalculate immediately
-    recalculateStreak();
-
-    // Recalculate when window regains focus (user returns to app)
-    const handleFocus = () => {
-      recalculateStreak();
     };
 
     window.addEventListener('focus', handleFocus);
@@ -1968,8 +1966,8 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   return picked || DEFAULT_VERSE_FALLBACK.reference;
 };
   const startQuiz = async (type, usePersonalVerses = false) => {
-    // Check daily quiz limit
-    if (!canTakeQuiz(type)) {
+    // Check daily quiz limit (skip for personal verses - they're practice and award minimal points)
+    if (!usePersonalVerses && !canTakeQuiz(type)) {
       const remaining = getRemainingQuizzes(type);
       showToast(`Daily limit reached!\n\nYou've completed ${DAILY_QUIZ_LIMIT} ${type} quizzes today.\nCome back tomorrow for more!`, 'error');
       return;
@@ -2908,8 +2906,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     dateKey: localDateString(today)
   };
 
-  // Increment daily quiz counter for this quiz type
-  incrementQuizCount(effectiveQuizState.type);
+  // Increment daily quiz counter for this quiz type (skip for personal verses - they're practice)
+  if (!effectiveQuizState.isPersonalVerse) {
+    incrementQuizCount(effectiveQuizState.type);
+  }
 
   // Initialize or update day's data
   if (!streakData[dateString]) {
