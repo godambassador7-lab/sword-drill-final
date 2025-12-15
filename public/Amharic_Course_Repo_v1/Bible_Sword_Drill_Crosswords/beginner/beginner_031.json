@@ -1,0 +1,89 @@
+{
+  "id": "beginner_031",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "########",
+    "EDEN##T#",
+    "V#G#E#R#",
+    "E#Y#A#U#",
+    "#SPIRIT#",
+    "S#T#T#H#",
+    "I###H###",
+    "NOAH####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 0,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 0,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 6,
+        "clue": "Jesus said: I am the ___ (John 14)",
+        "answer": "TRUTH",
+        "displayAnswer": "TRUTH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

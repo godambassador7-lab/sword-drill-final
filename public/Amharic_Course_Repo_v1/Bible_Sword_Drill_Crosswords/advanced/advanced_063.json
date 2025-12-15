@@ -1,0 +1,93 @@
+{
+  "id": "advanced_063",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "###########P",
+    "###ZACHARIAH",
+    "#S#########A",
+    "TABERNACLE#R",
+    "#N#######P#A",
+    "#H##Z#C##H#O",
+    "MEPHIBOSHETH",
+    "#D##O#U##S#S",
+    "#R##N#N##I##",
+    "#I####C##A##",
+    "#N####I##N##",
+    "######L##S##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 3,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 11,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 9,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 4,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 6,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

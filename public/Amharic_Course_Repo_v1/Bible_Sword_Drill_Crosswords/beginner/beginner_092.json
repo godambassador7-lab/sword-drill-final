@@ -1,0 +1,97 @@
+{
+  "id": "beginner_092",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "####FISH",
+    "ADAM##I#",
+    "R###W#N#",
+    "K###O###",
+    "#SPIRIT#",
+    "E###D###",
+    "V####GOD",
+    "EDEN####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 5,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 6,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

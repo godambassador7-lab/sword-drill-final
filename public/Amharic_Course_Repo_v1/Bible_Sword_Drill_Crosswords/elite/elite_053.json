@@ -1,0 +1,119 @@
+{
+  "id": "elite_053",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "#######D#C#P##",
+    "#######I#H#N##",
+    "#######AGAPE#A",
+    "#P#####T#R#U#N",
+    "#R##D##H#I#M#A",
+    "#O##I##E#S#A#S",
+    "#P##K##K##L##T",
+    "#HILASTERION#A",
+    "#E##I#####G##S",
+    "#T##O#KYRIOS#I",
+    "#E##S#####S##S",
+    "#S##Y#########",
+    "##GENEALOGIA##",
+    "####E#########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 2,
+        "col": 7,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 10,
+        "row": 9,
+        "col": 6,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 2,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 7,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 11,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 13,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 1,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 4,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 10,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

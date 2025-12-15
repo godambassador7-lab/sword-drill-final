@@ -1,0 +1,89 @@
+{
+  "id": "beginner_089",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "K#WORD##",
+    "I#####E#",
+    "N#E#L#D#",
+    "G#V#O#E#",
+    "#HEAVEN#",
+    "####E##A",
+    "#######R",
+    "PRAYER#K"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 6,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

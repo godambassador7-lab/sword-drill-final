@@ -1,0 +1,93 @@
+{
+  "id": "advanced_016",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#PHILISTINES",
+    "#E##########",
+    "#N######E###",
+    "#T####S#L##Z",
+    "#A####H#I##A",
+    "#T##Z#E#S##C",
+    "MEPHIBOSHETH",
+    "#U##O#L#A##A",
+    "#C##N######R",
+    "#H#########I",
+    "###########A",
+    "######ELIJAH"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 11,
+        "col": 6,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 8,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 6,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 11,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 4,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

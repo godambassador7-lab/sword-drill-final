@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_077",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "E##SOLOMON",
+    "X####E####",
+    "O##J#V#P##",
+    "D##O#ISAAC",
+    "U##N#T#R##",
+    "SAMARITAN#",
+    "###H#C#B##",
+    "#####U#L##",
+    "PHARISEE##",
+    "##########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 5,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 0,
+        "clue": "Religious leader group in Gospels",
+        "answer": "PHARISEE",
+        "displayAnswer": "PHARISEE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 5,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 7,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

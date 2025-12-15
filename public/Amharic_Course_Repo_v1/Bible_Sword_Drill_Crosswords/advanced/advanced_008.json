@@ -1,0 +1,101 @@
+{
+  "id": "advanced_008",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#TABERNACLE#",
+    "###########M",
+    "#NEHEMIAH##A",
+    "####D######L",
+    "###COUNCIL#A",
+    "####M######C",
+    "MEPHIBOSHETH",
+    "####T######I",
+    "####E#Z#####",
+    "COLOSSIANS##",
+    "######O#####",
+    "#ZEPHANIAH##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Pauline epistle about Christ's supremacy",
+        "answer": "COLOSSIANS",
+        "displayAnswer": "COLOSSIANS"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 1,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 11,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

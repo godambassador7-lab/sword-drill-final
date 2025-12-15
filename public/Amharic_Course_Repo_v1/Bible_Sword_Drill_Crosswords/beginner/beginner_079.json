@@ -1,0 +1,89 @@
+{
+  "id": "beginner_079",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#FISH#L#",
+    "#####SIN",
+    "LAMB##G#",
+    "####A#H#",
+    "#SPIRIT#",
+    "####K###",
+    "#GOD####",
+    "####ADAM"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 5,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 1,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 4,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 6,
+        "clue": "Jesus said: I am the ___ of the world",
+        "answer": "LIGHT",
+        "displayAnswer": "LIGHT"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 4,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "beginner_067",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#T#G###L",
+    "#R#O#W#O",
+    "#U#D#A#V",
+    "#T###T#E",
+    "#HEAVEN#",
+    "S##R#R##",
+    "I##K####",
+    "N###OVER"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 4,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Jesus said: I am the ___ (John 14)",
+        "answer": "TRUTH",
+        "displayAnswer": "TRUTH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 5,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 3,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

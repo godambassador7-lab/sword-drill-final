@@ -1,0 +1,101 @@
+{
+  "id": "advanced_064",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "G###########",
+    "EPHESIANS#M#",
+    "T#########O#",
+    "H######EZRA#",
+    "S##G##Z###B#",
+    "E##E##I#S#I#",
+    "MEPHIBOSHETH",
+    "A##E##N#E#E#",
+    "N##N####O#S#",
+    "E##N####L###",
+    "###A########",
+    "######ELISHA"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 0,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 7,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 6,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 10,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 8,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

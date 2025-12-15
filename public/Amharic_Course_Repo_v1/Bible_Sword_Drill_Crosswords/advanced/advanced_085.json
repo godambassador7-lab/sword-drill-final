@@ -1,0 +1,93 @@
+{
+  "id": "advanced_085",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#A##M####M##",
+    "#B##A####O##",
+    "#I##L####A##",
+    "#M##A##E#B##",
+    "#E##C##L#I##",
+    "#L##H##I#T#S",
+    "MEPHIBOSHETH",
+    "#C#####H#S#E",
+    "#H#ELIJAH##O",
+    "###########L",
+    "ZACHARIAH###",
+    "############"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 3,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 0,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Name of multiple kings in Scripture",
+        "answer": "ABIMELECH",
+        "displayAnswer": "ABIMELECH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 9,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 7,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 11,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

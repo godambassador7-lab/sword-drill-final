@@ -1,0 +1,119 @@
+{
+  "id": "elite_037",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##############",
+    "#####S##N####E",
+    "##LOGOS#O####K",
+    "#####T##M####K",
+    "#####E##O####L",
+    "#A#KYRIOS####E",
+    "#G###I####D##S",
+    "#APOKALYPSIS#I",
+    "#P########A##A",
+    "#E#PARAKLETOS#",
+    "##########H###",
+    "#####PROPHETES",
+    "##########K###",
+    "#DIKAIOSYNE###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 3,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 9,
+        "row": 9,
+        "col": 3,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 10,
+        "row": 11,
+        "col": 5,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 11,
+        "row": 13,
+        "col": 1,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 5,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 8,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 13,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 1,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 10,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

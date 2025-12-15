@@ -1,0 +1,89 @@
+{
+  "id": "beginner_061",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#LIGHT#L",
+    "#######A",
+    "#H#####M",
+    "#O#E#J#B",
+    "#PRAYER#",
+    "#E#R#S##",
+    "###TRUTH",
+    "NOAH#S##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Jesus said: I am the ___ of the world",
+        "answer": "LIGHT",
+        "displayAnswer": "LIGHT"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 3,
+        "clue": "Jesus said: I am the ___ (John 14)",
+        "answer": "TRUTH",
+        "displayAnswer": "TRUTH"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 3,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 5,
+        "clue": "Name above every name",
+        "answer": "JESUS",
+        "displayAnswer": "JESUS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

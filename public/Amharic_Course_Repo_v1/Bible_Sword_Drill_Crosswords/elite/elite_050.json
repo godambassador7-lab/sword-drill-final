@@ -1,0 +1,111 @@
+{
+  "id": "elite_050",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "S#AGAPE#######",
+    "O#N######M###D",
+    "T#A######E###I",
+    "E#S#G####T###K",
+    "R#T#E####A###A",
+    "I#A#N####N###I",
+    "A#S#E####O#P#O",
+    "#HILASTERION#S",
+    "##S#L####A#E#Y",
+    "###NOMOS###U#N",
+    "####G######M#E",
+    "####I######A##",
+    "APOKALYPSIS###",
+    "##############"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 3,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 9,
+        "row": 12,
+        "col": 0,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 9,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 13,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 4,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 11,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

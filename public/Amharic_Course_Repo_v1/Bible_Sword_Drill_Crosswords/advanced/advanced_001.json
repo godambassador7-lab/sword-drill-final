@@ -1,0 +1,93 @@
+{
+  "id": "advanced_001",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "#A###Z####M#",
+    "#R#B#E####O#",
+    "#M#E#R#EZRA#",
+    "#A#L#U##A#B#",
+    "#G#S#B##C#I#",
+    "MEPHIBOSHETH",
+    "#D#A#A##A#E#",
+    "#D#Z#B##R#S#",
+    "#O#Z#E##I###",
+    "#N#A#L##A###",
+    "###R###SHEOL"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 5,
+        "row": 3,
+        "col": 7,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 7,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 1,
+        "clue": "End-times gathering place (Rev 16)",
+        "answer": "ARMAGEDDON",
+        "displayAnswer": "ARMAGEDDON"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 10,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 8,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "id": "beginner_077",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "####LOVE",
+    "#GOD####",
+    "##V#WORD",
+    "##E#####",
+    "#PRAYER#",
+    "###D#D#E",
+    "#GRACE#V",
+    "###M#N#E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 9,
+        "row": 6,
+        "col": 1,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      }
+    ],
+    "down": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 2,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 3,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 5,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 8,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

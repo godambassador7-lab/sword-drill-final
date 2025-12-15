@@ -1,0 +1,101 @@
+{
+  "id": "advanced_097",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#EZRA####P##",
+    "#D#######E##",
+    "#O#E#####N#B",
+    "#MALACHI#T#E",
+    "#I#I#####A#L",
+    "#T#S#####T#S",
+    "MEPHIBOSHETH",
+    "#S#A#####U#A",
+    "#########C#Z",
+    "##NEHEMIAH#Z",
+    "###########A",
+    "ZEPHANIAH##R"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 1,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 2,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 0,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 11,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

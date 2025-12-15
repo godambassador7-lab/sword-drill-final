@@ -1,0 +1,97 @@
+{
+  "id": "beginner_023",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#E#SIN##",
+    "#A######",
+    "ARK#NOAH",
+    "#T#F#V##",
+    "#HEAVEN#",
+    "###I#R#E",
+    "###T###V",
+    "FISH###E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 0,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 3,
+        "clue": "Assurance of things hoped for (Hebrews 11)",
+        "answer": "FAITH",
+        "displayAnswer": "FAITH"
+      },
+      {
+        "number": 8,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "elite_080",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "C#############",
+    "H#E#PROPHETES#",
+    "A#K##########A",
+    "R#K##L##S#K##N",
+    "I#L##O##O#Y##A",
+    "S#E##G##T#R##S",
+    "##S##O##E#I##T",
+    "#HILASTERION#A",
+    "##A#####I#S##S",
+    "########A####I",
+    "DIATHEKE#NOMOS",
+    "##############",
+    "##APOKALYPSIS#",
+    "##############"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 0,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 9,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 2,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 13,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 5,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 8,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 7,
+        "row": 3,
+        "col": 10,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

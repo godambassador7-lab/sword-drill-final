@@ -1,0 +1,119 @@
+{
+  "id": "elite_056",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "######N###E##P",
+    "CHRISMOS##U##A",
+    "######M###A##R",
+    "#G####O###N##A",
+    "#EKKLESIA#G##K",
+    "#N########E##L",
+    "#E########L##E",
+    "#APOKALYPSIS#T",
+    "#L##Y###N#O##O",
+    "SOTERIA#E#N##S",
+    "#G##I###U#####",
+    "#I##O###M#####",
+    "#A##S#DIATHEKE",
+    "##############"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 1,
+        "col": 0,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 10,
+        "row": 9,
+        "col": 0,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 6,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 6,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 10,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 1,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 4,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 8,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

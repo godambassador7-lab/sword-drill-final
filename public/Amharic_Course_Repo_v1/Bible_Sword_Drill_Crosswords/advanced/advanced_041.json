@@ -1,0 +1,93 @@
+{
+  "id": "advanced_041",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "####M#######",
+    "##MOABITES##",
+    "####L#######",
+    "#G#HABAKKUK#",
+    "#E##C#M#####",
+    "#H##H#M#####",
+    "MEPHIBOSHETH",
+    "#N####N#####",
+    "#N##ELISHA##",
+    "#A####T#####",
+    "######E#####",
+    "#PHILISTINES"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 3,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 4,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 1,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 1,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 6,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

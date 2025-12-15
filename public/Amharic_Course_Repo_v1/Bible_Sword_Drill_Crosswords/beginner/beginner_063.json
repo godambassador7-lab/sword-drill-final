@@ -1,0 +1,97 @@
+{
+  "id": "beginner_063",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "O#S#NOAH",
+    "V#H####O",
+    "EVE####P",
+    "R#E#A##E",
+    "#SPIRIT#",
+    "#I##K###",
+    "#N######",
+    "##EARTH#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 0,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 2,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Often used for God's people",
+        "answer": "SHEEP",
+        "displayAnswer": "SHEEP"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 7,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 4,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 1,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

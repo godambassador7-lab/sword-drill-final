@@ -1,0 +1,89 @@
+{
+  "id": "beginner_084",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "N##FAITH",
+    "O#######",
+    "A#SPIRIT",
+    "H##S####",
+    "#PRAYER#",
+    "A##L#D##",
+    "R##M#EVE",
+    "K####N##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Assurance of things hoped for (Hebrews 11)",
+        "answer": "FAITH",
+        "displayAnswer": "FAITH"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 2,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 5,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Sacred song",
+        "answer": "PSALM",
+        "displayAnswer": "PSALM"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 5,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_001",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#########J",
+    "#I#P###J#A",
+    "ESTHER#O#C",
+    "#R#A###S#O",
+    "#A#R###H#B",
+    "LEVITICUS#",
+    "#L#S#S#A#R",
+    "###E#A###U",
+    "###E#A###T",
+    "#####C###H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 5,
+        "row": 2,
+        "col": 0,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 9,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 3,
+        "clue": "Religious leader group in Gospels",
+        "answer": "PHARISEE",
+        "displayAnswer": "PHARISEE"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 7,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 5,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 9,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

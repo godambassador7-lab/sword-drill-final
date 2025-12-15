@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_009",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#N#SOLOMON",
+    "#I#A######",
+    "#NUMBERS##",
+    "#E#A######",
+    "#V#R####I#",
+    "LEVITICUS#",
+    "#H#T####A#",
+    "##JACOB#I#",
+    "###N####A#",
+    "####JONAH#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 2,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 4,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 8,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

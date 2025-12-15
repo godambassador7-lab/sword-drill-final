@@ -1,0 +1,101 @@
+{
+  "id": "advanced_084",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#P##M###EZRA",
+    "#E##A##P#I##",
+    "#N##L#SHEOL#",
+    "#T##A##I#N##",
+    "#A##C##L####",
+    "#T##H##I####",
+    "MEPHIBOSHETH",
+    "#U#####T####",
+    "#COLOSSIANS#",
+    "#H#####N####",
+    "##GETHSEMANE",
+    "#######S####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 8,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 6,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 1,
+        "clue": "Pauline epistle about Christ's supremacy",
+        "answer": "COLOSSIANS",
+        "displayAnswer": "COLOSSIANS"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 2,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 9,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 5,
+        "row": 1,
+        "col": 7,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

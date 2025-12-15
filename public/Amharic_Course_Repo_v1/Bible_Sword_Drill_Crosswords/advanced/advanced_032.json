@@ -1,0 +1,101 @@
+{
+  "id": "advanced_032",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "EPHESIANS###",
+    "###########E",
+    "###########L",
+    "ZERUBBABEL#I",
+    "######M####J",
+    "######M####A",
+    "MEPHIBOSHETH",
+    "######N##Z##",
+    "MALACHI##R##",
+    "######T##A##",
+    "EDOMITES####",
+    "######S#ZION"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 0,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 0,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 0,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 8,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 11,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 6,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

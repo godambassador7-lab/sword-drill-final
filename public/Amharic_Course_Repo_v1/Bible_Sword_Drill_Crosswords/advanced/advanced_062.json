@@ -1,0 +1,101 @@
+{
+  "id": "advanced_062",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##ARMAGEDDON",
+    "####A#######",
+    "####L#######",
+    "##PHARAOHS#Z",
+    "####C######A",
+    "####H######C",
+    "MEPHIBOSHETH",
+    "###########A",
+    "Z#BELSHAZZAR",
+    "I##Z#######I",
+    "O##R#GEHENNA",
+    "N##A#######H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "End-times gathering place (Rev 16)",
+        "answer": "ARMAGEDDON",
+        "displayAnswer": "ARMAGEDDON"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 2,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 2,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 5,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 11,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 6,
+        "row": 8,
+        "col": 0,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 3,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

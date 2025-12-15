@@ -1,0 +1,93 @@
+{
+  "id": "advanced_007",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "JEZEBEL#P#P#",
+    "#D######H#H#",
+    "#O######A#I#",
+    "#M######R#L#",
+    "#I#G####A#I#",
+    "#T#E##C#O#S#",
+    "MEPHIBOSHETH",
+    "#S#E##U#S#I#",
+    "###N##N###N#",
+    "###N##C###E#",
+    "MALACHI###S#",
+    "######L#####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 0,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 1,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 8,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 10,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 6,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

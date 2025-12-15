@@ -1,0 +1,127 @@
+{
+  "id": "elite_089",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "####PROPHETES#",
+    "##############",
+    "#CHARIS#NOMOS#",
+    "##############",
+    "#M###P########",
+    "#E#EUANGELION#",
+    "#T###R#######D",
+    "#APOKALYPSIS#I",
+    "#N###K#######A",
+    "#O###L####L##T",
+    "#I#PNEUMA#O##H",
+    "#A###T###AGAPE",
+    "#####O####O##K",
+    "#CHRISMOS#S##E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 1,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 8,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 3,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 3,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 11,
+        "row": 11,
+        "col": 9,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 12,
+        "row": 13,
+        "col": 1,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      }
+    ],
+    "down": [
+      {
+        "number": 4,
+        "row": 4,
+        "col": 1,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 5,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 13,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 9,
+        "row": 9,
+        "col": 10,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

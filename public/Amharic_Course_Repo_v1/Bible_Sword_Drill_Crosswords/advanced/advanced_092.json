@@ -1,0 +1,109 @@
+{
+  "id": "advanced_092",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#M#####SHEOL",
+    "#O#######D##",
+    "#ARMAGEDDON#",
+    "#B#######M##",
+    "#I#ZACHARIAH",
+    "#T#######T##",
+    "MEPHIBOSHETH",
+    "#S#######S##",
+    "E#MALACHI#Z#",
+    "Z#########I#",
+    "R#REVELATION",
+    "A#########N#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "End-times gathering place (Rev 16)",
+        "answer": "ARMAGEDDON",
+        "displayAnswer": "ARMAGEDDON"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 2,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 2,
+        "clue": "Apocalyptic book of John",
+        "answer": "REVELATION",
+        "displayAnswer": "REVELATION"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 9,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 0,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 9,
+        "row": 8,
+        "col": 10,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "advanced_009",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#P#EPHESIANS",
+    "#E#######B##",
+    "#N#ZEPHANIAH",
+    "#T#######M##",
+    "TABERNACLE##",
+    "#T#######L##",
+    "MEPHIBOSHETH",
+    "#U#######C##",
+    "#C##ELIJAH##",
+    "#H##########",
+    "############",
+    "PHILISTINES#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 0,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 4,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 9,
+        "clue": "Name of multiple kings in Scripture",
+        "answer": "ABIMELECH",
+        "displayAnswer": "ABIMELECH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

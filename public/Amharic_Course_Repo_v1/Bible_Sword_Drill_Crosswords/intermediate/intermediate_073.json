@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_073",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "BETHLEHEM#",
+    "#####X####",
+    "###N#O####",
+    "P##I#DAVID",
+    "S##N#U####",
+    "ASCENSION#",
+    "L##V##S###",
+    "M##E##A###",
+    "S##H#JACOB",
+    "######C###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Birthplace of Jesus",
+        "answer": "BETHLEHEM",
+        "displayAnswer": "BETHLEHEM"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 5,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 5,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 6,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

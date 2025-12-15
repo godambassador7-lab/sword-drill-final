@@ -1,0 +1,89 @@
+{
+  "id": "beginner_076",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#GOD###L",
+    "#####W#O",
+    "OVER#A#V",
+    "#####T#E",
+    "#HEAVEN#",
+    "S#V##R##",
+    "I#E#####",
+    "N##KING#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 3,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 5,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 2,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

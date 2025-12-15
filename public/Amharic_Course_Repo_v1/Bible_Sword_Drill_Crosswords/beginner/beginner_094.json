@@ -1,0 +1,97 @@
+{
+  "id": "beginner_094",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "LOVE####",
+    "A###EDEN",
+    "M######O",
+    "B#A#F##A",
+    "#BREAD#H",
+    "##K#I#E#",
+    "####T#V#",
+    "TRUTH#E#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Jesus said: I am the bread of life",
+        "answer": "BREAD",
+        "displayAnswer": "BREAD"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Jesus said: I am the ___ (John 14)",
+        "answer": "TRUTH",
+        "displayAnswer": "TRUTH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 2,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 4,
+        "clue": "Assurance of things hoped for (Hebrews 11)",
+        "answer": "FAITH",
+        "displayAnswer": "FAITH"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 6,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "id": "elite_076",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "######P#KYRIOS",
+    "######N#######",
+    "PARAKLETOS####",
+    "#N####U####H#D",
+    "#A####M#P##I#I",
+    "#S####A#R##L#K",
+    "#T#S####O##A#A",
+    "#APOKALYPSIS#I",
+    "#S#T#G##H##T#O",
+    "#I#E#A##E##E#S",
+    "#S#R#P##T##R#Y",
+    "###I#E##E##I#N",
+    "###A####S##O#E",
+    "###########N##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 8,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 0,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 6,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 11,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 13,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 8,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 3,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 10,
+        "row": 7,
+        "col": 5,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

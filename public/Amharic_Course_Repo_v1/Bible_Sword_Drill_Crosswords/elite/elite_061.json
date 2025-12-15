@@ -1,0 +1,119 @@
+{
+  "id": "elite_061",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "####PROPHETES#",
+    "##A###########",
+    "##G##LOGOS####",
+    "##A#A#########",
+    "##P#P#D##K#E#E",
+    "##E#O#I##Y#U#K",
+    "#C##K#A##R#A#K",
+    "#HILASTERION#L",
+    "#A##L#H##O#G#E",
+    "#R##Y#E##S#E#S",
+    "#I##P#K####L#I",
+    "#S##S#E####I#A",
+    "####I######O##",
+    "#ANASTASIS#N##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 5,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 10,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 11,
+        "row": 13,
+        "col": 1,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 4,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 6,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 9,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 11,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 8,
+        "row": 4,
+        "col": 13,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 9,
+        "row": 6,
+        "col": 1,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

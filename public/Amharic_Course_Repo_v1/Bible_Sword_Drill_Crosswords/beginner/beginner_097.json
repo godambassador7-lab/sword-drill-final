@@ -1,0 +1,89 @@
+{
+  "id": "beginner_097",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "K#G#FISH",
+    "I#O####O",
+    "N#D#E##P",
+    "G###A##E",
+    "#SPIRIT#",
+    "####T###",
+    "#NOAH###",
+    "#####EVE"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 1,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 5,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 7,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

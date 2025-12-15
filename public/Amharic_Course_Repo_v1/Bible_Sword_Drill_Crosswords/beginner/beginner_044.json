@@ -1,0 +1,89 @@
+{
+  "id": "beginner_044",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "E##GOD#W",
+    "V#L####O",
+    "E#O##S#R",
+    "##V##H#D",
+    "#HEAVEN#",
+    "#####E#S",
+    "#####P#I",
+    "JESUS##N"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Name above every name",
+        "answer": "JESUS",
+        "displayAnswer": "JESUS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 2,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Often used for God's people",
+        "answer": "SHEEP",
+        "displayAnswer": "SHEEP"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

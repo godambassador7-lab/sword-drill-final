@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_049",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "J###R#####",
+    "O#J#U#####",
+    "S#E#T#I###",
+    "H#R#H#S#N#",
+    "U#I###A#I#",
+    "ASCENSION#",
+    "##H###A#E#",
+    "#JOSEPH#V#",
+    "########E#",
+    "SOLOMON#H#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 2,
+        "clue": "City whose walls fell",
+        "answer": "JERICHO",
+        "displayAnswer": "JERICHO"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 6,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 8,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

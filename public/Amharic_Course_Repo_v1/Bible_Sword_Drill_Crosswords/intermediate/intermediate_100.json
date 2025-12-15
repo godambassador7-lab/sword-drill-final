@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_100",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##EXODUS#D",
+    "#######O#A",
+    "P#ISRAEL#V",
+    "A######O#I",
+    "R######M#D",
+    "ASCENSION#",
+    "B######N##",
+    "L#ISAAC###",
+    "E#########",
+    "#COMMUNION"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 2,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 2,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 9,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

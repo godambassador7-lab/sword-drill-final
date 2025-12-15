@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_023",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "EXODUS####",
+    "#####A####",
+    "###NUMBERS",
+    "G#D##A####",
+    "A#A##R##I#",
+    "LEVITICUS#",
+    "I#I##T##R#",
+    "L#D##A##A#",
+    "E##NINEVEH",
+    "E#######L#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 3,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 8,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "advanced_059",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "###EZRA####P",
+    "#######P#G#H",
+    "#S#####H#E#A",
+    "#A#Z###I#T#R",
+    "#N#E###L#H#A",
+    "#H#P###I#S#O",
+    "MEPHIBOSHETH",
+    "#D#A###T#M#S",
+    "#R#N#Z#I#A##",
+    "#I#I#I#N#N##",
+    "#N#A#O#E#E##",
+    "###H#N#S####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 11,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 9,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 1,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 3,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 5,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

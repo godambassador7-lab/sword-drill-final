@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_054",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#BAPTISM##",
+    "########C#",
+    "#A#J#JACOB",
+    "#P#O####V#",
+    "#O#S#I##E#",
+    "ASCENSION#",
+    "#T#P#R##A#",
+    "#L#H#A##N#",
+    "#E###E##T#",
+    "##PSALMS##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 2,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 8,
+        "clue": "Solemn promise/bond",
+        "answer": "COVENANT",
+        "displayAnswer": "COVENANT"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Sent-out messenger",
+        "answer": "APOSTLE",
+        "displayAnswer": "APOSTLE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 5,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

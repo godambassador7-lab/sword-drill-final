@@ -1,0 +1,89 @@
+{
+  "id": "beginner_019",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "##OVER#K",
+    "#E#####I",
+    "#G###E#N",
+    "#Y#L#V#G",
+    "#PRAYER#",
+    "#T#M####",
+    "###B####",
+    "ARK#EDEN"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 4,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 1,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 3,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "advanced_098",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##M##GEHENNA",
+    "##A#########",
+    "##L#B#######",
+    "##A#EDOMITES",
+    "##C#A#######",
+    "##H#T#######",
+    "PHILIPPIANS#",
+    "####T######E",
+    "##COUNCIL##Z",
+    "####D######R",
+    "SANHEDRIN##A",
+    "####S#######"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 4,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 2,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 0,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 4,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 11,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

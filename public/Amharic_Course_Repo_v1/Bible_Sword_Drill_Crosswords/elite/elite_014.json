@@ -1,0 +1,119 @@
+{
+  "id": "elite_014",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "#######N#####S",
+    "##DIKAIOSYNE#O",
+    "#P#####M#####T",
+    "#N#####O#####E",
+    "#E#L#P#S##K##R",
+    "#U#O#A####Y##I",
+    "#M#G#R####R##A",
+    "#APOKALYPSIS##",
+    "###S#K####O##C",
+    "#####L####S##H",
+    "DIATHEKE#####A",
+    "#####T#######R",
+    "###PROPHETES#I",
+    "#####S#######S"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 2,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 0,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 3,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 7,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 5,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 10,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 9,
+        "row": 8,
+        "col": 13,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

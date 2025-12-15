@@ -1,0 +1,119 @@
+{
+  "id": "elite_003",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##############",
+    "#S###CHRISMOS#",
+    "#O########E###",
+    "#T#K######T###",
+    "#E#Y####AGAPE#",
+    "#R#R#A####N###",
+    "#I#I#N####O###",
+    "#APOKALYPSIS##",
+    "###S#S####A##L",
+    "#####T#######O",
+    "#GENEALOGIA##G",
+    "#####S#######O",
+    "#####I##CHARIS",
+    "EKKLESIA######"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 8,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 1,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      },
+      {
+        "number": 10,
+        "row": 12,
+        "col": 8,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 11,
+        "row": 13,
+        "col": 0,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 1,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 10,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 3,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 5,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 13,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

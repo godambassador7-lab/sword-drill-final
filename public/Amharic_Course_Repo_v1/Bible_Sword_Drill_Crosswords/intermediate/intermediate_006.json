@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_006",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#########D",
+    "JOSHUA###A",
+    "#######S#V",
+    "I#J####O#I",
+    "S#A##E#L#D",
+    "ASCENSION#",
+    "A#O##T#M##",
+    "C#B##H#O##",
+    "#####E#N##",
+    "NUMBERS###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 0,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 9,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 7,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 5,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

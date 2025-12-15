@@ -1,0 +1,119 @@
+{
+  "id": "elite_066",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "#M############",
+    "#E##CHARIS####",
+    "#T####G####E##",
+    "#A####A##N#K##",
+    "#N####P##O#K##",
+    "#O####E##M#L##",
+    "#I#######O#E##",
+    "#APOKALYPSIS##",
+    "##N########I#K",
+    "##E######L#A#Y",
+    "#EUANGELION##R",
+    "##M######G###I",
+    "DIATHEKE#O###O",
+    "#########S###S"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 1,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 0,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 6,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 11,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 9,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 2,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 13,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 9,
+        "row": 9,
+        "col": 9,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

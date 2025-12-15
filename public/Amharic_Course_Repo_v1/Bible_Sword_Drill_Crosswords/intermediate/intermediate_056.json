@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_056",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##RUTH####",
+    "######B###",
+    "P####DAVID",
+    "A#J#J#P###",
+    "R#A#O#T###",
+    "ASCENSION#",
+    "B#O#A#S###",
+    "L#B#H#M###",
+    "E#########",
+    "####PSALMS"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 4,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 6,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 0,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 4,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

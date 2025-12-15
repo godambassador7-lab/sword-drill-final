@@ -1,0 +1,93 @@
+{
+  "id": "advanced_042",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##S#########",
+    "##H######J##",
+    "#BEATITUDES#",
+    "##O######Z#Z",
+    "##L###Z##E#E",
+    "######I##B#P",
+    "MEPHIBOSHETH",
+    "######N##L#A",
+    "###########N",
+    "MOABITES###I",
+    "###########A",
+    "###MALACHI#H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 0,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 3,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 9,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 11,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

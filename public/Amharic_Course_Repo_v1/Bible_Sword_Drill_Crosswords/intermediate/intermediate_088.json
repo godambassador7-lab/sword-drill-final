@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_088",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "###B#E###D",
+    "###E#X###A",
+    "P##T#O#J#V",
+    "A##H#D#A#I",
+    "R##L#U#C#D",
+    "ASCENSION#",
+    "B##H###B#R",
+    "L##E#####U",
+    "E##M#####T",
+    "####ISAIAH"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 4,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Birthplace of Jesus",
+        "answer": "BETHLEHEM",
+        "displayAnswer": "BETHLEHEM"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 9,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 7,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 9,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

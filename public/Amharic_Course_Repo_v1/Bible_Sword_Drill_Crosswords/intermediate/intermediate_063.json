@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_063",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#####P###I",
+    "JOSEPH###S",
+    "###S#A#J#A",
+    "###T#R#A#A",
+    "#I#H#I#C#C",
+    "ASCENSION#",
+    "#R#R#E#B##",
+    "#A###E####",
+    "#E########",
+    "#L#JERICHO"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 3,
+        "clue": "City whose walls fell",
+        "answer": "JERICHO",
+        "displayAnswer": "JERICHO"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 5,
+        "clue": "Religious leader group in Gospels",
+        "answer": "PHARISEE",
+        "displayAnswer": "PHARISEE"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 3,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 7,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

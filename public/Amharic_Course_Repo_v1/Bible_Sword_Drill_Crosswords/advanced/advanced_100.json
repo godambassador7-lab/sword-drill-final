@@ -1,0 +1,93 @@
+{
+  "id": "advanced_100",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "GETHSEMANE##",
+    "#####Z##E###",
+    "#B#S#R##H#E#",
+    "#E#H#A##E#P#",
+    "#L#E####M#H#",
+    "#S#O####I#E#",
+    "PHILIPPIANS#",
+    "#A######H#I#",
+    "#Z########A#",
+    "#Z########N#",
+    "#A#MOABITES#",
+    "#R##########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 3,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 8,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 3,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 10,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

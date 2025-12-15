@@ -1,0 +1,93 @@
+{
+  "id": "advanced_055",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "####C######M",
+    "####O######A",
+    "####U##E###L",
+    "#S##N##L###A",
+    "#H##C##I###C",
+    "MEPHIBOSHETH",
+    "#O##L##H#Z#I",
+    "#L#Z###A#R##",
+    "###I#####A##",
+    "###O########",
+    "#SANHEDRIN##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 1,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 4,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 11,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 7,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 1,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 3,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_085",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#ISRAEL###",
+    "#####X####",
+    "I####O####",
+    "S#J##D#A##",
+    "A#A##U#P##",
+    "ASCENSION#",
+    "C#O####S##",
+    "##B##RUTH#",
+    "#######L##",
+    "#JONAH#E##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 5,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 0,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 2,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 7,
+        "clue": "Sent-out messenger",
+        "answer": "APOSTLE",
+        "displayAnswer": "APOSTLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

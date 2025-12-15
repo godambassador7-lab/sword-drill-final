@@ -1,0 +1,101 @@
+{
+  "id": "advanced_011",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##P#########",
+    "##HABAKKUK##",
+    "##I#########",
+    "A#L#########",
+    "B#I##EZRA##G",
+    "I#P###I####E",
+    "MEPHIBOSHETH",
+    "E#I###N##L#E",
+    "L#A######I#N",
+    "E#N######J#N",
+    "C#S######A#A",
+    "H###MALACHI#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 5,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 0,
+        "clue": "Name of multiple kings in Scripture",
+        "answer": "ABIMELECH",
+        "displayAnswer": "ABIMELECH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 11,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 9,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

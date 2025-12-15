@@ -1,0 +1,101 @@
+{
+  "id": "advanced_048",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#####Z###P##",
+    "###ABIMELECH",
+    "#####O###N##",
+    "#####N###T##",
+    "SHEOL#EZRA##",
+    "##L######T##",
+    "PHILISTINES#",
+    "##J######U##",
+    "##A######C##",
+    "NEHEMIAH#H##",
+    "############",
+    "REVELATION##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 3,
+        "clue": "Name of multiple kings in Scripture",
+        "answer": "ABIMELECH",
+        "displayAnswer": "ABIMELECH"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 0,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 6,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 0,
+        "clue": "Apocalyptic book of John",
+        "answer": "REVELATION",
+        "displayAnswer": "REVELATION"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 5,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 2,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

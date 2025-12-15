@@ -1,0 +1,101 @@
+{
+  "id": "advanced_050",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#BEATITUDES#",
+    "#########D##",
+    "#S###Z#G#O#E",
+    "#A###E#E#M#L",
+    "#N###R#T#I#I",
+    "#H###U#H#T#S",
+    "MEPHIBOSHETH",
+    "#D###B#E#S#A",
+    "#R###A#M####",
+    "ZION#B#A####",
+    "#N###E#N####",
+    "#####L#EZRA#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 7,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 7,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 11,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

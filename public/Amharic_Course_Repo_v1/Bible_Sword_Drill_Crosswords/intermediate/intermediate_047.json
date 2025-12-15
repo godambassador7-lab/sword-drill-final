@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_047",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "###J#####J",
+    "J##O###E#O",
+    "A#PSALMS#N",
+    "C##E###T#A",
+    "O##P###H#H",
+    "BETHLEHEM#",
+    "#######R##",
+    "#ISAAC####",
+    "##########",
+    "#####DAVID"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 5,
+        "row": 2,
+        "col": 2,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Birthplace of Jesus",
+        "answer": "BETHLEHEM",
+        "displayAnswer": "BETHLEHEM"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 5,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 7,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

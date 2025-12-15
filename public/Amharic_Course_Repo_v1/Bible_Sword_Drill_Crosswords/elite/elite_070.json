@@ -1,0 +1,103 @@
+{
+  "id": "elite_070",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##############",
+    "##EKKLESIA####",
+    "#########N####",
+    "#########AGAPE",
+    "##P##D###S###U",
+    "##R##I#SOTERIA",
+    "##O##K###A###N",
+    "#APOKALYPSIS#G",
+    "##H##I###I###E",
+    "##E##O###S###L",
+    "##T##S#######I",
+    "##E##Y#######O",
+    "##S##NOMOS###N",
+    "#####E########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 2,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 9,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 9,
+        "row": 12,
+        "col": 5,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 9,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 13,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 2,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 5,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_072",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##JONAH###",
+    "#######E##",
+    "#####G#X##",
+    "S#D#JACOB#",
+    "O#A##L#D##",
+    "LEVITICUS#",
+    "O#I##L#S##",
+    "M#D##E####",
+    "O####E####",
+    "N#####RUTH"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 4,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 6,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 7,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 5,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

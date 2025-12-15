@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_021",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "PARABLE###",
+    "S#########",
+    "A#DAVID###",
+    "L##B####N#",
+    "M##R####I#",
+    "SAMARITAN#",
+    "###H####E#",
+    "##JACOB#V#",
+    "###M####E#",
+    "####JONAH#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 2,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 2,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 4,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "Father of many nations",
+        "answer": "ABRAHAM",
+        "displayAnswer": "ABRAHAM"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 8,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

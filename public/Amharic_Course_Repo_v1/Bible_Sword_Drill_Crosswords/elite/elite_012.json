@@ -1,0 +1,119 @@
+{
+  "id": "elite_012",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##E#####A####A",
+    "##U###LOGOS##P",
+    "##A#P###A####O",
+    "##N#N###P####K",
+    "##G#EKKLESIA#A",
+    "##E#U########L",
+    "##L#M########Y",
+    "#HILASTERION#P",
+    "##O##O#######S",
+    "#ANASTASIS###I",
+    "#####E#######S",
+    "###PARAKLETOS#",
+    "#####I########",
+    "###CHARIS#####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 1,
+        "col": 6,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 4,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 9,
+        "row": 9,
+        "col": 1,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 10,
+        "row": 11,
+        "col": 3,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 11,
+        "row": 13,
+        "col": 3,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 8,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 5,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

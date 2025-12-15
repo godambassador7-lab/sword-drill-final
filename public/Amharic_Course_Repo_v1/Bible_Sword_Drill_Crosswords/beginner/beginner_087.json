@@ -1,0 +1,97 @@
+{
+  "id": "beginner_087",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "E##PASS#",
+    "D#L#R###",
+    "E#O#KING",
+    "N#V#####",
+    "#HEAVEN#",
+    "#######E",
+    "FISH###V",
+    "####HOPE"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 0,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 4,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 2,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "advanced_044",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "S###########",
+    "H##NEHEMIAH#",
+    "E###P####R#B",
+    "O###H#A##M#E",
+    "L###E#M##A#L",
+    "####S#M##G#S",
+    "MEPHIBOSHETH",
+    "#Z##A#N##D#A",
+    "#R##N#I##D#Z",
+    "#A##S#T##O#Z",
+    "######E##N#A",
+    "###ELISHA##R"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 3,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 3,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 9,
+        "clue": "End-times gathering place (Rev 16)",
+        "answer": "ARMAGEDDON",
+        "displayAnswer": "ARMAGEDDON"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 11,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 6,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

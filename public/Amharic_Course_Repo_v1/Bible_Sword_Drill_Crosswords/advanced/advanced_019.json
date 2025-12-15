@@ -1,0 +1,101 @@
+{
+  "id": "advanced_019",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "###AMMONITES",
+    "#G##A#######",
+    "#E##L#ELISHA",
+    "#T##A####A##",
+    "#H##C#Z##N#N",
+    "#S##H#I##H#E",
+    "MEPHIBOSHETH",
+    "#M####N##D#E",
+    "#A#######R#M",
+    "#N#######I#I",
+    "#E###GEHENNA",
+    "###########H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 6,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 5,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 1,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 9,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 11,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

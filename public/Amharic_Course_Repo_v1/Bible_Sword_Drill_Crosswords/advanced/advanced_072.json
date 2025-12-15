@@ -1,0 +1,101 @@
+{
+  "id": "advanced_072",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "GEHENNA#E##P",
+    "#D######Z##H",
+    "#O######R##A",
+    "#M#ELISHA##R",
+    "#I####H####A",
+    "#T####E####O",
+    "MEPHIBOSHETH",
+    "#S####L####S",
+    "############",
+    "##TABERNACLE",
+    "############",
+    "#MOABITES###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 3,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 2,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 1,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 1,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 8,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 11,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 6,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

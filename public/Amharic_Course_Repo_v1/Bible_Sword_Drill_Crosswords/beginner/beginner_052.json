@@ -1,0 +1,89 @@
+{
+  "id": "beginner_052",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#EVE###P",
+    "#A###H#A",
+    "#R#CROSS",
+    "#T###P#S",
+    "#HEAVEN#",
+    "#######A",
+    "#######R",
+    "PRAYER#K"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Where Jesus was crucified",
+        "answer": "CROSS",
+        "displayAnswer": "CROSS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 5,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 7,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

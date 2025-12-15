@@ -1,0 +1,101 @@
+{
+  "id": "advanced_039",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "P#Z#Z#####Z#",
+    "H#A#E#B###I#",
+    "I#C#P#E#A#O#",
+    "L#H#H#A#M#N#",
+    "I#A#A#T#M###",
+    "P#R#N#I#O###",
+    "PHILISTINES#",
+    "I#A#A#U#I###",
+    "A#H#H#D#T###",
+    "N####GEHENNA",
+    "S#####S#S###",
+    "#EZRA#######"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 5,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "Minor prophet about the Day of the Lord",
+        "answer": "ZEPHANIAH",
+        "displayAnswer": "ZEPHANIAH"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 10,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 5,
+        "row": 1,
+        "col": 6,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 8,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

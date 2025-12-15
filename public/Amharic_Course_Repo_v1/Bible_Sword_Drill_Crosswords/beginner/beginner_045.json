@@ -1,0 +1,89 @@
+{
+  "id": "beginner_045",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "ANGEL###",
+    "D####W#E",
+    "A#S##A#V",
+    "M#H##T#E",
+    "#HEAVEN#",
+    "##E##R##",
+    "HOPE####",
+    "####SIN#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Heavenly messenger",
+        "answer": "ANGEL",
+        "displayAnswer": "ANGEL"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 4,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "Often used for God's people",
+        "answer": "SHEEP",
+        "displayAnswer": "SHEEP"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

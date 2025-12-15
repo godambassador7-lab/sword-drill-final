@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_058",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "###DAVID#J",
+    "I#P######O",
+    "S#S####J#N",
+    "A#A##N#A#A",
+    "A#L##I#C#H",
+    "COMMUNION#",
+    "##S##E#B##",
+    "#####V####",
+    "NAZARETH##",
+    "#####H####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 0,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 2,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 7,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 5,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

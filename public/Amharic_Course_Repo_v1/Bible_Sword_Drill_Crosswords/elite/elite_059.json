@@ -1,0 +1,111 @@
+{
+  "id": "elite_059",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "#############H",
+    "###CHARIS#E##I",
+    "#P#H######K##L",
+    "#N#R######K##A",
+    "#E#I######L##S",
+    "#U#S##AGAPE##T",
+    "#M#M######S##E",
+    "#APOKALYPSIS#R",
+    "###S##O###A##I",
+    "######G######O",
+    "#####NOMOS###N",
+    "######S#######",
+    "##############",
+    "#####KYRIOS###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 3,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 6,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 5,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 9,
+        "row": 13,
+        "col": 5,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 3,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 10,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 6,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "id": "elite_013",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "SOTERIA#######",
+    "##########C###",
+    "##########H###",
+    "#P########R##A",
+    "#R###A#G##I##P",
+    "#O###N#E##S##O",
+    "#P###A#N##M##K",
+    "#HILASTERION#A",
+    "#E#O#T#A##S##L",
+    "#T#G#A#L#####Y",
+    "#E#O#S#O#####P",
+    "#S#S#I#G#NOMOS",
+    "#####S#I#####I",
+    "#######AGAPE#S"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 9,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 10,
+        "row": 13,
+        "col": 7,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 10,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 1,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 13,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 5,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 7,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 3,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

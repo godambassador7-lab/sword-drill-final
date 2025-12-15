@@ -1,0 +1,89 @@
+{
+  "id": "beginner_075",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "###GRACE",
+    "#E######",
+    "#G###EVE",
+    "#Y#L#D##",
+    "#PRAYER#",
+    "#T#M#N#S",
+    "###B###I",
+    "ARK####N"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 5,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 5,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 3,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 7,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "advanced_067",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#AMMONITES##",
+    "###########E",
+    "###########L",
+    "#######E###I",
+    "#COUNCIL###J",
+    "#######I###A",
+    "MEPHIBOSHETH",
+    "#Z#####H####",
+    "#R##HABAKKUK",
+    "#A##########",
+    "############",
+    "MOABITES####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 1,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 4,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 0,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 11,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 7,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

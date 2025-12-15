@@ -1,0 +1,89 @@
+{
+  "id": "beginner_010",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "######L#",
+    "#C###SIN",
+    "ARK#W#G#",
+    "#O##O#H#",
+    "#SPIRIT#",
+    "#S##D##E",
+    "#######V",
+    "HOPE###E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 5,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 6,
+        "clue": "Jesus said: I am the ___ of the world",
+        "answer": "LIGHT",
+        "displayAnswer": "LIGHT"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "Where Jesus was crucified",
+        "answer": "CROSS",
+        "displayAnswer": "CROSS"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "beginner_056",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "LIGHT###",
+    "O####W#G",
+    "V##N#A#O",
+    "E##O#T#D",
+    "#PRAYER#",
+    "###H#R#S",
+    "#######I",
+    "##ADAM#N"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Jesus said: I am the ___ of the world",
+        "answer": "LIGHT",
+        "displayAnswer": "LIGHT"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 2,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 7,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

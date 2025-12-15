@@ -1,0 +1,89 @@
+{
+  "id": "beginner_057",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "K#G#EDEN",
+    "I#O###G#",
+    "N#D###Y#",
+    "G##F##P#",
+    "#SPIRIT#",
+    "#I#S####",
+    "#N#HOPE#",
+    "########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 3,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 6,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 3,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

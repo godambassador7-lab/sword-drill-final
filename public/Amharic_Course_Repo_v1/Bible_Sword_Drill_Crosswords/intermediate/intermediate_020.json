@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_020",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#E###ISAAC",
+    "#X#N######",
+    "#O#U##J###",
+    "#D#M##E#J#",
+    "#U#B##R#O#",
+    "ASCENSION#",
+    "###R##C#A#",
+    "#JOSEPH#H#",
+    "######O###",
+    "ISAIAH####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 1,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 3,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 6,
+        "clue": "City whose walls fell",
+        "answer": "JERICHO",
+        "displayAnswer": "JERICHO"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 8,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

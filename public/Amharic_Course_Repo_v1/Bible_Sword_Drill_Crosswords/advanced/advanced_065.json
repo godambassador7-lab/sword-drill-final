@@ -1,0 +1,101 @@
+{
+  "id": "advanced_065",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#EZRA#######",
+    "#########J##",
+    "###B###G#E#E",
+    "###E###E#Z#L",
+    "###L###T#E#I",
+    "#G#S###H#B#S",
+    "MEPHIBOSHETH",
+    "#H#A###E#L#A",
+    "#E#Z###M####",
+    "#N#ZACHARIAH",
+    "#N#A###N####",
+    "#A#R#SHEOL##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 3,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 5,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 9,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 7,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 11,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 1,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

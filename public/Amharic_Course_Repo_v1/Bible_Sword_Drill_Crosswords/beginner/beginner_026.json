@@ -1,0 +1,89 @@
+{
+  "id": "beginner_026",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "F###W##L",
+    "I#ADAM#O",
+    "S###T##V",
+    "H###E##E",
+    "#SPIRIT#",
+    "#I#####G",
+    "#NOAH##O",
+    "#######D"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 1,
+        "col": 2,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 1,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 7,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

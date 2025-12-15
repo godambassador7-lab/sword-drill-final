@@ -1,0 +1,119 @@
+{
+  "id": "elite_023",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##LOGOS#PNEUMA",
+    "#############P",
+    "#######D#####O",
+    "#P###N#I#D#M#K",
+    "#R#E#O#A#I#E#A",
+    "#O#K#M#T#K#T#L",
+    "#P#K#O#H#A#A#Y",
+    "#HILASTERION#P",
+    "#E#E###K#O#O#S",
+    "#T#S###E#S#I#I",
+    "#E#I#####Y#A#S",
+    "#S#A#####N####",
+    "######SOTERIA#",
+    "##############"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 8,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      },
+      {
+        "number": 10,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek term linked with atonement/mercy seat (Romans 3:25)",
+        "answer": "HILASTERION",
+        "displayAnswer": "HILASTERION"
+      },
+      {
+        "number": 11,
+        "row": 12,
+        "col": 6,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      }
+    ],
+    "down": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 7,
+        "clue": "Greek for covenant/testament (transliterated)",
+        "answer": "DIATHEKE",
+        "displayAnswer": "DIATHĒKĒ"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 1,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 5,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 7,
+        "row": 3,
+        "col": 9,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 8,
+        "row": 3,
+        "col": 11,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 9,
+        "row": 4,
+        "col": 3,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

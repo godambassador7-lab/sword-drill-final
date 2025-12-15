@@ -1,0 +1,127 @@
+{
+  "id": "elite_095",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "#L#PROPHETES##",
+    "#O########U#K#",
+    "#GENEALOGIA#Y#",
+    "#O########N#R#",
+    "#S#N#P##A#G#I#",
+    "###O#A##G#E#O#",
+    "###M#R##A#L#S#",
+    "#APOKALYPSIS#P",
+    "###S#K##E#O##N",
+    "#####L####N##E",
+    "#####E#######U",
+    "#ANASTASIS###M",
+    "#####O#######A",
+    "#CHRISMOS#####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 1,
+        "clue": "Greek for genealogy",
+        "answer": "GENEALOGIA",
+        "displayAnswer": "GENEALOGIA"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 11,
+        "row": 11,
+        "col": 1,
+        "clue": "Greek for resurrection",
+        "answer": "ANASTASIS",
+        "displayAnswer": "ANASTASIS"
+      },
+      {
+        "number": 12,
+        "row": 13,
+        "col": 1,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Greek for word/reason (John 1)",
+        "answer": "LOGOS",
+        "displayAnswer": "LOGOS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 10,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 12,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 3,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 5,
+        "clue": "Greek term used of the Helper (John 14–16)",
+        "answer": "PARAKLETOS",
+        "displayAnswer": "PARAKLETOS"
+      },
+      {
+        "number": 8,
+        "row": 4,
+        "col": 8,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 10,
+        "row": 7,
+        "col": 13,
+        "clue": "Greek for spirit/breath",
+        "answer": "PNEUMA",
+        "displayAnswer": "PNEUMA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

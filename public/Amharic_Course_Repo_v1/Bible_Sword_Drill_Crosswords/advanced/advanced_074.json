@@ -1,0 +1,101 @@
+{
+  "id": "advanced_074",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#########E##",
+    "#####Z###D#E",
+    "N##B#E#C#O#L",
+    "E##E#R#O#M#I",
+    "H##L#U#L#I#J",
+    "E##S#B#O#T#A",
+    "MEPHIBOSHETH",
+    "I##A#A#S#S##",
+    "A##Z#B#I####",
+    "H##Z#E#A####",
+    "###A#L#N####",
+    "#EZRA##SHEOL"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 7,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 9,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 11,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 3,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 7,
+        "clue": "Pauline epistle about Christ's supremacy",
+        "answer": "COLOSSIANS",
+        "displayAnswer": "COLOSSIANS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

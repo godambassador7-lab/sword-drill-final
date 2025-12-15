@@ -1,0 +1,97 @@
+{
+  "id": "beginner_016",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "##G##SIN",
+    "CROSS##O",
+    "##D##O#A",
+    "#####V#H",
+    "#HEAVEN#",
+    "#O###R#A",
+    "#P#####R",
+    "#EGYPT#K"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 0,
+        "clue": "Where Jesus was crucified",
+        "answer": "CROSS",
+        "displayAnswer": "CROSS"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

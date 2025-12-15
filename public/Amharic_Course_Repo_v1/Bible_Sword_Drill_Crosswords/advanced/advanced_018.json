@@ -1,0 +1,93 @@
+{
+  "id": "advanced_018",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "#PHILISTINES",
+    "##########D#",
+    "#####M##S#O#",
+    "###N#O##A#M#",
+    "###E#A##N#I#",
+    "MEPHIBOSHETH",
+    "#L#E#I##E#E#",
+    "#I#M#T##D#S#",
+    "#J#I#E##R###",
+    "#A#A#S#ZION#",
+    "#H#H####N###"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 1,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 7,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 10,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 5,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 8,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 3,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 1,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

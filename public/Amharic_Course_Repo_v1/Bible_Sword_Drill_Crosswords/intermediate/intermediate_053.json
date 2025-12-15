@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_053",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "PHARISEE##",
+    "########C#",
+    "#ISAIAH#O#",
+    "########V#",
+    "J####I##E#",
+    "ASCENSION#",
+    "C####R##A#",
+    "O#ISAAC#N#",
+    "B####E##T#",
+    "#GALILEE##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Religious leader group in Gospels",
+        "answer": "PHARISEE",
+        "displayAnswer": "PHARISEE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 2,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 8,
+        "clue": "Solemn promise/bond",
+        "answer": "COVENANT",
+        "displayAnswer": "COVENANT"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 0,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 5,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "intermediate_082",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "####JOSEPH",
+    "#N#D####S#",
+    "#U#I#ISAAC",
+    "#M#S#S##L#",
+    "#B#C#A##M#",
+    "LEVITICUS#",
+    "#R#P#A###R",
+    "#S#L#H###U",
+    "###E#####T",
+    "#####JONAH"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 4,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 5,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 8,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 1,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 3,
+        "clue": "Follower/student",
+        "answer": "DISCIPLE",
+        "displayAnswer": "DISCIPLE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 9,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

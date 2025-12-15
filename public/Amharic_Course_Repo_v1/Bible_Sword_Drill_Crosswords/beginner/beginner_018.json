@@ -1,0 +1,89 @@
+{
+  "id": "beginner_018",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#E##HOPE",
+    "LAMB####",
+    "#R#R#E##",
+    "#T#E#D##",
+    "#HEAVEN#",
+    "###D#N##",
+    "GOD#####",
+    "###CROSS"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Jesus is the Lamb of God",
+        "answer": "LAMB",
+        "displayAnswer": "LAMB"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 3,
+        "clue": "Where Jesus was crucified",
+        "answer": "CROSS",
+        "displayAnswer": "CROSS"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 3,
+        "clue": "Jesus said: I am the bread of life",
+        "answer": "BREAD",
+        "displayAnswer": "BREAD"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

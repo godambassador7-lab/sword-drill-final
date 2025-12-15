@@ -1,0 +1,89 @@
+{
+  "id": "beginner_028",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "##W####L",
+    "G#ARK##O",
+    "O#T##O#V",
+    "D#E##V#E",
+    "#PRAYER#",
+    "E####R##",
+    "V#######",
+    "E#KING##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 1,
+        "col": 2,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 2,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "Greatest of these (1 Corinthians 13)",
+        "answer": "LOVE",
+        "displayAnswer": "LOVE"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

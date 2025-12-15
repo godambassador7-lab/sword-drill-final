@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_029",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "EXODUS####",
+    "######B#C#",
+    "DAVID#A#O#",
+    "I#####P#V#",
+    "S#####T#E#",
+    "COMMUNION#",
+    "I#####S#A#",
+    "P#SOLOMON#",
+    "L#######T#",
+    "E##JONAH##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 2,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 3,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 6,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 8,
+        "clue": "Solemn promise/bond",
+        "answer": "COVENANT",
+        "displayAnswer": "COVENANT"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Follower/student",
+        "answer": "DISCIPLE",
+        "displayAnswer": "DISCIPLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

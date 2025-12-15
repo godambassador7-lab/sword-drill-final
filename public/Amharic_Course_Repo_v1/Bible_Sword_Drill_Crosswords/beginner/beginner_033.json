@@ -1,0 +1,89 @@
+{
+  "id": "beginner_033",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#E#WORD#",
+    "#A######",
+    "#R#P#EVE",
+    "#T#S#D##",
+    "#HEAVEN#",
+    "###L#N##",
+    "ADAM####",
+    "####SIN#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "First man",
+        "answer": "ADAM",
+        "displayAnswer": "ADAM"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 4,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "Sacred song",
+        "answer": "PSALM",
+        "displayAnswer": "PSALM"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

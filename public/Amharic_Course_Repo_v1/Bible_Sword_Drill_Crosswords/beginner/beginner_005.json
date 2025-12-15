@@ -1,0 +1,89 @@
+{
+  "id": "beginner_005",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "K#SIN##P",
+    "I####S#A",
+    "N#FISH#S",
+    "G####E#S",
+    "#PRAYER#",
+    "#####P#A",
+    "#OVER##R",
+    "#######K"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 2,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 1,
+        "clue": "Second part of Passover",
+        "answer": "OVER",
+        "displayAnswer": "OVER"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Title often used for God",
+        "answer": "KING",
+        "displayAnswer": "KING"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 5,
+        "clue": "Often used for God's people",
+        "answer": "SHEEP",
+        "displayAnswer": "SHEEP"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

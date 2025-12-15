@@ -1,0 +1,101 @@
+{
+  "id": "advanced_081",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##########P#",
+    "AMMONITES#H#",
+    "##########I#",
+    "A#########L#",
+    "B###E#Z#G#I#",
+    "I###L#I#E#S#",
+    "MEPHIBOSHETH",
+    "E###J#N#E#I#",
+    "L###A###N#N#",
+    "ELISHA##N#E#",
+    "C#######A#S#",
+    "HABAKKUK####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 0,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 0,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 0,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 10,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 0,
+        "clue": "Name of multiple kings in Scripture",
+        "answer": "ABIMELECH",
+        "displayAnswer": "ABIMELECH"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 4,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 8,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "advanced_061",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##Z#########",
+    "##A#C#Z#####",
+    "##C#O#I#P#C#",
+    "##H#U#O#E#O#",
+    "##A#N#N#N#L#",
+    "##R#C###T#O#",
+    "PHILIPPIANS#",
+    "##A#L###T#S#",
+    "##H#####E#I#",
+    "###EZRA#U#A#",
+    "########C#N#",
+    "#NEHEMIAH#S#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 3,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 1,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 8,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 10,
+        "clue": "Pauline epistle about Christ's supremacy",
+        "answer": "COLOSSIANS",
+        "displayAnswer": "COLOSSIANS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

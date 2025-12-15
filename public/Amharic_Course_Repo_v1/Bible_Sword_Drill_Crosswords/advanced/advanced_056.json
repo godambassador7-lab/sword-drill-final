@@ -1,0 +1,93 @@
+{
+  "id": "advanced_056",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#REVELATION#",
+    "############",
+    "####B#######",
+    "#GEHENNA####",
+    "####A######N",
+    "####T######E",
+    "MEPHIBOSHETH",
+    "#L##T####Z#E",
+    "#I##U####R#M",
+    "#J##D####A#I",
+    "SANHEDRIN##A",
+    "#H##S######H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Apocalyptic book of John",
+        "answer": "REVELATION",
+        "displayAnswer": "REVELATION"
+      },
+      {
+        "number": 3,
+        "row": 3,
+        "col": 1,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 5,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 0,
+        "clue": "Jewish ruling council",
+        "answer": "SANHEDRIN",
+        "displayAnswer": "SANHEDRIN"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 2,
+        "col": 4,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 11,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 1,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

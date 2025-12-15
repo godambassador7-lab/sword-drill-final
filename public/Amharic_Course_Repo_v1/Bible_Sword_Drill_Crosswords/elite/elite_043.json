@@ -1,0 +1,127 @@
+{
+  "id": "elite_043",
+  "tier": "elite",
+  "gridSize": 14,
+  "grid": [
+    "##CHARIS#AGAPE",
+    "#############U",
+    "##CHRISMOS###A",
+    "#############N",
+    "##P###E######G",
+    "##R#DIKAIOSYNE",
+    "##O###K######L",
+    "#APOKALYPSIS#I",
+    "N#H###E####O#O",
+    "O#E###S####T#N",
+    "METANOIA###E##",
+    "O#E###A####R##",
+    "S#S#####KYRIOS",
+    "###########A##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Greek for grace",
+        "answer": "CHARIS",
+        "displayAnswer": "CHARIS"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Greek for self-giving love",
+        "answer": "AGAPE",
+        "displayAnswer": "AGAPE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "Greek root related to anointing/Christ",
+        "answer": "CHRISMOS",
+        "displayAnswer": "CHRISMOS"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 4,
+        "clue": "Greek for righteousness",
+        "answer": "DIKAIOSYNE",
+        "displayAnswer": "DIKAIOSYNE"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "Greek for revelation/unveiling",
+        "answer": "APOKALYPSIS",
+        "displayAnswer": "APOKALYPSIS"
+      },
+      {
+        "number": 11,
+        "row": 10,
+        "col": 0,
+        "clue": "Greek term for repentance",
+        "answer": "METANOIA",
+        "displayAnswer": "METANOIA"
+      },
+      {
+        "number": 12,
+        "row": 12,
+        "col": 8,
+        "clue": "Greek for Lord",
+        "answer": "KYRIOS",
+        "displayAnswer": "KYRIOS"
+      }
+    ],
+    "down": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 13,
+        "clue": "Greek for gospel",
+        "answer": "EUANGELION",
+        "displayAnswer": "EUANGELION"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 2,
+        "clue": "Greek for prophet",
+        "answer": "PROPHETES",
+        "displayAnswer": "PROPHETES"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 6,
+        "clue": "Greek for assembly/church",
+        "answer": "EKKLESIA",
+        "displayAnswer": "EKKLESIA"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 11,
+        "clue": "Greek for salvation",
+        "answer": "SOTERIA",
+        "displayAnswer": "SOTERIA"
+      },
+      {
+        "number": 10,
+        "row": 8,
+        "col": 0,
+        "clue": "Greek for law",
+        "answer": "NOMOS",
+        "displayAnswer": "NOMOS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "advanced_027",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#GETHSEMANE#",
+    "############",
+    "##MOABITES##",
+    "############",
+    "#SHEOL##ZION",
+    "######C####E",
+    "MEPHIBOSHETH",
+    "#L####U##Z#E",
+    "#I####N##R#M",
+    "#J####C##A#I",
+    "ZACHARIAH##A",
+    "#H####L####H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 2,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 3,
+        "row": 4,
+        "col": 1,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 4,
+        "row": 4,
+        "col": 8,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 10,
+        "row": 10,
+        "col": 0,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 5,
+        "row": 4,
+        "col": 11,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 6,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 1,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 9,
+        "row": 6,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

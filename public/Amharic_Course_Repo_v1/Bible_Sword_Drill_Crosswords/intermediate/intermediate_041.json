@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_041",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "A###ISRAEL",
+    "B##N######",
+    "R##U#JACOB",
+    "A##M######",
+    "H##B#I#J##",
+    "ASCENSION#",
+    "M##R#A#S##",
+    "###S#I#E##",
+    "#####A#P##",
+    "#JONAH#H##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Father of many nations",
+        "answer": "ABRAHAM",
+        "displayAnswer": "ABRAHAM"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 3,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 5,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 7,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

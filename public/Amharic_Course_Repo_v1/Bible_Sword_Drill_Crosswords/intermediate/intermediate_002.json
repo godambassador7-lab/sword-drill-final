@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_002",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#N#######J",
+    "#A#JERICHO",
+    "#Z#####O#N",
+    "#ABRAHAM#A",
+    "#R#####M#H",
+    "LEVITICUS#",
+    "#T#####N##",
+    "#H##DAVID#",
+    "#######O##",
+    "#COVENANT#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 3,
+        "clue": "City whose walls fell",
+        "answer": "JERICHO",
+        "displayAnswer": "JERICHO"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 1,
+        "clue": "Father of many nations",
+        "answer": "ABRAHAM",
+        "displayAnswer": "ABRAHAM"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 4,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Solemn promise/bond",
+        "answer": "COVENANT",
+        "displayAnswer": "COVENANT"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 7,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

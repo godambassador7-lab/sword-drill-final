@@ -1,0 +1,101 @@
+{
+  "id": "advanced_029",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#####Z###M##",
+    "#####I###O##",
+    "###B#O###A##",
+    "GEHENNA##B##",
+    "###L#####I#N",
+    "###S#####T#E",
+    "MEPHIBOSHETH",
+    "#Z#A###H#S#E",
+    "#R#Z###E###M",
+    "#A#Z###O###I",
+    "###A##ELISHA",
+    "###R#######H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 6,
+        "clue": "Prophet who succeeded Elijah",
+        "answer": "ELISHA",
+        "displayAnswer": "ELISHA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 5,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 11,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 1,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 7,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

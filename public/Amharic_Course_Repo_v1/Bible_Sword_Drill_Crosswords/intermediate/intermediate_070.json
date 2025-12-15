@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_070",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#ISAAC#J#R",
+    "###B###O#U",
+    "#I#R#G#S#T",
+    "#S#A#A#H#H",
+    "#R#H#L#U##",
+    "SAMARITAN#",
+    "#E#M#L####",
+    "#L###E####",
+    "##JOSEPH##",
+    "##########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 2,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Father of many nations",
+        "answer": "ABRAHAM",
+        "displayAnswer": "ABRAHAM"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 9,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 1,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 5,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

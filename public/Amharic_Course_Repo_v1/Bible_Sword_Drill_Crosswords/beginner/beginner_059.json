@@ -1,0 +1,89 @@
+{
+  "id": "beginner_059",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "P#EVE#W#",
+    "A#####A#",
+    "S##FAITH",
+    "S#G###E#",
+    "#PRAYER#",
+    "G#A#####",
+    "O#C#####",
+    "D#E##ARK"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Assurance of things hoped for (Hebrews 11)",
+        "answer": "FAITH",
+        "displayAnswer": "FAITH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 5,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 6,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_093",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "NAZARETH#I",
+    "#########S",
+    "##P######A",
+    "ABRAHAM##A",
+    "##O####R#C",
+    "LEVITICUS#",
+    "##E####T##",
+    "##R#JOSHUA",
+    "##B#######",
+    "#ASCENSION"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 0,
+        "clue": "Father of many nations",
+        "answer": "ABRAHAM",
+        "displayAnswer": "ABRAHAM"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 4,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 2,
+        "clue": "Wisdom sayings book",
+        "answer": "PROVERBS",
+        "displayAnswer": "PROVERBS"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 7,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

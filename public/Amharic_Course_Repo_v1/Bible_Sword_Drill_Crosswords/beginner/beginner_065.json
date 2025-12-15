@@ -1,0 +1,89 @@
+{
+  "id": "beginner_065",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "###ANGEL",
+    "#F####V#",
+    "LIGHT#E#",
+    "#S###J##",
+    "#HEAVEN#",
+    "#####S##",
+    "###TRUTH",
+    "GOD##S##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Heavenly messenger",
+        "answer": "ANGEL",
+        "displayAnswer": "ANGEL"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Jesus said: I am the ___ of the world",
+        "answer": "LIGHT",
+        "displayAnswer": "LIGHT"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 3,
+        "clue": "Jesus said: I am the ___ (John 14)",
+        "answer": "TRUTH",
+        "displayAnswer": "TRUTH"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 6,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 1,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 5,
+        "clue": "Name above every name",
+        "answer": "JESUS",
+        "displayAnswer": "JESUS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

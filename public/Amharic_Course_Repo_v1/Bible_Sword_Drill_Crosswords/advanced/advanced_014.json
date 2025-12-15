@@ -1,0 +1,93 @@
+{
+  "id": "advanced_014",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "P###########",
+    "H###HABAKKUK",
+    "I#B####M####",
+    "L#E#EDOMITES",
+    "I#A####O####",
+    "P#T####N#J##",
+    "PHILISTINES#",
+    "I#T####T#Z##",
+    "A#U####E#E##",
+    "N#D####S#B##",
+    "S#EZRA###E##",
+    "##S######L##"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 4,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 2,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "Blessings in Matthew 5",
+        "answer": "BEATITUDES",
+        "displayAnswer": "BEATITUDES"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 9,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

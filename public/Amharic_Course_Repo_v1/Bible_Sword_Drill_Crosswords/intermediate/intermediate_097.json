@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_097",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "ISRAEL###J",
+    "#######J#O",
+    "#J#G#D#O#N",
+    "#O#A#A#S#A",
+    "#S#L#V#H#H",
+    "LEVITICUS#",
+    "#P#L#D#A##",
+    "#H#E######",
+    "###EXODUS#",
+    "##########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Name given to Jacob; God's people",
+        "answer": "ISRAEL",
+        "displayAnswer": "ISRAEL"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 3,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 1,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 3,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      },
+      {
+        "number": 6,
+        "row": 2,
+        "col": 5,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

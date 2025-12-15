@@ -1,0 +1,89 @@
+{
+  "id": "beginner_091",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#WATER#W",
+    "A######O",
+    "R#H##F#R",
+    "K#O##A#D",
+    "#SPIRIT#",
+    "##E##T#E",
+    "#####H#V",
+    "#PASS##E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Jesus offered living water",
+        "answer": "WATER",
+        "displayAnswer": "WATER"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 1,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 0,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 2,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Assurance of things hoped for (Hebrews 11)",
+        "answer": "FAITH",
+        "displayAnswer": "FAITH"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

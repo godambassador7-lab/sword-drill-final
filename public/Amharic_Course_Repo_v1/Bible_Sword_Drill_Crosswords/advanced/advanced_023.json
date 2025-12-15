@@ -1,0 +1,93 @@
+{
+  "id": "advanced_023",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "##ZERUBBABEL",
+    "#G##########",
+    "#E##E#######",
+    "#T##D#S##E#Z",
+    "#H##O#H##P#A",
+    "#S##M#E##H#C",
+    "MEPHIBOSHETH",
+    "#M##T#L##S#A",
+    "#A##E####I#R",
+    "#N##S####A#I",
+    "#E###GEHENNA",
+    "#########S#H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 5,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "Garden where Jesus prayed before arrest",
+        "answer": "GETHSEMANE",
+        "displayAnswer": "GETHSEMANE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 4,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 6,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 9,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 11,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

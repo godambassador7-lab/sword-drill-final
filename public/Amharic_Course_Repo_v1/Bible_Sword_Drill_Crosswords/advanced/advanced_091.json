@@ -1,0 +1,93 @@
+{
+  "id": "advanced_091",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "SHEOL#R#####",
+    "##Z###E##A##",
+    "##R###V##R##",
+    "MOABITES#M##",
+    "######L##A##",
+    "##Z###A##G##",
+    "PHILISTINES#",
+    "##O###I##D##",
+    "##N###O##D##",
+    "######N##O##",
+    "#########N##",
+    "MALACHI#####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 0,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      },
+      {
+        "number": 8,
+        "row": 11,
+        "col": 0,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 6,
+        "clue": "Apocalyptic book of John",
+        "answer": "REVELATION",
+        "displayAnswer": "REVELATION"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 9,
+        "clue": "End-times gathering place (Rev 16)",
+        "answer": "ARMAGEDDON",
+        "displayAnswer": "ARMAGEDDON"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 2,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

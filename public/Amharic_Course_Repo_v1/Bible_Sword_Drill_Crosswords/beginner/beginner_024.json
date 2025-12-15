@@ -1,0 +1,89 @@
+{
+  "id": "beginner_024",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "###GRACE",
+    "#P#O####",
+    "#A#D#SIN",
+    "#S##B###",
+    "#SPIRIT#",
+    "####E##E",
+    "##NOAH#V",
+    "####D##E"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 5,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 2,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 1,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 4,
+        "clue": "Jesus said: I am the bread of life",
+        "answer": "BREAD",
+        "displayAnswer": "BREAD"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

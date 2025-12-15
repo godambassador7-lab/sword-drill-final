@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_066",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##GALILEE#",
+    "##########",
+    "#BAPTISM##",
+    "###A#S##J#",
+    "E##R#A##O#",
+    "SAMARITAN#",
+    "T##B#A##A#",
+    "H##L#H##H#",
+    "E##E######",
+    "R###JOSHUA"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 1,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 4,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      }
+    ],
+    "down": [
+      {
+        "number": 3,
+        "row": 2,
+        "col": 3,
+        "clue": "Story with spiritual meaning",
+        "answer": "PARABLE",
+        "displayAnswer": "PARABLE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 8,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 0,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

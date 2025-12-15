@@ -1,0 +1,93 @@
+{
+  "id": "advanced_071",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "###HABAKKUK#",
+    "####M######B",
+    "#EDOMITES##E",
+    "#P##O######L",
+    "#H##N#C#S##S",
+    "MEPHIBOSHETH",
+    "#S##T#U#E##A",
+    "#I##E#N#O##Z",
+    "#A##S#C#L##Z",
+    "#N####I####A",
+    "#S####L####R"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 3,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 1,
+        "clue": "Descendants of Esau",
+        "answer": "EDOMITES",
+        "displayAnswer": "EDOMITES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "People east of Jordan, often in conflict",
+        "answer": "AMMONITES",
+        "displayAnswer": "AMMONITES"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 11,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 1,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 6,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 8,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

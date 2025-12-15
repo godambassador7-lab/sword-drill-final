@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_004",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "#########I",
+    "##JONAH##S",
+    "A###A####A",
+    "P#N#Z#E##A",
+    "O#U#A#S##C",
+    "SAMARITAN#",
+    "T#B#E#H###",
+    "L#E#T#E###",
+    "E#R#H#RUTH",
+    "##S#######"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 6,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 9,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Sent-out messenger",
+        "answer": "APOSTLE",
+        "displayAnswer": "APOSTLE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 2,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 6,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

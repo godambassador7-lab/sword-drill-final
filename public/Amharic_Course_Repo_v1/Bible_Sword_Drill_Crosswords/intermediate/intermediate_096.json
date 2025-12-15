@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_096",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "ESTHER###J",
+    "#########O",
+    "#SAMARITAN",
+    "J#####S##A",
+    "A#####A##H",
+    "COMMUNION#",
+    "O#####A###",
+    "BETHLEHEM#",
+    "##########",
+    "#NAZARETH#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Queen who saved her people",
+        "answer": "ESTHER",
+        "displayAnswer": "ESTHER"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 1,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "Birthplace of Jesus",
+        "answer": "BETHLEHEM",
+        "displayAnswer": "BETHLEHEM"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 6,
+        "clue": "Major prophet with messianic promises",
+        "answer": "ISAIAH",
+        "displayAnswer": "ISAIAH"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 0,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "beginner_093",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "###MOSES",
+    "#F#####I",
+    "#I#P#B#N",
+    "#S#R#R##",
+    "#HEAVEN#",
+    "###Y#A#G",
+    "#EVE#D#O",
+    "###R###D"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Led Israel out of Egypt",
+        "answer": "MOSES",
+        "displayAnswer": "MOSES"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 1,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 7,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 1,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 5,
+        "clue": "Jesus said: I am the bread of life",
+        "answer": "BREAD",
+        "displayAnswer": "BREAD"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 7,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

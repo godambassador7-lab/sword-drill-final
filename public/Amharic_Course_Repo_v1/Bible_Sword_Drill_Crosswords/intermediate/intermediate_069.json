@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_069",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##########",
+    "I#P#JACOB#",
+    "S#S#O#####",
+    "A#A#S##A##",
+    "A#L#H##P##",
+    "COMMUNION#",
+    "##S#A##S##",
+    "#####RUTH#",
+    "#######L##",
+    "##NAZARETH"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      },
+      {
+        "number": 5,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 6,
+        "row": 7,
+        "col": 5,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 2,
+        "clue": "Town where Jesus grew up",
+        "answer": "NAZARETH",
+        "displayAnswer": "NAZARETH"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 0,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Book of songs and prayers",
+        "answer": "PSALMS",
+        "displayAnswer": "PSALMS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 7,
+        "clue": "Sent-out messenger",
+        "answer": "APOSTLE",
+        "displayAnswer": "APOSTLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

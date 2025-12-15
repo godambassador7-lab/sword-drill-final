@@ -94,6 +94,8 @@ import SpiritualGiftsExam from './components/SpiritualGiftsExam';
 import DailyMissionBoard from './components/DailyMissionBoard';
 import ChallengeLadders from './components/ChallengeLadders';
 import StreakChests from './components/StreakChests';
+import FreeDailyChests from './components/FreeDailyChests';
+import BiblicalCrossword from './components/BiblicalCrossword';
 import SharpAssistant from './services/SharpAssistant';
 import CORE from "./core/core/index.js";
 
@@ -1061,6 +1063,7 @@ const SwordDrillApp = () => {
     verseDetectiveCorrect: 0, // Total Verse Detective quizzes answered correctly
     wordsOfJesusCompleted: 0, // Total Words of Jesus quizzes completed
     wordsOfJesusCorrect: 0, // Total Words of Jesus questions answered correctly
+    crosswordProgress: { beginner: [], intermediate: [], advanced: [], elite: [] }, // Track completed crossword puzzles
 
     // Point Economy System
     lastActivityDate: Date.now(), // Track last activity for decay
@@ -3601,6 +3604,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onMissionComplete={(mission) => {
             showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
           }}
+        />
+      </div>
+
+      {/* Free Daily Chests */}
+      <div className="mb-6">
+        <FreeDailyChests
+          userData={userData}
+          setUserData={setUserData}
+          userId={currentUser?.uid}
         />
       </div>
 
@@ -7012,6 +7024,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <div className="text-purple-100 text-sm">Put biblical events in order  Chronological challenges  Gospels included  Timed</div>
         </button>
+        <button
+          onClick={() => setCurrentView('crossword')}
+          disabled={loading}
+          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white p-4 rounded-xl border-2 border-blue-400 hover:border-blue-300 transition-all text-left disabled:opacity-50 shadow-lg"
+        >
+          <div className="font-bold text-lg flex items-center gap-2">
+            📊 Biblical Crosswords
+            <span className="text-blue-200 text-sm">⭐ 400 PUZZLES</span>
+          </div>
+          <div className="text-blue-100 text-sm">4 difficulty levels • Progressive unlocking • Earn points per puzzle</div>
+        </button>
       </div>
     </div>
   );
@@ -7825,6 +7848,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         )}
         {currentView === 'word-search' && (
           <BibleWordSearch
+            onBack={() => setCurrentView('bonus-quizzes')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
+          />
+        )}
+        {currentView === 'crossword' && (
+          <BiblicalCrossword
             onBack={() => setCurrentView('bonus-quizzes')}
             userId={currentUser?.uid}
             userData={userData}

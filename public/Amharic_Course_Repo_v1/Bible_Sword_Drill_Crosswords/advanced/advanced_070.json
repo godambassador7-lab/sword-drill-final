@@ -1,0 +1,101 @@
+{
+  "id": "advanced_070",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#P##########",
+    "#E##C####J##",
+    "#N#MOABITES#",
+    "#T##U####Z##",
+    "#A##N#Z##E##",
+    "#T##C#I##B#S",
+    "MEPHIBOSHETH",
+    "#U##L#N##L#E",
+    "#C#########O",
+    "#HABAKKUK##L",
+    "############",
+    "##TABERNACLE"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 2,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 4,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 9,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 6,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 11,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

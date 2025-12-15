@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_064",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "DAVID####I",
+    "######L##S",
+    "####P#E##A",
+    "J#N#H#V##A",
+    "O#U#A#I##C",
+    "SAMARITAN#",
+    "H#B#I#I###",
+    "U#E#S#C###",
+    "A#R#E#U###",
+    "#ASCENSION"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 9,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 6,
+        "clue": "Book about priests and laws",
+        "answer": "LEVITICUS",
+        "displayAnswer": "LEVITICUS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 4,
+        "clue": "Religious leader group in Gospels",
+        "answer": "PHARISEE",
+        "displayAnswer": "PHARISEE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 0,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 2,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_080",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "BAPTISM###",
+    "##########",
+    "DAVID#G###",
+    "I#####A#J#",
+    "S###R#L#O#",
+    "COMMUNION#",
+    "I###T#L#A#",
+    "P###H#E#H#",
+    "L#####E###",
+    "EXODUS####"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 2,
+        "row": 2,
+        "col": 0,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 7,
+        "row": 9,
+        "col": 0,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 2,
+        "col": 0,
+        "clue": "Follower/student",
+        "answer": "DISCIPLE",
+        "displayAnswer": "DISCIPLE"
+      },
+      {
+        "number": 3,
+        "row": 2,
+        "col": 6,
+        "clue": "Region of many Jesus ministries",
+        "answer": "GALILEE",
+        "displayAnswer": "GALILEE"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 8,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 4,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

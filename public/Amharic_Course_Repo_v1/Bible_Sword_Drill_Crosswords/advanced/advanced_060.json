@@ -1,0 +1,101 @@
+{
+  "id": "advanced_060",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "#M#P#MALACHI",
+    "#O#H########",
+    "#A#A#Z######",
+    "#B#R#ELIJAH#",
+    "#I#A#R#####G",
+    "#T#O#U#####E",
+    "MEPHIBOSHETH",
+    "#S#S#B###Z#E",
+    "#####A###R#N",
+    "#####B###A#N",
+    "#####E#####A",
+    "#REVELATION#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 0,
+        "col": 5,
+        "clue": "Prophet about covenant faithfulness",
+        "answer": "MALACHI",
+        "displayAnswer": "MALACHI"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 5,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 9,
+        "row": 11,
+        "col": 1,
+        "clue": "Apocalyptic book of John",
+        "answer": "REVELATION",
+        "displayAnswer": "REVELATION"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 3,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 5,
+        "clue": "Leader in return from exile",
+        "answer": "ZERUBBABEL",
+        "displayAnswer": "ZERUBBABEL"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 11,
+        "clue": "Term associated with final judgment",
+        "answer": "GEHENNA",
+        "displayAnswer": "GEHENNA"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

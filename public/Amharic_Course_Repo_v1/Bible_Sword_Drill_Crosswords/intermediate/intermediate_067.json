@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_067",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "E####JONAH",
+    "X#S#######",
+    "O#O#######",
+    "D#L#J#R#N#",
+    "U#O#E#U#I#",
+    "SAMARITAN#",
+    "##O#I#H#E#",
+    "##N#C###V#",
+    "####H###E#",
+    "#JACOB##H#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Renamed Israel",
+        "answer": "JACOB",
+        "displayAnswer": "JACOB"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 2,
+        "clue": "King known for wisdom",
+        "answer": "SOLOMON",
+        "displayAnswer": "SOLOMON"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 4,
+        "clue": "City whose walls fell",
+        "answer": "JERICHO",
+        "displayAnswer": "JERICHO"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 6,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 8,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_008",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "RUTH######",
+    "#####ISAAC",
+    "########S#",
+    "#JONAH##C#",
+    "###U####E#",
+    "COMMUNION#",
+    "###B####S#",
+    "NINEVEH#I#",
+    "###R####O#",
+    "#JOSEPH#N#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 5,
+        "clue": "Son of Abraham and Sarah",
+        "answer": "ISAAC",
+        "displayAnswer": "ISAAC"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 1,
+        "clue": "Prophet sent to Nineveh",
+        "answer": "JONAH",
+        "displayAnswer": "JONAH"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Lord's Supper",
+        "answer": "COMMUNION",
+        "displayAnswer": "COMMUNION"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 0,
+        "clue": "City Jonah preached to",
+        "answer": "NINEVEH",
+        "displayAnswer": "NINEVEH"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 1,
+        "clue": "Dreamer sold by brothers",
+        "answer": "JOSEPH",
+        "displayAnswer": "JOSEPH"
+      }
+    ],
+    "down": [
+      {
+        "number": 3,
+        "row": 1,
+        "col": 8,
+        "clue": "Jesus taken up to heaven",
+        "answer": "ASCENSION",
+        "displayAnswer": "ASCENSION"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 3,
+        "clue": "Book with wilderness census",
+        "answer": "NUMBERS",
+        "displayAnswer": "NUMBERS"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "beginner_086",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "W#FISH#E",
+    "O######V",
+    "R##GOD#E",
+    "D##R##A#",
+    "#HEAVEN#",
+    "###C##G#",
+    "SHEEP#E#",
+    "######L#"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Early Christian symbol and miracle food",
+        "answer": "FISH",
+        "displayAnswer": "FISH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Often used for God's people",
+        "answer": "SHEEP",
+        "displayAnswer": "SHEEP"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 6,
+        "clue": "Heavenly messenger",
+        "answer": "ANGEL",
+        "displayAnswer": "ANGEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

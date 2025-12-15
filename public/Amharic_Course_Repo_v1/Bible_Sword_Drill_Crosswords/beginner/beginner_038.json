@@ -1,0 +1,89 @@
+{
+  "id": "beginner_038",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#EVE#G#E",
+    "#A###R#D",
+    "#R#P#A#E",
+    "#T#S#C#N",
+    "#HEAVEN#",
+    "G##L####",
+    "O##MOSES",
+    "D#######"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 1,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 3,
+        "clue": "Led Israel out of Egypt",
+        "answer": "MOSES",
+        "displayAnswer": "MOSES"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Created in Genesis 1",
+        "answer": "EARTH",
+        "displayAnswer": "EARTH"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 5,
+        "clue": "Unmerited favor",
+        "answer": "GRACE",
+        "displayAnswer": "GRACE"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 7,
+        "clue": "First garden",
+        "answer": "EDEN",
+        "displayAnswer": "EDEN"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 3,
+        "clue": "Sacred song",
+        "answer": "PSALM",
+        "displayAnswer": "PSALM"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

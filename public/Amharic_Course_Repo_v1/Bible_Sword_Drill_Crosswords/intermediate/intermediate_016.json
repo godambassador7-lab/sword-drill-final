@@ -1,0 +1,91 @@
+{
+  "id": "intermediate_016",
+  "tier": "intermediate",
+  "gridSize": 10,
+  "grid": [
+    "##BAPTISM#",
+    "####R####R",
+    "A#EXODUS#U",
+    "P###V####T",
+    "O###E####H",
+    "SAMARITAN#",
+    "T###B#####",
+    "L#JOSHUA##",
+    "E#########",
+    "#####DAVID"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 2,
+        "clue": "Immersion sign of repentance/faith",
+        "answer": "BAPTISM",
+        "displayAnswer": "BAPTISM"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 2,
+        "clue": "Book about leaving Egypt",
+        "answer": "EXODUS",
+        "displayAnswer": "EXODUS"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 0,
+        "clue": "Neighbor in Jesus' parable",
+        "answer": "SAMARITAN",
+        "displayAnswer": "SAMARITAN"
+      },
+      {
+        "number": 7,
+        "row": 7,
+        "col": 2,
+        "clue": "Led Israel into Canaan",
+        "answer": "JOSHUA",
+        "displayAnswer": "JOSHUA"
+      },
+      {
+        "number": 8,
+        "row": 9,
+        "col": 5,
+        "clue": "Shepherd king of Israel",
+        "answer": "DAVID",
+        "displayAnswer": "DAVID"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "Wisdom sayings book",
+        "answer": "PROVERBS",
+        "displayAnswer": "PROVERBS"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 9,
+        "clue": "Moabite in the lineage of David",
+        "answer": "RUTH",
+        "displayAnswer": "RUTH"
+      },
+      {
+        "number": 4,
+        "row": 2,
+        "col": 0,
+        "clue": "Sent-out messenger",
+        "answer": "APOSTLE",
+        "displayAnswer": "APOSTLE"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

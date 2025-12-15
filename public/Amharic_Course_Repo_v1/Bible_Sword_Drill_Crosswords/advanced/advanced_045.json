@@ -1,0 +1,101 @@
+{
+  "id": "advanced_045",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "TABERNACLE##",
+    "###L###O#Z##",
+    "###I###L#R#Z",
+    "###J###O#A#A",
+    "###A###S###C",
+    "MEPHIBOSHETH",
+    "#######I###A",
+    "##BELSHAZZAR",
+    "#######N#I#I",
+    "MOABITES#O#A",
+    "#########N#H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 0,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 6,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 7,
+        "row": 8,
+        "col": 2,
+        "clue": "King who saw writing on the wall",
+        "answer": "BELSHAZZAR",
+        "displayAnswer": "BELSHAZZAR"
+      },
+      {
+        "number": 9,
+        "row": 10,
+        "col": 0,
+        "clue": "People descended from Lot",
+        "answer": "MOABITES",
+        "displayAnswer": "MOABITES"
+      }
+    ],
+    "down": [
+      {
+        "number": 2,
+        "row": 1,
+        "col": 3,
+        "clue": "Prophet on Mount Carmel",
+        "answer": "ELIJAH",
+        "displayAnswer": "ELIJAH"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 7,
+        "clue": "Pauline epistle about Christ's supremacy",
+        "answer": "COLOSSIANS",
+        "displayAnswer": "COLOSSIANS"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 9,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 5,
+        "row": 3,
+        "col": 11,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 8,
+        "row": 8,
+        "col": 9,
+        "clue": "Poetic name for Jerusalem",
+        "answer": "ZION",
+        "displayAnswer": "ZION"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

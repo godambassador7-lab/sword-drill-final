@@ -1,0 +1,93 @@
+{
+  "id": "advanced_043",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "############",
+    "P#C#E#P#T###",
+    "H#O#P#E#A###",
+    "I#U#H#N#B###",
+    "L#N#E#T#EZRA",
+    "I#C#S#A#R###",
+    "PHILISTINES#",
+    "P#L#A#E#A#H#",
+    "I###N#U#C#E#",
+    "A###S#C#L#O#",
+    "N#####H#E#L#",
+    "S###########"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 6,
+        "row": 4,
+        "col": 8,
+        "clue": "Scribe who taught the Law",
+        "answer": "EZRA",
+        "displayAnswer": "EZRA"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Rivals of Israel in Judges/Samuel",
+        "answer": "PHILISTINES",
+        "displayAnswer": "PHILISTINES"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 1,
+        "col": 0,
+        "clue": "Epistle about joy in Christ",
+        "answer": "PHILIPPIANS",
+        "displayAnswer": "PHILIPPIANS"
+      },
+      {
+        "number": 2,
+        "row": 1,
+        "col": 2,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      },
+      {
+        "number": 3,
+        "row": 1,
+        "col": 4,
+        "clue": "Pauline epistle about the church",
+        "answer": "EPHESIANS",
+        "displayAnswer": "EPHESIANS"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 6,
+        "clue": "First five books of the Bible",
+        "answer": "PENTATEUCH",
+        "displayAnswer": "PENTATEUCH"
+      },
+      {
+        "number": 5,
+        "row": 1,
+        "col": 8,
+        "clue": "Portable sanctuary in wilderness",
+        "answer": "TABERNACLE",
+        "displayAnswer": "TABERNACLE"
+      },
+      {
+        "number": 8,
+        "row": 6,
+        "col": 10,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

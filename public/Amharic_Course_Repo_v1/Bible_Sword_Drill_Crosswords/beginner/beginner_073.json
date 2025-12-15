@@ -1,0 +1,89 @@
+{
+  "id": "beginner_073",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "#M##EVE#",
+    "NOAH##G#",
+    "#S##W#Y#",
+    "#E##O#P#",
+    "#SPIRIT#",
+    "G###D###",
+    "O#######",
+    "D#HEAVEN"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 4,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 4,
+        "row": 1,
+        "col": 0,
+        "clue": "Built the ark",
+        "answer": "NOAH",
+        "displayAnswer": "NOAH"
+      },
+      {
+        "number": 6,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 8,
+        "row": 7,
+        "col": 2,
+        "clue": "God's dwelling place",
+        "answer": "HEAVEN",
+        "displayAnswer": "HEAVEN"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 1,
+        "clue": "Led Israel out of Egypt",
+        "answer": "MOSES",
+        "displayAnswer": "MOSES"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 6,
+        "clue": "Place of bondage in Exodus",
+        "answer": "EGYPT",
+        "displayAnswer": "EGYPT"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 4,
+        "clue": "In the beginning was the ___ (John 1)",
+        "answer": "WORD",
+        "displayAnswer": "WORD"
+      },
+      {
+        "number": 7,
+        "row": 5,
+        "col": 0,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

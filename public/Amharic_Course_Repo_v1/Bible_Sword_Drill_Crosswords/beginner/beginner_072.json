@@ -1,0 +1,97 @@
+{
+  "id": "beginner_072",
+  "tier": "beginner",
+  "gridSize": 8,
+  "grid": [
+    "P#PRAYER",
+    "A###R#V#",
+    "S#H#K#E#",
+    "S#O##S##",
+    "#SPIRIT#",
+    "##E##N#G",
+    "#######O",
+    "BREAD##D"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "row": 0,
+        "col": 2,
+        "clue": "Talking to God",
+        "answer": "PRAYER",
+        "displayAnswer": "PRAYER"
+      },
+      {
+        "number": 7,
+        "row": 4,
+        "col": 1,
+        "clue": "Holy ___",
+        "answer": "SPIRIT",
+        "displayAnswer": "SPIRIT"
+      },
+      {
+        "number": 9,
+        "row": 7,
+        "col": 0,
+        "clue": "Jesus said: I am the bread of life",
+        "answer": "BREAD",
+        "displayAnswer": "BREAD"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 0,
+        "clue": "First part of Passover",
+        "answer": "PASS",
+        "displayAnswer": "PASS"
+      },
+      {
+        "number": 3,
+        "row": 0,
+        "col": 4,
+        "clue": "Noah's boat",
+        "answer": "ARK",
+        "displayAnswer": "ARK"
+      },
+      {
+        "number": 4,
+        "row": 0,
+        "col": 6,
+        "clue": "First woman",
+        "answer": "EVE",
+        "displayAnswer": "EVE"
+      },
+      {
+        "number": 5,
+        "row": 2,
+        "col": 2,
+        "clue": "Anchor of the soul",
+        "answer": "HOPE",
+        "displayAnswer": "HOPE"
+      },
+      {
+        "number": 6,
+        "row": 3,
+        "col": 5,
+        "clue": "What separates from God",
+        "answer": "SIN",
+        "displayAnswer": "SIN"
+      },
+      {
+        "number": 8,
+        "row": 5,
+        "col": 7,
+        "clue": "Creator",
+        "answer": "GOD",
+        "displayAnswer": "GOD"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}

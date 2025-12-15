@@ -1,0 +1,93 @@
+{
+  "id": "advanced_035",
+  "tier": "advanced",
+  "gridSize": 12,
+  "grid": [
+    "###S####P###",
+    "###H####H###",
+    "##NEHEMIAH##",
+    "###O####R##Z",
+    "###L#H##A##A",
+    "#J###A##O##C",
+    "MEPHIBOSHETH",
+    "#Z###A##S##A",
+    "#E###K#####R",
+    "#B###K#####I",
+    "#E#COUNCIL#A",
+    "#L###K#####H"
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 3,
+        "row": 2,
+        "col": 2,
+        "clue": "Rebuilt Jerusalem's wall",
+        "answer": "NEHEMIAH",
+        "displayAnswer": "NEHEMIAH"
+      },
+      {
+        "number": 7,
+        "row": 6,
+        "col": 0,
+        "clue": "Jonathan's son shown kindness by David",
+        "answer": "MEPHIBOSHETH",
+        "displayAnswer": "MEPHIBOSHETH"
+      },
+      {
+        "number": 8,
+        "row": 10,
+        "col": 3,
+        "clue": "Sanhedrin synonym clue variant",
+        "answer": "COUNCIL",
+        "displayAnswer": "COUNCIL"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "row": 0,
+        "col": 3,
+        "clue": "Hebrew term for the grave/realm of the dead",
+        "answer": "SHEOL",
+        "displayAnswer": "SHEOL"
+      },
+      {
+        "number": 2,
+        "row": 0,
+        "col": 8,
+        "clue": "Title of Egyptian kings",
+        "answer": "PHARAOHS",
+        "displayAnswer": "PHARAOHS"
+      },
+      {
+        "number": 4,
+        "row": 3,
+        "col": 11,
+        "clue": "Prophet about return and Messiah",
+        "answer": "ZACHARIAH",
+        "displayAnswer": "ZACHARIAH"
+      },
+      {
+        "number": 5,
+        "row": 4,
+        "col": 5,
+        "clue": "Prophet who questioned God",
+        "answer": "HABAKKUK",
+        "displayAnswer": "HABAKKUK"
+      },
+      {
+        "number": 6,
+        "row": 5,
+        "col": 1,
+        "clue": "Wicked queen opposed to Elijah",
+        "answer": "JEZEBEL",
+        "displayAnswer": "JEZEBEL"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2025-12-14",
+    "notes": "Grid uses # for blocks. Answers are uppercase with diacritics removed for fitting."
+  }
+}
