@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Play
@@ -8,7 +8,7 @@ import { koineLessonContent } from '../data/koineGreekLessonContent';
 import GreekQuizManager from './GreekQuizManager';
 import { updateUserProgress } from '../services/dbService';
 
-const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
+const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData, initialLocation, onLocationChange }) => {
   const [selectedLevel, setSelectedLevel] = useState(null); // 'beginner', 'intermediate', 'advanced'
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showQuizManager, setShowQuizManager] = useState(false);
@@ -19,6 +19,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData 
       advanced: []
     };
   });
+  const hasRestoredLocationRef = useRef(false);
 
   // Hydrate from userData when it changes (handles late Firebase load)
   useEffect(() => {
@@ -42,6 +43,61 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData 
       );
     }
   }, [completedLessons, userId, setUserData]);
+
+  // Auto-resume: restore last location (or first incomplete) once
+  useEffect(() => {
+    if (hasRestoredLocationRef.current) return;
+
+    // Determine target level
+    let targetLevel = null;
+    if (initialLocation?.courseId === 'greek-course' && initialLocation.levelId) {
+      targetLevel = initialLocation.levelId;
+    } else {
+      const levelOrder = ['beginner', 'intermediate', 'advanced'];
+      targetLevel = levelOrder.find(level => {
+        const lessons = getLessonsForLevel(level);
+        return (completedLessons[level]?.length || 0) < lessons.length;
+      }) || 'beginner';
+    }
+
+    if (targetLevel) {
+      setSelectedLevel(targetLevel);
+      const lessons = getLessonsForLevel(targetLevel);
+
+      let lessonToOpen = null;
+      if (initialLocation?.courseId === 'greek-course') {
+        if (initialLocation.lessonId) {
+          lessonToOpen = lessons.find(l => l.id === initialLocation.lessonId) || null;
+        } else if (Number.isInteger(initialLocation.lessonIndex)) {
+          lessonToOpen = lessons[initialLocation.lessonIndex] || null;
+        }
+      }
+
+      if (!lessonToOpen) {
+        const firstIncomplete = lessons.find(l => !(completedLessons[targetLevel] || []).includes(l.id));
+        lessonToOpen = firstIncomplete || null;
+      }
+
+      if (lessonToOpen) {
+        setSelectedLesson(lessonToOpen);
+      }
+    }
+
+    hasRestoredLocationRef.current = true;
+  }, [initialLocation, completedLessons]);
+
+  // Notify parent about current location for resume
+  useEffect(() => {
+    if (!onLocationChange || !selectedLevel) return;
+    const lessons = getLessonsForLevel(selectedLevel);
+    const idx = selectedLesson ? lessons.findIndex(l => l.id === selectedLesson.id) : null;
+    onLocationChange({
+      courseId: 'greek-course',
+      levelId: selectedLevel,
+      lessonId: selectedLesson?.id || null,
+      lessonIndex: idx !== -1 ? idx : null
+    });
+  }, [selectedLevel, selectedLesson, onLocationChange]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (level) => {

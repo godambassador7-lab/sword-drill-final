@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 
-const GeezCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
+const GeezCourse = ({ onComplete, onCancel, userId, userData, setUserData, initialLocation, onLocationChange }) => {
   const [courseData, setCourseData] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
@@ -17,6 +17,7 @@ const GeezCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => 
   );
   const [completedLevels, setCompletedLevels] = useState(userData?.geezProgress?.completedLevels || []);
   const [loading, setLoading] = useState(true);
+  const hasRestoredLocationRef = useRef(false);
 
   useEffect(() => {
     const manifestUrl = `${process.env.PUBLIC_URL || ''}/GeEz_Course_Repo_v1/courses/geez/manifest.json`;
@@ -56,6 +57,38 @@ const GeezCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => 
       updateUserProgress(userId, { geezProgress: progress }).catch(err => console.error('Error saving Ge\'ez progress:', err));
     }
   }, [completedLessons, completedLevels, userId, setUserData]);
+
+  // Auto-resume: restore last visited spot or go to first incomplete
+  useEffect(() => {
+    if (hasRestoredLocationRef.current || !courseData) return;
+
+    if (initialLocation?.courseId === 'geez-course') {
+      const level = initialLocation.levelId || 'level1';
+      setSelectedLevel(level);
+      if (Number.isInteger(initialLocation.lessonIndex)) {
+        setCurrentLessonIndex(Math.max(0, initialLocation.lessonIndex));
+      }
+      hasRestoredLocationRef.current = true;
+      return;
+    }
+
+    const levelOrder = courseData.levels.map(l => l.id);
+    const nextLevel = levelOrder.find(id => (completedLessons[id]?.length || 0) < 8) || levelOrder[0];
+    setSelectedLevel(nextLevel);
+    const firstIncomplete = Array.from({ length: 8 }).findIndex((_, idx) => !(completedLessons[nextLevel] || []).includes(`lesson_${idx}`));
+    setCurrentLessonIndex(firstIncomplete === -1 ? 0 : firstIncomplete);
+    hasRestoredLocationRef.current = true;
+  }, [initialLocation, courseData, completedLessons]);
+
+  // Notify parent about current location
+  useEffect(() => {
+    if (!onLocationChange || !selectedLevel) return;
+    onLocationChange({
+      courseId: 'geez-course',
+      levelId: selectedLevel,
+      lessonIndex: currentLessonIndex
+    });
+  }, [selectedLevel, currentLessonIndex, onLocationChange]);
 
   const isLevelUnlocked = (levelId) => {
     if (levelId === 'level1') return true;

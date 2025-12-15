@@ -711,16 +711,17 @@ const saveProgressToLocalStorage = (progress) => {
       quizzesCompleted,
       currentStreak,
       totalPoints,
-      achievements,
-      selectedTranslation,
-      includeApocrypha,
-      verseProgress,
-      currentLevel,
-      unlockables,
-      newlyUnlockedAchievements,
-      achievementClickHistory,
-      purchaseHistory,
-      hintPurchases,
+    achievements,
+    selectedTranslation,
+    includeApocrypha,
+    verseProgress,
+    currentLevel,
+    lastCourseLocation,
+    unlockables,
+    newlyUnlockedAchievements,
+    achievementClickHistory,
+    purchaseHistory,
+    hintPurchases,
       investments,
       activeBoosts,
       accountCreated,
@@ -733,10 +734,10 @@ const saveProgressToLocalStorage = (progress) => {
       aramaicProgress,
       paleoHebrewProgress,
       churchHistoryProgress,
-      textualCriticismProgress,
-      spiritualGiftsResults,
-      lastVerseOfDayRead
-    } = progress;
+    textualCriticismProgress,
+    spiritualGiftsResults,
+    lastVerseOfDayRead
+  } = progress;
 
     const normalizedLastVerseOfDayRead = normalizeTimestampValue(lastVerseOfDayRead);
 
@@ -747,15 +748,16 @@ const saveProgressToLocalStorage = (progress) => {
       currentStreak,
       totalPoints,
       achievements,
-      selectedTranslation,
-      includeApocrypha,
-      verseProgress,
-      currentLevel,
-      unlockables,
-      newlyUnlockedAchievements,
-      achievementClickHistory,
-      purchaseHistory,
-      hintPurchases,
+    selectedTranslation,
+    includeApocrypha,
+    verseProgress,
+    currentLevel,
+    lastCourseLocation,
+    unlockables,
+    newlyUnlockedAchievements,
+    achievementClickHistory,
+    purchaseHistory,
+    hintPurchases,
       investments,
       activeBoosts,
       spiritualGiftsResults,
@@ -868,6 +870,18 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   // Account created (prefer remote, fallback to local, default to now)
   const accountCreated = remoteProgress.accountCreated || localProgress.accountCreated || Date.now();
 
+  // Merge last course location (prefer the most recent updatedAt timestamp)
+  const lastCourseLocation = (() => {
+    const localLoc = localProgress.lastCourseLocation;
+    const remoteLoc = remoteProgress.lastCourseLocation;
+    if (localLoc && remoteLoc) {
+      const localTime = localLoc.updatedAt || 0;
+      const remoteTime = remoteLoc.updatedAt || 0;
+      return localTime >= remoteTime ? localLoc : remoteLoc;
+    }
+    return localLoc || remoteLoc || null;
+  })();
+
   // Merge spiritual gifts exam results (prefer remote, fallback to local)
   const spiritualGiftsResults = remoteProgress.spiritualGiftsResults || localProgress.spiritualGiftsResults || null;
 
@@ -912,6 +926,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     includeApocrypha: remoteProgress.includeApocrypha ?? localProgress.includeApocrypha ?? false,
     verseProgress,
     currentLevel: remoteProgress.currentLevel || localProgress.currentLevel || 'Beginner',
+    lastCourseLocation,
     unlockables,
     spiritualGiftsResults,
     kingsOfIsraelProgress,
@@ -1007,6 +1022,7 @@ const SwordDrillApp = () => {
     simplifiedMode: false, // Modernize archaic language in public domain translations
     verseProgress: {}, // NEW: Track progress for each verse
     currentLevel: 'Beginner', // Track user's current level
+    lastCourseLocation: null, // Track last course/lesson visited for resume
     completedCourseSections: {}, // Track completed course sections for one-time 100pt rewards
     unlockables: {
       lxx: false,        // Septuagint (Greek OT) - Unlock at 5000 pts
@@ -1105,6 +1121,7 @@ const SwordDrillApp = () => {
 
   // Track previous level for level-up detection
   const previousLevelRef = useRef(userData.currentLevel);
+  const hasRestoredLastCourseRef = useRef(false);
 
   // Stable callbacks for VerseScrambleQuiz - must be declared before any early returns
   const handleVerseScrambleComplete = useCallback((result) => {
@@ -1150,6 +1167,29 @@ const SwordDrillApp = () => {
     setQuizState(null);
     setCurrentView('start');
   }, []);
+
+  // Persist last course location for resume-on-refresh
+  const persistCourseLocation = useCallback((location) => {
+    if (!location || !location.courseId) return;
+    const payload = { ...location, updatedAt: Date.now() };
+
+    setUserData(prev => ({
+      ...prev,
+      lastCourseLocation: payload
+    }));
+
+    try {
+      localStorage.setItem('lastCourseLocation', JSON.stringify(payload));
+    } catch (e) {
+      console.error('Failed to persist last course location locally', e);
+    }
+
+    if (currentUser?.uid) {
+      updateUserProgress(currentUser.uid, { lastCourseLocation: payload }).catch(err =>
+        console.error('Error saving last course location to Firebase:', err)
+      );
+    }
+  }, [currentUser]);
 
 // Load guest/local progress on first render before auth resolves
   useEffect(() => {
@@ -1244,6 +1284,7 @@ useEffect(() => {
           paleoHebrewProgress: result.progress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } },
           churchHistoryProgress: result.progress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } },
           textualCriticismProgress: result.progress.textualCriticismProgress || { completedModules: [], quizScores: {} },
+          lastCourseLocation: result.progress.lastCourseLocation || null,
           lastVerseOfDayRead: normalizeTimestampValue(result.progress.lastVerseOfDayRead),
           accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
         };
@@ -1320,6 +1361,23 @@ useEffect(() => {
   
   return () => unsubscribe();
 }, [syncVerseOfDayReadState]);
+
+// Restore last visited course on refresh
+useEffect(() => {
+  if (!hasHydratedProgress || hasRestoredLastCourseRef.current) return;
+  const storedLocation = userData.lastCourseLocation || (() => {
+    try {
+      return JSON.parse(localStorage.getItem('lastCourseLocation'));
+    } catch (_) {
+      return null;
+    }
+  })();
+
+  if (storedLocation?.courseId) {
+    setCurrentView(storedLocation.courseId);
+    hasRestoredLastCourseRef.current = true;
+  }
+}, [hasHydratedProgress, userData.lastCourseLocation]);
 
 // Set loading to false after initial setup
 useEffect(() => {
@@ -8125,6 +8183,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'hebrew-course' && (
@@ -8180,6 +8240,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'paleo-hebrew-course' && (
@@ -8235,6 +8297,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'amharic-course' && (
@@ -8270,6 +8334,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'geez-course' && (
@@ -8303,6 +8369,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'aramaic-course' && (
@@ -8336,6 +8404,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             userData={userData}
             setUserData={setUserData}
+            initialLocation={userData.lastCourseLocation}
+            onLocationChange={persistCourseLocation}
           />
         )}
         {currentView === 'hermeneutics-course' && (

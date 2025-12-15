@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Scroll, AlertCircle
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 
-const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
+const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData, initialLocation, onLocationChange }) => {
   const [courseData, setCourseData] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
@@ -25,6 +25,7 @@ const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) 
     userData?.amharicProgress?.completedLevels || []
   );
   const [loading, setLoading] = useState(true);
+  const hasRestoredLocationRef = useRef(false);
 
   useEffect(() => {
     // Load course manifest
@@ -68,6 +69,39 @@ const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData }) 
       updateUserProgress(userId, { amharicProgress: progress }).catch(err => console.error('Error saving Amharic progress:', err));
     }
   }, [completedLessons, completedLevels, userId, setUserData]);
+
+  // Auto-resume: restore last visited level/lesson or jump to first incomplete
+  useEffect(() => {
+    if (hasRestoredLocationRef.current || !courseData) return;
+
+    if (initialLocation?.courseId === 'amharic-course') {
+      const targetLevel = initialLocation.levelId || 'level1';
+      setSelectedLevel(targetLevel);
+      if (Number.isInteger(initialLocation.lessonIndex)) {
+        setCurrentLessonIndex(Math.max(0, initialLocation.lessonIndex));
+      }
+      hasRestoredLocationRef.current = true;
+      return;
+    }
+
+    // Default: pick first level with incomplete lessons
+    const levelOrder = courseData.levels.map(l => l.id);
+    const nextLevel = levelOrder.find(id => (completedLessons[id]?.length || 0) < 8) || levelOrder[0];
+    setSelectedLevel(nextLevel);
+    const firstIncomplete = Array.from({ length: 8 }).findIndex((_, idx) => !(completedLessons[nextLevel] || []).includes(`lesson_${idx}`));
+    setCurrentLessonIndex(firstIncomplete === -1 ? 0 : firstIncomplete);
+    hasRestoredLocationRef.current = true;
+  }, [initialLocation, courseData, completedLessons]);
+
+  // Notify parent of current location for resume
+  useEffect(() => {
+    if (!onLocationChange || !selectedLevel) return;
+    onLocationChange({
+      courseId: 'amharic-course',
+      levelId: selectedLevel,
+      lessonIndex: currentLessonIndex
+    });
+  }, [selectedLevel, currentLessonIndex, onLocationChange]);
 
   // Check if a level is unlocked
   const isLevelUnlocked = (levelId) => {
