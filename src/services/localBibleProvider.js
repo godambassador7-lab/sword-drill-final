@@ -110,18 +110,109 @@ const DEFAULT_BOOKS = [
   'Jude', 'Revelation'
 ];
 
-// Fetch chapter range (e.g., "1 Kings 11-14") and return all verses from those chapters
+// Fetch chapter/verse range (e.g., "1 Kings 11-14", "John 3:16-18", "1 Kings 15:25-16:7")
 export async function getLocalChapterRange(translation, reference, options = {}) {
   const folder = folderFor(translation);
   if (!folder) return null;
 
-  // Parse reference like "1 Kings 11-14" or "John 3"
-  const match = reference.match(/^(.+?)\s+(\d+)(?:-(\d+))?$/);
-  if (!match) return null;
+  // Try to parse verse range first (e.g., "1 Kings 15:25-32" or "1 Kings 15:25-16:7")
+  const verseRangeMatch = reference.match(/^(.+?)\s+(\d+):(\d+)-(\d+):?(\d+)?$/);
+  if (verseRangeMatch) {
+    const bookName = verseRangeMatch[1].trim();
+    const startChapter = parseInt(verseRangeMatch[2]);
+    const startVerse = parseInt(verseRangeMatch[3]);
+    const endChapterOrVerse = parseInt(verseRangeMatch[4]);
+    const endVerse = verseRangeMatch[5] ? parseInt(verseRangeMatch[5]) : null;
 
-  const bookName = match[1].trim();
-  const startChapter = parseInt(match[2]);
-  const endChapter = match[3] ? parseInt(match[3]) : startChapter;
+    // Determine if it's same chapter or cross-chapter range
+    const isSameChapter = !endVerse; // If no second colon, it's same chapter
+    const endChapter = isSameChapter ? startChapter : endChapterOrVerse;
+    const finalEndVerse = isSameChapter ? endChapterOrVerse : endVerse;
+
+    const bookJson = await loadBookJson(folder, bookName);
+    if (!bookJson || !bookJson.chapters) return null;
+
+    const allText = [];
+
+    if (isSameChapter) {
+      // Same chapter: "1 Kings 15:25-32"
+      const chapterData = bookJson.chapters?.[String(startChapter)];
+      if (chapterData) {
+        for (let v = startVerse; v <= finalEndVerse; v++) {
+          let text = chapterData[String(v)];
+          if (text) {
+            text = cleanVerseText(text);
+            if (options.simplifiedMode) {
+              text = simplifyText(text, translation);
+            }
+            allText.push(`${startChapter}:${v} ${text}`);
+          }
+        }
+      }
+    } else {
+      // Cross-chapter: "1 Kings 15:25-16:7"
+      // First chapter: from startVerse to end of chapter
+      const firstChapterData = bookJson.chapters?.[String(startChapter)];
+      if (firstChapterData) {
+        const versesInFirstChapter = Object.keys(firstChapterData).map(v => parseInt(v)).sort((a, b) => a - b);
+        const maxVerseInFirstChapter = Math.max(...versesInFirstChapter);
+        for (let v = startVerse; v <= maxVerseInFirstChapter; v++) {
+          let text = firstChapterData[String(v)];
+          if (text) {
+            text = cleanVerseText(text);
+            if (options.simplifiedMode) {
+              text = simplifyText(text, translation);
+            }
+            allText.push(`${startChapter}:${v} ${text}`);
+          }
+        }
+      }
+
+      // Middle chapters (if any): entire chapters
+      for (let ch = startChapter + 1; ch < endChapter; ch++) {
+        const chapterData = bookJson.chapters?.[String(ch)];
+        if (chapterData) {
+          const verses = Object.keys(chapterData).sort((a, b) => parseInt(a) - parseInt(b));
+          for (const verseNum of verses) {
+            let text = chapterData[verseNum];
+            if (text) {
+              text = cleanVerseText(text);
+              if (options.simplifiedMode) {
+                text = simplifyText(text, translation);
+              }
+              allText.push(`${ch}:${verseNum} ${text}`);
+            }
+          }
+        }
+      }
+
+      // Last chapter: from verse 1 to endVerse
+      const lastChapterData = bookJson.chapters?.[String(endChapter)];
+      if (lastChapterData) {
+        for (let v = 1; v <= finalEndVerse; v++) {
+          let text = lastChapterData[String(v)];
+          if (text) {
+            text = cleanVerseText(text);
+            if (options.simplifiedMode) {
+              text = simplifyText(text, translation);
+            }
+            allText.push(`${endChapter}:${v} ${text}`);
+          }
+        }
+      }
+    }
+
+    if (allText.length === 0) return null;
+    return { reference, text: allText.join('\n\n'), translation };
+  }
+
+  // Parse chapter range (e.g., "1 Kings 11-14" or "John 3")
+  const chapterMatch = reference.match(/^(.+?)\s+(\d+)(?:-(\d+))?$/);
+  if (!chapterMatch) return null;
+
+  const bookName = chapterMatch[1].trim();
+  const startChapter = parseInt(chapterMatch[2]);
+  const endChapter = chapterMatch[3] ? parseInt(chapterMatch[3]) : startChapter;
 
   const bookJson = await loadBookJson(folder, bookName);
   if (!bookJson || !bookJson.chapters) return null;
