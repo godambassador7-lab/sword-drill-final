@@ -153,7 +153,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-purple-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button

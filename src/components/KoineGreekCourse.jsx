@@ -533,7 +533,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             Back to Lessons
           </button>
 
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-amber-500">
+          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">{selectedLesson.icon}</div>
               <h2 className={`text-3xl font-bold ${colors[selectedLevel]} mb-2`}>

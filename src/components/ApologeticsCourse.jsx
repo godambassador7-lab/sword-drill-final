@@ -181,7 +181,7 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
             Back to Lessons
           </button>
 
-          <div className="bg-slate-800 rounded-xl p-6 sm:p-8 border-2 border-purple-500">
+          <div className="bg-slate-800 rounded-xl p-6 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl sm:text-3xl font-bold flex items-center gap-3">
                 <Shield className="text-purple-400" size={32} />
@@ -243,7 +243,7 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
           Back to Courses
         </button>
 
-        <div className="bg-slate-800 rounded-xl p-6 sm:p-8 border-2 border-purple-500 mb-8">
+        <div className="bg-slate-800 rounded-xl p-6 sm:p-8 mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4 flex items-center gap-3">
             <Shield className="text-purple-400" size={40} />
             Apologetics Course

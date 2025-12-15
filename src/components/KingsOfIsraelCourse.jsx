@@ -284,7 +284,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
             </div>
 
             {/* Overview */}
-            <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-6 mb-8 border-2 border-amber-500/30">
+            <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-6 mb-8">
               <div className="flex items-start gap-2 sm:p-4">
                 <Shield className="text-amber-400 flex-shrink-0" size={32} />
                 <div>
@@ -549,7 +549,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Section */}
               {!showQuizResults && currentQuestion && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-amber-300">
                       Question {currentQuestionIndex + 1} of 5
@@ -625,7 +625,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Results */}
               {showQuizResults && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6 text-center">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6 text-center">
                   <Trophy className="text-amber-400 mx-auto mb-4" size={64} />
                   <h3 className="text-3xl font-bold text-white mb-2">Quiz Complete!</h3>
                   <p className="text-2xl text-amber-300 mb-6">
@@ -872,7 +872,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Section - Only show in quiz mode */}
               {!isStudyMode && !showQuizResults && currentQuestion && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-amber-300">
                       Question {currentQuestionIndex + 1} of 5
@@ -948,7 +948,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Results */}
               {!isStudyMode && showQuizResults && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6 text-center">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6 text-center">
                   <Trophy className="text-amber-400 mx-auto mb-4" size={64} />
                   <h3 className="text-3xl font-bold text-white mb-2">Quiz Complete!</h3>
                   <p className="text-2xl text-amber-300 mb-6">
@@ -1185,7 +1185,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Section - Only show in quiz mode */}
               {!isStudyMode && !showQuizResults && currentQuestion && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-amber-300">
                       Question {currentQuestionIndex + 1} of 5
@@ -1261,7 +1261,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
               {/* Quiz Results */}
               {!isStudyMode && showQuizResults && (
-                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 border-2 border-amber-500/50 mb-6 text-center">
+                <div className="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-6 mb-6 text-center">
                   <Trophy className="text-amber-400 mx-auto mb-4" size={64} />
                   <h3 className="text-3xl font-bold text-white mb-2">Quiz Complete!</h3>
                   <p className="text-2xl text-amber-300 mb-6">

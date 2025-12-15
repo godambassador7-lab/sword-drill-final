@@ -3815,6 +3815,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   const QuizView = () => {
     // Click-to-choose handlers
     const handleSelectBlank = useCallback((index) => {
+      console.log('[DEBUG] Blank selected:', index);
       setQuizState(prev => ({
         ...prev,
         selectedBlankIndex: index
@@ -3822,21 +3823,29 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     }, []);
 
     const handleWordClick = useCallback((wordItem) => {
+      console.log('[DEBUG] Word clicked:', wordItem);
       setQuizState(prev => {
-        if (prev.selectedBlankIndex === null) return prev;
+        console.log('[DEBUG] Current selectedBlankIndex:', prev.selectedBlankIndex);
+        if (prev.selectedBlankIndex === null) {
+          console.log('[DEBUG] No blank selected, ignoring word click');
+          return prev;
+        }
 
         const newAnswers = [...prev.userAnswers];
         newAnswers[prev.selectedBlankIndex] = wordItem;
+        console.log('[DEBUG] Updated userAnswers:', newAnswers);
 
         // Remove this specific item from word bank by ID
         const newWordBank = prev.wordBank.filter(w => w.id !== wordItem.id);
 
-        return {
+        const newState = {
           ...prev,
           userAnswers: newAnswers,
           wordBank: newWordBank,
           selectedBlankIndex: null // Clear selection after placing word
         };
+        console.log('[DEBUG] New quiz state:', newState);
+        return newState;
       });
     }, []);
 
@@ -3858,6 +3867,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         };
       });
     }, []);
+
+    // Debug: Log submit button state
+    useEffect(() => {
+      if (quizState?.type === 'fill-blank' && quizState?.userAnswers) {
+        const isDisabled = !quizState.userAnswers || quizState.userAnswers.some(a => !a);
+        console.log('[DEBUG] Submit button disabled?', isDisabled);
+        console.log('[DEBUG] userAnswers:', quizState.userAnswers);
+        console.log('[DEBUG] Check each answer:', quizState.userAnswers.map((a, i) => ({ index: i, value: a, isFalsy: !a })));
+      }
+    }, [quizState?.userAnswers]);
 
     // Note: Verse Scramble is now rendered at top level to prevent re-render issues
 
