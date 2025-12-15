@@ -1292,10 +1292,24 @@ useEffect(() => {
           }
         });
         localStorage.setItem('streakData', JSON.stringify(rebuilt));
-        // DON'T recalculate streak here - Firebase value is already set above (line 1130)
-        // Recalculating causes device drift!
+
+        // IMPORTANT: Recalculate streak AFTER merging streakData
+        // The merged data might have more days marked than either source alone
+        const recalculatedStreak = calculateCurrentStreak();
+        mergedProgress.currentStreak = Math.max(recalculatedStreak, mergedProgress.currentStreak);
+
         console.log('[App.js] Setting userData with merged achievements:', mergedProgress.achievements);
-        console.log(' Final values - Streak:', mergedProgress.currentStreak, '| Points:', mergedProgress.totalPoints);
+        console.log(' Final values - Streak:', mergedProgress.currentStreak, '(recalculated:', recalculatedStreak, ') | Points:', mergedProgress.totalPoints);
+
+        // If recalculated streak is higher, sync back to Firebase
+        if (recalculatedStreak > firebaseStreak) {
+          console.log(' Recalculated streak higher - syncing to Firebase:', recalculatedStreak);
+          updateUserProgress(user.uid, {
+            currentStreak: recalculatedStreak,
+            streakData: rebuilt
+          }).catch(err => console.error('Error syncing recalculated streak:', err));
+        }
+
         setUserData(mergedProgress);
         setIsLoggedIn(true);
       }
@@ -1661,13 +1675,16 @@ const handleSignIn = async (e) => {
       });
       localStorage.setItem('streakData', JSON.stringify(mergedStreakData));
 
+      // IMPORTANT: Recalculate streak AFTER merging streakData
+      const recalculatedStreak = calculateCurrentStreak();
+
       const mergedUserData = mergeProgressRecords(
         loadProgressFromLocalStorage() || {},
         {
           name: data.user.name || 'User',
           versesMemorized: calculateMasteredVerses(verseProgressData),
           quizzesCompleted: data.progress.quizzesCompleted || 0,
-          currentStreak: Math.max(localStreak, firebaseStreak),
+          currentStreak: Math.max(recalculatedStreak, firebaseStreak),
           totalPoints: data.progress.totalPoints || 0,
           achievements: Array.isArray(data.progress.achievements) ? data.progress.achievements : [],
           selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'KJV'),
@@ -1680,22 +1697,22 @@ const handleSignIn = async (e) => {
           quizHistory: data.progress.quizHistory || [],
           lastVerseOfDayRead: normalizeTimestampValue(data.progress.lastVerseOfDayRead)
         },
-        Math.max(localStreak, firebaseStreak)
+        Math.max(recalculatedStreak, firebaseStreak)
       );
 
-      // CRITICAL FIX: Use HIGHEST streak across all devices
-      const mergedStreak = Math.max(localStreak, firebaseStreak);
+      // CRITICAL FIX: Use HIGHEST streak from any source (including recalculated)
+      const finalStreak = Math.max(recalculatedStreak, firebaseStreak);
       console.log(' Sign-in Sync: Using highest streak from any source');
-      console.log(' Firebase streak:', firebaseStreak, '| Local calc:', localStreak, '| Using:', mergedStreak);
-      mergedUserData.currentStreak = mergedStreak;
+      console.log(' Firebase streak:', firebaseStreak, '| Recalculated from merged data:', recalculatedStreak, '| Using:', finalStreak);
+      mergedUserData.currentStreak = finalStreak;
       mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
 
-      // If local streak is higher, sync it back to Firebase
-      if (localStreak > firebaseStreak) {
-        console.log(' Local streak higher - syncing to Firebase:', localStreak);
+      // If recalculated streak is higher, sync it back to Firebase
+      if (recalculatedStreak > firebaseStreak) {
+        console.log(' Recalculated streak higher - syncing to Firebase:', recalculatedStreak);
         updateUserProgress(result.user.uid, {
-          currentStreak: localStreak,
-          streakData: JSON.parse(localStorage.getItem('streakData') || '{}')
+          currentStreak: recalculatedStreak,
+          streakData: mergedStreakData
         }).catch(err => console.error('Error syncing streak to Firebase:', err));
       }
 
