@@ -303,11 +303,11 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
           <div className="w-32"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="flex flex-col lg:flex-row lg:justify-center gap-6">
           {/* Crossword Grid */}
           <div className="bg-slate-800 rounded-xl p-2 sm:p-4 lg:p-6">
-            <div className="overflow-x-auto -mx-2">
-              <div className="inline-block px-2">
+            <div className="overflow-x-auto flex justify-center">
+              <div className="inline-block">
                 {userGrid.map((row, rowIndex) => (
                   <div key={rowIndex} className="flex">
                     {row.map((cell, colIndex) => {
@@ -322,7 +322,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
                       return (
                         <div
                           key={colIndex}
-                          className={`relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 border ${
+                          className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 border ${
                             isBlock
                               ? 'bg-slate-900 border-slate-700'
                               : isSelected

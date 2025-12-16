@@ -1410,7 +1410,7 @@ useEffect(() => {
   if (!viewport) return;
 
   // Allow pinch-to-zoom only on Bible Reader and Bloodlines pages
-  const shouldAllowZoom = showBibleReader || currentView === 'biblical-bloodlines';
+  const shouldAllowZoom = showBibleReader || currentView === 'biblical-bloodlines' || currentView === 'crossword';
 
   if (shouldAllowZoom) {
     // Enable pinch-to-zoom
