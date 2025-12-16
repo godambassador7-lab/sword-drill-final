@@ -306,26 +306,36 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Crossword Grid */}
           <div className="bg-slate-800 rounded-xl p-2 sm:p-4 lg:p-6">
-            <div className="overflow-x-auto">
-              <div className="inline-block min-w-full">
+            <div className="overflow-x-auto -mx-2">
+              <div className="inline-block px-2">
                 {userGrid.map((row, rowIndex) => (
                   <div key={rowIndex} className="flex">
                     {row.map((cell, colIndex) => {
                       const isBlock = cell === '#' || currentPuzzle.grid[rowIndex][colIndex] === '#';
                       const isSelected = selectedCell?.row === rowIndex && selectedCell?.col === colIndex;
 
+                      // Find clue number for this cell
+                      const acrossClue = currentPuzzle.clues.across.find(c => c.row === rowIndex && c.col === colIndex);
+                      const downClue = currentPuzzle.clues.down.find(c => c.row === rowIndex && c.col === colIndex);
+                      const clueNumber = acrossClue?.number || downClue?.number;
+
                       return (
                         <div
                           key={colIndex}
-                          className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border ${
+                          className={`relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 border ${
                             isBlock
                               ? 'bg-slate-900 border-slate-700'
                               : isSelected
                               ? 'bg-amber-500 border-amber-400'
                               : 'bg-white border-slate-400 cursor-pointer hover:bg-slate-100'
-                          } flex items-center justify-center text-sm sm:text-base md:text-xl font-bold`}
+                          } flex items-center justify-center text-xs sm:text-sm md:text-base lg:text-xl font-bold`}
                           onClick={() => !isBlock && setSelectedCell({ row: rowIndex, col: colIndex })}
                         >
+                          {!isBlock && clueNumber && (
+                            <span className="absolute top-0 left-0.5 text-[6px] sm:text-[8px] md:text-[10px] text-blue-600 font-bold">
+                              {clueNumber}
+                            </span>
+                          )}
                           {!isBlock && (
                             <input
                               type="text"
