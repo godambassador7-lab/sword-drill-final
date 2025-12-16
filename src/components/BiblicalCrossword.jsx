@@ -188,7 +188,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
 
   if (!selectedDifficulty) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-2">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
@@ -272,7 +272,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
   // Puzzle View
   if (!currentPuzzle || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-2 flex items-center justify-center">
         <div className="text-white text-xl">Loading puzzle...</div>
       </div>
     );
@@ -281,7 +281,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
   const config = DIFFICULTY_CONFIG[selectedDifficulty];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -305,9 +305,9 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
 
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Crossword Grid */}
-          <div className="bg-slate-800 rounded-xl p-6">
-            <div className="flex justify-center">
-              <div className="inline-block">
+          <div className="bg-slate-800 rounded-xl p-2 sm:p-4 lg:p-6">
+            <div className="overflow-x-auto">
+              <div className="inline-block min-w-full">
                 {userGrid.map((row, rowIndex) => (
                   <div key={rowIndex} className="flex">
                     {row.map((cell, colIndex) => {
@@ -317,13 +317,13 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
                       return (
                         <div
                           key={colIndex}
-                          className={`w-12 h-12 border ${
+                          className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border ${
                             isBlock
                               ? 'bg-slate-900 border-slate-700'
                               : isSelected
                               ? 'bg-amber-500 border-amber-400'
                               : 'bg-white border-slate-400 cursor-pointer hover:bg-slate-100'
-                          } flex items-center justify-center text-xl font-bold`}
+                          } flex items-center justify-center text-sm sm:text-base md:text-xl font-bold`}
                           onClick={() => !isBlock && setSelectedCell({ row: rowIndex, col: colIndex })}
                         >
                           {!isBlock && (
