@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, Trophy, Lock, Grid3x3, ArrowLeft, CheckCircle, Award } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, Trophy, Lock, Grid3x3, ArrowLeft, CheckCircle, Award, Clock } from 'lucide-react';
 
 const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
@@ -15,6 +15,11 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
     elite: []
   });
   const [loading, setLoading] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [incorrectCells, setIncorrectCells] = useState([]);
+  const timerRef = useRef(null);
+  const inputRefs = useRef({});
 
   const DIFFICULTY_CONFIG = {
     beginner: {
@@ -58,6 +63,18 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
     }
   }, [userData]);
 
+  // Timer effect
+  useEffect(() => {
+    if (startTime && !loading) {
+      timerRef.current = setInterval(() => {
+        setElapsedTime(Math.floor((Date.now() - startTime) / 1000));
+      }, 1000);
+    }
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [startTime, loading]);
+
   // Check if difficulty is unlocked
   const isDifficultyUnlocked = (difficulty) => {
     if (difficulty === 'beginner') return true;
@@ -92,6 +109,9 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
       );
       setUserGrid(emptyGrid);
       setSelectedCell(null);
+      setStartTime(Date.now());
+      setElapsedTime(0);
+      setIncorrectCells([]);
 
     } catch (error) {
       console.error('Error loading puzzle:', error);
@@ -109,7 +129,29 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
     loadPuzzle(difficulty, firstIncomplete);
   };
 
-  // Handle cell input
+  // Find next empty cell in direction
+  const findNextCell = (row, col, dir) => {
+    if (!currentPuzzle) return null;
+
+    if (dir === 'across') {
+      // Move right
+      for (let c = col + 1; c < userGrid[row].length; c++) {
+        if (userGrid[row][c] !== '#' && currentPuzzle.grid[row][c] !== '#') {
+          return { row, col: c };
+        }
+      }
+    } else {
+      // Move down
+      for (let r = row + 1; r < userGrid.length; r++) {
+        if (userGrid[r][col] !== '#' && currentPuzzle.grid[r][col] !== '#') {
+          return { row: r, col };
+        }
+      }
+    }
+    return null;
+  };
+
+  // Handle cell input with auto-advance
   const handleCellInput = (row, col, value) => {
     if (!currentPuzzle || userGrid[row][col] === '#') return;
 
@@ -117,45 +159,116 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
       i === row ? r.map((c, j) => (j === col ? value.toUpperCase() : c)) : r
     );
     setUserGrid(newGrid);
+
+    // Auto-advance to next cell if value was entered
+    if (value) {
+      const nextCell = findNextCell(row, col, direction);
+      if (nextCell) {
+        setSelectedCell(nextCell);
+        // Focus next input
+        setTimeout(() => {
+          const key = `${nextCell.row}-${nextCell.col}`;
+          inputRefs.current[key]?.focus();
+        }, 0);
+      } else {
+        // End of word - blur to close keyboard
+        setTimeout(() => {
+          document.activeElement?.blur();
+        }, 100);
+      }
+    }
   };
 
-  // Check if puzzle is complete and correct
+  // Check if puzzle is complete and correct with scoring
   const checkPuzzle = () => {
     if (!currentPuzzle) return;
 
-    const isCorrect = currentPuzzle.grid.every((row, i) =>
-      row.split('').every((cell, j) => {
-        if (cell === '#') return true;
-        return userGrid[i][j] === cell;
-      })
-    );
+    // Stop timer
+    if (timerRef.current) clearInterval(timerRef.current);
 
-    if (isCorrect) {
-      // Mark as completed
-      const config = DIFFICULTY_CONFIG[selectedDifficulty];
-      const newCompleted = [...(completedPuzzles[selectedDifficulty] || [])];
+    // Count correct and incorrect cells
+    let totalCells = 0;
+    let correctCells = 0;
+    const wrongCells = [];
 
-      if (!newCompleted.includes(currentPuzzleIndex)) {
-        newCompleted.push(currentPuzzleIndex);
+    currentPuzzle.grid.forEach((row, i) => {
+      row.split('').forEach((cell, j) => {
+        if (cell !== '#') {
+          totalCells++;
+          if (userGrid[i][j] === cell) {
+            correctCells++;
+          } else {
+            wrongCells.push({ row: i, col: j });
+          }
+        }
+      });
+    });
 
-        const newProgress = {
-          ...completedPuzzles,
-          [selectedDifficulty]: newCompleted
-        };
+    const accuracy = Math.round((correctCells / totalCells) * 100);
+    const config = DIFFICULTY_CONFIG[selectedDifficulty];
 
-        setCompletedPuzzles(newProgress);
+    // Calculate points based on accuracy and time
+    let pointsEarned = config.pointsPerComplete;
 
-        // Award points
-        const newPoints = userData.totalPoints + config.pointsPerComplete;
-        setUserData(prev => ({
-          ...prev,
-          totalPoints: newPoints,
-          crosswordProgress: newProgress
-        }));
+    // Time bonus (finish under 5 minutes = bonus)
+    const timeBonus = elapsedTime < 300 ? Math.floor(config.pointsPerComplete * 0.2) : 0;
 
-        alert(`🎉 Puzzle Complete!\n\n+${config.pointsPerComplete} points\n\nNew Balance: ${newPoints} points`);
+    // Accuracy penalty
+    if (accuracy < 100) {
+      pointsEarned = Math.floor(pointsEarned * (accuracy / 100));
+      // Show wrong answers
+      setIncorrectCells(wrongCells);
 
-        // Load next puzzle
+      // Fill in correct answers
+      const correctedGrid = userGrid.map((row, i) =>
+        row.map((cell, j) => {
+          if (currentPuzzle.grid[i][j] !== '#' && cell !== currentPuzzle.grid[i][j]) {
+            return currentPuzzle.grid[i][j];
+          }
+          return cell;
+        })
+      );
+      setUserGrid(correctedGrid);
+    }
+
+    pointsEarned += timeBonus;
+
+    // Mark as completed
+    const newCompleted = [...(completedPuzzles[selectedDifficulty] || [])];
+
+    if (!newCompleted.includes(currentPuzzleIndex)) {
+      newCompleted.push(currentPuzzleIndex);
+
+      const newProgress = {
+        ...completedPuzzles,
+        [selectedDifficulty]: newCompleted
+      };
+
+      setCompletedPuzzles(newProgress);
+
+      // Award points
+      const newPoints = userData.totalPoints + pointsEarned;
+      setUserData(prev => ({
+        ...prev,
+        totalPoints: newPoints,
+        crosswordProgress: newProgress
+      }));
+
+      const minutes = Math.floor(elapsedTime / 60);
+      const seconds = elapsedTime % 60;
+      const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+      let message = `${accuracy === 100 ? '🎉 Perfect!' : '✓ Completed!'}\n\n`;
+      message += `Accuracy: ${accuracy}%\n`;
+      message += `Time: ${timeStr}\n`;
+      if (timeBonus > 0) message += `Time Bonus: +${timeBonus}\n`;
+      message += `\nPoints Earned: +${pointsEarned}\n`;
+      message += `New Balance: ${newPoints} points`;
+
+      alert(message);
+
+      // Load next puzzle after a delay
+      setTimeout(() => {
         if (currentPuzzleIndex < 99) {
           setCurrentPuzzleIndex(currentPuzzleIndex + 1);
           loadPuzzle(selectedDifficulty, currentPuzzleIndex + 1);
@@ -163,9 +276,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
           alert('🏆 Congratulations! You\'ve completed all puzzles in this difficulty!');
           setSelectedDifficulty(null);
         }
-      }
-    } else {
-      alert('❌ Not quite right. Keep trying!');
+      }, accuracy < 100 ? 3000 : 1000);
     }
   };
 
@@ -290,17 +401,22 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
             className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
           >
             <ArrowLeft size={24} />
-            Back to Difficulties
+            Back
           </button>
           <div className="text-center">
-            <h2 className={`text-2xl font-bold text-${config.color}-400`}>
-              {config.name} Puzzle {currentPuzzleIndex + 1}/100
+            <h2 className={`text-xl sm:text-2xl font-bold text-${config.color}-400`}>
+              {config.name} #{currentPuzzleIndex + 1}
             </h2>
-            <p className="text-slate-400 text-sm">
-              {completedPuzzles[selectedDifficulty]?.length || 0} completed
-            </p>
+            <div className="flex items-center gap-3 justify-center mt-1">
+              <Clock size={16} className="text-amber-400" />
+              <span className="text-amber-400 font-mono font-bold">
+                {Math.floor(elapsedTime / 60)}:{(elapsedTime % 60).toString().padStart(2, '0')}
+              </span>
+            </div>
           </div>
-          <div className="w-32"></div>
+          <div className="text-right text-slate-400 text-sm">
+            {completedPuzzles[selectedDifficulty]?.length || 0}/100
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row lg:justify-center gap-6">
@@ -313,11 +429,13 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
                     {row.map((cell, colIndex) => {
                       const isBlock = cell === '#' || currentPuzzle.grid[rowIndex][colIndex] === '#';
                       const isSelected = selectedCell?.row === rowIndex && selectedCell?.col === colIndex;
+                      const isIncorrect = incorrectCells.some(c => c.row === rowIndex && c.col === colIndex);
 
                       // Find clue number for this cell
                       const acrossClue = currentPuzzle.clues.across.find(c => c.row === rowIndex && c.col === colIndex);
                       const downClue = currentPuzzle.clues.down.find(c => c.row === rowIndex && c.col === colIndex);
                       const clueNumber = acrossClue?.number || downClue?.number;
+                      const refKey = `${rowIndex}-${colIndex}`;
 
                       return (
                         <div
@@ -325,6 +443,8 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
                           className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 border ${
                             isBlock
                               ? 'bg-slate-900 border-slate-700'
+                              : isIncorrect
+                              ? 'bg-red-500 border-red-400'
                               : isSelected
                               ? 'bg-amber-500 border-amber-400'
                               : 'bg-white border-slate-400 cursor-pointer hover:bg-slate-100'
@@ -338,6 +458,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
                           )}
                           {!isBlock && (
                             <input
+                              ref={el => inputRefs.current[refKey] = el}
                               type="text"
                               maxLength={1}
                               value={userGrid[rowIndex][colIndex]}
