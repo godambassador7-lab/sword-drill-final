@@ -286,7 +286,7 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
               <div
                 key={index}
                 onClick={() => setCurrentLessonIndex(index)}
-                className="bg-slate-800 rounded-xl p-6 border-2 border-purple-500/30 hover:border-purple-400 transition-all cursor-pointer group"
+                className="bg-slate-800 rounded-xl p-6 hover:border-purple-400 transition-all cursor-pointer group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">

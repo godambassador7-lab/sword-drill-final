@@ -489,7 +489,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
               {/* King Details */}
               <div className="space-y-6 mb-8">
                 {/* Description */}
-                <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30">
+                <div className="bg-slate-700/50 rounded-xl p-6">
                   <h3 className="text-xl font-bold text-green-300 mb-3 flex items-center gap-2">
                     <BookOpen size={24} />
                     About This King
@@ -499,7 +499,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
                 {/* Key Events */}
                 {currentKing.keyEvents && (
-                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-6">
                     <h3 className="text-xl font-bold text-green-300 mb-3 flex items-center gap-2">
                       <Star size={24} />
                       Key Events
@@ -517,11 +517,11 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
                 {/* Scripture & Verdict */}
                 <div className="grid grid-cols-2 gap-2 sm:p-4">
-                  <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-green-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-4">
                     <h4 className="text-sm font-bold text-green-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
-                  <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-green-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-4">
                     <h4 className="text-sm font-bold text-green-300 mb-2">God's Verdict</h4>
                     <p className="text-slate-200">{currentKing.verdict}</p>
                   </div>
@@ -529,11 +529,11 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
                 {/* Full Scripture Passage */}
                 {loadingPassage ? (
-                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30 text-center">
+                  <div className="bg-slate-700/50 rounded-xl p-6 text-center">
                     <p className="text-slate-400">Loading scripture passage...</p>
                   </div>
                 ) : scripturePassage ? (
-                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-green-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-6">
                     <h3 className="text-xl font-bold text-green-300 mb-3 flex items-center gap-2">
                       <Scroll size={24} />
                       Full Scripture Passage ({currentKing.scripture})
@@ -807,7 +807,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
               {isStudyMode && (
                 <div className="space-y-6 mb-8">
                   {/* Description */}
-                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-6">
                     <h3 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
                       <Scroll size={24} />
                       Prophetic Ministry During This Reign
@@ -817,7 +817,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
                   {/* Prophetic Details */}
                   {currentKing.propheticDetails && (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30">
+                    <div className="bg-slate-700/50 rounded-xl p-6">
                       <h3 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
                         <Star size={24} />
                         Key Prophetic Events
@@ -834,18 +834,18 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   )}
 
                   {/* Scripture */}
-                  <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-purple-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-4">
                     <h4 className="text-sm font-bold text-purple-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
 
                   {/* Full Scripture Passage */}
                   {loadingPassage ? (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30 text-center">
+                    <div className="bg-slate-700/50 rounded-xl p-6 text-center">
                       <p className="text-slate-400">Loading scripture passage...</p>
                     </div>
                   ) : scripturePassage ? (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-purple-500/30">
+                    <div className="bg-slate-700/50 rounded-xl p-6">
                       <h3 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
                         <Scroll size={24} />
                         Full Scripture Passage ({currentKing.scripture})
@@ -1120,7 +1120,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
               {isStudyMode && (
                 <div className="space-y-6 mb-8">
                   {/* Description */}
-                  <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-6">
                     <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2">
                       <Scroll size={24} />
                       Historical Overview
@@ -1130,7 +1130,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
                   {/* Key Events */}
                   {currentKing.keyEvents && (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30">
+                    <div className="bg-slate-700/50 rounded-xl p-6">
                       <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2">
                         <Star size={24} />
                         Key Events
@@ -1147,18 +1147,18 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   )}
 
                   {/* Scripture */}
-                  <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-blue-500/30">
+                  <div className="bg-slate-700/50 rounded-xl p-4">
                     <h4 className="text-sm font-bold text-blue-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
 
                   {/* Full Scripture Passage */}
                   {loadingPassage ? (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30 text-center">
+                    <div className="bg-slate-700/50 rounded-xl p-6 text-center">
                       <p className="text-slate-400">Loading scripture passage...</p>
                     </div>
                   ) : scripturePassage ? (
-                    <div className="bg-slate-700/50 rounded-xl p-6 border-2 border-blue-500/30">
+                    <div className="bg-slate-700/50 rounded-xl p-6">
                       <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2">
                         <Scroll size={24} />
                         Full Scripture Passage ({currentKing.scripture})

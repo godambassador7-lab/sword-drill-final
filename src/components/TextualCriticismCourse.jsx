@@ -313,7 +313,7 @@ const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUse
             </p>
 
             {/* Progress Bar */}
-            <div className="bg-slate-900 rounded-xl p-6 border border-purple-500/30">
+            <div className="bg-slate-900 rounded-xl p-6">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-purple-300 font-semibold">Overall Progress</span>
                 <span className="text-white font-bold">
@@ -349,12 +349,12 @@ const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUse
             return (
               <div
                 key={module.id}
-                className={`bg-slate-800 rounded-xl p-6 border-2 transition-all transform hover:scale-105 ${
+                className={`bg-slate-800 rounded-xl p-6 transition-all transform hover:scale-105 ${
                   isCompleted
-                    ? 'border-green-500 bg-gradient-to-br from-slate-800 to-green-900/20'
+                    ? 'bg-gradient-to-br from-slate-800 to-green-900/20'
                     : isUnlocked
-                    ? 'border-purple-500 hover:border-purple-400 cursor-pointer'
-                    : 'border-slate-700 opacity-60'
+                    ? 'cursor-pointer'
+                    : 'opacity-60'
                 }`}
                 onClick={() => isUnlocked && setSelectedModule(module.id)}
               >
@@ -396,7 +396,7 @@ const TextualCriticismCourse = ({ onComplete, onCancel, userId, userData, setUse
         </div>
 
         {/* Course Information */}
-        <div className="mt-6 bg-slate-800 rounded-xl p-6 border border-purple-500/30">
+        <div className="mt-6 bg-slate-800 rounded-xl p-6">
           <div className="flex items-center gap-3 mb-4">
             <Lightbulb size={24} className="text-purple-400" />
             <h2 className="text-xl font-bold text-white">About This Course</h2>

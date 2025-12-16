@@ -349,20 +349,20 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
         {/* Course Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-amber-500/30 text-center">
+          <div className="bg-slate-800/50 rounded-xl p-4 text-center">
             <div className="text-amber-400 text-3xl font-bold">
               {completedLessons.beginner.length + completedLessons.intermediate.length + completedLessons.advanced.length}
             </div>
             <div className="text-slate-300 text-sm">Lessons Completed</div>
           </div>
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-amber-500/30 text-center">
+          <div className="bg-slate-800/50 rounded-xl p-4 text-center">
             <div className="text-amber-400 text-3xl font-bold">
               {[completedLessons.beginner, completedLessons.intermediate, completedLessons.advanced]
                 .filter(level => level.some(id => id.includes('exam'))).length}
             </div>
             <div className="text-slate-300 text-sm">Certifications Earned</div>
           </div>
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-amber-500/30 text-center">
+          <div className="bg-slate-800/50 rounded-xl p-4 text-center">
             <div className="text-amber-400 text-3xl font-bold">3</div>
             <div className="text-slate-300 text-sm">Total Levels</div>
           </div>
@@ -373,10 +373,10 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Beginner Level */}
           <div
             onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('beginner')
-                ? 'border-green-500 hover:border-green-400 hover:scale-105'
-                : 'border-slate-600 opacity-50 cursor-not-allowed'
+                ? 'hover:scale-105'
+                : 'opacity-50 cursor-not-allowed'
             }`}
           >
             <div className="text-center mb-3 sm:mb-4">
@@ -421,10 +421,10 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Intermediate Level */}
           <div
             onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('intermediate')
-                ? 'border-blue-500 hover:border-blue-400 hover:scale-105'
-                : 'border-slate-600 opacity-50 cursor-not-allowed'
+                ? 'hover:scale-105'
+                : 'opacity-50 cursor-not-allowed'
             }`}
           >
             <div className="text-center mb-3 sm:mb-4">
@@ -475,10 +475,10 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Advanced Level */}
           <div
             onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 border-2 transition-all cursor-pointer ${
+            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('advanced')
-                ? 'border-purple-500 hover:border-purple-400 hover:scale-105'
-                : 'border-slate-600 opacity-50 cursor-not-allowed'
+                ? 'hover:scale-105'
+                : 'opacity-50 cursor-not-allowed'
             }`}
           >
             <div className="text-center mb-3 sm:mb-4">

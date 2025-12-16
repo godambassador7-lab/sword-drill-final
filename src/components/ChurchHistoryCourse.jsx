@@ -269,7 +269,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                       <Target size={24} />
                       Key Learning Points
                     </h3>
-                    <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-2 border-purple-500/30 rounded-xl p-4 sm:p-6">
+                    <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl p-4 sm:p-6">
                       <ul className="space-y-4">
                         {lessonData.keyPoints.map((point, index) => (
                           <li key={index} className="flex items-start gap-3">
@@ -329,7 +329,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
               <ArrowLeft size={20} />
               Back to Levels
             </button>
-            <div className="bg-slate-800 rounded-2xl p-6 border-2 border-purple-500">
+            <div className="bg-slate-800 rounded-2xl p-6">
               <h2 className="text-3xl font-bold text-white mb-2">{levelData.title}</h2>
               <p className="text-purple-200 mb-4">{levelData.description}</p>
 
@@ -499,7 +499,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         </div>
 
         {/* Course Info */}
-        <div className="bg-slate-800/50 rounded-xl p-4 sm:p-6 md:p-8 border-2 border-purple-500/30">
+        <div className="bg-slate-800/50 rounded-xl p-4 sm:p-6 md:p-8">
           <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
             <GraduationCap size={28} className="text-purple-400" />
             What You'll Learn

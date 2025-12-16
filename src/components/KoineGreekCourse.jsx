@@ -190,10 +190,10 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* BEGINNER */}
             <div
               onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-              className={`bg-slate-800 rounded-2xl p-6 border-4 transition-all transform hover:scale-105 ${
+              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('beginner')
-                  ? 'border-green-500 cursor-pointer hover:border-green-400 shadow-xl hover:shadow-green-500/50'
-                  : 'border-slate-600 opacity-50 cursor-not-allowed'
+                  ? 'cursor-pointer shadow-xl hover:shadow-green-500/50'
+                  : 'opacity-50 cursor-not-allowed'
               }`}
             >
               <div className="text-center mb-4">
@@ -253,10 +253,10 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* INTERMEDIATE */}
             <div
               onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-              className={`bg-slate-800 rounded-2xl p-6 border-4 transition-all transform hover:scale-105 ${
+              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('intermediate')
-                  ? 'border-blue-500 cursor-pointer hover:border-blue-400 shadow-xl hover:shadow-blue-500/50'
-                  : 'border-slate-600 opacity-50 cursor-not-allowed'
+                  ? 'cursor-pointer shadow-xl hover:shadow-blue-500/50'
+                  : 'opacity-50 cursor-not-allowed'
               }`}
             >
               <div className="text-center mb-4">
@@ -316,10 +316,10 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* ADVANCED */}
             <div
               onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-              className={`bg-slate-800 rounded-2xl p-6 border-4 transition-all transform hover:scale-105 ${
+              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('advanced')
-                  ? 'border-purple-500 cursor-pointer hover:border-purple-400 shadow-xl hover:shadow-purple-500/50'
-                  : 'border-slate-600 opacity-50 cursor-not-allowed'
+                  ? 'cursor-pointer shadow-xl hover:shadow-purple-500/50'
+                  : 'opacity-50 cursor-not-allowed'
               }`}
             >
               <div className="text-center mb-4">
@@ -388,7 +388,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             </button>
           </div>
 
-          <div className="mt-6 bg-gradient-to-r from-amber-900/40 to-orange-900/40 rounded-xl p-6 border border-amber-700/50">
+          <div className="mt-6 bg-gradient-to-r from-amber-900/40 to-orange-900/40 rounded-xl p-6">
             <h3 className="text-xl font-bold text-amber-400 mb-3 flex items-center gap-2">
               <BookOpen size={24} />
               Why Koine Greek?
@@ -445,10 +445,10 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
                 <div
                   key={lesson.id}
                   onClick={() => isUnlocked && setSelectedLesson(lesson)}
-                  className={`bg-slate-800 rounded-xl p-6 border-2 transition-all ${
+                  className={`bg-slate-800 rounded-xl p-6 transition-all ${
                     isUnlocked
-                      ? `${colors.border} cursor-pointer hover:scale-102 hover:shadow-lg`
-                      : 'border-slate-600 opacity-50 cursor-not-allowed'
+                      ? 'cursor-pointer hover:scale-102 hover:shadow-lg'
+                      : 'opacity-50 cursor-not-allowed'
                   } ${isCompleted ? 'bg-gradient-to-r from-slate-800 to-slate-700' : ''}`}
                 >
                   <div className="flex items-center justify-between">
