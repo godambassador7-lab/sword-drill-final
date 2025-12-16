@@ -203,9 +203,9 @@ const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData, in
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-4 pb-24">
+      <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-2 pb-20">
         <div className="max-w-4xl mx-auto">
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             <div className="flex items-center justify-between mb-6">
               <button
                 onClick={handleBackToLevels}
@@ -272,7 +272,7 @@ const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData, in
                 Complete Lesson (+100 points)
               </button>
 
-              <div className="grid grid-cols-2 gap-2 sm:p-4">
+              <div className="grid grid-cols-2 gap-1 sm:p-2">
                 <button
                   onClick={handleLessonComplete}
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-blue-500 hover:to-indigo-500 transition-all flex items-center justify-center gap-2"
@@ -303,7 +303,7 @@ const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData, in
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-4 pb-24">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-2 pb-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <button

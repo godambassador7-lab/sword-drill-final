@@ -263,9 +263,9 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   // Level selection view
   if (!selectedLevel) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
-          <div className="p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -285,7 +285,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
             {/* Overview */}
             <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-6 mb-8">
-              <div className="flex items-start gap-2 sm:p-4">
+              <div className="flex items-start gap-1 sm:p-2">
                 <Shield className="text-amber-400 flex-shrink-0" size={32} />
                 <div>
                   <h3 className="text-xl font-bold text-amber-300 mb-2">About This Course</h3>
@@ -464,7 +464,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="p-8">
+            <div className="p-2 sm:p-3 md:p-4">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -516,12 +516,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                 )}
 
                 {/* Scripture & Verdict */}
-                <div className="grid grid-cols-2 gap-2 sm:p-4">
-                  <div className="bg-slate-700/50 rounded-xl p-4">
+                <div className="grid grid-cols-2 gap-1 sm:p-2">
+                  <div className="bg-slate-700/50 rounded-xl p-2">
                     <h4 className="text-sm font-bold text-green-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
-                  <div className="bg-slate-700/50 rounded-xl p-4">
+                  <div className="bg-slate-700/50 rounded-xl p-2">
                     <h4 className="text-sm font-bold text-green-300 mb-2">God's Verdict</h4>
                     <p className="text-slate-200">{currentKing.verdict}</p>
                   </div>
@@ -538,7 +538,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                       <Scroll size={24} />
                       Full Scripture Passage ({currentKing.scripture})
                     </h3>
-                    <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                    <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-2">
                       <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
                         {scripturePassage.text}
                       </p>
@@ -637,7 +637,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                      score >= 3 ? '👍 Good effort! Review the details and try again.' :
                      '📚 Keep studying! Review the material above.'}
                   </p>
-                  <div className="flex gap-2 sm:p-4">
+                  <div className="flex gap-1 sm:p-2">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -772,7 +772,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="p-8">
+            <div className="p-2 sm:p-3 md:p-4">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -834,7 +834,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   )}
 
                   {/* Scripture */}
-                  <div className="bg-slate-700/50 rounded-xl p-4">
+                  <div className="bg-slate-700/50 rounded-xl p-2">
                     <h4 className="text-sm font-bold text-purple-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
@@ -850,7 +850,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                         <Scroll size={24} />
                         Full Scripture Passage ({currentKing.scripture})
                       </h3>
-                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-2">
                         <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
                           {scripturePassage.text}
                         </p>
@@ -960,7 +960,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                      score >= 3 ? '👍 Good effort! Review the prophetic details and try again.' :
                      '📚 Keep studying! Review the prophetic ministry section above.'}
                   </p>
-                  <div className="flex gap-2 sm:p-4">
+                  <div className="flex gap-1 sm:p-2">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -1085,7 +1085,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="p-8">
+            <div className="p-2 sm:p-3 md:p-4">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -1147,7 +1147,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   )}
 
                   {/* Scripture */}
-                  <div className="bg-slate-700/50 rounded-xl p-4">
+                  <div className="bg-slate-700/50 rounded-xl p-2">
                     <h4 className="text-sm font-bold text-blue-300 mb-2">Scripture Reference</h4>
                     <p className="text-slate-200">{currentKing.scripture}</p>
                   </div>
@@ -1163,7 +1163,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                         <Scroll size={24} />
                         Full Scripture Passage ({currentKing.scripture})
                       </h3>
-                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-4">
+                      <div className="max-h-96 overflow-y-auto bg-slate-800/50 rounded-lg p-2">
                         <p className="text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif">
                           {scripturePassage.text}
                         </p>
@@ -1273,7 +1273,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                      score >= 3 ? '👍 Good effort! Review the events and try again.' :
                      '📚 Keep studying! Review the events section above.'}
                   </p>
-                  <div className="flex gap-2 sm:p-4">
+                  <div className="flex gap-1 sm:p-2">
                     <button
                       onClick={() => {
                         setCurrentQuestionIndex(0);
@@ -1390,7 +1390,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   // Error state
   if (loadError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-1 sm:p-2">
         <div className="p-4 sm:p-6 md:p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-400 mb-4">Error Loading Course</h2>
           <p className="text-white mb-4">{loadError}</p>

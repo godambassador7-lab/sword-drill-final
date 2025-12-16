@@ -151,9 +151,9 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     const isCompleted = completedLessons[selectedLevel]?.includes(selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -318,7 +318,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-6">
@@ -369,7 +369,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 sm:p-4">
+                    <div className="flex items-center gap-1 sm:p-2">
                       <div className="text-4xl">{lesson.icon}</div>
                       <div>
                         <h3 className="text-xl font-bold text-white mb-1">{lesson.title}</h3>
@@ -423,7 +423,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-1 sm:p-2">
       <div className="max-w-6xl mx-auto">
         {/* Course Header */}
         <div className="text-center mb-12">

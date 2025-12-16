@@ -233,9 +233,9 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
     const isCompleted = completedLessons[selectedLevel]?.includes(selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -265,7 +265,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
             {/* Content Area */}
             {lesson?.isExam ? (
               <div className="bg-slate-900/50 rounded-xl p-6 mb-6 text-white space-y-4">
-                <div className="bg-amber-900/30 border border-amber-500/30 rounded-lg p-4">
+                <div className="bg-amber-900/30 border border-amber-500/30 rounded-lg p-2">
                   <h3 className="text-amber-400 font-bold mb-2 flex items-center gap-2">
                     <Trophy size={20} />
                     Certification Exam
@@ -314,7 +314,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
                       You'll learn biblical interpretation principles, proper methodology, and practical application
                       techniques used by scholars and pastors worldwide.
                     </p>
-                    <div className="bg-teal-900/30 border border-teal-500/30 rounded-lg p-4">
+                    <div className="bg-teal-900/30 border border-teal-500/30 rounded-lg p-2">
                       <h3 className="text-teal-400 font-bold mb-2">Learning Objectives:</h3>
                       <ul className="list-disc list-inside space-y-1 text-slate-300">
                         <li>Understand core hermeneutical principles</li>
@@ -362,7 +362,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-2">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
@@ -451,7 +451,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
 
   // Main Course Overview
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">

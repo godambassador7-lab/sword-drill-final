@@ -168,7 +168,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
   // Main Course Overview
   if (!selectedLevel) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
@@ -416,7 +416,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
     const colors = levelColors[selectedLevel];
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-6">
@@ -452,7 +452,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
                   } ${isCompleted ? 'bg-gradient-to-r from-slate-800 to-slate-700' : ''}`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 sm:p-4">
+                    <div className="flex items-center gap-1 sm:p-2">
                       <div className={`text-4xl ${lesson.isExam ? 'animate-pulse' : ''}`}>
                         {lesson.icon}
                       </div>
@@ -523,7 +523,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={handleBackToLessons}
@@ -533,7 +533,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             Back to Lessons
           </button>
 
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">{selectedLesson.icon}</div>
               <h2 className={`text-3xl font-bold ${colors[selectedLevel]} mb-2`}>
@@ -570,7 +570,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
               ) : null}
             </div>
 
-            <div className="mt-8 flex gap-2 sm:p-4">
+            <div className="mt-8 flex gap-1 sm:p-2">
               <button
                 onClick={() => {
                   handleLessonComplete(selectedLesson.id);

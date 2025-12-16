@@ -178,9 +178,9 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     const lesson = lessons.find(l => l.id === selectedLesson);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-2 sm:p-3 md:p-4">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -244,7 +244,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     const progress = getLevelProgress(selectedLevel);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
@@ -302,7 +302,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 sm:p-4">
+                    <div className="flex items-center gap-1 sm:p-2">
                       <div className="text-4xl">{lesson.icon}</div>
                       <div>
                         <h3 className="text-xl font-bold text-white mb-1">{lesson.title}</h3>
@@ -333,7 +333,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
   // Main Course Overview
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-1 sm:p-2">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">

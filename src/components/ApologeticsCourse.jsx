@@ -252,7 +252,7 @@ const ApologeticsCourse = ({ onComplete, onCancel, userId, userData, setUserData
             Learn to give a reasoned defense for your faith with gentleness and respect (1 Peter 3:15)
           </p>
 
-          <div className="bg-slate-700 rounded-lg p-4">
+          <div className="bg-slate-700 rounded-lg p-2">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-semibold">Course Progress</span>
               <span className="text-sm">
