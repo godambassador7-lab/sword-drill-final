@@ -153,7 +153,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -329,7 +329,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
               <ArrowLeft size={20} />
               Back to Levels
             </button>
-            <div className="bg-slate-800 rounded-2xl p-6">
+            <div className="p-6">
               <h2 className="text-3xl font-bold text-white mb-2">{levelData.title}</h2>
               <p className="text-purple-200 mb-4">{levelData.description}</p>
 

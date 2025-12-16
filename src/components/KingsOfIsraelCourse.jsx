@@ -265,7 +265,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-8">
+          <div className="p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -464,7 +464,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-slate-800 rounded-2xl p-8">
+            <div className="p-8">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -772,7 +772,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-slate-800 rounded-2xl p-8">
+            <div className="p-8">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -1085,7 +1085,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       return (
         <div className={`min-h-screen bg-gradient-to-br ${colors.bg} via-slate-900 to-slate-900 p-4`}>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-slate-800 rounded-2xl p-8">
+            <div className="p-8">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <button
@@ -1391,7 +1391,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   if (loadError) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 flex items-center justify-center p-2 sm:p-4">
-        <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 max-w-md">
+        <div className="p-4 sm:p-6 md:p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-400 mb-4">Error Loading Course</h2>
           <p className="text-white mb-4">{loadError}</p>
           <button

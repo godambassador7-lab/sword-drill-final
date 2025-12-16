@@ -190,7 +190,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* BEGINNER */}
             <div
               onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
+              className={`p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('beginner')
                   ? 'cursor-pointer shadow-xl hover:shadow-green-500/50'
                   : 'opacity-50 cursor-not-allowed'
@@ -253,7 +253,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* INTERMEDIATE */}
             <div
               onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
+              className={`p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('intermediate')
                   ? 'cursor-pointer shadow-xl hover:shadow-blue-500/50'
                   : 'opacity-50 cursor-not-allowed'
@@ -316,7 +316,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             {/* ADVANCED */}
             <div
               onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-              className={`bg-slate-800 rounded-2xl p-6 transition-all transform hover:scale-105 ${
+              className={`p-6 transition-all transform hover:scale-105 ${
                 isLevelUnlocked('advanced')
                   ? 'cursor-pointer shadow-xl hover:shadow-purple-500/50'
                   : 'opacity-50 cursor-not-allowed'
@@ -533,7 +533,7 @@ const KoineGreekCourse = ({ onComplete, onCancel, userId, userData, setUserData,
             Back to Lessons
           </button>
 
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">{selectedLesson.icon}</div>
               <h2 className={`text-3xl font-bold ${colors[selectedLevel]} mb-2`}>

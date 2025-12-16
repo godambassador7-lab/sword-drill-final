@@ -246,7 +246,7 @@ const AmharicCourse = ({ onComplete, onCancel, userId, userData, setUserData, in
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 p-4 pb-24">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -476,7 +476,7 @@ const QuizView = ({ quizData, level, onComplete, onBack }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 p-4 flex items-center justify-center">
-      <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full">
+      <div className="p-4 sm:p-6 md:p-8 max-w-2xl w-full">
         <h2 className="text-2xl font-bold text-emerald-400 mb-6">Level Quiz</h2>
         {!showResults ? (
           <>
@@ -505,7 +505,7 @@ const QuizView = ({ quizData, level, onComplete, onBack }) => {
 const ExamView = ({ quizData, level, onComplete, onBack }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-900 to-teal-900 p-4 flex items-center justify-center">
-      <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full">
+      <div className="p-4 sm:p-6 md:p-8 max-w-2xl w-full">
         <h2 className="text-2xl font-bold text-purple-400 mb-6">Level Certification Exam</h2>
         <p className="text-slate-300 mb-6">Complete this exam with 80% or higher to unlock the next level!</p>
         <div className="space-y-4">

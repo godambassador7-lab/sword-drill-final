@@ -180,7 +180,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 p-2 sm:p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <button
@@ -373,7 +373,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Beginner Level */}
           <div
             onClick={() => isLevelUnlocked('beginner') && setSelectedLevel('beginner')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
+            className={`p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('beginner')
                 ? 'hover:scale-105'
                 : 'opacity-50 cursor-not-allowed'
@@ -421,7 +421,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Intermediate Level */}
           <div
             onClick={() => isLevelUnlocked('intermediate') && setSelectedLevel('intermediate')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
+            className={`p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('intermediate')
                 ? 'hover:scale-105'
                 : 'opacity-50 cursor-not-allowed'
@@ -475,7 +475,7 @@ const AncientHebrewCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           {/* Advanced Level */}
           <div
             onClick={() => isLevelUnlocked('advanced') && setSelectedLevel('advanced')}
-            className={`bg-slate-800 rounded-2xl p-4 sm:p-6 transition-all cursor-pointer ${
+            className={`p-4 sm:p-6 transition-all cursor-pointer ${
               isLevelUnlocked('advanced')
                 ? 'hover:scale-105'
                 : 'opacity-50 cursor-not-allowed'
