@@ -176,7 +176,7 @@ const AramaicCourse = ({ onComplete, onCancel, userId, userData, setUserData, in
   if (showExam) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 p-4 flex items-center justify-center">
-        <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-purple-500 max-w-2xl w-full">
+        <div className="bg-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full">
           <h2 className="text-2xl font-bold text-purple-400 mb-6">Level Certification Exam</h2>
           <p className="text-slate-300 mb-6">Complete this exam with 80% or higher to unlock the next level!</p>
           <div className="space-y-4">
