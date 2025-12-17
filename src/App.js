@@ -38,7 +38,9 @@ import {
   FileText,
   AlertTriangle,
   Coins,
-  Shield
+  Shield,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
@@ -98,6 +100,7 @@ import StreakChests from './components/StreakChests';
 import FreeDailyChests from './components/FreeDailyChests';
 import BiblicalCrossword from './components/BiblicalCrossword';
 import SharpAssistant from './services/SharpAssistant';
+import MyLibrary from './components/MyLibrary';
 import CORE from "./core/core/index.js";
 
 const {
@@ -831,7 +834,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     sinaiticus: (localProgress.unlockables?.sinaiticus || remoteProgress.unlockables?.sinaiticus) || false,
     smithDictionary: (localProgress.unlockables?.smithDictionary || remoteProgress.unlockables?.smithDictionary) || false,
     bloodlines: (localProgress.unlockables?.bloodlines || remoteProgress.unlockables?.bloodlines) || false,
-    kjvStrongs: (localProgress.unlockables?.kjvStrongs || remoteProgress.unlockables?.kjvStrongs) || false
+    kjvStrongs: (localProgress.unlockables?.kjvStrongs || remoteProgress.unlockables?.kjvStrongs) || false,
+    bookOfEnoch: (localProgress.unlockables?.bookOfEnoch || remoteProgress.unlockables?.bookOfEnoch) || false,
+    bookOfJubilees: (localProgress.unlockables?.bookOfJubilees || remoteProgress.unlockables?.bookOfJubilees) || false
   };
 
   // Merge quiz history (local + remote)
@@ -977,6 +982,15 @@ const SwordDrillApp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
+  const [expandedMenuSections, setExpandedMenuSections] = useState({
+    train: true,
+    study: true,
+    plansCalendar: true,
+    achievementsRewards: true,
+    profileProgress: true,
+    tutorialHelp: true,
+    settings: true
+  });
   const [verseDetectiveData, setVerseDetectiveData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [email, setEmail] = useState('');
@@ -7364,7 +7378,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
               {/* TRAIN - Practice Review, Personal Verse Bank, and Spiritual Gifts Exam */}
               <div className="pt-2">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Train</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, train: !prev.train }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Train</span>
+                  {expandedMenuSections.train ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.train && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7394,11 +7415,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <Wind size={18} className="text-cyan-400" /> Spiritual Gifts Exam
                   </button>
                 </div>
+                )}
               </div>
 
               {/* STUDY - Bible Reader, Lexicons, Dictionary, Bloodlines, Courses */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Study</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, study: !prev.study }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Study</span>
+                  {expandedMenuSections.study ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.study && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7555,6 +7584,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       <div className="text-xs text-slate-400">1-10 day structured plans</div>
                     </div>
                   </button>
+                  <button
+                    onClick={() => {
+                      setCurrentView('my-library');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-pink-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Book size={18} className="text-purple-400" />
+                    <div className="flex-1">
+                      <div className="font-semibold text-sm">My Library</div>
+                      <div className="text-xs text-slate-400">Apocrypha & ancient texts</div>
+                    </div>
+                  </button>
 
                   {/* Courses Dropdown */}
                   <div className="border-t border-slate-700 pt-2">
@@ -7605,11 +7647,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     )}
                   </div>
                 </div>
+                )}
               </div>
 
               {/* PLANS & CALENDAR */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Plans & Calendar</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, plansCalendar: !prev.plansCalendar }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Plans & Calendar</span>
+                  {expandedMenuSections.plansCalendar ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.plansCalendar && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7630,11 +7680,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <Calendar size={18} className="text-blue-400" /> Activity Calendar
                   </button>
                 </div>
+                )}
               </div>
 
               {/* ACHIEVEMENTS & REWARDS */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Achievements & Rewards</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, achievementsRewards: !prev.achievementsRewards }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Achievements & Rewards</span>
+                  {expandedMenuSections.achievementsRewards ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.achievementsRewards && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7677,11 +7735,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <Flame size={18} className="text-green-400" /> Streak Milestones
                   </button>
                 </div>
+                )}
               </div>
 
               {/* PROFILE & PROGRESS */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Profile & Progress</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, profileProgress: !prev.profileProgress }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Profile & Progress</span>
+                  {expandedMenuSections.profileProgress ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.profileProgress && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7715,11 +7781,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     </div>
                   </button>
                 </div>
+                )}
               </div>
 
               {/* TUTORIAL & HELP */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Tutorial & Help</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, tutorialHelp: !prev.tutorialHelp }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Tutorial & Help</span>
+                  {expandedMenuSections.tutorialHelp ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.tutorialHelp && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7731,11 +7805,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <HelpCircle size={18} className="text-blue-400" /> Tutorials & Help
                   </button>
                 </div>
+                )}
               </div>
 
               {/* SETTINGS */}
               <div className="pt-3">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2">Settings</div>
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, settings: !prev.settings }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Settings</span>
+                  {expandedMenuSections.settings ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.settings && (
                 <div className="space-y-1">
                   <button
                     onClick={() => {
@@ -7747,6 +7829,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <Settings size={18} className="text-slate-400" /> Account & Preferences
                   </button>
                 </div>
+                )}
               </div>
             </nav>
 
@@ -7783,6 +7866,38 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {currentView === 'smith-dictionary' && <SmithDictionaryView />}
         {currentView === 'learning-plan' && <LearningPlansView />}
         {currentView === 'bible-study-plans' && <BibleStudyPlansView />}
+        {currentView === 'my-library' && (
+          <MyLibrary
+            userData={userData}
+            onPurchaseBook={(bookId, cost, bookTitle) => {
+              playChaChing();
+              if (currentUser?.uid) {
+                purchaseUnlockable(currentUser.uid, bookId, cost).then(result => {
+                  if (result.success && result.validatedData) {
+                    setUserData(prev => ({
+                      ...prev,
+                      totalPoints: result.validatedData.totalPoints,
+                      unlockables: result.validatedData.unlockables,
+                      purchaseHistory: [...(prev.purchaseHistory || []), {
+                        item: bookId,
+                        cost: cost,
+                        type: 'book',
+                        timestamp: new Date().toISOString()
+                      }]
+                    }));
+                    showToast(` ${bookTitle} unlocked!`, 'success');
+                  } else {
+                    showToast(result.error || 'Failed to unlock book', 'error');
+                  }
+                }).catch(err => {
+                  showToast('Error: ' + err.message, 'error');
+                });
+              }
+            }}
+            playChaChing={playChaChing}
+            showToast={showToast}
+          />
+        )}
         {currentView === 'calendar' && <CalendarView />}
         {currentView === 'settings' && <SettingsView />}
         {currentView === 'tutorial' && <TutorialHelp onBack={() => setCurrentView('home')} />}
