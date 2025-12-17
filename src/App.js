@@ -60,6 +60,7 @@ import GeezCourse from './components/GeezCourse';
 import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
+import BiblicalCanonCourse from './components/BiblicalCanonCourse';
 import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -591,8 +592,8 @@ const updateStreakData = (isCorrect, quizType, reference, points) => {
   return null; // Don't update streak for incorrect answers
 };
 
-// Daily quiz limiter - 20 quizzes per quiz type per day
-const DAILY_QUIZ_LIMIT = 20;
+// Daily quiz limiter - 5 quizzes per quiz type per day
+const DAILY_QUIZ_LIMIT = 5;
 
 const getDailyQuizCounts = () => {
   const today = localDateString();
@@ -898,6 +899,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const paleoHebrewProgress = remoteProgress.paleoHebrewProgress || localProgress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } };
   const churchHistoryProgress = remoteProgress.churchHistoryProgress || localProgress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
   const textualCriticismProgress = remoteProgress.textualCriticismProgress || localProgress.textualCriticismProgress || { completedModules: [], quizScores: {} };
+  const biblicalCanonProgress = remoteProgress.biblicalCanonProgress || localProgress.biblicalCanonProgress || { completedLessons: [] };
 
   // Merge verse-of-day read timestamp (newest wins)
   const remoteLastVerse = normalizeTimestampValue(remoteProgress.lastVerseOfDayRead);
@@ -941,6 +943,7 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     paleoHebrewProgress,
     churchHistoryProgress,
     textualCriticismProgress,
+    biblicalCanonProgress,
     lastVerseOfDayRead,
     newlyUnlockedAchievements,
     achievementClickHistory,
@@ -966,7 +969,8 @@ const SwordDrillApp = () => {
     'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
     'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
     'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
-    'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' }
+    'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
+    'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' }
   };
 
   const [currentView, setCurrentView] = useState('home');
@@ -3715,7 +3719,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('sword-drill-ultimate');
             }}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:via-yellow-600 hover:to-amber-700 text-slate-900 p-5 rounded-xl border-4 border-amber-400 hover:border-yellow-300 transition-all text-left disabled:opacity-50 shadow-2xl gold-glow"
+            className="w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:via-yellow-600 hover:to-amber-700 text-slate-900 p-5 rounded-xl border-4 border-amber-400 hover:border-yellow-300 transition-all text-left disabled:opacity-50 shadow-2xl shimmer-border"
           >
             <div className="font-bold text-xl flex items-center gap-2">
               <Sword size={24} className="text-amber-900" />
@@ -7277,6 +7281,44 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           background-clip: text;
           filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.3)) drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.8));
         }
+
+        @keyframes shimmer {
+          0% {
+            border-color: rgba(251, 191, 36, 0.3);
+            box-shadow: 0 0 5px rgba(251, 191, 36, 0.2);
+          }
+          50% {
+            border-color: rgba(251, 191, 36, 1);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.6), 0 0 30px rgba(251, 191, 36, 0.4);
+          }
+          100% {
+            border-color: rgba(251, 191, 36, 0.3);
+            box-shadow: 0 0 5px rgba(251, 191, 36, 0.2);
+          }
+        }
+
+        .shimmer-border {
+          animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes locked-shimmer {
+          0% {
+            border-color: rgba(251, 191, 36, 0.2);
+            box-shadow: 0 0 3px rgba(251, 191, 36, 0.1);
+          }
+          50% {
+            border-color: rgba(251, 191, 36, 0.6);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.4), 0 0 25px rgba(251, 191, 36, 0.2);
+          }
+          100% {
+            border-color: rgba(251, 191, 36, 0.2);
+            box-shadow: 0 0 3px rgba(251, 191, 36, 0.1);
+          }
+        }
+
+        .locked-pulse {
+          animation: locked-shimmer 2.5s ease-in-out infinite;
+        }
       `}</style>
 
       <div className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-10" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
@@ -8592,6 +8634,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               // Award points for lesson completion
               const pointsEarned = awardBonusPoints('courseLesson');
               showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
+
+              setUserData(prev => ({
+                ...prev,
+                totalPoints: prev.totalPoints + pointsEarned
+              }));
+
+              // Don't navigate away, stay in course
+            }}
+            onCancel={() => setCurrentView('home')}
+            userId={currentUser?.uid}
+            userData={userData}
+            setUserData={setUserData}
+          />
+        )}
+        {currentView === 'biblical-canon-course' && (
+          <BiblicalCanonCourse
+            onComplete={(results) => {
+              console.log('Biblical Canon course results:', results);
+
+              // Award points for lesson completion
+              const pointsEarned = awardBonusPoints('courseLesson');
+              showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Canon lesson!`, 'success');
 
               setUserData(prev => ({
                 ...prev,

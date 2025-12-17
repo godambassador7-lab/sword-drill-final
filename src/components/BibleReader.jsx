@@ -927,7 +927,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
               <p className="text-slate-400">Loading chapter...</p>
             </div>
           ) : selectedBook && chapterContent.length > 0 ? (
-            <div className="relative bg-slate-800/50 rounded-lg p-2 md:p-4 max-h-96 overflow-y-auto overflow-x-hidden">
+            <div className="relative rounded-lg p-0 max-h-96 overflow-y-auto overflow-x-hidden">
               <div className="sticky top-0 z-40 bg-slate-900 shadow-lg border-b border-slate-700 mb-4 px-2 md:px-4 py-3">
                 {parallelMode ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -957,14 +957,36 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                     filteredVerses.map((verse, index) => {
                       const secondaryVerse = secondaryChapterContent.find(v => v.verse === verse.verse);
                       const inBank = isVerseInBank(verse);
+                      let pressTimer;
+
+                      const handleTouchStart = () => {
+                        pressTimer = setTimeout(() => {
+                          if (!inBank) {
+                            addToPersonalMemoryVerses(verse);
+                          }
+                        }, 500);
+                      };
+
+                      const handleTouchEnd = () => {
+                        clearTimeout(pressTimer);
+                      };
+
                       return (
-                        <div key={index} className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-2 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full">
+                        <div
+                          key={index}
+                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-2 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full"
+                          onTouchStart={handleTouchStart}
+                          onTouchEnd={handleTouchEnd}
+                          onMouseDown={handleTouchStart}
+                          onMouseUp={handleTouchEnd}
+                          onMouseLeave={handleTouchEnd}
+                        >
                           {/* Primary Translation (Left Column) */}
                           <div className="flex gap-2 md:gap-3 w-full">
                             <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                               {verse.verse}
                             </span>
-                            <div className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
+                            <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
                               {activeTranslation === 'KJV_STRONGS' && verse.tokens
                                 ? renderStrongsTokens(verse.tokens)
                                 : verse.text}
@@ -979,30 +1001,12 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                             <span className="text-emerald-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0 md:hidden">
                               {verse.verse}
                             </span>
-                            <div className="text-slate-200 leading-relaxed text-sm md:text-base break-words flex-1">
+                            <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
                               {secondaryTranslation === 'KJV_STRONGS' && secondaryVerse?.tokens
                                 ? renderStrongsTokens(secondaryVerse.tokens)
                                 : (secondaryVerse ? secondaryVerse.text : '...')}
                             </div>
                           </div>
-
-                          {/* Add to Memory Verse Button */}
-                          <button
-                            onClick={() => addToPersonalMemoryVerses(verse)}
-                            disabled={inBank}
-                            className={`absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all p-2 rounded-lg ${
-                              inBank
-                                ? 'bg-emerald-600 cursor-not-allowed'
-                                : 'bg-cyan-600 hover:bg-cyan-700'
-                            }`}
-                            title={inBank ? 'Already in Personal Verse Bank' : 'Add to Personal Memory Verse'}
-                          >
-                            {inBank ? (
-                              <BookOpen size={16} className="text-white" />
-                            ) : (
-                              <BookmarkPlus size={16} className="text-white" />
-                            )}
-                          </button>
                         </div>
                       );
                     })
@@ -1013,32 +1017,38 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                 <div className="space-y-3 w-full">
                   {filteredVerses.map((verse, index) => {
                     const inBank = isVerseInBank(verse);
+                    let pressTimer;
+
+                    const handleTouchStart = () => {
+                      pressTimer = setTimeout(() => {
+                        if (!inBank) {
+                          addToPersonalMemoryVerses(verse);
+                        }
+                      }, 500);
+                    };
+
+                    const handleTouchEnd = () => {
+                      clearTimeout(pressTimer);
+                    };
+
                     return (
-                      <div key={index} className="group relative flex gap-2 md:gap-3 hover:bg-slate-700/30 p-2 md:p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full">
+                      <div
+                        key={index}
+                        className="group relative flex gap-2 md:gap-3 hover:bg-slate-700/30 p-2 md:p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full"
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
+                        onMouseDown={handleTouchStart}
+                        onMouseUp={handleTouchEnd}
+                        onMouseLeave={handleTouchEnd}
+                      >
                         <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
                           {verse.verse}
                         </span>
-                        <div className="text-slate-200 leading-relaxed text-sm md:text-base flex-1 break-words">
+                        <div className="text-slate-200 leading-relaxed text-base md:text-base flex-1 break-words">
                           {activeTranslation === 'KJV_STRONGS' && verse.tokens
                             ? renderStrongsTokens(verse.tokens)
                             : verse.text}
                         </div>
-                        <button
-                          onClick={() => addToPersonalMemoryVerses(verse)}
-                          disabled={inBank}
-                          className={`opacity-0 group-hover:opacity-100 transition-all p-2 rounded-lg ${
-                            inBank
-                              ? 'bg-emerald-600 cursor-not-allowed'
-                              : 'bg-cyan-600 hover:bg-cyan-700'
-                          }`}
-                          title={inBank ? 'Already in Personal Verse Bank' : 'Add to Personal Memory Verse'}
-                        >
-                          {inBank ? (
-                            <BookOpen size={16} className="text-white" />
-                          ) : (
-                            <BookmarkPlus size={16} className="text-white" />
-                          )}
-                        </button>
                       </div>
                     );
                   })}

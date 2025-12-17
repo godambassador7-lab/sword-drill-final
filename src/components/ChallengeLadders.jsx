@@ -137,6 +137,65 @@ const ChallengeLadders = ({ onBack, userData, setUserData, onStartQuiz }) => {
           </p>
         </div>
 
+        {/* How It Works Explanation */}
+        <div className="bg-slate-800/50 rounded-xl p-6 mb-8 border-2 border-purple-500/30">
+          <div className="flex items-center gap-3 mb-4">
+            <Target size={28} className="text-purple-400" />
+            <h2 className="text-2xl font-bold text-purple-400">How Challenge Ladders Work</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 text-slate-300">
+            <div>
+              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <BookOpen size={20} className="text-blue-400" />
+                What Are Challenge Ladders?
+              </h3>
+              <p className="text-sm mb-3">
+                Challenge Ladders are themed quiz progressions that test your knowledge of specific Bible sections. Each ladder has 5 levels (called "rungs") that increase in difficulty as you climb.
+              </p>
+
+              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <Trophy size={20} className="text-amber-400" />
+                How to Progress
+              </h3>
+              <ul className="text-sm space-y-1 list-disc list-inside">
+                <li>Start with <span className="text-amber-400 font-bold">Level 1</span> (always unlocked)</li>
+                <li>Complete the quiz to unlock the next level</li>
+                <li>Each level must be completed in order</li>
+                <li>Levels get harder with less time and more content</li>
+                <li>Complete all 5 levels to earn an exclusive badge!</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <Clock size={20} className="text-blue-400" />
+                Time Limits & Points
+              </h3>
+              <p className="text-sm mb-3">
+                Each rung has a time limit (shown in blue) that decreases as you climb. Higher levels give more points (shown in gold) but are more challenging!
+              </p>
+
+              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <Award size={20} className="text-pink-400" />
+                Rewards
+              </h3>
+              <ul className="text-sm space-y-1 list-disc list-inside">
+                <li><span className="text-amber-400 font-bold">Points:</span> 50-250 per level</li>
+                <li><span className="text-green-400 font-bold">Progress:</span> Track your completion</li>
+                <li><span className="text-purple-400 font-bold">Badges:</span> Earn exclusive titles for completing all rungs</li>
+                <li><span className="text-blue-400 font-bold">Knowledge:</span> Master entire sections of Scripture!</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-4 p-4 bg-purple-600/10 rounded-lg border border-purple-500/30">
+            <p className="text-sm text-center text-purple-200">
+              <span className="font-bold">Pro Tip:</span> Green rungs are completed ✓ | Bright rungs are unlocked and ready to play | Dimmed rungs are locked until you complete the previous level
+            </p>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {Object.values(LADDERS).map(ladder => {
             const progress = ladderProgress[ladder.id];

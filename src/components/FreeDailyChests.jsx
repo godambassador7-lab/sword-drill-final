@@ -10,10 +10,12 @@ const localDateString = (date = new Date()) => {
 };
 
 const ECONOMY_POWER_UPS = {
-  DOUBLE_POINTS: { cost: 100, duration: 600000, multiplier: 2, name: 'Double Points' },
-  STREAK_FREEZE: { cost: 150, duration: 86400000, name: 'Streak Freeze' },
-  EXTRA_TIME: { cost: 50, duration: 600000, extraTime: 60, name: 'Extra Time' },
-  POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' }
+  DOUBLE_POINTS: { cost: 50, duration: 600000, multiplier: 2, name: 'Double Points' },
+  STREAK_FREEZE: { cost: 75, duration: 86400000, name: 'Streak Freeze' },
+  EXTRA_TIME: { cost: 25, duration: 600000, extraTime: 60, name: 'Extra Time' },
+  POINT_SHIELD: { cost: 100, duration: 1800000, name: 'Point Shield' },
+  QUIZ_ATTEMPTS_5: { cost: 100, quizAttempts: 5, name: '+5 Quiz Attempts' },
+  QUIZ_ATTEMPTS_10: { cost: 180, quizAttempts: 10, name: '+10 Quiz Attempts' }
 };
 
 const FreeDailyChests = ({ userData, setUserData, userId }) => {
