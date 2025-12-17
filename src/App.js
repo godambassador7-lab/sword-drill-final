@@ -2917,6 +2917,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   let points = calculateQuizPoints(effectiveQuizState.type, isCorrect, userLevel, quizTime, isPerfect, currentProgress, effectiveQuizState.isPersonalVerse);
 
+  // Store the base points for calculating penalty (75% of what would have been gained)
+  const basePointsIfCorrect = calculateQuizPoints(effectiveQuizState.type, true, userLevel, quizTime, isPerfect, currentProgress, effectiveQuizState.isPersonalVerse);
+
   // Apply retry penalty
   const retryCount = userData.retryCount || 0;
   if (retryCount > 0) {
@@ -2932,9 +2935,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   // Wrong answer penalties (only if no point shield active)
   let wrongAnswerPenalty = 0;
   if (!isCorrect && !hasPointShield(userData.activeBoosts || [])) {
-    wrongAnswerPenalty = ECONOMY.WRONG_ANSWER_PENALTY;
+    // Deduct 75% of what they would have gained if correct
+    wrongAnswerPenalty = Math.floor(basePointsIfCorrect * 0.75);
 
-    // Check for rapid-fire wrong answer
+    // Check for rapid-fire wrong answer - add additional penalty
     const now = Date.now();
     const lastWrong = userData.lastWrongAnswerTime || 0;
     if (now - lastWrong < ECONOMY.RAPID_FIRE_WINDOW) {
@@ -3631,6 +3635,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           userData={userData}
           setUserData={setUserData}
           userId={currentUser?.uid}
+          showToast={showToast}
         />
       </div>
 

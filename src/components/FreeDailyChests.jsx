@@ -18,7 +18,7 @@ const ECONOMY_POWER_UPS = {
   QUIZ_ATTEMPTS_10: { cost: 180, quizAttempts: 10, name: '+10 Quiz Attempts' }
 };
 
-const FreeDailyChests = ({ userData, setUserData, userId }) => {
+const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
   const [dailyChestsData, setDailyChestsData] = useState({});
   const [opening, setOpening] = useState(null);
 
@@ -152,7 +152,12 @@ const FreeDailyChests = ({ userData, setUserData, userId }) => {
           message += `⚡ ${config.name} x${pu.quantity}\n`;
         });
       }
-      alert(message);
+
+      if (showToast) {
+        showToast(message, 'success');
+      } else {
+        alert(message);
+      }
 
       setOpening(null);
     }, 500);
