@@ -101,6 +101,11 @@ import FreeDailyChests from './components/FreeDailyChests';
 import BiblicalCrossword from './components/BiblicalCrossword';
 import SharpAssistant from './services/SharpAssistant';
 import MyLibrary from './components/MyLibrary';
+import FocusCovenant from './components/FocusCovenant';
+import FocusPauseOverlay from './components/FocusPauseOverlay';
+import GuidedAccessInstructions from './components/GuidedAccessInstructions';
+import FocusScoreResults from './components/FocusScoreResults';
+import useFocusTracking from './hooks/useFocusTracking';
 import CORE from "./core/core/index.js";
 
 const {
@@ -1134,6 +1139,17 @@ const SwordDrillApp = () => {
   const [genericToastType, setGenericToastType] = useState('success');
   const timerIntervalRef = useRef(null);
 
+  // Focus Integrity System
+  const [showFocusCovenant, setShowFocusCovenant] = useState(false);
+  const [showGuidedAccess, setShowGuidedAccess] = useState(false);
+  const [examMode, setExamMode] = useState(false);
+  const [focusEnabled, setFocusEnabled] = useState(false);
+  const [showFocusScore, setShowFocusScore] = useState(false);
+  const [pendingQuizType, setPendingQuizType] = useState(null);
+
+  // Use focus tracking hook
+  const focusTracking = useFocusTracking(focusEnabled && quizState !== null, examMode);
+
   // Enhanced Review Modal and Memory Tips
   const [showEnhancedReview, setShowEnhancedReview] = useState(false);
   const [failedQuizData, setFailedQuizData] = useState(null);
@@ -2065,6 +2081,33 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   const picked = pool[Math.floor(Math.random() * pool.length)];
   return picked || DEFAULT_VERSE_FALLBACK.reference;
 };
+  // Start quiz with covenant
+  const startQuizWithCovenant = (type, usePersonalVerses = false) => {
+    setPendingQuizType({ type, usePersonalVerses });
+    setShowFocusCovenant(true);
+  };
+
+  const handleCovenantAccept = () => {
+    setShowFocusCovenant(false);
+    setShowGuidedAccess(true);
+  };
+
+  const handleGuidedAccessConfirm = () => {
+    setShowGuidedAccess(false);
+    setFocusEnabled(true);
+    if (pendingQuizType) {
+      startQuiz(pendingQuizType.type, pendingQuizType.usePersonalVerses);
+    }
+  };
+
+  const handleGuidedAccessSkip = () => {
+    setShowGuidedAccess(false);
+    setFocusEnabled(true);
+    if (pendingQuizType) {
+      startQuiz(pendingQuizType.type, pendingQuizType.usePersonalVerses);
+    }
+  };
+
   const startQuiz = async (type, usePersonalVerses = false) => {
     // Check daily quiz limit (skip for personal verses - they're practice and award minimal points)
     if (!usePersonalVerses && !canTakeQuiz(type)) {
@@ -2072,6 +2115,9 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       showToast(`Daily limit reached!\n\nYou've completed ${DAILY_QUIZ_LIMIT} ${type} quizzes today.\nCome back tomorrow for more!`, 'error');
       return;
     }
+
+    // Reset focus tracking for new quiz
+    focusTracking.reset();
 
     setLoading(true);
 
@@ -3643,7 +3689,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <h3 className="text-xl font-bold text-amber-400 mb-4">Start Training</h3>
         <div className="space-y-3">
           <button
-  onClick={() => startQuiz('fill-blank')}
+  onClick={() => startQuizWithCovenant('fill-blank')}
   disabled={loading || !canTakeQuiz('fill-blank')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
 >
@@ -3663,7 +3709,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   </div>
 </button>
           <button
-            onClick={() => startQuiz('multiple-choice')}
+            onClick={() => startQuizWithCovenant('multiple-choice')}
             disabled={loading || !canTakeQuiz('multiple-choice')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -3676,7 +3722,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-slate-400 text-sm">Identify the correct reference</div>
           </button>
           <button
-            onClick={() => startQuiz('reference-recall')}
+            onClick={() => startQuizWithCovenant('reference-recall')}
             disabled={loading || !canTakeQuiz('reference-recall')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -3689,7 +3735,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-slate-400 text-sm">Name the verse reference</div>
           </button>
           <button
-            onClick={() => startQuiz('verse-scramble')}
+            onClick={() => startQuizWithCovenant('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
             className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -9484,6 +9530,37 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Focus Covenant Modal */}
+      {showFocusCovenant && (
+        <FocusCovenant
+          onAccept={handleCovenantAccept}
+          onCancel={() => {
+            setShowFocusCovenant(false);
+            setPendingQuizType(null);
+          }}
+          mode="quiz"
+        />
+      )}
+
+      {/* Guided Access Instructions */}
+      {showGuidedAccess && (
+        <GuidedAccessInstructions
+          onConfirm={handleGuidedAccessConfirm}
+          onSkip={handleGuidedAccessSkip}
+        />
+      )}
+
+      {/* Focus Pause Overlay */}
+      {focusEnabled && !focusTracking.hasFocus && quizState && (
+        <div onClick={() => window.focus()}>
+          <FocusPauseOverlay
+            focusBreaks={focusTracking.focusBreakCount}
+            secondsAway={focusTracking.totalSecondsAway}
+            examMode={examMode}
+          />
         </div>
       )}
 
