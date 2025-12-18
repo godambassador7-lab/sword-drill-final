@@ -106,6 +106,10 @@ import FocusPauseOverlay from './components/FocusPauseOverlay';
 import GuidedAccessInstructions from './components/GuidedAccessInstructions';
 import FocusScoreResults from './components/FocusScoreResults';
 import useFocusTracking from './hooks/useFocusTracking';
+import StreakRedemptionOffer from './components/StreakRedemptionOffer';
+import CourseWithFocus from './components/CourseWithFocus';
+import { FocusProvider } from './contexts/FocusContext';
+import AcademyAbout from './components/AcademyAbout';
 import CORE from "./core/core/index.js";
 
 const {
@@ -1207,6 +1211,8 @@ const SwordDrillApp = () => {
     versesMemorized: 0,
     quizzesCompleted: 0,
     currentStreak: 0, // Will be loaded from localStorage in useEffect to prevent bouncing
+    streakLostAt: null, // Timestamp when streak was lost (for 24-hour redemption window)
+    lastKnownStreak: 0, // Store the streak value before it was lost
     totalPoints: 0,
     achievements: [],
     selectedTranslation: 'KJV',
@@ -1313,6 +1319,36 @@ const SwordDrillApp = () => {
   const [focusEnabled, setFocusEnabled] = useState(false);
   const [showFocusScore, setShowFocusScore] = useState(false);
   const [pendingQuizType, setPendingQuizType] = useState(null);
+
+  // Streak Redemption System
+  const [showStreakRedemption, setShowStreakRedemption] = useState(false);
+
+  // Monitor for streak loss and show redemption offer
+  useEffect(() => {
+    const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+    if (userData.streakLostAt && userData.lastKnownStreak > 0) {
+      const elapsed = Date.now() - userData.streakLostAt;
+
+      // Only show if within 24 hours and modal isn't already shown
+      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption) {
+        // Delay showing the modal slightly to avoid overwhelming the user
+        const timer = setTimeout(() => {
+          setShowStreakRedemption(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+
+      // If expired, clear the streakLostAt
+      if (elapsed >= TWENTY_FOUR_HOURS) {
+        setUserData(prev => ({
+          ...prev,
+          streakLostAt: null,
+          lastKnownStreak: 0
+        }));
+      }
+    }
+  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
 
   // Use focus tracking hook
   const focusTracking = useFocusTracking(focusEnabled && quizState !== null, examMode);
@@ -1424,10 +1460,21 @@ const SwordDrillApp = () => {
     // Set up focus listener to recalculate when user returns to app
     const handleFocus = () => {
       const currentCalculatedStreak = calculateCurrentStreak();
-      setUserData(prev => ({
-        ...prev,
-        currentStreak: currentCalculatedStreak
-      }));
+      setUserData(prev => {
+        // Detect if streak was just lost
+        if (prev.currentStreak > 0 && currentCalculatedStreak === 0 && !prev.streakLostAt) {
+          return {
+            ...prev,
+            currentStreak: currentCalculatedStreak,
+            streakLostAt: Date.now(),
+            lastKnownStreak: prev.currentStreak
+          };
+        }
+        return {
+          ...prev,
+          currentStreak: currentCalculatedStreak
+        };
+      });
     };
 
     window.addEventListener('focus', handleFocus);
@@ -2290,6 +2337,48 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     if (pendingQuizType) {
       startQuiz(pendingQuizType.type, pendingQuizType.usePersonalVerses);
     }
+  };
+
+  // Streak Redemption Handlers
+  const handleStreakRedemption = () => {
+    const REDEMPTION_COST = 2000;
+
+    if (userData.totalPoints < REDEMPTION_COST) {
+      showToast('Not enough points to redeem streak!', 'error');
+      return;
+    }
+
+    if (!userData.streakLostAt || !userData.lastKnownStreak) {
+      showToast('No streak available to redeem!', 'error');
+      return;
+    }
+
+    // Deduct points
+    const newPoints = userData.totalPoints - REDEMPTION_COST;
+
+    // Restore streak by backdating today's streak record
+    const todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+    const todayString = localDateString(todayDate);
+
+    const streakData = JSON.parse(localStorage.getItem('streakData') || '{}');
+    streakData[todayString] = { marked: true, timestamp: Date.now() };
+    localStorage.setItem('streakData', JSON.stringify(streakData));
+
+    // Recalculate streak
+    const restoredStreak = calculateCurrentStreak();
+
+    // Update user data
+    setUserData(prev => ({
+      ...prev,
+      currentStreak: restoredStreak,
+      totalPoints: newPoints,
+      streakLostAt: null, // Clear the lost timestamp
+      lastKnownStreak: 0 // Reset
+    }));
+
+    setShowStreakRedemption(false);
+    showToast(`🔥 Streak Restored!\n\nYour ${restoredStreak}-day streak has been redeemed!\n\n-${REDEMPTION_COST} points`, 'success');
   };
 
   const startQuiz = async (type, usePersonalVerses = false) => {
@@ -3873,7 +3962,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <h3 className="text-xl font-bold text-amber-400 mb-4">Start Training</h3>
         <div className="space-y-3">
           <button
-  onClick={() => startQuizWithCovenant('fill-blank')}
+  onClick={() => startQuiz('fill-blank')}
   disabled={loading || !canTakeQuiz('fill-blank')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
 >
@@ -3893,7 +3982,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   </div>
 </button>
           <button
-            onClick={() => startQuizWithCovenant('multiple-choice')}
+            onClick={() => startQuiz('multiple-choice')}
             disabled={loading || !canTakeQuiz('multiple-choice')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -3906,7 +3995,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-slate-400 text-sm">Identify the correct reference</div>
           </button>
           <button
-            onClick={() => startQuizWithCovenant('reference-recall')}
+            onClick={() => startQuiz('reference-recall')}
             disabled={loading || !canTakeQuiz('reference-recall')}
   className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -3919,7 +4008,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-slate-400 text-sm">Name the verse reference</div>
           </button>
           <button
-            onClick={() => startQuizWithCovenant('verse-scramble')}
+            onClick={() => startQuiz('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
             className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
           >
@@ -8027,7 +8116,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     </div>
                   </button>
 
-                  {/* Courses Dropdown */}
+                  {/* Sword Drill Academy */}
                   <div className="border-t border-slate-700 pt-2">
                     <button
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
@@ -8035,14 +8124,30 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     >
                       <GraduationCap size={18} className="text-indigo-400" />
                       <div className="flex-1">
-                        <div className="font-semibold text-sm">Courses</div>
-                        <div className="text-xs text-slate-400">Language & Theology</div>
+                        <div className="font-semibold text-sm">Sword Drill Academy</div>
+                        <div className="text-xs text-slate-400">Courses & Training</div>
                       </div>
                       <span className="text-slate-400">{showCoursesDropdown ? '' : ''}</span>
                     </button>
 
                     {showCoursesDropdown && (
                       <div className="ml-4 mt-1 space-y-1 border-l-2 border-amber-500/30 pl-2">
+                        {/* About Academy */}
+                        <button
+                          onClick={() => {
+                            setCurrentView('academy-about');
+                            setShowMenu(false);
+                          }}
+                          className="w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-2 border border-amber-500/30 mb-2"
+                        >
+                          <BookOpen size={16} className="text-amber-400" />
+                          <div className="flex-1">
+                            <div className="text-sm font-semibold">About the Academy</div>
+                            <div className="text-xs text-slate-400">Program overview & graduation</div>
+                          </div>
+                        </button>
+
+                        {/* Course List */}
                         {[
                           ...Object.entries(COURSE_ADMISSION)
                             .filter(([courseId]) => userData.unlockables?.[`course_${courseId}`])
@@ -8295,6 +8400,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {currentView === 'smith-dictionary' && <SmithDictionaryView />}
         {currentView === 'learning-plan' && <LearningPlansView />}
         {currentView === 'bible-study-plans' && <BibleStudyPlansView />}
+        {currentView === 'academy-about' && (
+          <AcademyAbout onBack={() => setCurrentView('home')} />
+        )}
         {currentView === 'my-library' && (
           <MyLibrary
             userData={userData}
@@ -8767,451 +8875,523 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           />
         )}
         {currentView === 'greek-course' && (
-          <KoineGreekCourse
-            onComplete={(results) => {
-              console.log('Greek course results:', results);
+          <CourseWithFocus
+            CourseComponent={KoineGreekCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Greek course results:', results);
 
-              // Award points for course completion
-              let pointsEarned = 0;
-              if (results.type === 'lesson') {
-                pointsEarned = awardBonusPoints('courseLesson');
-                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                // Award points for course completion
+                let pointsEarned = 0;
+                if (results.type === 'lesson') {
+                  pointsEarned = awardBonusPoints('courseLesson');
+                  showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
-                // Track lesson completion
-                recordQuizAttempt({
-                  verseReference: results.lessonTitle || 'Greek Lesson',
-                  type: 'greek-lesson',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'level') {
-                pointsEarned = awardBonusPoints('courseLevel');
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                  // Track lesson completion
+                  recordQuizAttempt({
+                    verseReference: results.lessonTitle || 'Greek Lesson',
+                    type: 'greek-lesson',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'level') {
+                  pointsEarned = awardBonusPoints('courseLevel');
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
-                // Track level completion
-                recordQuizAttempt({
-                  verseReference: results.levelTitle || 'Greek Level',
-                  type: 'greek-level',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'course') {
-                pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Greek course!`, 'success');
+                  // Track level completion
+                  recordQuizAttempt({
+                    verseReference: results.levelTitle || 'Greek Level',
+                    type: 'greek-level',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'course') {
+                  pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Greek course!`, 'success');
 
-                // Track course completion
-                recordQuizAttempt({
-                  verseReference: 'Greek Course',
-                  type: 'greek-course',
-                  correct: true,
-                  points: pointsEarned
-                });
-              }
+                  // Track course completion
+                  recordQuizAttempt({
+                    verseReference: 'Greek Course',
+                    type: 'greek-course',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="koine-greek"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'hebrew-course' && (
-          <AncientHebrewCourse
-            onComplete={(results) => {
-              console.log('Hebrew course results:', results);
+          <CourseWithFocus
+            CourseComponent={AncientHebrewCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Hebrew course results:', results);
 
-              // Award points for course completion
-              let pointsEarned = 0;
-              if (results.type === 'lesson') {
-                pointsEarned = awardBonusPoints('courseLesson');
-                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                // Award points for course completion
+                let pointsEarned = 0;
+                if (results.type === 'lesson') {
+                  pointsEarned = awardBonusPoints('courseLesson');
+                  showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
-                // Track lesson completion
-                recordQuizAttempt({
-                  verseReference: results.lessonTitle || 'Hebrew Lesson',
-                  type: 'hebrew-lesson',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'level') {
-                pointsEarned = awardBonusPoints('courseLevel');
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                  // Track lesson completion
+                  recordQuizAttempt({
+                    verseReference: results.lessonTitle || 'Hebrew Lesson',
+                    type: 'hebrew-lesson',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'level') {
+                  pointsEarned = awardBonusPoints('courseLevel');
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
-                // Track level completion
-                recordQuizAttempt({
-                  verseReference: results.levelTitle || 'Hebrew Level',
-                  type: 'hebrew-level',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'course') {
-                pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hebrew course!`, 'success');
+                  // Track level completion
+                  recordQuizAttempt({
+                    verseReference: results.levelTitle || 'Hebrew Level',
+                    type: 'hebrew-level',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'course') {
+                  pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hebrew course!`, 'success');
 
-                // Track course completion
-                recordQuizAttempt({
-                  verseReference: 'Hebrew Course',
-                  type: 'hebrew-course',
-                  correct: true,
-                  points: pointsEarned
-                });
-              }
+                  // Track course completion
+                  recordQuizAttempt({
+                    verseReference: 'Hebrew Course',
+                    type: 'hebrew-course',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="ancient-hebrew"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'paleo-hebrew-course' && (
-          <PaleoHebrewCourse
-            onComplete={(results) => {
-              console.log('Paleo Hebrew course results:', results);
+          <CourseWithFocus
+            CourseComponent={PaleoHebrewCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Paleo Hebrew course results:', results);
 
-              // Award points for course completion
-              let pointsEarned = 0;
-              if (results.type === 'lesson') {
-                pointsEarned = awardBonusPoints('courseLesson');
-                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                // Award points for course completion
+                let pointsEarned = 0;
+                if (results.type === 'lesson') {
+                  pointsEarned = awardBonusPoints('courseLesson');
+                  showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
 
-                // Track lesson completion
-                recordQuizAttempt({
-                  verseReference: results.lessonTitle || 'Paleo Hebrew Lesson',
-                  type: 'paleo-hebrew-lesson',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'level') {
-                pointsEarned = awardBonusPoints('courseLevel');
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                  // Track lesson completion
+                  recordQuizAttempt({
+                    verseReference: results.lessonTitle || 'Paleo Hebrew Lesson',
+                    type: 'paleo-hebrew-lesson',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'level') {
+                  pointsEarned = awardBonusPoints('courseLevel');
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
 
-                // Track level completion
-                recordQuizAttempt({
-                  verseReference: results.levelTitle || 'Paleo Hebrew Level',
-                  type: 'paleo-hebrew-level',
-                  correct: true,
-                  points: pointsEarned
-                });
-              } else if (results.type === 'course') {
-                pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Paleo Hebrew course!`, 'success');
+                  // Track level completion
+                  recordQuizAttempt({
+                    verseReference: results.levelTitle || 'Paleo Hebrew Level',
+                    type: 'paleo-hebrew-level',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                } else if (results.type === 'course') {
+                  pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Paleo Hebrew course!`, 'success');
 
-                // Track course completion
-                recordQuizAttempt({
-                  verseReference: 'Paleo Hebrew Course',
-                  type: 'paleo-hebrew-course',
-                  correct: true,
-                  points: pointsEarned
-                });
-              }
+                  // Track course completion
+                  recordQuizAttempt({
+                    verseReference: 'Paleo Hebrew Course',
+                    type: 'paleo-hebrew-course',
+                    correct: true,
+                    points: pointsEarned
+                  });
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="paleo-hebrew"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'amharic-course' && (
-          <AmharicCourse
-            onComplete={(results) => {
-              console.log('Amharic course results:', results);
+          <CourseWithFocus
+            CourseComponent={AmharicCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Amharic course results:', results);
 
-              // Award 100 points for lessons, quiz, and levels
-              const pointsEarned = results.points || 100;
+                // Award 100 points for lessons, quiz, and levels
+                const pointsEarned = results.points || 100;
 
-              if (results.type === 'lesson') {
-                showToast(` Amharic Lesson Complete!\n\n+${pointsEarned} points earned!\n\n mastery in progress!`, 'success');
-              } else if (results.type === 'level') {
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\n! (Success!) You've mastered ${results.levelTitle}!`, 'success');
-              } else if (results.type === 'quiz') {
-                showToast(` Quiz Complete!\n\n+${pointsEarned} points earned!\n\nScore: ${results.score}%`, 'success');
-              }
+                if (results.type === 'lesson') {
+                  showToast(` Amharic Lesson Complete!\n\n+${pointsEarned} points earned!\n\n mastery in progress!`, 'success');
+                } else if (results.type === 'level') {
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\n! (Success!) You've mastered ${results.levelTitle}!`, 'success');
+                } else if (results.type === 'quiz') {
+                  showToast(` Quiz Complete!\n\n+${pointsEarned} points earned!\n\nScore: ${results.score}%`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              // Track completion
-              recordQuizAttempt({
-                verseReference: `Amharic ${results.type}`,
-                type: 'amharic-course',
-                correct: true,
-                points: pointsEarned
-              });
+                // Track completion
+                recordQuizAttempt({
+                  verseReference: `Amharic ${results.type}`,
+                  type: 'amharic-course',
+                  correct: true,
+                  points: pointsEarned
+                });
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="amharic"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'geez-course' && (
-          <GeezCourse
-            onComplete={(results) => {
-              console.log('Ge\'ez course results:', results);
+          <CourseWithFocus
+            CourseComponent={GeezCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Ge\'ez course results:', results);
 
-              // Award 100 points for lessons and levels
-              const pointsEarned = results.points || 100;
+                // Award 100 points for lessons and levels
+                const pointsEarned = results.points || 100;
 
-              if (results.type === 'lesson') {
-                showToast(` Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\n mastery in progress!`, 'success');
-              } else if (results.type === 'level') {
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\n! (Great!) You've mastered ${results.levelTitle}!`, 'success');
-              }
+                if (results.type === 'lesson') {
+                  showToast(` Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\n mastery in progress!`, 'success');
+                } else if (results.type === 'level') {
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\n! (Great!) You've mastered ${results.levelTitle}!`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              // Track completion
-              recordQuizAttempt({
-                verseReference: `Ge'ez ${results.type}`,
-                type: 'geez-course',
-                correct: true,
-                points: pointsEarned
-              });
+                // Track completion
+                recordQuizAttempt({
+                  verseReference: `Ge'ez ${results.type}`,
+                  type: 'geez-course',
+                  correct: true,
+                  points: pointsEarned
+                });
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="geez"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'aramaic-course' && (
-          <AramaicCourse
-            onComplete={(results) => {
-              console.log('Aramaic course results:', results);
+          <CourseWithFocus
+            CourseComponent={AramaicCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Aramaic course results:', results);
 
-              // Award 100 points for lessons and levels
-              const pointsEarned = results.points || 100;
+                // Award 100 points for lessons and levels
+                const pointsEarned = results.points || 100;
 
-              if (results.type === 'lesson') {
-                showToast(` Aramaic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nܐܪܡܝܐ - The language of Jesus!`, 'success');
-              } else if (results.type === 'level') {
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nܫܦܝܪ! (Excellent!) You've mastered ${results.levelTitle}!`, 'success');
-              }
+                if (results.type === 'lesson') {
+                  showToast(` Aramaic Lesson Complete!\n\n+${pointsEarned} points earned!\n\nܐܪܡܝܐ - The language of Jesus!`, 'success');
+                } else if (results.type === 'level') {
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nܫܦܝܪ! (Excellent!) You've mastered ${results.levelTitle}!`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              // Track completion
-              recordQuizAttempt({
-                verseReference: `Aramaic ${results.type}`,
-                type: 'aramaic-course',
-                correct: true,
-                points: pointsEarned
-              });
+                // Track completion
+                recordQuizAttempt({
+                  verseReference: `Aramaic ${results.type}`,
+                  type: 'aramaic-course',
+                  correct: true,
+                  points: pointsEarned
+                });
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData,
+              initialLocation: userData.lastCourseLocation,
+              onLocationChange: persistCourseLocation
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
-            initialLocation={userData.lastCourseLocation}
-            onLocationChange={persistCourseLocation}
+            courseName="aramaic"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'hermeneutics-course' && (
-          <HermeneuticsCourse
-            onComplete={(results) => {
-              console.log('Hermeneutics course results:', results);
+          <CourseWithFocus
+            CourseComponent={HermeneuticsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Hermeneutics course results:', results);
 
-              // Award points for course completion
-              if (results.type === 'lesson') {
-                // Use the new one-time reward system for lessons
-                const result = awardCourseSectionPoints(
-                  userData,
-                  setUserData,
-                  'hermeneutics',
-                  `${results.level}-${results.lessonId}`,
-                  results.lessonTitle
-                );
-                showToast(result.message, 'success');
-              } else if (results.type === 'course-level') {
-                const pointsEarned = awardBonusPoints('courseLevel');
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: prev.totalPoints + pointsEarned
-                }));
-              } else if (results.type === 'course') {
-                const pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hermeneutics course!`, 'success');
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: prev.totalPoints + pointsEarned
-                }));
-              }
+                // Award points for course completion
+                if (results.type === 'lesson') {
+                  // Use the new one-time reward system for lessons
+                  const result = awardCourseSectionPoints(
+                    userData,
+                    setUserData,
+                    'hermeneutics',
+                    `${results.level}-${results.lessonId}`,
+                    results.lessonTitle
+                  );
+                  showToast(result.message, 'success');
+                } else if (results.type === 'course-level') {
+                  const pointsEarned = awardBonusPoints('courseLevel');
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                  setUserData(prev => ({
+                    ...prev,
+                    totalPoints: prev.totalPoints + pointsEarned
+                  }));
+                } else if (results.type === 'course') {
+                  const pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Hermeneutics course!`, 'success');
+                  setUserData(prev => ({
+                    ...prev,
+                    totalPoints: prev.totalPoints + pointsEarned
+                  }));
+                }
 
-              // Don't navigate away, stay in the course
+                // Don't navigate away, stay in the course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="hermeneutics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'kings-of-israel-course' && (
-          <KingsOfIsraelCourse
-            onComplete={(results) => {
-              console.log('Kings of Israel course results:', results);
+          <CourseWithFocus
+            CourseComponent={KingsOfIsraelCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Kings of Israel course results:', results);
 
-              // Award points for completing kings
-              let pointsEarned = 0;
-              if (results.type === 'level') {
-                pointsEarned = awardBonusPoints('courseLevel');
-                const levelName = results.level.charAt(0).toUpperCase() + results.level.slice(1);
-                showToast(` ${levelName} Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've learned about ${results.kings} kings of Israel!`, 'success');
-              }
+                // Award points for completing kings
+                let pointsEarned = 0;
+                if (results.type === 'level') {
+                  pointsEarned = awardBonusPoints('courseLevel');
+                  const levelName = results.level.charAt(0).toUpperCase() + results.level.slice(1);
+                  showToast(` ${levelName} Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've learned about ${results.kings} kings of Israel!`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned,
-                quizzesCompleted: prev.quizzesCompleted + 1
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned,
+                  quizzesCompleted: prev.quizzesCompleted + 1
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="kings-of-israel"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'church-history-course' && (
-          <ChurchHistoryCourse
-            onComplete={(results) => {
-              console.log('Church History course results:', results);
+          <CourseWithFocus
+            CourseComponent={ChurchHistoryCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Church History course results:', results);
 
-              // Award points for course completion
-              let pointsEarned = 0;
-              if (results.type === 'lesson') {
-                pointsEarned = awardBonusPoints('courseLesson');
-                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
-              } else if (results.type === 'level') {
-                pointsEarned = awardBonusPoints('courseLevel');
-                showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
-              } else if (results.type === 'course') {
-                pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Church History & Bible Culture course!`, 'success');
-              }
+                // Award points for course completion
+                let pointsEarned = 0;
+                if (results.type === 'lesson') {
+                  pointsEarned = awardBonusPoints('courseLesson');
+                  showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!`, 'success');
+                } else if (results.type === 'level') {
+                  pointsEarned = awardBonusPoints('courseLevel');
+                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\nYou've mastered this level!`, 'success');
+                } else if (results.type === 'course') {
+                  pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Church History & Bible Culture course!`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="church-history"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'textual-criticism-course' && (
-          <TextualCriticismCourse
-            onComplete={(results) => {
-              console.log('Textual Criticism course results:', results);
+          <CourseWithFocus
+            CourseComponent={TextualCriticismCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Textual Criticism course results:', results);
 
-              // Award points for course completion
-              let pointsEarned = 0;
-              if (results.type === 'module') {
-                pointsEarned = awardBonusPoints('courseLesson');
-                showToast(` Module Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this module!`, 'success');
-              } else if (results.type === 'course') {
-                pointsEarned = awardBonusPoints('courseComplete');
-                showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Textual Criticism course!`, 'success');
-              }
+                // Award points for course completion
+                let pointsEarned = 0;
+                if (results.type === 'module') {
+                  pointsEarned = awardBonusPoints('courseLesson');
+                  showToast(` Module Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this module!`, 'success');
+                } else if (results.type === 'course') {
+                  pointsEarned = awardBonusPoints('courseComplete');
+                  showToast(` Course Complete!\n\n+${pointsEarned} points earned!\n\nCongratulations on completing the Textual Criticism course!`, 'success');
+                }
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              setCurrentView('home');
+                setCurrentView('home');
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="textual-criticism"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'apologetics-course' && (
-          <ApologeticsCourse
-            onComplete={(results) => {
-              console.log('Apologetics course results:', results);
+          <CourseWithFocus
+            CourseComponent={ApologeticsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Apologetics course results:', results);
 
-              // Award points for lesson completion
-              const pointsEarned = awardBonusPoints('courseLesson');
-              showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this apologetics lesson!`, 'success');
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              // Don't navigate away, stay in course
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="apologetics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'biblical-canon-course' && (
-          <BiblicalCanonCourse
-            onComplete={(results) => {
-              console.log('Biblical Canon course results:', results);
+          <CourseWithFocus
+            CourseComponent={BiblicalCanonCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Biblical Canon course results:', results);
 
-              // Award points for lesson completion
-              const pointsEarned = awardBonusPoints('courseLesson');
-              showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Canon lesson!`, 'success');
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Canon lesson!`, 'success');
 
-              setUserData(prev => ({
-                ...prev,
-                totalPoints: prev.totalPoints + pointsEarned
-              }));
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
 
-              // Don't navigate away, stay in course
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
             }}
-            onCancel={() => setCurrentView('home')}
-            userId={currentUser?.uid}
-            userData={userData}
-            setUserData={setUserData}
+            courseName="biblical-canon"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
           />
         )}
         {currentView === 'targum-jonathan-reader' && (
@@ -9928,6 +10108,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <GuidedAccessInstructions
           onConfirm={handleGuidedAccessConfirm}
           onSkip={handleGuidedAccessSkip}
+        />
+      )}
+
+      {/* Streak Redemption Offer */}
+      {showStreakRedemption && userData.streakLostAt && (
+        <StreakRedemptionOffer
+          userData={userData}
+          onPurchase={handleStreakRedemption}
+          onDismiss={() => setShowStreakRedemption(false)}
         />
       )}
 

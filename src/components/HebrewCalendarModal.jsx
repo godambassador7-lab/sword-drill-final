@@ -305,6 +305,7 @@ const HebrewCalendarModal = ({ onClose }) => {
                 }
 
                 const hasFeast = !!feastInfo;
+                const isTodayFeast = isToday && hasFeast;
 
                 return (
                   <div
@@ -319,7 +320,9 @@ const HebrewCalendarModal = ({ onClose }) => {
                       justify-between
                       transition-all
                       duration-200
-                      ${isToday
+                      ${isTodayFeast
+                        ? 'bg-gradient-to-br from-amber-600/80 to-yellow-600/80 border-2 border-amber-300 text-white shadow-xl shadow-amber-500/40 animate-pulse'
+                        : isToday
                         ? 'bg-blue-900/60 border-2 border-blue-400 text-blue-100 shadow-lg shadow-blue-500/20'
                         : hasFeast
                         ? 'bg-gradient-to-br from-purple-900/60 to-blue-900/60 border-2 border-purple-500/50 text-purple-100'
