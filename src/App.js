@@ -212,7 +212,8 @@ const ECONOMY = {
     DOUBLE_POINTS: { cost: 100, duration: 600000, multiplier: 2, name: 'Double Points' }, // 10 min
     STREAK_FREEZE: { cost: 150, duration: 86400000, name: 'Streak Freeze' }, // 24 hours
     EXTRA_TIME: { cost: 50, duration: 600000, extraTime: 60, name: 'Extra Time' }, // 10 min, +60sec
-    POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' } // 30 min, no penalties
+    POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' }, // 30 min, no penalties
+    STREAK_REDEMPTION: { cost: 2000, name: 'Streak Redemption', special: true } // Restore lost streak within 24hr
   }
 };
 
@@ -6308,6 +6309,61 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     const purchasePowerUp = (powerUpType) => {
       const powerUp = ECONOMY.POWER_UPS[powerUpType];
 
+      // Special handling for Streak Redemption
+      if (powerUpType === 'STREAK_REDEMPTION') {
+        const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+        if (!userData.streakLostAt || !userData.lastKnownStreak) {
+          showToast('❌ No lost streak to redeem!', 'error');
+          return;
+        }
+
+        const elapsed = Date.now() - userData.streakLostAt;
+        if (elapsed >= TWENTY_FOUR_HOURS) {
+          showToast('❌ 24-hour redemption window expired!', 'error');
+          return;
+        }
+
+        if (userData.totalPoints < powerUp.cost) {
+          showToast(`Not enough points! Need ${powerUp.cost} points.`, 'error');
+          return;
+        }
+
+        // Restore the streak
+        playChaChing();
+        const newPoints = userData.totalPoints - powerUp.cost;
+        const restoredStreak = userData.lastKnownStreak;
+
+        // Mark streak days in localStorage
+        const streakData = JSON.parse(localStorage.getItem('streakData') || '{}');
+        for (let i = 0; i < restoredStreak; i++) {
+          const date = new Date();
+          date.setDate(date.getDate() - i);
+          const dateString = date.toISOString().split('T')[0];
+          if (!streakData[dateString]) {
+            streakData[dateString] = { marked: true, quizzesDone: 1 };
+          }
+        }
+        localStorage.setItem('streakData', JSON.stringify(streakData));
+
+        const updatedData = {
+          ...userData,
+          currentStreak: restoredStreak,
+          totalPoints: newPoints,
+          streakLostAt: null,
+          lastKnownStreak: 0
+        };
+
+        setUserData(updatedData);
+
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, updatedData);
+        }
+
+        showToast(`🔥 ${restoredStreak}-day streak restored!`, 'success');
+        return;
+      }
+
       if (userData.totalPoints < powerUp.cost) {
         showToast(`Not enough points! Need ${powerUp.cost} points.`, 'error');
         return;
@@ -6488,6 +6544,54 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 : 'Purchase'}
             </button>
           </div>
+
+          {/* Streak Redemption */}
+          {(() => {
+            const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+            const hasLostStreak = userData.streakLostAt && userData.lastKnownStreak;
+            const elapsed = hasLostStreak ? (Date.now() - userData.streakLostAt) : TWENTY_FOUR_HOURS;
+            const isExpired = elapsed >= TWENTY_FOUR_HOURS;
+            const isAvailable = hasLostStreak && !isExpired;
+            const hoursLeft = isAvailable ? Math.floor((TWENTY_FOUR_HOURS - elapsed) / (60 * 60 * 1000)) : 0;
+            const minutesLeft = isAvailable ? Math.floor(((TWENTY_FOUR_HOURS - elapsed) % (60 * 60 * 1000)) / (60 * 1000)) : 0;
+
+            return (
+              <div className={`bg-gradient-to-br ${isAvailable ? 'from-red-900/40 to-orange-900/40 border-red-600/50' : 'from-slate-900/40 to-slate-800/40 border-slate-700/50'} rounded-xl p-6 border-2 ${!isAvailable ? 'opacity-60' : ''}`}>
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <Flame size={28} className={isAvailable ? "text-red-400" : "text-slate-500"} />
+                    <div>
+                      <h3 className={`text-xl font-bold ${isAvailable ? 'text-red-300' : 'text-slate-400'}`}>Streak Redemption</h3>
+                      <p className={`text-sm ${isAvailable ? 'text-red-200' : 'text-slate-500'}`}>
+                        {hasLostStreak ? `Restore your ${userData.lastKnownStreak}-day streak` : 'Available when streak is lost'}
+                      </p>
+                      {isAvailable && (
+                        <p className="text-green-400 text-xs mt-1 font-semibold">⏰ {hoursLeft}h {minutesLeft}m remaining</p>
+                      )}
+                      {hasLostStreak && isExpired && (
+                        <p className="text-red-400 text-xs mt-1 font-semibold">❌ 24hr window expired</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost} pts</div>
+                    <div className={`text-xs ${isAvailable ? 'text-red-300' : 'text-slate-500'}`}>One-time use</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => purchasePowerUp('STREAK_REDEMPTION')}
+                  disabled={!isAvailable || userData.totalPoints < ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost}
+                  className={`w-full font-bold py-3 rounded-lg transition-all ${
+                    isAvailable && userData.totalPoints >= ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost
+                      ? 'bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white'
+                      : 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                  }`}
+                >
+                  {!hasLostStreak ? 'No Lost Streak' : isExpired ? 'Window Expired' : 'Redeem Streak'}
+                </button>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Permanent Unlockables Section */}
