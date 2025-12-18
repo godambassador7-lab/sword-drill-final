@@ -69,14 +69,19 @@ const AcademyAbout = ({ onBack }) => {
     'Pass all course assessments and final exams'
   ];
 
+  const crestLogo = `${process.env.PUBLIC_URL || ''}/imageedit_1_3946066529.png`;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-200 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl p-8 mb-8 shadow-2xl">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <GraduationCap size={48} className="text-white" />
-            <h1 className="text-4xl md:text-5xl font-bold text-white">Sword Drill Academy</h1>
+          <div className="flex items-center justify-center mb-4">
+            <img
+              src={crestLogo}
+              alt="Sword Drill Academy crest"
+              className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-lg"
+            />
           </div>
           <p className="text-center text-amber-100 text-lg max-w-3xl mx-auto">
             A comprehensive Biblical studies program designed to equip you with deep knowledge of Scripture,
@@ -163,22 +168,22 @@ const AcademyAbout = ({ onBack }) => {
 
           <div className="space-y-6">
             {/* Certificate */}
-            <div className="bg-slate-800/50 rounded-lg p-6 border-2 border-amber-500/30">
-              <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg p-4">
-                  <Scroll size={32} className="text-white" />
+            <div className="bg-slate-800/50 rounded-lg p-4 md:p-6 border-2 border-amber-500/30">
+              <div className="flex flex-col md:flex-row items-start gap-4">
+                <div className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg p-3 md:p-4 mx-auto md:mx-0">
+                  <Scroll size={28} className="text-white md:w-8 md:h-8" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-amber-400 mb-2">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl md:text-2xl font-bold text-amber-400 mb-2">
                     Certificate of Completion
                   </h3>
-                  <p className="text-slate-300 mb-3">
+                  <p className="text-slate-300 mb-3 text-sm md:text-base">
                     Receive a beautifully designed virtual certificate recognizing your achievement in completing
                     the Sword Drill Academy Biblical Studies program. This certificate demonstrates your commitment
                     to excellence in biblical scholarship and theological education.
                   </p>
                   <div className="bg-amber-600/20 border border-amber-500/30 rounded-lg p-3 inline-block">
-                    <p className="text-amber-300 text-sm font-semibold">
+                    <p className="text-amber-300 text-xs md:text-sm font-semibold">
                       🎓 Certificate in Biblical Studies
                     </p>
                   </div>
@@ -187,21 +192,21 @@ const AcademyAbout = ({ onBack }) => {
             </div>
 
             {/* Points Reward */}
-            <div className="bg-slate-800/50 rounded-lg p-6 border-2 border-emerald-500/30">
-              <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-lg p-4">
-                  <Coins size={32} className="text-white" />
+            <div className="bg-slate-800/50 rounded-lg p-4 md:p-6 border-2 border-emerald-500/30">
+              <div className="flex flex-col md:flex-row items-start gap-4">
+                <div className="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-lg p-3 md:p-4 mx-auto md:mx-0">
+                  <Coins size={28} className="text-white md:w-8 md:h-8" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-2">
                     Graduation Gift: 5,000 Points
                   </h3>
-                  <p className="text-slate-300 mb-3">
+                  <p className="text-slate-300 mb-3 text-sm md:text-base">
                     Celebrate your graduation with a special one-time bonus of 5,000 points! Use these points
                     to unlock advanced features, purchase power-ups, or invest in your continued learning journey.
                   </p>
-                  <div className="bg-emerald-600/20 border border-emerald-500/30 rounded-lg p-4 inline-block">
-                    <p className="text-emerald-300 text-3xl font-bold">
+                  <div className="bg-emerald-600/20 border border-emerald-500/30 rounded-lg p-3 md:p-4 inline-block">
+                    <p className="text-emerald-300 text-2xl md:text-3xl font-bold">
                       +5,000 💰
                     </p>
                   </div>
@@ -210,16 +215,16 @@ const AcademyAbout = ({ onBack }) => {
             </div>
 
             {/* Elite Status */}
-            <div className="bg-slate-800/50 rounded-lg p-6 border-2 border-purple-500/30">
-              <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg p-4">
-                  <GraduationCap size={32} className="text-white" />
+            <div className="bg-slate-800/50 rounded-lg p-4 md:p-6 border-2 border-purple-500/30">
+              <div className="flex flex-col md:flex-row items-start gap-4">
+                <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg p-3 md:p-4 mx-auto md:mx-0">
+                  <GraduationCap size={28} className="text-white md:w-8 md:h-8" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-purple-400 mb-2">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl md:text-2xl font-bold text-purple-400 mb-2">
                     Academy Graduate Status
                   </h3>
-                  <p className="text-slate-300">
+                  <p className="text-slate-300 text-sm md:text-base">
                     Join the elite ranks of Sword Drill Academy graduates. Your profile will display a special
                     graduation badge, and you'll unlock exclusive content and advanced study materials available
                     only to academy graduates.
