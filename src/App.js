@@ -2251,10 +2251,27 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   // Start quiz with covenant
   const startQuizWithCovenant = (type, usePersonalVerses = false) => {
     setPendingQuizType({ type, usePersonalVerses });
+
+    // Check if covenant was shown in the last hour
+    const lastCovenantTime = localStorage.getItem('lastFocusCovenantTime');
+    const oneHourInMs = 60 * 60 * 1000;
+
+    if (lastCovenantTime) {
+      const timeSinceLastCovenant = Date.now() - parseInt(lastCovenantTime);
+      if (timeSinceLastCovenant < oneHourInMs) {
+        // Skip covenant, go straight to guided access
+        setShowGuidedAccess(true);
+        return;
+      }
+    }
+
+    // Show covenant if more than 1 hour has passed or never shown
     setShowFocusCovenant(true);
   };
 
   const handleCovenantAccept = () => {
+    // Save timestamp when covenant is accepted
+    localStorage.setItem('lastFocusCovenantTime', Date.now().toString());
     setShowFocusCovenant(false);
     setShowGuidedAccess(true);
   };
@@ -6769,32 +6786,70 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   const SmithDictionaryView = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [entries, setEntries] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [resultsToShow, setResultsToShow] = useState(50);
 
-    // Sample dictionary entries (you can expand this list)
-    const dictionaryEntries = [
-      { term: 'Aaron', definition: 'The elder son of Amram and Jochebed, and brother of Moses and Miriam. He was appointed by God to be the spokesman of Moses to Pharaoh and to the people, and became the first high priest of Israel.' },
-      { term: 'Abel', definition: 'The second son of Adam and Eve, a keeper of sheep. He offered to God a more acceptable sacrifice than Cain, and was murdered by his brother out of jealousy.' },
-      { term: 'Abraham', definition: 'Originally called Abram, he was called by God to leave his country and become the father of a great nation. God made a covenant with him, and he is considered the father of faith for Jews, Christians, and Muslims alike.' },
-      { term: 'Covenant', definition: 'A solemn agreement between two parties, especially between God and His people. The Old Covenant was given through Moses at Sinai; the New Covenant was established through Jesus Christ.' },
-      { term: 'David', definition: 'The youngest son of Jesse, anointed by Samuel to be king of Israel. He was a shepherd, musician, warrior, and poet. God made an everlasting covenant with him regarding his throne and descendants.' },
-      { term: 'Exodus', definition: 'The departure of the Israelites from Egypt under Moses\' leadership. This event marked the birth of Israel as a nation and demonstrated God\'s power and faithfulness to His covenant promises.' },
-      { term: 'Faith', definition: 'Trust in and reliance upon God and His promises. It is the assurance of things hoped for and the conviction of things not seen (Hebrews 11:1).' },
-      { term: 'Gospel', definition: 'The good news of salvation through Jesus Christ. It refers to Jesus\' life, death, and resurrection, and the message of redemption available to all who believe.' },
-      { term: 'Grace', definition: 'The unmerited favor and love of God toward humanity. It is by grace through faith that believers are saved, not by works (Ephesians 2:8-9).' },
-      { term: 'Jerusalem', definition: 'The holy city of Israel, captured by David and made the capital of his kingdom. It was the location of Solomon\'s Temple and the center of Jewish worship.' },
-      { term: 'Moses', definition: 'The great lawgiver and prophet who led Israel out of Egyptian bondage. He received the Ten Commandments and the Law from God on Mount Sinai.' },
-      { term: 'Passover', definition: 'The feast commemorating Israel\'s deliverance from Egypt, when the angel of death "passed over" the houses marked with lamb\'s blood. Jesus was crucified during Passover week.' },
-      { term: 'Redemption', definition: 'The act of purchasing back or ransoming. In Scripture, it refers to Christ\'s deliverance of believers from sin and its consequences through His death on the cross.' },
-      { term: 'Righteousness', definition: 'Conformity to God\'s will and character. In the New Testament, believers are declared righteous through faith in Christ, who is our righteousness.' },
-      { term: 'Salvation', definition: 'Deliverance from sin and its consequences, granted by God\'s grace through faith in Jesus Christ. It includes justification, sanctification, and glorification.' },
-      { term: 'Temple', definition: 'The house of God built by Solomon in Jerusalem, replacing the Tabernacle. It was the center of Jewish worship until destroyed by the Babylonians, rebuilt, and finally destroyed by the Romans in 70 AD.' }
-    ];
+    const normalizeKey = useCallback((text) => (text || '').toString().toLowerCase().replace(/[^a-z]/g, ''), []);
 
-    const filteredEntries = searchTerm
-      ? dictionaryEntries.filter(entry =>
-          entry.term.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      : dictionaryEntries;
+    const loadSmithDictionary = useCallback(async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const base = process.env.PUBLIC_URL || '';
+        const res = await fetch(`${base}/dictionaries/smiths.json`, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const raw = await res.json();
+        const mapped = Object.keys(raw || {}).map(key => {
+          const entry = raw[key] || {};
+          const term = entry.headword || key;
+          const def = entry.def || entry.definition || '';
+          const normalized = normalizeKey(term);
+          return {
+            key,
+            term,
+            def,
+            pos: entry.pos || null,
+            normalized,
+            lower: (term || '').toLowerCase(),
+            defLower: (def || '').toLowerCase()
+          };
+        }).filter(e => e.term && e.def);
+
+        mapped.sort((a, b) => a.normalized.localeCompare(b.normalized) || a.term.localeCompare(b.term));
+        setEntries(mapped);
+      } catch (err) {
+        setError(err.message || 'Failed to load Smith\'s Bible Dictionary');
+      } finally {
+        setLoading(false);
+      }
+    }, [normalizeKey]);
+
+    useEffect(() => {
+      loadSmithDictionary();
+    }, [loadSmithDictionary]);
+
+    useEffect(() => {
+      // Reset pagination whenever the query changes
+      setResultsToShow(50);
+    }, [searchTerm]);
+
+    const filteredEntries = useMemo(() => {
+      if (!searchTerm) return entries;
+      const query = searchTerm.toLowerCase();
+      const normalizedQuery = normalizeKey(searchTerm);
+      return entries.filter(entry => {
+        if (entry.lower.startsWith(query) || (normalizedQuery && entry.normalized.startsWith(normalizedQuery))) return true;
+        if (entry.lower.includes(query) || (normalizedQuery && entry.normalized.includes(normalizedQuery))) return true;
+        return entry.defLower.includes(query);
+      });
+    }, [entries, searchTerm, normalizeKey]);
+
+    const visibleEntries = useMemo(
+      () => filteredEntries.slice(0, resultsToShow),
+      [filteredEntries, resultsToShow]
+    );
 
     return (
       <div className="space-y-6">
@@ -6804,7 +6859,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <h2 className="text-2xl font-bold text-blue-200">Smith's Bible Dictionary</h2>
           </div>
           <p className="text-blue-300 text-sm mb-4">
-            Comprehensive reference for biblical terms, people, and places
+            Comprehensive reference for biblical terms, people, and places. Search the full Smith's catalog.
           </p>
 
           {/* Search Bar */}
@@ -6815,26 +6870,60 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             placeholder="Search dictionary entries..."
             className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-blue-600/30 focus:border-blue-500 focus:outline-none"
           />
+          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-300 mt-3">
+            <span className="bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full">
+              {loading ? 'Loading entries...' : `Loaded ${entries.length.toLocaleString()} entries`}
+            </span>
+            {searchTerm && (
+              <span className="bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full">
+                {filteredEntries.length} match{filteredEntries.length === 1 ? '' : 'es'}
+              </span>
+            )}
+            {error && (
+              <button
+                onClick={loadSmithDictionary}
+                className="bg-red-500/10 border border-red-500/40 px-3 py-1 rounded-full text-red-200 hover:bg-red-500/20 transition-all"
+              >
+                Reload dictionary
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Dictionary Entries */}
         <div className="space-y-3">
-          {filteredEntries.length > 0 ? (
-            filteredEntries.map((entry, idx) => (
+          {loading && entries.length === 0 && (
+            <div className="text-slate-400 text-center py-10">Loading Smith's Bible Dictionary...</div>
+          )}
+
+          {!loading && filteredEntries.length === 0 && (
+            <div className="text-center text-slate-400 py-8">
+              No entries found for "{searchTerm || 'your query'}"
+            </div>
+          )}
+
+          {visibleEntries.length > 0 && (
+            visibleEntries.map((entry, idx) => (
               <div
                 key={idx}
                 className="bg-slate-800/50 rounded-xl p-5 border border-slate-600 hover:border-blue-500/50 transition-all"
               >
-                <h3 className="text-xl font-bold text-blue-300 mb-2">{entry.term}</h3>
-                <p className="text-slate-300 leading-relaxed">{entry.definition}</p>
+                <h3 className="text-xl font-bold text-blue-300 mb-1">{entry.term}</h3>
+                {entry.pos && <p className="text-xs uppercase tracking-wide text-blue-200 mb-2">{entry.pos}</p>}
+                <p className="text-slate-300 leading-relaxed whitespace-pre-wrap">{entry.def}</p>
               </div>
             ))
-          ) : (
-            <div className="text-center text-slate-400 py-8">
-              No entries found for "{searchTerm}"
-            </div>
           )}
         </div>
+
+        {filteredEntries.length > visibleEntries.length && (
+          <button
+            onClick={() => setResultsToShow(prev => Math.min(prev + 50, filteredEntries.length))}
+            className="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 rounded-xl transition-all"
+          >
+            Load {Math.min(50, filteredEntries.length - visibleEntries.length)} more results
+          </button>
+        )}
 
         <button
           onClick={() => setCurrentView('home')}

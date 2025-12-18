@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Search, X, Columns, Heart, BookmarkPlus, BookOpen } from 'lucide-react';
 import { simplifyText } from '../services/simplifiedMode';
 import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
+import AddVerseConfirmation from './AddVerseConfirmation';
 
 const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, userData, onUpdateUserData }) => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -33,6 +34,14 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const [startVerse, setStartVerse] = useState('');
   const [endVerse, setEndVerse] = useState('');
   const [filteredVerses, setFilteredVerses] = useState([]);
+
+  // Add verse confirmation modal state
+  const [pendingVerse, setPendingVerse] = useState(null);
+  const [showAddVerseConfirmation, setShowAddVerseConfirmation] = useState(false);
+
+  // Scroll position tracking
+  const contentRef = useRef(null);
+  const hasRestoredScroll = useRef(false);
 
   // Validate and fix translation (public domain only)
   const validTranslations = ['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA', 'KJV_STRONGS'];
@@ -281,7 +290,34 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     }
   }, [selectedBook, selectedChapter]);
 
+  // Restore scroll position after chapter content loads
+  useEffect(() => {
+    if (contentRef.current && selectedBook && chapterContent.length > 0 && !hasRestoredScroll.current) {
+      const scrollKey = `bibleScroll_${selectedBook.name}_${selectedChapter}`;
+      const savedScroll = localStorage.getItem(scrollKey);
+      if (savedScroll) {
+        // Use setTimeout to ensure DOM is fully rendered
+        setTimeout(() => {
+          if (contentRef.current) {
+            contentRef.current.scrollTop = parseInt(savedScroll);
+            console.log('📜 [BibleReader] Restored scroll position:', savedScroll);
+          }
+        }, 100);
+      }
+      hasRestoredScroll.current = true;
+    }
+  }, [selectedBook, selectedChapter, chapterContent]);
+
   const loadChapter = async (book, chapter) => {
+    // Save current scroll position before loading new chapter
+    if (contentRef.current && selectedBook) {
+      const scrollKey = `bibleScroll_${selectedBook.name}_${selectedChapter}`;
+      localStorage.setItem(scrollKey, contentRef.current.scrollTop.toString());
+    }
+
+    // Reset scroll restoration flag for new chapter
+    hasRestoredScroll.current = false;
+
     setLoading(true);
     try {
       if (activeTranslation === 'KJV_STRONGS') {
@@ -590,38 +626,27 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     }
   };
 
-  const addToPersonalMemoryVerses = (verse) => {
-    if (!userData || !onUpdateUserData) {
-      alert('Unable to save verse. User data not available.');
-      return;
-    }
+  const showAddVerseModal = (verse) => {
+    setPendingVerse(verse);
+    setShowAddVerseConfirmation(true);
+  };
 
-    const verseReference = `${selectedBook.name} ${selectedChapter}:${verse.verse}`;
+  const confirmAddVerse = () => {
+    if (!pendingVerse || !userData || !onUpdateUserData) return;
+
+    const verseReference = `${selectedBook.name} ${selectedChapter}:${pendingVerse.verse}`;
     const personalVerse = {
       reference: verseReference,
-      text: verse.text,
+      text: pendingVerse.text,
       book: selectedBook.name,
       chapter: selectedChapter,
-      verse: verse.verse,
+      verse: pendingVerse.verse,
       translation: activeTranslation,
       dateAdded: new Date().toISOString()
     };
 
     // Initialize personalMemoryVerses if it doesn't exist
     const currentVerses = userData.personalMemoryVerses || [];
-
-    // Check if verse already exists
-    const alreadyExists = currentVerses.some(v =>
-      v.book === personalVerse.book &&
-      v.chapter === personalVerse.chapter &&
-      v.verse === personalVerse.verse &&
-      v.translation === personalVerse.translation
-    );
-
-    if (alreadyExists) {
-      alert(`${verseReference} is already in your Personal Verse Bank!`);
-      return;
-    }
 
     // Add the verse
     const updatedVerses = [...currentVerses, personalVerse];
@@ -630,7 +655,14 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
       personalMemoryVerses: updatedVerses
     });
 
-    alert(`✓ Added ${verseReference} to Personal Verse Bank!`);
+    // Close modal and reset
+    setShowAddVerseConfirmation(false);
+    setPendingVerse(null);
+  };
+
+  const cancelAddVerse = () => {
+    setShowAddVerseConfirmation(false);
+    setPendingVerse(null);
   };
 
   const isVerseInBank = (verse) => {
@@ -927,7 +959,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
               <p className="text-slate-400">Loading chapter...</p>
             </div>
           ) : selectedBook && chapterContent.length > 0 ? (
-            <div className="relative rounded-lg p-0 max-h-96 overflow-y-auto overflow-x-hidden">
+            <div ref={contentRef} className="relative rounded-lg p-0 max-h-96 overflow-y-auto overflow-x-hidden">
               <div className="sticky top-0 z-40 bg-slate-900 shadow-lg border-b border-slate-700 mb-4 px-2 md:px-4 py-3">
                 {parallelMode ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -961,10 +993,10 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
                       const handleTouchStart = () => {
                         pressTimer = setTimeout(() => {
-                          if (!inBank) {
-                            addToPersonalMemoryVerses(verse);
+                          if (!inBank && activeTranslation !== 'KJV_STRONGS') {
+                            showAddVerseModal(verse);
                           }
-                        }, 500);
+                        }, 1500);
                       };
 
                       const handleTouchEnd = () => {
@@ -1021,10 +1053,10 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
                     const handleTouchStart = () => {
                       pressTimer = setTimeout(() => {
-                        if (!inBank) {
-                          addToPersonalMemoryVerses(verse);
+                        if (!inBank && activeTranslation !== 'KJV_STRONGS') {
+                          showAddVerseModal(verse);
                         }
-                      }, 500);
+                      }, 1500);
                     };
 
                     const handleTouchEnd = () => {
@@ -1082,6 +1114,17 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             )}
           </div>
         </div>
+      )}
+      {showAddVerseConfirmation && pendingVerse && (
+        <AddVerseConfirmation
+          verse={{
+            ...pendingVerse,
+            book: selectedBook.name,
+            chapter: selectedChapter
+          }}
+          onConfirm={confirmAddVerse}
+          onCancel={cancelAddVerse}
+        />
       )}
     </div>
   );

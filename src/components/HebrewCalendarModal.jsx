@@ -136,6 +136,11 @@ const HebrewCalendarModal = ({ onClose }) => {
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
 
+  // Get upcoming feast days
+  const upcomingFeasts = useMemo(() => {
+    return getUpcomingFeastDays(90); // Next 90 days
+  }, []);
+
   // Navigate to previous month
   const goToPreviousMonth = () => {
     setCurrentDate(prev => {
@@ -272,19 +277,20 @@ const HebrewCalendarModal = ({ onClose }) => {
           </div>
 
           {/* Calendar Grid */}
-          <div className="bg-slate-800 rounded-lg p-6 border border-slate-700 shadow-xl">
+          <div className="bg-slate-800 rounded-lg p-3 md:p-6 border border-slate-700 shadow-xl">
             {/* Week day headers */}
-            <div className="grid grid-cols-7 gap-2 mb-4">
+            <div className="grid grid-cols-7 gap-1 md:gap-2 mb-2 md:mb-4">
               {weekDays.map(day => (
                 <div
                   key={day.short}
-                  className="text-center text-xs font-semibold text-slate-200 uppercase tracking-[0.4em] pb-1"
+                  className="text-center text-xs font-semibold text-slate-200 uppercase pb-1"
                 >
-                  {day.short}
-                  <div className="text-[0.65rem] text-blue-200 font-normal tracking-normal uppercase leading-tight mt-1">
+                  <div className="hidden md:block tracking-[0.4em]">{day.short}</div>
+                  <div className="md:hidden text-[0.6rem]">{day.short[0]}</div>
+                  <div className="text-[0.55rem] md:text-[0.65rem] text-blue-200 font-normal tracking-normal uppercase leading-tight mt-0.5 md:mt-1 hidden md:block">
                     {day.hebrewScript}
                   </div>
-                  <div className="text-[0.55rem] text-slate-400 font-normal tracking-[0.1em] mt-0.5">
+                  <div className="text-[0.45rem] md:text-[0.55rem] text-slate-400 font-normal tracking-[0.1em] mt-0.5 hidden md:block">
                     {day.translation}
                   </div>
                 </div>
@@ -292,7 +298,7 @@ const HebrewCalendarModal = ({ onClose }) => {
             </div>
 
             {/* Calendar grid */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-1 md:gap-2">
               {calendarDays.map(({ date, day, hebrewDay, hebrewMonth, feastInfo, isToday, isEmpty, key }) => {
                 if (isEmpty) {
                   return <div key={key} className="aspect-square" />;
@@ -308,7 +314,7 @@ const HebrewCalendarModal = ({ onClose }) => {
                       relative
                       aspect-square
                       rounded-lg
-                      p-2
+                      p-1 md:p-2
                       flex flex-col
                       justify-between
                       transition-all
@@ -324,16 +330,16 @@ const HebrewCalendarModal = ({ onClose }) => {
                     title={hasFeast ? `${feastInfo.englishName}\nClick for details` : ''}
                   >
                     {/* Gregorian day number */}
-                    <div className={`text-sm font-bold ${hasFeast ? 'text-white' : ''}`}>
+                    <div className={`text-xs md:text-sm font-bold ${hasFeast ? 'text-white' : ''}`}>
                       {day}
                     </div>
 
                     {/* Hebrew date */}
-                    <div className="text-xs text-center space-y-0.5">
+                    <div className="text-[0.6rem] md:text-xs text-center space-y-0.5">
                       <div className={`font-semibold ${isToday ? 'text-blue-200' : hasFeast ? 'text-purple-200' : 'text-slate-400'}`}>
                         {hebrewDay}
                       </div>
-                      <div className={`text-[0.65rem] uppercase tracking-[0.2em] ${isToday ? 'text-blue-200' : hasFeast ? 'text-purple-200' : 'text-slate-500'}`}>
+                      <div className={`text-[0.5rem] md:text-[0.65rem] uppercase tracking-[0.1em] md:tracking-[0.2em] hidden md:block ${isToday ? 'text-blue-200' : hasFeast ? 'text-purple-200' : 'text-slate-500'}`}>
                         {hebrewMonth}
                       </div>
                     </div>
@@ -342,8 +348,8 @@ const HebrewCalendarModal = ({ onClose }) => {
                     {hasFeast && (
                       <div className="absolute -top-1 -right-1">
                         <Sparkles
-                          size={16}
-                          className="text-amber-400 drop-shadow-glow animate-pulse"
+                          size={12}
+                          className="md:w-4 md:h-4 text-amber-400 drop-shadow-glow animate-pulse"
                           fill="currentColor"
                         />
                       </div>
@@ -353,6 +359,37 @@ const HebrewCalendarModal = ({ onClose }) => {
               })}
             </div>
           </div>
+
+          {/* Upcoming Feast Days */}
+          {upcomingFeasts && upcomingFeasts.length > 0 && (
+            <div className="bg-slate-800 rounded-lg p-4 border border-slate-700 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <Sparkles className="text-amber-400" size={20} />
+                <h3 className="text-lg font-semibold text-slate-200">Upcoming Feast Days</h3>
+              </div>
+              <div className="space-y-2">
+                {upcomingFeasts.slice(0, 5).map((feast, index) => (
+                  <div
+                    key={index}
+                    onClick={() => feast.details && setSelectedFeast(feast.details)}
+                    className={`flex items-start justify-between p-3 rounded-lg transition-all ${
+                      feast.details
+                        ? 'bg-purple-900/30 border border-purple-500/30 hover:bg-purple-900/50 cursor-pointer'
+                        : 'bg-slate-700/30 border border-slate-600'
+                    }`}
+                  >
+                    <div className="flex-1">
+                      <div className="font-semibold text-slate-200">{feast.name}</div>
+                      <div className="text-xs text-slate-400 mt-1">{feast.hebrewDate}</div>
+                    </div>
+                    <div className="text-sm text-amber-400 font-semibold whitespace-nowrap ml-3">
+                      {feast.gregorianDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         {/* Legend */}
         <div className="bg-slate-800 rounded-lg p-4 border border-slate-700">

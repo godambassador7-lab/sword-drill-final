@@ -58,17 +58,19 @@ export function getFeastDaysForYear(gregorianYear = new Date().getFullYear()) {
   // Filter for major feasts and holidays
   const feastEvents = events.filter(ev => {
     const desc = ev.getDesc();
-    const flags = ev.getFlags();
+    const evFlags = ev.getFlags();
 
     // Include major holidays and feasts
     return (
-      flags & (
-    flags.MAJOR_FAST |
-    flags.MINOR_FAST |
-    flags.ROSH_CHODESH |
-    flags.MAJOR_HOLIDAY |
-    flags.MINOR_HOLIDAY |
-    flags.MODERN_HOLIDAY
+      evFlags & (
+        flags.MAJOR_FAST |
+        flags.MINOR_FAST |
+        flags.ROSH_CHODESH |
+        flags.MAJOR_HOLIDAY |
+        flags.MINOR_HOLIDAY |
+        flags.MODERN_HOLIDAY |
+        flags.SPECIAL_SHABBAT |
+        flags.CHANUKAH
       )
     );
   });
