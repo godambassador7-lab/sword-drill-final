@@ -898,6 +898,12 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   // Merge spiritual gifts exam results (prefer remote, fallback to local)
   const spiritualGiftsResults = remoteProgress.spiritualGiftsResults || localProgress.spiritualGiftsResults || null;
 
+  // Merge completed courses array (combine both)
+  const completedCourses = Array.from(new Set([
+    ...(localProgress.completedCourses || []),
+    ...(remoteProgress.completedCourses || [])
+  ]));
+
   // Merge course progress (prefer remote, fallback to local)
   const kingsOfIsraelProgress = remoteProgress.kingsOfIsraelProgress || localProgress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] };
   const ancientHebrewProgress = remoteProgress.ancientHebrewProgress || localProgress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] };
@@ -962,18 +968,19 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     hintPurchases,
     investments,
     activeBoosts,
-      accountCreated
+    accountCreated,
+    completedCourses
     };
   };
 
 const SwordDrillApp = () => {
   // Course admission costs
   const COURSE_ADMISSION = {
-    'greek-course': { cost: 800, name: 'οινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
-    'hebrew-course': { cost: 800, name: 'ערת עתק', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
+    'greek-course': { cost: 800, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
+    'hebrew-course': { cost: 800, name: 'עברית עתיק', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
     'paleo-hebrew-course': { cost: 800, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
-    'amharic-course': { cost: 800, name: ' Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
-    'geez-course': { cost: 800, name: ' Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
+    'amharic-course': { cost: 800, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
+    'geez-course': { cost: 800, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
     'aramaic-course': { cost: 800, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
     'hermeneutics-course': { cost: 800, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
     'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
@@ -981,6 +988,166 @@ const SwordDrillApp = () => {
     'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
     'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
     'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' }
+  };
+
+  // Course Completion Badges - Unique medals for each course
+  const COURSE_BADGES = {
+    'greek-course': {
+      id: 'greek-course',
+      name: 'Κοινή Greek Master',
+      symbol: 'Ω',
+      emoji: '🏛️',
+      color: 'indigo',
+      gradient: 'from-indigo-600 to-purple-600',
+      borderColor: 'border-indigo-500',
+      textColor: 'text-indigo-400',
+      glowColor: 'shadow-indigo-500/50',
+      description: 'Mastered Biblical Greek',
+      achievement: 'Completed all lessons in Koiné Greek'
+    },
+    'hebrew-course': {
+      id: 'hebrew-course',
+      name: 'Hebrew Scholar',
+      symbol: 'א',
+      emoji: '📜',
+      color: 'amber',
+      gradient: 'from-amber-600 to-orange-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Mastered Ancient Hebrew',
+      achievement: 'Completed all lessons in Ancient Hebrew'
+    },
+    'paleo-hebrew-course': {
+      id: 'paleo-hebrew-course',
+      name: 'Ancient Script Sage',
+      symbol: '𐤀',
+      emoji: '🗿',
+      color: 'orange',
+      gradient: 'from-orange-600 to-red-600',
+      borderColor: 'border-orange-500',
+      textColor: 'text-orange-400',
+      glowColor: 'shadow-orange-500/50',
+      description: 'Mastered Paleo-Hebrew',
+      achievement: 'Completed all lessons in Paleo-Hebrew Script'
+    },
+    'amharic-course': {
+      id: 'amharic-course',
+      name: 'Ethiopian Linguist',
+      symbol: 'አ',
+      emoji: '🇪🇹',
+      color: 'emerald',
+      gradient: 'from-emerald-600 to-teal-600',
+      borderColor: 'border-emerald-500',
+      textColor: 'text-emerald-400',
+      glowColor: 'shadow-emerald-500/50',
+      description: 'Mastered Amharic',
+      achievement: 'Completed all lessons in Amharic Language'
+    },
+    'geez-course': {
+      id: 'geez-course',
+      name: 'Ge\'ez Expert',
+      symbol: 'ገ',
+      emoji: '⛪',
+      color: 'rose',
+      gradient: 'from-rose-600 to-pink-600',
+      borderColor: 'border-rose-500',
+      textColor: 'text-rose-400',
+      glowColor: 'shadow-rose-500/50',
+      description: 'Mastered Ge\'ez',
+      achievement: 'Completed all lessons in Ancient Ge\'ez'
+    },
+    'aramaic-course': {
+      id: 'aramaic-course',
+      name: 'Aramaic Master',
+      symbol: 'ܐ',
+      emoji: '🕊️',
+      color: 'cyan',
+      gradient: 'from-cyan-600 to-blue-600',
+      borderColor: 'border-cyan-500',
+      textColor: 'text-cyan-400',
+      glowColor: 'shadow-cyan-500/50',
+      description: 'Mastered Aramaic',
+      achievement: 'Completed all lessons in the Language of Jesus'
+    },
+    'hermeneutics-course': {
+      id: 'hermeneutics-course',
+      name: 'Hermeneutics Scholar',
+      symbol: '⚖️',
+      emoji: '📖',
+      color: 'teal',
+      gradient: 'from-teal-600 to-cyan-600',
+      borderColor: 'border-teal-500',
+      textColor: 'text-teal-400',
+      glowColor: 'shadow-teal-500/50',
+      description: 'Master of Biblical Interpretation',
+      achievement: 'Completed all Hermeneutics lessons'
+    },
+    'church-history-course': {
+      id: 'church-history-course',
+      name: 'Church Historian',
+      symbol: '⛪',
+      emoji: '📚',
+      color: 'purple',
+      gradient: 'from-purple-600 to-indigo-600',
+      borderColor: 'border-purple-500',
+      textColor: 'text-purple-400',
+      glowColor: 'shadow-purple-500/50',
+      description: 'Master of Church History',
+      achievement: 'Completed all Church History lessons'
+    },
+    'kings-of-israel-course': {
+      id: 'kings-of-israel-course',
+      name: 'Royal Chronicler',
+      symbol: '👑',
+      emoji: '⚔️',
+      color: 'blue',
+      gradient: 'from-blue-600 to-indigo-600',
+      borderColor: 'border-blue-500',
+      textColor: 'text-blue-400',
+      glowColor: 'shadow-blue-500/50',
+      description: 'Expert on Israel\'s Kings',
+      achievement: 'Completed all Kings of Israel lessons'
+    },
+    'textual-criticism-course': {
+      id: 'textual-criticism-course',
+      name: 'Manuscript Scholar',
+      symbol: '🔍',
+      emoji: '📃',
+      color: 'slate',
+      gradient: 'from-slate-600 to-gray-600',
+      borderColor: 'border-slate-500',
+      textColor: 'text-slate-400',
+      glowColor: 'shadow-slate-500/50',
+      description: 'Master of Textual Criticism',
+      achievement: 'Completed all Textual Criticism lessons'
+    },
+    'apologetics-course': {
+      id: 'apologetics-course',
+      name: 'Defender of Faith',
+      symbol: '🛡️',
+      emoji: '⚔️',
+      color: 'indigo',
+      gradient: 'from-indigo-600 to-blue-600',
+      borderColor: 'border-indigo-500',
+      textColor: 'text-indigo-400',
+      glowColor: 'shadow-indigo-500/50',
+      description: 'Master Apologist',
+      achievement: 'Completed all Apologetics lessons'
+    },
+    'biblical-canon-course': {
+      id: 'biblical-canon-course',
+      name: 'Canon Authority',
+      symbol: '📜',
+      emoji: '✨',
+      color: 'violet',
+      gradient: 'from-violet-600 to-purple-600',
+      borderColor: 'border-violet-500',
+      textColor: 'text-violet-400',
+      glowColor: 'shadow-violet-500/50',
+      description: 'Master of Biblical Canon',
+      achievement: 'Completed all Biblical Canon lessons'
+    }
   };
 
   const [currentView, setCurrentView] = useState('home');
@@ -4376,6 +4543,128 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <p>No achievements match your filters</p>
           </div>
         )}
+
+        {/* Course Completion Badges Section */}
+        <div className="mt-12 pt-8 border-t-2 border-amber-500/30">
+          <div className="text-center mb-6">
+            <span className="text-6xl block mb-2">🎓</span>
+            <h2 className="text-2xl font-bold text-amber-400">Course Mastery Badges</h2>
+            <p className="text-slate-300">
+              Earn unique medals for completing courses
+            </p>
+          </div>
+
+          {/* Course Badges Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Object.values(COURSE_BADGES).map((badge) => {
+              const isCompleted = userData.completedCourses?.includes(badge.id) || false;
+
+              return (
+                <div
+                  key={badge.id}
+                  className={`relative rounded-xl p-6 border-2 transition-all ${
+                    isCompleted
+                      ? `bg-gradient-to-br ${badge.gradient} ${badge.borderColor} shadow-lg ${badge.glowColor}`
+                      : 'bg-slate-800/30 border-slate-700 opacity-60'
+                  }`}
+                >
+                  {/* Medal Design */}
+                  <div className="flex flex-col items-center mb-4">
+                    {/* Badge Circle */}
+                    <div className={`relative w-24 h-24 rounded-full flex items-center justify-center mb-3 ${
+                      isCompleted
+                        ? `bg-gradient-to-br ${badge.gradient} shadow-xl ${badge.glowColor} border-4 ${badge.borderColor}`
+                        : 'bg-slate-700 border-4 border-slate-600'
+                    }`}>
+                      {/* Symbol */}
+                      <div className={`text-5xl font-bold ${isCompleted ? 'text-white' : 'text-slate-500'}`}>
+                        {badge.symbol}
+                      </div>
+
+                      {/* Lock overlay for incomplete */}
+                      {!isCompleted && (
+                        <div className="absolute inset-0 rounded-full bg-black/50 flex items-center justify-center">
+                          <Lock size={32} className="text-slate-400" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Emoji Icon */}
+                    <div className={`text-3xl ${isCompleted ? '' : 'grayscale opacity-50'}`}>
+                      {badge.emoji}
+                    </div>
+                  </div>
+
+                  {/* Badge Info */}
+                  <div className="text-center">
+                    <h3 className={`font-bold text-lg mb-1 ${
+                      isCompleted ? 'text-white' : 'text-slate-400'
+                    }`}>
+                      {badge.name}
+                    </h3>
+                    <p className={`text-sm mb-2 ${
+                      isCompleted ? 'text-white/80' : 'text-slate-500'
+                    }`}>
+                      {badge.description}
+                    </p>
+                    <p className={`text-xs ${
+                      isCompleted ? 'text-white/60' : 'text-slate-600'
+                    }`}>
+                      {badge.achievement}
+                    </p>
+                  </div>
+
+                  {/* Completion Status */}
+                  <div className="mt-4 text-center">
+                    {isCompleted ? (
+                      <div className="flex items-center justify-center gap-2 text-white font-bold">
+                        <CheckCircle size={20} />
+                        <span>Completed</span>
+                      </div>
+                    ) : (
+                      <div className="text-slate-500 text-sm">
+                        Complete course to unlock
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Shine effect for completed badges */}
+                  {isCompleted && (
+                    <div className="absolute top-0 right-0 p-2">
+                      <span className="text-yellow-300 animate-pulse">✨</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Progress Stats */}
+          <div className="mt-6 bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Trophy size={24} className="text-amber-400" />
+                <div>
+                  <div className="font-semibold text-slate-200">Course Mastery Progress</div>
+                  <div className="text-sm text-slate-400">
+                    {(userData.completedCourses?.length || 0)} of {Object.keys(COURSE_BADGES).length} courses completed
+                  </div>
+                </div>
+              </div>
+              <div className="text-3xl font-bold text-amber-400">
+                {Math.round(((userData.completedCourses?.length || 0) / Object.keys(COURSE_BADGES).length) * 100)}%
+              </div>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="mt-3 w-full bg-slate-700 rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-amber-500 to-yellow-500 h-full transition-all duration-500"
+                style={{ width: `${((userData.completedCourses?.length || 0) / Object.keys(COURSE_BADGES).length) * 100}%` }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
