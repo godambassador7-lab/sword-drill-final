@@ -442,8 +442,22 @@ const TutorialHelp = ({ onBack }) => {
       color: 'from-teal-500 to-cyan-600',
       subsections: [
         {
+          title: 'Sword Drill Academy',
+          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 13 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
+          tips: [
+            '🎓 About the Academy - Learn about graduation requirements and rewards',
+            '📚 13 Total Courses - 6 languages, 5 biblical studies, 2 historical',
+            '🏆 Certificate of Completion - Beautiful virtual certificate upon graduation',
+            '💰 5000 Point Graduation Gift - Awarded when all courses complete',
+            '📖 Biblical Languages: Greek, Hebrew, Paleo Hebrew, Aramaic, Ge\'ez, Amharic',
+            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology',
+            '⏳ Historical Studies: Church History, Kings of Israel',
+            '✨ Focus Covenant System - All courses include integrity tracking'
+          ]
+        },
+        {
           title: 'Course Admission System',
-          content: 'Premium courses require point-based admission fees to unlock! Each course is priced based on its complexity and depth. Pay once with your earned points to gain permanent access. Courses are organized in a convenient dropdown menu under the Study section.',
+          content: 'Premium courses require point-based admission fees to unlock! Each course is priced based on its complexity and depth. Pay once with your earned points to gain permanent access. Courses are organized in Sword Drill Academy dropdown menu.',
           tips: [
             'Greek Course: 300 points admission (Κοινή Greek)',
             'Hebrew Course: 300 points admission (עברית עתיקה)',
@@ -452,10 +466,32 @@ const TutorialHelp = ({ onBack }) => {
             'Kings of Israel: 200 points (Rulers & Prophets)',
             'Textual Criticism: 400 points (Manuscript Analysis)',
             'Biblical Archaeology: 1000 points (Evidence & Antiquity)',
+            'Paleo Hebrew: 400 points (Ancient Script)',
+            'Aramaic: 300 points (Language of Jesus)',
+            'Ge\'ez: 350 points (Ethiopian Biblical Language)',
+            'Amharic: 300 points (Modern Ethiopian)',
+            'Apologetics: 450 points (Defense of Faith)',
+            'Biblical Canon: 400 points (Formation of Scripture)',
             'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
             'All purchases validated server-side to prevent exploits'
+          ]
+        },
+        {
+          title: 'Focus Covenant System',
+          content: 'All academy courses include the Focus Covenant - an integrity system that tracks your focus during study. Maintain concentration to demonstrate commitment to serious Biblical scholarship.',
+          tips: [
+            '👁️ Focus Tracking - System detects when you leave the course window',
+            '5 Break Limit (Regular Courses) - Maximum 5 focus breaks allowed',
+            '2 Break Limit (Exam Courses) - Stricter limit for assessment integrity',
+            '⚠️ Progressive Warnings - Get notified at breaks 3, 4, and 5',
+            '🚫 Course Blocking - Exceeded limit blocks course for 1 hour',
+            '⏸️ Pause Overlay - Reminds you to stay focused when window loses focus',
+            '📊 Focus Integrity Score - Displayed at course completion',
+            '🎯 Citations Exception - Clicking scholarly citations doesn\'t count as break',
+            '💡 Tip: Close distracting tabs before starting courses',
+            '⏰ Cooldown Timer - Shows remaining time if course is blocked'
           ]
         },
         {
@@ -904,6 +940,30 @@ const TutorialHelp = ({ onBack }) => {
           ]
         },
         {
+          title: 'Version 2.6 - December 2025',
+          content: 'Major academy update introducing Sword Drill Academy, Focus Covenant system, and comprehensive Biblical Archaeology course with scholarly citations.',
+          tips: [
+            '🎓 NEW: Sword Drill Academy - All courses organized under academy menu',
+            '📜 Academy About Page - Learn about graduation, certificate, and 5000 pt reward',
+            '🎯 NEW: Focus Covenant System - Integrity tracking for all courses',
+            '👁️ Focus break limits: 5 for regular courses, 2 for exams',
+            '⚠️ Progressive warnings at breaks 3, 4, and 5',
+            '🚫 Course blocking (1 hour cooldown) when limit exceeded',
+            '⏸️ Pause overlay when window loses focus',
+            '📊 Focus integrity score shown at course completion',
+            '🏛️ NEW: Biblical Archaeology Course (1000 pts admission)',
+            '📚 6 comprehensive modules with 15+ scholarly lessons',
+            '📖 Scholarly citations at end of each lesson tier',
+            '✨ Citations styled with emerald theme and book icons',
+            '🎯 Clicking citations doesn\'t trigger focus penalty',
+            '💪 NEW: Streak Redemption Powerup (from previous update)',
+            '⏰ Available for 24 hours after losing streak',
+            '💰 Costs 2000 points to restore lost streak',
+            '🎓 Academy includes 13 total courses for Biblical Studies Certificate',
+            '📱 Mobile-responsive academy about page with graduation info'
+          ]
+        },
+        {
           title: 'Hotfix - Biblical Archaeology (Dec 2025)',
           content: 'Added the new Biblical Archaeology course and refreshed tutorials to highlight it.',
           tips: [
@@ -996,8 +1056,14 @@ const TutorialHelp = ({ onBack }) => {
         },
         {
           title: 'What\'s Next?',
-          content: 'Exciting features planned for future releases based on user feedback and our development roadmap.',
+          content: 'Exciting features planned for future releases based on user feedback and our development roadmap. We\'re working toward becoming a fully accredited academic program!',
           tips: [
+            '🎓 ACADEMIC PROGRAM: Currently offering Biblical Studies Certificate',
+            '📚 IN DEVELOPMENT: Associate Degree Level Program',
+            '🏛️ PLANNED: Bachelor\'s Degree Level Program',
+            '✅ Current: Complete 13 courses for Certificate of Completion',
+            '🎯 Future: Expanded curriculum for Associate & Bachelor programs',
+            '📖 Academic accreditation process underway',
             '🌐 Multiplayer challenges and leaderboards',
             '🎤 Voice input for quiz answers',
             '📱 Native iOS and Android apps',
