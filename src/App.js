@@ -3963,6 +3963,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onMissionComplete={(mission) => {
             showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
           }}
+          onNavigate={(view) => setCurrentView(view)}
         />
       </div>
 

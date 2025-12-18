@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Target, CheckCircle, Clock, Star, Trophy, Zap } from 'lucide-react';
 
-const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
+const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigate }) => {
   const [missions, setMissions] = useState([]);
   const [completedMissions, setCompletedMissions] = useState([]);
 
@@ -13,6 +13,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 Bible Word Search',
       reward: 100,
       icon: '🔍',
+      navigateTo: 'word-search',
       checkCompletion: (data) => (data?.dailyMissionProgress?.wordSearchCompleted || 0) >= 1
     },
     {
@@ -21,6 +22,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 Storyline Quiz',
       reward: 100,
       icon: '📜',
+      navigateTo: 'storyline-quiz',
       checkCompletion: (data) => (data?.dailyMissionProgress?.storylineCompleted || 0) >= 1
     },
     {
@@ -29,6 +31,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Read 1 Bible chapter',
       reward: 75,
       icon: '📖',
+      navigateTo: 'bible-reader',
       checkCompletion: (data) => (data?.dailyMissionProgress?.chaptersRead || 0) >= 1
     },
     {
@@ -37,6 +40,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 5 quizzes',
       reward: 150,
       icon: '🎯',
+      navigateTo: 'home',
       checkCompletion: (data) => (data?.quizzesCompleted || 0) >= 5
     },
     {
@@ -45,6 +49,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Get 3 perfect scores',
       reward: 200,
       icon: '💯',
+      navigateTo: 'home',
       checkCompletion: (data) => (data?.dailyMissionProgress?.perfectScores || 0) >= 3
     },
     {
@@ -53,6 +58,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 1 course lesson',
       reward: 125,
       icon: '🎓',
+      navigateTo: 'academy-about',
       checkCompletion: (data) => (data?.dailyMissionProgress?.courseLessons || 0) >= 1
     },
     {
@@ -61,6 +67,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 10 Biblical or Nah questions',
       reward: 100,
       icon: '🧠',
+      navigateTo: 'biblical-or-nah',
       checkCompletion: (data) => (data?.dailyMissionProgress?.biblicalOrNahQuestions || 0) >= 10
     },
     {
@@ -69,6 +76,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Complete 3 Verse Detective quizzes',
       reward: 150,
       icon: '🔍',
+      navigateTo: 'verse-detective',
       checkCompletion: (data) => (data?.dailyMissionProgress?.verseDetectiveCompleted || 0) >= 3
     },
     {
@@ -77,6 +85,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
       description: 'Answer 5 questions under 5 seconds',
       reward: 175,
       icon: '⚡',
+      navigateTo: 'home',
       checkCompletion: (data) => (data?.dailyMissionProgress?.quickAnswers || 0) >= 5
     }
   ];
@@ -185,8 +194,13 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
               className={`rounded-xl p-4 border-2 transition-all ${
                 isCompleted
                   ? 'bg-green-600/20 border-green-500'
-                  : 'bg-slate-700/50 border-slate-600 hover:border-amber-500/50'
+                  : 'bg-slate-700/50 border-slate-600 hover:border-amber-500/50 cursor-pointer'
               }`}
+              onClick={() => {
+                if (!isCompleted && onNavigate && mission.navigateTo) {
+                  onNavigate(mission.navigateTo);
+                }
+              }}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3 flex-1">
@@ -194,6 +208,9 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete }) => {
                   <div className="flex-1">
                     <h3 className="font-bold text-white">{mission.title}</h3>
                     <p className="text-slate-300 text-sm">{mission.description}</p>
+                    {!isCompleted && (
+                      <p className="text-amber-400 text-xs mt-1">Click to start →</p>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

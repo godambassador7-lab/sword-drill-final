@@ -168,18 +168,18 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
   }
 
   return (
-    <div className="bg-slate-800/50 rounded-xl p-6 border-2 border-amber-500/30">
-      <div className="flex items-center gap-3 mb-4">
-        <Gift size={28} className="text-amber-400" />
-        <h3 className="text-2xl font-bold text-amber-400">Free Daily Chests</h3>
-        <Sparkles size={24} className="text-yellow-400 animate-pulse" />
+    <div className="bg-slate-800/50 rounded-xl p-4 border-2 border-amber-500/30">
+      <div className="flex items-center gap-2 mb-3">
+        <Gift size={20} className="text-amber-400" />
+        <h3 className="text-lg font-bold text-amber-400">Free Daily Chests</h3>
+        <Sparkles size={18} className="text-yellow-400 animate-pulse" />
       </div>
 
-      <p className="text-slate-300 mb-6 text-sm">
+      <p className="text-slate-300 mb-4 text-xs">
         Open 2 free chests every day! Chests reset at midnight.
       </p>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-3">
         {DAILY_CHESTS.map(chest => {
           const opened = isChestOpened(chest.id);
           const isOpening = opening === chest.id;
@@ -189,33 +189,33 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
               key={chest.id}
               className={`relative bg-gradient-to-br ${chest.color} ${
                 opened ? 'opacity-40' : 'opacity-100 hover:scale-105'
-              } rounded-xl p-6 transition-all duration-300 ${
+              } rounded-lg p-4 transition-all duration-300 ${
                 !opened && !isOpening ? 'cursor-pointer' : 'cursor-not-allowed'
               } ${isOpening ? 'animate-pulse' : ''}`}
               onClick={() => !opened && !isOpening && openChest(chest)}
             >
               {/* Chest Icon */}
-              <div className="text-6xl text-center mb-3 animate-bounce">
+              <div className="text-4xl text-center mb-2">
                 {chest.icon}
               </div>
 
               {/* Title */}
-              <h4 className="text-xl font-bold text-white text-center mb-3">
+              <h4 className="text-base font-bold text-white text-center mb-2">
                 {chest.title}
               </h4>
 
               {/* Rewards */}
-              <div className="space-y-2 text-white text-sm">
+              <div className="space-y-1 text-white text-xs">
                 {chest.rewards.map((reward, idx) => (
                   <div key={idx} className="flex items-center gap-2 justify-center">
                     {reward.type === 'points' ? (
                       <>
-                        <Star size={16} className="text-yellow-300" />
+                        <Star size={14} className="text-yellow-300" />
                         <span>{reward.amount} points</span>
                       </>
                     ) : (
                       <>
-                        <Sparkles size={16} className="text-cyan-300" />
+                        <Sparkles size={14} className="text-cyan-300" />
                         <span>
                           {ECONOMY_POWER_UPS[reward.item]?.name} x{reward.quantity}
                         </span>
