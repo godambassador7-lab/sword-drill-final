@@ -76,6 +76,7 @@ import BibleTrivia from './components/BibleTrivia';
 import ChurchHistoryCourse from './components/ChurchHistoryCourse';
 import KingsOfIsraelCourse from './components/KingsOfIsraelCourse';
 import TextualCriticismCourse from './components/TextualCriticismCourse';
+import BiblicalArchaeologyCourse from './components/BiblicalArchaeologyCourse';
 import UnlockableLXX from './components/UnlockableLXX';
 import UnlockableSinaiticus from './components/UnlockableSinaiticus';
 import UnlockableMasoretic from './components/UnlockableMasoretic';
@@ -991,7 +992,8 @@ const SwordDrillApp = () => {
     'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
     'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
     'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
-    'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' }
+    'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
+    'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1151,6 +1153,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-violet-500/50',
       description: 'Master of Biblical Canon',
       achievement: 'Completed all Biblical Canon lessons'
+    },
+    'biblical-archaeology-course': {
+      id: 'biblical-archaeology-course',
+      name: 'Master Archaeologist',
+      symbol: '⛏️',
+      emoji: '🏛️',
+      color: 'amber',
+      gradient: 'from-amber-600 to-orange-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Biblical Archaeology Scholar',
+      achievement: 'Completed all Biblical Archaeology lessons'
     }
   };
 
@@ -9390,6 +9405,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-canon"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-archaeology-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalArchaeologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Biblical Archaeology course results:', results);
+
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Archaeology lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="biblical-archaeology"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />

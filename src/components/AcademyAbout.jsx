@@ -24,7 +24,8 @@ const AcademyAbout = ({ onBack }) => {
         { name: 'Hermeneutics', level: 'Intermediate to Advanced', description: 'Master the principles of biblical interpretation' },
         { name: 'Textual Criticism', level: 'Advanced', description: 'Study manuscript evidence and textual variants' },
         { name: 'Biblical Canon', level: 'Intermediate', description: 'Understand how the Bible was formed and preserved' },
-        { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' }
+        { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' },
+        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' }
       ]
     },
     {
@@ -63,7 +64,7 @@ const AcademyAbout = ({ onBack }) => {
 
   const graduationRequirements = [
     'Complete all language courses (6 courses)',
-    'Complete all biblical studies courses (4 courses)',
+    'Complete all biblical studies courses (5 courses)',
     'Complete all historical studies courses (2 courses)',
     'Maintain focus integrity throughout your studies',
     'Pass all course assessments and final exams'

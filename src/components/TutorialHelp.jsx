@@ -451,6 +451,7 @@ const TutorialHelp = ({ onBack }) => {
             'Church History: 200 points (From Genesis to Early Church)',
             'Kings of Israel: 200 points (Rulers & Prophets)',
             'Textual Criticism: 400 points (Manuscript Analysis)',
+            'Biblical Archaeology: 1000 points (Evidence & Antiquity)',
             'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
@@ -560,6 +561,19 @@ const TutorialHelp = ({ onBack }) => {
             'Explore major textual witnesses (Codex Sinaiticus, Vaticanus, etc.)',
             'Develop skills in critical apparatus reading',
             'Gain confidence in the reliability of Scripture'
+          ]
+        },
+        {
+          title: 'Biblical Archaeology Course',
+          content: 'Investigate the material culture behind the Bible! Survey digs, artifacts, timelines, and how archaeological evidence illuminates Scripture. Requires 1000 points admission.',
+          tips: [
+            'Admission: 1000 points (scholarly deep-dive)',
+            'Covers Bronze/Iron Age timelines and key sites (Jericho, Hazor, Jerusalem)',
+            'Walk through Exodus/Conquest debates and monarchic-era evidence',
+            'Learn how pottery, inscriptions, and city layers are dated',
+            'Connect artifacts to biblical figures and events',
+            'Includes curated case studies and reading links',
+            'Auto-resume lessons so you can pick up where you left off'
           ]
         },
         {
@@ -887,6 +901,16 @@ const TutorialHelp = ({ onBack }) => {
             '📈 Transaction history tracks all point movements (earnings, spending, investments)',
             '📉 Activity Score (0-100) determines your investment returns',
             '🔒 Lock in investments with maturity tracking and automated return calculations'
+          ]
+        },
+        {
+          title: 'Hotfix - Biblical Archaeology (Dec 2025)',
+          content: 'Added the new Biblical Archaeology course and refreshed tutorials to highlight it.',
+          tips: [
+            'New Biblical Archaeology course under Study > Courses (1000 pts admission)',
+            'Course auto-resumes progress like other study tracks',
+            'Tutorial lists archaeology pricing alongside other courses',
+            'Lessons cover sites, artifacts, timelines, and dating methods'
           ]
         },
         {
