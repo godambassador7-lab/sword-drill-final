@@ -41,7 +41,8 @@ import {
   Shield,
   ChevronDown,
   ChevronUp,
-  MapPin
+  MapPin,
+  Sparkles
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
@@ -101,7 +102,7 @@ import ChallengeLadders from './components/ChallengeLadders';
 import StreakChests from './components/StreakChests';
 import FreeDailyChests from './components/FreeDailyChests';
 import BiblicalCrossword from './components/BiblicalCrossword';
-import SharpAssistant from './services/SharpAssistant';
+import SharpAssistant from './components/SharpAssistant';
 import MyLibrary from './components/MyLibrary';
 import FocusCovenant from './components/FocusCovenant';
 import FocusPauseOverlay from './components/FocusPauseOverlay';
@@ -8451,6 +8452,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="space-y-1">
                   <button
                     onClick={() => {
+                      setCurrentView('sharp-assistant');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Sparkles size={18} className="text-indigo-400" />
+                    <div>
+                      <div className="font-semibold text-sm">SHARP Assistant</div>
+                      <div className="text-xs text-slate-400">Ask biblical questions</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => {
                       setCurrentView('tutorial');
                       setShowMenu(false);
                     }}
@@ -8557,6 +8571,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         )}
         {currentView === 'calendar' && <CalendarView />}
         {currentView === 'settings' && <SettingsView />}
+        {currentView === 'sharp-assistant' && (
+          <SharpAssistant
+            onBack={() => setCurrentView('home')}
+            userData={userData}
+          />
+        )}
         {currentView === 'tutorial' && <TutorialHelp onBack={() => setCurrentView('home')} />}
         {currentView === 'bonus-quizzes' && <BonusQuizzesView />}
         {currentView === 'spelling-bee' && (
