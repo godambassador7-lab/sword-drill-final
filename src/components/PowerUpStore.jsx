@@ -5,6 +5,7 @@ import { updateUserProgress } from '../services/dbService';
 const ECONOMY_POWER_UPS = {
   DOUBLE_POINTS: { cost: 50, duration: 600000, multiplier: 2, name: 'Double Points', icon: '⚡', description: '2x points for 10 minutes' },
   STREAK_FREEZE: { cost: 75, duration: 86400000, name: 'Streak Freeze', icon: '🧊', description: 'Protect your streak for 24 hours' },
+  STREAK_REDEMPTION: { cost: 2000, name: 'Streak Redemption', icon: '💪', description: 'Restore your lost streak (24hr window)', special: 'streak' },
   EXTRA_TIME: { cost: 25, duration: 600000, extraTime: 60, name: 'Extra Time', icon: '⏰', description: '+60 seconds for 10 minutes' },
   POINT_SHIELD: { cost: 100, duration: 1800000, name: 'Point Shield', icon: '🛡️', description: 'No point loss for 30 minutes' },
   QUIZ_ATTEMPTS_5: { cost: 100, quizAttempts: 5, name: '+5 Quiz Attempts', icon: '📝', description: 'Add 5 attempts to a quiz type' },
@@ -27,6 +28,66 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
 
   const purchasePowerUp = (powerUpKey, selectedQuizType = null) => {
     const powerUp = ECONOMY_POWER_UPS[powerUpKey];
+
+    // Special handling for Streak Redemption
+    if (powerUpKey === 'STREAK_REDEMPTION') {
+      const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+      if (!userData.streakLostAt || !userData.lastKnownStreak) {
+        alert('❌ No Lost Streak\n\nYou don\'t have a lost streak to redeem. This powerup only becomes available when you lose your streak.');
+        return;
+      }
+
+      const elapsed = Date.now() - userData.streakLostAt;
+      if (elapsed >= TWENTY_FOUR_HOURS) {
+        alert('❌ Window Expired\n\nThe 24-hour redemption window has expired. You can only redeem your streak within 24 hours of losing it.');
+        return;
+      }
+
+      if (userData.totalPoints < powerUp.cost) {
+        alert(`Not enough points! You need ${powerUp.cost} points but only have ${userData.totalPoints}.`);
+        return;
+      }
+
+      setPurchasing(true);
+
+      // Restore the streak
+      const newPoints = userData.totalPoints - powerUp.cost;
+      const restoredStreak = userData.lastKnownStreak;
+
+      // Mark streak days in localStorage
+      const streakData = JSON.parse(localStorage.getItem('streakData') || '{}');
+      for (let i = 0; i < restoredStreak; i++) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        const dateString = date.toISOString().split('T')[0];
+        if (!streakData[dateString]) {
+          streakData[dateString] = { marked: true, quizzesDone: 1 };
+        }
+      }
+      localStorage.setItem('streakData', JSON.stringify(streakData));
+
+      const updatedData = {
+        ...userData,
+        currentStreak: restoredStreak,
+        totalPoints: newPoints,
+        streakLostAt: null,
+        lastKnownStreak: 0
+      };
+
+      setUserData(updatedData);
+
+      // Sync to Firebase
+      if (userId) {
+        updateUserProgress(userId, updatedData).catch(err =>
+          console.error('Error syncing streak redemption:', err)
+        );
+      }
+
+      alert(`✅ Streak Restored!\n\nYour ${restoredStreak}-day streak has been redeemed!\n\n-${powerUp.cost} points\nNew balance: ${newPoints} points`);
+      setPurchasing(false);
+      return;
+    }
 
     if (userData.totalPoints < powerUp.cost) {
       alert(`Not enough points! You need ${powerUp.cost} points but only have ${userData.totalPoints}.`);
@@ -147,15 +208,38 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
             const canAfford = userData.totalPoints >= powerUp.cost;
             const isQuizAttempt = !!powerUp.quizAttempts;
 
+            // Special handling for Streak Redemption availability
+            let isStreakRedemptionAvailable = true;
+            let streakRedemptionMessage = '';
+
+            if (key === 'STREAK_REDEMPTION') {
+              const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+              if (!userData.streakLostAt || !userData.lastKnownStreak) {
+                isStreakRedemptionAvailable = false;
+                streakRedemptionMessage = 'No Lost Streak';
+              } else {
+                const elapsed = Date.now() - userData.streakLostAt;
+                if (elapsed >= TWENTY_FOUR_HOURS) {
+                  isStreakRedemptionAvailable = false;
+                  streakRedemptionMessage = '24hr Window Expired';
+                } else {
+                  const hoursLeft = Math.floor((TWENTY_FOUR_HOURS - elapsed) / (60 * 60 * 1000));
+                  const minutesLeft = Math.floor(((TWENTY_FOUR_HOURS - elapsed) % (60 * 60 * 1000)) / (60 * 1000));
+                  streakRedemptionMessage = `${hoursLeft}h ${minutesLeft}m remaining`;
+                }
+              }
+            }
+
             return (
               <div
                 key={key}
                 className={`bg-gradient-to-br ${
-                  canAfford
+                  canAfford && (key !== 'STREAK_REDEMPTION' || isStreakRedemptionAvailable)
                     ? 'from-slate-800 to-slate-700 border-amber-500/50'
                     : 'from-slate-900 to-slate-800 border-slate-700'
                 } border-2 rounded-2xl p-6 transition-all ${
-                  canAfford ? 'hover:scale-105 hover:border-amber-400' : 'opacity-60'
+                  canAfford && (key !== 'STREAK_REDEMPTION' || isStreakRedemptionAvailable) ? 'hover:scale-105 hover:border-amber-400' : 'opacity-60'
                 }`}
               >
                 {/* Icon */}
@@ -171,6 +255,18 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
                   {powerUp.description}
                 </p>
 
+                {/* Streak Redemption Status */}
+                {key === 'STREAK_REDEMPTION' && streakRedemptionMessage && (
+                  <div className={`text-center text-sm mb-3 font-semibold ${
+                    isStreakRedemptionAvailable ? 'text-green-400' : 'text-red-400'
+                  }`}>
+                    {isStreakRedemptionAvailable && userData.lastKnownStreak && (
+                      <div className="text-amber-400 mb-1">Restore {userData.lastKnownStreak}-day streak</div>
+                    )}
+                    {streakRedemptionMessage}
+                  </div>
+                )}
+
                 {/* Cost */}
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Star size={20} className="text-amber-400" />
@@ -181,14 +277,18 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
                 {/* Purchase Button */}
                 <button
                   onClick={() => purchasePowerUp(key)}
-                  disabled={!canAfford || purchasing}
+                  disabled={!canAfford || purchasing || (key === 'STREAK_REDEMPTION' && !isStreakRedemptionAvailable)}
                   className={`w-full py-3 rounded-lg font-bold transition-all ${
-                    canAfford
+                    canAfford && (key !== 'STREAK_REDEMPTION' || isStreakRedemptionAvailable)
                       ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white'
                       : 'bg-slate-600 text-slate-400 cursor-not-allowed'
                   }`}
                 >
-                  {canAfford ? (isQuizAttempt ? 'Select Quiz Type' : 'Purchase') : 'Not Enough Points'}
+                  {key === 'STREAK_REDEMPTION' && !isStreakRedemptionAvailable
+                    ? 'Unavailable'
+                    : canAfford
+                    ? (isQuizAttempt ? 'Select Quiz Type' : 'Purchase')
+                    : 'Not Enough Points'}
                 </button>
               </div>
             );
@@ -201,6 +301,7 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
           <ul className="space-y-2 text-slate-300 text-sm">
             <li>⚡ <strong>Double Points:</strong> Earn 2x points on all quizzes for 10 minutes</li>
             <li>🧊 <strong>Streak Freeze:</strong> Your streak won't break even if you miss a day (lasts 24 hours)</li>
+            <li>💪 <strong>Streak Redemption:</strong> Restore your lost streak within 24 hours of losing it (2000 points). Only available when you have a lost streak.</li>
             <li>⏰ <strong>Extra Time:</strong> Get an additional 60 seconds on timed quizzes for 10 minutes</li>
             <li>🛡️ <strong>Point Shield:</strong> Protect yourself from losing points on incorrect answers for 30 minutes</li>
             <li>📝 <strong>+5 Quiz Attempts:</strong> Add 5 extra attempts to a specific quiz type today</li>
