@@ -7999,8 +7999,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         }
       `}</style>
 
-      <div className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-10" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div
+        className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-30"
+        style={{
+          paddingTop: 'max(env(safe-area-inset-top, 0px), 14px)',
+          paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
+          paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
+        }}
+      >
+        <div className="max-w-2xl mx-auto py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div>
               <h1 className="text-3xl font-bold sword-drill-title">
@@ -8010,7 +8017,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-amber-400 hover:text-amber-300 transition-colors"
+            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-2 -mr-2"
+            aria-label="Toggle menu"
           >
             {showMenu ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -8019,7 +8027,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {showMenu && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}>
-          <div className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right" style={{scrollbarWidth: 'thin', scrollbarColor: '#2d2d2d #0a0a0a', paddingTop: 'calc(1.5rem + env(safe-area-inset-top))', paddingRight: 'calc(1.5rem + env(safe-area-inset-right))'}} onClick={(e) => e.stopPropagation()}>
+          <div
+            className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right"
+            style={{
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#2d2d2d #0a0a0a',
+              paddingTop: 'calc(1.5rem + env(safe-area-inset-top, 0px))',
+              paddingRight: 'calc(1.5rem + env(safe-area-inset-right, 0px))',
+              paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-700">
               <User className="text-amber-400" size={32} />
               <div>
