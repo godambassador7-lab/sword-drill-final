@@ -8016,7 +8016,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div>
               <h1
                 className="font-bold sword-drill-title"
-                style={{ fontSize: 'clamp(22px, 5vw, 28px)', lineHeight: 1.1 }}
+                style={{ fontSize: 'clamp(26px, 6vw, 32px)', lineHeight: 1.1 }}
               >
                 Sword Drill
               </h1>
