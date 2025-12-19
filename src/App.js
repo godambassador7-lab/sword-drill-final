@@ -8002,11 +8002,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="bg-slate-900/95 backdrop-blur-md border-b border-amber-500/30 sticky top-0 z-50"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 16px)',
+          paddingTop: 'max(env(safe-area-inset-top, 20px), 16px)',
           paddingBottom: '16px',
           paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
-          paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)',
-          marginTop: 'calc(-1 * env(safe-area-inset-top, 0px))'
+          paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
         }}
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[64px]">
