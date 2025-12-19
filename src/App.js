@@ -8002,13 +8002,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="bg-slate-900 border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999]"
         style={{
-          paddingTop: '50px',
-          paddingBottom: '12px',
+          paddingTop: '44px',
+          paddingBottom: '8px',
           paddingLeft: '16px',
           paddingRight: '16px'
         }}
       >
-        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[56px]">
+        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[48px]">
           <div className="flex items-center gap-3">
             <div>
               <h1 className="text-2xl font-bold sword-drill-title">
@@ -8561,7 +8561,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: '130px',
+          paddingTop: '110px',
           paddingBottom: '24px'
         }}
       >
