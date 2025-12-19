@@ -7939,7 +7939,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   const todaysQuizzesCount = 0; // TODO: Track this properly
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 pb-0" style={{ overscrollBehavior: 'none' }}>
+    <div
+      className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 pb-0"
+      style={{ overscrollBehavior: 'none', paddingTop: 'calc(env(safe-area-inset-top, 0px) + 72px)' }}
+    >
       <CorrectToast points={toastPoints} show={showCorrectToast} />
       <IncorrectToast show={showIncorrectToast} points={toastPoints} />
       <GenericToast show={showGenericToast} message={genericToastMessage} type={genericToastType} onClose={() => setShowGenericToast(false)} />
@@ -8000,28 +8003,31 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       `}</style>
 
       <div
-        className="bg-slate-900 border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999]"
+        className="bg-slate-900/95 backdrop-blur border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999] shadow-lg"
         style={{
-          paddingTop: '44px',
-          paddingBottom: '8px',
-          paddingLeft: '16px',
-          paddingRight: '16px'
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 10px)',
+          paddingBottom: '10px',
+          paddingLeft: 'max(env(safe-area-inset-left, 0px), 12px)',
+          paddingRight: 'max(env(safe-area-inset-right, 0px), 12px)'
         }}
       >
-        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[48px]">
+        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[52px]">
           <div className="flex items-center gap-3">
             <div>
-              <h1 className="text-2xl font-bold sword-drill-title">
+              <h1
+                className="font-bold sword-drill-title"
+                style={{ fontSize: 'clamp(22px, 5vw, 28px)', lineHeight: 1.1 }}
+              >
                 Sword Drill
               </h1>
             </div>
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-2"
+            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-3"
             aria-label="Toggle menu"
           >
-            {showMenu ? <X size={24} /> : <Menu size={24} />}
+            {showMenu ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
@@ -8561,7 +8567,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: '104px',
+          paddingTop: '16px',
           paddingBottom: '24px'
         }}
       >
