@@ -3963,7 +3963,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onMissionComplete={(mission) => {
             showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
           }}
-          onNavigate={(view) => setCurrentView(view)}
+          onNavigate={(view) => {
+            // Special handling for Bible Reader
+            if (view === 'bible-reader') {
+              setShowBibleReader(true);
+            } else {
+              setCurrentView(view);
+            }
+          }}
         />
       </div>
 
