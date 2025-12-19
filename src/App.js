@@ -8000,12 +8000,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       `}</style>
 
       <div
-        className="bg-slate-900/95 backdrop-blur-md border-b border-amber-500/30 sticky top-0 z-50"
+        className="bg-slate-900/95 backdrop-blur-md border-b border-amber-500/30 fixed top-0 left-0 right-0 z-50"
         style={{
-          paddingTop: 'max(env(safe-area-inset-top, 20px), 16px)',
+          paddingTop: 'calc(env(safe-area-inset-top) + 16px)',
           paddingBottom: '16px',
-          paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
-          paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
+          paddingLeft: 'calc(env(safe-area-inset-left) + 16px)',
+          paddingRight: 'calc(env(safe-area-inset-right) + 16px)'
         }}
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[64px]">
@@ -8558,7 +8558,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       )}
 
-      <div className="max-w-2xl mx-auto px-4 py-6">
+      <div
+        className="max-w-2xl mx-auto px-4 py-6"
+        style={{
+          paddingTop: 'calc(env(safe-area-inset-top) + 96px)'
+        }}
+      >
         {currentView === 'home' && <HomeView />}
         {currentView === 'quiz' && quizState?.type === 'verse-scramble' && (
           <VerseScrambleQuiz
