@@ -1648,6 +1648,11 @@ useEffect(() => {
   }
 }, [hasHydratedProgress, userData.lastCourseLocation]);
 
+// Scroll to top when view changes
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, [currentView, showBibleReader]);
+
 // Set loading to false after initial setup
 useEffect(() => {
   // Simulate minimum loading time for better UX
@@ -3969,6 +3974,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setShowBibleReader(true);
             } else {
               setCurrentView(view);
+            }
+          }}
+          onStartQuiz={(action) => {
+            // Handle quiz-starting actions
+            if (action === 'start-verse-detective') {
+              startVerseDetective();
+            } else if (action === 'start-word-search') {
+              setCurrentView('word-search');
+            } else if (action === 'start-storyline') {
+              setCurrentView('storyline-quiz');
+            } else if (action === 'start-biblical-or-nah') {
+              setCurrentView('biblical-or-nah');
             }
           }}
         />

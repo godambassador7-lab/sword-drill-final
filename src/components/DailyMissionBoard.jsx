@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Target, CheckCircle, Clock, Star, Trophy, Zap } from 'lucide-react';
 
-const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigate }) => {
+const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigate, onStartQuiz }) => {
   const [missions, setMissions] = useState([]);
   const [completedMissions, setCompletedMissions] = useState([]);
 
@@ -13,7 +13,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
       description: 'Complete 1 Bible Word Search',
       reward: 100,
       icon: '🔍',
-      navigateTo: 'word-search',
+      action: 'start-word-search',
       checkCompletion: (data) => (data?.dailyMissionProgress?.wordSearchCompleted || 0) >= 1
     },
     {
@@ -22,7 +22,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
       description: 'Complete 1 Storyline Quiz',
       reward: 100,
       icon: '📜',
-      navigateTo: 'storyline-quiz',
+      action: 'start-storyline',
       checkCompletion: (data) => (data?.dailyMissionProgress?.storylineCompleted || 0) >= 1
     },
     {
@@ -67,7 +67,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
       description: 'Complete 10 Biblical or Nah questions',
       reward: 100,
       icon: '🧠',
-      navigateTo: 'biblical-or-nah',
+      action: 'start-biblical-or-nah',
       checkCompletion: (data) => (data?.dailyMissionProgress?.biblicalOrNahQuestions || 0) >= 10
     },
     {
@@ -76,7 +76,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
       description: 'Complete 3 Verse Detective quizzes',
       reward: 150,
       icon: '🔍',
-      navigateTo: 'verse-detective',
+      action: 'start-verse-detective',
       checkCompletion: (data) => (data?.dailyMissionProgress?.verseDetectiveCompleted || 0) >= 3
     },
     {
@@ -197,8 +197,13 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
                   : 'bg-slate-700/50 border-slate-600 hover:border-amber-500/50 cursor-pointer'
               }`}
               onClick={() => {
-                if (!isCompleted && onNavigate && mission.navigateTo) {
-                  onNavigate(mission.navigateTo);
+                if (!isCompleted) {
+                  // Use action if available, otherwise use navigateTo
+                  if (mission.action && onStartQuiz) {
+                    onStartQuiz(mission.action);
+                  } else if (mission.navigateTo && onNavigate) {
+                    onNavigate(mission.navigateTo);
+                  }
                 }
               }}
             >

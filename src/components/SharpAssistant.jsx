@@ -2,13 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, ArrowLeft, Sparkles, Book, Info } from 'lucide-react';
 
 const SharpAssistant = ({ onBack, userData, bibleData }) => {
-  const [messages, setMessages] = useState([
-    {
-      role: 'assistant',
-      content: 'Hello! I\'m SHARP, your Scripture Helper and Research Partner. I can help you with biblical questions, explain passages, find verses, discuss theology, and more. What would you like to know?',
-      timestamp: Date.now()
-    }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
