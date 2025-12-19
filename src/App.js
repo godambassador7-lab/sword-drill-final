@@ -8000,12 +8000,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       `}</style>
 
       <div
-        className="bg-slate-900/95 backdrop-blur-md border-b border-amber-500/30 fixed top-0 left-0 right-0 z-50"
+        className="bg-slate-900 border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999]"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top) + 16px)',
+          paddingTop: '60px',
           paddingBottom: '16px',
-          paddingLeft: 'calc(env(safe-area-inset-left) + 16px)',
-          paddingRight: 'calc(env(safe-area-inset-right) + 16px)'
+          paddingLeft: '16px',
+          paddingRight: '16px'
         }}
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[64px]">
@@ -8559,9 +8559,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       )}
 
       <div
-        className="max-w-2xl mx-auto px-4 py-6"
+        className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top) + 96px)'
+          paddingTop: '150px',
+          paddingBottom: '24px'
         }}
       >
         {currentView === 'home' && <HomeView />}
