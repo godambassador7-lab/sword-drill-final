@@ -81,7 +81,7 @@ const DailyMissionBoard = ({ userData, setUserData, onMissionComplete, onNavigat
     },
     {
       id: 'quick-answer',
-      title: 'Speed Demon',
+      title: 'Speed Runner',
       description: 'Answer 5 questions under 5 seconds',
       reward: 175,
       icon: '⚡',
