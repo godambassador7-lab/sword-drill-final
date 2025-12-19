@@ -8561,7 +8561,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: '110px',
+          paddingTop: '104px',
           paddingBottom: '24px'
         }}
       >
