@@ -7941,7 +7941,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   return (
     <div
       className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 pb-0"
-      style={{ overscrollBehavior: 'none', paddingTop: 'calc(env(safe-area-inset-top, 0px) + 72px)' }}
+      style={{ overscrollBehavior: 'none', paddingTop: 0 }}
     >
       <CorrectToast points={toastPoints} show={showCorrectToast} />
       <IncorrectToast show={showIncorrectToast} points={toastPoints} />
@@ -8567,7 +8567,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: '16px',
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 120px)',
           paddingBottom: '24px'
         }}
       >
