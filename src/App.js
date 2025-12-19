@@ -8002,26 +8002,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="bg-slate-900 border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999]"
         style={{
-          paddingTop: '60px',
-          paddingBottom: '16px',
+          paddingTop: '50px',
+          paddingBottom: '12px',
           paddingLeft: '16px',
           paddingRight: '16px'
         }}
       >
-        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[64px]">
+        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[56px]">
           <div className="flex items-center gap-3">
             <div>
-              <h1 className="text-3xl font-bold sword-drill-title">
+              <h1 className="text-2xl font-bold sword-drill-title">
                 Sword Drill
               </h1>
             </div>
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-3"
+            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-2"
             aria-label="Toggle menu"
           >
-            {showMenu ? <X size={28} /> : <Menu size={28} />}
+            {showMenu ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -8561,7 +8561,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-4"
         style={{
-          paddingTop: '150px',
+          paddingTop: '130px',
           paddingBottom: '24px'
         }}
       >
