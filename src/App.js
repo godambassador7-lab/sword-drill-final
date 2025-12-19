@@ -8000,14 +8000,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       `}</style>
 
       <div
-        className="bg-slate-900/80 backdrop-blur border-b border-amber-500/20 sticky top-0 z-30"
+        className="bg-slate-900/90 backdrop-blur border-b border-amber-500/30 sticky top-0 z-40"
         style={{
-          paddingTop: 'max(env(safe-area-inset-top, 0px), 14px)',
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 18px)',
+          paddingBottom: '12px',
           paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
           paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
         }}
       >
-        <div className="max-w-2xl mx-auto py-4 flex items-center justify-between">
+        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[64px]">
           <div className="flex items-center gap-3">
             <div>
               <h1 className="text-3xl font-bold sword-drill-title">
@@ -8017,7 +8018,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-2 -mr-2"
+            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-3"
             aria-label="Toggle menu"
           >
             {showMenu ? <X size={28} /> : <Menu size={28} />}
