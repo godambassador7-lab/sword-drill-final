@@ -26,7 +26,8 @@ const AcademyAbout = ({ onBack }) => {
         { name: 'Biblical Canon', level: 'Intermediate', description: 'Understand how the Bible was formed and preserved' },
         { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' },
         { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' },
-        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis, exegesis, and theology' }
+        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis, exegesis, and theology' },
+        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theological synthesis' }
       ]
     },
     {
@@ -65,7 +66,7 @@ const AcademyAbout = ({ onBack }) => {
 
   const graduationRequirements = [
     'Complete all language courses (6 courses)',
-    'Complete all biblical studies courses (6 courses)',
+    'Complete all biblical studies courses (7 courses)',
     'Complete all historical studies courses (2 courses)',
     'Maintain focus integrity throughout your studies',
     'Pass all course assessments and final exams'

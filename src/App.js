@@ -66,6 +66,7 @@ import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
 import BiblicalCanonCourse from './components/BiblicalCanonCourse';
 import DemonologyCourse from './components/DemonologyCourse';
+import MosaicLawCourse from './components/MosaicLawCourse';
 import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -998,7 +999,8 @@ const SwordDrillApp = () => {
     'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
     'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
     'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
-    'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' }
+    'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' },
+    'mosaic-law-course': { cost: 1000, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1184,6 +1186,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-red-500/50',
       description: 'NT Demonology Expert',
       achievement: 'Completed all Demonology lessons (Associate Level)'
+    },
+    'mosaic-law-course': {
+      id: 'mosaic-law-course',
+      name: 'Torah Scholar',
+      symbol: '📜',
+      emoji: '⚖️',
+      color: 'yellow',
+      gradient: 'from-yellow-600 to-amber-600',
+      borderColor: 'border-yellow-500',
+      textColor: 'text-yellow-400',
+      glowColor: 'shadow-yellow-500/50',
+      description: 'Mosaic Law Expert',
+      achievement: 'Completed all Mosaic Law lessons (Associate Level)'
     }
   };
 
@@ -9673,6 +9688,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="demonology"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'mosaic-law-course' && (
+          <CourseWithFocus
+            CourseComponent={MosaicLawCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Mosaic Law course results:', results);
+
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Mosaic Law lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="mosaic-law"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />

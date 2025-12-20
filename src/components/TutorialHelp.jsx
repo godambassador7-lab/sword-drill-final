@@ -443,14 +443,14 @@ const TutorialHelp = ({ onBack }) => {
       subsections: [
         {
           title: 'Sword Drill Academy',
-          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 14 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
+          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 15 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
           tips: [
             '🎓 About the Academy - Learn about graduation requirements and rewards',
-            '📚 14 Total Courses - 6 languages, 6 biblical studies, 2 historical',
+            '📚 15 Total Courses - 6 languages, 7 biblical studies, 2 historical',
             '🏆 Certificate of Completion - Beautiful virtual certificate upon graduation',
             '💰 5000 Point Graduation Gift - Awarded when all courses complete',
             '📖 Biblical Languages: Greek, Hebrew, Paleo Hebrew, Aramaic, Ge\'ez, Amharic',
-            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology, Demonology (Associate)',
+            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology, Demonology (Associate), Mosaic Law (Associate)',
             '⏳ Historical Studies: Church History, Kings of Israel',
             '✨ Focus Covenant System - All courses include integrity tracking'
           ]
@@ -473,6 +473,7 @@ const TutorialHelp = ({ onBack }) => {
             'Apologetics: 450 points (Defense of Faith)',
             'Biblical Canon: 400 points (Formation of Scripture)',
             'Demonology: 1000 points (Associate Level - NT Survey + Exegesis)',
+            'Mosaic Law: 1000 points (Associate Level - Torah & Covenant)',
             'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
@@ -960,8 +961,22 @@ const TutorialHelp = ({ onBack }) => {
             '💪 NEW: Streak Redemption Powerup (from previous update)',
             '⏰ Available for 24 hours after losing streak',
             '💰 Costs 2000 points to restore lost streak',
-            '🎓 Academy includes 14 total courses for Biblical Studies Certificate',
+            '🎓 Academy includes 15 total courses for Biblical Studies Certificate',
             '📱 Mobile-responsive academy about page with graduation info'
+          ]
+        },
+        {
+          title: 'Hotfix - Mosaic Law Course (Dec 2025)',
+          content: 'Added the new Associate-Level Mosaic Law course covering the Torah with covenant theology, commandments, and comprehensive biblical-theological synthesis.',
+          tips: [
+            'NEW: Mosaic Law (Associate Level) course - 1000 points admission',
+            '📜 12 comprehensive units covering the Torah',
+            '⚖️ Foundation & Covenant, Categories of Law, Ten Commandments',
+            '🔥 Sacrificial System, Purity & Holiness, Social Justice',
+            '🌾 Blessings, Curses & Land, Law in Prophets',
+            '✝️ Law & Jesus, Law & Apostles, Theological Synthesis',
+            '🎓 Associate-level course (6 credit equivalent)',
+            'Course now available in Sword Drill Academy'
           ]
         },
         {
@@ -1074,7 +1089,7 @@ const TutorialHelp = ({ onBack }) => {
             '🎓 ACADEMIC PROGRAM: Currently offering Biblical Studies Certificate',
             '📚 IN DEVELOPMENT: Associate Degree Level Program',
             '🏛️ PLANNED: Bachelor\'s Degree Level Program',
-            '✅ Current: Complete 14 courses for Certificate of Completion',
+            '✅ Current: Complete 15 courses for Certificate of Completion',
             '🎯 Future: Expanded curriculum for Associate & Bachelor programs',
             '📖 Academic accreditation process underway',
             '🌐 Multiplayer challenges and leaderboards',
