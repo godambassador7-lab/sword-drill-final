@@ -1503,10 +1503,15 @@ const SwordDrillApp = () => {
   }, []);
 
 useEffect(() => {
+  // Disable browser scroll restoration to prevent auto-scrolling to middle
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
   const verse = getDailyVerse(new Date());
   setVerseOfDay(verse);
   syncVerseOfDayReadState();
-  
+
   // Firebase auth listener
   const unsubscribe = onAuthChange(async (user) => {
     if (user) {
@@ -1648,9 +1653,14 @@ useEffect(() => {
   }
 }, [hasHydratedProgress, userData.lastCourseLocation]);
 
-// Scroll to top when view changes
+// Scroll to top when view changes (except Bible Reader which manages its own scroll)
 useEffect(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Use setTimeout to ensure this happens after any other scroll restoration
+  const scrollTimer = setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, 0);
+
+  return () => clearTimeout(scrollTimer);
 }, [currentView, showBibleReader]);
 
 // Set loading to false after initial setup
