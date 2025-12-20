@@ -3826,11 +3826,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       )}
 
       {verseOfDay && (
-        <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-3">
+        <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
             <div className="flex items-center gap-2">
-              <Calendar className="text-amber-400" size={24} />
-              <h2 className="text-xl font-bold text-amber-400">Verse of the Day</h2>
+              <Calendar className="text-amber-400" size={20} />
+              <h2 className="text-lg sm:text-xl font-bold text-amber-400">Verse of the Day</h2>
             </div>
             <div className="flex items-center gap-2">
               <label className="flex items-center gap-2 cursor-pointer group">
@@ -3838,7 +3838,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   type="checkbox"
                   checked={verseOfDayRead}
                   onChange={handleVerseOfDayRead}
-                  className="w-5 h-5 rounded border-2 border-amber-500 bg-slate-800 checked:bg-amber-500 checked:border-amber-500 cursor-pointer transition-all"
+                  className="w-5 h-5 min-w-[20px] min-h-[20px] rounded border-2 border-amber-500 bg-slate-800 checked:bg-amber-500 checked:border-amber-500 cursor-pointer transition-all"
                   disabled={verseOfDayRead}
                 />
                 <span className={`text-sm font-semibold ${verseOfDayRead ? 'text-green-400' : 'text-amber-400 group-hover:text-amber-300'} transition-colors`}>
@@ -3847,21 +3847,21 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </label>
             </div>
           </div>
-          <p className="text-white text-lg mb-3 leading-relaxed">{verseOfDay.text}</p>
-          <p className="text-amber-300 font-semibold"> {verseOfDay.reference}</p>
+          <p className="text-white text-base sm:text-lg mb-3 leading-relaxed">{verseOfDay.text}</p>
+          <p className="text-amber-300 font-semibold text-sm sm:text-base"> {verseOfDay.reference}</p>
         </div>
       )}
 
       {/* Bible Reader Button */}
       <button
         onClick={() => setShowBibleReader(true)}
-        className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white p-4 rounded-xl border-2 border-amber-500 hover:border-amber-400 transition-all shadow-lg"
+        className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 active:from-amber-800 active:to-yellow-800 text-white p-3 sm:p-4 rounded-xl border-2 border-amber-500 hover:border-amber-400 transition-all shadow-lg min-h-[64px]"
       >
-        <div className="font-bold text-lg flex items-center justify-center gap-2">
-          <span className="text-2xl"></span>
+        <div className="font-bold text-base sm:text-lg flex items-center justify-center gap-2">
+          <span className="text-xl sm:text-2xl"></span>
           Open Bible Reader
         </div>
-        <div className="text-amber-100 text-sm">
+        <div className="text-amber-100 text-xs sm:text-sm">
           Read Bible by selected translation
         </div>
       </button>
@@ -3869,23 +3869,23 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Personal Verse Bank Button */}
       <button
         onClick={() => setCurrentView('personal-verse-bank')}
-        className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white p-4 rounded-xl border-2 border-cyan-500 hover:border-cyan-400 transition-all shadow-lg"
+        className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 active:from-cyan-800 active:to-blue-800 text-white p-3 sm:p-4 rounded-xl border-2 border-cyan-500 hover:border-cyan-400 transition-all shadow-lg min-h-[64px]"
       >
-        <div className="font-bold text-lg flex items-center justify-center gap-2">
-          <span className="text-2xl"></span>
+        <div className="font-bold text-base sm:text-lg flex items-center justify-center gap-2">
+          <span className="text-xl sm:text-2xl"></span>
           Personal Verse Bank
         </div>
-        <div className="text-cyan-100 text-sm">
+        <div className="text-cyan-100 text-xs sm:text-sm">
           Your Memory Verses  {(userData.personalMemoryVerses || []).length} verses saved
         </div>
       </button>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
-          <div className="text-amber-400 text-3xl font-bold">{userData.versesMemorized}</div>
-          <div className="text-slate-300 text-sm">Verses Memorized</div>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <div className="bg-slate-700/50 rounded-xl p-3 sm:p-4 border border-slate-600">
+          <div className="text-amber-400 text-2xl sm:text-3xl font-bold">{userData.versesMemorized}</div>
+          <div className="text-slate-300 text-xs sm:text-sm">Verses Memorized</div>
         </div>
-        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+        <div className="bg-slate-700/50 rounded-xl p-3 sm:p-4 border border-slate-600">
           <div className="flex items-center gap-2">
             {(() => {
               const currentStreak = userData.currentStreak || 0;
@@ -4073,20 +4073,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       </div>
 
       <div>
-        <h3 className="text-xl font-bold text-amber-400 mb-4">Start Training</h3>
-        <div className="space-y-3">
+        <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-3 sm:mb-4">Start Training</h3>
+        <div className="space-y-2 sm:space-y-3">
           <button
   onClick={() => startQuiz('fill-blank')}
   disabled={loading || !canTakeQuiz('fill-blank')}
-  className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
+  className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
 >
-  <div className="flex items-center justify-between">
-    <div className="font-bold text-lg">Fill in the Blank</div>
-    <div className={`text-xs font-semibold ${getRemainingQuizzes('fill-blank') === 0 ? 'text-red-400' : 'text-green-400'}`}>
-      {getRemainingQuizzes('fill-blank')}/{DAILY_QUIZ_LIMIT} left
+  <div className="flex items-center justify-between gap-2">
+    <div className="font-bold text-base sm:text-lg">Fill in the Blank</div>
+    <div className={`text-xs font-semibold whitespace-nowrap ${getRemainingQuizzes('fill-blank') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('fill-blank')}/{DAILY_QUIZ_LIMIT}
     </div>
   </div>
-  <div className="text-slate-300 text-sm">
+  <div className="text-slate-300 text-xs sm:text-sm mt-1">
     Complete verses with {
       userData.quizzesCompleted > 200 ? '7' :
       userData.quizzesCompleted > 100 ? '6' :
@@ -4098,38 +4098,38 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <button
             onClick={() => startQuiz('multiple-choice')}
             disabled={loading || !canTakeQuiz('multiple-choice')}
-  className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
+  className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
-  <div className="flex items-center justify-between">
-    <div className="font-bold text-lg">{loading ? '⏳ Loading...' : 'Multiple Choice'}</div>
-    <div className={`text-xs font-semibold ${getRemainingQuizzes('multiple-choice') === 0 ? 'text-red-400' : 'text-green-400'}`}>
-      {getRemainingQuizzes('multiple-choice')}/{DAILY_QUIZ_LIMIT} left
+  <div className="flex items-center justify-between gap-2">
+    <div className="font-bold text-base sm:text-lg">{loading ? '⏳ Loading...' : 'Multiple Choice'}</div>
+    <div className={`text-xs font-semibold whitespace-nowrap ${getRemainingQuizzes('multiple-choice') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('multiple-choice')}/{DAILY_QUIZ_LIMIT}
     </div>
   </div>
-            <div className="text-slate-400 text-sm">Identify the correct reference</div>
+            <div className="text-slate-400 text-xs sm:text-sm mt-1">Identify the correct reference</div>
           </button>
           <button
             onClick={() => startQuiz('reference-recall')}
             disabled={loading || !canTakeQuiz('reference-recall')}
-  className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
+  className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
-  <div className="flex items-center justify-between">
-    <div className="font-bold text-lg">Reference Recall</div>
-    <div className={`text-xs font-semibold ${getRemainingQuizzes('reference-recall') === 0 ? 'text-red-400' : 'text-green-400'}`}>
-      {getRemainingQuizzes('reference-recall')}/{DAILY_QUIZ_LIMIT} left
+  <div className="flex items-center justify-between gap-2">
+    <div className="font-bold text-base sm:text-lg">Reference Recall</div>
+    <div className={`text-xs font-semibold whitespace-nowrap ${getRemainingQuizzes('reference-recall') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('reference-recall')}/{DAILY_QUIZ_LIMIT}
     </div>
   </div>
-            <div className="text-slate-400 text-sm">Name the verse reference</div>
+            <div className="text-slate-400 text-xs sm:text-sm mt-1">Name the verse reference</div>
           </button>
           <button
             onClick={() => startQuiz('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
-            className="w-full bg-slate-700 hover:bg-slate-600 text-white p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50"
+            className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
-  <div className="flex items-center justify-between">
-    <div className="font-bold text-lg">Verse Scramble</div>
-    <div className={`text-xs font-semibold ${getRemainingQuizzes('verse-scramble') === 0 ? 'text-red-400' : 'text-green-400'}`}>
-      {getRemainingQuizzes('verse-scramble')}/{DAILY_QUIZ_LIMIT} left
+  <div className="flex items-center justify-between gap-2">
+    <div className="font-bold text-base sm:text-lg">Verse Scramble</div>
+    <div className={`text-xs font-semibold whitespace-nowrap ${getRemainingQuizzes('verse-scramble') === 0 ? 'text-red-400' : 'text-green-400'}`}>
+      {getRemainingQuizzes('verse-scramble')}/{DAILY_QUIZ_LIMIT}
     </div>
   </div>
             <div className="text-slate-400 text-sm">Unscramble the words of the verse</div>
@@ -4340,21 +4340,21 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
     return (
       <div
-        className="space-y-6"
+        className="space-y-4 sm:space-y-6"
         onMouseDown={(e) => e.stopPropagation()}
         onClick={(e) => e.stopPropagation()}
         onTouchStart={(e) => e.stopPropagation()}
       >
-        <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-6 border border-amber-500/30">
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-amber-400 font-bold">
+        <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-amber-500/30">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+            <div className="text-amber-400 font-bold text-sm sm:text-base">
               {quizState.type === 'fill-blank' && 'Fill in the Blank'}
               {quizState.type === 'multiple-choice' && 'Multiple Choice'}
               {quizState.type === 'reference-recall' && 'Reference Recall'}
             </div>
-            <div className="flex items-center gap-2 text-white bg-slate-900/50 px-4 py-2 rounded-lg border border-slate-600">
-              <Clock size={18} className="text-amber-400" />
-              <span className="font-mono font-bold">
+            <div className="flex items-center gap-2 text-white bg-slate-900/50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-slate-600">
+              <Clock size={16} className="text-amber-400 sm:w-[18px] sm:h-[18px]" />
+              <span className="font-mono font-bold text-sm sm:text-base">
                 {Math.floor(quizTimer / 60)}:{(quizTimer % 60).toString().padStart(2, '0')}
               </span>
             </div>
@@ -4433,16 +4433,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
                 showToast(`Hint purchased for ${hintCost} points!`, 'info');
               }}
-              className="w-full mb-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-4 rounded-lg hover:from-purple-500 hover:to-purple-600 transition-all border border-purple-500 flex items-center justify-center gap-2"
+              className="w-full mb-3 sm:mb-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-2.5 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-lg hover:from-purple-500 hover:to-purple-600 active:from-purple-700 active:to-purple-800 transition-all border border-purple-500 flex items-center justify-center gap-2 min-h-[44px]"
             >
-              <Lightbulb size={20} />
+              <Lightbulb size={18} className="sm:w-[20px] sm:h-[20px]" />
               Get Hint (25 points)
             </button>
           )}
 
           {/* Show hint if used */}
           {quizState.hintUsed && quizState.hintText && (
-            <div className="mb-4 p-4 bg-purple-900/40 border border-purple-600/50 rounded-lg text-purple-200">
+            <div className="mb-3 sm:mb-4 p-3 sm:p-4 bg-purple-900/40 border border-purple-600/50 rounded-lg text-purple-200 text-sm sm:text-base">
               {quizState.hintText}
             </div>
           )}
@@ -4450,7 +4450,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           {/* Question with drop zones for fill-blank */}
           {quizState.type === 'fill-blank' && quizState.userAnswers ? (
             <>
-              <div className="text-white text-lg mb-6 leading-relaxed">
+              <div className="text-white text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
                 {(() => {
                   let blankCounter = 0;
                   return quizState.question.split(' ').map((word, idx) => {
@@ -4507,14 +4507,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               value={quizState.userAnswer || ''}
               onChange={(e) => setQuizState(prev => ({ ...prev, userAnswer: e.target.value }))}
               placeholder="Type the reference (e.g., John 3:16)..."
-              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
+              className="w-full px-3 sm:px-4 py-3 sm:py-4 text-base sm:text-lg rounded-lg bg-slate-800 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none min-h-[48px]"
               autoComplete="off"
               autoFocus
             />
           )}
 
           {quizState.type === 'multiple-choice' && (
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {quizState.options.map((option, idx) => (
                 <button
                   key={idx}
@@ -4525,10 +4525,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onTouchStart={(e) => e.stopPropagation()}
-                  className={`w-full p-4 rounded-lg border-2 text-left focus:outline-none focus-visible:outline-none ${
+                  className={`w-full p-3 sm:p-4 rounded-lg border-2 text-left text-sm sm:text-base focus:outline-none focus-visible:outline-none min-h-[56px] transition-all ${
                     quizState.userAnswer === option
                       ? 'bg-amber-500 border-amber-400 text-slate-900 font-bold shadow-lg'
-                      : 'bg-slate-700 border-slate-600 text-white hover:bg-slate-600'
+                      : 'bg-slate-700 border-slate-600 text-white hover:bg-slate-600 active:bg-slate-500'
                   }`}
                 >
                   {option.replace(/:\\d+$/, '')}
@@ -4548,7 +4548,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
       : !quizState.userAnswer || isSubmittingQuiz
   }
-          className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-4 rounded-xl hover:from-amber-600 hover:to-amber-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-3 sm:py-4 text-base sm:text-lg rounded-xl hover:from-amber-600 hover:to-amber-700 active:from-amber-700 active:to-amber-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[52px]"
         >
           {isSubmittingQuiz ? 'Submitting...' : 'Submit Answer'}
         </button>
@@ -4561,7 +4561,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           }}
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
-          className="w-full bg-slate-600 text-white font-bold py-3 rounded-xl hover:bg-slate-500 transition-all"
+          className="w-full bg-slate-600 text-white font-bold py-3 text-base rounded-xl hover:bg-slate-500 active:bg-slate-400 transition-all min-h-[48px]"
         >
           Cancel
         </button>
@@ -8076,18 +8076,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="bg-slate-900/95 backdrop-blur border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999] shadow-lg"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 10px)',
-          paddingBottom: '10px',
-          paddingLeft: 'max(env(safe-area-inset-left, 0px), 12px)',
-          paddingRight: 'max(env(safe-area-inset-right, 0px), 12px)'
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)',
+          paddingBottom: '8px',
+          paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
+          paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
         }}
       >
-        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[52px]">
-          <div className="flex items-center gap-3">
+        <div className="max-w-2xl mx-auto flex items-center justify-between min-h-[48px]">
+          <div className="flex items-center gap-2 sm:gap-3">
             <div>
               <h1
                 className="font-bold sword-drill-title"
-                style={{ fontSize: 'clamp(26px, 6vw, 32px)', lineHeight: 1.1 }}
+                style={{ fontSize: 'clamp(20px, 5vw, 32px)', lineHeight: 1.1 }}
               >
                 Sword Drill
               </h1>
@@ -8095,10 +8095,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-amber-400 hover:text-amber-300 transition-colors rounded-full p-3"
+            className="text-amber-400 hover:text-amber-300 active:text-amber-200 transition-colors rounded-full p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            {showMenu ? <X size={26} /> : <Menu size={26} />}
+            {showMenu ? <X size={24} className="sm:w-[26px] sm:h-[26px]" /> : <Menu size={24} className="sm:w-[26px] sm:h-[26px]" />}
           </button>
         </div>
       </div>
@@ -8636,10 +8636,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       )}
 
       <div
-        className="max-w-2xl mx-auto px-4"
+        className="max-w-2xl mx-auto px-3 sm:px-4 md:px-6"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 120px)',
-          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 48px)'
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 80px)',
+          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 60px)'
         }}
       >
         {currentView === 'home' && <HomeView />}
