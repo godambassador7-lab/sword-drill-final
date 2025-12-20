@@ -3986,6 +3986,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('storyline-quiz');
             } else if (action === 'start-biblical-or-nah') {
               setCurrentView('biblical-or-nah');
+            } else {
+              // Fallback to home if action not recognized
+              console.warn('Unknown quiz action:', action);
+              setCurrentView('home');
             }
           }}
         />
