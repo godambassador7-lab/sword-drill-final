@@ -443,14 +443,14 @@ const TutorialHelp = ({ onBack }) => {
       subsections: [
         {
           title: 'Sword Drill Academy',
-          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 13 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
+          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 14 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
           tips: [
             '🎓 About the Academy - Learn about graduation requirements and rewards',
-            '📚 13 Total Courses - 6 languages, 5 biblical studies, 2 historical',
+            '📚 14 Total Courses - 6 languages, 6 biblical studies, 2 historical',
             '🏆 Certificate of Completion - Beautiful virtual certificate upon graduation',
             '💰 5000 Point Graduation Gift - Awarded when all courses complete',
             '📖 Biblical Languages: Greek, Hebrew, Paleo Hebrew, Aramaic, Ge\'ez, Amharic',
-            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology',
+            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology, Demonology (Associate)',
             '⏳ Historical Studies: Church History, Kings of Israel',
             '✨ Focus Covenant System - All courses include integrity tracking'
           ]
@@ -472,6 +472,7 @@ const TutorialHelp = ({ onBack }) => {
             'Amharic: 300 points (Modern Ethiopian)',
             'Apologetics: 450 points (Defense of Faith)',
             'Biblical Canon: 400 points (Formation of Scripture)',
+            'Demonology: 1000 points (Associate Level - NT Survey + Exegesis)',
             'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
@@ -959,8 +960,20 @@ const TutorialHelp = ({ onBack }) => {
             '💪 NEW: Streak Redemption Powerup (from previous update)',
             '⏰ Available for 24 hours after losing streak',
             '💰 Costs 2000 points to restore lost streak',
-            '🎓 Academy includes 13 total courses for Biblical Studies Certificate',
+            '🎓 Academy includes 14 total courses for Biblical Studies Certificate',
             '📱 Mobile-responsive academy about page with graduation info'
+          ]
+        },
+        {
+          title: 'Hotfix - Demonology Course (Dec 2025)',
+          content: 'Added the new Associate-Level Demonology course focusing on NT demonology with Greek analysis, exegesis, and theological synthesis.',
+          tips: [
+            'NEW: Demonology (Associate Level) course - 1000 points admission',
+            '🛡️ 8 comprehensive units covering NT demonology accounts',
+            '📖 Includes Greek terminology, exegesis, and theology',
+            '⚔️ Survey of Mark, Matthew, Luke, Acts, and doctrinal texts',
+            '🎓 Associate-level course (6 credit equivalent)',
+            'Course now available in Sword Drill Academy'
           ]
         },
         {
@@ -1061,7 +1074,7 @@ const TutorialHelp = ({ onBack }) => {
             '🎓 ACADEMIC PROGRAM: Currently offering Biblical Studies Certificate',
             '📚 IN DEVELOPMENT: Associate Degree Level Program',
             '🏛️ PLANNED: Bachelor\'s Degree Level Program',
-            '✅ Current: Complete 13 courses for Certificate of Completion',
+            '✅ Current: Complete 14 courses for Certificate of Completion',
             '🎯 Future: Expanded curriculum for Associate & Bachelor programs',
             '📖 Academic accreditation process underway',
             '🌐 Multiplayer challenges and leaderboards',

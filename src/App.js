@@ -65,6 +65,7 @@ import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
 import BiblicalCanonCourse from './components/BiblicalCanonCourse';
+import DemonologyCourse from './components/DemonologyCourse';
 import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -996,7 +997,8 @@ const SwordDrillApp = () => {
     'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
     'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
     'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
-    'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' }
+    'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
+    'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1169,6 +1171,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-amber-500/50',
       description: 'Biblical Archaeology Scholar',
       achievement: 'Completed all Biblical Archaeology lessons'
+    },
+    'demonology-course': {
+      id: 'demonology-course',
+      name: 'Spiritual Warfare Scholar',
+      symbol: '🛡️',
+      emoji: '⚔️',
+      color: 'red',
+      gradient: 'from-red-600 to-orange-600',
+      borderColor: 'border-red-500',
+      textColor: 'text-red-400',
+      glowColor: 'shadow-red-500/50',
+      description: 'NT Demonology Expert',
+      achievement: 'Completed all Demonology lessons (Associate Level)'
     }
   };
 
@@ -9630,6 +9645,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-archaeology"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'demonology-course' && (
+          <CourseWithFocus
+            CourseComponent={DemonologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Demonology course results:', results);
+
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Demonology lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="demonology"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
