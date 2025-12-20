@@ -2878,7 +2878,9 @@ const startVerseDetective = async () => {
     // Set verse detective data and switch to view
     setVerseDetectiveData({
       verse,
-      wrongReferences: uniqueWrongReferences
+      wrongReferences: uniqueWrongReferences,
+      canEarnPoints: true,
+      isPersonalVerse: false
     });
 
     setCurrentView('verse-detective');
