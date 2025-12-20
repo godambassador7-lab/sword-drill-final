@@ -311,7 +311,7 @@ const BiblicalSpellingBee = ({ onComplete, onCancel }) => {
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-              🐝 Biblical Spelling Bee
+              🔤 Biblical Anagrams
             </h2>
             <button
               onClick={onCancel}

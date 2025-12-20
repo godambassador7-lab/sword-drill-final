@@ -17,7 +17,17 @@ const AcademyAbout = ({ onBack }) => {
       ]
     },
     {
-      title: 'Biblical Studies',
+      title: 'Biblical Studies - Associate Level',
+      icon: Scroll,
+      color: 'from-blue-600 to-indigo-600',
+      courses: [
+        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis, exegesis, and theology' },
+        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theological synthesis' },
+        { name: 'Second Temple Judaism', level: 'Associate Level', description: 'Judaism from Babylonian exile to AD 70' }
+      ]
+    },
+    {
+      title: 'Biblical Studies - Diploma Level',
       icon: Scroll,
       color: 'from-amber-600 to-orange-600',
       courses: [
@@ -25,10 +35,7 @@ const AcademyAbout = ({ onBack }) => {
         { name: 'Textual Criticism', level: 'Advanced', description: 'Study manuscript evidence and textual variants' },
         { name: 'Biblical Canon', level: 'Intermediate', description: 'Understand how the Bible was formed and preserved' },
         { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' },
-        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' },
-        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis, exegesis, and theology' },
-        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theological synthesis' },
-        { name: 'Second Temple Judaism', level: 'Associate Level', description: 'Judaism from Babylonian exile to AD 70' }
+        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' }
       ]
     },
     {
@@ -67,7 +74,8 @@ const AcademyAbout = ({ onBack }) => {
 
   const graduationRequirements = [
     'Complete all language courses (6 courses)',
-    'Complete all biblical studies courses (8 courses)',
+    'Complete all Associate-level biblical studies courses (3 courses)',
+    'Complete all Diploma-level biblical studies courses (5 courses)',
     'Complete all historical studies courses (2 courses)',
     'Maintain focus integrity throughout your studies',
     'Pass all course assessments and final exams'

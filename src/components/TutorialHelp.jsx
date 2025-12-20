@@ -129,11 +129,11 @@ const TutorialHelp = ({ onBack }) => {
           ]
         },
         {
-          title: 'Biblical Spelling Bee',
-          content: 'Test your knowledge of biblical names, places, and terms with this challenging spelling competition. Perfect for learning proper pronunciation and spelling of difficult biblical words.',
+          title: 'Biblical Anagrams',
+          content: 'Test your knowledge of biblical names, places, and terms by unscrambling letters. Perfect for learning proper spelling of difficult biblical words.',
           tips: [
             'Pay attention to Hebrew and Greek origin words',
-            'Listen carefully to pronunciation clues',
+            'Use hints if you get stuck',
             'Learn common biblical name patterns',
             'Great for improving biblical literacy'
           ]

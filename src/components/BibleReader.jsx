@@ -1013,7 +1013,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                       return (
                         <div
                           key={index}
-                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-2 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full"
+                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-3 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full"
                           onTouchStart={handleTouchStart}
                           onTouchEnd={handleTouchEnd}
                           onMouseDown={handleTouchStart}
@@ -1021,8 +1021,8 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                           onMouseLeave={handleTouchEnd}
                         >
                           {/* Primary Translation (Left Column) */}
-                          <div className="flex gap-2 md:gap-3 w-full">
-                            <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
+                          <div className="flex gap-3 w-full">
+                            <span className="text-amber-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0">
                               {verse.verse}
                             </span>
                             <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
@@ -1036,8 +1036,8 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                           <div className="md:hidden border-t border-slate-600 my-2"></div>
 
                           {/* Secondary Translation (Right Column) */}
-                          <div className="flex gap-2 md:gap-3 md:border-l-2 md:border-slate-600 md:pl-4 w-full">
-                            <span className="text-emerald-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0 md:hidden">
+                          <div className="flex gap-3 md:border-l-2 md:border-slate-600 md:pl-4 w-full">
+                            <span className="text-emerald-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0 md:hidden">
                               {verse.verse}
                             </span>
                             <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
@@ -1073,14 +1073,14 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                     return (
                       <div
                         key={index}
-                        className="group relative flex gap-2 md:gap-3 hover:bg-slate-700/30 p-2 md:p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full"
+                        className="group relative flex gap-3 hover:bg-slate-700/30 p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full"
                         onTouchStart={handleTouchStart}
                         onTouchEnd={handleTouchEnd}
                         onMouseDown={handleTouchStart}
                         onMouseUp={handleTouchEnd}
                         onMouseLeave={handleTouchEnd}
                       >
-                        <span className="text-amber-400 font-bold text-sm mt-0.5 min-w-[1.5rem] md:min-w-[2rem] flex-shrink-0">
+                        <span className="text-amber-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0">
                           {verse.verse}
                         </span>
                         <div className="text-slate-200 leading-relaxed text-base md:text-base flex-1 break-words">

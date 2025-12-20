@@ -8,7 +8,7 @@ Bible memorization and study companion built with React. Includes Sword Drill Ul
 - **Storyline Quiz** - Chronological drag-and-drop event ordering with 44+ packs
 - **Bible Word Search Journey** - 250 puzzles with hints, time bonuses, and progress tracking
 - **Words of Jesus or Not?** - Fast-paced 30-second challenge
-- **Biblical Spelling Bee** - Unscramble biblical words
+- **Biblical Anagrams** - Unscramble biblical words
 - **Bible Trivia Challenge** - 750+ questions across 3 difficulty levels
 - **Bible reader** with references, lexicon links, and 97+ study plans
 - **Courses**: Kings of Israel, Ancient Hebrew, Koine Greek, Hermeneutics, Church History, Textual Criticism

@@ -7738,7 +7738,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           disabled={loading}
           className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white p-4 rounded-xl border-2 border-indigo-400 hover:border-indigo-300 transition-all text-left disabled:opacity-50 shadow-lg"
         >
-          <div className="font-bold text-lg"> Biblical Spelling Bee</div>
+          <div className="font-bold text-lg">Biblical Anagrams</div>
           <div className="text-indigo-100 text-sm">Unscramble biblical words  Timed  Hints available</div>
         </button>
         <button

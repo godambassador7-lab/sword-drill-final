@@ -587,10 +587,10 @@ const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
             {/* Spelling Bee */}
             <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-lg p-4 border border-yellow-600/50">
               <div className="flex items-start gap-3 mb-3">
-                <span className="text-3xl">🐝</span>
+                <span className="text-3xl">🔤</span>
                 <div className="flex-1">
-                  <h4 className="text-lg font-bold text-amber-300 mb-1">Biblical Spelling Bee</h4>
-                  <p className="text-amber-200/70 text-sm mb-3">Spell words from Smith's Bible Dictionary</p>
+                  <h4 className="text-lg font-bold text-amber-300 mb-1">Biblical Anagrams</h4>
+                  <p className="text-amber-200/70 text-sm mb-3">Unscramble words from Smith's Bible Dictionary</p>
                 </div>
               </div>
               <button
