@@ -8568,7 +8568,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         className="max-w-2xl mx-auto px-4"
         style={{
           paddingTop: 'calc(env(safe-area-inset-top, 0px) + 120px)',
-          paddingBottom: '24px'
+          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 48px)'
         }}
       >
         {currentView === 'home' && <HomeView />}
