@@ -10354,17 +10354,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           />
         </div>
       )}
-
-      {/* S.H.A.R.P. Assistant - Bottom Right Corner */}
-      <SharpAssistant
-        userData={userData}
-        currentQuizStats={currentQuizStats}
-        verseHistory={verseHistory}
-        todaysQuizzesCount={todaysQuizzesCount}
-        userId={currentUser?.uid}
-        onOpenAnalytics={() => {}}
-        reloadCounter={0}
-      />
     </div>
   );
 };
