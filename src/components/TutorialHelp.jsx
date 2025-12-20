@@ -443,14 +443,14 @@ const TutorialHelp = ({ onBack }) => {
       subsections: [
         {
           title: 'Sword Drill Academy',
-          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 15 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
+          content: 'All courses are now organized under Sword Drill Academy! This comprehensive Biblical Studies program includes 16 courses across languages, biblical studies, and history. Complete all courses to earn a Certificate of Completion and 5000 bonus points.',
           tips: [
             '🎓 About the Academy - Learn about graduation requirements and rewards',
-            '📚 15 Total Courses - 6 languages, 7 biblical studies, 2 historical',
+            '📚 16 Total Courses - 6 languages, 8 biblical studies, 2 historical',
             '🏆 Certificate of Completion - Beautiful virtual certificate upon graduation',
             '💰 5000 Point Graduation Gift - Awarded when all courses complete',
             '📖 Biblical Languages: Greek, Hebrew, Paleo Hebrew, Aramaic, Ge\'ez, Amharic',
-            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology, Demonology (Associate), Mosaic Law (Associate)',
+            '🔍 Biblical Studies: Hermeneutics, Textual Criticism, Canon, Apologetics, Archaeology, Demonology (Associate), Mosaic Law (Associate), Second Temple Judaism (Associate)',
             '⏳ Historical Studies: Church History, Kings of Israel',
             '✨ Focus Covenant System - All courses include integrity tracking'
           ]
@@ -474,6 +474,7 @@ const TutorialHelp = ({ onBack }) => {
             'Biblical Canon: 400 points (Formation of Scripture)',
             'Demonology: 1000 points (Associate Level - NT Survey + Exegesis)',
             'Mosaic Law: 1000 points (Associate Level - Torah & Covenant)',
+            'Second Temple Judaism: 1000 points (Associate Level - Exile to AD 70)',
             'Affordable locked courses show shimmering amber border',
             'Click locked course to see admission cost and current balance',
             'Admission is one-time payment - permanent access after unlock',
@@ -961,8 +962,22 @@ const TutorialHelp = ({ onBack }) => {
             '💪 NEW: Streak Redemption Powerup (from previous update)',
             '⏰ Available for 24 hours after losing streak',
             '💰 Costs 2000 points to restore lost streak',
-            '🎓 Academy includes 15 total courses for Biblical Studies Certificate',
+            '🎓 Academy includes 16 total courses for Biblical Studies Certificate',
             '📱 Mobile-responsive academy about page with graduation info'
+          ]
+        },
+        {
+          title: 'Hotfix - Second Temple Judaism Course (Dec 2025)',
+          content: 'Added the new Associate-Level Second Temple Judaism course covering Judaism from the Babylonian exile to the destruction of the Second Temple (AD 70).',
+          tips: [
+            'NEW: Second Temple Judaism (Associate Level) course - 1000 points admission',
+            '🏛️ 12 comprehensive units covering Second Temple period',
+            '⛪ Historical Framework, Temple & Worship, Torah & Interpretation',
+            '👥 Jewish Sects, Synagogue & Daily Life, Messianic Expectations',
+            '🌟 Apocalyptic Worldview, Roman Occupation',
+            '✝️ Jesus within Second Temple Judaism, Early Christianity & Judaism',
+            '🎓 Associate-level course (6 credit equivalent)',
+            'Course now available in Sword Drill Academy'
           ]
         },
         {
@@ -1089,7 +1104,7 @@ const TutorialHelp = ({ onBack }) => {
             '🎓 ACADEMIC PROGRAM: Currently offering Biblical Studies Certificate',
             '📚 IN DEVELOPMENT: Associate Degree Level Program',
             '🏛️ PLANNED: Bachelor\'s Degree Level Program',
-            '✅ Current: Complete 15 courses for Certificate of Completion',
+            '✅ Current: Complete 16 courses for Certificate of Completion',
             '🎯 Future: Expanded curriculum for Associate & Bachelor programs',
             '📖 Academic accreditation process underway',
             '🌐 Multiplayer challenges and leaderboards',

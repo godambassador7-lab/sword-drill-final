@@ -634,6 +634,13 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const confirmAddVerse = () => {
     if (!pendingVerse || !userData || !onUpdateUserData) return;
 
+    if (activeTranslation === 'KJV_STRONGS') {
+      window.alert('KJV w/ Strong\'s cannot be saved to the Personal Verse Bank. Please switch to KJV (or another translation) before adding.');
+      setShowAddVerseConfirmation(false);
+      setPendingVerse(null);
+      return;
+    }
+
     const verseReference = `${selectedBook.name} ${selectedChapter}:${pendingVerse.verse}`;
     const personalVerse = {
       reference: verseReference,
@@ -1131,7 +1138,6 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 };
 
 export default BibleReader;
-
 
 
 

@@ -183,7 +183,7 @@ const PersonalVerseBank = ({ onBack, userData, onUpdateUserData, onStartPersonal
               No Personal Memory Verses Yet
             </h3>
             <p className="text-slate-500 mb-6">
-              Visit the Bible Reader and click the bookmark icon on any verse to add it to your Personal Verse Bank
+              Open Bible Reader and long-press any verse to save it to your Personal Verse Bank.
             </p>
             <button
               onClick={onBack}

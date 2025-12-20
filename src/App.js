@@ -67,6 +67,7 @@ import ApologeticsCourse from './components/ApologeticsCourse';
 import BiblicalCanonCourse from './components/BiblicalCanonCourse';
 import DemonologyCourse from './components/DemonologyCourse';
 import MosaicLawCourse from './components/MosaicLawCourse';
+import SecondTempleJudaismCourse from './components/SecondTempleJudaismCourse';
 import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -1000,7 +1001,8 @@ const SwordDrillApp = () => {
     'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
     'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
     'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' },
-    'mosaic-law-course': { cost: 1000, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' }
+    'mosaic-law-course': { cost: 1000, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' },
+    'second-temple-judaism-course': { cost: 1000, name: 'Second Temple Judaism (Associate)', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1199,6 +1201,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-yellow-500/50',
       description: 'Mosaic Law Expert',
       achievement: 'Completed all Mosaic Law lessons (Associate Level)'
+    },
+    'second-temple-judaism-course': {
+      id: 'second-temple-judaism-course',
+      name: 'Second Temple Scholar',
+      symbol: '🏛️',
+      emoji: '⛪',
+      color: 'blue',
+      gradient: 'from-blue-600 to-indigo-600',
+      borderColor: 'border-blue-500',
+      textColor: 'text-blue-400',
+      glowColor: 'shadow-blue-500/50',
+      description: 'Second Temple Judaism Expert',
+      achievement: 'Completed all Second Temple Judaism lessons (Associate Level)'
     }
   };
 
@@ -2459,14 +2474,19 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
 
     try {
       const preferredTranslation = normalizeTranslation(userData.selectedTranslation || 'KJV');
+      const quizTranslation = preferredTranslation === 'KJV_STRONGS' ? 'KJV' : preferredTranslation;
       // Pick a curated reference based on level, avoiding quiz-type cooldowns
       const reference = pickCuratedReference(type, userData, usePersonalVerses);
-      const verseTextInfo = await resolveVerseText(reference, preferredTranslation, { simplifiedMode: userData.simplifiedMode });
+      const verseTextInfo = await resolveVerseText(reference, quizTranslation, { simplifiedMode: userData.simplifiedMode });
+    const normalizedQuizTranslation = (verseTextInfo.translation || quizTranslation || 'KJV') === 'KJV_STRONGS'
+      ? 'KJV'
+      : (verseTextInfo.translation || quizTranslation || 'KJV');
+
     let verse = {
       id: reference,
       reference,
       text: verseTextInfo.text,
-      translation: verseTextInfo.translation || 'KJV'
+      translation: normalizedQuizTranslation
     };
 
     const words = verse.text.split(' ');
@@ -2769,12 +2789,17 @@ const startVerseDetective = async () => {
   try {
     // Pick a curated reference based on level
     const reference = pickCuratedReference('verse-detective', userData, false);
-    const verseTextInfo = await resolveVerseText(reference, userData.selectedTranslation || 'KJV', { simplifiedMode: userData.simplifiedMode });
+    const detectiveTranslation = normalizeTranslation(userData.selectedTranslation || 'KJV') === 'KJV_STRONGS'
+      ? 'KJV'
+      : normalizeTranslation(userData.selectedTranslation || 'KJV');
+    const verseTextInfo = await resolveVerseText(reference, detectiveTranslation, { simplifiedMode: userData.simplifiedMode });
     const verse = {
       id: reference,
       reference,
       text: verseTextInfo.text,
-      translation: verseTextInfo.translation || 'KJV'
+      translation: (verseTextInfo.translation || detectiveTranslation || 'KJV') === 'KJV_STRONGS'
+        ? 'KJV'
+        : (verseTextInfo.translation || detectiveTranslation || 'KJV')
     };
 
     // Generate wrong references using advanced multiple-choice logic
@@ -9716,6 +9741,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="mosaic-law"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'second-temple-judaism-course' && (
+          <CourseWithFocus
+            CourseComponent={SecondTempleJudaismCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Second Temple Judaism course results:', results);
+
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Second Temple Judaism lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="second-temple-judaism"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
