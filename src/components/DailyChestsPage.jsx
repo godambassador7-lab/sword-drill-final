@@ -28,13 +28,12 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
     {
       id: 'daily-chest-1',
       title: 'Morning Blessing',
-      subtitle: 'Start your day with Manna from heaven',
-      icon: '🌾',
+      subtitle: 'Earn Manna with each quiz today!',
+      icon: '💎',
       color: 'from-amber-400 to-orange-500',
       glowColor: 'shadow-amber-500/50',
       rewards: [
-        { type: 'manna', amount: 50 },
-        { type: 'powerup', item: 'EXTRA_TIME', quantity: 1 }
+        { type: 'manna-activation', description: 'Earn 1 Manna per quiz completed today' }
       ]
     },
     {
@@ -102,12 +101,16 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
       let newManna = userData.manna || 0;
       const newActiveBoosts = [...(userData.activeBoosts || [])];
 
+      let mannaEarningActivated = false;
+
       // Process rewards
       chest.rewards.forEach(reward => {
         if (reward.type === 'points') {
           newPoints += reward.amount;
         } else if (reward.type === 'manna') {
           newManna += reward.amount;
+        } else if (reward.type === 'manna-activation') {
+          mannaEarningActivated = true;
         } else if (reward.type === 'powerup') {
           const powerUpConfig = ECONOMY_POWER_UPS[reward.item];
           if (powerUpConfig) {
@@ -129,6 +132,7 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
         totalPoints: newPoints,
         manna: newManna,
         mannaLastUpdated: Date.now(),
+        mannaEarningActive: userData.mannaEarningActive || mannaEarningActivated,
         activeBoosts: newActiveBoosts
       };
 
@@ -248,6 +252,11 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
                               <span className="text-xl">🌾</span>
                               <span className="font-semibold">{reward.amount} Manna</span>
                             </>
+                          ) : reward.type === 'manna-activation' ? (
+                            <>
+                              <span className="text-xl">🌾</span>
+                              <span className="font-semibold text-center">{reward.description}</span>
+                            </>
                           ) : (
                             <>
                               <Sparkles size={16} className="text-cyan-300" />
@@ -302,6 +311,13 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
                                 <div className="flex items-center gap-2 justify-center">
                                   <span className="text-3xl">🌾</span>
                                   <span>+{reward.amount} Manna</span>
+                                </div>
+                              )}
+                              {reward.type === 'manna-activation' && (
+                                <div className="flex flex-col items-center gap-2 justify-center">
+                                  <span className="text-3xl">🌾</span>
+                                  <span className="text-center">{reward.description}</span>
+                                  <span className="text-sm text-amber-300">Active for today!</span>
                                 </div>
                               )}
                               {reward.type === 'powerup' && (

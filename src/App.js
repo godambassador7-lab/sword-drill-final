@@ -1337,6 +1337,8 @@ const SwordDrillApp = () => {
     // Manna System (Daily-Only Currency)
     manna: 0, // Daily currency that resets at midnight
     mannaLastUpdated: Date.now(), // Track when manna was last updated for 24-hour expiry
+    mannaEarningActive: false, // Track if user has activated Manna earning for the day
+    mannaRedemptionsToday: 0, // Track how many points redeemed from Manna today (max 200)
     streakProtectionExpiresAt: null // When streak protection expires
   });
 
@@ -1447,14 +1449,18 @@ const SwordDrillApp = () => {
         setUserData(prev => ({
           ...prev,
           manna: 0,
-          mannaLastUpdated: now
+          mannaLastUpdated: now,
+          mannaEarningActive: false,
+          mannaRedemptionsToday: 0
         }));
 
         // Sync to Firebase
         if (currentUser?.uid) {
           updateUserProgress(currentUser.uid, {
             manna: 0,
-            mannaLastUpdated: now
+            mannaLastUpdated: now,
+            mannaEarningActive: false,
+            mannaRedemptionsToday: 0
           }).catch(err => console.error('Error resetting Manna:', err));
         }
       }
@@ -3608,9 +3614,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   // Update newly unlocked achievements list
   const updatedNewlyUnlocked = [...(userData.newlyUnlockedAchievements || []), ...newlyUnlockedIds];
 
+  // Award 1 Manna per quiz completion if Morning Blessing is activated
+  let newManna = userData.manna || 0;
+  if (userData.mannaEarningActive) {
+    newManna += 1;
+  }
+
   const newQuizData = {
     quizzesCompleted: newQuizzesCompleted,
     totalPoints: newTotalPoints,
+    manna: newManna,
     achievements: newAchievements,
     verseProgress: newVerseProgress,
     versesMemorized: newVersesMastered,
@@ -4067,6 +4080,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-amber-400 text-3xl font-bold">{userData.totalPoints}</div>
           <div className="text-slate-300 text-sm">Total Points</div>
         </div>
+        <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border-2 border-amber-500/50">
+          <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
+            <span>🌾</span>
+            <span>{userData.manna || 0}</span>
+          </div>
+          <div className="text-amber-200 text-sm font-semibold">Manna (Daily)</div>
+          <div className="text-amber-300/70 text-xs mt-1">Resets at midnight</div>
+        </div>
       </div>
 
       {/* Memory Meters - Level Progress */}
@@ -4113,16 +4134,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setCurrentView('home');
             }
           }}
-        />
-      </div>
-
-      {/* Free Daily Chests */}
-      <div className="mb-6">
-        <FreeDailyChests
-          userData={userData}
-          setUserData={setUserData}
-          userId={currentUser?.uid}
-          showToast={showToast}
         />
       </div>
 
@@ -8170,11 +8181,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-700">
-              <User className="text-amber-400" size={32} />
-              <div className="flex-1">
-                <div className="font-bold text-white mb-2">{userData.name}</div>
-                <div className="space-y-1">
+            <div className="mb-6 pb-6 border-b border-slate-700">
+              <div className="text-amber-400 text-lg font-bold mb-4">
+                Welcome, {userData.name}!
+              </div>
+              <div className="flex items-start gap-3">
+                <User className="text-amber-400" size={28} />
+                <div className="flex-1 space-y-1">
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-slate-400">💰</span>
                     <span className="text-slate-300">{userData.totalPoints} points</span>
@@ -8182,11 +8195,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-slate-400">🔥</span>
                     <span className="text-slate-300">{userData.currentStreak || 0} day streak</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="text-slate-400">🌾</span>
-                    <span className="text-amber-300 font-semibold">{userData.manna || 0} Manna</span>
-                    <span className="text-[10px] text-slate-500">(daily)</span>
                   </div>
                 </div>
               </div>
