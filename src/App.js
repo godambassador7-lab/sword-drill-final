@@ -8373,14 +8373,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     </button>
 
                     {showCoursesDropdown && (
-                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-amber-500/30 pl-2">
+                      <div className="ml-4 mt-1 space-y-2 border-l-2 border-amber-500/30 pl-2">
                         {/* About Academy */}
                         <button
                           onClick={() => {
                             setCurrentView('academy-about');
                             setShowMenu(false);
                           }}
-                          className="w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-2 border border-amber-500/30 mb-2"
+                          className="w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-2 border border-amber-500/30"
                         >
                           <BookOpen size={16} className="text-amber-400" />
                           <div className="flex-1">
@@ -8389,36 +8389,133 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           </div>
                         </button>
 
-                        {/* Course List */}
-                        {[
-                          ...Object.entries(COURSE_ADMISSION)
-                            .filter(([courseId]) => userData.unlockables?.[`course_${courseId}`])
-                            .sort((a, b) => a[1].name.localeCompare(b[1].name)),
-                          ...Object.entries(COURSE_ADMISSION)
-                            .filter(([courseId]) => !userData.unlockables?.[`course_${courseId}`])
-                            .sort((a, b) => a[1].name.localeCompare(b[1].name))
-                        ].map(([courseId, course]) => {
-                          const IconComponent = course.icon;
-                          const isUnlocked = userData.unlockables?.[`course_${courseId}`];
-                          return (
-                            <button
-                              key={courseId}
-                              onClick={() => handleCourseAccess(courseId)}
-                              className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-${course.color}-600/20 hover:to-${course.color}-600/20 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
-                            >
-                              <IconComponent size={16} className={`text-${course.color}-400`} />
-                              <div className="flex-1">
-                                <div className="text-sm flex items-center gap-2">
-                                  {course.name}
-                                  {!isUnlocked && <Lock size={10} className="text-amber-400" />}
-                                </div>
-                                <div className="text-xs text-slate-400">
-                                  {isUnlocked ? course.description : `${course.cost} pts admission`}
-                                </div>
-                              </div>
-                            </button>
-                          );
-                        })}
+                        {/* Biblical Languages */}
+                        <div className="mt-2">
+                          <div className="px-3 py-1 text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                            Biblical Languages
+                          </div>
+                          <div className="space-y-1">
+                            {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'geez-course', 'amharic-course'].map(courseId => {
+                              const course = COURSE_ADMISSION[courseId];
+                              const IconComponent = course.icon;
+                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                              return (
+                                <button
+                                  key={courseId}
+                                  onClick={() => handleCourseAccess(courseId)}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                >
+                                  <IconComponent size={14} className={`text-${course.color}-400`} />
+                                  <div className="flex-1">
+                                    <div className="text-xs flex items-center gap-2">
+                                      {course.name}
+                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400">
+                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                    </div>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Biblical Studies - Associate Level */}
+                        <div className="mt-2">
+                          <div className="px-3 py-1 text-xs font-bold text-blue-400 uppercase tracking-wider">
+                            Biblical Studies - Associate
+                          </div>
+                          <div className="space-y-1">
+                            {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course'].map(courseId => {
+                              const course = COURSE_ADMISSION[courseId];
+                              const IconComponent = course.icon;
+                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                              return (
+                                <button
+                                  key={courseId}
+                                  onClick={() => handleCourseAccess(courseId)}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                >
+                                  <IconComponent size={14} className={`text-${course.color}-400`} />
+                                  <div className="flex-1">
+                                    <div className="text-xs flex items-center gap-2">
+                                      {course.name}
+                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400">
+                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                    </div>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Biblical Studies - Diploma Level */}
+                        <div className="mt-2">
+                          <div className="px-3 py-1 text-xs font-bold text-amber-400 uppercase tracking-wider">
+                            Biblical Studies - Diploma
+                          </div>
+                          <div className="space-y-1">
+                            {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course'].map(courseId => {
+                              const course = COURSE_ADMISSION[courseId];
+                              const IconComponent = course.icon;
+                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                              return (
+                                <button
+                                  key={courseId}
+                                  onClick={() => handleCourseAccess(courseId)}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                >
+                                  <IconComponent size={14} className={`text-${course.color}-400`} />
+                                  <div className="flex-1">
+                                    <div className="text-xs flex items-center gap-2">
+                                      {course.name}
+                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400">
+                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                    </div>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Historical Studies */}
+                        <div className="mt-2">
+                          <div className="px-3 py-1 text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                            Historical Studies
+                          </div>
+                          <div className="space-y-1">
+                            {['church-history-course', 'kings-of-israel-course'].map(courseId => {
+                              const course = COURSE_ADMISSION[courseId];
+                              const IconComponent = course.icon;
+                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                              return (
+                                <button
+                                  key={courseId}
+                                  onClick={() => handleCourseAccess(courseId)}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                >
+                                  <IconComponent size={14} className={`text-${course.color}-400`} />
+                                  <div className="flex-1">
+                                    <div className="text-xs flex items-center gap-2">
+                                      {course.name}
+                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400">
+                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                    </div>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
