@@ -104,6 +104,7 @@ import DailyMissionBoard from './components/DailyMissionBoard';
 import ChallengeLadders from './components/ChallengeLadders';
 import StreakChests from './components/StreakChests';
 import FreeDailyChests from './components/FreeDailyChests';
+import DailyChestsPage from './components/DailyChestsPage';
 import BiblicalCrossword from './components/BiblicalCrossword';
 import SharpAssistant from './components/SharpAssistant';
 import MyLibrary from './components/MyLibrary';
@@ -1331,6 +1332,10 @@ const SwordDrillApp = () => {
     wrongAnswerCount: 0, // Track wrong answers for penalties
     lastWrongAnswerTime: 0, // Track rapid-fire wrong answers
     streakProtectionActive: false, // Streak freeze purchased
+
+    // Manna System (Daily-Only Currency)
+    manna: 0, // Daily currency that resets at midnight
+    mannaLastUpdated: Date.now(), // Track when manna was last updated for 24-hour expiry
     streakProtectionExpiresAt: null // When streak protection expires
   });
 
@@ -1412,6 +1417,54 @@ const SwordDrillApp = () => {
       }
     }
   }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
+
+  // Manna 24-Hour Expiry System
+  useEffect(() => {
+    const checkMannaExpiry = () => {
+      if (!userData.mannaLastUpdated) {
+        // Initialize if not set
+        setUserData(prev => ({
+          ...prev,
+          mannaLastUpdated: Date.now()
+        }));
+        return;
+      }
+
+      const now = Date.now();
+      const lastUpdate = userData.mannaLastUpdated;
+
+      // Check if we've crossed midnight (new day)
+      const lastUpdateDate = new Date(lastUpdate);
+      const currentDate = new Date(now);
+
+      const lastDay = lastUpdateDate.toLocaleDateString();
+      const currentDay = currentDate.toLocaleDateString();
+
+      // If it's a new day, reset Manna to 0
+      if (lastDay !== currentDay) {
+        console.log('New day detected - resetting Manna from', userData.manna, 'to 0');
+        setUserData(prev => ({
+          ...prev,
+          manna: 0,
+          mannaLastUpdated: now
+        }));
+
+        // Sync to Firebase
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, {
+            manna: 0,
+            mannaLastUpdated: now
+          }).catch(err => console.error('Error resetting Manna:', err));
+        }
+      }
+    };
+
+    // Check on mount and every hour
+    checkMannaExpiry();
+    const interval = setInterval(checkMannaExpiry, 60 * 60 * 1000); // Check every hour
+
+    return () => clearInterval(interval);
+  }, [userData.manna, userData.mannaLastUpdated, currentUser?.uid]);
 
   // Use focus tracking hook
   const focusTracking = useFocusTracking(focusEnabled && quizState !== null, examMode);
@@ -8116,11 +8169,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-700">
+            <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-700">
               <User className="text-amber-400" size={32} />
-              <div>
-                <div className="font-bold text-white">{userData.name}</div>
-                <div className="text-sm text-slate-400">{userData.totalPoints} points</div>
+              <div className="flex-1">
+                <div className="font-bold text-white mb-2">{userData.name}</div>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="text-slate-400">💰</span>
+                    <span className="text-slate-300">{userData.totalPoints} points</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="text-slate-400">🔥</span>
+                    <span className="text-slate-300">{userData.currentStreak || 0} day streak</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="text-slate-400">🌾</span>
+                    <span className="text-amber-300 font-semibold">{userData.manna || 0} Manna</span>
+                    <span className="text-[10px] text-slate-500">(daily)</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -8766,6 +8833,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           />
         )}
         {currentView === 'quiz' && quizState?.type !== 'verse-scramble' && <QuizView />}
+        {currentView === 'daily-chest' && (
+          <DailyChestsPage
+            onCancel={() => setCurrentView('home')}
+            userData={userData}
+            setUserData={setUserData}
+            userId={currentUser?.uid}
+            showToast={showToast}
+          />
+        )}
         {currentView === 'achievements' && <AchievementsView />}
         {currentView === 'analytics' && <AnalyticsView />}
         {currentView === 'mastery' && <MasteryView />}
