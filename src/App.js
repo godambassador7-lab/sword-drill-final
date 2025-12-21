@@ -2519,6 +2519,54 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     showToast(`🔥 Streak Restored!\n\nYour ${restoredStreak}-day streak has been redeemed!\n\n-${REDEMPTION_COST} points`, 'success');
   };
 
+  const handleMannaRedemption = () => {
+    const MANNA_COST = 10; // 10 Manna
+    const POINTS_REWARD = 5; // 5 points
+    const MAX_DAILY_REDEMPTIONS = 200; // Max 200 points per day
+
+    const currentManna = userData.manna || 0;
+    const currentRedemptions = userData.mannaRedemptionsToday || 0;
+
+    // Check if user has enough Manna
+    if (currentManna < MANNA_COST) {
+      showToast('Not enough Manna! You need 10 Manna to redeem 5 points.', 'error');
+      return;
+    }
+
+    // Check if user has reached daily redemption limit
+    if (currentRedemptions >= MAX_DAILY_REDEMPTIONS) {
+      showToast('Daily redemption limit reached! You can redeem up to 200 points per day.', 'error');
+      return;
+    }
+
+    // Calculate new values
+    const newManna = currentManna - MANNA_COST;
+    const newPoints = userData.totalPoints + POINTS_REWARD;
+    const newRedemptions = currentRedemptions + POINTS_REWARD;
+
+    // Update user data
+    const updates = {
+      manna: newManna,
+      totalPoints: newPoints,
+      mannaRedemptionsToday: newRedemptions
+    };
+
+    setUserData(prev => ({
+      ...prev,
+      ...updates
+    }));
+
+    // Sync to Firebase
+    if (currentUser?.uid) {
+      updateUserProgress(currentUser.uid, updates).catch(err =>
+        console.error('Error syncing Manna redemption:', err)
+      );
+    }
+
+    const remaining = MAX_DAILY_REDEMPTIONS - newRedemptions;
+    showToast(`🌾 Manna Redeemed!\n\n+${POINTS_REWARD} points\n-${MANNA_COST} Manna\n\n${remaining} points remaining today`, 'success');
+  };
+
   const startQuiz = async (type, usePersonalVerses = false) => {
     // Check daily quiz limit (skip for personal verses - they're practice and award minimal points)
     if (!usePersonalVerses && !canTakeQuiz(type)) {
@@ -4087,6 +4135,20 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <div className="text-amber-200 text-sm font-semibold">Manna (Daily)</div>
           <div className="text-amber-300/70 text-xs mt-1">Resets at midnight</div>
+          {(userData.manna || 0) >= 10 && (
+            <button
+              onClick={handleMannaRedemption}
+              disabled={(userData.mannaRedemptionsToday || 0) >= 200}
+              className="mt-3 w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white text-xs font-bold py-2 px-3 rounded-lg transition-all"
+            >
+              {(userData.mannaRedemptionsToday || 0) >= 200 ? 'Daily Limit Reached' : 'Redeem 10 for 5 pts'}
+            </button>
+          )}
+          {(userData.mannaRedemptionsToday || 0) > 0 && (userData.mannaRedemptionsToday || 0) < 200 && (
+            <div className="mt-2 text-center text-amber-400 text-xs">
+              {200 - (userData.mannaRedemptionsToday || 0)} pts left today
+            </div>
+          )}
         </div>
       </div>
 
