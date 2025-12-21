@@ -1343,7 +1343,12 @@ const SwordDrillApp = () => {
 
     // Talents System (Long-term Investment Currency)
     talents: 0, // Talents currency (gold bars)
-    talentsConversions: [] // Array of active conversions: { amount, startedAt, completesAt, growthRate }
+    talentsConversions: [], // Array of active conversions: { amount, startedAt, completesAt, growthRate }
+
+    // Keys of Understanding System (Special Reward Currency)
+    keys: 0, // Keys of Understanding - earned through perseverance during struggles
+    keysLastReset: Date.now(), // Track when keys were last reset for weekly reset
+    currentIncorrectStreak: 0 // Track consecutive incorrect answers for Keys rewards
   });
 
   // Utility function to play cha-ching sound when spending points
@@ -1470,12 +1475,43 @@ const SwordDrillApp = () => {
       }
     };
 
+    // Check Keys weekly reset
+    const checkKeysReset = () => {
+      const now = Date.now();
+      const lastReset = userData.keysLastReset || now;
+      const weekInMs = 7 * 24 * 60 * 60 * 1000;
+
+      // Check if a week has passed
+      if (now - lastReset >= weekInMs) {
+        console.log('Week passed - resetting Keys from', userData.keys, 'to 0');
+        setUserData(prev => ({
+          ...prev,
+          keys: 0,
+          keysLastReset: now,
+          currentIncorrectStreak: 0
+        }));
+
+        // Sync to Firebase
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, {
+            keys: 0,
+            keysLastReset: now,
+            currentIncorrectStreak: 0
+          }).catch(err => console.error('Error resetting Keys:', err));
+        }
+      }
+    };
+
     // Check on mount and every hour
     checkMannaExpiry();
-    const interval = setInterval(checkMannaExpiry, 60 * 60 * 1000); // Check every hour
+    checkKeysReset();
+    const interval = setInterval(() => {
+      checkMannaExpiry();
+      checkKeysReset();
+    }, 60 * 60 * 1000); // Check every hour
 
     return () => clearInterval(interval);
-  }, [userData.manna, userData.mannaLastUpdated, currentUser?.uid]);
+  }, [userData.manna, userData.mannaLastUpdated, userData.keys, userData.keysLastReset, currentUser?.uid]);
 
   // Use focus tracking hook
   const focusTracking = useFocusTracking(focusEnabled && quizState !== null, examMode);
@@ -2601,6 +2637,42 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     showToast(`🌾 Manna Redeemed!\n\n+${POINTS_REWARD} points\n-${MANNA_COST} Manna\n\n${remaining} points remaining today`, 'success');
   };
 
+  const handleKeysRedemption = () => {
+    const POINTS_PER_KEY = 2; // 2 points per key
+    const currentKeys = userData.keys || 0;
+
+    // Check if user has any keys
+    if (currentKeys === 0) {
+      showToast('You don\'t have any Keys of Understanding to redeem!', 'error');
+      return;
+    }
+
+    // Convert all keys to points
+    const pointsEarned = currentKeys * POINTS_PER_KEY;
+    const newPoints = userData.totalPoints + pointsEarned;
+
+    // Update user data
+    const updates = {
+      keys: 0,
+      totalPoints: newPoints
+    };
+
+    setUserData(prev => ({
+      ...prev,
+      ...updates
+    }));
+
+    // Sync to Firebase
+    if (currentUser?.uid) {
+      updateUserProgress(currentUser.uid, updates).catch(err =>
+        console.error('Error syncing Keys redemption:', err)
+      );
+    }
+
+    playChaChing();
+    showToast(`🔑 Keys of Understanding Redeemed!\n\n+${pointsEarned} points\n-${currentKeys} Keys\n\nYour perseverance has been rewarded!`, 'success');
+  };
+
   const handleTalentsConversion = (amount) => {
     const CONVERSION_DAYS = 25; // 25 days to convert
     const WEEKLY_GROWTH = 0.02; // 2% per week
@@ -3573,6 +3645,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   // Wrong answer penalties (only if no point shield active)
   let wrongAnswerPenalty = 0;
+  let keysEarned = 0;
   if (!isCorrect && !hasPointShield(userData.activeBoosts || [])) {
     // Deduct 75% of what they would have gained if correct
     wrongAnswerPenalty = Math.floor(basePointsIfCorrect * 0.75);
@@ -3584,14 +3657,30 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       wrongAnswerPenalty += ECONOMY.RAPID_FIRE_PENALTY;
     }
 
-    // Update last wrong answer time
+    // Update last wrong answer time and increment incorrect streak
+    const newIncorrectStreak = (userData.currentIncorrectStreak || 0) + 1;
+
+    // Award Keys of Understanding for perseverance during struggles
+    // Earn 1 key for every 3 consecutive incorrect answers
+    if (newIncorrectStreak % 3 === 0 && newIncorrectStreak > 0) {
+      keysEarned = 1;
+    }
+
     setUserData(prev => ({
       ...prev,
       lastWrongAnswerTime: now,
-      wrongAnswerCount: (prev.wrongAnswerCount || 0) + 1
+      wrongAnswerCount: (prev.wrongAnswerCount || 0) + 1,
+      currentIncorrectStreak: newIncorrectStreak,
+      keys: (prev.keys || 0) + keysEarned
     }));
 
     points -= wrongAnswerPenalty;
+  } else if (isCorrect) {
+    // Reset incorrect streak on correct answer
+    setUserData(prev => ({
+      ...prev,
+      currentIncorrectStreak: 0
+    }));
   }
 
   // Check for first quiz of day bonus (use local date to avoid UTC drift)
@@ -4272,6 +4361,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
           )}
         </div>
+        <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50">
+          <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
+            <span>🟡</span>
+            <span>{userData.talents || 0}</span>
+          </div>
+          <div className="text-yellow-200 text-sm font-semibold">Talents</div>
+          <div className="text-yellow-300/70 text-xs mt-1">Long-term investment</div>
+        </div>
+        <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl p-4 border-2 border-cyan-600/50">
+          <div className="text-cyan-300 text-3xl font-bold flex items-center gap-2">
+            <span>🔑</span>
+            <span>{userData.keys || 0}</span>
+          </div>
+          <div className="text-cyan-200 text-sm font-semibold">Keys of Understanding</div>
+          <div className="text-cyan-300/70 text-xs mt-1">Resets weekly • 2pts/key</div>
+        </div>
       </div>
 
       {/* Memory Meters - Level Progress */}
@@ -4286,40 +4391,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         />
       </div>
 
-      {/* Daily Mission Board */}
-      <div className="mb-6">
-        <DailyMissionBoard
-          userData={userData}
-          setUserData={setUserData}
-          onMissionComplete={(mission) => {
-            showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
-          }}
-          onNavigate={(view) => {
-            // Special handling for Bible Reader
-            if (view === 'bible-reader') {
-              setShowBibleReader(true);
-            } else {
-              setCurrentView(view);
-            }
-          }}
-          onStartQuiz={(action) => {
-            // Handle quiz-starting actions
-            if (action === 'start-verse-detective') {
-              startVerseDetective();
-            } else if (action === 'start-word-search') {
-              setCurrentView('word-search');
-            } else if (action === 'start-storyline') {
-              setCurrentView('storyline-quiz');
-            } else if (action === 'start-biblical-or-nah') {
-              setCurrentView('biblical-or-nah');
-            } else {
-              // Fallback to home if action not recognized
-              console.warn('Unknown quiz action:', action);
-              setCurrentView('home');
-            }
-          }}
-        />
-      </div>
 
       <div>
         <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-3 sm:mb-4">Start Training</h3>
@@ -6198,6 +6269,60 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   </div>
                 );
               })}
+            </div>
+          )}
+        </div>
+
+        {/* Keys of Understanding Section */}
+        <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl p-6 border-2 border-cyan-600/50">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-bold text-cyan-300 flex items-center gap-2">
+                <span className="text-2xl">🔑</span>
+                Keys of Understanding
+              </h3>
+              <p className="text-slate-400 text-sm">Rewarded for perseverance during struggles</p>
+            </div>
+            <div className="text-right">
+              <div className="text-3xl font-bold text-cyan-400">{userData.keys || 0}</div>
+              <div className="text-xs text-slate-400">Available Keys</div>
+            </div>
+          </div>
+
+          <div className="bg-cyan-900/30 rounded-lg p-4 border border-cyan-600/30 mb-4">
+            <div className="text-sm text-cyan-200 space-y-2">
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>How to earn:</strong> Get 1 key for every 3 consecutive incorrect quiz answers</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>Value:</strong> Each key is worth 2 points when redeemed</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>Reset:</strong> Keys reset every week (7 days)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>Purpose:</strong> Rewards perseverance and encourages learning from mistakes</span>
+              </div>
+            </div>
+          </div>
+
+          {(userData.keys || 0) > 0 && (
+            <button
+              onClick={handleKeysRedemption}
+              className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-2"
+            >
+              <span>🔑</span>
+              <span>Redeem All Keys ({userData.keys} × 2pts = {(userData.keys || 0) * 2} pts)</span>
+            </button>
+          )}
+
+          {(userData.keys || 0) === 0 && (
+            <div className="text-center text-slate-400 text-sm py-3">
+              You don't have any keys yet. Keep practicing to earn them!
             </div>
           )}
         </div>
@@ -9145,6 +9270,27 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             setUserData={setUserData}
             userId={currentUser?.uid}
             showToast={showToast}
+            onNavigate={(view) => {
+              if (view === 'bible-reader') {
+                setShowBibleReader(true);
+              } else {
+                setCurrentView(view);
+              }
+            }}
+            onStartQuiz={(action) => {
+              if (action === 'start-verse-detective') {
+                startVerseDetective();
+              } else if (action === 'start-word-search') {
+                setCurrentView('word-search');
+              } else if (action === 'start-storyline') {
+                setCurrentView('storyline-quiz');
+              } else if (action === 'start-biblical-or-nah') {
+                setCurrentView('biblical-or-nah');
+              } else {
+                console.warn('Unknown quiz action:', action);
+                setCurrentView('home');
+              }
+            }}
           />
         )}
         {currentView === 'achievements' && <AchievementsView />}

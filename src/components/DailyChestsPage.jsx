@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Sparkles, Clock, Star } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import DailyMissionBoard from './DailyMissionBoard';
 
 const localDateString = (date = new Date()) => {
   const y = date.getFullYear();
@@ -18,7 +19,7 @@ const ECONOMY_POWER_UPS = {
   QUIZ_ATTEMPTS_10: { cost: 180, quizAttempts: 10, name: '+10 Quiz Attempts' }
 };
 
-const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast }) => {
+const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, onNavigate, onStartQuiz }) => {
   const [dailyChestsData, setDailyChestsData] = useState({});
   const [opening, setOpening] = useState(null);
   const [showRewards, setShowRewards] = useState(null);
@@ -362,6 +363,19 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast })
               <span><strong>Expires:</strong> Unused Manna resets to 0 at midnight each day</span>
             </div>
           </div>
+        </div>
+
+        {/* Daily Missions */}
+        <div className="mt-8">
+          <DailyMissionBoard
+            userData={userData}
+            setUserData={setUserData}
+            onMissionComplete={(mission) => {
+              showToast(`Mission Complete!\n\n${mission.title}\n+${mission.reward} points`, 'success');
+            }}
+            onNavigate={onNavigate}
+            onStartQuiz={onStartQuiz}
+          />
         </div>
       </div>
     </div>
