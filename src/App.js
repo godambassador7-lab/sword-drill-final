@@ -1339,7 +1339,11 @@ const SwordDrillApp = () => {
     mannaLastUpdated: Date.now(), // Track when manna was last updated for 24-hour expiry
     mannaEarningActive: false, // Track if user has activated Manna earning for the day
     mannaRedemptionsToday: 0, // Track how many points redeemed from Manna today (max 200)
-    streakProtectionExpiresAt: null // When streak protection expires
+    streakProtectionExpiresAt: null, // When streak protection expires
+
+    // Talents System (Long-term Investment Currency)
+    talents: 0, // Talents currency (gold bars)
+    talentsConversions: [] // Array of active conversions: { amount, startedAt, completesAt, growthRate }
   });
 
   // Utility function to play cha-ching sound when spending points
@@ -2565,6 +2569,94 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
 
     const remaining = MAX_DAILY_REDEMPTIONS - newRedemptions;
     showToast(`🌾 Manna Redeemed!\n\n+${POINTS_REWARD} points\n-${MANNA_COST} Manna\n\n${remaining} points remaining today`, 'success');
+  };
+
+  const handleTalentsConversion = (amount) => {
+    const CONVERSION_DAYS = 25; // 25 days to convert
+    const WEEKLY_GROWTH = 0.02; // 2% per week
+
+    // Check if user has enough points
+    if (userData.totalPoints < amount) {
+      showToast('Not enough points for this conversion!', 'error');
+      return;
+    }
+
+    const now = Date.now();
+    const completesAt = now + (CONVERSION_DAYS * 86400000); // 25 days in milliseconds
+
+    // Deduct points
+    const newPoints = userData.totalPoints - amount;
+
+    // Create new conversion
+    const newConversion = {
+      id: `talent_${now}`,
+      amount,
+      pointsInvested: amount,
+      startedAt: now,
+      completesAt,
+      growthRate: WEEKLY_GROWTH,
+      status: 'converting'
+    };
+
+    // Update conversions array
+    const newConversions = [...(userData.talentsConversions || []), newConversion];
+
+    // Update user data
+    const updates = {
+      totalPoints: newPoints,
+      talentsConversions: newConversions
+    };
+
+    setUserData(prev => ({
+      ...prev,
+      ...updates
+    }));
+
+    // Sync to Firebase
+    if (currentUser?.uid) {
+      updateUserProgress(currentUser.uid, updates).catch(err =>
+        console.error('Error syncing Talents conversion:', err)
+      );
+    }
+
+    playChaChing();
+    showToast(`🟡 Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
+  };
+
+  const handleTalentsCollect = (conversionId) => {
+    const conversion = userData.talentsConversions?.find(c => c.id === conversionId);
+    if (!conversion) return;
+
+    const now = Date.now();
+    const timeElapsed = now - conversion.startedAt;
+    const weeksElapsed = timeElapsed / (7 * 86400000);
+
+    // Calculate Talents with growth (2% per week compounded)
+    const talentsEarned = Math.floor(conversion.amount * Math.pow(1 + conversion.growthRate, weeksElapsed));
+
+    // Update conversions to mark as collected
+    const newConversions = userData.talentsConversions.filter(c => c.id !== conversionId);
+
+    // Update user data
+    const updates = {
+      talents: (userData.talents || 0) + talentsEarned,
+      talentsConversions: newConversions
+    };
+
+    setUserData(prev => ({
+      ...prev,
+      ...updates
+    }));
+
+    // Sync to Firebase
+    if (currentUser?.uid) {
+      updateUserProgress(currentUser.uid, updates).catch(err =>
+        console.error('Error collecting Talents:', err)
+      );
+    }
+
+    const growth = talentsEarned - conversion.amount;
+    showToast(`🟡 Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
   };
 
   const startQuiz = async (type, usePersonalVerses = false) => {
@@ -5923,6 +6015,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-2xl font-bold text-purple-400">{totalInvested.toLocaleString()}</div>
             <div className="text-xs text-slate-400 mt-1">{activeInvestments.length} active</div>
           </div>
+
+          <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 col-span-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">🟡</span>
+                <div className="text-xs text-yellow-300 font-semibold">Talents Balance</div>
+              </div>
+              <div className="text-3xl font-bold text-yellow-400">{(userData.talents || 0).toLocaleString()}</div>
+            </div>
+            <div className="text-xs text-slate-400 mt-1">Premium currency with 2% weekly growth</div>
+          </div>
         </div>
 
         {/* Activity Score */}
@@ -5966,6 +6069,107 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               />
             </div>
           </div>
+        </div>
+
+        {/* Talents Section */}
+        <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-6 border-2 border-yellow-600/50">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-bold text-yellow-300 flex items-center gap-2">
+                <span className="text-2xl">🟡</span>
+                Talents
+              </h3>
+              <p className="text-slate-400 text-sm">Long-term investment with 2% weekly growth</p>
+            </div>
+            <div className="text-right">
+              <div className="text-3xl font-bold text-yellow-400">{userData.talents || 0}</div>
+              <div className="text-xs text-slate-400">Available Talents</div>
+            </div>
+          </div>
+
+          {/* Conversion Options */}
+          <div className="mb-4">
+            <h4 className="text-sm font-bold text-yellow-300 mb-3">Convert Points to Talents</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {[500, 1000, 2500, 5000].map(amount => (
+                <button
+                  key={amount}
+                  onClick={() => handleTalentsConversion(amount)}
+                  disabled={userData.totalPoints < amount}
+                  className="bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-500 hover:to-amber-500 disabled:from-slate-700 disabled:to-slate-800 disabled:text-slate-500 text-white font-bold py-3 px-4 rounded-lg transition-all"
+                >
+                  <div className="text-lg">{amount}</div>
+                  <div className="text-xs opacity-80">points</div>
+                </button>
+              ))}
+            </div>
+            <div className="mt-3 bg-yellow-900/30 rounded-lg p-3 border border-yellow-600/30">
+              <div className="text-xs text-yellow-200 space-y-1">
+                <div className="flex items-start gap-2">
+                  <span>•</span>
+                  <span>Conversion takes 25 days</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span>•</span>
+                  <span>Earns 2% per week (vs points' 2.5% per month)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span>•</span>
+                  <span>Can be used to purchase courses</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Active Conversions */}
+          {(userData.talentsConversions || []).length > 0 && (
+            <div className="space-y-2">
+              <h4 className="text-sm font-bold text-yellow-300 mb-2">Active Conversions</h4>
+              {userData.talentsConversions.map(conversion => {
+                const now = Date.now();
+                const timeRemaining = conversion.completesAt - now;
+                const daysRemaining = Math.max(0, Math.ceil(timeRemaining / 86400000));
+                const isComplete = timeRemaining <= 0;
+                const weeksElapsed = (now - conversion.startedAt) / (7 * 86400000);
+                const currentValue = Math.floor(conversion.amount * Math.pow(1 + conversion.growthRate, weeksElapsed));
+
+                return (
+                  <div
+                    key={conversion.id}
+                    className={`bg-slate-700/50 rounded-lg p-3 border ${
+                      isComplete ? 'border-emerald-500/50' : 'border-yellow-600/30'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        {isComplete ? (
+                          <CheckCircle size={18} className="text-emerald-400" />
+                        ) : (
+                          <Clock size={18} className="text-yellow-400" />
+                        )}
+                        <div>
+                          <div className="text-white font-semibold text-sm">
+                            {conversion.amount} → {currentValue} Talents
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            {isComplete ? 'Ready to collect!' : `${daysRemaining} days remaining`}
+                          </div>
+                        </div>
+                      </div>
+                      {isComplete && (
+                        <button
+                          onClick={() => handleTalentsCollect(conversion.id)}
+                          className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1 px-3 rounded-lg transition-all text-sm"
+                        >
+                          Collect
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Investment Section */}
