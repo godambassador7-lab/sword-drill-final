@@ -2299,8 +2299,13 @@ const getQuizCooldownMs = (quizType) => {
     return;
   }
 
+  // Check available currencies
+  const currentPoints = userData.totalPoints || 0;
+  const currentTalents = userData.talents || 0;
+  const totalAvailable = currentPoints + currentTalents;
+
   // Need to pay admission
-  if (userData.totalPoints >= course.cost) {
+  if (totalAvailable >= course.cost) {
     setPurchaseModalData({
       name: course.name,
       cost: course.cost,
@@ -2308,18 +2313,40 @@ const getQuizCooldownMs = (quizType) => {
       color: course.color,
       description: course.description,
       isAdmission: true,
-      onConfirm: () => {
+      hasTalents: currentTalents > 0,
+      currentPoints,
+      currentTalents,
+      onConfirm: (useTalents = false) => {
           playChaChing();
+
+          // Calculate payment breakdown
+          let pointsUsed = 0;
+          let talentsUsed = 0;
+
+          if (useTalents && currentTalents >= course.cost) {
+            // Pay entirely with Talents
+            talentsUsed = course.cost;
+          } else if (useTalents && currentTalents > 0) {
+            // Pay with Talents first, then points
+            talentsUsed = currentTalents;
+            pointsUsed = course.cost - currentTalents;
+          } else {
+            // Pay with points only
+            pointsUsed = course.cost;
+          }
+
           if (currentUser?.uid) {
-            purchaseUnlockable(currentUser.uid, unlockKey, course.cost).then(result => {
+            purchaseUnlockable(currentUser.uid, unlockKey, pointsUsed, talentsUsed).then(result => {
               if (result.success && result.validatedData) {
                 setUserData(prev => ({
                   ...prev,
                   totalPoints: result.validatedData.totalPoints,
+                  talents: result.validatedData.talents !== undefined ? result.validatedData.talents : (prev.talents || 0) - talentsUsed,
                   unlockables: result.validatedData.unlockables,
                   purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
                 }));
-                showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
+                const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🟡 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+                showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
                 setCurrentView(courseId);
                 setShowMenu(false);
               } else {
@@ -2332,11 +2359,13 @@ const getQuizCooldownMs = (quizType) => {
             // Offline/guest unlock
             setUserData(prev => ({
               ...prev,
-              totalPoints: Math.max(0, prev.totalPoints - course.cost),
+              totalPoints: Math.max(0, prev.totalPoints - pointsUsed),
+              talents: Math.max(0, (prev.talents || 0) - talentsUsed),
               unlockables: { ...(prev.unlockables || {}), [unlockKey]: true },
               purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
             }));
-            showToast(` ${course.name} unlocked! Welcome to class!`, 'success');
+            const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🟡 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+            showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
             setCurrentView(courseId);
             setShowMenu(false);
           }
@@ -2345,7 +2374,8 @@ const getQuizCooldownMs = (quizType) => {
     });
     setShowPurchaseModal(true);
   } else {
-    showToast(`Need ${course.cost} points to access ${course.name}`, 'error');
+    const shortage = course.cost - totalAvailable;
+    showToast(`Need ${shortage} more currency to access ${course.name}\n\nYou have: ${currentPoints} points + ${currentTalents} Talents`, 'error');
   }
 };
 
@@ -10821,16 +10851,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <p className="text-slate-300 text-sm mb-3">{purchaseModalData.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-sm">Cost:</span>
-                <span className="text-amber-400 text-2xl font-bold">{purchaseModalData.cost} pts</span>
+                <span className="text-amber-400 text-2xl font-bold">{purchaseModalData.cost} currency</span>
               </div>
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
-                <span className="text-slate-400 text-sm">Your Balance:</span>
+                <span className="text-slate-400 text-sm">Your Points:</span>
                 <span className="text-white text-lg font-semibold">{userData.totalPoints} pts</span>
               </div>
+              {purchaseModalData.hasTalents && (
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
+                  <span className="text-slate-400 text-sm">Your Talents:</span>
+                  <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
+                    <span>🟡</span>
+                    {purchaseModalData.currentTalents}
+                  </span>
+                </div>
+              )}
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                 <span className="text-slate-400 text-sm">After Purchase:</span>
-                <span className={`text-lg font-semibold ${userData.totalPoints - purchaseModalData.cost >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {userData.totalPoints - purchaseModalData.cost} pts
+                <span className={`text-lg font-semibold ${(userData.totalPoints + (userData.talents || 0)) - purchaseModalData.cost >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {Math.max(0, (userData.totalPoints + (userData.talents || 0)) - purchaseModalData.cost)} total
                 </span>
               </div>
             </div>
@@ -10842,12 +10881,31 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               >
                 Cancel
               </button>
-              <button
-                onClick={purchaseModalData.onConfirm}
-                className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-3 px-4 rounded-lg transition-all"
-              >
-                {purchaseModalData.isAdmission ? 'Pay & Enter' : 'Unlock'}
-              </button>
+              {purchaseModalData.hasTalents ? (
+                <>
+                  <button
+                    onClick={() => purchaseModalData.onConfirm(false)}
+                    disabled={userData.totalPoints < purchaseModalData.cost}
+                    className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white font-bold py-3 px-4 rounded-lg transition-all"
+                  >
+                    Pay with Points
+                  </button>
+                  <button
+                    onClick={() => purchaseModalData.onConfirm(true)}
+                    className="flex-1 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-1"
+                  >
+                    <span>🟡</span>
+                    <span>Use Talents</span>
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => purchaseModalData.onConfirm(false)}
+                  className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-3 px-4 rounded-lg transition-all"
+                >
+                  {purchaseModalData.isAdmission ? 'Pay & Enter' : 'Unlock'}
+                </button>
+              )}
             </div>
           </div>
         </div>
