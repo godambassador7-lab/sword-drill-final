@@ -8397,15 +8397,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           <div className="space-y-1">
                             {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'geez-course', 'amharic-course'].map(courseId => {
                               const course = COURSE_ADMISSION[courseId];
-                              const IconComponent = course.icon;
                               const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                               return (
                                 <button
                                   key={courseId}
                                   onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
                                 >
-                                  <IconComponent size={14} className={`text-${course.color}-400`} />
                                   <div className="flex-1">
                                     <div className="text-xs flex items-center gap-2">
                                       {course.name}
@@ -8429,15 +8427,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           <div className="space-y-1">
                             {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course'].map(courseId => {
                               const course = COURSE_ADMISSION[courseId];
-                              const IconComponent = course.icon;
                               const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                               return (
                                 <button
                                   key={courseId}
                                   onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
                                 >
-                                  <IconComponent size={14} className={`text-${course.color}-400`} />
                                   <div className="flex-1">
                                     <div className="text-xs flex items-center gap-2">
                                       {course.name}
@@ -8461,15 +8457,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           <div className="space-y-1">
                             {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course'].map(courseId => {
                               const course = COURSE_ADMISSION[courseId];
-                              const IconComponent = course.icon;
                               const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                               return (
                                 <button
                                   key={courseId}
                                   onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
                                 >
-                                  <IconComponent size={14} className={`text-${course.color}-400`} />
                                   <div className="flex-1">
                                     <div className="text-xs flex items-center gap-2">
                                       {course.name}
@@ -8493,15 +8487,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           <div className="space-y-1">
                             {['church-history-course', 'kings-of-israel-course'].map(courseId => {
                               const course = COURSE_ADMISSION[courseId];
-                              const IconComponent = course.icon;
                               const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                               return (
                                 <button
                                   key={courseId}
                                   onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all flex items-center gap-2 ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
                                 >
-                                  <IconComponent size={14} className={`text-${course.color}-400`} />
                                   <div className="flex-1">
                                     <div className="text-xs flex items-center gap-2">
                                       {course.name}
@@ -8551,6 +8543,30 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-cyan-600/20 transition-all flex items-center gap-3"
                   >
                     <Calendar size={18} className="text-blue-400" /> Activity Calendar
+                  </button>
+                </div>
+                )}
+              </div>
+
+              {/* DAILY REWARDS */}
+              <div className="pt-3">
+                <button
+                  onClick={() => setExpandedMenuSections(prev => ({ ...prev, dailyRewards: !prev.dailyRewards }))}
+                  className="w-full text-xs font-bold text-amber-400 uppercase tracking-wider px-4 py-2 flex items-center justify-between hover:bg-slate-700/30 rounded transition-all"
+                >
+                  <span>Daily Rewards</span>
+                  {expandedMenuSections.dailyRewards ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+                {expandedMenuSections.dailyRewards && (
+                <div className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentView('daily-chest');
+                      setShowMenu(false);
+                    }}
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-yellow-600/20 transition-all flex items-center gap-3"
+                  >
+                    <Gift size={18} className="text-amber-400" /> Daily Chests
                   </button>
                 </div>
                 )}
