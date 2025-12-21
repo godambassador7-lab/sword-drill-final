@@ -42,7 +42,8 @@ import {
   ChevronDown,
   ChevronUp,
   MapPin,
-  Sparkles
+  Sparkles,
+  Gift
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
