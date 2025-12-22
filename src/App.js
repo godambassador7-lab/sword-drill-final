@@ -4540,7 +4540,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('scrolls')}
         >
           <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
-            <span>📜</span>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Left scroll roll */}
+              <ellipse cx="8" cy="16" rx="3" ry="10" fill="#D4B896"/>
+              <ellipse cx="8" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+              {/* Right scroll roll */}
+              <ellipse cx="24" cy="16" rx="3" ry="10" fill="#D4B896"/>
+              <ellipse cx="24" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+              {/* Center parchment */}
+              <rect x="8" y="6" width="16" height="20" fill="#F4E8D0" rx="1"/>
+              <rect x="9" y="7" width="14" height="18" fill="#FFF8E7"/>
+              {/* Parchment texture lines */}
+              <line x1="10" y1="10" x2="22" y2="10" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+              <line x1="10" y1="13" x2="22" y2="13" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+              <line x1="10" y1="16" x2="22" y2="16" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+              <line x1="10" y1="19" x2="22" y2="19" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+              <line x1="10" y1="22" x2="22" y2="22" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+              {/* Red ribbon */}
+              <rect x="6" y="14" width="20" height="4" fill="#C41E3A" rx="0.5"/>
+              <rect x="6" y="14.5" width="20" height="1.5" fill="#DC143C" opacity="0.7"/>
+              {/* Ribbon shadow */}
+              <rect x="6" y="17" width="20" height="0.5" fill="#8B0000" opacity="0.3"/>
+            </svg>
             <span>{userData.scrolls || 0}</span>
           </div>
           <div className="text-purple-200 text-sm font-semibold">Scrolls</div>
@@ -8924,17 +8945,39 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <div className="text-white text-lg font-bold">{(userData.keys || 0).toLocaleString()}</div>
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="text-xs text-slate-300 flex items-center gap-2">
-                      <span className="text-orange-200 text-lg">{'\uD83D\uDCDC'}</span>
-                      <span className="font-semibold">Scrolls</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-orange-400 text-sm">🔥</span>
-                      <span className="text-slate-300 text-xs">{userData.currentStreak || 0}</span>
-                    </div>
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Left scroll roll */}
+                      <ellipse cx="8" cy="16" rx="3" ry="10" fill="#D4B896"/>
+                      <ellipse cx="8" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+                      {/* Right scroll roll */}
+                      <ellipse cx="24" cy="16" rx="3" ry="10" fill="#D4B896"/>
+                      <ellipse cx="24" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+                      {/* Center parchment */}
+                      <rect x="8" y="6" width="16" height="20" fill="#F4E8D0" rx="1"/>
+                      <rect x="9" y="7" width="14" height="18" fill="#FFF8E7"/>
+                      {/* Parchment texture lines */}
+                      <line x1="10" y1="10" x2="22" y2="10" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                      <line x1="10" y1="13" x2="22" y2="13" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                      <line x1="10" y1="16" x2="22" y2="16" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                      <line x1="10" y1="19" x2="22" y2="19" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                      <line x1="10" y1="22" x2="22" y2="22" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                      {/* Red ribbon */}
+                      <rect x="6" y="14" width="20" height="4" fill="#C41E3A" rx="0.5"/>
+                      <rect x="6" y="14.5" width="20" height="1.5" fill="#DC143C" opacity="0.7"/>
+                      {/* Ribbon shadow */}
+                      <rect x="6" y="17" width="20" height="0.5" fill="#8B0000" opacity="0.3"/>
+                    </svg>
+                    <span className="font-semibold">Scrolls</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
+                </div>
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-orange-400 text-lg">🔥</span>
+                    <span className="font-semibold">Streak</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{userData.currentStreak || 0}</div>
                 </div>
               </div>
             </div>
@@ -11389,7 +11432,28 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'scrolls' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl">📜</span>
+                  <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Left scroll roll */}
+                    <ellipse cx="8" cy="16" rx="3" ry="10" fill="#D4B896"/>
+                    <ellipse cx="8" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+                    {/* Right scroll roll */}
+                    <ellipse cx="24" cy="16" rx="3" ry="10" fill="#D4B896"/>
+                    <ellipse cx="24" cy="16" rx="2" ry="9" fill="#E8D4B8"/>
+                    {/* Center parchment */}
+                    <rect x="8" y="6" width="16" height="20" fill="#F4E8D0" rx="1"/>
+                    <rect x="9" y="7" width="14" height="18" fill="#FFF8E7"/>
+                    {/* Parchment texture lines */}
+                    <line x1="10" y1="10" x2="22" y2="10" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                    <line x1="10" y1="13" x2="22" y2="13" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                    <line x1="10" y1="16" x2="22" y2="16" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                    <line x1="10" y1="19" x2="22" y2="19" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                    <line x1="10" y1="22" x2="22" y2="22" stroke="#D4B896" strokeWidth="0.5" opacity="0.3"/>
+                    {/* Red ribbon */}
+                    <rect x="6" y="14" width="20" height="4" fill="#C41E3A" rx="0.5"/>
+                    <rect x="6" y="14.5" width="20" height="1.5" fill="#DC143C" opacity="0.7"/>
+                    {/* Ribbon shadow */}
+                    <rect x="6" y="17" width="20" height="0.5" fill="#8B0000" opacity="0.3"/>
+                  </svg>
                   <h2 className="text-3xl font-bold text-purple-300">Scrolls</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
