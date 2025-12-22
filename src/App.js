@@ -4164,6 +4164,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       )}
 
+      {/* Welcome Message */}
+      <div className="text-center mb-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400">
+          Welcome, {userData.name || 'Scholar'}!
+        </h1>
+      </div>
+
       {verseOfDay && (
         <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
@@ -7981,6 +7988,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   const SettingsView = () => {
     const soundSettings = userData.soundSettings || { enabled: true, volume: 0.5, musicEnabled: true, musicVolume: 0.3 };
+    const [editingUsername, setEditingUsername] = useState(false);
+    const [newUsername, setNewUsername] = useState(userData.name || '');
 
     const updateSoundSettings = (updates) => {
       setUserData({
@@ -7990,6 +7999,36 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           ...updates
         }
       });
+    };
+
+    const handleUsernameChange = () => {
+      if (!newUsername.trim()) {
+        showToast('Username cannot be empty!', 'error');
+        return;
+      }
+
+      const trimmedUsername = newUsername.trim();
+
+      setUserData({
+        ...userData,
+        name: trimmedUsername
+      });
+
+      // Save to Firebase
+      if (currentUser?.uid) {
+        updateUserProgress(currentUser.uid, { name: trimmedUsername })
+          .then(() => {
+            showToast(`Username updated to "${trimmedUsername}"!`, 'success');
+            setEditingUsername(false);
+          })
+          .catch((err) => {
+            console.error('Error updating username:', err);
+            showToast('Failed to update username', 'error');
+          });
+      } else {
+        showToast(`Username updated to "${trimmedUsername}"!`, 'success');
+        setEditingUsername(false);
+      }
     };
 
     return (
@@ -8152,6 +8191,57 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <p className="text-slate-400 text-sm mt-2">
             Include verses from the Apocrypha in your training
           </p>
+        </div>
+
+        {/* Username Settings */}
+        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+          <h3 className="text-white font-bold mb-3">Username</h3>
+          {!editingUsername ? (
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-slate-300 text-lg">{userData.name || 'Scholar'}</span>
+                <button
+                  onClick={() => {
+                    setNewUsername(userData.name || '');
+                    setEditingUsername(true);
+                  }}
+                  className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-lg transition-all"
+                >
+                  Edit
+                </button>
+              </div>
+              <p className="text-slate-400 text-xs">This name appears on your profile and welcome messages</p>
+            </div>
+          ) : (
+            <div>
+              <input
+                type="text"
+                value={newUsername}
+                onChange={(e) => setNewUsername(e.target.value)}
+                placeholder="Enter your username"
+                maxLength={20}
+                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none mb-3"
+              />
+              <div className="flex gap-2">
+                <button
+                  onClick={handleUsernameChange}
+                  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition-all"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingUsername(false);
+                    setNewUsername(userData.name || '');
+                  }}
+                  className="flex-1 bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-lg transition-all"
+                >
+                  Cancel
+                </button>
+              </div>
+              <p className="text-slate-400 text-xs mt-2">Max 20 characters</p>
+            </div>
+          )}
         </div>
 
        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
