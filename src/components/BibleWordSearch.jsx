@@ -18,7 +18,6 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   const [earnedBonus, setEarnedBonus] = useState(0);
   const [dragStart, setDragStart] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [tapSelectMode, setTapSelectMode] = useState(true); // Mobile-friendly tap mode
   const [isLandscape, setIsLandscape] = useState(true);
 
   const currentPuzzle = puzzles[currentPuzzleIndex];
@@ -142,54 +141,6 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
     }
   };
 
-  const handleMouseDown = (row, col) => {
-    setDragStart({ row, col });
-    setSelectedCells([getCellKey(row, col)]);
-  };
-
-  const handleMouseEnter = (row, col) => {
-    if (!dragStart) return;
-
-    const newSelection = getSelectionBetween(dragStart, { row, col });
-    setSelectedCells(newSelection);
-  };
-
-  const handleMouseUp = () => {
-    if (selectedCells.length > 0) {
-      checkWord();
-    }
-    setDragStart(null);
-  };
-
-  // Touch event handlers for mobile
-  const handleTouchStart = (e, row, col) => {
-    e.preventDefault();
-    setDragStart({ row, col });
-    setSelectedCells([getCellKey(row, col)]);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!dragStart) return;
-    e.preventDefault();
-
-    const touch = e.touches[0];
-    const element = document.elementFromPoint(touch.clientX, touch.clientY);
-
-    if (element && element.dataset.row !== undefined && element.dataset.col !== undefined) {
-      const row = parseInt(element.dataset.row);
-      const col = parseInt(element.dataset.col);
-      const newSelection = getSelectionBetween(dragStart, { row, col });
-      setSelectedCells(newSelection);
-    }
-  };
-
-  const handleTouchEnd = (e) => {
-    e.preventDefault();
-    if (selectedCells.length > 0) {
-      checkWord();
-    }
-    setDragStart(null);
-  };
 
   const getSelectionBetween = (start, end) => {
     const cells = [];
@@ -410,9 +361,9 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
           <div className="mb-8 flex justify-center">
             <div className="relative">
               {/* Phone illustration - flips from vertical to horizontal */}
-              <div className="w-32 h-48 bg-slate-700 rounded-3xl border-4 border-slate-600 flex items-center justify-center relative animate-[phoneFlip_2s_ease-in-out_infinite]">
-                <div className="w-24 h-40 bg-slate-800 rounded-xl flex items-center justify-center">
-                  <div className="text-4xl">📱</div>
+              <div className="w-32 h-48 bg-slate-700 rounded-3xl border-4 border-slate-600 flex items-center justify-center relative animate-[phoneFlip_2s_ease-in-out_infinite] p-2">
+                <div className="w-full h-full bg-slate-800 rounded-2xl flex items-center justify-center">
+                  <div className="text-5xl">📱</div>
                 </div>
               </div>
             </div>
@@ -557,12 +508,12 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
             )}
           </div>
 
-          {/* Mobile Instructions */}
-          {isMobile && tapSelectMode && !isPuzzleCompleted && (
+          {/* Instructions */}
+          {!isPuzzleCompleted && (
             <div className="bg-blue-600/20 border border-blue-500/50 rounded-lg p-3 mb-3">
               <p className="text-blue-200 text-sm font-semibold flex items-center gap-2">
                 <span className="text-xl">👆</span>
-                Tap Mode: Tap start letter, then tap end letter to select word
+                Tap start letter, then tap end letter to select word
               </p>
             </div>
           )}
@@ -579,22 +530,13 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                 Get Hint ({hintCost} pts)
               </button>
             )}
-
-            {isMobile && (
-              <button
-                onClick={() => setTapSelectMode(!tapSelectMode)}
-                className="flex items-center gap-2 px-4 py-2 bg-slate-600 hover:bg-slate-500 rounded-lg font-semibold transition-all"
-              >
-                {tapSelectMode ? '👆 Tap' : '👉 Drag'}
-              </button>
-            )}
           </div>
         </div>
 
         {/* Word Grid */}
         <div className="bg-slate-800/90 backdrop-blur rounded-xl p-4 sm:p-6 border border-blue-500/30 mb-6">
-          {/* Cancel Selection Button for Tap Mode */}
-          {isMobile && tapSelectMode && selectedCells.length > 0 && (
+          {/* Cancel Selection Button */}
+          {selectedCells.length > 0 && (
             <div className="flex justify-center mb-4">
               <button
                 onClick={() => {
@@ -609,17 +551,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
           )}
 
           <div className="overflow-x-auto pb-2">
-            <div
-              className="inline-block mx-auto"
-              onMouseLeave={() => {
-                if (!tapSelectMode) {
-                  setDragStart(null);
-                  setSelectedCells([]);
-                }
-              }}
-              onTouchMove={!tapSelectMode ? handleTouchMove : undefined}
-              onTouchEnd={!tapSelectMode ? handleTouchEnd : undefined}
-            >
+            <div className="inline-block mx-auto">
               <div
                 className={`grid ${isMobile ? 'gap-2' : 'gap-1'}`}
                 style={{
@@ -637,11 +569,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
                       key={key}
                       data-row={rowIndex}
                       data-col={colIndex}
-                      onClick={isMobile && tapSelectMode ? () => handleCellTap(rowIndex, colIndex) : undefined}
-                      onMouseDown={!isMobile || !tapSelectMode ? () => handleMouseDown(rowIndex, colIndex) : undefined}
-                      onMouseEnter={!isMobile || !tapSelectMode ? () => handleMouseEnter(rowIndex, colIndex) : undefined}
-                      onMouseUp={!isMobile || !tapSelectMode ? handleMouseUp : undefined}
-                      onTouchStart={!tapSelectMode ? (e) => handleTouchStart(e, rowIndex, colIndex) : undefined}
+                      onClick={() => handleCellTap(rowIndex, colIndex)}
                       className={`
                         flex items-center justify-center font-bold rounded cursor-pointer
                         select-none transition-all

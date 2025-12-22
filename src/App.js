@@ -1355,7 +1355,10 @@ const SwordDrillApp = () => {
     currentIncorrectStreak: 0, // Track consecutive incorrect answers for Keys rewards
 
     // Scrolls System (Permanent Points Multiplier)
-    scrolls: 0 // Scrolls - earned by completing course sections, provides 1% points boost per scroll (max 100 for boost, but can go above 100)
+    scrolls: 0, // Scrolls - earned by completing course sections, provides 1% points boost per scroll (max 100 for boost, but can go above 100)
+
+    // Username Change Tracking
+    usernameChangeCount: 0 // Track number of times username has been changed (first change is free, subsequent cost 150 points)
   });
 
   // Utility function to play cha-ching sound when spending points
@@ -8003,17 +8006,42 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       }
 
       const trimmedUsername = newUsername.trim();
+      const changeCount = userData.usernameChangeCount || 0;
+      const USERNAME_CHANGE_COST = 150;
+
+      // Check if this is not the first change and user has enough points
+      if (changeCount > 0 && userData.totalPoints < USERNAME_CHANGE_COST) {
+        showToast(`Not enough points! Username change costs ${USERNAME_CHANGE_COST} points.\n\nCurrent balance: ${userData.totalPoints} points`, 'error');
+        return;
+      }
+
+      // Deduct points if not first change
+      const pointsToDeduct = changeCount > 0 ? USERNAME_CHANGE_COST : 0;
+      const newPoints = userData.totalPoints - pointsToDeduct;
+
+      const updates = {
+        name: trimmedUsername,
+        usernameChangeCount: changeCount + 1
+      };
+
+      if (pointsToDeduct > 0) {
+        updates.totalPoints = newPoints;
+      }
 
       setUserData({
         ...userData,
-        name: trimmedUsername
+        ...updates
       });
 
       // Save to Firebase
       if (currentUser?.uid) {
-        updateUserProgress(currentUser.uid, { name: trimmedUsername })
+        updateUserProgress(currentUser.uid, updates)
           .then(() => {
-            showToast(`Username updated to "${trimmedUsername}"!`, 'success');
+            if (pointsToDeduct > 0) {
+              showToast(`✅ Username updated to "${trimmedUsername}"!\n\n-${pointsToDeduct} points\nNew balance: ${newPoints} points`, 'success');
+            } else {
+              showToast(`✅ Username updated to "${trimmedUsername}"!\n\n(First change is free! Future changes cost ${USERNAME_CHANGE_COST} points)`, 'success');
+            }
             setEditingUsername(false);
           })
           .catch((err) => {
@@ -8021,7 +8049,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             showToast('Failed to update username', 'error');
           });
       } else {
-        showToast(`Username updated to "${trimmedUsername}"!`, 'success');
+        if (pointsToDeduct > 0) {
+          showToast(`✅ Username updated to "${trimmedUsername}"!\n\n-${pointsToDeduct} points\nNew balance: ${newPoints} points`, 'success');
+        } else {
+          showToast(`✅ Username updated to "${trimmedUsername}"!\n\n(First change is free! Future changes cost ${USERNAME_CHANGE_COST} points)`, 'success');
+        }
         setEditingUsername(false);
       }
     };
@@ -8129,7 +8161,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <option value="Geneva">Geneva Bible</option>
           </select>
           <p className="text-slate-400 text-xs mt-2">
-            All translations are stored locally - no internet connection required. Unlock Strong's tagging for KJV in the shop.
+            ✅ All translations available offline - no internet connection required. Unlock Strong's tagging for KJV in the shop.
           </p>
 
           {/* Translation Style Info */}
@@ -8206,6 +8238,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </button>
               </div>
               <p className="text-slate-400 text-xs">This name appears on your profile and welcome messages</p>
+              {(userData.usernameChangeCount || 0) > 0 && (
+                <p className="text-amber-400 text-xs mt-2">
+                  💡 Next username change costs 150 points (Changes made: {userData.usernameChangeCount})
+                </p>
+              )}
             </div>
           ) : (
             <div>
@@ -8222,7 +8259,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   onClick={handleUsernameChange}
                   className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition-all"
                 >
-                  Save
+                  Save {(userData.usernameChangeCount || 0) > 0 ? '(150 pts)' : '(Free)'}
                 </button>
                 <button
                   onClick={() => {
@@ -8234,7 +8271,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   Cancel
                 </button>
               </div>
-              <p className="text-slate-400 text-xs mt-2">Max 20 characters</p>
+              <p className="text-slate-400 text-xs mt-2">
+                Max 20 characters • {(userData.usernameChangeCount || 0) === 0 ? 'First change is FREE!' : 'Cost: 150 points'}
+              </p>
             </div>
           )}
         </div>
@@ -8696,7 +8735,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       </div>
 
       {showMenu && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}>
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60]" onClick={() => setShowMenu(false)}>
           <div
             className="absolute right-0 top-0 h-full w-80 bg-slate-800 border-l border-slate-700 p-6 overflow-y-auto shadow-2xl animate-slide-in-right"
             style={{

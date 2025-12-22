@@ -687,7 +687,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     <div className="w-full">
       {/* Translation Info & Control Buttons */}
       <div className="mb-4 flex items-center justify-between flex-wrap gap-2">
-        <p className="text-slate-400 text-sm">Reading from {activeTranslation} • All content stored locally</p>
+        <p className="text-slate-400 text-sm">Reading from {activeTranslation} • ✅ Works offline - all content stored locally</p>
         <div className="flex items-center gap-2">
           <button
             onClick={toggleParallelMode}
@@ -996,29 +996,16 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                     filteredVerses.map((verse, index) => {
                       const secondaryVerse = secondaryChapterContent.find(v => v.verse === verse.verse);
                       const inBank = isVerseInBank(verse);
-                      let pressTimer;
-
-                      const handleTouchStart = () => {
-                        pressTimer = setTimeout(() => {
-                          if (!inBank && activeTranslation !== 'KJV_STRONGS') {
-                            showAddVerseModal(verse);
-                          }
-                        }, 1500);
-                      };
-
-                      const handleTouchEnd = () => {
-                        clearTimeout(pressTimer);
-                      };
 
                       return (
                         <div
                           key={index}
-                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-3 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full"
-                          onTouchStart={handleTouchStart}
-                          onTouchEnd={handleTouchEnd}
-                          onMouseDown={handleTouchStart}
-                          onMouseUp={handleTouchEnd}
-                          onMouseLeave={handleTouchEnd}
+                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-3 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full cursor-pointer"
+                          onDoubleClick={() => {
+                            if (!inBank && activeTranslation !== 'KJV_STRONGS') {
+                              showAddVerseModal(verse);
+                            }
+                          }}
                         >
                           {/* Primary Translation (Left Column) */}
                           <div className="flex gap-3 w-full">
@@ -1056,29 +1043,16 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                 <div className="space-y-3 w-full">
                   {filteredVerses.map((verse, index) => {
                     const inBank = isVerseInBank(verse);
-                    let pressTimer;
-
-                    const handleTouchStart = () => {
-                      pressTimer = setTimeout(() => {
-                        if (!inBank && activeTranslation !== 'KJV_STRONGS') {
-                          showAddVerseModal(verse);
-                        }
-                      }, 1500);
-                    };
-
-                    const handleTouchEnd = () => {
-                      clearTimeout(pressTimer);
-                    };
 
                     return (
                       <div
                         key={index}
-                        className="group relative flex gap-3 hover:bg-slate-700/30 p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full"
-                        onTouchStart={handleTouchStart}
-                        onTouchEnd={handleTouchEnd}
-                        onMouseDown={handleTouchStart}
-                        onMouseUp={handleTouchEnd}
-                        onMouseLeave={handleTouchEnd}
+                        className="group relative flex gap-3 hover:bg-slate-700/30 p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full cursor-pointer"
+                        onDoubleClick={() => {
+                          if (!inBank && activeTranslation !== 'KJV_STRONGS') {
+                            showAddVerseModal(verse);
+                          }
+                        }}
                       >
                         <span className="text-amber-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0">
                           {verse.verse}
