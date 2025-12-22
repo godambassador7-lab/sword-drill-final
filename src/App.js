@@ -698,8 +698,9 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
     };
   }
 
-  // First time completing this section - award 100 points
+  // First time completing this section - award 100 points and 1 Scroll
   const pointsEarned = POINT_SYSTEM.BONUSES.courseLesson; // 100 points
+  const scrollsEarned = 1; // 1 Scroll per section
 
   // Mark section as completed
   setUserData(prev => ({
@@ -711,13 +712,15 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
         title: sectionTitle
       }
     },
-    totalPoints: prev.totalPoints + pointsEarned
+    totalPoints: prev.totalPoints + pointsEarned,
+    scrolls: (prev.scrolls || 0) + scrollsEarned
   }));
 
+  const scrollsBoost = Math.min((userData.scrolls || 0) + scrollsEarned, 100);
   return {
     pointsEarned,
     isFirstCompletion: true,
-    message: ` ${sectionTitle} Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this lesson!\n\n New Balance: ${userData.totalPoints + pointsEarned} points`
+    message: ` ${sectionTitle} Complete!\n\n+${pointsEarned} points earned!\n+${scrollsEarned} 📜 Scroll\n\nGreat work on completing this lesson!\n\nScrolls Bonus: +${scrollsBoost}% points on all quizzes!\nNew Balance: ${userData.totalPoints + pointsEarned} points`
   };
 };
 
@@ -1348,7 +1351,10 @@ const SwordDrillApp = () => {
     // Keys of Understanding System (Special Reward Currency)
     keys: 0, // Keys of Understanding - earned through perseverance during struggles
     keysLastReset: Date.now(), // Track when keys were last reset for weekly reset
-    currentIncorrectStreak: 0 // Track consecutive incorrect answers for Keys rewards
+    currentIncorrectStreak: 0, // Track consecutive incorrect answers for Keys rewards
+
+    // Scrolls System (Permanent Points Multiplier)
+    scrolls: 0 // Scrolls - earned by completing course sections, provides 1% points boost per scroll (max 100 for boost, but can go above 100)
   });
 
   // Utility function to play cha-ching sound when spending points
@@ -2381,7 +2387,7 @@ const getQuizCooldownMs = (quizType) => {
                   unlockables: result.validatedData.unlockables,
                   purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
                 }));
-                const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🟡 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+                const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🪙 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
                 showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
                 setCurrentView(courseId);
                 setShowMenu(false);
@@ -2400,7 +2406,7 @@ const getQuizCooldownMs = (quizType) => {
               unlockables: { ...(prev.unlockables || {}), [unlockKey]: true },
               purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
             }));
-            const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🟡 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+            const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🪙 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
             showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
             setCurrentView(courseId);
             setShowMenu(false);
@@ -2722,7 +2728,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     playChaChing();
-    showToast(`🟡 Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
+    showToast(`🪙 Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
   };
 
   const handleTalentsCollect = (conversionId) => {
@@ -2758,7 +2764,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     const growth = talentsEarned - conversion.amount;
-    showToast(`🟡 Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
+    showToast(`🪙 Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
   };
 
   const startQuiz = async (type, usePersonalVerses = false) => {
@@ -3709,6 +3715,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     points += inactivityPenalty; // Penalty is negative
   }
 
+  // Apply Scrolls multiplier (max 100 scrolls for 100% boost, but only if earning points)
+  if (points > 0 && userData.scrolls > 0) {
+    const scrollsMultiplier = Math.min(userData.scrolls || 0, 100) / 100; // 1% per scroll, max 100%
+    const scrollsBonus = Math.floor(points * scrollsMultiplier);
+    points += scrollsBonus;
+  }
+
   // Update last activity date and reset retry count
   localStorage.setItem('lastActivityDate', new Date().toISOString());
 
@@ -4363,7 +4376,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
         <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50">
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
-            <span>🟡</span>
+            <span>🪙</span>
             <span>{userData.talents || 0}</span>
           </div>
           <div className="text-yellow-200 text-sm font-semibold">Talents</div>
@@ -4376,6 +4389,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </div>
           <div className="text-cyan-200 text-sm font-semibold">Keys of Understanding</div>
           <div className="text-cyan-300/70 text-xs mt-1">Resets weekly • 2pts/key</div>
+        </div>
+        <div className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border-2 border-purple-600/50">
+          <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
+            <span>📜</span>
+            <span>{userData.scrolls || 0}</span>
+          </div>
+          <div className="text-purple-200 text-sm font-semibold">Scrolls</div>
+          <div className="text-purple-300/70 text-xs mt-1">+{Math.min((userData.scrolls || 0), 100)}% points boost</div>
         </div>
       </div>
 
@@ -6120,7 +6141,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 col-span-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">🟡</span>
+                <span className="text-2xl">🪙</span>
                 <div className="text-xs text-yellow-300 font-semibold">Talents Balance</div>
               </div>
               <div className="text-3xl font-bold text-yellow-400">{(userData.talents || 0).toLocaleString()}</div>
@@ -6177,7 +6198,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-xl font-bold text-yellow-300 flex items-center gap-2">
-                <span className="text-2xl">🟡</span>
+                <span className="text-2xl">🪙</span>
                 Talents
               </h3>
               <p className="text-slate-400 text-sm">Long-term investment with 2% weekly growth</p>
@@ -11007,7 +11028,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                   <span className="text-slate-400 text-sm">Your Talents:</span>
                   <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
-                    <span>🟡</span>
+                    <span>🪙</span>
                     {purchaseModalData.currentTalents}
                   </span>
                 </div>
@@ -11040,7 +11061,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     onClick={() => purchaseModalData.onConfirm(true)}
                     className="flex-1 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-1"
                   >
-                    <span>🟡</span>
+                    <span>🪙</span>
                     <span>Use Talents</span>
                   </button>
                 </>
