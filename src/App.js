@@ -1229,6 +1229,7 @@ const SwordDrillApp = () => {
   const [expandedMenuSections, setExpandedMenuSections] = useState({
     train: true,
     study: true,
+    dailyRewards: true,
     plansCalendar: true,
     achievementsRewards: true,
     profileProgress: true,
@@ -4249,42 +4250,36 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               // Determine flame colors based on streak milestones (every 10 days)
               let outerColor, middleColor, innerColor, textColor;
 
-              if (currentStreak >= 100) {
-                // Legendary Purple flame (100+ days)
+              if (currentStreak >= 50) {
+                // Smoky gray flame with white and blue accents (50+ days)
+                outerColor = "#6b7280"; // gray-500 (smoky)
+                middleColor = "#e0f2fe"; // blue-50 (light blue/white accent)
+                innerColor = "#bfdbfe"; // blue-200 (blue accent)
+                textColor = "text-slate-300";
+              } else if (currentStreak >= 40) {
+                // White, blue and yellow flame (40-49 days)
+                outerColor = "#fef3c7"; // amber-100 (white-yellow)
+                middleColor = "#93c5fd"; // blue-300
+                innerColor = "#fde047"; // yellow-300
+                textColor = "text-blue-300";
+              } else if (currentStreak >= 30) {
+                // Purple flame (30-39 days)
                 outerColor = "#7c3aed"; // violet-600
                 middleColor = "#a78bfa"; // violet-400
                 innerColor = "#c4b5fd"; // violet-300
                 textColor = "text-violet-400";
-              } else if (currentStreak >= 50) {
-                // Blue flame (50-99 days)
-                outerColor = "#2563eb"; // blue-600
-                middleColor = "#60a5fa"; // blue-400
-                innerColor = "#93c5fd"; // blue-300
-                textColor = "text-blue-400";
-              } else if (currentStreak >= 40) {
-                // Cyan flame (40-49 days)
-                outerColor = "#0891b2"; // cyan-600
-                middleColor = "#22d3ee"; // cyan-400
-                innerColor = "#67e8f9"; // cyan-300
-                textColor = "text-cyan-400";
-              } else if (currentStreak >= 30) {
-                // Green flame (30-39 days)
-                outerColor = "#059669"; // emerald-600
-                middleColor = "#34d399"; // emerald-400
-                innerColor = "#6ee7b7"; // emerald-300
-                textColor = "text-emerald-400";
               } else if (currentStreak >= 20) {
-                // Yellow flame (20-29 days)
-                outerColor = "#d97706"; // amber-600
-                middleColor = "#fbbf24"; // amber-400
-                innerColor = "#fde047"; // yellow-300
-                textColor = "text-amber-400";
+                // Blue flame (20-29 days)
+                outerColor = "#1d4ed8"; // blue-700
+                middleColor = "#3b82f6"; // blue-500
+                innerColor = "#60a5fa"; // blue-400
+                textColor = "text-blue-400";
               } else if (currentStreak >= 10) {
-                // Orange flame (10-19 days)
-                outerColor = "#ea580c"; // orange-600
-                middleColor = "#fb923c"; // orange-400
-                innerColor = "#fdba74"; // orange-300
-                textColor = "text-orange-400";
+                // Green flame (10-19 days)
+                outerColor = "#15803d"; // green-700
+                middleColor = "#22c55e"; // green-500
+                innerColor = "#4ade80"; // green-400
+                textColor = "text-green-400";
               } else {
                 // Red/Orange flame (1-9 days)
                 outerColor = "#dc2626"; // red-600
