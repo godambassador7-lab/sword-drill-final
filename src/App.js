@@ -761,12 +761,27 @@ const saveProgressToLocalStorage = (progress) => {
       aramaicProgress,
       paleoHebrewProgress,
       churchHistoryProgress,
-    textualCriticismProgress,
-    spiritualGiftsResults,
-    lastVerseOfDayRead
-  } = progress;
+      textualCriticismProgress,
+      spiritualGiftsResults,
+      lastVerseOfDayRead,
+      scrolls,
+      talents,
+      talentsConversions,
+      manna,
+      mannaLastUpdated,
+      mannaEarningActive,
+      mannaRedemptionsToday,
+      keys,
+      keysLastReset,
+      currentIncorrectStreak,
+      usernameChangeCount,
+      lastActivityDate
+    } = progress;
 
     const normalizedLastVerseOfDayRead = normalizeTimestampValue(lastVerseOfDayRead);
+    const normalizedMannaLastUpdated = normalizeTimestampValue(mannaLastUpdated);
+    const normalizedKeysLastReset = normalizeTimestampValue(keysLastReset);
+    const normalizedLastActivityDate = normalizeTimestampValue(lastActivityDate);
 
     const payload = {
       name,
@@ -799,7 +814,19 @@ const saveProgressToLocalStorage = (progress) => {
       churchHistoryProgress,
       textualCriticismProgress,
       accountCreated,
-      lastVerseOfDayRead: normalizedLastVerseOfDayRead
+      lastVerseOfDayRead: normalizedLastVerseOfDayRead,
+      scrolls,
+      talents,
+      talentsConversions,
+      manna,
+      mannaLastUpdated: normalizedMannaLastUpdated,
+      mannaEarningActive,
+      mannaRedemptionsToday,
+      keys,
+      keysLastReset: normalizedKeysLastReset,
+      currentIncorrectStreak,
+      usernameChangeCount,
+      lastActivityDate: normalizedLastActivityDate
     };
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
@@ -937,6 +964,19 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const remoteLastVerse = normalizeTimestampValue(remoteProgress.lastVerseOfDayRead);
   const localLastVerse = normalizeTimestampValue(localProgress.lastVerseOfDayRead);
   const lastVerseOfDayRead = Math.max(remoteLastVerse || 0, localLastVerse || 0) || null;
+  const normalizedMannaLastUpdated = normalizeTimestampValue(remoteProgress.mannaLastUpdated) || normalizeTimestampValue(localProgress.mannaLastUpdated) || null;
+  const normalizedKeysLastReset = normalizeTimestampValue(remoteProgress.keysLastReset) || normalizeTimestampValue(localProgress.keysLastReset) || null;
+  const lastActivityDate = normalizeTimestampValue(remoteProgress.lastActivityDate) || normalizeTimestampValue(localProgress.lastActivityDate) || Date.now();
+
+  const manna = remoteProgress.manna ?? localProgress.manna ?? 0;
+  const mannaEarningActive = remoteProgress.mannaEarningActive ?? localProgress.mannaEarningActive ?? false;
+  const mannaRedemptionsToday = remoteProgress.mannaRedemptionsToday ?? localProgress.mannaRedemptionsToday ?? 0;
+  const talents = Math.max(localProgress.talents || 0, remoteProgress.talents || 0);
+  const talentsConversions = remoteProgress.talentsConversions ?? localProgress.talentsConversions ?? [];
+  const keys = Math.max(localProgress.keys || 0, remoteProgress.keys || 0);
+  const currentIncorrectStreak = remoteProgress.currentIncorrectStreak ?? localProgress.currentIncorrectStreak ?? 0;
+  const scrolls = Math.max(localProgress.scrolls || 0, remoteProgress.scrolls || 0);
+  const usernameChangeCount = remoteProgress.usernameChangeCount ?? localProgress.usernameChangeCount ?? 0;
 
   const lastSelected = (() => {
     try { return localStorage.getItem(LAST_TRANSLATION_KEY); } catch (_) { return null; }
@@ -985,7 +1025,19 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     investments,
     activeBoosts,
     accountCreated,
-    completedCourses
+    completedCourses,
+    scrolls,
+    talents,
+    talentsConversions,
+    manna,
+    mannaLastUpdated: normalizedMannaLastUpdated || Date.now(),
+    mannaEarningActive,
+    mannaRedemptionsToday,
+    keys,
+    keysLastReset: normalizedKeysLastReset || Date.now(),
+    currentIncorrectStreak,
+    usernameChangeCount,
+    lastActivityDate
     };
   };
 
@@ -1250,6 +1302,7 @@ const SwordDrillApp = () => {
   const [showHebrewCalendar, setShowHebrewCalendar] = useState(false);
   const [showActivityCalendar, setShowActivityCalendar] = useState(false);
   const [showBibleReader, setShowBibleReader] = useState(false);
+  const [showCurrencyInfo, setShowCurrencyInfo] = useState(null); // Track which currency info modal to show (points, manna, talents, keys, scrolls)
   const [showPersonalQuizModal, setShowPersonalQuizModal] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [hasHydratedProgress, setHasHydratedProgress] = useState(false);
@@ -1684,7 +1737,7 @@ useEffect(() => {
 
       const verseProgressData = result.progress.verseProgress || {};
         const loadedUserData = {
-          name: result.user.name || 'User',
+          name: result.progress.name || result.user.name || 'User',
           versesMemorized: calculateMasteredVerses(verseProgressData),
           quizzesCompleted: result.progress.quizzesCompleted || 0,
           currentStreak: mergedStreak,
@@ -1715,7 +1768,19 @@ useEffect(() => {
           textualCriticismProgress: result.progress.textualCriticismProgress || { completedModules: [], quizScores: {} },
           lastCourseLocation: result.progress.lastCourseLocation || null,
           lastVerseOfDayRead: normalizeTimestampValue(result.progress.lastVerseOfDayRead),
-          accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now()
+          accountCreated: result.progress.accountCreated || result.user.accountCreated || Date.now(),
+          scrolls: result.progress.scrolls || 0,
+          talents: result.progress.talents || 0,
+          talentsConversions: result.progress.talentsConversions || [],
+          manna: result.progress.manna || 0,
+          mannaLastUpdated: normalizeTimestampValue(result.progress.mannaLastUpdated) || Date.now(),
+          mannaEarningActive: result.progress.mannaEarningActive || false,
+          mannaRedemptionsToday: result.progress.mannaRedemptionsToday || 0,
+          keys: result.progress.keys || 0,
+          keysLastReset: normalizeTimestampValue(result.progress.keysLastReset) || Date.now(),
+          currentIncorrectStreak: result.progress.currentIncorrectStreak || 0,
+          usernameChangeCount: result.progress.usernameChangeCount || 0,
+          lastActivityDate: normalizeTimestampValue(result.progress.lastActivityDate) || Date.now()
         };
         const localSavedProgress = loadProgressFromLocalStorage() || {};
         const mergedProgress = mergeProgressRecords(localSavedProgress, loadedUserData, localStreak);
@@ -4353,11 +4418,17 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-amber-400 text-3xl font-bold">{userData.quizzesCompleted}</div>
           <div className="text-slate-300 text-sm">Quizzes Completed</div>
         </div>
-        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+        <div
+          className="bg-slate-700/50 rounded-xl p-4 border border-slate-600 cursor-pointer hover:bg-slate-700/70 transition-all"
+          onClick={() => setShowCurrencyInfo('points')}
+        >
           <div className="text-amber-400 text-3xl font-bold">{userData.totalPoints}</div>
           <div className="text-slate-300 text-sm">Total Points</div>
         </div>
-        <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border-2 border-amber-500/50">
+        <div
+          className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border-2 border-amber-500/50 cursor-pointer hover:from-amber-900/50 hover:to-orange-900/50 transition-all"
+          onClick={() => setShowCurrencyInfo('manna')}
+        >
           <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
             <span>🌾</span>
             <span>{userData.manna || 0}</span>
@@ -4366,7 +4437,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-amber-300/70 text-xs mt-1">Resets at midnight</div>
           {(userData.manna || 0) >= 10 && (
             <button
-              onClick={handleMannaRedemption}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleMannaRedemption();
+              }}
               disabled={(userData.mannaRedemptionsToday || 0) >= 200}
               className="mt-3 w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white text-xs font-bold py-2 px-3 rounded-lg transition-all"
             >
@@ -4379,7 +4453,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
           )}
         </div>
-        <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50">
+        <div
+          className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 cursor-pointer hover:from-yellow-900/50 hover:to-amber-900/50 transition-all"
+          onClick={() => setShowCurrencyInfo('talents')}
+        >
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
             <span>🪙</span>
             <span>{userData.talents || 0}</span>
@@ -4387,7 +4464,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-yellow-200 text-sm font-semibold">Talents</div>
           <div className="text-yellow-300/70 text-xs mt-1">Long-term investment</div>
         </div>
-        <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl p-4 border-2 border-cyan-600/50">
+        <div
+          className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl p-4 border-2 border-cyan-600/50 cursor-pointer hover:from-cyan-900/50 hover:to-blue-900/50 transition-all"
+          onClick={() => setShowCurrencyInfo('keys')}
+        >
           <div className="text-cyan-300 text-3xl font-bold flex items-center gap-2">
             <span>🔑</span>
             <span>{userData.keys || 0}</span>
@@ -4395,7 +4475,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-cyan-200 text-sm font-semibold">Keys of Understanding</div>
           <div className="text-cyan-300/70 text-xs mt-1">Resets weekly • 2pts/key</div>
         </div>
-        <div className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border-2 border-purple-600/50">
+        <div
+          className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border-2 border-purple-600/50 cursor-pointer hover:from-purple-900/50 hover:to-indigo-900/50 transition-all"
+          onClick={() => setShowCurrencyInfo('scrolls')}
+        >
           <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
             <span>📜</span>
             <span>{userData.scrolls || 0}</span>
@@ -8764,8 +8847,44 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   </div>
                 </div>
               </div>
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-amber-300 text-lg">{'\u2B50'}</span>
+                    <span className="font-semibold">Points</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{(userData.totalPoints || 0).toLocaleString()}</div>
+                </div>
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-yellow-300 text-lg">{'\uD83E\uDE99'}</span>
+                    <span className="font-semibold">Talents</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{(userData.talents || 0).toLocaleString()}</div>
+                </div>
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-amber-200 text-lg">{'\uD83C\uDF3E'}</span>
+                    <span className="font-semibold">Manna</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{(userData.manna || 0).toLocaleString()}</div>
+                </div>
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-cyan-200 text-lg">{'\uD83D\uDD11'}</span>
+                    <span className="font-semibold">Keys</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{(userData.keys || 0).toLocaleString()}</div>
+                </div>
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                  <div className="text-xs text-slate-300 flex items-center gap-2">
+                    <span className="text-orange-200 text-lg">{'\uD83D\uDCDC'}</span>
+                    <span className="font-semibold">Scrolls</span>
+                  </div>
+                  <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
+                </div>
+              </div>
             </div>
-
             <nav className="space-y-2">
               {/* HOME */}
               <button
@@ -11007,6 +11126,179 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       )}
 
       {/* Bible Reader Modal */}
+      {/* Currency Info Modal */}
+      {showCurrencyInfo && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowCurrencyInfo(null)}>
+          <div
+            className="bg-slate-900/95 backdrop-blur-md border-2 border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={() => setShowCurrencyInfo(null)}
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Content based on currency type */}
+            {showCurrencyInfo === 'points' && (
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-5xl">💰</span>
+                  <h2 className="text-3xl font-bold text-amber-400">Points</h2>
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-amber-400">Points</span> are the primary currency in Sword Drill. Earn them by:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Completing quizzes and getting correct answers</li>
+                    <li>Maintaining your daily streak</li>
+                    <li>Completing courses and lessons</li>
+                    <li>Reading the Verse of the Day</li>
+                    <li>Redeeming other currencies (Manna, Keys, Talents)</li>
+                  </ul>
+                  <p className="leading-relaxed mt-4">
+                    <span className="font-semibold text-amber-400">Use points to:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Purchase courses and study materials</li>
+                    <li>Buy power-ups and boosts</li>
+                    <li>Unlock premium features</li>
+                    <li>Convert to Talents for long-term growth</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {showCurrencyInfo === 'manna' && (
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-5xl">🌾</span>
+                  <h2 className="text-3xl font-bold text-amber-300">Manna</h2>
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-amber-300">Manna</span> is a daily-only currency that resets every 24 hours at midnight.
+                  </p>
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-amber-300">How to earn:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Activate Manna earning from Daily Rewards</li>
+                    <li>Earn 1 Manna for each correct quiz answer</li>
+                    <li>Use it before midnight or it expires!</li>
+                  </ul>
+                  <p className="leading-relaxed mt-4">
+                    <span className="font-semibold text-amber-300">Redemption:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Redeem 10 Manna for 5 points</li>
+                    <li>Maximum 200 points can be earned daily from Manna</li>
+                    <li>Encourages daily engagement and study</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {showCurrencyInfo === 'talents' && (
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-5xl">🪙</span>
+                  <h2 className="text-3xl font-bold text-yellow-300">Talents</h2>
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-yellow-300">Talents</span> are a long-term investment currency inspired by the Parable of the Talents.
+                  </p>
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-yellow-300">How it works:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Convert points to Talents in the Points Bank</li>
+                    <li>Conversions take 25 days to mature</li>
+                    <li>Earn 2% growth per week during the conversion period</li>
+                    <li>Collect matured Talents to use or reinvest</li>
+                  </ul>
+                  <p className="leading-relaxed mt-4">
+                    <span className="font-semibold text-yellow-300">Benefits:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Use Talents to purchase courses at discounted rates</li>
+                    <li>Grow your wealth over time through compound growth</li>
+                    <li>Rewards patience and long-term commitment</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {showCurrencyInfo === 'keys' && (
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-5xl">🔑</span>
+                  <h2 className="text-3xl font-bold text-cyan-300">Keys of Understanding</h2>
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-cyan-300">Keys of Understanding</span> reward perseverance through struggles and mistakes.
+                  </p>
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-cyan-300">How to earn:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Earn 1 Key for every 3 consecutive incorrect quiz answers</li>
+                    <li>Encourages learning from mistakes</li>
+                    <li>Rewards persistence during difficult material</li>
+                  </ul>
+                  <p className="leading-relaxed mt-4">
+                    <span className="font-semibold text-cyan-300">Important notes:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Keys reset every 7 days (weekly)</li>
+                    <li>Each Key is worth 2 points when redeemed</li>
+                    <li>Redeem in the Points Bank before weekly reset</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {showCurrencyInfo === 'scrolls' && (
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-5xl">📜</span>
+                  <h2 className="text-3xl font-bold text-purple-300">Scrolls</h2>
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-purple-300">Scrolls</span> provide a permanent points multiplier for all quiz activities.
+                  </p>
+                  <p className="leading-relaxed">
+                    <span className="font-semibold text-purple-300">How to earn:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Earn 1 Scroll for completing each course section</li>
+                    <li>First-time completion only (one scroll per section)</li>
+                    <li>Encourages comprehensive study across all courses</li>
+                  </ul>
+                  <p className="leading-relaxed mt-4">
+                    <span className="font-semibold text-purple-300">Benefits:</span>
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-2">
+                    <li>Each Scroll provides +1% bonus points on all quizzes</li>
+                    <li>Maximum 100% bonus (from 100 scrolls)</li>
+                    <li>Scrolls NEVER expire or reset - they're permanent!</li>
+                    <li>Can earn unlimited scrolls, but only first 100 count toward boost</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {showBibleReader && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => { setShowBibleReader(false); setPendingReference(null); }}>
           <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ touchAction: 'pinch-zoom' }}>
@@ -11015,8 +11307,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="text-4xl"></div>
                 <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
               </div>
-              <button onClick={() => { setShowBibleReader(false); setPendingReference(null); }} className="text-white hover:text-amber-400 transition-all">
-                <X size={24} />
+              <button
+                onClick={() => { setShowBibleReader(false); setPendingReference(null); }}
+                className="flex items-center gap-2 bg-slate-700 hover:bg-amber-600 text-white font-semibold px-3 py-2 rounded-lg border border-slate-600 hover:border-amber-400 transition-all shadow-md"
+                aria-label="Exit Bible Reader"
+              >
+                <X size={18} />
+                <span className="text-sm">Exit Reader</span>
               </button>
             </div>
             <div className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6" style={{ touchAction: 'pan-y pinch-zoom' }}>
@@ -11327,3 +11624,4 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 };
 
 export default SwordDrillApp;
+
