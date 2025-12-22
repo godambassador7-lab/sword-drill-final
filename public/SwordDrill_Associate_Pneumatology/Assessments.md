@@ -1,0 +1,1 @@
+Quizzes, midterm essay, final capstone.

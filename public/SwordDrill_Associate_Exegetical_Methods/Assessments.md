@@ -1,0 +1,1 @@
+Quizzes, Midterm Exegesis, Final Capstone Paper

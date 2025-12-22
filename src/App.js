@@ -69,6 +69,10 @@ import BiblicalCanonCourse from './components/BiblicalCanonCourse';
 import DemonologyCourse from './components/DemonologyCourse';
 import MosaicLawCourse from './components/MosaicLawCourse';
 import SecondTempleJudaismCourse from './components/SecondTempleJudaismCourse';
+import PneumatologyCourse from './components/PneumatologyCourse';
+import ChristologyCourse from './components/ChristologyCourse';
+import BiblicalHermeneuticsCourse from './components/BiblicalHermeneuticsCourse';
+import BiblicalExegeticalMethodsCourse from './components/BiblicalExegeticalMethodsCourse';
 import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
@@ -1059,7 +1063,11 @@ const SwordDrillApp = () => {
     'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
     'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' },
     'mosaic-law-course': { cost: 1000, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' },
-    'second-temple-judaism-course': { cost: 1000, name: 'Second Temple Judaism (Associate)', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70' }
+    'second-temple-judaism-course': { cost: 1000, name: 'Second Temple Judaism (Associate)', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70' },
+    'pneumatology-course': { cost: 1000, name: 'Pneumatology (Associate)', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit' },
+    'christology-course': { cost: 1000, name: 'Christology (Associate)', icon: Crown, color: 'amber', description: 'Doctrine of Christ & His Nature' },
+    'biblical-hermeneutics-course': { cost: 1000, name: 'Biblical Hermeneutics (Associate)', icon: Lightbulb, color: 'purple', description: 'Principles of Biblical Interpretation' },
+    'biblical-exegetical-methods-course': { cost: 1000, name: 'Biblical Exegetical Methods (Associate)', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1271,6 +1279,58 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-blue-500/50',
       description: 'Second Temple Judaism Expert',
       achievement: 'Completed all Second Temple Judaism lessons (Associate Level)'
+    },
+    'pneumatology-course': {
+      id: 'pneumatology-course',
+      name: 'Spirit Scholar',
+      symbol: '🕊️',
+      emoji: '🔥',
+      color: 'cyan',
+      gradient: 'from-cyan-600 to-blue-600',
+      borderColor: 'border-cyan-500',
+      textColor: 'text-cyan-400',
+      glowColor: 'shadow-cyan-500/50',
+      description: 'Pneumatology Expert',
+      achievement: 'Completed all Pneumatology lessons (Associate Level)'
+    },
+    'christology-course': {
+      id: 'christology-course',
+      name: 'Christology Scholar',
+      symbol: '👑',
+      emoji: '✝️',
+      color: 'amber',
+      gradient: 'from-amber-600 to-yellow-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Christology Expert',
+      achievement: 'Completed all Christology lessons (Associate Level)'
+    },
+    'biblical-hermeneutics-course': {
+      id: 'biblical-hermeneutics-course',
+      name: 'Hermeneutics Scholar',
+      symbol: '💡',
+      emoji: '📖',
+      color: 'purple',
+      gradient: 'from-purple-600 to-violet-600',
+      borderColor: 'border-purple-500',
+      textColor: 'text-purple-400',
+      glowColor: 'shadow-purple-500/50',
+      description: 'Biblical Hermeneutics Expert',
+      achievement: 'Completed all Biblical Hermeneutics lessons (Associate Level)'
+    },
+    'biblical-exegetical-methods-course': {
+      id: 'biblical-exegetical-methods-course',
+      name: 'Exegesis Scholar',
+      symbol: '📚',
+      emoji: '🔍',
+      color: 'emerald',
+      gradient: 'from-emerald-600 to-green-600',
+      borderColor: 'border-emerald-500',
+      textColor: 'text-emerald-400',
+      glowColor: 'shadow-emerald-500/50',
+      description: 'Biblical Exegetical Methods Expert',
+      achievement: 'Completed all Biblical Exegetical Methods lessons (Associate Level)'
     }
   };
 
@@ -8831,21 +8891,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-6 pb-6 border-b border-slate-700">
-              <div className="text-amber-400 text-lg font-bold mb-4">
-                Welcome, {userData.name}!
-              </div>
-              <div className="flex items-start gap-3">
-                <User className="text-amber-400" size={28} />
-                <div className="flex-1 space-y-1">
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="text-slate-400">💰</span>
-                    <span className="text-slate-300">{userData.totalPoints} points</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="text-slate-400">🔥</span>
-                    <span className="text-slate-300">{userData.currentStreak || 0} day streak</span>
-                  </div>
-                </div>
+              <div className="text-amber-400 text-base sm:text-lg font-bold mb-4 truncate">
+                Welcome, {userData.name || 'Scholar'}!
               </div>
               <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
@@ -8877,9 +8924,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <div className="text-white text-lg font-bold">{(userData.keys || 0).toLocaleString()}</div>
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
-                  <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <span className="text-orange-200 text-lg">{'\uD83D\uDCDC'}</span>
-                    <span className="font-semibold">Scrolls</span>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-xs text-slate-300 flex items-center gap-2">
+                      <span className="text-orange-200 text-lg">{'\uD83D\uDCDC'}</span>
+                      <span className="font-semibold">Scrolls</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-orange-400 text-sm">🔥</span>
+                      <span className="text-slate-300 text-xs">{userData.currentStreak || 0}</span>
+                    </div>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
                 </div>
@@ -9186,7 +9239,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                             Biblical Studies - Associate
                           </div>
                           <div className="space-y-1">
-                            {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course'].map(courseId => {
+                            {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
                               const course = COURSE_ADMISSION[courseId];
                               const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                               return (
@@ -10655,17 +10708,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             courseProps={{
               onComplete: (results) => {
                 console.log('Second Temple Judaism course results:', results);
-
-                // Award points for lesson completion
                 const pointsEarned = awardBonusPoints('courseLesson');
                 showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Second Temple Judaism lesson!`, 'success');
-
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: prev.totalPoints + pointsEarned
-                }));
-
-                // Don't navigate away, stay in course
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
               },
               onCancel: () => setCurrentView('home'),
               userId: currentUser?.uid,
@@ -10673,6 +10718,82 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="second-temple-judaism"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'pneumatology-course' && (
+          <CourseWithFocus
+            CourseComponent={PneumatologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Pneumatology lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="pneumatology"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'christology-course' && (
+          <CourseWithFocus
+            CourseComponent={ChristologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Christology lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="christology"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-hermeneutics-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalHermeneuticsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Hermeneutics lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="biblical-hermeneutics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-exegetical-methods-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalExegeticalMethodsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Exegetical Methods lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="biblical-exegetical-methods"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
@@ -11130,7 +11251,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {showCurrencyInfo && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowCurrencyInfo(null)}>
           <div
-            className="bg-slate-900/95 backdrop-blur-md border-2 border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl"
+            className="bg-slate-900/95 backdrop-blur-md border-2 border-slate-700 rounded-2xl max-w-md w-full max-h-[80vh] overflow-y-auto p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
