@@ -1072,7 +1072,13 @@ const SwordDrillApp = () => {
     'pneumatology-course': { cost: 1000, name: 'Pneumatology (Associate)', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit' },
     'christology-course': { cost: 1000, name: 'Christology (Associate)', icon: Crown, color: 'amber', description: 'Doctrine of Christ & His Nature' },
     'biblical-hermeneutics-course': { cost: 1000, name: 'Biblical Hermeneutics (Associate)', icon: Lightbulb, color: 'purple', description: 'Principles of Biblical Interpretation' },
-    'biblical-exegetical-methods-course': { cost: 1000, name: 'Biblical Exegetical Methods (Associate)', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis' }
+    'biblical-exegetical-methods-course': { cost: 1000, name: 'Biblical Exegetical Methods (Associate)', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis' },
+    'old-testament-survey-course': { cost: 1000, name: 'Old Testament Survey (Associate)', icon: BookOpen, color: 'orange', description: 'Overview of OT Books & Themes' },
+    'new-testament-survey-course': { cost: 1000, name: 'New Testament Survey (Associate)', icon: BookOpen, color: 'blue', description: 'Overview of NT Books & Themes' },
+    'textual-transmission-course': { cost: 1000, name: 'Textual Transmission (Associate)', icon: Scroll, color: 'emerald', description: 'Manuscripts & Biblical Transmission' },
+    'biblical-archaeology-associate-course': { cost: 1000, name: 'Biblical Archaeology (Associate)', icon: MapPin, color: 'yellow', description: 'Archaeological Evidence & History' },
+    'biblical-ethics-course': { cost: 1000, name: 'Biblical Ethics (Associate)', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living' },
+    'capstone-course': { cost: 1500, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1336,6 +1342,84 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-emerald-500/50',
       description: 'Biblical Exegetical Methods Expert',
       achievement: 'Completed all Biblical Exegetical Methods lessons (Associate Level)'
+    },
+    'old-testament-survey-course': {
+      id: 'old-testament-survey-course',
+      name: 'OT Survey Scholar',
+      symbol: '📖',
+      emoji: '🕎',
+      color: 'orange',
+      gradient: 'from-orange-600 to-amber-600',
+      borderColor: 'border-orange-500',
+      textColor: 'text-orange-400',
+      glowColor: 'shadow-orange-500/50',
+      description: 'Old Testament Survey Expert',
+      achievement: 'Completed all Old Testament Survey lessons (Associate Level)'
+    },
+    'new-testament-survey-course': {
+      id: 'new-testament-survey-course',
+      name: 'NT Survey Scholar',
+      symbol: '✝️',
+      emoji: '📘',
+      color: 'blue',
+      gradient: 'from-blue-600 to-indigo-600',
+      borderColor: 'border-blue-500',
+      textColor: 'text-blue-400',
+      glowColor: 'shadow-blue-500/50',
+      description: 'New Testament Survey Expert',
+      achievement: 'Completed all New Testament Survey lessons (Associate Level)'
+    },
+    'textual-transmission-course': {
+      id: 'textual-transmission-course',
+      name: 'Textual Scholar',
+      symbol: '📜',
+      emoji: '🔬',
+      color: 'emerald',
+      gradient: 'from-emerald-600 to-teal-600',
+      borderColor: 'border-emerald-500',
+      textColor: 'text-emerald-400',
+      glowColor: 'shadow-emerald-500/50',
+      description: 'Textual Transmission Expert',
+      achievement: 'Completed all Textual Transmission lessons (Associate Level)'
+    },
+    'biblical-archaeology-course': {
+      id: 'biblical-archaeology-course',
+      name: 'Archaeology Scholar',
+      symbol: '🏛️',
+      emoji: '⛏️',
+      color: 'yellow',
+      gradient: 'from-yellow-600 to-amber-600',
+      borderColor: 'border-yellow-500',
+      textColor: 'text-yellow-400',
+      glowColor: 'shadow-yellow-500/50',
+      description: 'Biblical Archaeology Expert',
+      achievement: 'Completed all Biblical Archaeology lessons (Associate Level)'
+    },
+    'biblical-ethics-course': {
+      id: 'biblical-ethics-course',
+      name: 'Ethics Scholar',
+      symbol: '⚖️',
+      emoji: '❤️',
+      color: 'rose',
+      gradient: 'from-rose-600 to-pink-600',
+      borderColor: 'border-rose-500',
+      textColor: 'text-rose-400',
+      glowColor: 'shadow-rose-500/50',
+      description: 'Biblical Ethics Expert',
+      achievement: 'Completed all Biblical Ethics lessons (Associate Level)'
+    },
+    'capstone-course': {
+      id: 'capstone-course',
+      name: 'Associate Graduate',
+      symbol: '🎓',
+      emoji: '🏆',
+      color: 'indigo',
+      gradient: 'from-indigo-600 to-purple-600',
+      borderColor: 'border-indigo-500',
+      textColor: 'text-indigo-400',
+      glowColor: 'shadow-indigo-500/50',
+      description: 'Capstone Project Complete',
+      achievement: 'Completed the Associate Level Capstone (Research Paper)'
     }
   };
 
@@ -10888,6 +10972,120 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-exegetical-methods"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'old-testament-survey-course' && (
+          <CourseWithFocus
+            CourseComponent={OldTestamentSurveyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Old Testament Survey lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="old-testament-survey"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'new-testament-survey-course' && (
+          <CourseWithFocus
+            CourseComponent={NewTestamentSurveyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this New Testament Survey lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="new-testament-survey"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'textual-transmission-course' && (
+          <CourseWithFocus
+            CourseComponent={TextualTransmissionCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Textual Transmission lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="textual-transmission"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-archaeology-associate-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalArchaeologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Archaeology lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="biblical-archaeology"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'biblical-ethics-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalEthicsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Ethics lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="biblical-ethics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'capstone-course' && (
+          <CourseWithFocus
+            CourseComponent={CapstoneCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Capstone lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="capstone"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
