@@ -24,6 +24,12 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
   const [opening, setOpening] = useState(null);
   const [showRewards, setShowRewards] = useState(null);
 
+  const getMidnightExpiry = () => {
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    return midnight.getTime();
+  };
+
   // Daily chests - 2 free per day
   const DAILY_CHESTS = [
     {
@@ -45,8 +51,8 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
       color: 'from-indigo-500 to-purple-600',
       glowColor: 'shadow-purple-500/50',
       rewards: [
-        { type: 'points', amount: 25 },
-        { type: 'powerup', item: 'DOUBLE_POINTS', quantity: 1 }
+        { type: 'keys', amount: 4 },
+        { type: 'keys-boost', multiplier: 2, expiresAt: () => getMidnightExpiry() }
       ]
     }
   ];
@@ -100,6 +106,7 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
     setTimeout(() => {
       let newPoints = userData.totalPoints || 0;
       let newManna = userData.manna || 0;
+      let newKeys = userData.keys || 0;
       const newActiveBoosts = [...(userData.activeBoosts || [])];
 
       let mannaEarningActivated = false;
@@ -112,6 +119,17 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
           newManna += reward.amount;
         } else if (reward.type === 'manna-activation') {
           mannaEarningActivated = true;
+        } else if (reward.type === 'keys') {
+          newKeys += reward.amount;
+        } else if (reward.type === 'keys-boost') {
+          const expiresAt = typeof reward.expiresAt === 'function' ? reward.expiresAt() : reward.expiresAt;
+          newActiveBoosts.push({
+            type: 'KEYS_BOOST',
+            name: 'Keys x2 (Until Midnight)',
+            activatedAt: Date.now(),
+            expiresAt: expiresAt || getMidnightExpiry(),
+            keysMultiplier: reward.multiplier || 2
+          });
         } else if (reward.type === 'powerup') {
           const powerUpConfig = ECONOMY_POWER_UPS[reward.item];
           if (powerUpConfig) {
@@ -134,6 +152,7 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
         manna: newManna,
         mannaLastUpdated: Date.now(),
         mannaEarningActive: userData.mannaEarningActive || mannaEarningActivated,
+        keys: newKeys,
         activeBoosts: newActiveBoosts
       };
 
@@ -383,3 +402,4 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
 };
 
 export default DailyChestsPage;
+
