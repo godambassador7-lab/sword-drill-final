@@ -12,7 +12,9 @@
       "Bash(npm run build:*)",
       "Bash(npm run deploy:*)",
       "Bash(git init:*)",
-      "Bash(npm start)"
+      "Bash(npm start)",
+      "Bash(del BiblicalArchaeologyCourse.jsx)",
+      "Bash(ren:*)"
     ],
     "deny": [],
     "ask": []
