@@ -94,6 +94,7 @@ import BiblicalEthicsCourse from './components/BiblicalEthicsCourse';
 import CapstoneCourse from './components/CapstoneCourse';
 import GreekICourse from './components/GreekICourse';
 import HebrewICourse from './components/HebrewICourse';
+import DiplomaCapstoneCourse from './components/DiplomaCapstoneCourse';
 import UnlockableLXX from './components/UnlockableLXX';
 import UnlockableSinaiticus from './components/UnlockableSinaiticus';
 import UnlockableMasoretic from './components/UnlockableMasoretic';
@@ -251,6 +252,20 @@ const getActiveBoostMultiplier = (activeBoosts) => {
   activeBoosts.forEach(boost => {
     if (boost.expiresAt > now && boost.multiplier) {
       multiplier *= boost.multiplier;
+    }
+  });
+
+  return multiplier;
+};
+
+// Calculate multiplier for Keys of Understanding (e.g., temporary boosts)
+const getKeysBoostMultiplier = (activeBoosts) => {
+  const now = Date.now();
+  let multiplier = 1;
+
+  (activeBoosts || []).forEach(boost => {
+    if (boost.type === 'KEYS_BOOST' && boost.expiresAt > now && boost.keysMultiplier) {
+      multiplier *= boost.keysMultiplier;
     }
   });
 
@@ -1082,7 +1097,8 @@ const SwordDrillApp = () => {
     'biblical-ethics-course': { cost: 1000, name: 'Biblical Ethics (Associate)', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living' },
     'greek-i-course': { cost: 1000, name: 'Koine Greek I (Associate)', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED' },
     'hebrew-i-course': { cost: 1000, name: 'Biblical Hebrew I (Associate)', icon: BookOpen, color: 'amber', description: 'Introduction to Ancient Hebrew - REQUIRED' },
-    'capstone-course': { cost: 1500, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' }
+    'capstone-course': { cost: 1500, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' },
+    'diploma-capstone-course': { cost: 2000, name: 'Diploma Capstone', icon: GraduationCap, color: 'amber', description: 'Advanced Research Paper & Thesis' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -1450,6 +1466,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-indigo-500/50',
       description: 'Capstone Project Complete',
       achievement: 'Completed the Associate Level Capstone (Research Paper)'
+    },
+    'diploma-capstone-course': {
+      id: 'diploma-capstone-course',
+      name: 'Diploma Graduate',
+      symbol: '🏅',
+      emoji: '🎖️',
+      color: 'amber',
+      gradient: 'from-amber-600 to-orange-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Diploma Capstone Complete',
+      achievement: 'Completed the Diploma Level Capstone (Advanced Research Paper)'
     }
   };
 
@@ -1606,6 +1635,7 @@ const SwordDrillApp = () => {
   const [quizState, setQuizState] = useState(null);
   const [quizTimer, setQuizTimer] = useState(0);
   const referenceInputRef = useRef(null);
+  const bibleReaderScrollRef = useRef(null);
   const [verseOfDay, setVerseOfDay] = useState(null);
   const [verseOfDayRead, setVerseOfDayRead] = useState(false);
   const syncVerseOfDayReadState = useCallback((progress) => {
@@ -2083,6 +2113,13 @@ useEffect(() => {
   if (!hasHydratedProgress) return;
   syncVerseOfDayReadState(userData);
 }, [userData.lastVerseOfDayRead, hasHydratedProgress, syncVerseOfDayReadState]);
+
+// Ensure Bible Reader opens scrolled to top
+useEffect(() => {
+  if (showBibleReader && bibleReaderScrollRef.current) {
+    bibleReaderScrollRef.current.scrollTop = 0;
+  }
+}, [showBibleReader]);
 
 // Enable pinch-to-zoom ONLY for Bible Reader and Bloodlines pages
 useEffect(() => {
@@ -3917,7 +3954,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     // Award Keys of Understanding for perseverance during struggles
     // Earn 1 key for every 3 consecutive incorrect answers
     if (newIncorrectStreak % 3 === 0 && newIncorrectStreak > 0) {
-      keysEarned = 1;
+      const keysBoost = getKeysBoostMultiplier(userData.activeBoosts || []);
+      keysEarned = Math.max(1, Math.floor(1 * (keysBoost || 1)));
     }
 
     setUserData(prev => ({
@@ -11158,6 +11196,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onExit={() => setCurrentView('home')}
           />
         )}
+        {currentView === 'diploma-capstone-course' && (
+          <CourseWithFocus
+            CourseComponent={DiplomaCapstoneCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Diploma Capstone lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="diploma-capstone"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
         {currentView === 'targum-jonathan-reader' && (
           <TargumReader
             onBack={() => setCurrentView('home')}
@@ -11825,9 +11882,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       )}
 
       {showBibleReader && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => { setShowBibleReader(false); setPendingReference(null); }}>
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4"
+          style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 12px)' }}
+          onClick={() => { setShowBibleReader(false); setPendingReference(null); }}
+        >
           <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ touchAction: 'pinch-zoom' }}>
-            <div className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700">
+            <div
+              className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700"
+              style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)' }}
+            >
               <div className="flex items-center gap-3">
                 <div className="text-4xl"></div>
                 <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
@@ -11841,7 +11905,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <span className="text-sm">Exit Reader</span>
               </button>
             </div>
-            <div className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6" style={{ touchAction: 'pan-y pinch-zoom' }}>
+            <div
+              ref={bibleReaderScrollRef}
+              className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6"
+              style={{ touchAction: 'pan-y pinch-zoom' }}
+            >
               <BibleReader
                 selectedTranslation={userData.selectedTranslation}
                 initialReference={pendingReference}
@@ -12149,4 +12217,3 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 };
 
 export default SwordDrillApp;
-

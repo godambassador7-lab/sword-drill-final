@@ -94,14 +94,21 @@ const AcademyAbout = ({ onBack }) => {
     }
   ];
 
-  const graduationRequirements = [
-    'Complete Greek I OR Hebrew I (choose one - required for Associate level)',
+  const associateRequirements = [
+    'Complete Greek I OR Hebrew I (choose one - required)',
     'Complete all 12 Associate-level biblical studies core courses',
     'Complete the Associate Capstone research paper with passing grade (70%+)',
-    'Complete all Diploma-level biblical studies courses (5 courses)',
-    'Complete all historical studies courses (2 courses)',
     'Maintain focus integrity throughout your studies',
-    'Pass all course assessments and final exams'
+    'Pass all course assessments'
+  ];
+
+  const diplomaRequirements = [
+    'Must have completed Associate Level program first',
+    'Complete all 5 Diploma-level biblical studies courses',
+    'Complete both historical studies courses',
+    'Complete the Diploma Capstone research paper with passing grade (75%+)',
+    'Maintain focus integrity throughout your studies',
+    'Pass all advanced course assessments and exams'
   ];
 
   const crestLogo = `${process.env.PUBLIC_URL || ''}/imageedit_1_3946066529.png`;
@@ -205,18 +212,37 @@ const AcademyAbout = ({ onBack }) => {
         </div>
 
         {/* Graduation Requirements */}
-        <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-xl p-6 md:p-8 mb-8 border-2 border-purple-500/50">
-          <h2 className="text-3xl font-bold text-purple-300 mb-6 flex items-center gap-3">
-            <Award size={32} />
-            Graduation Requirements
-          </h2>
-          <div className="space-y-3">
-            {graduationRequirements.map((requirement, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle size={20} className="text-purple-400 mt-0.5 flex-shrink-0" />
-                <p className="text-slate-200">{requirement}</p>
-              </div>
-            ))}
+        <div className="space-y-6 mb-8">
+          {/* Associate Level Requirements */}
+          <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 rounded-xl p-6 md:p-8 border-2 border-indigo-500/50">
+            <h2 className="text-3xl font-bold text-indigo-300 mb-6 flex items-center gap-3">
+              <Award size={32} />
+              Associate Level Graduation Requirements
+            </h2>
+            <div className="space-y-3">
+              {associateRequirements.map((requirement, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-indigo-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-slate-200">{requirement}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Diploma Level Requirements */}
+          <div className="bg-gradient-to-br from-amber-900/50 to-orange-900/50 rounded-xl p-6 md:p-8 border-2 border-amber-500/50">
+            <h2 className="text-3xl font-bold text-amber-300 mb-6 flex items-center gap-3">
+              <Award size={32} />
+              Diploma Level Graduation Requirements
+            </h2>
+            <div className="space-y-3">
+              {diplomaRequirements.map((requirement, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-slate-200">{requirement}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

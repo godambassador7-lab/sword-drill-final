@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Download, X, Type, Calendar, User, Award } from 'lucide-react';
 
-const CertificateEditor = ({ studentName, onClose, onSave }) => {
+const CertificateEditor = ({ studentName, onClose, onSave, certificateType = 'associate' }) => {
   const [name, setName] = useState(studentName || '');
   const [date, setDate] = useState(new Date().toLocaleDateString('en-US', {
     year: 'numeric',
@@ -11,7 +11,13 @@ const CertificateEditor = ({ studentName, onClose, onSave }) => {
   const [isGenerating, setIsGenerating] = useState(false);
   const canvasRef = useRef(null);
 
-  const certificateImage = `${process.env.PUBLIC_URL || ''}/Sword Drill Associate Certificate.png`;
+  // Select certificate template based on type
+  const certificateImage = certificateType === 'diploma'
+    ? `${process.env.PUBLIC_URL || ''}/Sword Drill Diploma Certificate.png`
+    : `${process.env.PUBLIC_URL || ''}/Sword Drill Associate Certificate.png`;
+
+  const certificateTitle = certificateType === 'diploma' ? 'Diploma Level' : 'Associate Level';
+  const certificateColor = certificateType === 'diploma' ? 'amber' : 'indigo';
 
   // Load and draw certificate with text overlay
   useEffect(() => {
@@ -53,14 +59,15 @@ const CertificateEditor = ({ studentName, onClose, onSave }) => {
 
     // Create download link
     const link = document.createElement('a');
-    link.download = `${name.replace(/\s+/g, '_')}_Associate_Certificate.png`;
+    const certType = certificateType === 'diploma' ? 'Diploma' : 'Associate';
+    link.download = `${name.replace(/\s+/g, '_')}_${certType}_Certificate.png`;
     link.href = canvas.toDataURL('image/png');
     link.click();
 
     setTimeout(() => {
       setIsGenerating(false);
       if (onSave) {
-        onSave({ name, date, certificateUrl: link.href });
+        onSave({ name, date, certificateUrl: link.href, certificateType });
       }
     }, 500);
   };
@@ -73,16 +80,27 @@ const CertificateEditor = ({ studentName, onClose, onSave }) => {
     }
   };
 
+  // Determine color scheme based on certificate type
+  const headerGradient = certificateType === 'diploma'
+    ? 'from-amber-600 to-orange-600'
+    : 'from-indigo-600 to-purple-600';
+  const borderColor = certificateType === 'diploma'
+    ? 'border-amber-500/50'
+    : 'border-indigo-500/50';
+  const accentColor = certificateType === 'diploma'
+    ? 'text-amber-100'
+    : 'text-indigo-100';
+
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-slate-900 rounded-xl max-w-6xl w-full max-h-[95vh] overflow-y-auto border-2 border-indigo-500/50 shadow-2xl">
+      <div className={`bg-slate-900 rounded-xl max-w-6xl w-full max-h-[95vh] overflow-y-auto border-2 ${borderColor} shadow-2xl`}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 flex items-center justify-between sticky top-0 z-10">
+        <div className={`bg-gradient-to-r ${headerGradient} p-6 flex items-center justify-between sticky top-0 z-10`}>
           <div className="flex items-center gap-3">
             <Award size={32} className="text-white" />
             <div>
               <h2 className="text-2xl font-bold text-white">Certificate Editor</h2>
-              <p className="text-indigo-100 text-sm">Associate Level Certificate of Completion</p>
+              <p className={`${accentColor} text-sm`}>{certificateTitle} Certificate of Completion</p>
             </div>
           </div>
           <button
@@ -151,7 +169,7 @@ const CertificateEditor = ({ studentName, onClose, onSave }) => {
           {/* Text Position Guide */}
           <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-6">
             <p className="text-blue-300 text-sm">
-              <strong>Note:</strong> Text positions are optimized for the standard Associate Certificate template.
+              <strong>Note:</strong> Text positions are optimized for the standard {certificateTitle} Certificate template.
               If text doesn't align correctly, you may need to adjust the Y-coordinate values in the CertificateEditor component.
             </p>
           </div>
