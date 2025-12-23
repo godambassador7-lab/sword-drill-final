@@ -1,7 +1,11 @@
-import React from 'react';
-import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, Lock } from 'lucide-react';
+import AdminLogin from './AdminLogin';
+import AdminGrading from './AdminGrading';
 
 const AcademyAbout = ({ onBack }) => {
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const courseCategories = [
     {
       title: 'Biblical Languages',
@@ -82,6 +86,32 @@ const AcademyAbout = ({ onBack }) => {
   ];
 
   const crestLogo = `${process.env.PUBLIC_URL || ''}/imageedit_1_3946066529.png`;
+
+  // Show Admin Login if requested
+  if (showAdminLogin && !isAdminAuthenticated) {
+    return (
+      <AdminLogin
+        onLoginSuccess={() => {
+          setIsAdminAuthenticated(true);
+          setShowAdminLogin(false);
+        }}
+        onCancel={() => setShowAdminLogin(false)}
+      />
+    );
+  }
+
+  // Show Admin Grading Dashboard if authenticated
+  if (isAdminAuthenticated) {
+    return (
+      <AdminGrading
+        onBack={() => setIsAdminAuthenticated(false)}
+        onLogout={() => {
+          setIsAdminAuthenticated(false);
+          setShowAdminLogin(false);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-200 p-4 md:p-8">
@@ -263,8 +293,19 @@ const AcademyAbout = ({ onBack }) => {
         </div>
 
         {/* Footer */}
-        <div className="text-center text-slate-400 text-sm">
+        <div className="text-center text-slate-400 text-sm mb-4">
           <p>Sword Drill Academy • Biblical Excellence Through Focused Study</p>
+        </div>
+
+        {/* Admin Access Button */}
+        <div className="flex justify-center">
+          <button
+            onClick={() => setShowAdminLogin(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600 hover:border-red-500/50 rounded-lg text-slate-400 hover:text-red-400 transition-all text-sm"
+          >
+            <Lock size={14} />
+            Admin Access
+          </button>
         </div>
       </div>
     </div>
