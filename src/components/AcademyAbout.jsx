@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, Lock } from 'lucide-react';
+import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, Lock, MapPin } from 'lucide-react';
 import AdminLogin from './AdminLogin';
 import AdminGrading from './AdminGrading';
 
@@ -12,8 +12,8 @@ const AcademyAbout = ({ onBack }) => {
       icon: BookOpen,
       color: 'from-indigo-600 to-purple-600',
       courses: [
-        { name: 'Koine Greek I', level: 'Associate Level - REQUIRED', description: 'Introduction to Biblical Greek (Choose Greek I OR Hebrew I)' },
-        { name: 'Biblical Hebrew I', level: 'Associate Level - REQUIRED', description: 'Introduction to Ancient Hebrew (Choose Greek I OR Hebrew I)' }
+        { courseNumber: 'GREK 101', name: 'Biblical Greek I', credits: '3', description: 'Introduction to Biblical Greek (Choose Greek I OR Hebrew I)' },
+        { courseNumber: 'HEBR 101', name: 'Biblical Hebrew I', credits: '3', description: 'Introduction to Ancient Hebrew (Choose Greek I OR Hebrew I)' }
       ]
     },
     {
@@ -21,8 +21,10 @@ const AcademyAbout = ({ onBack }) => {
       icon: BookOpen,
       color: 'from-purple-600 to-pink-600',
       courses: [
-        { name: 'Koine Greek II & III', level: 'Elective', description: 'Advanced Greek studies (optional continuation)' },
-        { name: 'Biblical Hebrew II & III', level: 'Elective', description: 'Advanced Hebrew studies (optional continuation)' },
+        { courseNumber: 'GREK 102', name: 'Biblical Greek II', level: 'Elective', description: 'Advanced Greek studies (optional continuation)' },
+        { courseNumber: 'GREK 201', name: 'Biblical Greek III', level: 'Elective', description: 'Guided Reading & Exegesis' },
+        { courseNumber: 'HEBR 102', name: 'Biblical Hebrew II', level: 'Elective', description: 'Advanced Hebrew studies (optional continuation)' },
+        { courseNumber: 'HEBR 201', name: 'Biblical Hebrew III', level: 'Elective', description: 'Guided Reading & Syntax' },
         { name: 'Paleo Hebrew', level: 'Elective', description: 'Study the ancient script form of Hebrew' },
         { name: 'Aramaic', level: 'Elective', description: 'Explore the language Jesus spoke' },
         { name: 'Ge\'ez', level: 'Elective', description: 'Study the ancient Ethiopian liturgical language' },
@@ -30,22 +32,44 @@ const AcademyAbout = ({ onBack }) => {
       ]
     },
     {
-      title: 'Biblical Studies - Associate Level Core',
+      title: 'Core Interpretation & Method (Required)',
       icon: Scroll,
-      color: 'from-blue-600 to-indigo-600',
+      color: 'from-purple-600 to-indigo-600',
       courses: [
-        { name: 'Old Testament Survey', level: 'Associate Level', description: 'Overview of OT books and themes' },
-        { name: 'New Testament Survey', level: 'Associate Level', description: 'Overview of NT books and themes' },
-        { name: 'Textual Transmission & Manuscripts', level: 'Associate Level', description: 'Study of biblical manuscripts and transmission' },
-        { name: 'Biblical Archaeology', level: 'Associate Level', description: 'Archaeological evidence and biblical history' },
-        { name: 'Biblical Ethics', level: 'Associate Level', description: 'Moral principles and Christian living' },
-        { name: 'Pneumatology', level: 'Associate Level', description: 'Doctrine of the Holy Spirit' },
-        { name: 'Christology', level: 'Associate Level', description: 'Doctrine of Christ and His nature' },
-        { name: 'Biblical Hermeneutics', level: 'Associate Level', description: 'Principles of biblical interpretation' },
-        { name: 'Biblical Exegetical Methods', level: 'Associate Level', description: 'Methods of biblical exegesis' },
-        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis and exegesis' },
-        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theology' },
-        { name: 'Second Temple Judaism', level: 'Associate Level', description: 'Judaism from Babylonian exile to AD 70' }
+        { courseNumber: 'BIB 101', name: 'Biblical Hermeneutics', credits: '3', description: 'Principles of biblical interpretation' },
+        { courseNumber: 'BIB 102', name: 'Exegetical Methods', credits: '3', description: 'Methods of biblical exegesis' },
+        { courseNumber: 'BIB 299', name: 'Capstone Seminar', credits: '3', description: 'Integrative research paper & final project' }
+      ]
+    },
+    {
+      title: 'Biblical Surveys (Required)',
+      icon: BookOpen,
+      color: 'from-blue-600 to-cyan-600',
+      courses: [
+        { courseNumber: 'BIB 110', name: 'Old Testament Survey', credits: '3', description: 'Overview of OT books and themes' },
+        { courseNumber: 'BIB 120', name: 'New Testament Survey', credits: '3', description: 'Overview of NT books and themes' }
+      ]
+    },
+    {
+      title: 'Historical & Contextual Studies',
+      icon: MapPin,
+      color: 'from-amber-600 to-yellow-600',
+      courses: [
+        { courseNumber: 'BIB 210', name: 'Second Temple Judaism', credits: '3', description: 'Judaism from Babylonian exile to AD 70' },
+        { courseNumber: 'BIB 220', name: 'Biblical Archaeology', credits: '3', description: 'Archaeological evidence and biblical history' },
+        { courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', credits: '3', description: 'Study of biblical manuscripts and transmission' }
+      ]
+    },
+    {
+      title: 'Law, Theology, & Ethics',
+      icon: Scroll,
+      color: 'from-rose-600 to-pink-600',
+      courses: [
+        { courseNumber: 'BIB 240', name: 'Mosaic Law', credits: '3', description: 'Torah: covenant, commandments, and theology' },
+        { courseNumber: 'BIB 250', name: 'Christology', credits: '3', description: 'Doctrine of Christ and His nature' },
+        { courseNumber: 'BIB 260', name: 'Pneumatology', credits: '3', description: 'Doctrine of the Holy Spirit' },
+        { courseNumber: 'BIB 270', name: 'Demonology', credits: '3', description: 'NT demonology with Greek analysis and exegesis' },
+        { courseNumber: 'BIB 280', name: 'Biblical Ethics', credits: '3', description: 'Moral principles and Christian living' }
       ]
     },
     {
@@ -197,10 +221,22 @@ const AcademyAbout = ({ onBack }) => {
                   {category.courses.map((course, courseIndex) => (
                     <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
                       <div className="flex items-start justify-between mb-2">
-                        <h4 className="font-bold text-slate-200">{course.name}</h4>
-                        <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
-                          {course.level}
-                        </span>
+                        <div className="flex-1">
+                          {course.courseNumber && (
+                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
+                          )}
+                          <h4 className="font-bold text-slate-200">{course.name}</h4>
+                        </div>
+                        {course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
+                            {course.credits} credits
+                          </span>
+                        )}
+                        {course.level && !course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
+                            {course.level}
+                          </span>
+                        )}
                       </div>
                       <p className="text-sm text-slate-400">{course.description}</p>
                     </div>
