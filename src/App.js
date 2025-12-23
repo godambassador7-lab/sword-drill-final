@@ -43,7 +43,8 @@ import {
   ChevronUp,
   MapPin,
   Sparkles,
-  Gift
+  Gift,
+  Scale
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
