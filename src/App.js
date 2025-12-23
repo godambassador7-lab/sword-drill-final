@@ -1068,37 +1068,37 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   };
 
 const SwordDrillApp = () => {
-  // Course admission costs
+  // Course admission costs (1 Talent = 500 Points)
   const COURSE_ADMISSION = {
-    'greek-course': { cost: 800, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
-    'hebrew-course': { cost: 800, name: 'עברית עתיק', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
-    'paleo-hebrew-course': { cost: 800, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
-    'amharic-course': { cost: 800, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
-    'geez-course': { cost: 800, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
-    'aramaic-course': { cost: 800, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
-    'hermeneutics-course': { cost: 800, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
-    'church-history-course': { cost: 800, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
-    'kings-of-israel-course': { cost: 800, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
-    'textual-criticism-course': { cost: 800, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
-    'apologetics-course': { cost: 800, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
-    'biblical-canon-course': { cost: 1000, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
-    'biblical-archaeology-course': { cost: 1000, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
-    'demonology-course': { cost: 1000, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' },
-    'mosaic-law-course': { cost: 1000, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' },
-    'second-temple-judaism-course': { cost: 1000, name: 'Second Temple Judaism (Associate)', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70' },
-    'pneumatology-course': { cost: 1000, name: 'Pneumatology (Associate)', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit' },
-    'christology-course': { cost: 1000, name: 'Christology (Associate)', icon: Crown, color: 'amber', description: 'Doctrine of Christ & His Nature' },
-    'biblical-hermeneutics-course': { cost: 1000, name: 'Biblical Hermeneutics (Associate)', icon: Lightbulb, color: 'purple', description: 'Principles of Biblical Interpretation' },
-    'biblical-exegetical-methods-course': { cost: 1000, name: 'Biblical Exegetical Methods (Associate)', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis' },
-    'old-testament-survey-course': { cost: 1000, name: 'Old Testament Survey (Associate)', icon: BookOpen, color: 'orange', description: 'Overview of OT Books & Themes' },
-    'new-testament-survey-course': { cost: 1000, name: 'New Testament Survey (Associate)', icon: BookOpen, color: 'blue', description: 'Overview of NT Books & Themes' },
-    'textual-transmission-course': { cost: 1000, name: 'Textual Transmission (Associate)', icon: Scroll, color: 'emerald', description: 'Manuscripts & Biblical Transmission' },
-    'biblical-archaeology-associate-course': { cost: 1000, name: 'Biblical Archaeology (Associate)', icon: MapPin, color: 'yellow', description: 'Archaeological Evidence & History' },
-    'biblical-ethics-course': { cost: 1000, name: 'Biblical Ethics (Associate)', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living' },
-    'greek-i-course': { cost: 1000, name: 'Koine Greek I (Associate)', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED' },
-    'hebrew-i-course': { cost: 1000, name: 'Biblical Hebrew I (Associate)', icon: BookOpen, color: 'amber', description: 'Introduction to Ancient Hebrew - REQUIRED' },
-    'capstone-course': { cost: 1500, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' },
-    'diploma-capstone-course': { cost: 2000, name: 'Diploma Capstone', icon: GraduationCap, color: 'amber', description: 'Advanced Research Paper & Thesis' }
+    'greek-course': { talents: 1, points: 300, name: 'Κοινή Greek', icon: GraduationCap, color: 'indigo', description: 'Biblical Greek Course' },
+    'hebrew-course': { talents: 1, points: 300, name: 'עברית עתיק', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
+    'paleo-hebrew-course': { talents: 1, points: 300, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
+    'amharic-course': { talents: 1, points: 300, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
+    'geez-course': { talents: 1, points: 300, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
+    'aramaic-course': { talents: 1, points: 300, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
+    'hermeneutics-course': { talents: 1, points: 300, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
+    'church-history-course': { talents: 1, points: 300, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
+    'kings-of-israel-course': { talents: 1, points: 300, name: 'Kings of Israel', icon: Crown, color: 'blue', description: 'Rulers & Prophets' },
+    'textual-criticism-course': { talents: 1, points: 300, name: 'Textual Criticism', icon: Search, color: 'slate', description: 'Manuscript Analysis' },
+    'apologetics-course': { talents: 1, points: 300, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
+    'biblical-canon-course': { talents: 2, points: 0, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
+    'biblical-archaeology-course': { talents: 2, points: 0, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
+    'demonology-course': { talents: 2, points: 0, name: 'Demonology (Associate)', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis' },
+    'mosaic-law-course': { talents: 2, points: 0, name: 'Mosaic Law (Associate)', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments' },
+    'second-temple-judaism-course': { talents: 2, points: 0, name: 'Second Temple Judaism (Associate)', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70' },
+    'pneumatology-course': { talents: 2, points: 0, name: 'Pneumatology (Associate)', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit' },
+    'christology-course': { talents: 2, points: 0, name: 'Christology (Associate)', icon: Crown, color: 'amber', description: 'Doctrine of Christ & His Nature' },
+    'biblical-hermeneutics-course': { talents: 2, points: 0, name: 'Biblical Hermeneutics (Associate)', icon: Lightbulb, color: 'purple', description: 'Principles of Biblical Interpretation' },
+    'biblical-exegetical-methods-course': { talents: 2, points: 0, name: 'Biblical Exegetical Methods (Associate)', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis' },
+    'old-testament-survey-course': { talents: 2, points: 0, name: 'Old Testament Survey (Associate)', icon: BookOpen, color: 'orange', description: 'Overview of OT Books & Themes' },
+    'new-testament-survey-course': { talents: 2, points: 0, name: 'New Testament Survey (Associate)', icon: BookOpen, color: 'blue', description: 'Overview of NT Books & Themes' },
+    'textual-transmission-course': { talents: 2, points: 0, name: 'Textual Transmission (Associate)', icon: Scroll, color: 'emerald', description: 'Manuscripts & Biblical Transmission' },
+    'biblical-archaeology-associate-course': { talents: 2, points: 0, name: 'Biblical Archaeology (Associate)', icon: MapPin, color: 'yellow', description: 'Archaeological Evidence & History' },
+    'biblical-ethics-course': { talents: 2, points: 0, name: 'Biblical Ethics (Associate)', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living' },
+    'greek-i-course': { talents: 2, points: 0, name: 'Koine Greek I (Associate)', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED' },
+    'hebrew-i-course': { talents: 2, points: 0, name: 'Biblical Hebrew I (Associate)', icon: BookOpen, color: 'amber', description: 'Introduction to Ancient Hebrew - REQUIRED' },
+    'capstone-course': { talents: 3, points: 0, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' },
+    'diploma-capstone-course': { talents: 4, points: 0, name: 'Diploma Capstone', icon: GraduationCap, color: 'amber', description: 'Advanced Research Paper & Thesis' }
   };
 
   // Course Completion Badges - Unique medals for each course
@@ -2626,16 +2626,22 @@ const getQuizCooldownMs = (quizType) => {
     return;
   }
 
-  // Check available currencies
+  // Check available currencies (1 Talent = 500 Points)
   const currentPoints = userData.totalPoints || 0;
   const currentTalents = userData.talents || 0;
-  const totalAvailable = currentPoints + currentTalents;
+  const requiredTalents = course.talents || 0;
+  const requiredPoints = course.points || 0;
+
+  // Convert total wealth to points for comparison (Talents * 500 + Points)
+  const totalWealthInPoints = (currentTalents * 500) + currentPoints;
+  const totalCostInPoints = (requiredTalents * 500) + requiredPoints;
 
   // Need to pay admission
-  if (totalAvailable >= course.cost) {
+  if (totalWealthInPoints >= totalCostInPoints) {
     setPurchaseModalData({
       name: course.name,
-      cost: course.cost,
+      talents: requiredTalents,
+      points: requiredPoints,
       icon: course.icon,
       color: course.color,
       description: course.description,
@@ -2646,20 +2652,35 @@ const getQuizCooldownMs = (quizType) => {
       onConfirm: (useTalents = false) => {
           playChaChing();
 
-          // Calculate payment breakdown
+          // Calculate payment breakdown with new dual-currency system
+          // Students can pay with ANY combination of Talents and Points
           let pointsUsed = 0;
           let talentsUsed = 0;
 
-          if (useTalents && currentTalents >= course.cost) {
-            // Pay entirely with Talents
-            talentsUsed = course.cost;
-          } else if (useTalents && currentTalents > 0) {
-            // Pay with Talents first, then points
-            talentsUsed = currentTalents;
-            pointsUsed = course.cost - currentTalents;
+          if (useTalents) {
+            // Prefer using Talents first, then Points
+            // Pay required Talents first
+            talentsUsed = Math.min(requiredTalents, currentTalents);
+            const remainingTalentsNeeded = requiredTalents - talentsUsed;
+
+            // If we don't have enough Talents, convert points to cover shortage
+            if (remainingTalentsNeeded > 0) {
+              const pointsForMissingTalents = remainingTalentsNeeded * 500;
+              pointsUsed = pointsForMissingTalents + requiredPoints;
+            } else if (currentTalents > requiredTalents) {
+              // We have extra Talents, can use them instead of points
+              const extraTalents = currentTalents - requiredTalents;
+              const pointsWeCanCoverWithTalents = Math.floor(requiredPoints / 500);
+              const talentsToUseForPoints = Math.min(extraTalents, pointsWeCanCoverWithTalents);
+              talentsUsed += talentsToUseForPoints;
+              pointsUsed = requiredPoints - (talentsToUseForPoints * 500);
+            } else {
+              // Exact Talents, pay required Points
+              pointsUsed = requiredPoints;
+            }
           } else {
-            // Pay with points only
-            pointsUsed = course.cost;
+            // Pay with points only (convert Talents requirement to points)
+            pointsUsed = totalCostInPoints;
           }
 
           if (currentUser?.uid) {
@@ -2670,7 +2691,7 @@ const getQuizCooldownMs = (quizType) => {
                   totalPoints: result.validatedData.totalPoints,
                   talents: result.validatedData.talents !== undefined ? result.validatedData.talents : (prev.talents || 0) - talentsUsed,
                   unlockables: result.validatedData.unlockables,
-                  purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
+                  purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, totalCostInPoints, 'course')]
                 }));
                 const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🪙 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
                 showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
@@ -2701,8 +2722,11 @@ const getQuizCooldownMs = (quizType) => {
     });
     setShowPurchaseModal(true);
   } else {
-    const shortage = course.cost - totalAvailable;
-    showToast(`Need ${shortage} more currency to access ${course.name}\n\nYou have: ${currentPoints} points + ${currentTalents} Talents`, 'error');
+    const shortageInPoints = totalCostInPoints - totalWealthInPoints;
+    const costDisplay = requiredPoints > 0
+      ? `${requiredTalents} Talent${requiredTalents !== 1 ? 's' : ''} + ${requiredPoints} Points`
+      : `${requiredTalents} Talent${requiredTalents !== 1 ? 's' : ''}`;
+    showToast(`Need ${shortageInPoints} more points to access ${course.name}\n\nCost: ${costDisplay}\nYou have: ${currentPoints} points + ${currentTalents} Talents`, 'error');
   }
 };
 
@@ -6139,8 +6163,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     );
   };
 
-  // Points Bank View Component
-  const PointsBankView = () => {
+  // Points Bank Exchange View Component
+  const PointsBankExchangeView = () => {
     const [showInvestmentModal, setShowInvestmentModal] = useState(false);
     const [investmentAmount, setInvestmentAmount] = useState('');
     const [investmentDays, setInvestmentDays] = useState(30);
@@ -6441,9 +6465,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {/* Header */}
         <div className="text-center mb-6">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <Coins className="text-amber-400" size={48} />
+            <span className="text-5xl">💫</span>
             <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-              Points Bank
+              Points Bank Exchange
             </h2>
           </div>
           <p className="text-slate-300">Manage your points, track transactions, and grow your wealth</p>
@@ -9723,9 +9747,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
                   >
-                    <Wallet size={18} className="text-amber-400" />
+                    <span className="text-lg">💫</span>
                     <div className="flex-1">
-                      <div className="font-semibold text-sm">Points Bank</div>
+                      <div className="font-semibold text-sm">Points Bank Exchange</div>
                       <div className="text-xs text-slate-400">Investments & transactions</div>
                     </div>
                   </button>
@@ -9859,7 +9883,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {currentView === 'achievements' && <AchievementsView />}
         {currentView === 'analytics' && <AnalyticsView />}
         {currentView === 'mastery' && <MasteryView />}
-        {currentView === 'points-bank' && <PointsBankView />}
+        {currentView === 'points-bank' && <PointsBankExchangeView />}
         {currentView === 'powerup-shop' && <PowerUpShopView />}
         {currentView === 'smith-dictionary' && <SmithDictionaryView />}
         {currentView === 'learning-plan' && <LearningPlansView />}
@@ -11756,7 +11780,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <span className="font-semibold text-yellow-300">How it works:</span>
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-2">
-                    <li>Convert points to Talents in the Points Bank</li>
+                    <li>Convert points to Talents in the Points Bank Exchange</li>
                     <li>Conversions take 25 days to mature</li>
                     <li>Earn 2% growth per week during the conversion period</li>
                     <li>Collect matured Talents to use or reinvest</li>
@@ -11797,7 +11821,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <ul className="list-disc list-inside space-y-2 ml-2">
                     <li>Keys reset every 7 days (weekly)</li>
                     <li>Each Key is worth 2 points when redeemed</li>
-                    <li>Redeem in the Points Bank before weekly reset</li>
+                    <li>Redeem in the Points Bank Exchange before weekly reset</li>
                   </ul>
                 </div>
               </div>
