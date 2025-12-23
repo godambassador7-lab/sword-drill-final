@@ -92,6 +92,8 @@ import NewTestamentSurveyCourse from './components/NewTestamentSurveyCourse';
 import TextualTransmissionCourse from './components/TextualTransmissionCourse';
 import BiblicalEthicsCourse from './components/BiblicalEthicsCourse';
 import CapstoneCourse from './components/CapstoneCourse';
+import GreekICourse from './components/GreekICourse';
+import HebrewICourse from './components/HebrewICourse';
 import UnlockableLXX from './components/UnlockableLXX';
 import UnlockableSinaiticus from './components/UnlockableSinaiticus';
 import UnlockableMasoretic from './components/UnlockableMasoretic';
@@ -1078,6 +1080,8 @@ const SwordDrillApp = () => {
     'textual-transmission-course': { cost: 1000, name: 'Textual Transmission (Associate)', icon: Scroll, color: 'emerald', description: 'Manuscripts & Biblical Transmission' },
     'biblical-archaeology-associate-course': { cost: 1000, name: 'Biblical Archaeology (Associate)', icon: MapPin, color: 'yellow', description: 'Archaeological Evidence & History' },
     'biblical-ethics-course': { cost: 1000, name: 'Biblical Ethics (Associate)', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living' },
+    'greek-i-course': { cost: 1000, name: 'Koine Greek I (Associate)', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED' },
+    'hebrew-i-course': { cost: 1000, name: 'Biblical Hebrew I (Associate)', icon: BookOpen, color: 'amber', description: 'Introduction to Ancient Hebrew - REQUIRED' },
     'capstone-course': { cost: 1500, name: 'Associate Capstone', icon: GraduationCap, color: 'indigo', description: 'Research Paper & Final Project' }
   };
 
@@ -1407,6 +1411,32 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-rose-500/50',
       description: 'Biblical Ethics Expert',
       achievement: 'Completed all Biblical Ethics lessons (Associate Level)'
+    },
+    'greek-i-course': {
+      id: 'greek-i-course',
+      name: 'Greek I Scholar',
+      symbol: 'Ω',
+      emoji: '🏛️',
+      color: 'indigo',
+      gradient: 'from-indigo-600 to-purple-600',
+      borderColor: 'border-indigo-500',
+      textColor: 'text-indigo-400',
+      glowColor: 'shadow-indigo-500/50',
+      description: 'Koine Greek I Expert',
+      achievement: 'Completed all Koine Greek I lessons (Associate Level)'
+    },
+    'hebrew-i-course': {
+      id: 'hebrew-i-course',
+      name: 'Hebrew I Scholar',
+      symbol: 'א',
+      emoji: '✡️',
+      color: 'amber',
+      gradient: 'from-amber-600 to-yellow-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Biblical Hebrew I Expert',
+      achievement: 'Completed all Biblical Hebrew I lessons (Associate Level)'
     },
     'capstone-course': {
       id: 'capstone-course',
@@ -11067,6 +11097,44 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-ethics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'greek-i-course' && (
+          <CourseWithFocus
+            CourseComponent={GreekICourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Greek I lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="greek-i"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'hebrew-i-course' && (
+          <CourseWithFocus
+            CourseComponent={HebrewICourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Hebrew I lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="hebrew-i"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />

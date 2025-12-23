@@ -8,25 +8,43 @@ const AcademyAbout = ({ onBack }) => {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const courseCategories = [
     {
-      title: 'Biblical Languages',
+      title: 'Biblical Languages - Required (Choose ONE)',
       icon: BookOpen,
       color: 'from-indigo-600 to-purple-600',
       courses: [
-        { name: 'Koine Greek', level: 'Beginner to Intermediate', description: 'Master the language of the New Testament' },
-        { name: 'Ancient Hebrew', level: 'Beginner to Intermediate', description: 'Learn the language of the Old Testament' },
-        { name: 'Paleo Hebrew', level: 'Intermediate', description: 'Study the ancient script form of Hebrew' },
-        { name: 'Aramaic', level: 'Beginner', description: 'Explore the language Jesus spoke' },
-        { name: 'Ge\'ez', level: 'Beginner', description: 'Study the ancient Ethiopian liturgical language' },
-        { name: 'Amharic', level: 'Beginner', description: 'Learn the modern Ethiopian language' }
+        { name: 'Koine Greek I', level: 'Associate Level - REQUIRED', description: 'Introduction to Biblical Greek (Choose Greek I OR Hebrew I)' },
+        { name: 'Biblical Hebrew I', level: 'Associate Level - REQUIRED', description: 'Introduction to Ancient Hebrew (Choose Greek I OR Hebrew I)' }
       ]
     },
     {
-      title: 'Biblical Studies - Associate Level',
+      title: 'Biblical Languages - Electives',
+      icon: BookOpen,
+      color: 'from-purple-600 to-pink-600',
+      courses: [
+        { name: 'Koine Greek II & III', level: 'Elective', description: 'Advanced Greek studies (optional continuation)' },
+        { name: 'Biblical Hebrew II & III', level: 'Elective', description: 'Advanced Hebrew studies (optional continuation)' },
+        { name: 'Paleo Hebrew', level: 'Elective', description: 'Study the ancient script form of Hebrew' },
+        { name: 'Aramaic', level: 'Elective', description: 'Explore the language Jesus spoke' },
+        { name: 'Ge\'ez', level: 'Elective', description: 'Study the ancient Ethiopian liturgical language' },
+        { name: 'Amharic', level: 'Elective', description: 'Learn the modern Ethiopian language' }
+      ]
+    },
+    {
+      title: 'Biblical Studies - Associate Level Core',
       icon: Scroll,
       color: 'from-blue-600 to-indigo-600',
       courses: [
-        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis, exegesis, and theology' },
-        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theological synthesis' },
+        { name: 'Old Testament Survey', level: 'Associate Level', description: 'Overview of OT books and themes' },
+        { name: 'New Testament Survey', level: 'Associate Level', description: 'Overview of NT books and themes' },
+        { name: 'Textual Transmission & Manuscripts', level: 'Associate Level', description: 'Study of biblical manuscripts and transmission' },
+        { name: 'Biblical Archaeology', level: 'Associate Level', description: 'Archaeological evidence and biblical history' },
+        { name: 'Biblical Ethics', level: 'Associate Level', description: 'Moral principles and Christian living' },
+        { name: 'Pneumatology', level: 'Associate Level', description: 'Doctrine of the Holy Spirit' },
+        { name: 'Christology', level: 'Associate Level', description: 'Doctrine of Christ and His nature' },
+        { name: 'Biblical Hermeneutics', level: 'Associate Level', description: 'Principles of biblical interpretation' },
+        { name: 'Biblical Exegetical Methods', level: 'Associate Level', description: 'Methods of biblical exegesis' },
+        { name: 'Demonology', level: 'Associate Level', description: 'NT demonology with Greek analysis and exegesis' },
+        { name: 'Mosaic Law', level: 'Associate Level', description: 'Torah: covenant, commandments, and theology' },
         { name: 'Second Temple Judaism', level: 'Associate Level', description: 'Judaism from Babylonian exile to AD 70' }
       ]
     },
@@ -77,8 +95,9 @@ const AcademyAbout = ({ onBack }) => {
   ];
 
   const graduationRequirements = [
-    'Complete all language courses (6 courses)',
-    'Complete all Associate-level biblical studies courses (3 courses)',
+    'Complete Greek I OR Hebrew I (choose one - required for Associate level)',
+    'Complete all 12 Associate-level biblical studies core courses',
+    'Complete the Associate Capstone research paper with passing grade (70%+)',
     'Complete all Diploma-level biblical studies courses (5 courses)',
     'Complete all historical studies courses (2 courses)',
     'Maintain focus integrity throughout your studies',
