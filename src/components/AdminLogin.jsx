@@ -7,8 +7,8 @@ const AdminLogin = ({ onLoginSuccess, onCancel }) => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Admin password (in production, this should be environment variable or backend-verified)
-  const ADMIN_PASSWORD = 'SwordDrillAdmin2024!';
+  // Admin password loaded from environment variable
+  const ADMIN_PASSWORD = process.env.REACT_APP_ADMIN_PASSWORD;
 
   const handleLogin = (e) => {
     e.preventDefault();
