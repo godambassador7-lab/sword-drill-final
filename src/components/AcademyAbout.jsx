@@ -21,7 +21,7 @@ const AcademyAbout = ({ onBack }) => {
     {
       title: 'Biblical Languages - Electives',
       icon: BookOpen,
-      color: 'from-purple-600 to-pink-600',
+      color: 'from-violet-600 to-fuchsia-600',
       courses: [
         { courseNumber: 'GREK 102', name: 'Biblical Greek II', level: 'Elective', description: 'Advanced Greek studies (optional continuation)' },
         { courseNumber: 'GREK 201', name: 'Biblical Greek III', level: 'Elective', description: 'Guided Reading & Exegesis' },
@@ -65,7 +65,7 @@ const AcademyAbout = ({ onBack }) => {
     {
       title: 'Law, Theology, & Ethics',
       icon: Scroll,
-      color: 'from-rose-600 to-pink-600',
+      color: 'from-red-600 to-orange-600',
       courses: [
         { courseNumber: 'BIB 240', name: 'Mosaic Law', credits: '3', description: 'Torah: covenant, commandments, and theology' },
         { courseNumber: 'BIB 250', name: 'Christology', credits: '3', description: 'Doctrine of Christ and His nature' },
@@ -528,13 +528,13 @@ const AcademyAbout = ({ onBack }) => {
             </div>
 
             {/* Elite Status */}
-            <div className="bg-slate-800/50 rounded-lg p-4 md:p-6 border-2 border-purple-500/30">
+            <div className="bg-slate-800/50 rounded-lg p-4 md:p-6 border-2 border-blue-500/30">
               <div className="flex flex-col md:flex-row items-start gap-4">
-                <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg p-3 md:p-4 mx-auto md:mx-0">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg p-3 md:p-4 mx-auto md:mx-0">
                   <GraduationCap size={28} className="text-white md:w-8 md:h-8" />
                 </div>
                 <div className="flex-1 w-full">
-                  <h3 className="text-xl md:text-2xl font-bold text-purple-400 mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-blue-400 mb-2">
                     Academy Graduate Status
                   </h3>
                   <p className="text-slate-300 text-sm md:text-base">
@@ -549,15 +549,15 @@ const AcademyAbout = ({ onBack }) => {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-8 text-center shadow-2xl mb-8">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-center shadow-2xl mb-8">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Begin Your Journey?</h2>
-          <p className="text-indigo-100 mb-6 max-w-2xl mx-auto">
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
             Enroll in your first course today and take the first step toward mastering biblical languages,
             theology, and history. Your academic adventure awaits!
           </p>
           <button
             onClick={onBack}
-            className="bg-white text-indigo-600 font-bold px-8 py-4 rounded-lg hover:bg-indigo-50 transition-all shadow-lg text-lg"
+            className="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all shadow-lg text-lg"
           >
             View Available Courses
           </button>
