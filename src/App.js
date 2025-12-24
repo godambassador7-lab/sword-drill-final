@@ -4724,51 +4724,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('scrolls')}
         >
           <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
-            <svg width="32" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="scrollGrad" cx="50%" cy="50%">
-                  <stop offset="0%" stopColor="#F4E4C1"/>
-                  <stop offset="100%" stopColor="#C9A961"/>
-                </radialGradient>
-                <linearGradient id="parchmentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF8E7"/>
-                  <stop offset="50%" stopColor="#F4E8D0"/>
-                  <stop offset="100%" stopColor="#E8D4B8"/>
-                </linearGradient>
-                <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#E63946"/>
-                  <stop offset="50%" stopColor="#C41E3A"/>
-                  <stop offset="100%" stopColor="#8B1820"/>
-                </linearGradient>
-              </defs>
-              {/* Left scroll roll - with 3D effect */}
-              <ellipse cx="7" cy="16" rx="4.5" ry="11" fill="url(#scrollGrad)"/>
-              <ellipse cx="6" cy="16" rx="3" ry="10" fill="#D4B896"/>
-              <ellipse cx="5.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-              <ellipse cx="5" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-              {/* Right scroll roll - with 3D effect */}
-              <ellipse cx="33" cy="16" rx="4.5" ry="11" fill="url(#scrollGrad)"/>
-              <ellipse cx="34" cy="16" rx="3" ry="10" fill="#D4B896"/>
-              <ellipse cx="34.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-              <ellipse cx="35" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-              {/* Center parchment with gradient */}
-              <rect x="7" y="5" width="26" height="22" fill="url(#parchmentGrad)" rx="1"/>
-              {/* Parchment highlight */}
-              <rect x="8" y="6" width="24" height="10" fill="#FFFDF5" opacity="0.4" rx="1"/>
-              {/* Parchment shadow edges */}
-              <rect x="7" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-              <rect x="31" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-              {/* Red ribbon with 3D gradient */}
-              <rect x="4" y="13" width="32" height="6" fill="url(#ribbonGrad)" rx="1"/>
-              {/* Ribbon highlight */}
-              <rect x="4" y="13" width="32" height="2" fill="#FF4D5A" opacity="0.5" rx="1"/>
-              {/* Ribbon shadow */}
-              <rect x="4" y="18" width="32" height="1" fill="#000000" opacity="0.3" rx="0.5"/>
-              {/* Ribbon fold detail left */}
-              <path d="M4 15 L2 16 L4 17 Z" fill="#8B1820"/>
-              {/* Ribbon fold detail right */}
-              <path d="M36 15 L38 16 L36 17 Z" fill="#8B1820"/>
-            </svg>
+            <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="32" height="32" className="inline-block" />
             <span>{userData.scrolls || 0}</span>
           </div>
           <div className="text-purple-200 text-sm font-semibold">Scrolls</div>
@@ -7314,14 +7270,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         const newPoints = userData.totalPoints - powerUp.cost;
         const restoredStreak = userData.lastKnownStreak;
 
-        // Mark streak days in localStorage
+        // Mark streak days in localStorage including TODAY
         const streakData = JSON.parse(localStorage.getItem('streakData') || '{}');
-        for (let i = 0; i < restoredStreak; i++) {
-          const date = new Date();
-          date.setDate(date.getDate() - i);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Mark today first (most important)
+        const todayString = today.toISOString().split('T')[0];
+        streakData[todayString] = { marked: true, quizCount: (streakData[todayString]?.quizCount || 0) + 1, quizzes: streakData[todayString]?.quizzes || [] };
+
+        // Then mark previous days for the restored streak
+        for (let i = 1; i < restoredStreak; i++) {
+          const date = new Date(today);
+          date.setDate(today.getDate() - i);
           const dateString = date.toISOString().split('T')[0];
           if (!streakData[dateString]) {
-            streakData[dateString] = { marked: true, quizzesDone: 1 };
+            streakData[dateString] = { marked: true, quizCount: 1, quizzes: [] };
           }
         }
         localStorage.setItem('streakData', JSON.stringify(streakData));
