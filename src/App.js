@@ -4709,7 +4709,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('manna')}
         >
           <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
-            <span>🌾</span>
+            <img src={`${process.env.PUBLIC_URL || ''}/manna.png`} alt="Manna" width="35" height="35" className="inline-block" />
             <span>{userData.manna || 0}</span>
           </div>
           <div className="text-amber-200 text-sm font-semibold">Manna (Daily)</div>
@@ -9146,7 +9146,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <span className="text-amber-200 text-lg">{'\uD83C\uDF3E'}</span>
+                    <img src={`${process.env.PUBLIC_URL || ''}/manna.png`} alt="Manna" width="22" height="22" className="inline-block" />
                     <span className="font-semibold">Manna</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.manna || 0).toLocaleString()}</div>
