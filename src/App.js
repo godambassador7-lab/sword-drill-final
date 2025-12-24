@@ -2696,7 +2696,7 @@ const getQuizCooldownMs = (quizType) => {
                   unlockables: result.validatedData.unlockables,
                   purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, totalCostInPoints, 'course')]
                 }));
-                const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🪙 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+                const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
                 showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
                 setCurrentView(courseId);
                 setShowMenu(false);
@@ -2715,7 +2715,7 @@ const getQuizCooldownMs = (quizType) => {
               unlockables: { ...(prev.unlockables || {}), [unlockKey]: true },
               purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase(unlockKey, course.cost, 'course')]
             }));
-            const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} 🪙 Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
+            const paymentMsg = talentsUsed > 0 ? `\n\n-${talentsUsed} Talents${pointsUsed > 0 ? ` -${pointsUsed} points` : ''}` : `\n\n-${pointsUsed} points`;
             showToast(`${course.name} unlocked! Welcome to class!${paymentMsg}`, 'success');
             setCurrentView(courseId);
             setShowMenu(false);
@@ -3040,7 +3040,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     playChaChing();
-    showToast(`🪙 Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
+    showToast(`Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
   };
 
   const handleTalentsCollect = (conversionId) => {
@@ -3076,7 +3076,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     const growth = talentsEarned - conversion.amount;
-    showToast(`🪙 Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
+    showToast(`Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
   };
 
   const startQuiz = async (type, usePersonalVerses = false) => {
@@ -4702,7 +4702,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('talents')}
         >
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
-            <span>🪙</span>
+            <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="32" height="32" className="inline-block" />
             <span>{userData.talents || 0}</span>
           </div>
           <div className="text-yellow-200 text-sm font-semibold">Talents</div>
@@ -6473,7 +6473,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 col-span-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">🪙</span>
+                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="24" height="24" className="inline-block" />
                 <div className="text-xs text-yellow-300 font-semibold">Talents Balance</div>
               </div>
               <div className="text-3xl font-bold text-yellow-400">{(userData.talents || 0).toLocaleString()}</div>
@@ -6530,7 +6530,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-xl font-bold text-yellow-300 flex items-center gap-2">
-                <span className="text-2xl">🪙</span>
+                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="28" height="28" className="inline-block" />
                 Talents
               </h3>
               <p className="text-slate-400 text-sm">Long-term investment with 2% weekly growth</p>
@@ -11692,7 +11692,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'talents' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl">🪙</span>
+                  <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="64" height="64" className="inline-block" />
                   <h2 className="text-3xl font-bold text-yellow-300">Talents</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
@@ -11989,7 +11989,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                   <span className="text-slate-400 text-sm">Your Talents:</span>
                   <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
-                    <span>🪙</span>
+                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="20" height="20" className="inline-block" />
                     {purchaseModalData.currentTalents}
                   </span>
                 </div>
@@ -12022,7 +12022,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     onClick={() => purchaseModalData.onConfirm(true)}
                     className="flex-1 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-1"
                   >
-                    <span>🪙</span>
+                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="20" height="20" className="inline-block" />
                     <span>Use Talents</span>
                   </button>
                 </>
