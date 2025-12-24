@@ -44,6 +44,7 @@ import {
   MapPin,
   Sparkles,
   Gift,
+  Award,
   Scale
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
