@@ -1617,6 +1617,8 @@ const SwordDrillApp = () => {
     keys: 0, // Keys of Understanding - earned through perseverance during struggles
     keysLastReset: Date.now(), // Track when keys were last reset for weekly reset
     currentIncorrectStreak: 0, // Track consecutive incorrect answers for Keys rewards
+    keysEarnedToday: 0, // Track keys earned today for daily cap (resets daily)
+    keysLastDailyReset: Date.now(), // Track when keys earned today was last reset
 
     // Scrolls System (Permanent Points Multiplier)
     scrolls: 0, // Scrolls - earned by completing course sections, provides 1% points boost per scroll (max 100 for boost, but can go above 100)
@@ -1750,20 +1752,42 @@ const SwordDrillApp = () => {
       }
     };
 
-    // Check Keys weekly reset
+    // Check Keys weekly reset and daily keysEarnedToday reset
     const checkKeysReset = () => {
       const now = Date.now();
       const lastReset = userData.keysLastReset || now;
+      const lastDailyReset = userData.keysLastDailyReset || now;
       const weekInMs = 7 * 24 * 60 * 60 * 1000;
+      const dayInMs = 24 * 60 * 60 * 1000;
 
-      // Check if a week has passed
+      // Check if a day has passed - reset keysEarnedToday
+      if (now - lastDailyReset >= dayInMs && userData.keysEarnedToday > 0) {
+        console.log('Day passed - resetting keysEarnedToday from', userData.keysEarnedToday, 'to 0');
+        setUserData(prev => ({
+          ...prev,
+          keysEarnedToday: 0,
+          keysLastDailyReset: now
+        }));
+
+        // Sync to Firebase
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, {
+            keysEarnedToday: 0,
+            keysLastDailyReset: now
+          }).catch(err => console.error('Error resetting keysEarnedToday:', err));
+        }
+      }
+
+      // Check if a week has passed - reset entire keys balance
       if (now - lastReset >= weekInMs) {
         console.log('Week passed - resetting Keys from', userData.keys, 'to 0');
         setUserData(prev => ({
           ...prev,
           keys: 0,
           keysLastReset: now,
-          currentIncorrectStreak: 0
+          currentIncorrectStreak: 0,
+          keysEarnedToday: 0,
+          keysLastDailyReset: now
         }));
 
         // Sync to Firebase
@@ -1771,7 +1795,9 @@ const SwordDrillApp = () => {
           updateUserProgress(currentUser.uid, {
             keys: 0,
             keysLastReset: now,
-            currentIncorrectStreak: 0
+            currentIncorrectStreak: 0,
+            keysEarnedToday: 0,
+            keysLastDailyReset: now
           }).catch(err => console.error('Error resetting Keys:', err));
         }
       }
@@ -3979,8 +4005,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     const newIncorrectStreak = (userData.currentIncorrectStreak || 0) + 1;
 
     // Award Keys of Understanding for perseverance during struggles
-    // Earn 1 key for every 3 consecutive incorrect answers
-    if (newIncorrectStreak % 3 === 0 && newIncorrectStreak > 0) {
+    // NEW LOGIC: Earn 1 key for every 2 consecutive incorrect answers with daily cap and balance limit
+    const KEYS_DAILY_CAP = 15; // Daily cap: 10-20 keys (set to 15)
+    const KEYS_BALANCE_LIMIT = 50; // No keys if balance exceeds this
+    const keysEarnedToday = userData.keysEarnedToday || 0;
+    const currentKeys = userData.keys || 0;
+
+    if (newIncorrectStreak % 2 === 0 && newIncorrectStreak > 0 && keysEarnedToday < KEYS_DAILY_CAP && currentKeys < KEYS_BALANCE_LIMIT) {
       const keysBoost = getKeysBoostMultiplier(userData.activeBoosts || []);
       keysEarned = Math.max(1, Math.floor(1 * (keysBoost || 1)));
     }
@@ -3990,7 +4021,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       lastWrongAnswerTime: now,
       wrongAnswerCount: (prev.wrongAnswerCount || 0) + 1,
       currentIncorrectStreak: newIncorrectStreak,
-      keys: (prev.keys || 0) + keysEarned
+      keys: (prev.keys || 0) + keysEarned,
+      keysEarnedToday: (prev.keysEarnedToday || 0) + keysEarned
     }));
 
     points -= wrongAnswerPenalty;
@@ -4717,7 +4749,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <span>{userData.keys || 0}</span>
           </div>
           <div className="text-cyan-200 text-sm font-semibold">Keys of Understanding</div>
-          <div className="text-cyan-300/70 text-xs mt-1">Resets weekly • 2pts/key</div>
+          <div className="text-cyan-300/70 text-xs mt-1">1 key/2 wrongs • Daily cap • 2pts/key</div>
         </div>
         <div
           className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border-2 border-purple-600/50 cursor-pointer hover:from-purple-900/50 hover:to-indigo-900/50 transition-all"
@@ -6646,7 +6678,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-sm text-cyan-200 space-y-2">
               <div className="flex items-start gap-2">
                 <span>•</span>
-                <span><strong>How to earn:</strong> Get 1 key for every 3 consecutive incorrect quiz answers</span>
+                <span><strong>How to earn:</strong> Get 1 key for every 2 consecutive incorrect quiz answers</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>Daily cap:</strong> Maximum 15 keys earned per day</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span>•</span>
+                <span><strong>Balance limit:</strong> No keys earned if you have 50+ keys</span>
               </div>
               <div className="flex items-start gap-2">
                 <span>•</span>
@@ -6658,7 +6698,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </div>
               <div className="flex items-start gap-2">
                 <span>•</span>
-                <span><strong>Purpose:</strong> Rewards perseverance and encourages learning from mistakes</span>
+                <span><strong>Purpose:</strong> Rewards perseverance while preventing exploitation</span>
               </div>
             </div>
           </div>
@@ -11734,8 +11774,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <span className="font-semibold text-cyan-300">How to earn:</span>
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-2">
-                    <li>Earn 1 Key for every 3 consecutive incorrect quiz answers</li>
-                    <li>Encourages learning from mistakes</li>
+                    <li>Earn 1 Key for every 2 consecutive incorrect quiz answers</li>
+                    <li>Daily cap: Maximum 15 Keys earned per day</li>
+                    <li>Balance limit: No Keys earned if you already have 50+ Keys</li>
+                    <li>Encourages learning from mistakes without exploitation</li>
                     <li>Rewards persistence during difficult material</li>
                   </ul>
                   <p className="leading-relaxed mt-4">
@@ -11744,6 +11786,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <ul className="list-disc list-inside space-y-2 ml-2">
                     <li>Keys reset every 7 days (weekly)</li>
                     <li>Each Key is worth 2 points when redeemed</li>
+                    <li>Daily earning limit resets at midnight</li>
                     <li>Redeem in the Points Bank Exchange before weekly reset</li>
                   </ul>
                 </div>

@@ -321,7 +321,7 @@ const TutorialHelp = ({ onBack }) => {
     },
     {
       id: 'points-bank-investments',
-      title: 'Points Bank & Investments',
+      title: 'Points Bank & Currency Systems',
       icon: Coins,
       color: 'from-amber-500 to-orange-600',
       subsections: [
@@ -335,6 +335,81 @@ const TutorialHelp = ({ onBack }) => {
             'Transactions are color-coded: green (earnings), red (penalties), gray (spending)',
             'Each transaction shows description, date/time, and amount',
             'Icons indicate transaction type: 📝 quiz, 🔓 unlock, 💰 investment, 🎉 matured'
+          ]
+        },
+        {
+          title: 'Currency Systems Overview',
+          content: 'Sword Drill features 6 distinct currency systems, each serving unique purposes: Points (primary currency), Talents (long-term investment), Manna (daily reward), Keys of Understanding (from mistakes), Scrolls (permanent multiplier), and Gems (premium currency for boosts).',
+          tips: [
+            '💰 Points - Earn from quizzes, use for unlocks and purchases',
+            '🪙 Talents - Convert points for 2% weekly growth (1 Talent = 500 points)',
+            '🍃 Manna - Daily gift, redeem 200 points per day',
+            '🔑 Keys - Earn from wrong answers, exchange for points',
+            '📜 Scrolls - Permanent 1% points boost per scroll',
+            '💎 Gems - Purchase boosts (Multiplier, Focus, Keys, Manna boosts)',
+            'Click any currency on home page to see detailed info',
+            'Each currency has unique earning and spending mechanics'
+          ]
+        },
+        {
+          title: 'Talents System - Long-term Investment',
+          content: 'Talents are a premium currency inspired by the Parable of the Talents (Matthew 25). Convert points to Talents and watch them grow with 2% weekly compounding returns based on your activity! Each Talent equals 500 points when purchasing courses.',
+          tips: [
+            'Conversion rate: 500 points = 1 Talent',
+            '⏳ Conversion takes 28 days to complete',
+            '📈 Growth rate: 2% per week (8% over 28 days)',
+            '💪 Activity-based multiplier: Up to 1.5x based on your engagement',
+            'Example: Convert 10,000 pts → Receive 20 Talents after 28 days (~10,800 pts value)',
+            'Use Talents to purchase courses (1T = 500pts)',
+            'Dual-currency pricing: e.g., "1T + 300pts" for Greek course',
+            'Create multiple conversions simultaneously',
+            'Higher activity score = better Talents growth rate'
+          ]
+        },
+        {
+          title: 'Manna System - Daily Free Points',
+          content: 'Manna is your daily bread - a free gift of points inspired by Exodus 16! Activate Manna earning once per day to start accumulating points, then redeem up to 200 points daily. Completely free with no cost to activate.',
+          tips: [
+            '✨ Completely FREE - no points needed to activate',
+            '🎁 Click "Activate Manna Earning" once per day (no cost!)',
+            '⏳ Manna accumulates over 24 hours (expires if not collected)',
+            '💰 Redeem up to 200 points per day from accumulated Manna',
+            '🔄 Daily reset at midnight for redemptions',
+            'Expires after 24 hours - collect before it spoils!',
+            'Biblical inspiration: God\'s daily provision (Exodus 16)',
+            'Track accumulation in Points Bank',
+            'Perfect for consistent daily engagement rewards'
+          ]
+        },
+        {
+          title: 'Keys of Understanding System',
+          content: 'Keys of Understanding reward perseverance during struggles! Earn keys when you make mistakes, encouraging you to learn from failures. Each key can be redeemed for 2 points in the Points Bank.',
+          tips: [
+            '🔑 Earn 1 key for every 2 consecutive incorrect quiz answers',
+            '📊 Daily cap: Maximum 15 keys earned per day',
+            '⚖️ Balance limit: No keys earned if you have 50+ keys',
+            '💎 Value: Each key = 2 points when redeemed',
+            '🔄 Weekly reset: All keys reset to 0 every 7 days',
+            '⏰ Daily earning limit resets at midnight',
+            'Encourages learning from mistakes without exploitation',
+            'Redeem in Points Bank Exchange section',
+            'Use before weekly reset or lose accumulated keys',
+            'Resets incorrect streak on correct answer'
+          ]
+        },
+        {
+          title: 'Scrolls System - Permanent Points Boost',
+          content: 'Scrolls provide a permanent 1% points boost per scroll! Earned by completing course sections, scrolls are the only permanent multiplier in the game. Collect scrolls to boost all future point earnings.',
+          tips: [
+            '📜 Earn scrolls by completing Sword Drill Academy courses',
+            '📈 Each scroll provides permanent +1% to all points earned',
+            '💯 Boost caps at 100% (100 scrolls), but you can collect more',
+            '🎓 Example: 50 scrolls = 50% bonus on all quiz points',
+            '♾️ Permanent effect - never expires or resets',
+            'Stacks multiplicatively with level and boost multipliers',
+            'One of the most valuable long-term progression systems',
+            'Complete courses to maximize scroll collection',
+            'Academy completion rewards multiple scrolls'
           ]
         },
         {
@@ -896,6 +971,46 @@ const TutorialHelp = ({ onBack }) => {
       icon: Clock,
       color: 'from-cyan-500 to-blue-600',
       subsections: [
+        {
+          title: 'Version 2.7 - December 2024',
+          content: 'Currency system overhaul with balanced Keys earning, Talents icon update, and complete tutorial refresh with all current features documented!',
+          tips: [
+            '🔑 REBALANCED: Keys of Understanding earning system',
+            '📊 NEW: 1 key per 2 consecutive wrongs (was 3)',
+            '⚖️ NEW: Daily cap of 15 keys maximum',
+            '🚫 NEW: Balance limit - no keys if holding 50+',
+            '⏰ NEW: Daily earning limit resets at midnight',
+            '🪙 UPDATED: All Talents currency icons now use gold talents.svg',
+            '💰 Replaced emoji icons with professional SVG across all displays',
+            '📚 COMPREHENSIVE: Tutorial fully updated with all 6 currency systems',
+            '✨ Added Talents, Manna, Keys, and Scrolls detailed guides',
+            '📖 Corrected all outdated feature descriptions',
+            '🎓 Updated Academy information with current course count',
+            '🔄 Fixed all currency descriptions app-wide',
+            'Tutorial now accurately reflects entire current feature set'
+          ]
+        },
+        {
+          title: 'Version 2.6 - December 2025',
+          content: 'Major academy update introducing Sword Drill Academy organization, dual-currency course pricing with Talents, and comprehensive Biblical Archaeology course.',
+          tips: [
+            '🎓 NEW: Sword Drill Academy - All courses organized under unified menu',
+            '🪙 NEW: Talents Currency System - Long-term investment with 2% weekly growth',
+            '💱 NEW: Dual-Currency Course Pricing - Pay with Talents + Points',
+            '⚖️ Conversion Rate: 1 Talent = 500 Points for course purchases',
+            '📚 Academy About Page - Graduation, certificate, and 5000 pt reward info',
+            '🎯 NEW: Focus Covenant System - Integrity tracking for all courses',
+            '👁️ Focus break limits: 5 for regular courses, 2 for exams',
+            '⚠️ Progressive warnings at breaks 3, 4, and 5',
+            '🚫 Course blocking (1 hour cooldown) when limit exceeded',
+            '📊 Focus integrity score shown at course completion',
+            '🏛️ NEW: Biblical Archaeology Course (1T + 500pts admission)',
+            '🍃 NEW: Manna System - Daily free points (activate once, collect 200pts/day)',
+            '📜 NEW: Scrolls System - Permanent 1% points boost per scroll from courses',
+            '💪 NEW: Streak Redemption Powerup - Restore lost streaks for 2000 points',
+            '🎓 16 total courses now available for Biblical Studies Certificate'
+          ]
+        },
         {
           title: 'Version 2.5 - December 2025',
           content: 'Major update bringing powerful new features, quality-of-life improvements, and comprehensive enhancements across the entire app!',
