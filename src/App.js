@@ -1489,6 +1489,8 @@ const SwordDrillApp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
+  const [showAssociateCourses, setShowAssociateCourses] = useState(false);
+  const [showDiplomaCourses, setShowDiplomaCourses] = useState(false);
   const [expandedMenuSections, setExpandedMenuSections] = useState({
     train: true,
     study: true,
@@ -4734,7 +4736,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('talents')}
         >
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
-            <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="32" height="32" className="inline-block" />
+            <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="35" height="35" className="inline-block" />
             <span>{userData.talents || 0}</span>
           </div>
           <div className="text-yellow-200 text-sm font-semibold">Talents</div>
@@ -6505,7 +6507,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 col-span-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 mb-2">
-                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="24" height="24" className="inline-block" />
+                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="26" height="26" className="inline-block" />
                 <div className="text-xs text-yellow-300 font-semibold">Talents Balance</div>
               </div>
               <div className="text-3xl font-bold text-yellow-400">{(userData.talents || 0).toLocaleString()}</div>
@@ -6562,7 +6564,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-xl font-bold text-yellow-300 flex items-center gap-2">
-                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="28" height="28" className="inline-block" />
+                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="31" height="31" className="inline-block" />
                 Talents
               </h3>
               <p className="text-slate-400 text-sm">Long-term investment with 2% weekly growth</p>
@@ -9136,7 +9138,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <span className="text-yellow-300 text-lg">{'\uD83E\uDE99'}</span>
+                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
                     <span className="font-semibold">Talents</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.talents || 0).toLocaleString()}</div>
@@ -9416,7 +9418,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         <div className="font-semibold text-sm">Sword Drill Academy</div>
                         <div className="text-xs text-slate-400">Courses & Training</div>
                       </div>
-                      <span className="text-slate-400">{showCoursesDropdown ? '' : ''}</span>
+                      <span className="text-slate-400">{showCoursesDropdown ? '▼' : '▶'}</span>
                     </button>
 
                     {showCoursesDropdown && (
@@ -9436,124 +9438,162 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                           </div>
                         </button>
 
-                        {/* Biblical Languages */}
+                        {/* Associate Level Section */}
                         <div className="mt-2">
-                          <div className="px-3 py-1 text-xs font-bold text-indigo-400 uppercase tracking-wider">
-                            Biblical Languages
-                          </div>
-                          <div className="space-y-1">
-                            {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'geez-course', 'amharic-course'].map(courseId => {
-                              const course = COURSE_ADMISSION[courseId];
-                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
-                              return (
-                                <button
-                                  key={courseId}
-                                  onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
-                                >
-                                  <div className="flex-1">
-                                    <div className="text-xs flex items-center gap-2">
-                                      {course.name}
-                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
-                                    </div>
-                                    <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
-                                    </div>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
+                          <button
+                            onClick={() => setShowAssociateCourses(!showAssociateCourses)}
+                            className="w-full text-left px-3 py-2 rounded-lg text-slate-200 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 hover:from-blue-600/20 hover:to-indigo-600/20 border border-blue-500/30 transition-all flex items-center gap-2"
+                          >
+                            <GraduationCap size={16} className="text-blue-400" />
+                            <div className="flex-1">
+                              <div className="text-sm font-semibold text-blue-300">Associate Level</div>
+                              <div className="text-xs text-slate-400">Languages & Biblical Studies</div>
+                            </div>
+                            <span className="text-slate-400 text-xs">{showAssociateCourses ? '▼' : '▶'}</span>
+                          </button>
+
+                          {showAssociateCourses && (
+                            <div className="ml-3 mt-1 space-y-2 border-l-2 border-blue-500/30 pl-2">
+                              {/* Biblical Languages */}
+                              <div className="mt-2">
+                                <div className="px-3 py-1 text-xs font-bold text-indigo-400 uppercase tracking-wider">
+                                  Biblical Languages
+                                </div>
+                                <div className="space-y-1">
+                                  {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'geez-course', 'amharic-course'].map(courseId => {
+                                    const course = COURSE_ADMISSION[courseId];
+                                    const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                                    return (
+                                      <button
+                                        key={courseId}
+                                        onClick={() => handleCourseAccess(courseId)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                      >
+                                        <div className="flex-1">
+                                          <div className="text-xs flex items-center gap-2">
+                                            {course.name}
+                                            {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                          </div>
+                                          <div className="text-[10px] text-slate-400">
+                                            {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
+                                          </div>
+                                        </div>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+
+                              {/* Biblical Studies - Associate */}
+                              <div className="mt-2">
+                                <div className="px-3 py-1 text-xs font-bold text-blue-400 uppercase tracking-wider">
+                                  Biblical Studies
+                                </div>
+                                <div className="space-y-1">
+                                  {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
+                                    const course = COURSE_ADMISSION[courseId];
+                                    const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                                    return (
+                                      <button
+                                        key={courseId}
+                                        onClick={() => handleCourseAccess(courseId)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                      >
+                                        <div className="flex-1">
+                                          <div className="text-xs flex items-center gap-2">
+                                            {course.name}
+                                            {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                          </div>
+                                          <div className="text-[10px] text-slate-400">
+                                            {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
+                                          </div>
+                                        </div>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+
+                              {/* Historical Studies */}
+                              <div className="mt-2">
+                                <div className="px-3 py-1 text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                                  Historical Studies
+                                </div>
+                                <div className="space-y-1">
+                                  {['church-history-course', 'kings-of-israel-course'].map(courseId => {
+                                    const course = COURSE_ADMISSION[courseId];
+                                    const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                                    return (
+                                      <button
+                                        key={courseId}
+                                        onClick={() => handleCourseAccess(courseId)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                      >
+                                        <div className="flex-1">
+                                          <div className="text-xs flex items-center gap-2">
+                                            {course.name}
+                                            {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                          </div>
+                                          <div className="text-[10px] text-slate-400">
+                                            {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
+                                          </div>
+                                        </div>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
 
-                        {/* Biblical Studies - Associate Level */}
+                        {/* Diploma Level Section */}
                         <div className="mt-2">
-                          <div className="px-3 py-1 text-xs font-bold text-blue-400 uppercase tracking-wider">
-                            Biblical Studies - Associate
-                          </div>
-                          <div className="space-y-1">
-                            {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
-                              const course = COURSE_ADMISSION[courseId];
-                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
-                              return (
-                                <button
-                                  key={courseId}
-                                  onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
-                                >
-                                  <div className="flex-1">
-                                    <div className="text-xs flex items-center gap-2">
-                                      {course.name}
-                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
-                                    </div>
-                                    <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
-                                    </div>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
+                          <button
+                            onClick={() => setShowDiplomaCourses(!showDiplomaCourses)}
+                            className="w-full text-left px-3 py-2 rounded-lg text-slate-200 bg-gradient-to-r from-amber-600/10 to-orange-600/10 hover:from-amber-600/20 hover:to-orange-600/20 border border-amber-500/30 transition-all flex items-center gap-2"
+                          >
+                            <Award size={16} className="text-amber-400" />
+                            <div className="flex-1">
+                              <div className="text-sm font-semibold text-amber-300">Diploma Level</div>
+                              <div className="text-xs text-slate-400">Advanced Biblical Studies</div>
+                            </div>
+                            <span className="text-slate-400 text-xs">{showDiplomaCourses ? '▼' : '▶'}</span>
+                          </button>
 
-                        {/* Biblical Studies - Diploma Level */}
-                        <div className="mt-2">
-                          <div className="px-3 py-1 text-xs font-bold text-amber-400 uppercase tracking-wider">
-                            Biblical Studies - Diploma
-                          </div>
-                          <div className="space-y-1">
-                            {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course'].map(courseId => {
-                              const course = COURSE_ADMISSION[courseId];
-                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
-                              return (
-                                <button
-                                  key={courseId}
-                                  onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
-                                >
-                                  <div className="flex-1">
-                                    <div className="text-xs flex items-center gap-2">
-                                      {course.name}
-                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
-                                    </div>
-                                    <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
-                                    </div>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-
-                        {/* Historical Studies */}
-                        <div className="mt-2">
-                          <div className="px-3 py-1 text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                            Historical Studies
-                          </div>
-                          <div className="space-y-1">
-                            {['church-history-course', 'kings-of-israel-course'].map(courseId => {
-                              const course = COURSE_ADMISSION[courseId];
-                              const isUnlocked = userData.unlockables?.[`course_${courseId}`];
-                              return (
-                                <button
-                                  key={courseId}
-                                  onClick={() => handleCourseAccess(courseId)}
-                                  className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
-                                >
-                                  <div className="flex-1">
-                                    <div className="text-xs flex items-center gap-2">
-                                      {course.name}
-                                      {!isUnlocked && <Lock size={9} className="text-amber-400" />}
-                                    </div>
-                                    <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
-                                    </div>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
+                          {showDiplomaCourses && (
+                            <div className="ml-3 mt-1 space-y-2 border-l-2 border-amber-500/30 pl-2">
+                              {/* Biblical Studies - Diploma */}
+                              <div className="mt-2">
+                                <div className="px-3 py-1 text-xs font-bold text-amber-400 uppercase tracking-wider">
+                                  Advanced Biblical Studies
+                                </div>
+                                <div className="space-y-1">
+                                  {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course'].map(courseId => {
+                                    const course = COURSE_ADMISSION[courseId];
+                                    const isUnlocked = userData.unlockables?.[`course_${courseId}`];
+                                    return (
+                                      <button
+                                        key={courseId}
+                                        onClick={() => handleCourseAccess(courseId)}
+                                        className={`w-full text-left px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-700/50 transition-all ${!isUnlocked ? 'locked-pulse' : ''}`}
+                                      >
+                                        <div className="flex-1">
+                                          <div className="text-xs flex items-center gap-2">
+                                            {course.name}
+                                            {!isUnlocked && <Lock size={9} className="text-amber-400" />}
+                                          </div>
+                                          <div className="text-[10px] text-slate-400">
+                                            {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
+                                          </div>
+                                        </div>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     )}
@@ -11732,7 +11772,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'talents' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="64" height="64" className="inline-block" />
+                  <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="70" height="70" className="inline-block" />
                   <h2 className="text-3xl font-bold text-yellow-300">Talents</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
@@ -12032,7 +12072,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                   <span className="text-slate-400 text-sm">Your Talents:</span>
                   <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
-                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="20" height="20" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
                     {purchaseModalData.currentTalents}
                   </span>
                 </div>
@@ -12065,7 +12105,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     onClick={() => purchaseModalData.onConfirm(true)}
                     className="flex-1 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-1"
                   >
-                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="20" height="20" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
                     <span>Use Talents</span>
                   </button>
                 </>
