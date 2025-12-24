@@ -1324,6 +1324,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
         </form>
       </div>
     </div>
+    </div>
   );
 };
 
