@@ -9153,51 +9153,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <svg width="20" height="16" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <radialGradient id="scrollGradMenu" cx="50%" cy="50%">
-                          <stop offset="0%" stopColor="#F4E4C1"/>
-                          <stop offset="100%" stopColor="#C9A961"/>
-                        </radialGradient>
-                        <linearGradient id="parchmentGradMenu" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="#FFF8E7"/>
-                          <stop offset="50%" stopColor="#F4E8D0"/>
-                          <stop offset="100%" stopColor="#E8D4B8"/>
-                        </linearGradient>
-                        <linearGradient id="ribbonGradMenu" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="#E63946"/>
-                          <stop offset="50%" stopColor="#C41E3A"/>
-                          <stop offset="100%" stopColor="#8B1820"/>
-                        </linearGradient>
-                      </defs>
-                      {/* Left scroll roll - with 3D effect */}
-                      <ellipse cx="7" cy="16" rx="4.5" ry="11" fill="url(#scrollGradMenu)"/>
-                      <ellipse cx="6" cy="16" rx="3" ry="10" fill="#D4B896"/>
-                      <ellipse cx="5.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-                      <ellipse cx="5" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-                      {/* Right scroll roll - with 3D effect */}
-                      <ellipse cx="33" cy="16" rx="4.5" ry="11" fill="url(#scrollGradMenu)"/>
-                      <ellipse cx="34" cy="16" rx="3" ry="10" fill="#D4B896"/>
-                      <ellipse cx="34.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-                      <ellipse cx="35" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-                      {/* Center parchment with gradient */}
-                      <rect x="7" y="5" width="26" height="22" fill="url(#parchmentGradMenu)" rx="1"/>
-                      {/* Parchment highlight */}
-                      <rect x="8" y="6" width="24" height="10" fill="#FFFDF5" opacity="0.4" rx="1"/>
-                      {/* Parchment shadow edges */}
-                      <rect x="7" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-                      <rect x="31" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-                      {/* Red ribbon with 3D gradient */}
-                      <rect x="4" y="13" width="32" height="6" fill="url(#ribbonGradMenu)" rx="1"/>
-                      {/* Ribbon highlight */}
-                      <rect x="4" y="13" width="32" height="2" fill="#FF4D5A" opacity="0.5" rx="1"/>
-                      {/* Ribbon shadow */}
-                      <rect x="4" y="18" width="32" height="1" fill="#000000" opacity="0.3" rx="0.5"/>
-                      {/* Ribbon fold detail left */}
-                      <path d="M4 15 L2 16 L4 17 Z" fill="#8B1820"/>
-                      {/* Ribbon fold detail right */}
-                      <path d="M36 15 L38 16 L36 17 Z" fill="#8B1820"/>
-                    </svg>
+                    <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="20" height="16" className="inline-block" />
                     <span className="font-semibold">Scrolls</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
