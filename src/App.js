@@ -4709,7 +4709,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('manna')}
         >
           <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
-            <img src={`${process.env.PUBLIC_URL || ''}/manna version 3.png`} alt="Manna" width="35" height="35" className="inline-block" />
+            <img src={`${process.env.PUBLIC_URL || ''}/manna 4.png`} alt="Manna" width="35" height="35" className="inline-block" />
             <span>{userData.manna || 0}</span>
           </div>
           <div className="text-amber-200 text-sm font-semibold">Manna (Daily)</div>
@@ -9146,7 +9146,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <img src={`${process.env.PUBLIC_URL || ''}/manna version 3.png`} alt="Manna" width="22" height="22" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/manna 4.png`} alt="Manna" width="22" height="22" className="inline-block" />
                     <span className="font-semibold">Manna</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.manna || 0).toLocaleString()}</div>
@@ -11743,7 +11743,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'manna' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl">🌾</span>
+                  <img src={`${process.env.PUBLIC_URL || ''}/manna 4.png`} alt="Manna" width="70" height="70" className="inline-block" />
                   <h2 className="text-3xl font-bold text-amber-300">Manna</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
