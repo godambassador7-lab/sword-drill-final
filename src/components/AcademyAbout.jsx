@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, Lock, MapPin } from 'lucide-react';
+import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, Lock, MapPin, ChevronRight, ArrowLeft } from 'lucide-react';
 import AdminLogin from './AdminLogin';
 import AdminGrading from './AdminGrading';
 
 const AcademyAbout = ({ onBack }) => {
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
-  const courseCategories = [
+  const [catalogView, setCatalogView] = useState('main'); // 'main', 'associate', 'diploma'
+
+  const associateCourseCategories = [
     {
       title: 'Biblical Languages - Required (Choose ONE)',
       icon: BookOpen,
@@ -72,6 +74,9 @@ const AcademyAbout = ({ onBack }) => {
         { courseNumber: 'BIB 280', name: 'Biblical Ethics', credits: '3', description: 'Moral principles and Christian living' }
       ]
     },
+  ];
+
+  const diplomaCourseCategories = [
     {
       title: 'Biblical Studies - Diploma Level',
       icon: Scroll,
@@ -163,6 +168,181 @@ const AcademyAbout = ({ onBack }) => {
     );
   }
 
+  // Show Associate Level Catalog
+  if (catalogView === 'associate') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/20 to-slate-900 text-slate-200 p-4 md:p-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-8 mb-8 shadow-2xl">
+            <div className="flex items-center justify-between mb-4">
+              <button
+                onClick={() => setCatalogView('main')}
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-white"
+              >
+                <ArrowLeft size={20} />
+                Back
+              </button>
+              <div className="bg-indigo-900/50 rounded-full p-3">
+                <GraduationCap size={32} className="text-white" />
+              </div>
+            </div>
+            <h1 className="text-4xl font-bold text-white text-center mb-2">Associate Level Courses</h1>
+            <p className="text-center text-indigo-100 text-lg">
+              Foundational Biblical Studies • Original Languages • Core Theology
+            </p>
+            <div className="mt-4 text-center">
+              <span className="inline-block px-4 py-2 bg-emerald-600/30 border border-emerald-400/50 rounded-lg text-emerald-300 font-semibold">
+                Total: 45 Credits
+              </span>
+            </div>
+          </div>
+
+          {/* Course Categories */}
+          <div className="space-y-6 mb-8">
+            {associateCourseCategories.map((category, index) => (
+              <div key={index} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${category.color} rounded-lg px-4 py-2 mb-4`}>
+                  <category.icon size={24} className="text-white" />
+                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {category.courses.map((course, courseIndex) => (
+                    <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex-1">
+                          {course.courseNumber && (
+                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
+                          )}
+                          <h4 className="font-bold text-slate-200">{course.name}</h4>
+                        </div>
+                        {course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
+                            {course.credits} credits
+                          </span>
+                        )}
+                        {course.level && !course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
+                            {course.level}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-slate-400">{course.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Associate Requirements */}
+          <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 rounded-xl p-6 md:p-8 border-2 border-indigo-500/50 mb-8">
+            <h2 className="text-3xl font-bold text-indigo-300 mb-6 flex items-center gap-3">
+              <Award size={32} />
+              Graduation Requirements
+            </h2>
+            <div className="space-y-3">
+              {associateRequirements.map((requirement, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-indigo-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-slate-200">{requirement}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show Diploma Level Catalog
+  if (catalogView === 'diploma') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-amber-900/20 to-slate-900 text-slate-200 p-4 md:p-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl p-8 mb-8 shadow-2xl">
+            <div className="flex items-center justify-between mb-4">
+              <button
+                onClick={() => setCatalogView('main')}
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-white"
+              >
+                <ArrowLeft size={20} />
+                Back
+              </button>
+              <div className="bg-amber-900/50 rounded-full p-3">
+                <Award size={32} className="text-white" />
+              </div>
+            </div>
+            <h1 className="text-4xl font-bold text-white text-center mb-2">Diploma Level Courses</h1>
+            <p className="text-center text-amber-100 text-lg">
+              Advanced Theological Studies • Historical Analysis • Research Excellence
+            </p>
+            <div className="mt-4 text-center">
+              <span className="inline-block px-4 py-2 bg-amber-600/30 border border-amber-400/50 rounded-lg text-amber-300 font-semibold">
+                Prerequisite: Complete Associate Level First
+              </span>
+            </div>
+          </div>
+
+          {/* Course Categories */}
+          <div className="space-y-6 mb-8">
+            {diplomaCourseCategories.map((category, index) => (
+              <div key={index} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${category.color} rounded-lg px-4 py-2 mb-4`}>
+                  <category.icon size={24} className="text-white" />
+                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {category.courses.map((course, courseIndex) => (
+                    <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex-1">
+                          {course.courseNumber && (
+                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
+                          )}
+                          <h4 className="font-bold text-slate-200">{course.name}</h4>
+                        </div>
+                        {course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
+                            {course.credits} credits
+                          </span>
+                        )}
+                        {course.level && !course.credits && (
+                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
+                            {course.level}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-slate-400">{course.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Diploma Requirements */}
+          <div className="bg-gradient-to-br from-amber-900/50 to-orange-900/50 rounded-xl p-6 md:p-8 border-2 border-amber-500/50 mb-8">
+            <h2 className="text-3xl font-bold text-amber-300 mb-6 flex items-center gap-3">
+              <Award size={32} />
+              Graduation Requirements
+            </h2>
+            <div className="space-y-3">
+              {diplomaRequirements.map((requirement, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-slate-200">{requirement}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Main landing page
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-200 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
@@ -204,46 +384,56 @@ const AcademyAbout = ({ onBack }) => {
           </div>
         </div>
 
-        {/* Course Categories */}
+        {/* Course Catalog Navigation */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-amber-400 mb-6 flex items-center gap-3">
             <BookOpen size={32} />
             Course Catalog
           </h2>
-          <div className="space-y-6">
-            {courseCategories.map((category, index) => (
-              <div key={index} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${category.color} rounded-lg px-4 py-2 mb-4`}>
-                  <category.icon size={24} className="text-white" />
-                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Associate Level Button */}
+            <button
+              onClick={() => setCatalogView('associate')}
+              className="group bg-gradient-to-br from-indigo-900/50 to-purple-900/50 hover:from-indigo-900/70 hover:to-purple-900/70 rounded-xl p-8 border-2 border-indigo-500/50 hover:border-indigo-400 transition-all shadow-xl"
+            >
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full p-6">
+                  <GraduationCap size={48} className="text-white" />
                 </div>
-                <div className="grid md:grid-cols-2 gap-4 mt-4">
-                  {category.courses.map((course, courseIndex) => (
-                    <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex-1">
-                          {course.courseNumber && (
-                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
-                          )}
-                          <h4 className="font-bold text-slate-200">{course.name}</h4>
-                        </div>
-                        {course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
-                            {course.credits} credits
-                          </span>
-                        )}
-                        {course.level && !course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
-                            {course.level}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-slate-400">{course.description}</p>
-                    </div>
-                  ))}
+                <div>
+                  <h3 className="text-2xl font-bold text-indigo-300 mb-2">Associate Level</h3>
+                  <p className="text-slate-400 text-sm mb-4">
+                    Foundational biblical studies, original languages, and theology
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                    <span className="font-semibold">View Courses</span>
+                    <ChevronRight size={20} />
+                  </div>
                 </div>
               </div>
-            ))}
+            </button>
+
+            {/* Diploma Level Button */}
+            <button
+              onClick={() => setCatalogView('diploma')}
+              className="group bg-gradient-to-br from-amber-900/50 to-orange-900/50 hover:from-amber-900/70 hover:to-orange-900/70 rounded-xl p-8 border-2 border-amber-500/50 hover:border-amber-400 transition-all shadow-xl"
+            >
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-full p-6">
+                  <Award size={48} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-amber-300 mb-2">Diploma Level</h3>
+                  <p className="text-slate-400 text-sm mb-4">
+                    Advanced theological studies and historical analysis
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-amber-400 group-hover:text-amber-300 transition-colors">
+                    <span className="font-semibold">View Courses</span>
+                    <ChevronRight size={20} />
+                  </div>
+                </div>
+              </div>
+            </button>
           </div>
         </div>
 
