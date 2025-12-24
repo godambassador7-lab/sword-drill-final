@@ -9112,7 +9112,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             style={{
               scrollbarWidth: 'thin',
               scrollbarColor: '#2d2d2d #0a0a0a',
-              paddingTop: 'calc(1.5rem + env(safe-area-inset-top, 0px))',
+              paddingTop: 'calc(4rem + env(safe-area-inset-top, 0px))',
               paddingRight: 'calc(1.5rem + env(safe-area-inset-right, 0px))',
               paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))'
             }}
@@ -9122,36 +9122,36 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <div className="text-amber-400 text-base sm:text-lg font-bold mb-4 truncate">
                 Welcome, {userData.name || 'Scholar'}!
               </div>
-              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+              <div className="mt-4 grid grid-cols-2 gap-2.5">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <span className="text-amber-300 text-lg">{'\u2B50'}</span>
                     <span className="font-semibold">Points</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.totalPoints || 0).toLocaleString()}</div>
                 </div>
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <span className="text-yellow-300 text-lg">{'\uD83E\uDE99'}</span>
                     <span className="font-semibold">Talents</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.talents || 0).toLocaleString()}</div>
                 </div>
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <span className="text-amber-200 text-lg">{'\uD83C\uDF3E'}</span>
                     <span className="font-semibold">Manna</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.manna || 0).toLocaleString()}</div>
                 </div>
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <span className="text-cyan-200 text-lg">{'\uD83D\uDD11'}</span>
                     <span className="font-semibold">Keys</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.keys || 0).toLocaleString()}</div>
                 </div>
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <svg width="20" height="16" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
@@ -9202,7 +9202,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
                 </div>
-                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-3 shadow-sm">
+                <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
                     <span className="text-orange-400 text-lg">🔥</span>
                     <span className="font-semibold">Streak</span>
@@ -9497,7 +9497,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                       {!isUnlocked && <Lock size={9} className="text-amber-400" />}
                                     </div>
                                     <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
                                     </div>
                                   </div>
                                 </button>
@@ -9527,7 +9527,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                       {!isUnlocked && <Lock size={9} className="text-amber-400" />}
                                     </div>
                                     <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
                                     </div>
                                   </div>
                                 </button>
@@ -9557,7 +9557,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                       {!isUnlocked && <Lock size={9} className="text-amber-400" />}
                                     </div>
                                     <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
                                     </div>
                                   </div>
                                 </button>
@@ -9587,7 +9587,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                       {!isUnlocked && <Lock size={9} className="text-amber-400" />}
                                     </div>
                                     <div className="text-[10px] text-slate-400">
-                                      {isUnlocked ? course.description : `${course.cost} pts`}
+                                      {isUnlocked ? course.description : (course.points > 0 ? `${course.talents}T + ${course.points}pts` : `${course.talents} Talent${course.talents !== 1 ? 's' : ''}`)}
                                     </div>
                                   </div>
                                 </button>
