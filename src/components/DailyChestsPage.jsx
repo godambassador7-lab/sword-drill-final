@@ -36,7 +36,8 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
       id: 'daily-chest-1',
       title: 'Morning Blessing',
       subtitle: 'Earn Manna with each quiz today!',
-      icon: '💎',
+      icon: `${process.env.PUBLIC_URL || ''}/manna version 3.png`,
+      isImage: true,
       color: 'from-amber-400 to-orange-500',
       glowColor: 'shadow-amber-500/50',
       rewards: [
@@ -46,13 +47,13 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
     {
       id: 'daily-chest-2',
       title: 'Evening Grace',
-      subtitle: 'End your day with blessings',
-      icon: '🌙',
-      color: 'from-indigo-500 to-purple-600',
-      glowColor: 'shadow-purple-500/50',
+      subtitle: '5 free Keys + 1 hour protection',
+      icon: '🔑',
+      color: 'from-cyan-500 to-blue-600',
+      glowColor: 'shadow-cyan-500/50',
       rewards: [
-        { type: 'keys', amount: 4 },
-        { type: 'keys-boost', multiplier: 2, expiresAt: () => getMidnightExpiry() }
+        { type: 'keys', amount: 5 },
+        { type: 'protection', duration: 3600000, description: '1 hour protection from quiz penalties' }
       ]
     }
   ];
@@ -121,6 +122,14 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
           mannaEarningActivated = true;
         } else if (reward.type === 'keys') {
           newKeys += reward.amount;
+        } else if (reward.type === 'protection') {
+          newActiveBoosts.push({
+            type: 'PENALTY_PROTECTION',
+            name: 'Quiz Penalty Protection',
+            activatedAt: Date.now(),
+            expiresAt: Date.now() + (reward.duration || 3600000),
+            penaltyProtection: true
+          });
         } else if (reward.type === 'keys-boost') {
           const expiresAt = typeof reward.expiresAt === 'function' ? reward.expiresAt() : reward.expiresAt;
           newActiveBoosts.push({
@@ -243,11 +252,17 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
                   {/* Chest Icon/Image */}
                   <div className="text-center mb-4">
                     <div
-                      className={`text-8xl transition-transform duration-500 ${
+                      className={`transition-transform duration-500 ${
                         isOpening ? 'animate-bounce scale-125' : opened ? 'scale-90 opacity-50' : 'scale-100'
                       }`}
                     >
-                      {chest.icon}
+                      {chest.isImage ? (
+                        <div className="flex justify-center">
+                          <img src={chest.icon} alt={chest.title} className="w-24 h-24 object-contain" />
+                        </div>
+                      ) : (
+                        <div className="text-8xl">{chest.icon}</div>
+                      )}
                     </div>
                   </div>
 

@@ -1223,10 +1223,11 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/30 to-slate-900 text-white flex flex-col">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border-b-2 border-indigo-500/50 p-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/30 to-slate-900 text-white flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl h-[80vh] bg-slate-800/90 rounded-xl shadow-2xl flex flex-col overflow-hidden border-2 border-indigo-500/50">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border-b-2 border-indigo-500/50 p-4 flex-shrink-0">
+          <div className="flex items-center justify-between">
           <button
             onClick={onBack}
             className="flex items-center gap-2 text-indigo-300 hover:text-indigo-200 transition-colors"
@@ -1245,19 +1246,19 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
           </div>
           <div className="w-16" /> {/* Spacer for alignment */}
         </div>
-      </div>
-
-      {/* Info Banner */}
-      <div className="bg-indigo-900/30 border-b border-indigo-500/30 py-2 px-4">
-        <div className="max-w-4xl mx-auto flex items-center gap-2 text-sm text-indigo-200">
-          <Info size={16} />
-          <span>Ask me anything about the Bible, theology, or how to use Sword Drill features!</span>
         </div>
-      </div>
 
-      {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4">
-        <div className="max-w-4xl mx-auto space-y-4">
+        {/* Info Banner */}
+        <div className="bg-indigo-900/30 border-b border-indigo-500/30 py-2 px-4 flex-shrink-0">
+          <div className="flex items-center gap-2 text-sm text-indigo-200">
+            <Info size={16} />
+            <span>Ask me anything about the Bible, theology, or how to use Sword Drill features!</span>
+          </div>
+        </div>
+
+        {/* Messages Area */}
+        <div className="flex-1 overflow-y-auto p-4">
+          <div className="space-y-4">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -1301,8 +1302,8 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
       </div>
 
       {/* Input Area */}
-      <div className="bg-slate-900/50 border-t-2 border-indigo-500/50 p-4">
-        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto flex gap-2">
+      <div className="bg-slate-900/50 border-t-2 border-indigo-500/50 p-4 flex-shrink-0">
+        <form onSubmit={handleSubmit} className="flex gap-2">
           <input
             ref={inputRef}
             type="text"
