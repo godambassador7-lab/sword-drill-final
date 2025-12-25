@@ -3,7 +3,7 @@
  * Coordinates parallel retrieval from multiple reference sources
  */
 
-import { searchBible } from './retrieval/bibleProvider';
+import { searchLocalVerses } from './retrieval/bibleProvider';
 import { searchDictionary } from './retrieval/dictionaryProvider';
 import { lookupWordStudy } from './retrieval/lexiconProvider';
 import { getCrossReferences } from './retrieval/crossRefsProvider';
@@ -143,8 +143,8 @@ async function retrieveBibleVerses(query, context, plan) {
     const translation = context.selectedTranslation || 'KJV';
 
     // Use existing bible provider
-    const verses = await searchBible(query, {
-      translation,
+    const verses = await searchLocalVerses(query, {
+      selectedTranslation: translation,
       limit: plan.maxVerses,
       verseHistory: context.verseHistory || []
     });
