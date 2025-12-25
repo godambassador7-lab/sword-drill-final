@@ -4561,7 +4561,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 active:from-amber-800 active:to-yellow-800 text-white p-3 sm:p-4 rounded-xl border-2 border-amber-500 hover:border-amber-400 transition-all shadow-lg min-h-[64px]"
       >
         <div className="font-bold text-base sm:text-lg flex items-center justify-center gap-2">
-          <span className="text-xl sm:text-2xl"></span>
+          <span className="text-xl sm:text-2xl">📖</span>
           Open Bible Reader
         </div>
         <div className="text-amber-100 text-xs sm:text-sm">
@@ -9255,7 +9255,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3"
                   >
-                    <BookOpen size={18} className="text-emerald-400" /> Bible Reader
+                    <span className="text-emerald-400 text-lg">📖</span> Bible Reader
                   </button>
                   <button
                     onClick={() => {
@@ -11922,7 +11922,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)' }}
             >
               <div className="flex items-center gap-3">
-                <div className="text-4xl"></div>
+                <div className="text-4xl">📖</div>
                 <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
               </div>
               <button

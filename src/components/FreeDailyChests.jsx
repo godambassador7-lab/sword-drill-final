@@ -85,9 +85,26 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
     return dailyChestsData.opened?.includes(chestId) || false;
   };
 
+  // Check if Evening Grace is available (3pm or later)
+  const isEveningGraceAvailable = () => {
+    const now = new Date();
+    const currentHour = now.getHours();
+    return currentHour >= 15; // 15:00 = 3pm
+  };
+
   // Open chest
   const openChest = (chest) => {
     if (isChestOpened(chest.id) || opening) return;
+
+    // Check if Evening Grace chest and time restriction
+    if (chest.id === 'daily-chest-2' && !isEveningGraceAvailable()) {
+      if (showToast) {
+        showToast('🌙 Evening Grace is only available at or after 3:00 PM', 'info');
+      } else {
+        alert('Evening Grace is only available at or after 3:00 PM');
+      }
+      return;
+    }
 
     setOpening(chest.id);
 
@@ -183,14 +200,16 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
         {DAILY_CHESTS.map(chest => {
           const opened = isChestOpened(chest.id);
           const isOpening = opening === chest.id;
+          const isEveningChest = chest.id === 'daily-chest-2';
+          const isLocked = isEveningChest && !isEveningGraceAvailable();
 
           return (
             <div
               key={chest.id}
               className={`relative bg-gradient-to-br ${chest.color} ${
-                opened ? 'opacity-40' : 'opacity-100 hover:scale-105'
+                opened || isLocked ? 'opacity-40' : 'opacity-100 hover:scale-105'
               } rounded-lg p-4 transition-all duration-300 ${
-                !opened && !isOpening ? 'cursor-pointer' : 'cursor-not-allowed'
+                !opened && !isOpening && !isLocked ? 'cursor-pointer' : 'cursor-not-allowed'
               } ${isOpening ? 'animate-pulse' : ''}`}
               onClick={() => !opened && !isOpening && openChest(chest)}
             >
@@ -230,6 +249,11 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
                 <div className="mt-4 text-center text-white font-bold flex items-center justify-center gap-2">
                   <Clock size={16} />
                   <span>Opened</span>
+                </div>
+              ) : isLocked ? (
+                <div className="mt-4 text-center text-white font-bold flex items-center justify-center gap-2">
+                  <Clock size={16} />
+                  <span>Available at 3pm</span>
                 </div>
               ) : (
                 <div className="mt-4 text-center text-white font-bold animate-pulse">
