@@ -177,15 +177,20 @@ async function generateWhoResponse(message, retrieved, context) {
     citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
   }
 
+  // ALWAYS show verses for "who" questions about people/entities
   if (retrieved.verses && retrieved.verses.length > 0) {
     answer += `## 📖 Key Passages\n\n`;
 
-    // Show only top 3 most relevant verses with brief context
-    retrieved.verses.slice(0, 3).forEach(verse => {
-      const snippet = truncateText(verse.text, 100); // Keep verses concise
+    // Show top 3-5 most relevant verses mentioning this person/entity
+    retrieved.verses.slice(0, 5).forEach(verse => {
+      const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
     });
+  } else if (person) {
+    // If no verses found, provide helpful message
+    answer += `## 📖 Biblical References\n\n`;
+    answer += `Search for "${person}" in Bible Reader to find all mentions in Scripture.\n\n`;
   }
 
   if (!answer) {
@@ -237,14 +242,19 @@ async function generateDefinitionResponse(message, retrieved, context) {
     }
   }
 
+  // ALWAYS show verses for biblical terms/concepts
   if (retrieved.verses && retrieved.verses.length > 0) {
-    answer += `## 📖 Biblical Context\n\n`;
-    // Show only 2 most relevant verses, truncated
-    retrieved.verses.slice(0, 2).forEach(verse => {
-      const snippet = truncateText(verse.text, 80);
+    answer += `## 📖 Biblical Usage\n\n`;
+    // Show 3-4 verses where this term/concept appears
+    retrieved.verses.slice(0, 4).forEach(verse => {
+      const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
+  } else if (term) {
+    // If no verses found, provide helpful message
+    answer += `## 📖 Biblical Usage\n\n`;
+    answer += `Search for "${term}" in Bible Reader to find examples in Scripture.\n\n`;
   }
 
   if (!answer) {
@@ -364,6 +374,10 @@ async function generateWhereResponse(message, retrieved, context) {
   const citations = [];
   let answer = '';
 
+  // Extract the place name from the question
+  const placeMatch = message.match(/where\s+(?:is|was)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i);
+  const place = placeMatch ? placeMatch[1] : null;
+
   if (retrieved.definitions && retrieved.definitions.length > 0) {
     const def = retrieved.definitions[0];
     const summary = summarizeDefinition(def.definition, 2);
@@ -373,13 +387,18 @@ async function generateWhereResponse(message, retrieved, context) {
     citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
   }
 
+  // ALWAYS show verses for "where" questions about places
   if (retrieved.verses && retrieved.verses.length > 0) {
     answer += `## 📖 Biblical Mentions\n\n`;
-    retrieved.verses.slice(0, 3).forEach(verse => {
-      const snippet = truncateText(verse.text, 80);
+    retrieved.verses.slice(0, 5).forEach(verse => {
+      const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
+  } else if (place) {
+    // If no verses found, provide helpful message
+    answer += `## 📖 Biblical Mentions\n\n`;
+    answer += `Search for "${place}" in Bible Reader to find all references in Scripture.\n\n`;
   }
 
   if (!answer) {
@@ -388,7 +407,7 @@ async function generateWhereResponse(message, retrieved, context) {
 
   answer += `🗺️ **Explore**: Biblical Archaeology course covers historical places and geographical context.`;
 
-  return { answer, citations, metadata: { category: 'where' } };
+  return { answer, citations, metadata: { category: 'where', place } };
 }
 
 /**
