@@ -4746,7 +4746,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('talents')}
         >
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
-            <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="35" height="35" className="inline-block" />
+            <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="35" height="35" className="inline-block" />
             <span>{userData.talents || 0}</span>
           </div>
           <div className="text-yellow-200 text-sm font-semibold">Talents</div>
@@ -4768,7 +4768,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={() => setShowCurrencyInfo('scrolls')}
         >
           <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
-            <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="32" height="32" className="inline-block" />
+            <img src={`${process.env.PUBLIC_URL || ''}/new scrolls.png`} alt="Scroll" width="32" height="32" className="inline-block" />
             <span>{userData.scrolls || 0}</span>
           </div>
           <div className="text-purple-200 text-sm font-semibold">Scrolls</div>
@@ -6517,7 +6517,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 col-span-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 mb-2">
-                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="26" height="26" className="inline-block" />
+                <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="26" height="26" className="inline-block" />
                 <div className="text-xs text-yellow-300 font-semibold">Talents Balance</div>
               </div>
               <div className="text-3xl font-bold text-yellow-400">{(userData.talents || 0).toLocaleString()}</div>
@@ -6574,7 +6574,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-xl font-bold text-yellow-300 flex items-center gap-2">
-                <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="31" height="31" className="inline-block" />
+                <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="31" height="31" className="inline-block" />
                 Talents
               </h3>
               <p className="text-slate-400 text-sm">Long-term investment with 2% weekly growth</p>
@@ -9148,7 +9148,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="22" height="22" className="inline-block" />
                     <span className="font-semibold">Talents</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.talents || 0).toLocaleString()}</div>
@@ -9169,7 +9169,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 <div className="bg-slate-700/60 border border-slate-600 rounded-lg p-2 shadow-sm">
                   <div className="text-xs text-slate-300 flex items-center gap-2">
-                    <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="20" height="16" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/new scrolls.png`} alt="Scroll" width="20" height="16" className="inline-block" />
                     <span className="font-semibold">Scrolls</span>
                   </div>
                   <div className="text-white text-lg font-bold">{(userData.scrolls || 0).toLocaleString()}</div>
@@ -11810,7 +11810,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'talents' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="70" height="70" className="inline-block" />
+                  <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="70" height="70" className="inline-block" />
                   <h2 className="text-3xl font-bold text-yellow-300">Talents</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
@@ -11874,7 +11874,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'scrolls' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="60" height="48" className="inline-block" />
+                  <img src={`${process.env.PUBLIC_URL || ''}/new scrolls.png`} alt="Scroll" width="60" height="48" className="inline-block" />
                   <h2 className="text-3xl font-bold text-purple-300">Scrolls</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">
@@ -12066,7 +12066,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                   <span className="text-slate-400 text-sm">Your Talents:</span>
                   <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
-                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="22" height="22" className="inline-block" />
                     {purchaseModalData.currentTalents}
                   </span>
                 </div>
@@ -12099,7 +12099,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     onClick={() => purchaseModalData.onConfirm(true)}
                     className="flex-1 bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white font-bold py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-1"
                   >
-                    <img src={`${process.env.PUBLIC_URL || ''}/gold talents.svg`} alt="Talents" width="22" height="22" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="22" height="22" className="inline-block" />
                     <span>Use Talents</span>
                   </button>
                 </>
