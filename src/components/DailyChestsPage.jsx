@@ -36,7 +36,7 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
       id: 'daily-chest-1',
       title: 'Morning Blessing',
       subtitle: 'Earn Manna with each quiz today!',
-      icon: `${process.env.PUBLIC_URL || ''}/manna version 3.png`,
+      icon: `${process.env.PUBLIC_URL || ''}/manna 4.png`,
       isImage: true,
       color: 'from-amber-400 to-orange-500',
       glowColor: 'shadow-amber-500/50',
@@ -292,14 +292,24 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
                               <span className="text-xl">🌾</span>
                               <span className="font-semibold text-center">{reward.description}</span>
                             </>
-                          ) : (
+                          ) : reward.type === 'keys' ? (
+                            <>
+                              <span className="text-xl">🔑</span>
+                              <span className="font-semibold">{reward.amount} Keys</span>
+                            </>
+                          ) : reward.type === 'protection' ? (
+                            <>
+                              <Sparkles size={16} className="text-cyan-300" />
+                              <span className="font-semibold text-center">{reward.description}</span>
+                            </>
+                          ) : reward.type === 'powerup' ? (
                             <>
                               <Sparkles size={16} className="text-cyan-300" />
                               <span className="font-semibold">
                                 {ECONOMY_POWER_UPS[reward.item]?.name} x{reward.quantity}
                               </span>
                             </>
-                          )}
+                          ) : null}
                         </div>
                       ))}
                     </div>

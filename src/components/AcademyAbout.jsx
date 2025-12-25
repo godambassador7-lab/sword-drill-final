@@ -59,7 +59,8 @@ const AcademyAbout = ({ onBack }) => {
       courses: [
         { courseNumber: 'BIB 210', name: 'Second Temple Judaism', credits: '3', description: 'Judaism from Babylonian exile to AD 70' },
         { courseNumber: 'BIB 220', name: 'Biblical Archaeology', credits: '3', description: 'Archaeological evidence and biblical history' },
-        { courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', credits: '3', description: 'Study of biblical manuscripts and transmission' }
+        { courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', credits: '3', description: 'Study of biblical manuscripts and transmission' },
+        { courseNumber: 'BIB 215', name: 'Biblical Feast Days', level: 'Elective', description: 'Sacred times and appointed feasts in Scripture' }
       ]
     },
     {

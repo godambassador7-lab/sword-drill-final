@@ -70,6 +70,7 @@ import ApologeticsCourse from './components/ApologeticsCourse';
 import BiblicalCanonCourse from './components/BiblicalCanonCourse';
 import DemonologyCourse from './components/DemonologyCourse';
 import MosaicLawCourse from './components/MosaicLawCourse';
+import BiblicalFeastDaysCourse from './components/BiblicalFeastDaysCourse';
 import SecondTempleJudaismCourse from './components/SecondTempleJudaismCourse';
 import PneumatologyCourse from './components/PneumatologyCourse';
 import ChristologyCourse from './components/ChristologyCourse';
@@ -1093,6 +1094,7 @@ const SwordDrillApp = () => {
     'second-temple-judaism-course': { talents: 2, points: 0, courseNumber: 'BIB 210', name: 'Second Temple Judaism', icon: BookOpen, color: 'blue', description: 'Judaism from Exile to AD 70', credits: 3 },
     'biblical-archaeology-associate-course': { talents: 2, points: 0, courseNumber: 'BIB 220', name: 'Biblical Archaeology', icon: MapPin, color: 'yellow', description: 'Archaeological Evidence & History', credits: 3 },
     'textual-transmission-course': { talents: 2, points: 0, courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', icon: Scroll, color: 'emerald', description: 'Manuscripts & Biblical Transmission', credits: 3 },
+    'feast-days-course': { talents: 1, points: 0, courseNumber: 'BIB 215', name: 'Biblical Feast Days', icon: Calendar, color: 'purple', description: 'Sacred Times & Appointed Feasts', credits: 0, isElective: true },
     'mosaic-law-course': { talents: 2, points: 0, courseNumber: 'BIB 240', name: 'Mosaic Law', icon: Scroll, color: 'yellow', description: 'Torah: Covenant & Commandments', credits: 3 },
     'christology-course': { talents: 2, points: 0, courseNumber: 'BIB 250', name: 'Christology', icon: Crown, color: 'amber', description: 'Doctrine of Christ & His Nature', credits: 3 },
     'pneumatology-course': { talents: 2, points: 0, courseNumber: 'BIB 260', name: 'Pneumatology', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit', credits: 3 },
@@ -1288,6 +1290,13 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-red-500/50',
       description: 'NT Demonology Expert',
       achievement: 'Completed all Demonology lessons (Associate Level)'
+    },
+    'feast-days-course': {
+      id: 'feast-days-course',
+      name: 'Keeper of Appointed Times',
+      symbol: '📅',
+      description: 'Completed Biblical Feast Days course',
+      achievement: 'Completed all Feast Days lessons'
     },
     'mosaic-law-course': {
       id: 'mosaic-law-course',
@@ -9491,7 +9500,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   Biblical Studies
                                 </div>
                                 <div className="space-y-1">
-                                  {['demonology-course', 'mosaic-law-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
+                                  {['demonology-course', 'mosaic-law-course', 'feast-days-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
                                     const course = COURSE_ADMISSION[courseId];
                                     const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                                     return (
@@ -10976,6 +10985,34 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onExit={() => setCurrentView('home')}
           />
         )}
+        {currentView === 'feast-days-course' && (
+          <CourseWithFocus
+            CourseComponent={BiblicalFeastDaysCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('Feast Days course results:', results);
+
+                // Award points for lesson completion
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Feast Days lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+
+                // Don't navigate away, stay in course
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="feast-days"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
         {currentView === 'second-temple-judaism-course' && (
           <CourseWithFocus
             CourseComponent={SecondTempleJudaismCourse}
@@ -11837,51 +11874,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             {showCurrencyInfo === 'scrolls' && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <svg width="60" height="48" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <radialGradient id="scrollGradModal" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="#F4E4C1"/>
-                        <stop offset="100%" stopColor="#C9A961"/>
-                      </radialGradient>
-                      <linearGradient id="parchmentGradModal" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#FFF8E7"/>
-                        <stop offset="50%" stopColor="#F4E8D0"/>
-                        <stop offset="100%" stopColor="#E8D4B8"/>
-                      </linearGradient>
-                      <linearGradient id="ribbonGradModal" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#E63946"/>
-                        <stop offset="50%" stopColor="#C41E3A"/>
-                        <stop offset="100%" stopColor="#8B1820"/>
-                      </linearGradient>
-                    </defs>
-                    {/* Left scroll roll - with 3D effect */}
-                    <ellipse cx="7" cy="16" rx="4.5" ry="11" fill="url(#scrollGradModal)"/>
-                    <ellipse cx="6" cy="16" rx="3" ry="10" fill="#D4B896"/>
-                    <ellipse cx="5.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-                    <ellipse cx="5" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-                    {/* Right scroll roll - with 3D effect */}
-                    <ellipse cx="33" cy="16" rx="4.5" ry="11" fill="url(#scrollGradModal)"/>
-                    <ellipse cx="34" cy="16" rx="3" ry="10" fill="#D4B896"/>
-                    <ellipse cx="34.5" cy="16" rx="2" ry="9" fill="#F4E4C1"/>
-                    <ellipse cx="35" cy="16" rx="1.5" ry="8" fill="#FFF8E7" opacity="0.6"/>
-                    {/* Center parchment with gradient */}
-                    <rect x="7" y="5" width="26" height="22" fill="url(#parchmentGradModal)" rx="1"/>
-                    {/* Parchment highlight */}
-                    <rect x="8" y="6" width="24" height="10" fill="#FFFDF5" opacity="0.4" rx="1"/>
-                    {/* Parchment shadow edges */}
-                    <rect x="7" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-                    <rect x="31" y="5" width="2" height="22" fill="#C9A961" opacity="0.3"/>
-                    {/* Red ribbon with 3D gradient */}
-                    <rect x="4" y="13" width="32" height="6" fill="url(#ribbonGradModal)" rx="1"/>
-                    {/* Ribbon highlight */}
-                    <rect x="4" y="13" width="32" height="2" fill="#FF4D5A" opacity="0.5" rx="1"/>
-                    {/* Ribbon shadow */}
-                    <rect x="4" y="18" width="32" height="1" fill="#000000" opacity="0.3" rx="0.5"/>
-                    {/* Ribbon fold detail left */}
-                    <path d="M4 15 L2 16 L4 17 Z" fill="#8B1820"/>
-                    {/* Ribbon fold detail right */}
-                    <path d="M36 15 L38 16 L36 17 Z" fill="#8B1820"/>
-                  </svg>
+                  <img src={`${process.env.PUBLIC_URL || ''}/scroll vector.svg`} alt="Scroll" width="60" height="48" className="inline-block" />
                   <h2 className="text-3xl font-bold text-purple-300">Scrolls</h2>
                 </div>
                 <div className="space-y-3 text-slate-300">

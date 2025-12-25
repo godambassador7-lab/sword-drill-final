@@ -18,7 +18,9 @@
       "Bash(git checkout:*)",
       "Bash(chmod:*)",
       "Bash(./fix_menu.sh:*)",
-      "Bash(node fix_course_cost.js:*)"
+      "Bash(node fix_course_cost.js:*)",
+      "Bash(cat:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []
