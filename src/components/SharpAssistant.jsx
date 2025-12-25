@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, ArrowLeft, Sparkles, Book, Info } from 'lucide-react';
+import { answerQuery } from '../services/assistant/enhancedRuleBased';
+import { CitationsList } from './CitationBadge';
 
 const SharpAssistant = ({ onBack, userData, bibleData }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationHistory, setConversationHistory] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [typingMessageId, setTypingMessageId] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const typingIntervalRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -15,6 +21,15 @@ const SharpAssistant = ({ onBack, userData, bibleData }) => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    // Cleanup typing interval on unmount
+    return () => {
+      if (typingIntervalRef.current) {
+        clearInterval(typingIntervalRef.current);
+      }
+    };
+  }, []);
 
   const generateResponse = async (userQuestion) => {
     // Build context about the app's biblical content
@@ -1164,36 +1179,108 @@ Which course interests you most?`;
 Feel free to ask me anything about the Bible or using Sword Drill!`;
   };
 
+  const typeOutMessage = (fullContent, citations, metadata, messageId) => {
+    let currentIndex = 0;
+    const typingSpeed = 8; // milliseconds per character (faster, more like ChatGPT)
+    const minChunkSize = 1; // Characters to type at once
+    const maxChunkSize = 3; // Max characters for faster typing on longer words
+
+    // Create initial empty message
+    const initialMessage = {
+      id: messageId,
+      role: 'assistant',
+      content: '',
+      citations: citations || [],
+      metadata: metadata || {},
+      timestamp: Date.now(),
+      isTyping: true
+    };
+
+    setMessages(prev => [...prev, initialMessage]);
+    setIsTyping(true);
+    setTypingMessageId(messageId);
+
+    typingIntervalRef.current = setInterval(() => {
+      if (currentIndex < fullContent.length) {
+        // Type faster for spaces and punctuation
+        const currentChar = fullContent[currentIndex];
+        const chunkSize = currentChar === ' ' || currentChar === '\n'
+          ? maxChunkSize
+          : Math.min(maxChunkSize, Math.ceil(Math.random() * 2) + 1);
+
+        const endIndex = Math.min(currentIndex + chunkSize, fullContent.length);
+        const nextChunk = fullContent.slice(0, endIndex);
+        currentIndex = endIndex;
+
+        setMessages(prev =>
+          prev.map(msg =>
+            msg.id === messageId
+              ? { ...msg, content: nextChunk }
+              : msg
+          )
+        );
+      } else {
+        // Typing complete
+        clearInterval(typingIntervalRef.current);
+        setIsTyping(false);
+        setTypingMessageId(null);
+
+        // Mark message as complete
+        setMessages(prev =>
+          prev.map(msg =>
+            msg.id === messageId
+              ? { ...msg, isTyping: false }
+              : msg
+          )
+        );
+      }
+    }, typingSpeed);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || isTyping) return;
 
     const userMessage = {
+      id: `user-${Date.now()}`,
       role: 'user',
       content: input,
       timestamp: Date.now()
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const userQuestion = input; // Save before clearing
     setInput('');
     setIsLoading(true);
 
     try {
-      // Simulate thinking time for better UX
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Call enhanced rule-based system with RAG
+      const response = await answerQuery(userQuestion, {
+        conversationHistory,
+        selectedTranslation: 'KJV',
+        userProgress: {
+          versesMemorized: userData?.versesMemorized || 0,
+          quizzesCompleted: userData?.quizzesCompleted || 0,
+          currentStreak: userData?.currentStreak || 0,
+          currentLevel: userData?.currentLevel || 'Beginner'
+        }
+      });
 
-      const response = await generateResponse(input);
+      // Update conversation history
+      setConversationHistory([
+        ...conversationHistory,
+        { role: 'user', content: userQuestion },
+        { role: 'assistant', content: response.answer }
+      ]);
 
-      const assistantMessage = {
-        role: 'assistant',
-        content: response,
-        timestamp: Date.now()
-      };
+      // Type out the response
+      const messageId = `assistant-${Date.now()}`;
+      typeOutMessage(response.answer, response.citations, response.metadata, messageId);
 
-      setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error generating response:', error);
       const errorMessage = {
+        id: `error-${Date.now()}`,
         role: 'assistant',
         content: 'I apologize, but I encountered an error processing your question. Please try rephrasing your question or ask something else.',
         timestamp: Date.now()
@@ -1281,13 +1368,25 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
                   className="prose prose-invert prose-sm max-w-none"
                   dangerouslySetInnerHTML={{ __html: formatMessage(message.content) }}
                 />
-                <div className="text-xs opacity-50 mt-2">
-                  {new Date(message.timestamp).toLocaleTimeString()}
+                {message.isTyping && (
+                  <span className="inline-block w-1 h-4 ml-1 bg-indigo-400 animate-pulse"></span>
+                )}
+                {message.citations && message.citations.length > 0 && !message.isTyping && (
+                  <CitationsList citations={message.citations} />
+                )}
+                <div className="text-xs opacity-50 mt-2 flex items-center gap-2">
+                  <span>{new Date(message.timestamp).toLocaleTimeString()}</span>
+                  {message.metadata?.usedClaude && (
+                    <span className="text-indigo-400">• AI-powered</span>
+                  )}
+                  {message.metadata?.fromCache && (
+                    <span className="text-amber-400">• Cached</span>
+                  )}
                 </div>
               </div>
             </div>
           ))}
-          {isLoading && (
+          {isLoading && !isTyping && (
             <div className="flex justify-start">
               <div className="bg-slate-800/50 border border-indigo-500/30 rounded-2xl p-4">
                 <div className="flex items-center gap-2">
@@ -1311,11 +1410,11 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about Scripture, theology, courses, or features..."
             className="flex-1 bg-slate-800 border-2 border-indigo-500/50 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-colors"
-            disabled={isLoading}
+            disabled={isLoading || isTyping}
           />
           <button
             type="submit"
-            disabled={!input.trim() || isLoading}
+            disabled={!input.trim() || isLoading || isTyping}
             className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold px-6 py-3 rounded-xl transition-all flex items-center gap-2"
           >
             <Send size={20} />
