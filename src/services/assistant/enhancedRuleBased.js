@@ -146,7 +146,8 @@ async function generateResponse(message, classification, retrievedContext, conte
     return await generateHowResponse(message, retrievedContext, context);
   }
 
-  if (analysis.hasVerseReference) {
+  // Check if message contains a verse reference pattern (e.g., "John 3:16")
+  if (message.match(/\b([1-3]?\s?[A-Za-z]+)\s+\d+:\d+/)) {
     return await generateVerseResponse(message, retrievedContext, context);
   }
 
