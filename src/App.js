@@ -11478,17 +11478,21 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {/* Bible Study Plan Detail Modal */}
       {showPlanDetail && selectedPlan && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setShowPlanDetail(false)}>
-          <div className="bg-slate-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-6 sticky top-0 bg-slate-800 pb-4 border-b border-slate-700 z-10">
-              <div className="flex items-center gap-3">
-                <BookOpen className="text-green-400" size={32} />
-                <h2 className="text-2xl font-bold text-green-400">{selectedPlan.topic}</h2>
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => setShowPlanDetail(false)}>
+          <div className="bg-slate-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col" onClick={(e) => e.stopPropagation()}>
+            {/* Fixed Header */}
+            <div className="flex justify-between items-center p-4 sm:p-6 bg-slate-800 border-b border-slate-700 flex-shrink-0">
+              <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                <BookOpen className="text-green-400 flex-shrink-0" size={28} />
+                <h2 className="text-lg sm:text-2xl font-bold text-green-400 truncate">{selectedPlan.topic}</h2>
               </div>
-              <button onClick={() => setShowPlanDetail(false)} className="text-white hover:text-green-400 transition-all">
+              <button onClick={() => setShowPlanDetail(false)} className="text-white hover:text-green-400 transition-all ml-2 flex-shrink-0">
                 <X size={24} />
               </button>
             </div>
+
+            {/* Scrollable Content */}
+            <div className="overflow-y-auto p-4 sm:p-6 flex-1">
 
             <div className="space-y-6">
               {/* Theme */}
@@ -11723,6 +11727,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   Close
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </div>
