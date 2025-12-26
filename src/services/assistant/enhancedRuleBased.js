@@ -13,6 +13,7 @@ import { formatMorphology } from './retrieval/morphologyProvider';
 import { compareTranslations, parseReference } from './retrieval/translationProvider';
 import { getInterlinearByReference, formatInterlinear } from './interlinearProvider';
 import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
+import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
 
 /**
  * Main entry point for answering queries
@@ -137,6 +138,10 @@ async function generateResponse(message, classification, retrievedContext, conte
 
   if (subcategory === 'compare_translations') {
     return await generateCompareTranslationsResponse(message, retrievedContext, context);
+  }
+
+  if (subcategory === 'cross_reference') {
+    return await generateCrossReferenceResponse(message, retrievedContext, context);
   }
 
   if (category === 'theology') {
@@ -591,6 +596,19 @@ async function generateVerseResponse(message, retrieved, context) {
     answer += `> ${verse.text}\n\n`;
     citations.push({ type: 'verse', ref: verse.reference });
 
+    // Check for Gospel parallels (synoptic accounts)
+    const parallels = getGospelParallels(verse.reference);
+    if (parallels && parallels.length > 0) {
+      answer += `\n**Gospel Parallels**:\n`;
+      parallels.forEach(p => {
+        answer += `• **${p.gospel}**: ${p.reference}`;
+        if (p.notes) answer += ` (${p.notes})`;
+        answer += `\n`;
+        citations.push({ type: 'gospel_parallel', ref: p.reference, event: p.event });
+      });
+      answer += `\n`;
+    }
+
     // Show related passages concisely
     if (retrieved.crossRefs && retrieved.crossRefs.length > 0) {
       const relatedRefs = retrieved.crossRefs.slice(0, 4).map(r => r.reference).join(', ');
@@ -833,6 +851,59 @@ async function generateInterlinearResponse(message, retrieved, context) {
   });
 
   return { answer, citations, metadata: { category: 'interlinear', reference, language: interlinear.language } };
+}
+
+/**
+ * Generate response for cross-reference and topical searches
+ */
+async function generateCrossReferenceResponse(message, retrieved, context) {
+  const citations = [];
+  let answer = '';
+
+  // Check if asking about a topic (e.g., "verses about salvation", "show me verses on faith")
+  const topicMatch = message.match(/(?:verses? (?:about|on|regarding)|show.*verses?.*(?:about|on))\s+([a-z]+(?:\s+[a-z]+)?)/i);
+
+  if (topicMatch) {
+    const topic = topicMatch[1].trim();
+    const thematicRefs = await searchCrossRefsByTopic(topic);
+
+    if (thematicRefs && thematicRefs.verses) {
+      answer += `## 📚 Verses About: ${thematicRefs.topic.charAt(0).toUpperCase() + thematicRefs.topic.slice(1)}\n\n`;
+      answer += `${thematicRefs.description}\n\n`;
+      answer += `**Key Passages**:\n`;
+
+      thematicRefs.verses.slice(0, 8).forEach(ref => {
+        answer += `• ${ref}\n`;
+        citations.push({ type: 'thematic_cross_ref', ref, topic: thematicRefs.topic });
+      });
+
+      if (thematicRefs.verses.length > 8) {
+        answer += `\n*...and ${thematicRefs.verses.length - 8} more passages*\n`;
+      }
+
+      answer += `\n💡 Use Bible Reader to read these passages in full context.`;
+
+      return { answer, citations, metadata: { category: 'cross_reference', topic: thematicRefs.topic } };
+    }
+  }
+
+  // Fallback: Show cross-references from retrieved context
+  if (retrieved.crossRefs && retrieved.crossRefs.length > 0) {
+    answer += `## 🔗 Cross-References\n\n`;
+
+    retrieved.crossRefs.slice(0, 8).forEach(ref => {
+      answer += `• **${ref.reference}**`;
+      if (ref.note) answer += `: ${ref.note}`;
+      answer += `\n`;
+      citations.push({ type: 'cross_ref', ref: ref.reference });
+    });
+
+    answer += `\n💡 These passages are thematically or contextually related.`;
+  } else {
+    answer += `No cross-references found. Try searching for a specific topic like "salvation", "faith", "love", or "grace".`;
+  }
+
+  return { answer, citations, metadata: { category: 'cross_reference' } };
 }
 
 /**
