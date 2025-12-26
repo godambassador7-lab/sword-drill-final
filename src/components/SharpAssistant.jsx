@@ -1323,9 +1323,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
             <span>Back</span>
           </button>
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg overflow-hidden flex items-center justify-center" style={{width: '48px', height: '48px'}}>
-              <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="48" height="48" className="w-full h-full object-cover" />
-            </div>
+            <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="48" height="48" className="object-cover" />
             <div>
               <h1 className="text-xl font-bold">SHARP Assistant</h1>
               <p className="text-xs text-indigo-300">Scripture Helper & Research Partner</p>
