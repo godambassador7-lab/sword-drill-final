@@ -7,6 +7,10 @@
 import GREEK_LEXICON from '../../../data/strongs-master/strongs-master/greek/strongs-greek-dictionary.js';
 import HEBREW_LEXICON from '../../../data/strongs-master/strongs-master/hebrew/strongs-hebrew-dictionary.js';
 
+// Import concordance services
+import * as greekConcordance from '../../greekConcordance.js';
+import * as hebrewConcordance from '../../hebrewConcordance.js';
+
 // Combine dictionaries for unified lookup
 const FULL_LEXICON = { ...GREEK_LEXICON, ...HEBREW_LEXICON };
 
@@ -160,4 +164,84 @@ export async function searchLexicon(terms, limit = 5) {
   return results;
 }
 
-export default { lookupWordStudy, getMorphology, searchLexicon };
+/**
+ * Get usage examples for a Strong's number
+ * @param {string} strongsNum - Strong's number (e.g., "G26" or "H2617")
+ * @param {number} limit - Maximum number of examples to return
+ * @returns {Promise<Array>} Array of verse reference objects
+ */
+export async function getUsageExamples(strongsNum, limit = 8) {
+  if (!strongsNum) return [];
+
+  try {
+    const type = strongsNum[0].toUpperCase();
+
+    if (type === 'G') {
+      return await greekConcordance.getSampleReferences(strongsNum, limit);
+    } else if (type === 'H') {
+      return await hebrewConcordance.getSampleReferences(strongsNum, limit);
+    }
+
+    return [];
+  } catch (error) {
+    console.error(`Error getting usage examples for ${strongsNum}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Get frequency count for a Strong's number
+ * @param {string} strongsNum - Strong's number (e.g., "G26" or "H2617")
+ * @returns {Promise<number>} Number of times the word appears in Scripture
+ */
+export async function getFrequency(strongsNum) {
+  if (!strongsNum) return 0;
+
+  try {
+    const type = strongsNum[0].toUpperCase();
+
+    if (type === 'G') {
+      return await greekConcordance.getUsageCount(strongsNum);
+    } else if (type === 'H') {
+      return await hebrewConcordance.getUsageCount(strongsNum);
+    }
+
+    return 0;
+  } catch (error) {
+    console.error(`Error getting frequency for ${strongsNum}:`, error);
+    return 0;
+  }
+}
+
+/**
+ * Get book distribution for a Strong's number
+ * @param {string} strongsNum - Strong's number (e.g., "G26" or "H2617")
+ * @returns {Promise<Array>} Array of book names where the word appears
+ */
+export async function getBookDistribution(strongsNum) {
+  if (!strongsNum) return [];
+
+  try {
+    const type = strongsNum[0].toUpperCase();
+
+    if (type === 'G') {
+      return await greekConcordance.getUniqueBooks(strongsNum);
+    } else if (type === 'H') {
+      return await hebrewConcordance.getUniqueBooks(strongsNum);
+    }
+
+    return [];
+  } catch (error) {
+    console.error(`Error getting book distribution for ${strongsNum}:`, error);
+    return [];
+  }
+}
+
+export default {
+  lookupWordStudy,
+  getMorphology,
+  searchLexicon,
+  getUsageExamples,
+  getFrequency,
+  getBookDistribution
+};
