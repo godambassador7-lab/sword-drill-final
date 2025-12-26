@@ -41,7 +41,7 @@ function getCacheKey(book, chapter, verse, verseEnd, translation) {
 }
 
 function formatVersesBlock(arr) {
-  return arr.map(v => `"${v.text}"\nâ€" ${v.reference} (${v.translation})`).join('\n\n');
+  return arr.map(v => `"${v.text}"\n- ${v.reference} (${v.translation})`).join('\n\n');
 }
 
 /**
@@ -396,7 +396,7 @@ export async function answerQuery(userMessage, context = {}) {
   if (routed.type === 'word_study') {
     const entry = lookupWordStudy(query);
     if (entry) {
-      const ans = `Word Study: ${entry.lemma} (${entry.language}) â€" Strong's ${entry.strong}\nMeaning: ${entry.gloss}\nNotes: ${entry.notes}\n\nHint: Ask for passages that use this term to see usage in context.`;
+      const ans = `Word Study: ${entry.lemma} (${entry.language}) - Strong's ${entry.strong}\nMeaning: ${entry.gloss}\nNotes: ${entry.notes}\n\nHint: Ask for passages that use this term to see usage in context.`;
       return { answer: applyNeutrality(ans), citations: [] };
     }
   }
@@ -480,8 +480,8 @@ export async function answerQuery(userMessage, context = {}) {
       if (prefArr.length) primary = prefArr[0];
     }
     let ans = `Passage context for ${key} (concise):`;
-    if (primary) ans += `\n\n"${primary.text}" â€” ${key}`;
-    ans += `\n\nFor full literary context, read the surrounding paragraph in your preferred translation and consider crossâ€‘references.`;
+    if (primary) ans += `\n\n"${primary.text}" - ${key}`;
+    ans += `\n\nFor full literary context, read the surrounding paragraph in your preferred translation and consider cross-references.`;
     const related = getCrossReferences(key);
     if (related.length) ans += `\nRelated passages: ${related.join(', ')}.`;
     return { answer: applyNeutrality(ans), citations: [{ ref: key, translation: primary?.translation || 'Unknown' }] };
@@ -736,9 +736,9 @@ export async function answerQuery(userMessage, context = {}) {
     } else {
       answer += '\n\nHermeneutical advisories:';
     }
-    answer += '\nâ€¢ Situate the pericope within its literary horizon.';
-    answer += '\nâ€¢ Compare renderings across traditions (translation families).';
-    answer += '\nâ€¢ Correlate with canonical cross-references (Scripture interpreting Scripture).';
+    answer += '\n• Situate the pericope within its literary horizon.';
+    answer += '\n• Compare renderings across traditions (translation families).';
+    answer += '\n• Correlate with canonical cross-references (Scripture interpreting Scripture).';
 
     // Append one advanced term definition if available
     const terms = (userMessage || '').split(/[^A-Za-z]+/).filter(w => w && w.length > 6);
@@ -749,7 +749,7 @@ export async function answerQuery(userMessage, context = {}) {
         const head = def.headword || t;
         const pos = def.pos ? ` (${def.pos})` : '';
         const gloss = def.def || def.definition || '';
-        answer += `\n\nTerminology â€” ${head}${pos}: ${gloss}`;
+        answer += `\n\nTerminology - ${head}${pos}: ${gloss}`;
         break;
       }
     }
