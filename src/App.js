@@ -9427,7 +9427,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   <div className="border-t border-slate-700 pt-2">
                     <button
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
-                      className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                      className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3 border-2 border-red-500"
                     >
                       <img src={`${process.env.PUBLIC_URL || ''}/neon sword.png`} alt="Academy" width="24" height="24" className="inline-block" />
                       <div className="flex-1">
