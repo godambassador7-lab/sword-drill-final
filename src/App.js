@@ -8723,7 +8723,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   const BonusQuizzesView = () => (
     <div className="space-y-6 min-h-[70vh] flex flex-col">
       <div className="flex items-center justify-between mb-2 sm:mb-4 sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 py-3 -mx-4 px-4 sm:static sm:py-0 sm:px-0">
-        <h2 className="text-2xl font-bold text-amber-400">Bonus Quizzes</h2>
+        <h2 className="text-lg sm:text-xl font-bold text-amber-400">Bonus Quizzes</h2>
         <button
           onClick={() => setCurrentView('home')}
           className="text-slate-400 hover:text-white transition-colors"
@@ -9792,7 +9792,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                   >
-                    <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="18" height="18" className="inline-block" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="27" height="27" className="inline-block" />
                     <div>
                       <div className="font-semibold text-sm">SHARP Assistant</div>
                       <div className="text-xs text-slate-400">Ask biblical questions</div>
