@@ -20,7 +20,8 @@
       "Bash(./fix_menu.sh:*)",
       "Bash(node fix_course_cost.js:*)",
       "Bash(cat:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(unzip:*)"
     ],
     "deny": [],
     "ask": []
