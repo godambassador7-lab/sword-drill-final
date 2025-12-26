@@ -39,26 +39,26 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl max-w-lg w-full border-2 border-orange-500/50 shadow-2xl animate-pulse-slow">
+    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl max-w-lg w-full border-2 border-orange-500/50 shadow-2xl animate-pulse-slow my-auto">
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange-600 to-red-600 p-6 rounded-t-xl relative">
+        <div className="bg-gradient-to-r from-orange-600 to-red-600 p-4 sm:p-6 rounded-t-xl relative flex-shrink-0">
           <button
             onClick={onDismiss}
-            className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-lg transition-colors"
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 hover:bg-white/20 rounded-lg transition-colors z-10"
           >
             <X size={20} className="text-white" />
           </button>
-          <div className="flex items-center gap-3 justify-center">
-            <Flame size={40} className="text-white" />
+          <div className="flex items-center gap-2 sm:gap-3 justify-center pr-8">
+            <Flame size={32} sm:size={40} className="text-white flex-shrink-0" />
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-white">Streak Lost!</h2>
-              <p className="text-orange-100 text-sm mt-1">Your {userData.lastKnownStreak}-day streak has ended</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-white">Streak Lost!</h2>
+              <p className="text-orange-100 text-xs sm:text-sm mt-1">Your {userData.lastKnownStreak}-day streak has ended</p>
             </div>
           </div>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Timer Warning */}
           <div className="bg-red-600/20 border border-red-500/50 rounded-lg p-4 flex items-start gap-3">
             <Clock size={24} className="text-red-400 flex-shrink-0 mt-0.5" />

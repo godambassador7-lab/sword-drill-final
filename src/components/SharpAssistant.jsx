@@ -1324,7 +1324,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
           </button>
           <div className="flex items-center gap-3">
             <div className="bg-gradient-to-br from-indigo-600 to-purple-600 p-2 rounded-lg">
-              <Sparkles size={24} className="text-white" />
+              <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="24" height="24" className="inline-block" />
             </div>
             <div>
               <h1 className="text-xl font-bold">SHARP Assistant</h1>

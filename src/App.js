@@ -1691,6 +1691,7 @@ const SwordDrillApp = () => {
 
   // Streak Redemption System
   const [showStreakRedemption, setShowStreakRedemption] = useState(false);
+  const [streakRedemptionDismissed, setStreakRedemptionDismissed] = useState(false);
 
   // Monitor for streak loss and show redemption offer
   useEffect(() => {
@@ -1699,8 +1700,8 @@ const SwordDrillApp = () => {
     if (userData.streakLostAt && userData.lastKnownStreak > 0) {
       const elapsed = Date.now() - userData.streakLostAt;
 
-      // Only show if within 24 hours and modal isn't already shown
-      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption) {
+      // Only show if within 24 hours, modal isn't already shown, and user hasn't dismissed it
+      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !streakRedemptionDismissed) {
         // Delay showing the modal slightly to avoid overwhelming the user
         const timer = setTimeout(() => {
           setShowStreakRedemption(true);
@@ -1715,9 +1716,10 @@ const SwordDrillApp = () => {
           streakLostAt: null,
           lastKnownStreak: 0
         }));
+        setStreakRedemptionDismissed(false); // Reset dismissal flag
       }
     }
-  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
+  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption, streakRedemptionDismissed]);
 
   // Manna 24-Hour Expiry System
   useEffect(() => {
@@ -9427,7 +9429,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
                       className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                     >
-                      <GraduationCap size={18} className="text-indigo-400" />
+                      <img src={`${process.env.PUBLIC_URL || ''}/sda menu icon.png`} alt="Academy" width="18" height="18" className="inline-block" />
                       <div className="flex-1">
                         <div className="font-semibold text-sm">Sword Drill Academy</div>
                         <div className="text-xs text-slate-400">Courses & Training</div>
@@ -12231,7 +12233,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <StreakRedemptionOffer
           userData={userData}
           onPurchase={handleStreakRedemption}
-          onDismiss={() => setShowStreakRedemption(false)}
+          onDismiss={() => {
+            setShowStreakRedemption(false);
+            setStreakRedemptionDismissed(true);
+          }}
         />
       )}
 
