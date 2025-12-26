@@ -16,6 +16,7 @@ import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor 
 import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
 import { isApocryphaBook } from './retrieval/apocryphaProvider';
 import { getOTQuotesForNT, getNTQuotesOfOT } from '../data/ntUsesOT';
+import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../data/topicalChains';
 
 /**
  * Main entry point for answering queries
@@ -426,6 +427,23 @@ async function generateTheologyResponse(message, retrieved, context) {
   const citations = [];
   let answer = '';
 
+  // Extract topic keywords to search for relevant topical chains
+  const topicKeywords = message.toLowerCase()
+    .replace(/\b(what|is|the|about|biblical|view|on|of|tell|me|does|bible|say)\b/gi, '')
+    .trim()
+    .split(/\s+/)
+    .filter(w => w.length > 3);
+
+  // Search for relevant topical chains
+  let relevantChain = null;
+  for (const keyword of topicKeywords) {
+    const chains = searchTopicalChains(keyword);
+    if (chains.length > 0) {
+      relevantChain = chains[0]; // Use first match
+      break;
+    }
+  }
+
   // Create concise theological summary
   if (retrieved.definitions && retrieved.definitions.length > 0) {
     const def = retrieved.definitions[0];
@@ -434,6 +452,16 @@ async function generateTheologyResponse(message, retrieved, context) {
     answer += `## ✝️ ${def.headword}\n\n`;
     answer += `${summary}\n\n`;
     citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
+  }
+
+  // Show topical chain if found (before verses section)
+  if (relevantChain) {
+    const chainFormatted = formatTopicalChain(relevantChain.topicId);
+    if (chainFormatted) {
+      answer += chainFormatted;
+      answer += `\n`;
+      citations.push({ type: 'topical_chain', topicId: relevantChain.topicId, title: relevantChain.title });
+    }
   }
 
   // Show top 3 foundational verses concisely
@@ -463,7 +491,7 @@ async function generateTheologyResponse(message, retrieved, context) {
   answer += `\n📚 **Note**: Christians hold varying views on some theological matters. I encourage studying Scripture, consulting church leaders, and seeking wisdom through prayer.\n\n`;
   answer += `💡 Explore Apologetics and Hermeneutics courses for deeper understanding.`;
 
-  return { answer, citations, metadata: { category: 'theology' } };
+  return { answer, citations, metadata: { category: 'theology', topicalChain: relevantChain?.topicId } };
 }
 
 /**
@@ -641,6 +669,17 @@ async function generateVerseResponse(message, retrieved, context) {
         if (p.notes) answer += ` (${p.notes})`;
         answer += `\n`;
         citations.push({ type: 'gospel_parallel', ref: p.reference, event: p.event });
+      });
+      answer += `\n`;
+    }
+
+    // Check if verse is part of any topical chains
+    const topicalChains = findChainsWithReference(verse.reference);
+    if (topicalChains && topicalChains.length > 0) {
+      answer += `**Appears in Teaching Chains**:\n`;
+      topicalChains.slice(0, 2).forEach(chain => {
+        answer += `• **${chain.title}** (#${chain.position}/${chain.totalVerses}): ${chain.connector}\n`;
+        citations.push({ type: 'topical_chain', topicId: chain.topicId, title: chain.title, position: chain.position });
       });
       answer += `\n`;
     }
