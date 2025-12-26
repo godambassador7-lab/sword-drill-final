@@ -93,11 +93,12 @@ function createRetrievalPlan(classification, query) {
     plan.maxLexiconEntries = 2;
   }
 
-  // Language questions -> Lexicon primary
+  // Language questions -> Lexicon primary with concordance
   if (subcategory === 'language' || category === 'scripture' && query.match(/greek|hebrew|original|word/i)) {
     plan.needsLexicon = true;
-    plan.maxLexiconEntries = 3;
-    plan.maxVerses = 4; // Usage examples
+    plan.maxLexiconEntries = 1; // Focus on single primary word
+    plan.maxVerses = 8; // More usage examples from concordance
+    plan.includeConcordance = true; // Use concordance for frequency/examples
   }
 
   // Interpretation questions -> Full context
