@@ -15,15 +15,15 @@ import { getInterlinearByReference, formatInterlinear } from './retrieval/interl
 import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
 import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
 import { isApocryphaBook } from './retrieval/apocryphaProvider';
-import { getOTQuotesForNT, getNTQuotesOfOT } from '../data/ntUsesOT';
-import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../data/topicalChains';
+import { getOTQuotesForNT, getNTQuotesOfOT } from '../../data/ntUsesOT';
+import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../../data/topicalChains';
 import { createCitation, enforceCitationDiscipline } from './citationEnforcer';
 import { detectAmbiguity, formatDisambiguationPrompt, getResolvedNote } from './disambiguator';
 import { detectHotTopic, applyNeutralityGuard } from './neutralityGuard';
-import { findOutlineForVerse, formatPassageOutline } from '../data/passageOutlines';
+import { findOutlineForVerse, formatPassageOutline } from '../../data/passageOutlines';
 import { governVerseRange, quoteDecision, applyQuoteGovernor } from './quoteGovernor';
-import { getStudyPlan, formatStudyPlan } from '../data/studyPlans';
-import { findIdiomsInText, formatIdiom } from '../data/idioms';
+import { getStudyPlan, formatStudyPlan } from '../../data/studyPlans';
+import { findIdiomsInText, formatIdiom } from '../../data/idioms';
 
 /**
  * Main entry point for answering queries
