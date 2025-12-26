@@ -4838,6 +4838,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   </div>
             <div className="text-slate-400 text-xs sm:text-sm mt-1">Name the verse reference</div>
           </button>
+
+          {/* Special Quizzes Section */}
+          <h2 className="text-xl sm:text-2xl font-bold text-amber-400 mt-6 mb-3">Special Quizzes</h2>
+
           <button
             onClick={() => startQuiz('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
@@ -9788,7 +9792,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                   >
-                    <Sparkles size={18} className="text-indigo-400" />
+                    <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="18" height="18" className="inline-block" />
                     <div>
                       <div className="font-semibold text-sm">SHARP Assistant</div>
                       <div className="text-xs text-slate-400">Ask biblical questions</div>
