@@ -4,6 +4,7 @@
  */
 
 import { THEMATIC_CROSS_REFS, TOPIC_SYNONYMS } from '../../data/thematicCrossRefs.js';
+import { GOSPEL_HARMONY, GOSPEL_UNIQUE_CONTENT } from '../../data/gospelHarmony.js';
 
 // Hardcoded high-value cross-references (always available immediately)
 const CORE_CROSS_REFS = {
@@ -303,9 +304,95 @@ export function getAvailableTopics() {
   }));
 }
 
+/**
+ * Get Gospel parallels for a passage
+ * @param {string} reference - Verse reference (e.g., "Matthew 5:1")
+ * @returns {Array} Parallel passages in other Gospels
+ */
+export function getGospelParallels(reference) {
+  if (!reference) return [];
+
+  // Extract book name from reference
+  const bookMatch = reference.match(/^(Matthew|Mark|Luke|John)/i);
+  if (!bookMatch) return [];
+
+  const book = bookMatch[1];
+  const bookLower = book.toLowerCase();
+
+  // Find matching events in harmony
+  const parallels = [];
+
+  for (const event of GOSPEL_HARMONY) {
+    // Check if this event includes the requested book
+    if (event[bookLower]) {
+      // Check if the reference might match this event's passage
+      // (This is a simplified check - could be enhanced with precise verse matching)
+      if (event[bookLower].includes(reference) || reference.includes(event[bookLower].split('-')[0])) {
+        // Add parallels from other Gospels
+        const otherGospels = ['matthew', 'mark', 'luke', 'john'].filter(g => g !== bookLower);
+
+        for (const gospel of otherGospels) {
+          if (event[gospel]) {
+            parallels.push({
+              event: event.event,
+              reference: event[gospel],
+              gospel: gospel.charAt(0).toUpperCase() + gospel.slice(1),
+              category: event.category,
+              notes: event.notes || null
+            });
+          }
+        }
+
+        // If we found matches, return them
+        if (parallels.length > 0) {
+          return parallels;
+        }
+      }
+    }
+  }
+
+  return parallels;
+}
+
+/**
+ * Get synoptic parallels (Matthew, Mark, Luke similarities)
+ * @param {string} reference - Verse reference
+ * @returns {Object|null} Synoptic parallel information
+ */
+export function getSynopticParallels(reference) {
+  const parallels = getGospelParallels(reference);
+
+  if (parallels.length === 0) return null;
+
+  const synoptic = parallels.filter(p =>
+    ['Matthew', 'Mark', 'Luke'].includes(p.gospel)
+  );
+
+  if (synoptic.length === 0) return null;
+
+  return {
+    reference,
+    parallels: synoptic,
+    note: 'Synoptic Gospels (Matthew, Mark, Luke) share similar perspectives on Jesus\' life and ministry'
+  };
+}
+
+/**
+ * Get unique content for a Gospel
+ * @param {string} gospel - Gospel name (Matthew, Mark, Luke, John)
+ * @returns {Array|null} List of unique content
+ */
+export function getGospelUniqueContent(gospel) {
+  const key = gospel.toLowerCase();
+  return GOSPEL_UNIQUE_CONTENT[key] || null;
+}
+
 export default {
   getCrossReferences,
   getCrossReferencesWithMetadata,
   searchCrossRefsByTopic,
-  getAvailableTopics
+  getAvailableTopics,
+  getGospelParallels,
+  getSynopticParallels,
+  getGospelUniqueContent
 };
