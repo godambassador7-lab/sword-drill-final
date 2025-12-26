@@ -365,6 +365,53 @@ export async function getMorphology(strongsNumber, morphCode = null) {
 }
 
 /**
+ * Get participle explanation based on language and features
+ * @param {Object} analysis - Morphological analysis
+ * @returns {string|null} Participle explanation
+ */
+function getParticipleExplanation(analysis) {
+  if (!analysis || analysis.mood !== 'Participle') return null;
+
+  const explanations = {
+    greek: {
+      Present: {
+        Active: 'Ongoing action, "while doing" (continuous)',
+        Middle: 'Ongoing action affecting oneself, "while doing for oneself"',
+        Passive: 'Ongoing action being received, "while being done to"'
+      },
+      Aorist: {
+        Active: 'Completed action, "having done" (point in time)',
+        Middle: 'Completed action for oneself, "having done for oneself"',
+        Passive: 'Completed action received, "having been done to"'
+      },
+      Perfect: {
+        Active: 'Completed with ongoing results, "having done and still affecting"',
+        Middle: 'Completed for oneself with ongoing results',
+        Passive: 'Completed state, "having been done to and remaining in that state"'
+      }
+    },
+    hebrew: {
+      Active: 'Describes ongoing or characteristic action (like an adjective)',
+      Passive: 'Describes state of being acted upon'
+    }
+  };
+
+  if (analysis.language === 'Greek' && analysis.tense && analysis.voice) {
+    const explanation = explanations.greek[analysis.tense]?.[analysis.voice];
+    if (explanation) {
+      return `**Participle Function**: ${explanation}`;
+    }
+  }
+
+  if (analysis.language === 'Hebrew' && analysis.tense) {
+    const type = analysis.tense.includes('Active') ? 'Active' : 'Passive';
+    return `**Participle Function**: ${explanations.hebrew[type]}`;
+  }
+
+  return '**Participle**: Functions as verbal adjective, describing action';
+}
+
+/**
  * Format morphology for display
  * @param {Object} morphology - Morphology object from getMorphology
  * @returns {string} Human-readable morphology description
@@ -385,6 +432,41 @@ export function formatMorphology(morphology) {
     analysis.details.forEach(detail => {
       parts.push(`• ${detail}`);
     });
+  }
+
+  // Add participle explanation if applicable
+  const participleExplanation = getParticipleExplanation(analysis);
+  if (participleExplanation) {
+    parts.push('');
+    parts.push(participleExplanation);
+  }
+
+  // Add grammatical notes for complex constructions
+  if (analysis.language === 'Greek') {
+    if (analysis.mood === 'Subjunctive') {
+      parts.push('');
+      parts.push('**Note**: Subjunctive mood expresses possibility, purpose, or contingency');
+    }
+    if (analysis.mood === 'Imperative') {
+      parts.push('');
+      parts.push('**Note**: Imperative mood expresses command or exhortation');
+    }
+    if (analysis.tense === 'Perfect' && analysis.mood === 'Indicative') {
+      parts.push('');
+      parts.push('**Note**: Perfect tense emphasizes completed action with ongoing results');
+    }
+  }
+
+  if (analysis.language === 'Hebrew') {
+    if (analysis.stem && ['Piel', 'Hiphil'].includes(analysis.stem)) {
+      parts.push('');
+      if (analysis.stem === 'Piel') {
+        parts.push('**Note**: Piel stem often intensifies or makes factitive (causing state)');
+      }
+      if (analysis.stem === 'Hiphil') {
+        parts.push('**Note**: Hiphil stem indicates causative action (causing someone to do)');
+      }
+    }
   }
 
   if (analysis.note) {
