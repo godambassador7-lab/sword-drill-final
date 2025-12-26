@@ -596,10 +596,21 @@ async function generateVerseResponse(message, retrieved, context) {
     answer += `> ${verse.text}\n\n`;
     citations.push({ type: 'verse', ref: verse.reference });
 
+    // Add book context and section information
+    const bookContext = getBookContext(verse.book);
+    if (bookContext) {
+      const section = getPassageSection(verse.book, verse.chapter);
+      if (section) {
+        answer += `\n**Context**: This verse is in the "${section.section}" section (${section.verses})\n`;
+        answer += `${section.description}\n\n`;
+        citations.push({ type: 'book_section', book: verse.book, section: section.section });
+      }
+    }
+
     // Check for Gospel parallels (synoptic accounts)
     const parallels = getGospelParallels(verse.reference);
     if (parallels && parallels.length > 0) {
-      answer += `\n**Gospel Parallels**:\n`;
+      answer += `**Gospel Parallels**:\n`;
       parallels.forEach(p => {
         answer += `• **${p.gospel}**: ${p.reference}`;
         if (p.notes) answer += ` (${p.notes})`;
@@ -621,7 +632,7 @@ async function generateVerseResponse(message, retrieved, context) {
     answer += `💡 **Study**: Use Strong's Concordance for word study, read context in Bible Reader, explore Hermeneutics for interpretation.`;
   }
 
-  return { answer, citations, metadata: { category: 'verse' } };
+  return { answer, citations, metadata: { category: 'verse', book: retrieved.verses[0]?.book } };
 }
 
 /**
