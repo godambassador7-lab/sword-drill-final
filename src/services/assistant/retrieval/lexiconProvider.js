@@ -3,6 +3,13 @@
  * Provides Greek and Hebrew word study data from Strong's Concordance
  */
 
+// Import Strong's dictionaries
+import GREEK_LEXICON from '../../../data/strongs-master/strongs-master/greek/strongs-greek-dictionary.js';
+import HEBREW_LEXICON from '../../../data/strongs-master/strongs-master/hebrew/strongs-hebrew-dictionary.js';
+
+// Combine dictionaries for unified lookup
+const FULL_LEXICON = { ...GREEK_LEXICON, ...HEBREW_LEXICON };
+
 /**
  * Lookup word study data for a term
  * @param {string} term - English word, Greek word, Hebrew word, or Strong's number
@@ -20,6 +27,10 @@ export async function lookupWordStudy(term) {
       return await getStrongsEntry(type, number);
     }
 
+    // Try searching by original language (Greek/Hebrew text)
+    const originalMatch = await searchByOriginalLanguage(term);
+    if (originalMatch) return originalMatch;
+
     // Otherwise, try to find by English word
     return await searchByEnglishWord(term);
   } catch (error) {
@@ -36,21 +47,23 @@ export async function lookupWordStudy(term) {
  */
 async function getStrongsEntry(type, number) {
   try {
-    // Load the appropriate dictionary
-    const dictPath = type === 'G'
-      ? '/data/strongs-master/strongs-master/greek/strongs-greek-dictionary.js'
-      : '/data/strongs-master/strongs-master/hebrew/strongs-hebrew-dictionary.js';
+    const key = `${type}${number}`;
+    const entry = FULL_LEXICON[key];
 
-    // This is a placeholder - in real implementation, you would load from your data source
-    // For now, return a structured placeholder
+    if (!entry) {
+      console.warn(`Strong's entry not found: ${key}`);
+      return null;
+    }
+
+    // Standardize the response format
     return {
-      strongs: `${type}${number}`,
-      word: `[${type === 'G' ? 'Greek' : 'Hebrew'} word for ${type}${number}]`,
-      transliteration: `[Transliteration]`,
-      pronunciation: `[Pronunciation]`,
-      definition: `[Definition from Strong's ${type}${number}]`,
-      kjvUsage: `[KJV translation usage]`,
-      derivation: `[Etymology and derivation]`,
+      strongs: key,
+      word: entry.lemma || entry.word || '',
+      transliteration: entry.translit || entry.xlit || entry.transliteration || '',
+      pronunciation: entry.pron || entry.pronunciation || '',
+      definition: entry.strongs_def || entry.definition || '',
+      kjvUsage: entry.kjv_def || entry.kjvUsage || '',
+      derivation: entry.derivation || '',
       language: type === 'G' ? 'Greek' : 'Hebrew'
     };
   } catch (error) {
@@ -65,24 +78,45 @@ async function getStrongsEntry(type, number) {
  * @returns {Promise<Object|null>} Lexicon entry
  */
 async function searchByEnglishWord(word) {
-  // Common biblical words mapping (placeholder)
-  const commonWords = {
-    love: { strongs: 'G26', word: 'ἀγάπη', transliteration: 'agapē', definition: 'love, affection, benevolence', language: 'Greek' },
-    faith: { strongs: 'G4102', word: 'πίστις', transliteration: 'pistis', definition: 'faith, belief, trust', language: 'Greek' },
-    grace: { strongs: 'G5485', word: 'χάρις', transliteration: 'charis', definition: 'grace, favor, thanks', language: 'Greek' },
-    righteousness: { strongs: 'G1343', word: 'δικαιοσύνη', transliteration: 'dikaiosynē', definition: 'righteousness, justice', language: 'Greek' },
-    salvation: { strongs: 'G4991', word: 'σωτηρία', transliteration: 'sōtēria', definition: 'salvation, deliverance', language: 'Greek' },
-    lord: { strongs: 'H3068', word: 'יְהוָה', transliteration: 'YHWH', definition: 'the proper name of God', language: 'Hebrew' },
-    covenant: { strongs: 'H1285', word: 'בְּרִית', transliteration: 'berith', definition: 'covenant, compact, agreement', language: 'Hebrew' }
-  };
-
   const normalized = word.toLowerCase().trim();
-  if (commonWords[normalized]) {
-    return {
-      ...commonWords[normalized],
-      kjvUsage: `[KJV usage for "${word}"]`,
-      pronunciation: `[Pronunciation]`
-    };
+
+  // Search through all KJV definitions
+  for (const [strongsNum, entry] of Object.entries(FULL_LEXICON)) {
+    const kjvDef = (entry.kjv_def || '').toLowerCase();
+    const strongsDef = (entry.strongs_def || '').toLowerCase();
+
+    // Check for exact word match in KJV definition
+    const words = kjvDef.split(/[,\s]+/);
+    if (words.includes(normalized)) {
+      return getStrongsEntry(strongsNum[0], strongsNum.substring(1));
+    }
+
+    // Check if word appears in definition
+    if (kjvDef.includes(normalized) || strongsDef.includes(normalized)) {
+      return getStrongsEntry(strongsNum[0], strongsNum.substring(1));
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Search for lexicon entries by original language (Greek/Hebrew text)
+ * @param {string} term - Greek or Hebrew word
+ * @returns {Promise<Object|null>} Lexicon entry
+ */
+async function searchByOriginalLanguage(term) {
+  const normalized = term.trim();
+
+  // Search through lemmas and transliterations
+  for (const [strongsNum, entry] of Object.entries(FULL_LEXICON)) {
+    const lemma = entry.lemma || entry.word || '';
+    const translit = entry.translit || entry.xlit || '';
+
+    // Check for match in lemma or transliteration
+    if (lemma === normalized || translit.toLowerCase() === normalized.toLowerCase()) {
+      return getStrongsEntry(strongsNum[0], strongsNum.substring(1));
+    }
   }
 
   return null;
