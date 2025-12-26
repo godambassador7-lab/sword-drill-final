@@ -177,10 +177,10 @@ async function generateWhoResponse(message, retrieved, context) {
     citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
   }
 
-  // ALWAYS show verses for "who" questions about people/entities
-  if (retrieved.verses && retrieved.verses.length > 0) {
-    answer += `## 📖 Key Passages\n\n`;
+  // ALWAYS show Key Passages section
+  answer += `## 📖 Key Passages\n\n`;
 
+  if (retrieved.verses && retrieved.verses.length > 0) {
     // Show top 3-5 most relevant verses mentioning this person/entity
     retrieved.verses.slice(0, 5).forEach(verse => {
       const snippet = truncateText(verse.text, 100);
@@ -188,9 +188,9 @@ async function generateWhoResponse(message, retrieved, context) {
       citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
     });
   } else if (person) {
-    // If no verses found, provide helpful message
-    answer += `## 📖 Biblical References\n\n`;
-    answer += `Search for "${person}" in Bible Reader to find all mentions in Scripture.\n\n`;
+    // If no verses found in limited pool, provide book reference and search tip
+    answer += `For comprehensive study of ${person}, explore the Book of ${person} in Bible Reader.\n\n`;
+    answer += `💡 Use Bible Reader's search feature to find all mentions of "${person}" throughout Scripture.\n\n`;
   }
 
   if (!answer) {
