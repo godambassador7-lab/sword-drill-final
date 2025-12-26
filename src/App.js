@@ -9429,7 +9429,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
                       className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
                     >
-                      <img src={`${process.env.PUBLIC_URL || ''}/sda menu icon.png`} alt="Academy" width="18" height="18" className="inline-block" />
+                      <img src={`${process.env.PUBLIC_URL || ''}/neon sword.png`} alt="Academy" width="18" height="18" className="inline-block" />
                       <div className="flex-1">
                         <div className="font-semibold text-sm">Sword Drill Academy</div>
                         <div className="text-xs text-slate-400">Courses & Training</div>

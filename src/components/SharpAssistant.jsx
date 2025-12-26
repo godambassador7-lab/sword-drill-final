@@ -1401,7 +1401,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
       </div>
 
       {/* Input Area */}
-      <div className="bg-slate-900/50 border-t-2 border-indigo-500/50 p-4 flex-shrink-0">
+      <div className="bg-slate-900/50 border-t-2 border-indigo-500/50 p-4 flex-shrink-0 sticky bottom-0 z-20">
         <form onSubmit={handleSubmit} className="flex gap-2">
           <input
             ref={inputRef}
