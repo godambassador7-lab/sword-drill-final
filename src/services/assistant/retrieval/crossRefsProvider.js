@@ -3,8 +3,8 @@
  * Provides comprehensive cross-references from OpenGNT and curated sources
  */
 
-import { THEMATIC_CROSS_REFS, TOPIC_SYNONYMS } from '../../data/thematicCrossRefs.js';
-import { GOSPEL_HARMONY, GOSPEL_UNIQUE_CONTENT } from '../../data/gospelHarmony.js';
+import { THEMATIC_CROSS_REFS, TOPIC_SYNONYMS } from '../../data/thematicCrossRefs';
+import { GOSPEL_HARMONY, GOSPEL_UNIQUE_CONTENT } from '../../data/gospelHarmony';
 
 // Hardcoded high-value cross-references (always available immediately)
 const CORE_CROSS_REFS = {

@@ -3,7 +3,7 @@
  * Provides book context, authorship, dating, historical background
  */
 
-import { BIBLICAL_CONTEXT } from '../../../data/biblicalContext.js';
+import { BIBLICAL_CONTEXT } from '../../../data/biblicalContext';
 
 /**
  * Get complete context for a Bible book

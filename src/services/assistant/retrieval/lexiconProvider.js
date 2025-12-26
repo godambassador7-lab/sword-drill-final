@@ -4,15 +4,15 @@
  */
 
 // Import Strong's dictionaries
-import GREEK_LEXICON from '../../../data/strongs-master/strongs-master/greek/strongs-greek-dictionary.js';
-import HEBREW_LEXICON from '../../../data/strongs-master/strongs-master/hebrew/strongs-hebrew-dictionary.js';
+import GREEK_LEXICON from '../../../data/strongs-master/strongs-master/greek/strongs-greek-dictionary';
+import HEBREW_LEXICON from '../../../data/strongs-master/strongs-master/hebrew/strongs-hebrew-dictionary';
 
 // Import concordance services
-import * as greekConcordance from '../../greekConcordance.js';
-import * as hebrewConcordance from '../../hebrewConcordance.js';
+import * as greekConcordance from '../../greekConcordance';
+import * as hebrewConcordance from '../../hebrewConcordance';
 
 // Import morphology provider
-import * as morphologyProvider from './morphologyProvider.js';
+import * as morphologyProvider from './morphologyProvider';
 
 // Combine dictionaries for unified lookup
 const FULL_LEXICON = { ...GREEK_LEXICON, ...HEBREW_LEXICON };
