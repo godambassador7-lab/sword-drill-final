@@ -11,6 +11,7 @@ import { lookupDefinition } from './dictionaryProvider';
 import { getUsageExamples, getFrequency, getBookDistribution } from './retrieval/lexiconProvider';
 import { formatMorphology } from './retrieval/morphologyProvider';
 import { compareTranslations, parseReference } from './retrieval/translationProvider';
+import { getInterlinearByReference, formatInterlinear } from './retrieval/interlinearProvider';
 
 /**
  * Main entry point for answering queries
@@ -126,6 +127,10 @@ async function generateResponse(message, classification, retrievedContext, conte
   }
 
   if (subcategory === 'language' || message.match(/greek|hebrew|original|word/i)) {
+    // Check if interlinear display is requested
+    if (message.match(/interlinear|word[- ]by[- ]word|original.*text/i)) {
+      return await generateInterlinearResponse(message, retrievedContext, context);
+    }
     return await generateLanguageResponse(message, retrievedContext, context);
   }
 
@@ -734,6 +739,71 @@ async function generateCompareTranslationsResponse(message, retrieved, context) 
   answer += `💡 Different translations help reveal nuances in the original Greek and Hebrew texts.`;
 
   return { answer, citations, metadata: { category: 'compare_translations', reference } };
+}
+
+/**
+ * Generate response for interlinear display questions
+ */
+async function generateInterlinearResponse(message, retrieved, context) {
+  const citations = [];
+  let answer = '';
+
+  // Extract verse reference from the question
+  const refMatch = message.match(/\b([1-3]?\s?[A-Za-z]+)\s+(\d+):(\d+)/);
+  let reference = null;
+
+  if (refMatch) {
+    const [, book, chapter, verse] = refMatch;
+    reference = `${book.trim()} ${chapter}:${verse}`;
+  } else if (retrieved.verses && retrieved.verses.length > 0) {
+    // Try to use first verse from retrieval
+    reference = retrieved.verses[0].reference;
+  }
+
+  if (!reference) {
+    return {
+      answer: "Please specify a verse reference for interlinear display (e.g., 'Show me John 3:16 interlinear').",
+      citations: [],
+      metadata: { category: 'interlinear', needsClarification: true }
+    };
+  }
+
+  // Get interlinear data
+  const interlinear = await getInterlinearByReference(reference);
+
+  if (!interlinear) {
+    return {
+      answer: `Interlinear data for ${reference} is not currently available. Interlinear text is available for most books of the Bible.`,
+      citations: [],
+      metadata: { category: 'interlinear', reference }
+    };
+  }
+
+  // Build response using formatted interlinear
+  answer = formatInterlinear(interlinear);
+
+  // Add helpful context
+  answer += `\n\n---\n\n`;
+  answer += `**Legend**:\n`;
+  answer += `• **Top row**: Original ${interlinear.language} text\n`;
+  answer += `• **Middle row**: English translation\n`;
+  answer += `• **Bottom row**: Strong's concordance numbers\n\n`;
+  answer += `💡 Use Strong's numbers to look up detailed word studies and see every occurrence in Scripture.`;
+
+  // Add citations for each word with Strong's number
+  interlinear.words.forEach(word => {
+    if (word.strongs) {
+      citations.push({
+        type: 'interlinear',
+        ref: reference,
+        strongsNumber: word.strongs,
+        original: word.original,
+        english: word.english
+      });
+    }
+  });
+
+  return { answer, citations, metadata: { category: 'interlinear', reference, language: interlinear.language } };
 }
 
 /**
