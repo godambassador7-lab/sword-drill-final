@@ -11,7 +11,7 @@ import { lookupDefinition } from './dictionaryProvider';
 import { getUsageExamples, getFrequency, getBookDistribution } from './retrieval/lexiconProvider';
 import { formatMorphology } from './retrieval/morphologyProvider';
 import { compareTranslations, parseReference } from './retrieval/translationProvider';
-import { getInterlinearByReference, formatInterlinear } from './interlinearProvider';
+import { getInterlinearByReference, formatInterlinear } from './retrieval/interlinearProvider';
 import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
 import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
 import { isApocryphaBook } from './retrieval/apocryphaProvider';
