@@ -11,6 +11,9 @@ import HEBREW_LEXICON from '../../../data/strongs-master/strongs-master/hebrew/s
 import * as greekConcordance from '../../greekConcordance.js';
 import * as hebrewConcordance from '../../hebrewConcordance.js';
 
+// Import morphology provider
+import * as morphologyProvider from './morphologyProvider.js';
+
 // Combine dictionaries for unified lookup
 const FULL_LEXICON = { ...GREEK_LEXICON, ...HEBREW_LEXICON };
 
@@ -129,16 +132,11 @@ async function searchByOriginalLanguage(term) {
 /**
  * Get morphological analysis for a word
  * @param {string} strongsNumber - Strong's number (e.g., "G26")
- * @param {string} morphology - Morphology code
+ * @param {string} morphCode - Optional morphology code
  * @returns {Promise<Object|null>} Morphological data
  */
-export async function getMorphology(strongsNumber, morphology) {
-  // Placeholder for morphological analysis
-  return {
-    strongs: strongsNumber,
-    code: morphology,
-    analysis: '[Morphological parsing would go here]'
-  };
+export async function getMorphology(strongsNumber, morphCode) {
+  return await morphologyProvider.getMorphology(strongsNumber, morphCode);
 }
 
 /**
