@@ -18,6 +18,12 @@ import { isApocryphaBook } from './retrieval/apocryphaProvider';
 import { getOTQuotesForNT, getNTQuotesOfOT } from '../data/ntUsesOT';
 import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../data/topicalChains';
 import { createCitation, enforceCitationDiscipline } from './citationEnforcer';
+import { detectAmbiguity, formatDisambiguationPrompt, getResolvedNote } from './disambiguator';
+import { detectHotTopic, applyNeutralityGuard } from './neutralityGuard';
+import { findOutlineForVerse, formatPassageOutline } from '../data/passageOutlines';
+import { governVerseRange, quoteDecision, applyQuoteGovernor } from './quoteGovernor';
+import { getStudyPlan, formatStudyPlan } from '../data/studyPlans';
+import { findIdiomsInText, formatIdiom } from '../data/idioms';
 
 /**
  * Main entry point for answering queries
@@ -26,12 +32,30 @@ import { createCitation, enforceCitationDiscipline } from './citationEnforcer';
  * @returns {Promise<Object>} Response with answer and citations
  */
 export async function answerQuery(userMessage, context = {}) {
+  // Step 0: Check for ambiguity in names/places
+  const ambiguity = detectAmbiguity(userMessage);
+  if (ambiguity && ambiguity.ambiguous) {
+    return {
+      answer: formatDisambiguationPrompt(ambiguity),
+      citations: [],
+      metadata: {
+        needsClarification: true,
+        ambiguity,
+        disambiguationType: ambiguity.type,
+        term: ambiguity.term
+      }
+    };
+  }
+
   // Step 1: Analyze and classify the question
   const analysis = analyzeQuestion(userMessage);
   const classification = classifyQuestion(userMessage);
 
   console.log('Question analysis:', analysis);
   console.log('Question classification:', classification);
+  if (ambiguity && !ambiguity.ambiguous) {
+    console.log('Ambiguity resolved:', ambiguity.resolved, '-', ambiguity.option?.name);
+  }
 
   // Handle questions that need clarification
   if (classification.needsClarification || !analysis.canAnswer) {
@@ -59,14 +83,38 @@ export async function answerQuery(userMessage, context = {}) {
   });
 
   // Step 4: Generate response based on question type and retrieved context
-  const response = await generateResponse(
+  let response = await generateResponse(
     userMessage,
     classification,
     retrievedContext,
-    context
+    context,
+    ambiguity  // Pass ambiguity info to response generator
   );
 
-  // Step 5: Enforce citation discipline
+  // Step 5: Check for hot topics and apply neutrality guard
+  const hotTopic = detectHotTopic(userMessage);
+  if (hotTopic) {
+    response.answer = applyNeutralityGuard(response.answer, hotTopic);
+    if (!response.metadata) response.metadata = {};
+    response.metadata.hotTopic = hotTopic.topicId;
+    console.log('[Neutrality Guard] Applied for topic:', hotTopic.title);
+  }
+
+  // Step 6: Add resolved ambiguity note if applicable
+  if (ambiguity && !ambiguity.ambiguous && ambiguity.option) {
+    const resolvedNote = getResolvedNote(ambiguity);
+    if (resolvedNote) {
+      response.answer = resolvedNote + response.answer;
+      if (!response.metadata) response.metadata = {};
+      response.metadata.resolvedAmbiguity = {
+        term: ambiguity.term,
+        resolved: ambiguity.resolved,
+        option: ambiguity.option.name
+      };
+    }
+  }
+
+  // Step 7: Enforce citation discipline
   const enforcedResponse = enforceCitationDiscipline(response, {
     validateCitationsEnabled: true,
     appendCitationsSection: false, // Don't append to avoid duplication with UI display
@@ -142,12 +190,12 @@ async function getExpandedInfo(topic, context) {
 /**
  * Generate response based on question type and retrieved context
  */
-async function generateResponse(message, classification, retrievedContext, context) {
+async function generateResponse(message, classification, retrievedContext, context, ambiguity = null) {
   const { category, subcategory } = classification;
 
   // Route to appropriate response generator
   if (subcategory === 'who') {
-    return await generateWhoResponse(message, retrievedContext, context);
+    return await generateWhoResponse(message, retrievedContext, context, ambiguity);
   }
 
   if (subcategory === 'what_definition' || subcategory === 'define') {
@@ -684,6 +732,30 @@ async function generateVerseResponse(message, retrieved, context) {
             rationale: `Structural outline showing ${verse.reference} falls within ${section.section}`
           }));
         }
+      }
+
+      // Check for passage outline (literary structure)
+      const passageOutline = findOutlineForVerse(verse.book, verse.chapter, verse.verse);
+      if (passageOutline) {
+        answer += `\n**Literary Structure**: This verse is part of "${passageOutline.title}"\n`;
+        answer += `- **Intro**: ${passageOutline.structure.intro}\n`;
+        answer += `- **Climax**: ${passageOutline.structure.climax}\n`;
+        answer += `- **Resolution**: ${passageOutline.structure.resolution}\n\n`;
+        citations.push(createCitation({
+          type: 'passage_outline',
+          ref: passageOutline.reference,
+          rationale: `Literary structure showing narrative flow of ${passageOutline.title}`
+        }));
+      }
+
+      // Detect biblical idioms in verse text
+      const idioms = findIdiomsInText(verse.text);
+      if (idioms && idioms.length > 0) {
+        answer += `**Idiomatic Expressions**:\n`;
+        idioms.slice(0, 2).forEach(idiom => {
+          answer += `• "${idiom.phrase}" (${idiom.language}) - ${idiom.meaning}\n`;
+        });
+        answer += `\n`;
       }
     }
 
