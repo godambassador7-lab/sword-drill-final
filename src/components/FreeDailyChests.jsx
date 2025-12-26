@@ -85,6 +85,13 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
     return dailyChestsData.opened?.includes(chestId) || false;
   };
 
+  // Check if Morning Blessing is available (before 3pm)
+  const isMorningBlessingAvailable = () => {
+    const now = new Date();
+    const currentHour = now.getHours();
+    return currentHour < 15; // Before 15:00 = before 3pm
+  };
+
   // Check if Evening Grace is available (3pm or later)
   const isEveningGraceAvailable = () => {
     const now = new Date();
@@ -95,6 +102,16 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
   // Open chest
   const openChest = (chest) => {
     if (isChestOpened(chest.id) || opening) return;
+
+    // Check if Morning Blessing chest and time restriction
+    if (chest.id === 'daily-chest-1' && !isMorningBlessingAvailable()) {
+      if (showToast) {
+        showToast('🌅 Morning Blessing is only available before 3:00 PM', 'info');
+      } else {
+        alert('Morning Blessing is only available before 3:00 PM');
+      }
+      return;
+    }
 
     // Check if Evening Grace chest and time restriction
     if (chest.id === 'daily-chest-2' && !isEveningGraceAvailable()) {
@@ -200,8 +217,10 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
         {DAILY_CHESTS.map(chest => {
           const opened = isChestOpened(chest.id);
           const isOpening = opening === chest.id;
+          const isMorningChest = chest.id === 'daily-chest-1';
           const isEveningChest = chest.id === 'daily-chest-2';
-          const isLocked = isEveningChest && !isEveningGraceAvailable();
+          const isLocked = (isMorningChest && !isMorningBlessingAvailable()) ||
+                          (isEveningChest && !isEveningGraceAvailable());
 
           return (
             <div
@@ -253,7 +272,7 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
               ) : isLocked ? (
                 <div className="mt-4 text-center text-white font-bold flex items-center justify-center gap-2">
                   <Clock size={16} />
-                  <span>Available at 3pm</span>
+                  <span>{isMorningChest ? 'Ends at 3pm' : 'Available at 3pm'}</span>
                 </div>
               ) : (
                 <div className="mt-4 text-center text-white font-bold animate-pulse">
