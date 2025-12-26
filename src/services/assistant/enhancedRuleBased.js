@@ -17,6 +17,7 @@ import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from
 import { isApocryphaBook } from './retrieval/apocryphaProvider';
 import { getOTQuotesForNT, getNTQuotesOfOT } from '../data/ntUsesOT';
 import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../data/topicalChains';
+import { createCitation, enforceCitationDiscipline } from './citationEnforcer';
 
 /**
  * Main entry point for answering queries
@@ -65,7 +66,29 @@ export async function answerQuery(userMessage, context = {}) {
     context
   );
 
-  return response;
+  // Step 5: Enforce citation discipline
+  const enforcedResponse = enforceCitationDiscipline(response, {
+    validateCitationsEnabled: true,
+    appendCitationsSection: false, // Don't append to avoid duplication with UI display
+    showRationale: false,
+    throwOnValidationFailure: false // Log warnings but don't fail
+  });
+
+  // Log citation validation for monitoring
+  if (enforcedResponse.citationValidation) {
+    const { valid, issues, warnings, stats } = enforcedResponse.citationValidation;
+    if (!valid || warnings.length > 0) {
+      console.warn('[Citation Discipline]', {
+        valid,
+        issues,
+        warnings,
+        stats,
+        query: userMessage.substring(0, 50)
+      });
+    }
+  }
+
+  return enforcedResponse;
 }
 
 /**
@@ -634,7 +657,17 @@ async function generateVerseResponse(message, retrieved, context) {
       answer += `> ${verse.text}\n\n`;
     }
 
-    citations.push({ type: 'verse', ref: verse.reference, isApocrypha });
+    citations.push(createCitation({
+      type: 'verse',
+      ref: verse.reference,
+      book: verse.book,
+      chapter: verse.chapter,
+      verse: verse.verse,
+      isApocrypha,
+      rationale: isApocrypha
+        ? `Deuterocanonical text from ${verse.book}`
+        : `Primary biblical text citation`
+    }));
 
     // Add book context and section information (only for canonical books)
     if (!isApocrypha) {
@@ -644,7 +677,12 @@ async function generateVerseResponse(message, retrieved, context) {
         if (section) {
           answer += `\n**Context**: This verse is in the "${section.section}" section (${section.verses})\n`;
           answer += `${section.description}\n\n`;
-          citations.push({ type: 'book_section', book: verse.book, section: section.section });
+          citations.push(createCitation({
+            type: 'book_section',
+            book: verse.book,
+            section: section.section,
+            rationale: `Structural outline showing ${verse.reference} falls within ${section.section}`
+          }));
         }
       }
     }
@@ -655,7 +693,13 @@ async function generateVerseResponse(message, retrieved, context) {
       answer += `**OT Echoes** (${otQuotes[0].type}):\n`;
       otQuotes.slice(0, 3).forEach(q => {
         answer += `• **${q.ot}** - ${q.context}\n`;
-        citations.push({ type: 'ot_quote', ntRef: q.nt, otRef: q.ot, quoteType: q.type });
+        citations.push(createCitation({
+          type: 'ot_quote',
+          ntRef: q.nt,
+          otRef: q.ot,
+          quoteType: q.type,
+          rationale: `${q.nt} ${q.type === 'quote' ? 'directly quotes' : 'alludes to'} ${q.ot}: "${q.context}"`
+        }));
       });
       answer += `\n`;
     }
@@ -668,7 +712,12 @@ async function generateVerseResponse(message, retrieved, context) {
         answer += `• **${p.gospel}**: ${p.reference}`;
         if (p.notes) answer += ` (${p.notes})`;
         answer += `\n`;
-        citations.push({ type: 'gospel_parallel', ref: p.reference, event: p.event });
+        citations.push(createCitation({
+          type: 'gospel_parallel',
+          ref: p.reference,
+          event: p.event,
+          rationale: `Parallel account of "${p.event}" in ${p.gospel}`
+        }));
       });
       answer += `\n`;
     }
@@ -679,7 +728,13 @@ async function generateVerseResponse(message, retrieved, context) {
       answer += `**Appears in Teaching Chains**:\n`;
       topicalChains.slice(0, 2).forEach(chain => {
         answer += `• **${chain.title}** (#${chain.position}/${chain.totalVerses}): ${chain.connector}\n`;
-        citations.push({ type: 'topical_chain', topicId: chain.topicId, title: chain.title, position: chain.position });
+        citations.push(createCitation({
+          type: 'topical_chain',
+          topicId: chain.topicId,
+          title: chain.title,
+          position: chain.position,
+          rationale: `Part of "${chain.title}" teaching sequence (step ${chain.position} of ${chain.totalVerses})`
+        }));
       });
       answer += `\n`;
     }
@@ -689,7 +744,11 @@ async function generateVerseResponse(message, retrieved, context) {
       const relatedRefs = retrieved.crossRefs.slice(0, 4).map(r => r.reference).join(', ');
       answer += `**Related**: ${relatedRefs}\n\n`;
       retrieved.crossRefs.slice(0, 4).forEach(ref => {
-        citations.push({ type: 'verse', ref: ref.reference });
+        citations.push(createCitation({
+          type: 'verse',
+          ref: ref.reference,
+          rationale: 'Thematically related passage'
+        }));
       });
     }
 
