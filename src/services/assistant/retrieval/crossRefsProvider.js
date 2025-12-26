@@ -3,6 +3,8 @@
  * Provides comprehensive cross-references from OpenGNT and curated sources
  */
 
+import { THEMATIC_CROSS_REFS, TOPIC_SYNONYMS } from '../../data/thematicCrossRefs.js';
+
 // Hardcoded high-value cross-references (always available immediately)
 const CORE_CROSS_REFS = {
   'John 3:16': ['Romans 5:8', '1 John 4:9-10', 'John 3:17', 'Titus 3:4-5'],
@@ -257,12 +259,53 @@ export async function getCrossReferencesWithMetadata(reference) {
  * @returns {Promise<Array>} Related verses
  */
 export async function searchCrossRefsByTopic(topic) {
-  // This will be enhanced with thematic cross-refs in next step
-  return [];
+  if (!topic) return [];
+
+  const normalized = topic.toLowerCase().trim();
+
+  // Check for synonyms
+  const actualTopic = TOPIC_SYNONYMS[normalized] || normalized;
+
+  // Look up in thematic cross-refs
+  const thematicData = THEMATIC_CROSS_REFS[actualTopic];
+
+  if (thematicData) {
+    return {
+      topic: actualTopic,
+      description: thematicData.description,
+      verses: thematicData.verses
+    };
+  }
+
+  // Try partial matching
+  for (const [key, data] of Object.entries(THEMATIC_CROSS_REFS)) {
+    if (key.includes(normalized) || normalized.includes(key)) {
+      return {
+        topic: key,
+        description: data.description,
+        verses: data.verses
+      };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Get all available topics
+ * @returns {Array} List of topic objects
+ */
+export function getAvailableTopics() {
+  return Object.entries(THEMATIC_CROSS_REFS).map(([key, data]) => ({
+    topic: key,
+    description: data.description,
+    verseCount: data.verses.length
+  }));
 }
 
 export default {
   getCrossReferences,
   getCrossReferencesWithMetadata,
-  searchCrossRefsByTopic
+  searchCrossRefsByTopic,
+  getAvailableTopics
 };
