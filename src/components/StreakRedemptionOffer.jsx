@@ -50,7 +50,7 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
             <X size={20} className="text-white" />
           </button>
           <div className="flex items-center gap-2 sm:gap-3 justify-center pr-8">
-            <Flame size={32} sm:size={40} className="text-white flex-shrink-0" />
+            <Flame size={36} className="text-white flex-shrink-0" />
             <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-bold text-white">Streak Lost!</h2>
               <p className="text-orange-100 text-xs sm:text-sm mt-1">Your {userData.lastKnownStreak}-day streak has ended</p>
