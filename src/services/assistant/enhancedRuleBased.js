@@ -8,6 +8,8 @@ import { analyzeQuestion } from './questionAnalyzer';
 import { classifyQuestion } from './questionClassifier';
 import { orchestrateRetrieval } from './ragOrchestrator';
 import { lookupDefinition } from './dictionaryProvider';
+import { getUsageExamples, getFrequency, getBookDistribution } from './retrieval/lexiconProvider';
+import { formatMorphology } from './retrieval/morphologyProvider';
 
 /**
  * Main entry point for answering queries
@@ -279,9 +281,12 @@ async function generateLanguageResponse(message, retrieved, context) {
 
     answer += `## 🔤 ${lex.language || 'Original'} Word Study\n\n`;
 
-    // Concise one-line presentation
+    // Word heading with transliteration and Strong's number
     if (lex.word && lex.transliteration) {
       answer += `**${lex.word}** (${lex.transliteration})`;
+      if (lex.pronunciation) {
+        answer += ` [${lex.pronunciation}]`;
+      }
       if (lex.strongs) {
         answer += ` — Strong's ${lex.strongs}`;
         citations.push({ type: 'lexicon', strongsNumber: lex.strongs });
@@ -289,23 +294,71 @@ async function generateLanguageResponse(message, retrieved, context) {
       answer += `\n\n`;
     }
 
-    // Concise definition
+    // Full definition from Strong's
     if (lex.definition) {
-      const defSummary = summarizeDefinition(lex.definition, 1);
-      answer += `**Meaning**: ${defSummary}\n\n`;
+      answer += `**Definition**: ${lex.definition}\n\n`;
     }
 
-    // KJV usage if available
+    // KJV usage examples
     if (lex.kjvUsage) {
-      answer += `**Used as**: ${lex.kjvUsage}\n\n`;
+      answer += `**KJV Translation**: ${lex.kjvUsage}\n\n`;
     }
-  }
 
-  if (retrieved.verses && retrieved.verses.length > 0) {
-    answer += `## 📖 Biblical Examples\n\n`;
-    // Show 2 examples, truncated
-    retrieved.verses.slice(0, 2).forEach(verse => {
-      const snippet = truncateText(verse.text, 70);
+    // Derivation/etymology
+    if (lex.derivation) {
+      answer += `**Etymology**: ${lex.derivation}\n\n`;
+    }
+
+    // Get frequency and distribution data
+    if (lex.strongs) {
+      try {
+        const frequency = await getFrequency(lex.strongs);
+        if (frequency > 0) {
+          answer += `**Frequency**: ${frequency} occurrence${frequency !== 1 ? 's' : ''} in Scripture\n\n`;
+
+          // Get book distribution
+          const books = await getBookDistribution(lex.strongs);
+          if (books && books.length > 0) {
+            answer += `**Books**: Found in ${books.length} book${books.length !== 1 ? 's' : ''}`;
+            if (books.length <= 5) {
+              answer += ` (${books.join(', ')})`;
+            }
+            answer += `\n\n`;
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching frequency data:', error);
+      }
+    }
+
+    // Morphological analysis if available
+    if (retrieved.morphology && retrieved.morphology.analysis) {
+      answer += `## 📝 Grammatical Analysis\n\n`;
+      answer += formatMorphology(retrieved.morphology);
+      answer += `\n\n`;
+    }
+
+    // Get usage examples from concordance
+    if (lex.strongs) {
+      try {
+        const examples = await getUsageExamples(lex.strongs, 6);
+        if (examples && examples.length > 0) {
+          answer += `## 📖 Usage Examples\n\n`;
+          examples.slice(0, 6).forEach(ex => {
+            answer += `• **${ex.reference}**\n`;
+            citations.push({ type: 'concordance', ref: ex.reference });
+          });
+          answer += `\n`;
+        }
+      } catch (error) {
+        console.error('Error fetching usage examples:', error);
+      }
+    }
+  } else if (retrieved.verses && retrieved.verses.length > 0) {
+    // Fallback: show verses if no lexicon entry found
+    answer += `## 📖 Biblical References\n\n`;
+    retrieved.verses.slice(0, 3).forEach(verse => {
+      const snippet = truncateText(verse.text, 80);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
@@ -314,7 +367,7 @@ async function generateLanguageResponse(message, retrieved, context) {
   if (!answer) {
     answer = `## 🔤 Original Languages\n\nExplore Koine Greek and Ancient Hebrew courses for in-depth language study with Strong's Concordance integration.`;
   } else {
-    answer += `💡 **Learn More**: Take Greek/Hebrew courses for comprehensive language learning.`;
+    answer += `\n💡 **Learn More**: Explore Greek and Hebrew courses for comprehensive language learning.`;
   }
 
   return { answer, citations, metadata: { category: 'language' } };
