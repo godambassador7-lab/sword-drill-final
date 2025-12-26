@@ -11,7 +11,8 @@ import { lookupDefinition } from './dictionaryProvider';
 import { getUsageExamples, getFrequency, getBookDistribution } from './retrieval/lexiconProvider';
 import { formatMorphology } from './retrieval/morphologyProvider';
 import { compareTranslations, parseReference } from './retrieval/translationProvider';
-import { getInterlinearByReference, formatInterlinear } from './retrieval/interlinearProvider';
+import { getInterlinearByReference, formatInterlinear } from './interlinearProvider';
+import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
 
 /**
  * Main entry point for answering queries
@@ -175,8 +176,36 @@ async function generateWhoResponse(message, retrieved, context) {
   let answer = '';
 
   // Extract the person's name from the question
-  const personMatch = message.match(/who\s+(?:is|was)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i);
+  const personMatch = message.match(/who\s+(?:is|was|wrote|authored)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i);
   const person = personMatch ? personMatch[1] : null;
+
+  // Check if asking about authorship (e.g., "Who wrote Romans?")
+  const authorshipMatch = message.match(/who\s+(?:wrote|authored|penned)\s+([1-3]?\s?[A-Za-z]+)/i);
+  if (authorshipMatch) {
+    const bookName = authorshipMatch[1].trim();
+    const bookContext = getBookContext(bookName);
+
+    if (bookContext) {
+      answer += `## ✍️ ${bookName} - Authorship\n\n`;
+      answer += `**Author**: ${bookContext.author}\n`;
+      answer += `**Date Written**: ${bookContext.date}\n`;
+      answer += `**Original Audience**: ${bookContext.audience}\n\n`;
+      answer += `**Purpose**: ${bookContext.purpose}\n\n`;
+
+      // Get other books by same author
+      const otherBooks = getBooksByAuthor(bookContext.author)
+        .filter(b => b.book !== bookName)
+        .map(b => b.book);
+
+      if (otherBooks.length > 0) {
+        answer += `**Other Works by ${bookContext.author}**: ${otherBooks.join(', ')}\n\n`;
+      }
+
+      citations.push({ type: 'book_context', book: bookName, author: bookContext.author });
+
+      return { answer, citations, metadata: { category: 'who', person: bookContext.author, book: bookName } };
+    }
+  }
 
   if (person && retrieved.definitions && retrieved.definitions.length > 0) {
     const def = retrieved.definitions[0];
