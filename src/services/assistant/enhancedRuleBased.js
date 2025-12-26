@@ -15,6 +15,7 @@ import { getInterlinearByReference, formatInterlinear } from './interlinearProvi
 import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
 import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
 import { isApocryphaBook } from './retrieval/apocryphaProvider';
+import { getOTQuotesForNT, getNTQuotesOfOT } from '../data/ntUsesOT';
 
 /**
  * Main entry point for answering queries
@@ -618,6 +619,17 @@ async function generateVerseResponse(message, retrieved, context) {
           citations.push({ type: 'book_section', book: verse.book, section: section.section });
         }
       }
+    }
+
+    // Check for OT quotations/allusions (NT passages only)
+    const otQuotes = getOTQuotesForNT(verse.reference);
+    if (otQuotes && otQuotes.length > 0) {
+      answer += `**OT Echoes** (${otQuotes[0].type}):\n`;
+      otQuotes.slice(0, 3).forEach(q => {
+        answer += `• **${q.ot}** - ${q.context}\n`;
+        citations.push({ type: 'ot_quote', ntRef: q.nt, otRef: q.ot, quoteType: q.type });
+      });
+      answer += `\n`;
     }
 
     // Check for Gospel parallels (synoptic accounts)
