@@ -14,6 +14,7 @@ import { compareTranslations, parseReference } from './retrieval/translationProv
 import { getInterlinearByReference, formatInterlinear } from './interlinearProvider';
 import { getBookContext, formatBookContext, getPassageSection, getBooksByAuthor } from './retrieval/historicalContextProvider';
 import { searchCrossRefsByTopic, getGospelParallels, getSynopticParallels } from './retrieval/crossRefsProvider';
+import { isApocryphaBook } from './retrieval/apocryphaProvider';
 
 /**
  * Main entry point for answering queries
@@ -592,18 +593,30 @@ async function generateVerseResponse(message, retrieved, context) {
 
   if (retrieved.verses && retrieved.verses.length > 0) {
     const verse = retrieved.verses[0];
-    answer += `## 📖 ${verse.reference} (${verse.translation || 'KJV'})\n\n`;
-    answer += `> ${verse.text}\n\n`;
-    citations.push({ type: 'verse', ref: verse.reference });
+    const isApocrypha = isApocryphaBook(verse.book);
 
-    // Add book context and section information
-    const bookContext = getBookContext(verse.book);
-    if (bookContext) {
-      const section = getPassageSection(verse.book, verse.chapter);
-      if (section) {
-        answer += `\n**Context**: This verse is in the "${section.section}" section (${section.verses})\n`;
-        answer += `${section.description}\n\n`;
-        citations.push({ type: 'book_section', book: verse.book, section: section.section });
+    // Label apocrypha clearly
+    if (isApocrypha) {
+      answer += `## 📖 ${verse.reference} (${verse.translation || 'KJV'}) ⚠️ Deuterocanonical/Apocrypha\n\n`;
+      answer += `> ${verse.text}\n\n`;
+      answer += `**Note**: This passage is from the Deuterocanonical books (Apocrypha), included in Catholic and Orthodox canons but not in Protestant Bibles.\n\n`;
+    } else {
+      answer += `## 📖 ${verse.reference} (${verse.translation || 'KJV'})\n\n`;
+      answer += `> ${verse.text}\n\n`;
+    }
+
+    citations.push({ type: 'verse', ref: verse.reference, isApocrypha });
+
+    // Add book context and section information (only for canonical books)
+    if (!isApocrypha) {
+      const bookContext = getBookContext(verse.book);
+      if (bookContext) {
+        const section = getPassageSection(verse.book, verse.chapter);
+        if (section) {
+          answer += `\n**Context**: This verse is in the "${section.section}" section (${section.verses})\n`;
+          answer += `${section.description}\n\n`;
+          citations.push({ type: 'book_section', book: verse.book, section: section.section });
+        }
       }
     }
 
