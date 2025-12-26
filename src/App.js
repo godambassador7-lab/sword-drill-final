@@ -9424,7 +9424,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   </button>
 
                   {/* Sword Drill Academy */}
-                  <div className="border-2 border-red-500 rounded-lg p-2 mt-2">
+                  <div className="border-t border-slate-700 pt-2">
                     <button
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
                       className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
