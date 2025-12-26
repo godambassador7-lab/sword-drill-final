@@ -10,6 +10,7 @@ import { orchestrateRetrieval } from './ragOrchestrator';
 import { lookupDefinition } from './dictionaryProvider';
 import { getUsageExamples, getFrequency, getBookDistribution } from './retrieval/lexiconProvider';
 import { formatMorphology } from './retrieval/morphologyProvider';
+import { compareTranslations, parseReference } from './retrieval/translationProvider';
 
 /**
  * Main entry point for answering queries
@@ -126,6 +127,10 @@ async function generateResponse(message, classification, retrievedContext, conte
 
   if (subcategory === 'language' || message.match(/greek|hebrew|original|word/i)) {
     return await generateLanguageResponse(message, retrievedContext, context);
+  }
+
+  if (subcategory === 'compare_translations') {
+    return await generateCompareTranslationsResponse(message, retrievedContext, context);
   }
 
   if (category === 'theology') {
@@ -642,6 +647,93 @@ function truncateText(text, maxLength = 100) {
   }
 
   return truncated + '...';
+}
+
+/**
+ * Generate response for translation comparison questions
+ */
+async function generateCompareTranslationsResponse(message, retrieved, context) {
+  const citations = [];
+  let answer = '';
+
+  // Extract verse reference from the question
+  const refMatch = message.match(/\b([1-3]?\s?[A-Za-z]+)\s+(\d+):(\d+)(?:-(\d+))?/);
+  let reference = null;
+
+  if (refMatch) {
+    const [, book, chapter, verseStart, verseEnd] = refMatch;
+    reference = `${book.trim()} ${chapter}:${verseStart}`;
+    if (verseEnd) {
+      reference += `-${verseEnd}`;
+    }
+  } else if (retrieved.verses && retrieved.verses.length > 0) {
+    // Try to use first verse from retrieval
+    reference = retrieved.verses[0].reference;
+  }
+
+  if (!reference) {
+    return {
+      answer: "Please specify a verse reference to compare translations (e.g., 'Compare John 3:16 in different translations').",
+      citations: [],
+      metadata: { category: 'compare_translations', needsClarification: true }
+    };
+  }
+
+  // Get verse in all available translations
+  const comparison = await compareTranslations(reference);
+
+  if (!comparison || comparison.translations.length === 0) {
+    return {
+      answer: `I couldn't find ${reference} in the available translations. Please check the reference and try again.`,
+      citations: [],
+      metadata: { category: 'compare_translations', reference }
+    };
+  }
+
+  // Build response
+  answer += `## 📖 ${reference} - Translation Comparison\n\n`;
+  answer += `Comparing ${comparison.availableCount} translation${comparison.availableCount !== 1 ? 's' : ''}:\n\n`;
+
+  // Group translations by philosophy
+  const literal = [];
+  const dynamic = [];
+
+  comparison.translations.forEach(verse => {
+    const transCode = verse.translation;
+
+    if (['KJV', 'ASV', 'WEB', 'YLT', 'ESV'].includes(transCode)) {
+      literal.push(verse);
+    } else {
+      dynamic.push(verse);
+    }
+  });
+
+  // Display literal translations first
+  if (literal.length > 0) {
+    answer += `### Literal Translations\n\n`;
+    literal.forEach(verse => {
+      answer += `**${verse.translation}**: "${verse.text}"\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference, translation: verse.translation });
+    });
+  }
+
+  // Then dynamic equivalence
+  if (dynamic.length > 0) {
+    answer += `### Dynamic Equivalence / Thought-for-Thought\n\n`;
+    dynamic.forEach(verse => {
+      answer += `**${verse.translation}**: "${verse.text}"\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference, translation: verse.translation });
+    });
+  }
+
+  // Add translation philosophy note
+  answer += `---\n\n`;
+  answer += `**Translation Philosophies**:\n`;
+  answer += `• **Literal** (KJV, ASV, WEB, YLT, ESV): Word-for-word translation preserving original structure\n`;
+  answer += `• **Dynamic Equivalence** (NIV, NLT): Thought-for-thought translation prioritizing readability\n\n`;
+  answer += `💡 Different translations help reveal nuances in the original Greek and Hebrew texts.`;
+
+  return { answer, citations, metadata: { category: 'compare_translations', reference } };
 }
 
 /**
