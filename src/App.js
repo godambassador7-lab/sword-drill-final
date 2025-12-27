@@ -4842,7 +4842,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           </button>
 
           {/* Special Quizzes Section */}
-          <h2 className="text-lg sm:text-xl font-bold text-amber-400 mt-6 mb-3">Special Quizzes</h2>
+          <h3 className="text-lg sm:text-xl font-bold text-amber-400 mt-6 mb-3 sm:mb-4">Special Quizzes</h3>
 
           <button
             onClick={() => startQuiz('verse-scramble')}
