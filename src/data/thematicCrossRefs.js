@@ -334,7 +334,7 @@ export const THEMATIC_CROSS_REFS = {
   },
 
   'judgment': {
-    description: 'God's righteous judgment of all people',
+    description: 'God\'s righteous judgment of all people',
     verses: [
       'Hebrews 9:27',
       'Romans 14:12',
