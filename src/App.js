@@ -1836,6 +1836,8 @@ const SwordDrillApp = () => {
   const [failedQuizData, setFailedQuizData] = useState(null);
   const [showMemoryTip, setShowMemoryTip] = useState(false);
   const [memoryTip, setMemoryTip] = useState(null);
+  const [showCorrectAnswerModal, setShowCorrectAnswerModal] = useState(false);
+  const [correctAnswerData, setCorrectAnswerData] = useState(null);
 
   // Track previous level for level-up detection
   const previousLevelRef = useRef(userData.currentLevel);
@@ -4410,22 +4412,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       -10;
     const penalty = Number.isFinite(basePenalty) ? basePenalty : -10;
 
-    // Show incorrect toast and then memory tip for all quiz types
+    // Show incorrect toast and then correct answer modal, then memory tip for all quiz types
     const tip = getRandomMemoryTip();
     setMemoryTip(tip);
+
+    // Store correct answer data for modal
+    setCorrectAnswerData({
+      question: quizState.question,
+      correctAnswer: quizState.answer || quizState.correctAnswer,
+      userAnswer: quizState.userAnswer || quizState.userAnswers?.join(', '),
+      type: quizState.type,
+      verse: quizState.verse || quizState.question
+    });
 
     // Show incorrect toast immediately with penalty amount
     setToastPoints(penalty); // Store penalty to display on toast
     setShowIncorrectToast(true);
     setTimeout(() => {
       setShowIncorrectToast(false);
-      // Show memory tip modal after toast
-      setShowMemoryTip(true);
-      setTimeout(() => {
-        setShowMemoryTip(false);
-        setCurrentView('home');
-        setQuizState(null);
-      }, 5000); // Show memory tip for 5 seconds
+      // Show correct answer modal after toast
+      setShowCorrectAnswerModal(true);
     }, 2000); // Show incorrect toast for 2 seconds
   }
   } finally {
@@ -5224,6 +5230,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
           {quizState.type === 'reference-recall' && (
             <input
+              ref={(el) => {
+                // Focus only once when the input first appears, not on every render
+                if (el && !el.dataset.hasFocused) {
+                  el.focus();
+                  el.dataset.hasFocused = 'true';
+                }
+              }}
               key={`reference-recall-${quizState.quizId}`}
               type="text"
               inputMode="text"
@@ -5232,7 +5245,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               placeholder="Type the reference (e.g., John 3:16)..."
               className="w-full px-3 sm:px-4 py-3 sm:py-4 text-base sm:text-lg rounded-lg bg-slate-800 text-white border-2 border-slate-600 focus:border-amber-500 focus:outline-none min-h-[48px]"
               autoComplete="off"
-              autoFocus
             />
           )}
 
@@ -12180,12 +12192,69 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         />
       )}
 
+      {/* Correct Answer Modal - Shows after incorrect answer */}
+      {showCorrectAnswerModal && correctAnswerData && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="bg-gradient-to-br from-red-900 via-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 border-2 border-red-500/50 shadow-2xl max-w-2xl w-full animate-fade-in">
+            {/* Close Button */}
+            <button
+              onClick={() => {
+                setShowCorrectAnswerModal(false);
+                // Show memory tip modal after closing
+                setShowMemoryTip(true);
+                setTimeout(() => {
+                  setShowMemoryTip(false);
+                  setCurrentView('home');
+                  setQuizState(null);
+                }, 5000);
+              }}
+              className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg transition-colors"
+              aria-label="Close"
+            >
+              <X className="text-white" size={24} />
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="text-5xl mb-4">❌</div>
+              <h3 className="text-2xl font-bold text-red-300 mb-2">Incorrect Answer</h3>
+              <p className="text-slate-300 text-sm">Review the correct answer below</p>
+            </div>
+
+            {/* Correct Answer Display */}
+            <div className="space-y-4">
+              <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                <p className="text-xs text-slate-400 uppercase tracking-wide mb-1">Correct Answer</p>
+                <p className="text-green-300 text-lg font-bold">{correctAnswerData.correctAnswer}</p>
+              </div>
+
+              {correctAnswerData.userAnswer && (
+                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                  <p className="text-xs text-slate-400 uppercase tracking-wide mb-1">Your Answer</p>
+                  <p className="text-red-300 text-lg font-bold">{correctAnswerData.userAnswer}</p>
+                </div>
+              )}
+
+              {correctAnswerData.verse && correctAnswerData.verse !== correctAnswerData.question && (
+                <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-700/50">
+                  <p className="text-xs text-blue-300 uppercase tracking-wide mb-2">Verse Text</p>
+                  <p className="text-white text-base leading-relaxed">{correctAnswerData.verse}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="mt-6 text-center text-slate-400 text-sm">
+              Click the X button above to continue
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Memory Tip Modal */}
       {showMemoryTip && memoryTip && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
           <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-teal-900 rounded-2xl p-8 border-2 border-purple-500/50 shadow-2xl max-w-lg w-full animate-fade-in">
             <div className="text-center">
-              <div className="text-5xl mb-4"></div>
+              <div className="text-5xl mb-4">💡</div>
               <h3 className="text-2xl font-bold text-purple-200 mb-4">Memory Tip</h3>
               <p className="text-white text-lg leading-relaxed mb-2">
                 {typeof memoryTip === 'string' ? memoryTip : memoryTip.tip}

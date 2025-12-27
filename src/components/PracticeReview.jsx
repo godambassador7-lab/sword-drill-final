@@ -116,15 +116,15 @@ const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
           incorrectCount: progress.incorrectCount,
           accuracy: Math.round(accuracy),
           struggleScore,
-          lastReview: progress.lastReview,
+          lastReview: progress.lastReview || 0,
           quizTypes: progress.quizTypes || {},
           practiceMastery: progress.practiceMastery || {}
         });
       }
     });
 
-    // Sort by struggle score (most struggled first)
-    return verses.sort((a, b) => b.struggleScore - a.struggleScore);
+    // Sort by most recent (lastReview timestamp, highest first)
+    return verses.sort((a, b) => b.lastReview - a.lastReview);
   }, [userData]);
 
   // Filter by quiz type
@@ -524,7 +524,7 @@ const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-2 sm:px-4 py-6 space-y-6">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 pt-2 pb-6 space-y-6">
         {/* Info Banner */}
         <div className="bg-blue-900/40 border border-blue-600/50 rounded-lg p-6">
           <div className="flex items-start gap-4">

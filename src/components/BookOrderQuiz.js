@@ -86,14 +86,15 @@ const MAX_POINTS_PER_QUESTION = 10;
 const PER_BOOK_POINTS = 5;
 const ABBREVIATION_POINTS = 4;
 
-const generateQuestion = () => {
+const generateQuestion = (includeBookName = false) => {
   // Don't pick first or last book
   const index = Math.floor(Math.random() * (BIBLE_BOOKS.length - 2)) + 1;
   return {
     currentBook: BIBLE_BOOKS[index],
     before: BIBLE_BOOKS[index - 1],
     after: BIBLE_BOOKS[index + 1],
-    index
+    index,
+    showBookName: includeBookName
   };
 };
 
@@ -151,7 +152,8 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
   const [timeLeft, setTimeLeft] = useState(20);
   const [score, setScore] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
-  const [totalQuestions] = useState(10);
+  const [totalQuestions] = useState(5);
+  const [hasShownBookName, setHasShownBookName] = useState(false);
   const [feedback, setFeedback] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [streak, setStreak] = useState(0);
@@ -161,7 +163,12 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
   const [earnedPoints, setEarnedPoints] = useState(0);
 
   const newQuestion = useCallback(() => {
-    const q = generateQuestion();
+    // Ensure at least one question includes the book name (on last question if not shown yet)
+    const shouldShowBookName = !hasShownBookName && (questionsAnswered === totalQuestions - 1 || Math.random() < 0.3);
+    const q = generateQuestion(shouldShowBookName);
+    if (shouldShowBookName) {
+      setHasShownBookName(true);
+    }
     setQuestion(q);
     beforeAnswerRef.current = "";
     afterAnswerRef.current = "";
@@ -170,7 +177,7 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
     setTimeLeft(20);
     setFeedback(null);
     setCorrectDetails(null);
-  }, []);
+  }, [hasShownBookName, questionsAnswered, totalQuestions]);
 
   useEffect(() => {
     newQuestion();
@@ -438,15 +445,15 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
         <div className="bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-xl p-8 mb-6 border-2 border-purple-500/30">
           <div className="text-center mb-6">
             <div className="text-slate-400 text-sm font-semibold uppercase tracking-wide mb-3">
-              Current Book
+              {question.showBookName ? 'Current Book' : 'Hidden Book'}
             </div>
             <div className="text-white text-4xl font-bold">
-              {question.currentBook}
+              {question.showBookName ? question.currentBook : '???'}
             </div>
           </div>
 
           <div className="text-center text-slate-300 text-lg mb-4">
-            Name the books that come <span className="text-amber-400 font-bold">before</span> and <span className="text-green-400 font-bold">after</span>
+            Name the books that come <span className="text-amber-400 font-bold">before</span> and <span className="text-green-400 font-bold">after</span>{question.showBookName ? '' : ' this hidden book'}
           </div>
         </div>
 
@@ -455,7 +462,7 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-amber-400 font-semibold mb-2">
-                📖 Book BEFORE {question.currentBook}:
+                📖 Book BEFORE {question.showBookName ? question.currentBook : '???'}:
               </label>
               <input
                 type="text"
@@ -476,7 +483,7 @@ const BookOrderQuiz = ({ onComplete, onCancel }) => {
 
             <div>
               <label className="block text-green-400 font-semibold mb-2">
-                📖 Book AFTER {question.currentBook}:
+                📖 Book AFTER {question.showBookName ? question.currentBook : '???'}:
               </label>
               <input
                 type="text"
