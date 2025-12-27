@@ -329,10 +329,15 @@ export function enforceCitationDiscipline(response, options = {}) {
     throwOnValidationFailure = false
   } = options;
 
+  // Normalize citations so each has rationale and consistent shape
+  const normalizedCitations = (response.citations || []).map(citation =>
+    citation && citation.rationale ? citation : createCitation({ ...citation })
+  );
+
   // Validate citations
   let validation = null;
   if (validateCitationsEnabled) {
-    validation = validateCitations(response.answer, response.citations || []);
+    validation = validateCitations(response.answer, normalizedCitations);
 
     if (!validation.valid && throwOnValidationFailure) {
       throw new Error(`Citation validation failed: ${validation.issues.join(', ')}`);
@@ -341,13 +346,14 @@ export function enforceCitationDiscipline(response, options = {}) {
 
   // Append formatted citations section
   let enhancedAnswer = response.answer;
-  if (appendCitationsSection && response.citations && response.citations.length > 0) {
-    enhancedAnswer += formatCitationsSection(response.citations, showRationale);
+  if (appendCitationsSection && normalizedCitations.length > 0) {
+    enhancedAnswer += formatCitationsSection(normalizedCitations, showRationale);
   }
 
   return {
     ...response,
     answer: enhancedAnswer,
+    citations: normalizedCitations,
     citationValidation: validation,
     metadata: {
       ...response.metadata,
