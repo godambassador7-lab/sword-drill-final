@@ -26,7 +26,8 @@
       "Bash(One of the Twelve Apostles, brother of John\"\n\nEnhanced Verse Responses:\n- Literary structure integration: Shows passage outline \\(intro/climax/resolution\\)\n- Idiom detection: Identifies Hebrew/Greek idioms with explanations\n- Example: \"hand of the Lord\" → God''s power, judgment, or blessing\n- Passage outlines for 25 major texts \\(Genesis 1, Psalm 23, John 3, etc.\\)\n\nIntegration ensures SHARP can handle ANY biblical question:\n✓ Ambiguous names → Prompt for clarification or auto-resolve\n✓ Hot topics → Present all major Christian traditions fairly\n✓ Verse queries → Literary context + idioms + intertextual links\n✓ All responses → Citation discipline + neutrality + provenance\n\nComplete orchestration pipeline:\n1. Ambiguity check → Clarify or resolve\n2. Question analysis → Classify intent\n3. RAG retrieval → Gather biblical data\n4. Response generation → Template-based answer\n5. Neutrality guard → Add multi-perspective context\n6. Ambiguity notes → Clarify resolved entities\n7. Citation discipline → Validate and track sources\n\nSHARP Assistant now provides scholarly-quality responses with\ndenominational sensitivity, literary awareness, and full provenance.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(grep:*)",
       "Bash(xxd:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []
