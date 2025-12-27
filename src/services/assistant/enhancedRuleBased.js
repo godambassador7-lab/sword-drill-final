@@ -416,16 +416,29 @@ async function generateBookOverviewResponse(bookName, retrieved, context, ambigu
   // Show sample verses from the book
   if (retrieved.verses && retrieved.verses.length > 0) {
     answer += `### Key Verses\n\n`;
+
+    // Check if any verses are from Apocrypha
+    const hasApocrypha = retrieved.verses.some(v => v.isApocrypha);
+
     retrieved.verses.slice(0, 3).forEach(verse => {
       const snippet = truncateText(verse.text, 120);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
-      citations.push({ type: 'verse', ref: verse.reference });
+      citations.push({
+        type: 'verse',
+        ref: verse.reference,
+        isApocrypha: verse.isApocrypha || false
+      });
     });
+
+    // Add note if Apocrypha verses are included
+    if (hasApocrypha) {
+      answer += `\n📚 **Note**: This book is part of the Apocrypha/Deuterocanonical books, accepted as canonical by Catholic and Orthodox traditions but considered non-canonical by Protestant traditions.\n\n`;
+    }
   }
 
   answer += `\n💡 **Explore More**: Read the full Book of ${bookName} in Bible Reader or take a related course for deeper study.`;
 
-  return { answer, citations, metadata: { category: 'book_overview', book: bookName } };
+  return { answer, citations, metadata: { category: 'book_overview', book: bookName, isApocrypha: retrieved.verses?.some(v => v.isApocrypha) || false } };
 }
 
 /**

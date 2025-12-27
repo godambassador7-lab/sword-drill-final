@@ -8,6 +8,9 @@ import { searchDictionary } from './retrieval/dictionaryProvider';
 import { lookupWordStudy } from './retrieval/lexiconProvider';
 import { getCrossReferences } from './retrieval/crossRefsProvider';
 import { contextCache } from './cache';
+import { BIBLE_BOOKS } from '../../data/bibleBooks';
+import { fetchVerse } from '../bibleService';
+import { isApocryphaBook, getApocryphaVerses } from './retrieval/apocryphaProvider';
 
 /**
  * Orchestrate retrieval from multiple sources based on question classification
@@ -71,12 +74,42 @@ function createRetrievalPlan(classification, query) {
     maxVerses: 5,
     maxDefinitions: 3,
     maxLexiconEntries: 2,
-    maxCrossRefs: 3
+    maxCrossRefs: 3,
+    bookName: null  // Add bookName field for book-specific queries
   };
 
   if (!classification) return plan;
 
   const { category, subcategory } = classification;
+
+  // SPECIAL: Detect single-word book name queries
+  const trimmedQuery = query.trim();
+  const isSingleWord = !trimmedQuery.includes(' ') && trimmedQuery.length > 2;
+
+  if (isSingleWord) {
+    // Check canonical books
+    const bookMatch = BIBLE_BOOKS.find(book =>
+      book.toLowerCase() === trimmedQuery.toLowerCase()
+    );
+
+    if (bookMatch) {
+      plan.bookName = bookMatch;  // Store book name for special retrieval
+      plan.needsDictionary = true;  // Get book overview from dictionary
+      plan.maxDefinitions = 1;
+      plan.maxVerses = 3;  // Show key verses FROM this book
+      return plan;  // Return early with book-specific plan
+    }
+
+    // Check Apocrypha books
+    if (isApocryphaBook(trimmedQuery)) {
+      plan.bookName = trimmedQuery;  // Store apocrypha book name
+      plan.isApocrypha = true;  // Flag as apocrypha
+      plan.needsDictionary = true;  // Get book overview from dictionary
+      plan.maxDefinitions = 1;
+      plan.maxVerses = 3;  // Show key verses FROM this apocrypha book
+      return plan;  // Return early with apocrypha book plan
+    }
+  }
 
   // WHO questions -> Dictionary + verses
   if (subcategory === 'who') {
@@ -143,6 +176,19 @@ async function retrieveBibleVerses(query, context, plan) {
   try {
     const translation = context.selectedTranslation || 'KJV';
 
+    // SPECIAL: If query is for a specific book, retrieve verses FROM that book
+    if (plan.bookName) {
+      // Handle Apocrypha books
+      if (plan.isApocrypha) {
+        const verses = await retrieveKeyVersesFromApocrypha(plan.bookName, plan.maxVerses);
+        return verses || [];
+      }
+
+      // Handle canonical books
+      const verses = await retrieveKeyVersesFromBook(plan.bookName, translation, plan.maxVerses);
+      return verses || [];
+    }
+
     // Use existing bible provider
     const verses = await searchLocalVerses(query, {
       selectedTranslation: translation,
@@ -153,6 +199,109 @@ async function retrieveBibleVerses(query, context, plan) {
     return verses || [];
   } catch (error) {
     console.error('Error retrieving Bible verses:', error);
+    return [];
+  }
+}
+
+/**
+ * Retrieve key verses from a specific book
+ * @param {string} bookName - Name of the biblical book
+ * @param {string} translation - Bible translation
+ * @param {number} maxVerses - Maximum number of verses to retrieve
+ * @returns {Promise<Array>} Array of key verses from the book
+ */
+async function retrieveKeyVersesFromBook(bookName, translation, maxVerses = 3) {
+  try {
+    // Define key verse references for important books
+    const keyVerses = {
+      'Esther': ['Esther 4:14', 'Esther 2:17', 'Esther 7:3-4'],
+      'Ruth': ['Ruth 1:16', 'Ruth 4:13-14', 'Ruth 2:12'],
+      'John': ['John 1:1', 'John 3:16', 'John 14:6'],
+      'Genesis': ['Genesis 1:1', 'Genesis 1:27', 'Genesis 12:1-3'],
+      'Psalms': ['Psalm 23:1', 'Psalm 119:105', 'Psalm 46:1'],
+      'Proverbs': ['Proverbs 3:5-6', 'Proverbs 16:3', 'Proverbs 22:6'],
+      'Isaiah': ['Isaiah 53:5', 'Isaiah 40:31', 'Isaiah 9:6'],
+      'Romans': ['Romans 3:23', 'Romans 6:23', 'Romans 8:28'],
+      'Ephesians': ['Ephesians 2:8-9', 'Ephesians 6:10', 'Ephesians 4:32'],
+      'Philippians': ['Philippians 4:13', 'Philippians 4:6-7', 'Philippians 2:3-4'],
+      'Revelation': ['Revelation 21:4', 'Revelation 1:8', 'Revelation 22:13']
+    };
+
+    // Get predefined key verses or generate from chapter 1
+    const references = keyVerses[bookName] || [`${bookName} 1:1`, `${bookName} 1:2`, `${bookName} 1:3`];
+
+    // Fetch the verses
+    const verses = [];
+    for (const ref of references.slice(0, maxVerses)) {
+      try {
+        const verse = await fetchVerse(ref, translation);
+        if (verse) {
+          verses.push({
+            reference: ref,
+            text: verse.text || verse,
+            book: bookName,
+            chapter: verse.chapter || parseInt(ref.split(':')[0].split(' ').pop()),
+            verse: verse.verse || parseInt(ref.split(':')[1])
+          });
+        }
+      } catch (err) {
+        console.error(`Error fetching verse ${ref}:`, err);
+      }
+    }
+
+    return verses;
+  } catch (error) {
+    console.error(`Error retrieving key verses from ${bookName}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Retrieve key verses from an Apocrypha book
+ * @param {string} bookName - Name of the apocryphal book
+ * @param {number} maxVerses - Maximum number of verses to retrieve
+ * @returns {Promise<Array>} Array of key verses from the apocrypha book
+ */
+async function retrieveKeyVersesFromApocrypha(bookName, maxVerses = 3) {
+  try {
+    // Define key verse references for important Apocrypha books
+    const keyVerses = {
+      'Tobit': [[1, 1], [4, 15], [12, 8]],  // [chapter, verse]
+      'Judith': [[13, 18], [16, 13], [8, 6]],
+      'Wisdom of Solomon': [[3, 1], [7, 26], [11, 24]],
+      'Sirach': [[1, 1], [6, 14], [44, 1]],
+      '1 Maccabees': [[1, 1], [2, 50], [3, 3]],
+      '2 Maccabees': [[1, 1], [7, 9], [12, 43]],
+      'Baruch': [[3, 9], [4, 1], [5, 5]]
+    };
+
+    // Get predefined key verses or default to chapter 1
+    const references = keyVerses[bookName] || [[1, 1], [1, 2], [1, 3]];
+
+    // Fetch the verses using apocryphaProvider
+    const verses = [];
+    for (const [ch, vs] of references.slice(0, maxVerses)) {
+      try {
+        const apocVerses = await getApocryphaVerses(bookName, ch, vs, vs);
+        if (apocVerses && apocVerses.length > 0) {
+          verses.push({
+            reference: apocVerses[0].reference,
+            text: apocVerses[0].text,
+            book: bookName,
+            chapter: ch,
+            verse: vs,
+            translation: 'KJV',
+            isApocrypha: true
+          });
+        }
+      } catch (err) {
+        console.error(`Error fetching apocrypha verse ${bookName} ${ch}:${vs}:`, err);
+      }
+    }
+
+    return verses;
+  } catch (error) {
+    console.error(`Error retrieving key verses from Apocrypha ${bookName}:`, error);
     return [];
   }
 }
