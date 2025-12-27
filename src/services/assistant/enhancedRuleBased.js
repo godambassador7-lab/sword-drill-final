@@ -18,12 +18,13 @@ import { isApocryphaBook } from './retrieval/apocryphaProvider';
 import { getOTQuotesForNT, getNTQuotesOfOT } from '../../data/ntUsesOT';
 import { searchTopicalChains, formatTopicalChain, findChainsWithReference } from '../../data/topicalChains';
 import { createCitation, enforceCitationDiscipline } from './citationEnforcer';
-import { detectAmbiguity, formatDisambiguationPrompt, getResolvedNote } from './disambiguator';
+import { detectAmbiguity, formatDisambiguationPrompt, getResolvedNote, AMBIGUOUS_NAMES } from './disambiguator';
 import { detectHotTopic, applyNeutralityGuard } from './neutralityGuard';
 import { findOutlineForVerse, formatPassageOutline } from '../../data/passageOutlines';
 import { governVerseRange, quoteDecision, applyQuoteGovernor } from './quoteGovernor';
 import { getStudyPlan, formatStudyPlan } from '../../data/studyPlans';
 import { findIdiomsInText, formatIdiom } from '../../data/idioms';
+import { BIBLE_BOOKS } from '../../data/bibleBooks';
 
 /**
  * Main entry point for answering queries
@@ -193,6 +194,46 @@ async function getExpandedInfo(topic, context) {
 async function generateResponse(message, classification, retrievedContext, context, ambiguity = null) {
   const { category, subcategory } = classification;
 
+  // SPECIAL HANDLING: Detect single-word biblical book or person name queries
+  const trimmedMessage = message.trim();
+  const isSingleWord = !trimmedMessage.includes(' ') && trimmedMessage.length > 2;
+
+  if (isSingleWord) {
+    // Check if it's a biblical book name
+    const bookMatch = BIBLE_BOOKS.find(book =>
+      book.toLowerCase() === trimmedMessage.toLowerCase()
+    );
+
+    if (bookMatch) {
+      // Route to book context response
+      return await generateBookOverviewResponse(bookMatch, retrievedContext, context, ambiguity);
+    }
+
+    // Check if it's a known biblical person name
+    const personMatch = Object.keys(AMBIGUOUS_NAMES).find(name =>
+      name.toLowerCase() === trimmedMessage.toLowerCase()
+    );
+
+    if (personMatch) {
+      // If ambiguity was already resolved, use that
+      if (ambiguity && !ambiguity.ambiguous) {
+        // Route to person-specific response with resolved entity
+        return await generatePersonResponse(personMatch, retrievedContext, context, ambiguity);
+      } else {
+        // Try common biblical names (non-ambiguous)
+        return await generatePersonResponse(trimmedMessage, retrievedContext, context, null);
+      }
+    }
+
+    // Check if it might be another biblical person (from Smith's Dictionary)
+    if (retrievedContext.definitions && retrievedContext.definitions.length > 0) {
+      const mainDef = retrievedContext.definitions[0];
+      if (mainDef.headword.toLowerCase() === trimmedMessage.toLowerCase()) {
+        return await generatePersonResponse(trimmedMessage, retrievedContext, context, ambiguity);
+      }
+    }
+  }
+
   // Route to appropriate response generator
   if (subcategory === 'who') {
     return await generateWhoResponse(message, retrievedContext, context, ambiguity);
@@ -321,6 +362,125 @@ async function generateWhoResponse(message, retrieved, context) {
   }
 
   return { answer, citations, metadata: { category: 'who', person } };
+}
+
+/**
+ * Generate response for book overview (single-word book name query)
+ */
+async function generateBookOverviewResponse(bookName, retrieved, context, ambiguity = null) {
+  const citations = [];
+  let answer = '';
+
+  // Get book context
+  const bookContext = getBookContext(bookName);
+
+  if (bookContext) {
+    answer += `## 📖 Book of ${bookName}\n\n`;
+
+    // Add resolved ambiguity note if applicable
+    if (ambiguity && !ambiguity.ambiguous) {
+      answer += getResolvedNote(ambiguity);
+    }
+
+    answer += `**Author**: ${bookContext.author}\n`;
+    answer += `**Date Written**: ${bookContext.date}\n`;
+    answer += `**Original Audience**: ${bookContext.audience}\n`;
+    answer += `**Genre**: ${bookContext.genre || 'Biblical narrative'}\n\n`;
+
+    answer += `### Purpose\n${bookContext.purpose}\n\n`;
+
+    if (bookContext.themes && bookContext.themes.length > 0) {
+      answer += `### Key Themes\n`;
+      bookContext.themes.forEach(theme => {
+        answer += `- ${theme}\n`;
+      });
+      answer += `\n`;
+    }
+
+    citations.push({ type: 'book_context', book: bookName, author: bookContext.author });
+  } else {
+    // Fallback if no book context found
+    answer += `## 📖 ${bookName}\n\n`;
+  }
+
+  // Show definition from Smith's Dictionary if available
+  if (retrieved.definitions && retrieved.definitions.length > 0) {
+    const def = retrieved.definitions[0];
+    if (def.headword.toLowerCase() === bookName.toLowerCase()) {
+      const summary = summarizeDefinition(def.definition, 3);
+      answer += `### Overview\n${summary}\n\n`;
+      citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
+    }
+  }
+
+  // Show sample verses from the book
+  if (retrieved.verses && retrieved.verses.length > 0) {
+    answer += `### Key Verses\n\n`;
+    retrieved.verses.slice(0, 3).forEach(verse => {
+      const snippet = truncateText(verse.text, 120);
+      answer += `**${verse.reference}**: ${snippet}\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference });
+    });
+  }
+
+  answer += `\n💡 **Explore More**: Read the full Book of ${bookName} in Bible Reader or take a related course for deeper study.`;
+
+  return { answer, citations, metadata: { category: 'book_overview', book: bookName } };
+}
+
+/**
+ * Generate response for person name (single-word person query)
+ */
+async function generatePersonResponse(personName, retrieved, context, ambiguity = null) {
+  const citations = [];
+  let answer = '';
+
+  // Handle resolved ambiguity
+  if (ambiguity && !ambiguity.ambiguous && ambiguity.option) {
+    answer += `## 👤 ${ambiguity.option.name}\n\n`;
+    answer += getResolvedNote(ambiguity);
+
+    answer += `**Description**: ${ambiguity.option.description}\n`;
+    if (ambiguity.option.keyFacts) {
+      answer += `**Key Facts**: ${ambiguity.option.keyFacts}\n`;
+    }
+    if (ambiguity.option.keyVerses) {
+      answer += `**Key Verses**: ${ambiguity.option.keyVerses.join(', ')}\n`;
+    }
+    answer += `\n`;
+
+    citations.push({ type: 'biographical', person: ambiguity.option.name });
+  } else {
+    // Use Smith's Dictionary definition
+    if (retrieved.definitions && retrieved.definitions.length > 0) {
+      const def = retrieved.definitions[0];
+      const summary = summarizeDefinition(def.definition, 3);
+
+      answer += `## 👤 ${def.headword}\n\n`;
+      answer += `${summary}\n\n`;
+      citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
+    } else {
+      answer += `## 👤 ${personName}\n\n`;
+    }
+  }
+
+  // Show key passages
+  answer += `### 📖 Key Passages\n\n`;
+
+  if (retrieved.verses && retrieved.verses.length > 0) {
+    // Filter verses relevant to this person, show top 5
+    retrieved.verses.slice(0, 5).forEach(verse => {
+      const snippet = truncateText(verse.text, 110);
+      answer += `**${verse.reference}**: ${snippet}\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference });
+    });
+  } else {
+    answer += `Use Bible Reader's search feature to find all mentions of "${personName}" throughout Scripture.\n\n`;
+  }
+
+  answer += `💡 **Dig Deeper**: Use Bible Reader for full passages, Smith's Bible Dictionary for detailed biography, and related courses for comprehensive study.`;
+
+  return { answer, citations, metadata: { category: 'person', person: personName } };
 }
 
 /**
