@@ -85,18 +85,18 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
     return dailyChestsData.opened?.includes(chestId) || false;
   };
 
-  // Check if Morning Blessing is available (before 3pm)
+  // Check if Morning Blessing is available (3am to 3pm)
   const isMorningBlessingAvailable = () => {
     const now = new Date();
     const currentHour = now.getHours();
-    return currentHour < 15; // Before 15:00 = before 3pm
+    return currentHour >= 3 && currentHour < 15; // 3:00 AM to 2:59 PM
   };
 
-  // Check if Evening Grace is available (3pm or later)
+  // Check if Evening Grace is available (3pm to 3am next day)
   const isEveningGraceAvailable = () => {
     const now = new Date();
     const currentHour = now.getHours();
-    return currentHour >= 15; // 15:00 = 3pm
+    return currentHour >= 15 || currentHour < 3; // 3:00 PM to 2:59 AM
   };
 
   // Open chest
@@ -106,9 +106,9 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
     // Check if Morning Blessing chest and time restriction
     if (chest.id === 'daily-chest-1' && !isMorningBlessingAvailable()) {
       if (showToast) {
-        showToast('🌅 Morning Blessing is only available before 3:00 PM', 'info');
+        showToast('🌅 Morning Blessing is only available between 3:00 AM and 3:00 PM', 'info');
       } else {
-        alert('Morning Blessing is only available before 3:00 PM');
+        alert('Morning Blessing is only available between 3:00 AM and 3:00 PM');
       }
       return;
     }
@@ -116,9 +116,9 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
     // Check if Evening Grace chest and time restriction
     if (chest.id === 'daily-chest-2' && !isEveningGraceAvailable()) {
       if (showToast) {
-        showToast('🌙 Evening Grace is only available at or after 3:00 PM', 'info');
+        showToast('🌙 Evening Grace is only available between 3:00 PM and 3:00 AM', 'info');
       } else {
-        alert('Evening Grace is only available at or after 3:00 PM');
+        alert('Evening Grace is only available between 3:00 PM and 3:00 AM');
       }
       return;
     }
@@ -230,7 +230,7 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
               } rounded-lg p-4 transition-all duration-300 ${
                 !opened && !isOpening && !isLocked ? 'cursor-pointer' : 'cursor-not-allowed'
               } ${isOpening ? 'animate-pulse' : ''}`}
-              onClick={() => !opened && !isOpening && openChest(chest)}
+              onClick={() => !opened && !isOpening && !isLocked && openChest(chest)}
             >
               {/* Chest Icon */}
               <div className="text-4xl text-center mb-2">
@@ -272,7 +272,7 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
               ) : isLocked ? (
                 <div className="mt-4 text-center text-white font-bold flex items-center justify-center gap-2">
                   <Clock size={16} />
-                  <span>{isMorningChest ? 'Ends at 3pm' : 'Available at 3pm'}</span>
+                  <span>{isMorningChest ? 'Available 3am-3pm' : 'Available 3pm-3am'}</span>
                 </div>
               ) : (
                 <div className="mt-4 text-center text-white font-bold animate-pulse">
