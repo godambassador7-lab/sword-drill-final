@@ -3,13 +3,12 @@
  * Coordinates parallel retrieval from multiple reference sources
  */
 
-import { searchLocalVerses } from './retrieval/bibleProvider';
+import { searchLocalVerses, getVerseByReference } from './retrieval/bibleProvider';
 import { searchDictionary } from './retrieval/dictionaryProvider';
 import { lookupWordStudy } from './retrieval/lexiconProvider';
 import { getCrossReferences } from './retrieval/crossRefsProvider';
 import { contextCache } from './cache';
 import { BIBLE_BOOKS } from '../../data/bibleBooks';
-import { fetchVerse } from '../bibleService';
 import { isApocryphaBook, getApocryphaVerses } from './retrieval/apocryphaProvider';
 
 /**
@@ -234,14 +233,15 @@ async function retrieveKeyVersesFromBook(bookName, translation, maxVerses = 3) {
     const verses = [];
     for (const ref of references.slice(0, maxVerses)) {
       try {
-        const verse = await fetchVerse(ref, translation);
+        const verse = getVerseByReference(ref, translation);
         if (verse) {
           verses.push({
-            reference: ref,
-            text: verse.text || verse,
+            reference: verse.reference || ref,
+            text: verse.text,
             book: bookName,
             chapter: verse.chapter || parseInt(ref.split(':')[0].split(' ').pop()),
-            verse: verse.verse || parseInt(ref.split(':')[1])
+            verse: verse.verse || parseInt(ref.split(':')[1]),
+            translation: verse.translation || translation
           });
         }
       } catch (err) {
