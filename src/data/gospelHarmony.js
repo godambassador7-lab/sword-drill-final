@@ -661,7 +661,7 @@ export const GOSPEL_UNIQUE_CONTENT = {
   luke: [
     'Most complete birth narrative',
     'Parables unique to Luke (Good Samaritan, Prodigal Son)',
-    'Emphasis on Jesus' compassion for outcasts',
+    'Emphasis on Jesus\' compassion for outcasts',
     'Strong focus on prayer and Holy Spirit'
   ],
   john: [

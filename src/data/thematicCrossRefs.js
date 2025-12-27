@@ -252,7 +252,7 @@ export const THEMATIC_CROSS_REFS = {
   },
 
   'obedience': {
-    description: 'Following God's commands out of love',
+    description: 'Following God\'s commands out of love',
     verses: [
       'John 14:15',
       '1 Samuel 15:22',
