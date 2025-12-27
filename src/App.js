@@ -4841,9 +4841,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <div className="text-slate-400 text-xs sm:text-sm mt-1">Name the verse reference</div>
           </button>
 
-          {/* Special Quizzes Section */}
-          <h3 className="text-lg sm:text-xl font-bold text-amber-400 mt-6 mb-3 sm:mb-4">Special Quizzes</h3>
-
           <button
             onClick={() => startQuiz('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
@@ -4857,6 +4854,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   </div>
             <div className="text-slate-400 text-sm">Unscramble the words of the verse</div>
           </button>
+
+          {/* Special Quizzes Section */}
+          <h3 className="text-lg sm:text-xl font-bold text-amber-400 mt-6 mb-3 sm:mb-4">Special Quizzes</h3>
           <button
             onClick={startVerseDetective}
             disabled={loading || !canTakeQuiz('verse-detective')}
