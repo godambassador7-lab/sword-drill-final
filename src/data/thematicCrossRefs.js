@@ -446,7 +446,7 @@ export const THEMATIC_CROSS_REFS = {
   // ========== HOPE & COMFORT ==========
 
   'hope': {
-    description: 'Confident expectation based on God's promises',
+    description: 'Confident expectation based on God\'s promises',
     verses: [
       'Romans 15:13',
       'Hebrews 6:19',
@@ -459,7 +459,7 @@ export const THEMATIC_CROSS_REFS = {
   },
 
   'comfort': {
-    description: 'God's comfort in times of trouble',
+    description: 'God\'s comfort in times of trouble',
     verses: [
       '2 Corinthians 1:3-4',
       'Psalm 23:4',
