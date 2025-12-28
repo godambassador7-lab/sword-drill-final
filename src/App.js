@@ -3082,7 +3082,8 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     playChaChing();
-    showToast(`Converting ${amount} points to Talents!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
+    const talentsAmount = amount / 500; // 500 points = 1 Talent
+    showToast(`Transferring ${amount} points to ${talentsAmount} Talent${talentsAmount !== 1 ? 's' : ''}!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
   };
 
   const handleTalentsCollect = (conversionId) => {
@@ -6665,7 +6666,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         )}
                         <div>
                           <div className="text-white font-semibold text-sm">
-                            {conversion.amount} → {currentValue} Talents
+                            {conversion.amount} points → {currentValue} Talent{currentValue !== 1 ? 's' : ''}
                           </div>
                           <div className="text-xs text-slate-400">
                             {isComplete ? 'Ready to collect!' : `${daysRemaining} days remaining`}
