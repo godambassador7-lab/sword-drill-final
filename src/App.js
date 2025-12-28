@@ -4265,7 +4265,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     currentLevel: newLevel, // Update level based on progression
     unlockables: updatedUnlockables,
     newlyUnlockedAchievements: updatedNewlyUnlocked,
-    achievementClickHistory: userData.achievementClickHistory || {}
+    achievementClickHistory: userData.achievementClickHistory || {},
+    // Include keys-related fields for cross-device sync
+    keys: userData.keys || 0,
+    keysEarnedToday: userData.keysEarnedToday || 0,
+    currentIncorrectStreak: userData.currentIncorrectStreak || 0
   };
 
   console.log('[Quiz Data to Save]', newQuizData);
@@ -9990,7 +9994,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
                   quizzesCompleted: newQuizzesCompleted,
-                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
@@ -10061,7 +10068,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
                   quizzesCompleted: newQuizzesCompleted,
-                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
@@ -10129,7 +10139,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
                   quizzesCompleted: newQuizzesCompleted,
-                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
@@ -10177,7 +10190,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
                   quizzesCompleted: newQuizzesCompleted,
-                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
@@ -10239,7 +10255,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
                   quizzesCompleted: newQuizzesCompleted,
-                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak
+                  currentStreak: newStreak !== null ? newStreak : userData.currentStreak,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress:', err));
               }
 
@@ -10337,6 +10356,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 currentStreak: newStreakValue,
                 verseDetectiveCompleted: updatedVerseDetectiveCompleted,
                 verseDetectiveCorrect: updatedVerseDetectiveCorrect,
+                keys: userData.keys || 0,
+                keysEarnedToday: userData.keysEarnedToday || 0,
+                currentIncorrectStreak: userData.currentIncorrectStreak || 0,
                 ...(updatedCompletions ? { personalVerseDetectiveCompletions: updatedCompletions } : {})
               }).catch(err => console.error('Error updating progress (verse detective):', err));
             }
@@ -11369,7 +11391,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               if (currentUser?.uid) {
                 updateUserProgress(currentUser.uid, {
                   totalPoints: newTotalPoints,
-                  quizzesCompleted: newQuizzesCompleted
+                  quizzesCompleted: newQuizzesCompleted,
+                  keys: userData.keys || 0,
+                  keysEarnedToday: userData.keysEarnedToday || 0,
+                  currentIncorrectStreak: userData.currentIncorrectStreak || 0
                 }).catch(err => console.error('Error updating progress (bible trivia):', err));
               }
 
