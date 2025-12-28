@@ -3095,7 +3095,9 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     const weeksElapsed = timeElapsed / (7 * 86400000);
 
     // Calculate Talents with growth (2% per week compounded)
-    const talentsEarned = Math.floor(conversion.amount * Math.pow(1 + conversion.growthRate, weeksElapsed));
+    // Convert points to Talents first (500 points = 1 Talent), then apply growth
+    const initialTalents = conversion.amount / 500;
+    const talentsEarned = Math.floor(initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed));
 
     // Update conversions to mark as collected
     const newConversions = userData.talentsConversions.filter(c => c.id !== conversionId);
@@ -3118,7 +3120,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       );
     }
 
-    const growth = talentsEarned - conversion.amount;
+    const growth = talentsEarned - initialTalents;
     showToast(`Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
   };
 
@@ -6652,7 +6654,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 const daysRemaining = Math.max(0, Math.ceil(timeRemaining / 86400000));
                 const isComplete = timeRemaining <= 0;
                 const weeksElapsed = (now - conversion.startedAt) / (7 * 86400000);
-                const currentValue = Math.floor(conversion.amount * Math.pow(1 + conversion.growthRate, weeksElapsed));
+                // Convert points to Talents (500 points = 1 Talent), then apply growth
+                const initialTalents = conversion.amount / 500;
+                const currentValue = Math.floor(initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed));
 
                 return (
                   <div
