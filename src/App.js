@@ -9690,7 +9690,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-yellow-600/20 transition-all flex items-center gap-3"
                   >
-                    <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-5 h-5" loading="eager" decoding="async" /> Daily Chests
+                    <img src={`${process.env.PUBLIC_URL}/new chest.png`} alt="Daily Chests" className="w-5 h-5" loading="eager" decoding="async" /> Daily Chests
                   </button>
                 </div>
                 )}
