@@ -205,7 +205,7 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-8 h-8" />
+            <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-8 h-8" loading="eager" decoding="async" />
             <div>
               <h1 className="text-3xl font-bold text-white">Daily Chests</h1>
               <p className="text-slate-400">Open 2 free chests every day!</p>

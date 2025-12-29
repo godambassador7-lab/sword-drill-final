@@ -204,9 +204,9 @@ const FreeDailyChests = ({ userData, setUserData, userId, showToast }) => {
   return (
     <div className="bg-slate-800/50 rounded-xl p-4 border-2 border-amber-500/30">
       <div className="flex items-center gap-2 mb-3">
-        <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-5 h-5" />
+        <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-6 h-6" loading="eager" decoding="async" />
         <h3 className="text-lg font-bold text-amber-400">Free Daily Chests</h3>
-        <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-[18px] h-[18px] animate-pulse" />
+        <img src={`${process.env.PUBLIC_URL}/daily chests icon.png`} alt="Daily Chests" className="w-5 h-5 animate-pulse" loading="eager" decoding="async" />
       </div>
 
       <p className="text-slate-300 mb-4 text-xs">
