@@ -205,10 +205,10 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <img src={`${process.env.PUBLIC_URL}/new chest.png`} alt="Daily Chests" className="w-8 h-8" loading="eager" decoding="async" />
+            <span className="text-4xl">🎁</span>
             <div>
-              <h1 className="text-3xl font-bold text-white">Daily Chests</h1>
-              <p className="text-slate-400">Open 2 free chests every day!</p>
+              <h1 className="text-3xl font-bold text-white">Daily Rewards</h1>
+              <p className="text-slate-400">Claim 2 free rewards every day!</p>
             </div>
           </div>
           <button
@@ -219,11 +219,15 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
           </button>
         </div>
 
-        {/* Reset Info */}
-        <div className="bg-slate-800/50 rounded-xl p-4 border border-amber-500/30 mb-6">
+        {/* Reset Info & Time Restrictions */}
+        <div className="bg-slate-800/50 rounded-xl p-4 border border-amber-500/30 mb-6 space-y-2">
           <div className="flex items-center justify-center gap-2 text-slate-300">
             <Clock size={18} className="text-amber-400" />
-            <span className="text-sm">Chests reset daily at midnight</span>
+            <span className="text-sm">Rewards reset daily at midnight</span>
+          </div>
+          <div className="text-center text-xs text-slate-400 space-y-1">
+            <div>🌅 <span className="text-amber-300">Morning Blessing</span>: Available until 3:00 PM (your timezone)</div>
+            <div>🌙 <span className="text-blue-300">Evening Grace</span>: Available after 3:00 PM (your timezone)</div>
           </div>
         </div>
 
