@@ -3082,8 +3082,8 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     playChaChing();
-    const talentsAmount = amount / 500; // 500 points = 1 Talent
-    showToast(`Transferring ${amount} points to ${talentsAmount} Talent${talentsAmount !== 1 ? 's' : ''}!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
+    const talentsAmount = (amount / 500).toFixed(2); // 500 points = 1 Talent
+    showToast(`Transferring ${amount} points to ${talentsAmount} Talent${parseFloat(talentsAmount) !== 1 ? 's' : ''}!\n\nConversion will complete in ${CONVERSION_DAYS} days.\nGrowth rate: ${(WEEKLY_GROWTH * 100).toFixed(0)}% per week`, 'success');
   };
 
   const handleTalentsCollect = (conversionId) => {
@@ -3097,14 +3097,14 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     // Calculate Talents with growth (2% per week compounded)
     // Convert points to Talents first (500 points = 1 Talent), then apply growth
     const initialTalents = conversion.amount / 500;
-    const talentsEarned = Math.floor(initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed));
+    const talentsEarned = parseFloat((initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed)).toFixed(2));
 
     // Update conversions to mark as collected
     const newConversions = userData.talentsConversions.filter(c => c.id !== conversionId);
 
     // Update user data
     const updates = {
-      talents: (userData.talents || 0) + talentsEarned,
+      talents: parseFloat(((userData.talents || 0) + talentsEarned).toFixed(2)),
       talentsConversions: newConversions
     };
 
@@ -3120,7 +3120,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       );
     }
 
-    const growth = talentsEarned - initialTalents;
+    const growth = (talentsEarned - initialTalents).toFixed(2);
     showToast(`Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
   };
 
@@ -6656,7 +6656,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 const weeksElapsed = (now - conversion.startedAt) / (7 * 86400000);
                 // Convert points to Talents (500 points = 1 Talent), then apply growth
                 const initialTalents = conversion.amount / 500;
-                const currentValue = Math.floor(initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed));
+                const currentValue = (initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed)).toFixed(2);
 
                 return (
                   <div
@@ -6674,7 +6674,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         )}
                         <div>
                           <div className="text-white font-semibold text-sm">
-                            {conversion.amount} points → {currentValue} Talent{currentValue !== 1 ? 's' : ''}
+                            {conversion.amount} points → {currentValue} Talent{parseFloat(currentValue) !== 1 ? 's' : ''}
                           </div>
                           <div className="text-xs text-slate-400">
                             {isComplete ? 'Ready to collect!' : `${daysRemaining} days remaining`}
@@ -9830,7 +9830,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setCurrentView('sharp-assistant');
                       setShowMenu(false);
                     }}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3 border-2 border-cyan-500"
                   >
                     <img src={`${process.env.PUBLIC_URL || ''}/sharp icon.png`} alt="SHARP" width="27" height="27" className="inline-block" />
                     <div>
