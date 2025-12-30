@@ -1107,6 +1107,40 @@ const SwordDrillApp = () => {
     'diploma-capstone-course': { talents: 4, points: 0, name: 'Diploma Capstone', icon: GraduationCap, color: 'amber', description: 'Advanced Research Paper & Thesis' }
   };
 
+  // Ancient Manuscripts Pricing (flexible payment options)
+  const MANUSCRIPT_PRICING = {
+    'lxx': {
+      name: 'Septuagint (LXX)',
+      description: 'Ancient Greek Old Testament (285-132 BC)',
+      color: 'purple',
+      options: [
+        { points: 5000, talents: 0, label: '5000 points' },
+        { points: 2500, talents: 5, label: '2500 pts + 5 Talents' },
+        { points: 0, talents: 10, label: '10 Talents' }
+      ]
+    },
+    'masoretic': {
+      name: 'Masoretic Text (WLC)',
+      description: 'Westminster Leningrad Codex (1008 AD)',
+      color: 'amber',
+      options: [
+        { points: 7500, talents: 0, label: '7500 points' },
+        { points: 3750, talents: 7.5, label: '3750 pts + 7.5 Talents' },
+        { points: 0, talents: 15, label: '15 Talents' }
+      ]
+    },
+    'sinaiticus': {
+      name: 'Codex Sinaiticus',
+      description: '4th Century Greek Bible (330-360 AD)',
+      color: 'blue',
+      options: [
+        { points: 10000, talents: 0, label: '10000 points' },
+        { points: 5000, talents: 10, label: '5000 pts + 10 Talents' },
+        { points: 0, talents: 20, label: '20 Talents' }
+      ]
+    }
+  };
+
   // Course Completion Badges - Unique medals for each course
   const COURSE_BADGES = {
     'greek-course': {
@@ -3049,6 +3083,78 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
 
     playChaChing();
     showToast(`🔑 Keys of Understanding Redeemed!\n\n+${pointsEarned} points\n-${currentKeys} Keys\n\nYour perseverance has been rewarded!`, 'success');
+  };
+
+  const handleManuscriptPurchase = (manuscriptId, option) => {
+    const pointsCost = option.points || 0;
+    const talentsCost = option.talents || 0;
+    const currentPoints = userData.totalPoints || 0;
+    const currentTalents = userData.talents || 0;
+
+    // Check if user has enough currency
+    if (currentPoints < pointsCost) {
+      showToast(`Need ${pointsCost} points to purchase with this option`, 'error');
+      return;
+    }
+
+    if (currentTalents < talentsCost) {
+      showToast(`Need ${talentsCost.toFixed(2)} Talents to purchase with this option`, 'error');
+      return;
+    }
+
+    const manuscript = MANUSCRIPT_PRICING[manuscriptId];
+    if (!manuscript) return;
+
+    // Confirm purchase
+    const confirmMessage = talentsCost > 0 && pointsCost > 0
+      ? `Unlock ${manuscript.name} for ${pointsCost} points + ${talentsCost} Talents?`
+      : talentsCost > 0
+      ? `Unlock ${manuscript.name} for ${talentsCost} Talents?`
+      : `Unlock ${manuscript.name} for ${pointsCost} points?`;
+
+    if (window.confirm(confirmMessage)) {
+      playChaChing();
+
+      if (currentUser?.uid) {
+        // Purchase with points and/or talents
+        purchaseUnlockable(currentUser.uid, manuscriptId, pointsCost).then(result => {
+          if (result.success && result.validatedData) {
+            // Also deduct talents if needed
+            const updates = {
+              totalPoints: result.validatedData.totalPoints,
+              talents: parseFloat((currentTalents - talentsCost).toFixed(2)),
+              unlockables: result.validatedData.unlockables,
+              purchaseHistory: [
+                ...(userData.purchaseHistory || []),
+                {
+                  timestamp: Date.now(),
+                  cost: pointsCost,
+                  talentsCost: talentsCost,
+                  unlockableId: manuscriptId,
+                  type: 'manuscript'
+                }
+              ]
+            };
+
+            setUserData(prev => ({
+              ...prev,
+              ...updates
+            }));
+
+            // Sync talents deduction to Firebase
+            if (talentsCost > 0 && currentUser?.uid) {
+              updateUserProgress(currentUser.uid, { talents: updates.talents }).catch(err =>
+                console.error('Error syncing talent deduction:', err)
+              );
+            }
+
+            showToast(`📜 ${manuscript.name} unlocked!`, 'success');
+          } else {
+            showToast(result.error || 'Failed to unlock', 'error');
+          }
+        });
+      }
+    }
   };
 
   const handleTalentsConversion = (amount) => {
@@ -7717,163 +7823,118 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="space-y-4">
             {/* Septuagint (LXX) */}
             <div className={`bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl p-4 border-2 ${
-              !userData.unlockables?.lxx && userData.totalPoints >= 5000
+              !userData.unlockables?.lxx
                 ? 'border-amber-500 animate-shimmer-border'
                 : 'border-purple-600/30'
             }`}>
               <div className="flex items-start justify-between mb-3">
-                <div>
+                <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg font-bold text-purple-300">Septuagint (LXX)</h3>
                     {!userData.unlockables?.lxx && <Lock size={14} className="text-amber-400" />}
                   </div>
                   <p className="text-purple-200 text-sm mt-1">Ancient Greek Old Testament (285-132 BC)</p>
                 </div>
-                <div className="text-amber-400 font-bold text-lg">5000 pts</div>
               </div>
               {userData.unlockables?.lxx ? (
                 <div className="bg-purple-600/20 text-purple-300 font-semibold py-2 px-4 rounded-lg text-center">
-                   Unlocked
+                  ✓ Unlocked
                 </div>
               ) : (
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 5000) {
-                      if (window.confirm('Unlock Septuagint (LXX) for 5000 points?')) {
-                        playChaChing();
-                        if (currentUser?.uid) {
-                          purchaseUnlockable(currentUser.uid, 'lxx', 5000).then(result => {
-                            if (result.success && result.validatedData) {
-                              setUserData(prev => ({
-                                ...prev,
-                                totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables,
-                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('lxx', 5000, 'unlockable')]
-                              }));
-                              showToast(' Septuagint (LXX) unlocked!', 'success');
-                            } else {
-                              showToast(result.error || 'Failed to unlock', 'error');
-                            }
-                          });
-                        }
-                      }
-                    } else {
-                      showToast('Need 5000 points to unlock Septuagint', 'error');
-                    }
-                  }}
-                  disabled={userData.totalPoints < 5000}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Purchase
-                </button>
+                <div className="space-y-2">
+                  <p className="text-slate-400 text-xs mb-2">Choose payment option:</p>
+                  {MANUSCRIPT_PRICING.lxx.options.map((option, idx) => {
+                    const canAfford = (userData.totalPoints || 0) >= option.points && (userData.talents || 0) >= option.talents;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => handleManuscriptPurchase('lxx', option)}
+                        disabled={!canAfford}
+                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-2 px-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                      >
+                        {option.label}
+                      </button>
+                    );
+                  })}
+                </div>
               )}
             </div>
 
             {/* Masoretic (WLC) */}
             <div className={`bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-4 border-2 ${
-              !userData.unlockables?.masoretic && userData.totalPoints >= 7500
+              !userData.unlockables?.masoretic
                 ? 'border-amber-500 animate-shimmer-border'
                 : 'border-amber-600/30'
             }`}>
               <div className="flex items-start justify-between mb-3">
-                <div>
+                <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg font-bold text-amber-300">Masoretic Text (WLC)</h3>
                     {!userData.unlockables?.masoretic && <Lock size={14} className="text-amber-400" />}
                   </div>
                   <p className="text-amber-200 text-sm mt-1">Westminster Leningrad Codex (1008 AD)</p>
                 </div>
-                <div className="text-amber-400 font-bold text-lg">7500 pts</div>
               </div>
               {userData.unlockables?.masoretic ? (
                 <div className="bg-amber-600/20 text-amber-300 font-semibold py-2 px-4 rounded-lg text-center">
-                   Unlocked
+                  ✓ Unlocked
                 </div>
               ) : (
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 7500) {
-                      if (window.confirm('Unlock Masoretic Text (WLC) for 7500 points?')) {
-                        playChaChing();
-                        if (currentUser?.uid) {
-                          purchaseUnlockable(currentUser.uid, 'masoretic', 7500).then(result => {
-                            if (result.success && result.validatedData) {
-                              setUserData(prev => ({
-                                ...prev,
-                                totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables,
-                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('masoretic', 7500, 'unlockable')]
-                              }));
-                              showToast(' Masoretic Text (WLC) unlocked!', 'success');
-                            } else {
-                              showToast(result.error || 'Failed to unlock', 'error');
-                            }
-                          });
-                        }
-                      }
-                    } else {
-                      showToast('Need 7500 points to unlock Masoretic Text', 'error');
-                    }
-                  }}
-                  disabled={userData.totalPoints < 7500}
-                  className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Purchase
-                </button>
+                <div className="space-y-2">
+                  <p className="text-slate-400 text-xs mb-2">Choose payment option:</p>
+                  {MANUSCRIPT_PRICING.masoretic.options.map((option, idx) => {
+                    const canAfford = (userData.totalPoints || 0) >= option.points && (userData.talents || 0) >= option.talents;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => handleManuscriptPurchase('masoretic', option)}
+                        disabled={!canAfford}
+                        className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-2 px-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                      >
+                        {option.label}
+                      </button>
+                    );
+                  })}
+                </div>
               )}
             </div>
 
             {/* Codex Sinaiticus */}
             <div className={`bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border-2 ${
-              !userData.unlockables?.sinaiticus && userData.totalPoints >= 10000
+              !userData.unlockables?.sinaiticus
                 ? 'border-amber-500 animate-shimmer-border'
                 : 'border-blue-600/30'
             }`}>
               <div className="flex items-start justify-between mb-3">
-                <div>
+                <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg font-bold text-blue-300">Codex Sinaiticus</h3>
                     {!userData.unlockables?.sinaiticus && <Lock size={14} className="text-amber-400" />}
                   </div>
                   <p className="text-blue-200 text-sm mt-1">4th Century Greek Bible (330-360 AD)</p>
                 </div>
-                <div className="text-amber-400 font-bold text-lg">10000 pts</div>
               </div>
               {userData.unlockables?.sinaiticus ? (
                 <div className="bg-blue-600/20 text-blue-300 font-semibold py-2 px-4 rounded-lg text-center">
-                   Unlocked
+                  ✓ Unlocked
                 </div>
               ) : (
-                <button
-                  onClick={() => {
-                    if (userData.totalPoints >= 10000) {
-                      if (window.confirm('Unlock Codex Sinaiticus for 10000 points?')) {
-                        playChaChing();
-                        if (currentUser?.uid) {
-                          purchaseUnlockable(currentUser.uid, 'sinaiticus', 10000).then(result => {
-                            if (result.success && result.validatedData) {
-                              setUserData(prev => ({
-                                ...prev,
-                                totalPoints: result.validatedData.totalPoints,
-                                unlockables: result.validatedData.unlockables,
-                                purchaseHistory: [...(prev.purchaseHistory || []), recordLocalPurchase('sinaiticus', 10000, 'unlockable')]
-                              }));
-                              showToast(' Codex Sinaiticus unlocked!', 'success');
-                            } else {
-                              showToast(result.error || 'Failed to unlock', 'error');
-                            }
-                          });
-                        }
-                      }
-                    } else {
-                      showToast('Need 10000 points to unlock Codex Sinaiticus', 'error');
-                    }
-                  }}
-                  disabled={userData.totalPoints < 10000}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-2 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Purchase
-                </button>
+                <div className="space-y-2">
+                  <p className="text-slate-400 text-xs mb-2">Choose payment option:</p>
+                  {MANUSCRIPT_PRICING.sinaiticus.options.map((option, idx) => {
+                    const canAfford = (userData.totalPoints || 0) >= option.points && (userData.talents || 0) >= option.talents;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => handleManuscriptPurchase('sinaiticus', option)}
+                        disabled={!canAfford}
+                        className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                      >
+                        {option.label}
+                      </button>
+                    );
+                  })}
+                </div>
               )}
             </div>
 
