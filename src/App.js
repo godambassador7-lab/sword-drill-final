@@ -8786,64 +8786,111 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <p className="text-slate-400 text-sm mt-2">Cloud-synced with secure authentication</p>
       </div>
 
-      {/* Donation Section */}
-      <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-6">
-        <div className="text-center mb-4">
-          <div className="text-4xl mb-3"></div>
-          <h3 className="text-2xl font-bold text-amber-400 mb-2">Support This Ministry</h3>
-        </div>
-        
-        <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
-          <p className="text-slate-200 text-sm leading-relaxed mb-4">
-             <span className="font-bold text-amber-400">Fuel the Fire of the Word</span>
-          </p>
-          <p className="text-slate-300 text-sm leading-relaxed mb-3">
-            Every gift given to Sword Drill carries eternal impact. Your donation helps place Bibles into the hands of those seeking the light of God, bring aid to those in need, and keep this app alive for every soul hungry to know His Word.
-          </p>
-          <p className="text-slate-300 text-sm leading-relaxed mb-3">
-            When you give, you're not just supporting an app  you're helping to ignite faith, spread hope, and equip believers with the Sword of the Spirit across the world.
-          </p>
-          <p className="text-slate-300 text-sm leading-relaxed">
-            Together, we stand as torchbearers for the Kingdom  letting His Word cut through darkness and bring life to those who long for it. ️
-          </p>
-        </div>
-
-        {/* PayPal Donation Button */}
-        <a
-          href="https://www.paypal.com/paypalme/ychristdonations"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg mb-3"
-        >
-          💙 Donate via PayPal
-        </a>
-
-        {/* Stripe Donation Button */}
-        <button
-          onClick={() => {
-            const stripePaymentLink = process.env.REACT_APP_STRIPE_PAYMENT_LINK;
-            if (stripePaymentLink && !stripePaymentLink.includes('YOUR_PAYMENT_LINK_HERE')) {
-              // Open Stripe Payment Link in new tab
-              window.open(stripePaymentLink, '_blank', 'noopener,noreferrer');
-            } else {
-              showToast('⚠️ Stripe Payment Link not configured yet. Please set up your payment link in the .env file.', 'error');
-            }
-          }}
-          className="block w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"
-        >
-          💳 Donate via Credit Card (Stripe)
-        </button>
-
-        <p className="text-center text-slate-400 text-xs mt-3">
-          ychristdonations@gmail.com
-        </p>
-      </div>
-
       {/* Made by YGamify */}
       <div className="text-center py-4">
         <p className="text-slate-500 text-sm">Made by YGamify</p>
       </div>
     </div>
+    );
+  };
+
+  const DonateAndSupportView = () => {
+    return (
+      <div className="space-y-6 pb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-bold text-amber-400">Donate & Support</h2>
+          <button
+            onClick={() => setCurrentView('home')}
+            className="text-slate-400 hover:text-white transition-colors"
+          >
+            <X size={28} />
+          </button>
+        </div>
+
+        {/* Donation Section */}
+        <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-6">
+          <div className="text-center mb-4">
+            <div className="text-4xl mb-3">🙏</div>
+            <h3 className="text-2xl font-bold text-amber-400 mb-2">Support This Ministry</h3>
+          </div>
+
+          <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
+            <p className="text-slate-200 text-sm leading-relaxed mb-4">
+              <span className="font-bold text-amber-400">Fuel the Fire of the Word</span>
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed mb-3">
+              Every gift given to Sword Drill carries eternal impact. Your donation helps place Bibles into the hands of those seeking the light of God, bring aid to those in need, and keep this app alive for every soul hungry to know His Word.
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed mb-3">
+              When you give, you're not just supporting an app – you're helping to ignite faith, spread hope, and equip believers with the Sword of the Spirit across the world.
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Together, we stand as torchbearers for the Kingdom – letting His Word cut through darkness and bring life to those who long for it. ⚔️
+            </p>
+          </div>
+
+          {/* PayPal Donation Button */}
+          <a
+            href="https://www.paypal.com/paypalme/ychristdonations"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg mb-3"
+          >
+            💙 Donate via PayPal
+          </a>
+
+          {/* Stripe Donation Button */}
+          <button
+            onClick={() => {
+              const stripePaymentLink = process.env.REACT_APP_STRIPE_PAYMENT_LINK;
+              if (stripePaymentLink && !stripePaymentLink.includes('YOUR_PAYMENT_LINK_HERE')) {
+                // Open Stripe Payment Link in new tab
+                window.open(stripePaymentLink, '_blank', 'noopener,noreferrer');
+              } else {
+                showToast('⚠️ Stripe Payment Link not configured yet. Please set up your payment link in the .env file.', 'error');
+              }
+            }}
+            className="block w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"
+          >
+            💳 Donate via Credit Card (Stripe)
+          </button>
+
+          <p className="text-center text-slate-400 text-xs mt-3">
+            ychristdonations@gmail.com
+          </p>
+        </div>
+
+        {/* Feedback Section */}
+        <div className="bg-gradient-to-br from-blue-500/10 to-indigo-600/10 border-2 border-blue-500/30 rounded-2xl p-6">
+          <div className="text-center mb-4">
+            <div className="text-4xl mb-3">💬</div>
+            <h3 className="text-2xl font-bold text-blue-400 mb-2">We Value Your Feedback!</h3>
+          </div>
+
+          <div className="bg-slate-800/50 rounded-xl p-4">
+            <p className="text-slate-200 text-sm leading-relaxed mb-4">
+              Your ideas and suggestions help us make Sword Drill better for everyone. We're constantly improving and adding new features based on user feedback.
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              If you have feedback or ideas that would make the app better, please email us at:
+            </p>
+            <a
+              href="mailto:support@sworddrill.app"
+              className="block w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"
+            >
+              📧 support@sworddrill.app
+            </a>
+            <p className="text-center text-slate-400 text-xs mt-3">
+              We will get back with you ASAP!
+            </p>
+          </div>
+        </div>
+
+        {/* Made by YGamify */}
+        <div className="text-center py-4">
+          <p className="text-slate-500 text-sm">Made by YGamify</p>
+        </div>
+      </div>
     );
   };
 
@@ -9961,6 +10008,23 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </div>
                 )}
               </div>
+
+              {/* Donate & Support Section */}
+              <div className="border-t border-slate-700 pt-2 mt-2">
+                <button
+                  onClick={() => {
+                    setCurrentView('donate-support');
+                    setShowMenu(false);
+                  }}
+                  className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                >
+                  <span className="text-xl">🤝🏽</span>
+                  <div>
+                    <div className="font-semibold text-sm">Donate & Support</div>
+                    <div className="text-xs text-slate-400">Help spread God's Word</div>
+                  </div>
+                </button>
+              </div>
             </nav>
 
             {/* Sign Out Button */}
@@ -10069,6 +10133,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         )}
         {currentView === 'calendar' && <CalendarView />}
         {currentView === 'settings' && <SettingsView />}
+        {currentView === 'donate-support' && <DonateAndSupportView />}
         {currentView === 'sharp-assistant' && (
           <SharpAssistant
             onBack={() => setCurrentView('home')}
