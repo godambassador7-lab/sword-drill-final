@@ -8734,15 +8734,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {/* Stripe Donation Button */}
         <button
           onClick={() => {
-            // Using Stripe publishable key from environment
-            const stripePublishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
-            if (stripePublishableKey) {
-              // For now, this will open a Stripe Payment Link (to be created in Stripe Dashboard)
-              // You'll need to create a Payment Link at: https://dashboard.stripe.com/payment-links
-              // Replace the URL below with your actual Stripe Payment Link
-              window.open('https://donate.stripe.com/YOUR_PAYMENT_LINK_HERE', '_blank');
+            const stripePaymentLink = process.env.REACT_APP_STRIPE_PAYMENT_LINK;
+            if (stripePaymentLink && !stripePaymentLink.includes('YOUR_PAYMENT_LINK_HERE')) {
+              // Open Stripe Payment Link in new tab
+              window.open(stripePaymentLink, '_blank', 'noopener,noreferrer');
             } else {
-              showToast('Stripe payment is currently unavailable', 'error');
+              showToast('⚠️ Stripe Payment Link not configured yet. Please set up your payment link in the .env file.', 'error');
             }
           }}
           className="block w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"

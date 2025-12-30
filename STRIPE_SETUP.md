@@ -12,10 +12,20 @@ The `.env` file contains:
 ## Setup Steps
 
 ### 1. Install Stripe Dependencies
-Run the following command in your terminal:
+
+The Stripe packages have been added to `package.json`:
+- `@stripe/stripe-js`: ^4.13.0
+- `@stripe/react-stripe-js`: ^2.10.0
+
+**To install them**, open your terminal/command prompt in the project directory and run:
 ```bash
 npm install
 ```
+
+**Note**: If you encounter "npm not found" error, you may need to:
+1. Open a new terminal window (to refresh PATH)
+2. Or run from VS Code's integrated terminal
+3. Or use `npx` if npm is installed via Node.js
 
 This will install the Stripe packages that have been added to `package.json`.
 

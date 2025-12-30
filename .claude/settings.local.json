@@ -29,7 +29,9 @@
       "Bash(python3:*)",
       "Bash(git pull:*)",
       "Bash(cmd /c \"npm install @stripe/stripe-js @stripe/react-stripe-js\")",
-      "Bash(cmd.exe /c npm install @stripe/stripe-js @stripe/react-stripe-js)"
+      "Bash(cmd.exe /c npm install @stripe/stripe-js @stripe/react-stripe-js)",
+      "Bash(where npm:*)",
+      "Bash(powershell.exe -Command \"cd ''C:\\\\Users\\\\Demetrius\\\\Documents\\\\sword-drill''; npm install\")"
     ],
     "deny": [],
     "ask": []
