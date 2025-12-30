@@ -2974,11 +2974,20 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     const newPoints = userData.totalPoints + POINTS_REWARD;
     const newRedemptions = currentRedemptions + POINTS_REWARD;
 
+    // Create transaction record for manna redemption
+    const mannaTransaction = {
+      timestamp: Date.now(),
+      points: POINTS_REWARD,
+      type: 'manna_redemption',
+      mannaCost: MANNA_COST
+    };
+
     // Update user data
     const updates = {
       manna: newManna,
       totalPoints: newPoints,
-      mannaRedemptionsToday: newRedemptions
+      mannaRedemptionsToday: newRedemptions,
+      quizHistory: [...(userData.quizHistory || []), mannaTransaction]
     };
 
     setUserData(prev => ({
@@ -3011,10 +3020,19 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     const pointsEarned = currentKeys * POINTS_PER_KEY;
     const newPoints = userData.totalPoints + pointsEarned;
 
+    // Create transaction record for keys redemption
+    const keysTransaction = {
+      timestamp: Date.now(),
+      points: pointsEarned,
+      type: 'keys_redemption',
+      keysRedeemed: currentKeys
+    };
+
     // Update user data
     const updates = {
       keys: 0,
-      totalPoints: newPoints
+      totalPoints: newPoints,
+      quizHistory: [...(userData.quizHistory || []), keysTransaction]
     };
 
     setUserData(prev => ({
@@ -3063,10 +3081,19 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     // Update conversions array
     const newConversions = [...(userData.talentsConversions || []), newConversion];
 
+    // Create transaction record for Points Bank history
+    const talentTransaction = {
+      timestamp: now,
+      cost: amount,
+      unlockableId: 'talent_conversion',
+      type: 'talent_conversion'
+    };
+
     // Update user data
     const updates = {
       totalPoints: newPoints,
-      talentsConversions: newConversions
+      talentsConversions: newConversions,
+      purchaseHistory: [...(userData.purchaseHistory || []), talentTransaction]
     };
 
     setUserData(prev => ({
@@ -3102,10 +3129,21 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     // Update conversions to mark as collected
     const newConversions = userData.talentsConversions.filter(c => c.id !== conversionId);
 
+    // Create transaction record for talent collection - this is an income transaction
+    const talentCollectionTransaction = {
+      timestamp: now,
+      points: 0, // Not adding points, but documenting the talent collection
+      unlockableId: 'talent_collection',
+      type: 'talent_collection',
+      talentsEarned: talentsEarned,
+      initialAmount: conversion.amount
+    };
+
     // Update user data
     const updates = {
       talents: parseFloat(((userData.talents || 0) + talentsEarned).toFixed(2)),
-      talentsConversions: newConversions
+      talentsConversions: newConversions,
+      quizHistory: [...(userData.quizHistory || []), talentCollectionTransaction]
     };
 
     setUserData(prev => ({
@@ -6285,18 +6323,52 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       // Add ALL quiz results (both correct and incorrect)
       (userData.quizHistory || []).forEach(quiz => {
-        if (quiz.points !== undefined && (quiz.timestamp || quiz.ts || quiz.date)) {
+        if (quiz.timestamp || quiz.ts || quiz.date) {
           const timestamp = normalizeTimestamp(quiz.timestamp || quiz.ts || quiz.date);
-          const points = Number(quiz.points) || 0;
-          const description = quiz.type ? `Quiz: ${quiz.type}` : 'Quiz';
 
-          pushTransaction(transactions, {
-            id: `quiz_${timestamp}_${quiz.type || 'quiz'}`,
-            date: timestamp,
-            delta: points,
-            description,
-            category: 'quiz'
-          });
+          // Handle manna redemption transactions
+          if (quiz.type === 'manna_redemption') {
+            pushTransaction(transactions, {
+              id: `manna_${timestamp}`,
+              date: timestamp,
+              delta: quiz.points || 0,
+              description: `🌾 Manna → Points (${quiz.mannaCost || 0} Manna)`,
+              category: 'currency_exchange'
+            });
+          }
+          // Handle keys redemption transactions
+          else if (quiz.type === 'keys_redemption') {
+            pushTransaction(transactions, {
+              id: `keys_${timestamp}`,
+              date: timestamp,
+              delta: quiz.points || 0,
+              description: `🔑 Keys → Points (${quiz.keysRedeemed || 0} Keys)`,
+              category: 'currency_exchange'
+            });
+          }
+          // Handle talent collection transactions
+          else if (quiz.type === 'talent_collection') {
+            pushTransaction(transactions, {
+              id: `talent_collect_${timestamp}`,
+              date: timestamp,
+              delta: 0, // No points change, just documenting
+              description: `💎 Collected ${quiz.talentsEarned || 0} Talents (from ${quiz.initialAmount || 0} pts)`,
+              category: 'currency_exchange'
+            });
+          }
+          // Handle regular quiz transactions
+          else if (quiz.points !== undefined) {
+            const points = Number(quiz.points) || 0;
+            const description = quiz.type ? `Quiz: ${quiz.type}` : 'Quiz';
+
+            pushTransaction(transactions, {
+              id: `quiz_${timestamp}_${quiz.type || 'quiz'}`,
+              date: timestamp,
+              delta: points,
+              description,
+              category: 'quiz'
+            });
+          }
         }
       });
 
@@ -6304,17 +6376,32 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       (userData.purchaseHistory || []).forEach(purchase => {
         if (purchase.cost) {
           const timestamp = normalizeTimestamp(purchase.timestamp);
-          const label = (purchase.unlockableId || 'purchase')
-            .replace(/_/g, ' ')
-            .replace(/course /gi, 'Course ');
 
-          pushTransaction(transactions, {
-            id: `purchase_${timestamp}_${purchase.unlockableId || 'item'}`,
-            date: timestamp,
-            delta: -(purchase.cost || 0),
-            description: `Purchase: ${label}`,
-            category: purchase.type || 'purchase'
-          });
+          // Handle talent conversion transactions
+          if (purchase.type === 'talent_conversion') {
+            const talentsAmount = (purchase.cost / 500).toFixed(2);
+            pushTransaction(transactions, {
+              id: `talent_convert_${timestamp}`,
+              date: timestamp,
+              delta: -(purchase.cost || 0),
+              description: `💎 Points → Talents (${talentsAmount} Talents converting)`,
+              category: 'currency_exchange',
+              type: 'transfer',
+              isTransfer: true
+            });
+          } else {
+            const label = (purchase.unlockableId || 'purchase')
+              .replace(/_/g, ' ')
+              .replace(/course /gi, 'Course ');
+
+            pushTransaction(transactions, {
+              id: `purchase_${timestamp}_${purchase.unlockableId || 'item'}`,
+              date: timestamp,
+              delta: -(purchase.cost || 0),
+              description: `Purchase: ${label}`,
+              category: purchase.type || 'purchase'
+            });
+          }
         }
       });
 
