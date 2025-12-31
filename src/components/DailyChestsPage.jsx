@@ -23,11 +23,37 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
   const [dailyChestsData, setDailyChestsData] = useState({});
   const [opening, setOpening] = useState(null);
   const [showRewards, setShowRewards] = useState(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const getMidnightExpiry = () => {
     const midnight = new Date();
     midnight.setHours(24, 0, 0, 0);
     return midnight.getTime();
+  };
+
+  // Check if a chest is available based on time restrictions
+  const isChestAvailable = (chestId) => {
+    const hour = currentTime.getHours();
+
+    if (chestId === 'daily-chest-1') {
+      // Morning Blessing: 3am to 2:59pm (hours 3-14)
+      return hour >= 3 && hour < 15;
+    } else if (chestId === 'daily-chest-2') {
+      // Evening Grace: 3pm to 2:59am (hours 15-23, 0-2)
+      return hour >= 15 || hour < 3;
+    }
+
+    return true;
+  };
+
+  // Get time restriction message for a chest
+  const getTimeRestrictionMessage = (chestId) => {
+    if (chestId === 'daily-chest-1') {
+      return 'Available 3:00 AM - 2:59 PM';
+    } else if (chestId === 'daily-chest-2') {
+      return 'Available 3:00 PM - 2:59 AM';
+    }
+    return '';
   };
 
   // Daily chests - 2 free per day
@@ -57,6 +83,15 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
       ]
     }
   ];
+
+  // Update clock every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Load daily chests data from localStorage
   useEffect(() => {
@@ -100,6 +135,12 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
   // Open chest with animation
   const openChest = (chest) => {
     if (isChestOpened(chest.id) || opening) return;
+
+    // Check time restrictions
+    if (!isChestAvailable(chest.id)) {
+      showToast(`${chest.title} is not available at this time.\n${getTimeRestrictionMessage(chest.id)}`, 'error');
+      return;
+    }
 
     setOpening(chest.id);
 
@@ -199,9 +240,31 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
     return null; // Still loading
   }
 
+  // Format time for display
+  const formatTime = (date) => {
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
       <div className="max-w-4xl mx-auto">
+        {/* Live Clock */}
+        <div className="mb-6 text-center">
+          <div className="inline-block bg-gradient-to-r from-blue-600/30 to-purple-600/30 border-2 border-blue-500/50 rounded-xl px-6 py-3">
+            <div className="flex items-center gap-3">
+              <Clock size={24} className="text-blue-400" />
+              <div className="text-2xl font-mono font-bold text-white">
+                {formatTime(currentTime)}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
@@ -237,14 +300,15 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
             const opened = isChestOpened(chest.id);
             const isOpening = opening === chest.id;
             const isShowingRewards = showRewards?.id === chest.id;
+            const available = isChestAvailable(chest.id);
 
             return (
               <div key={chest.id} className="relative">
                 <div
                   className={`relative bg-gradient-to-br ${chest.color} rounded-2xl p-8 transition-all duration-500 ${
-                    opened ? 'opacity-60' : 'opacity-100 hover:scale-105 cursor-pointer'
-                  } ${!opened && !isOpening ? 'shadow-2xl hover:shadow-3xl' : ''} ${
-                    !opened ? `shadow-2xl ${chest.glowColor} animate-pulse` : ''
+                    opened || !available ? 'opacity-60' : 'opacity-100 hover:scale-105 cursor-pointer'
+                  } ${!opened && !isOpening && available ? 'shadow-2xl hover:shadow-3xl' : ''} ${
+                    !opened && available ? `shadow-2xl ${chest.glowColor} animate-pulse` : ''
                   }`}
                   onClick={() => !opened && !isOpening && openChest(chest)}
                 >
@@ -325,6 +389,16 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
                       <div className="flex items-center justify-center gap-2 text-white font-bold">
                         <Clock size={18} />
                         <span>Opened - Reset at Midnight</span>
+                      </div>
+                    ) : !available ? (
+                      <div className="text-white/70 font-bold text-sm">
+                        <div className="flex items-center justify-center gap-2 mb-1">
+                          <Clock size={16} />
+                          <span>Not Available</span>
+                        </div>
+                        <div className="text-xs text-white/50">
+                          {getTimeRestrictionMessage(chest.id)}
+                        </div>
                       </div>
                     ) : isOpening ? (
                       <div className="text-white font-bold text-lg animate-pulse">
