@@ -8897,7 +8897,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             rel="noopener noreferrer"
             className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg mb-3"
           >
-            💙 Donate via PayPal
+            Donate via PayPal
           </a>
 
           {/* Stripe Donation Button */}
@@ -8913,7 +8913,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             }}
             className="block w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 text-center shadow-lg"
           >
-            💳 Donate via Credit Card (Stripe)
+            Donate via Credit Card (Stripe)
           </button>
 
           <p className="text-center text-slate-400 text-xs mt-3">
