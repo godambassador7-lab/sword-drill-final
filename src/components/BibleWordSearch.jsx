@@ -363,7 +363,7 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
               {/* Phone illustration - flips from vertical to horizontal */}
               <div className="w-32 h-48 bg-slate-700 rounded-3xl border-4 border-slate-600 flex items-center justify-center relative animate-[phoneFlip_2s_ease-in-out_infinite] p-2">
                 <div className="w-full h-full bg-slate-800 rounded-2xl flex items-center justify-center">
-                  <div className="text-5xl">📱</div>
+                  <div className="text-8xl">📱</div>
                 </div>
               </div>
             </div>
