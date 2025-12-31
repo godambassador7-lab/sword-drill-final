@@ -266,20 +266,24 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <span className="text-4xl">🎁</span>
-            <div>
-              <h1 className="text-3xl font-bold text-white">Daily Rewards</h1>
-              <p className="text-slate-400">Claim 2 free rewards every day!</p>
-            </div>
+        <div className="mb-6">
+          <div className="flex items-center justify-end mb-4">
+            <button
+              onClick={onCancel}
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <ArrowLeft size={24} />
+            </button>
           </div>
-          <button
-            onClick={onCancel}
-            className="text-slate-400 hover:text-white transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </button>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-4xl">🎁</span>
+              <div>
+                <h1 className="text-3xl font-bold text-white">Daily Rewards</h1>
+              </div>
+            </div>
+            <p className="text-slate-400 mt-2">Claim 2 free rewards every day!</p>
+          </div>
         </div>
 
         {/* Reset Info & Time Restrictions */}
