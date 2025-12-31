@@ -390,9 +390,14 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
                   {/* Status */}
                   <div className="mt-6 text-center">
                     {opened ? (
-                      <div className="flex items-center justify-center gap-2 text-white font-bold">
-                        <Clock size={18} />
-                        <span>Opened - Reset at Midnight</span>
+                      <div className="text-white/70 font-bold text-sm">
+                        <div className="flex items-center justify-center gap-2 mb-1">
+                          <Clock size={16} />
+                          <span>Opened - Reset at Midnight</span>
+                        </div>
+                        <div className="text-xs text-white/50">
+                          {getTimeRestrictionMessage(chest.id)}
+                        </div>
                       </div>
                     ) : !available ? (
                       <div className="text-white/70 font-bold text-sm">
