@@ -11843,6 +11843,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         <div className="bg-amber-900/40 rounded-xl p-4 border border-amber-700/50">
                           <h4 className="text-amber-300 font-bold mb-2">Prayer</h4>
                           <p className="text-slate-300 italic">{currentDay.prayer}</p>
+                          <p className="text-slate-400 italic text-sm mt-2">— Amen/Shalom</p>
                         </div>
                       </>
                     );
@@ -11915,6 +11916,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <div className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border border-amber-700/50">
                       <h3 className="text-amber-300 font-bold mb-2">Prayer</h3>
                       <p className="text-slate-300 text-sm italic">{selectedPlan.prayer}</p>
+                      <p className="text-slate-400 italic text-sm mt-2">— Amen/Shalom</p>
                     </div>
                   )}
                 </>
