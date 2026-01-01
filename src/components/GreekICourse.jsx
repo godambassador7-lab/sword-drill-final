@@ -3,8 +3,11 @@ import {
   BookOpen, ChevronRight, CheckCircle, ArrowLeft, GraduationCap, BookMarked
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import LanguageCourseDisclaimer from './LanguageCourseDisclaimer';
 
 const GreekICourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [lessonContent, setLessonContent] = useState('');
   const [loading, setLoading] = useState(false);
@@ -108,8 +111,17 @@ const GreekICourse = ({ onComplete, onCancel, userId, userData, setUserData }) =
 
   if (!selectedLesson) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/20 to-slate-900 text-white p-4">
-        <div className="max-w-6xl mx-auto">
+      <>
+        <LanguageCourseDisclaimer
+          courseName="Koine Greek I"
+          onAccept={() => {
+            setDisclaimerAccepted(true);
+            setShowDisclaimer(false);
+          }}
+          show={showDisclaimer && !disclaimerAccepted}
+        />
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/20 to-slate-900 text-white p-4">
+          <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-4xl font-bold text-indigo-400 flex items-center gap-3">
@@ -171,6 +183,7 @@ const GreekICourse = ({ onComplete, onCancel, userId, userData, setUserData }) =
           </div>
         </div>
       </div>
+      </>
     );
   }
 
