@@ -97,25 +97,52 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
 
   // Calculate spotlight position when step changes
   useEffect(() => {
-    if (currentStepData.selector) {
-      const element = document.querySelector(currentStepData.selector);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        setSpotlightPosition({
-          top: rect.top + window.scrollY,
-          left: rect.left + window.scrollX,
-          width: rect.width,
-          height: rect.height
-        });
-
-        // Scroll element into view
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const updatePosition = () => {
+      if (currentStepData.selector) {
+        const element = document.querySelector(currentStepData.selector);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          setSpotlightPosition({
+            top: rect.top,
+            left: rect.left,
+            width: rect.width,
+            height: rect.height
+          });
+        } else {
+          setSpotlightPosition(null);
+        }
       } else {
         setSpotlightPosition(null);
       }
-    } else {
-      setSpotlightPosition(null);
-    }
+    };
+
+    // Add delay to allow DOM to update after navigation
+    const timer = setTimeout(() => {
+      if (currentStepData.selector) {
+        const element = document.querySelector(currentStepData.selector);
+        if (element) {
+          // Scroll element into view first
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // Wait for scroll to complete, then calculate position
+          setTimeout(updatePosition, 300);
+        } else {
+          setSpotlightPosition(null);
+        }
+      } else {
+        setSpotlightPosition(null);
+      }
+    }, 100);
+
+    // Update position on scroll and resize
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
   }, [currentStep, currentStepData.selector]);
 
   const handleNext = () => {
