@@ -4789,7 +4789,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <div className="text-amber-400 text-2xl sm:text-3xl font-bold">{userData.versesMemorized}</div>
           <div className="text-slate-300 text-xs sm:text-sm">Verses Memorized</div>
         </div>
-        <div className="bg-slate-700/50 rounded-xl p-3 sm:p-4 border border-slate-600">
+        <div className="bg-slate-700/50 rounded-xl p-3 sm:p-4 border border-slate-600" data-tutorial="streak">
           <div className="flex items-center gap-2">
             {(() => {
               const currentStreak = userData.currentStreak || 0;
@@ -4910,6 +4910,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-slate-700/50 rounded-xl p-4 border border-slate-600 cursor-pointer hover:bg-slate-700/70 transition-all"
           onClick={() => setShowCurrencyInfo('points')}
+          data-tutorial="points-display"
         >
           <div className="text-amber-400 text-3xl font-bold">{userData.totalPoints}</div>
           <div className="text-slate-300 text-sm">Total Points</div>
@@ -9399,6 +9400,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onClick={() => setShowMenu(!showMenu)}
             className="text-amber-400 hover:text-amber-300 active:text-amber-200 transition-colors rounded-full p-2 sm:p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
+            data-tutorial="menu-button"
           >
             {showMenu ? <X size={24} className="sm:w-[26px] sm:h-[26px]" /> : <Menu size={24} className="sm:w-[26px] sm:h-[26px]" />}
           </button>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, BookOpen, Target, Flame, Trophy, Calendar, Zap, Brain, Award, Coins, Star, TrendingUp, Shield, Users, Clock, CheckCircle, AlertCircle, Info, Lightbulb } from 'lucide-react';
+import { ChevronDown, ChevronRight, BookOpen, Target, Flame, Trophy, Calendar, Zap, Brain, Award, Coins, Star, TrendingUp, Shield, Users, Clock, CheckCircle, AlertCircle, Info, Lightbulb, Play } from 'lucide-react';
+import WalkthroughTutorial from './WalkthroughTutorial';
 
 const TutorialHelp = ({ onBack }) => {
   const [expandedSections, setExpandedSections] = useState({});
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
 
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
@@ -1299,6 +1301,20 @@ const TutorialHelp = ({ onBack }) => {
           </p>
         </div>
 
+        {/* Interactive Walkthrough Button */}
+        <div className="mb-6">
+          <button
+            onClick={() => setShowWalkthrough(true)}
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center justify-center gap-3"
+          >
+            <Play size={24} fill="currentColor" />
+            <span className="text-xl">Start Interactive Walkthrough Tutorial</span>
+          </button>
+          <p className="text-center text-slate-400 text-sm mt-2">
+            Take a guided tour with spotlights on each feature
+          </p>
+        </div>
+
         {/* Animated Welcome Card */}
         <div className="mb-8 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-500/50 rounded-2xl p-6 animate-pulse-slow">
           <div className="flex items-start gap-4">
@@ -1456,6 +1472,11 @@ const TutorialHelp = ({ onBack }) => {
           animation: slideDown 0.5s ease-out forwards;
         }
       `}</style>
+
+      {/* Interactive Walkthrough Modal */}
+      {showWalkthrough && (
+        <WalkthroughTutorial onClose={() => setShowWalkthrough(false)} />
+      )}
     </div>
   );
 };
