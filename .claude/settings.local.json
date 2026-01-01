@@ -34,7 +34,9 @@
       "Bash(powershell.exe -Command \"cd ''C:\\\\Users\\\\Demetrius\\\\Documents\\\\sword-drill''; npm install\")",
       "Bash(node --version)",
       "Bash(node scripts/convertBibleToDownloadable.js:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(on the same page and does go the specific section or page that is being)",
+      "Bash(talked about.\" - Now tutorial navigates to actual pages being discussed.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ],
     "deny": [],
     "ask": []
