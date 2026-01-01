@@ -32,7 +32,9 @@
       "Bash(cmd.exe /c npm install @stripe/stripe-js @stripe/react-stripe-js)",
       "Bash(where npm:*)",
       "Bash(powershell.exe -Command \"cd ''C:\\\\Users\\\\Demetrius\\\\Documents\\\\sword-drill''; npm install\")",
-      "Bash(node --version)"
+      "Bash(node --version)",
+      "Bash(node scripts/convertBibleToDownloadable.js:*)",
+      "Bash(xargs:*)"
     ],
     "deny": [],
     "ask": []

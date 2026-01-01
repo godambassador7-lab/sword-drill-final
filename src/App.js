@@ -106,6 +106,7 @@ import BibleWordSearch from './components/BibleWordSearch';
 import GreekLexicon from './components/GreekLexicon';
 import HebrewLexicon from './components/HebrewLexicon';
 import VerseShareModal from './components/VerseShareModal';
+import BibleDownloadManager from './components/BibleDownloadManager';
 import EnhancedReviewModal from './components/EnhancedReviewModal';
 import EnhancedReviewMultipleChoice from './components/EnhancedReviewMultipleChoice';
 import { getRandomMemoryTip } from './data/memoryTips';
@@ -8880,6 +8881,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
           )}
         </div>
+
+        {/* Offline Bible Downloads */}
+        <BibleDownloadManager />
 
        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
         <h3 className="text-white font-bold mb-2">About</h3>
