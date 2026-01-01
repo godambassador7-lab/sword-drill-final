@@ -80,6 +80,7 @@ import TargumReader from './components/TargumReader';
 import LearningPlan from './components/LearningPlan';
 import DualCalendarDisplay from './components/DualCalendarDisplay';
 import TutorialHelp from './components/TutorialHelp';
+import WalkthroughTutorial from './components/WalkthroughTutorial';
 import HebrewCalendarModal from './components/HebrewCalendarModal';
 import ActivityCalendarModal from './components/ActivityCalendarModal';
 import BibleReader from './components/BibleReader';
@@ -1534,6 +1535,7 @@ const SwordDrillApp = () => {
   const [currentView, setCurrentView] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
   const [showAssociateCourses, setShowAssociateCourses] = useState(false);
   const [showDiplomaCourses, setShowDiplomaCourses] = useState(false);
@@ -10252,6 +10254,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <TutorialHelp
             onBack={() => setCurrentView('home')}
             onNavigate={setCurrentView}
+            onStartWalkthrough={() => setShowWalkthrough(true)}
           />
         )}
         {currentView === 'bonus-quizzes' && <BonusQuizzesView />}
@@ -12643,6 +12646,14 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           setVerseToShare(null);
         }}
       />
+
+      {/* Interactive Walkthrough Tutorial */}
+      {showWalkthrough && (
+        <WalkthroughTutorial
+          onClose={() => setShowWalkthrough(false)}
+          onNavigate={setCurrentView}
+        />
+      )}
     </div>
   );
 };

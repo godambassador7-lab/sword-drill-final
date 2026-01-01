@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, BookOpen, Target, Flame, Trophy, Calendar, Zap, Brain, Award, Coins, Star, TrendingUp, Shield, Users, Clock, CheckCircle, AlertCircle, Info, Lightbulb, Play } from 'lucide-react';
-import WalkthroughTutorial from './WalkthroughTutorial';
 
-const TutorialHelp = ({ onBack, onNavigate }) => {
+const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
   const [expandedSections, setExpandedSections] = useState({});
-  const [showWalkthrough, setShowWalkthrough] = useState(false);
 
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
@@ -1304,7 +1302,7 @@ const TutorialHelp = ({ onBack, onNavigate }) => {
         {/* Interactive Walkthrough Button */}
         <div className="mb-6">
           <button
-            onClick={() => setShowWalkthrough(true)}
+            onClick={onStartWalkthrough}
             className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center justify-center gap-3"
           >
             <Play size={24} fill="currentColor" />
@@ -1472,15 +1470,6 @@ const TutorialHelp = ({ onBack, onNavigate }) => {
           animation: slideDown 0.5s ease-out forwards;
         }
       `}</style>
-
-      {/* Interactive Walkthrough Modal */}
-      {showWalkthrough && (
-        <WalkthroughTutorial
-          onClose={() => setShowWalkthrough(false)}
-          onNavigate={onNavigate}
-          onCloseTutorialHelp={onBack}
-        />
-      )}
     </div>
   );
 };

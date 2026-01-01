@@ -90,15 +90,10 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
   // Handle navigation when step changes
   useEffect(() => {
     if (currentStepData.navigate && onNavigate) {
-      // Close tutorial help if we're navigating away
-      if (onCloseTutorialHelp && currentStepData.navigate !== 'tutorial-help') {
-        onCloseTutorialHelp();
-      }
-
-      // Navigate to the specified view
+      // Navigate to the specified view (don't close tutorial help - we want walkthrough to persist)
       onNavigate(currentStepData.navigate);
     }
-  }, [currentStep, currentStepData.navigate, onNavigate, onCloseTutorialHelp]);
+  }, [currentStep, currentStepData.navigate, onNavigate]);
 
   // Calculate spotlight position when step changes
   useEffect(() => {
