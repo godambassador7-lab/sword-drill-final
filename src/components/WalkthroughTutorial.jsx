@@ -236,7 +236,7 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] pointer-events-none">
+    <div className="fixed inset-0 z-[10000] pointer-events-none">
       {/* Gray overlay with spotlight cutout */}
       <div
         ref={overlayRef}
