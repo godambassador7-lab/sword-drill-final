@@ -1,0 +1,49 @@
+Add security modules: anti-cheat, economy, and missions
+
+This commit adds three new security-critical modules to the private core:
+
+1. **antiCheat/** - Rate limiting, validation, and anti-exploit protection
+   - Quiz submission validation with duplicate detection
+   - Server-side point calculation with caps and diminishing returns
+   - Streak recomputation from history (don't trust client)
+   - Purchase validation to prevent point tampering
+   - Event signing for future HMAC/JWT implementation
+
+2. **economy/** - Game economy tables and reward systems
+   - Power-up definitions (costs, durations, effects)
+   - Daily and streak chest reward tables
+   - Unlockable pricing and manna costs
+   - Key economy and loot generation
+   - Streak XP formulas and milestone rewards
+
+3. **missions/** - Daily mission system
+   - Mission definitions with rewards and completion criteria
+   - Deterministic daily rotation (seeded random for consistency)
+   - Category-based selection for variety
+   - Server-side completion validation
+   - Mission progress tracking
+
+Security improvements:
+- Hide all pricing, rewards, and drop rates from public code
+- Prevent client-side manipulation of points and purchases
+- Enforce rate limits and daily caps server-side
+- Protect streak and XP calculation formulas
+- Validate all mission completions before awarding rewards
+
+Migration guide and examples provided in:
+- SECURITY_MIGRATION_GUIDE.md
+- MIGRATION_EXAMPLE.md
+
+Breaking changes:
+- Functions renamed for consistency:
+  - signQuizEvent → signEvent
+  - validateUnlockablePurchase → validatePurchase
+  - validateVerseOfDayRead → validateCooldown
+
+Next steps:
+- Update public components to import from core
+- Remove hardcoded constants from public files
+- Test all validation flows
+- Add HMAC-SHA256 signing (replace simpleHash)
+
+Refs: #security #anti-cheat #economy-protection
