@@ -1733,7 +1733,6 @@ const SwordDrillApp = () => {
 
   // Streak Redemption System
   const [showStreakRedemption, setShowStreakRedemption] = useState(false);
-  const [streakRedemptionDismissed, setStreakRedemptionDismissed] = useState(false);
 
   // Monitor for streak loss and show redemption offer
   useEffect(() => {
@@ -1742,8 +1741,12 @@ const SwordDrillApp = () => {
     if (userData.streakLostAt && userData.lastKnownStreak > 0) {
       const elapsed = Date.now() - userData.streakLostAt;
 
+      // Check if user dismissed this specific streak loss instance
+      const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
+      const isDismissed = localStorage.getItem(dismissalKey) === 'true';
+
       // Only show if within 24 hours, modal isn't already shown, and user hasn't dismissed it
-      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !streakRedemptionDismissed) {
+      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !isDismissed) {
         // Delay showing the modal slightly to avoid overwhelming the user
         const timer = setTimeout(() => {
           setShowStreakRedemption(true);
@@ -1751,17 +1754,18 @@ const SwordDrillApp = () => {
         return () => clearTimeout(timer);
       }
 
-      // If expired, clear the streakLostAt
+      // If expired, clear the streakLostAt and cleanup dismissal flag
       if (elapsed >= TWENTY_FOUR_HOURS) {
         setUserData(prev => ({
           ...prev,
           streakLostAt: null,
           lastKnownStreak: 0
         }));
-        setStreakRedemptionDismissed(false); // Reset dismissal flag
+        // Clean up the dismissal flag for this expired streak
+        localStorage.removeItem(dismissalKey);
       }
     }
-  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption, streakRedemptionDismissed]);
+  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
 
   // Manna 24-Hour Expiry System
   useEffect(() => {
@@ -2986,6 +2990,10 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       showToast('No streak available to redeem!', 'error');
       return;
     }
+
+    // Clean up dismissal flag for this redeemed streak
+    const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
+    localStorage.removeItem(dismissalKey);
 
     // Deduct points
     const newPoints = userData.totalPoints - REDEMPTION_COST;
@@ -12627,7 +12635,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onPurchase={handleStreakRedemption}
           onDismiss={() => {
             setShowStreakRedemption(false);
-            setStreakRedemptionDismissed(true);
+            // Store dismissal for this specific streak loss instance
+            const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
+            localStorage.setItem(dismissalKey, 'true');
           }}
         />
       )}
