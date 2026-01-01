@@ -7680,8 +7680,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     };
 
     return (
-      <div className="space-y-6" data-tutorial="store">
-        <div className="bg-gradient-to-br from-purple-900/40 to-teal-900/40 rounded-2xl p-6 border-2 border-purple-500/50">
+      <div className="space-y-6">
+        <div className="bg-gradient-to-br from-purple-900/40 to-teal-900/40 rounded-2xl p-6 border-2 border-purple-500/50" data-tutorial="store">
           <div className="flex items-center gap-3 mb-2">
             <Crown size={32} className="text-yellow-400" />
             <h2 className="text-2xl font-bold text-purple-200">Power-Up Shop</h2>
@@ -8666,8 +8666,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     };
 
     return (
-      <div className="space-y-6" data-tutorial="settings">
-        <h2 className="text-2xl font-bold text-amber-400">Settings</h2>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold text-amber-400" data-tutorial="settings">Settings</h2>
 
         {/* Sound Settings */}
         <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
