@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronRight, BookOpen, Target, Flame, Trophy, Calendar, Zap, Brain, Award, Coins, Star, TrendingUp, Shield, Users, Clock, CheckCircle, AlertCircle, Info, Lightbulb, Play } from 'lucide-react';
 import WalkthroughTutorial from './WalkthroughTutorial';
 
-const TutorialHelp = ({ onBack }) => {
+const TutorialHelp = ({ onBack, onNavigate }) => {
   const [expandedSections, setExpandedSections] = useState({});
   const [showWalkthrough, setShowWalkthrough] = useState(false);
 
@@ -1475,7 +1475,11 @@ const TutorialHelp = ({ onBack }) => {
 
       {/* Interactive Walkthrough Modal */}
       {showWalkthrough && (
-        <WalkthroughTutorial onClose={() => setShowWalkthrough(false)} />
+        <WalkthroughTutorial
+          onClose={() => setShowWalkthrough(false)}
+          onNavigate={onNavigate}
+          onCloseTutorialHelp={onBack}
+        />
       )}
     </div>
   );

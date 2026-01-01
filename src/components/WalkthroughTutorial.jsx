@@ -7,8 +7,12 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
  * Provides a step-by-step guided tour of the app with spotlights on key features.
  * Shows gray overlay on background except for the highlighted element.
  * Includes back, forward, and exit navigation.
+ *
+ * @param {Function} onClose - Callback to close the walkthrough
+ * @param {Function} onNavigate - Callback to navigate to different views (currentView setter)
+ * @param {Function} onCloseTutorialHelp - Callback to close tutorial help page
  */
-const WalkthroughTutorial = ({ onClose }) => {
+const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [spotlightPosition, setSpotlightPosition] = useState(null);
   const overlayRef = useRef(null);
@@ -18,111 +22,83 @@ const WalkthroughTutorial = ({ onClose }) => {
     {
       id: 'welcome',
       title: 'Welcome to Sword Drill!',
-      description: 'Welcome to your journey of mastering God\'s Word! This tutorial will show you all the amazing features available to help you learn and memorize Scripture.',
+      description: 'Welcome to your journey of mastering God\'s Word! This tutorial will show you all the amazing features available to help you learn and memorize Scripture. Let\'s start by going to the home page!',
       selector: null, // No spotlight for welcome
-      position: 'center'
-    },
-    {
-      id: 'verse-display',
-      title: 'Daily Verse Challenge',
-      description: 'This is your main training area! Each day you\'ll get a new verse to memorize. Read it carefully, then test yourself by typing it from memory. The more accurate you are, the more points you earn!',
-      selector: '.verse-display-card, [data-tutorial="verse-display"]',
-      position: 'center'
+      position: 'center',
+      navigate: 'home' // Go to home page
     },
     {
       id: 'points-display',
       title: 'Your Points & Progress',
       description: 'Track your progress here! You earn points for correct answers, maintaining streaks, and completing challenges. Points unlock new features and show how far you\'ve come in your Scripture mastery journey.',
-      selector: '[data-tutorial="points-display"], .points-counter',
-      position: 'top'
+      selector: '[data-tutorial="points-display"]',
+      position: 'top',
+      navigate: 'home'
     },
     {
       id: 'streak-counter',
       title: 'Daily Streak',
       description: 'Your streak shows how many consecutive days you\'ve practiced! Maintaining a streak multiplies your points and unlocks special rewards. Come back daily to keep it going!',
-      selector: '[data-tutorial="streak"], .streak-display',
-      position: 'top'
+      selector: '[data-tutorial="streak"]',
+      position: 'top',
+      navigate: 'home'
     },
     {
       id: 'menu-button',
       title: 'Main Menu',
       description: 'Tap this button to access all features! The menu contains practice modes, study tools, courses, store, and settings. Everything you need is just a tap away.',
-      selector: '[data-tutorial="menu-button"], .menu-button',
-      position: 'left'
-    },
-    {
-      id: 'bible-reader',
-      title: 'Bible Reader',
-      description: 'Read the Bible in multiple translations! You can switch between KJV, ASV, WEB, and more. Perfect for studying context around the verses you\'re memorizing.',
-      selector: '[data-tutorial="bible-reader"]',
-      position: 'center'
+      selector: '[data-tutorial="menu-button"]',
+      position: 'left',
+      navigate: 'home'
     },
     {
       id: 'verse-of-day',
       title: 'Verse of the Day',
       description: 'Get daily inspiration with a specially selected verse! You can share these verses with friends, save them to your personal collection, or use them as daily meditation.',
-      selector: '[data-tutorial="verse-of-day"], .daily-verse-card',
-      position: 'center'
-    },
-    {
-      id: 'calendar',
-      title: 'Activity Calendar',
-      description: 'Track your practice history! The calendar shows which days you\'ve practiced, your streaks, and special events like feast days. Green dots mean you practiced that day!',
-      selector: '[data-tutorial="calendar"], .calendar-icon',
-      position: 'top'
-    },
-    {
-      id: 'missions',
-      title: 'Daily Missions',
-      description: 'Complete daily challenges to earn bonus points! Missions refresh every day and include tasks like completing quizzes, maintaining streaks, and trying new features.',
-      selector: '[data-tutorial="missions"]',
-      position: 'center'
+      selector: '[data-tutorial="verse-of-day"]',
+      position: 'center',
+      navigate: 'home'
     },
     {
       id: 'store',
-      title: 'Point Store',
-      description: 'Spend your hard-earned points here! Unlock power-ups like Double Points, Streak Freeze, translations, courses, and special Bible tools. The more you practice, the more you can unlock!',
+      title: 'Power-Up Shop',
+      description: 'Spend your hard-earned points here! Unlock power-ups like Double Points, Streak Freeze, and other boosts. The more you practice, the more you can unlock!',
       selector: '[data-tutorial="store"]',
-      position: 'center'
-    },
-    {
-      id: 'practice-modes',
-      title: 'Practice Modes',
-      description: 'Multiple ways to practice! Try Verse Scramble, Book Order Quiz, Sword Drill Ultimate, Spelling Bee, and more. Each mode helps you learn Scripture in a unique and fun way.',
-      selector: '[data-tutorial="practice-modes"]',
-      position: 'center'
-    },
-    {
-      id: 'study-tools',
-      title: 'Study Tools',
-      description: 'Deep dive into Scripture! Access Greek and Hebrew lexicons, Smith\'s Bible Dictionary, Biblical Bloodlines (family trees), and study plans to enhance your understanding.',
-      selector: '[data-tutorial="study-tools"]',
-      position: 'center'
-    },
-    {
-      id: 'courses',
-      title: 'Biblical Courses',
-      description: 'Take comprehensive courses on Biblical topics! Learn Koine Greek, Ancient Hebrew, Church History, Theology, and more. Complete courses to earn certificates and bonus points.',
-      selector: '[data-tutorial="courses"]',
-      position: 'center'
+      position: 'center',
+      navigate: 'powerup-shop'
     },
     {
       id: 'settings',
       title: 'Settings & Customization',
-      description: 'Customize your experience! Change Bible translations, adjust sound settings, download Bibles for offline use, enable simplified language mode, and personalize your username.',
+      description: 'Customize your experience! Adjust sound settings, download Bibles for offline use, and personalize your username.',
       selector: '[data-tutorial="settings"]',
-      position: 'center'
+      position: 'center',
+      navigate: 'settings'
     },
     {
       id: 'completion',
       title: 'You\'re Ready!',
       description: 'You now know the basics of Sword Drill! Start your journey by memorizing today\'s verse. Remember: consistency is key. Practice daily, maintain your streak, and watch your Scripture knowledge grow. May God bless your studies!',
       selector: null,
-      position: 'center'
+      position: 'center',
+      navigate: 'home'
     }
   ];
 
   const currentStepData = tutorialSteps[currentStep];
+
+  // Handle navigation when step changes
+  useEffect(() => {
+    if (currentStepData.navigate && onNavigate) {
+      // Close tutorial help if we're navigating away
+      if (onCloseTutorialHelp && currentStepData.navigate !== 'tutorial-help') {
+        onCloseTutorialHelp();
+      }
+
+      // Navigate to the specified view
+      onNavigate(currentStepData.navigate);
+    }
+  }, [currentStep, currentStepData.navigate, onNavigate, onCloseTutorialHelp]);
 
   // Calculate spotlight position when step changes
   useEffect(() => {

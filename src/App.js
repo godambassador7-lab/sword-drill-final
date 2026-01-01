@@ -4718,7 +4718,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       </div>
 
       {verseOfDay && (
-        <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-4 sm:p-6">
+        <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border-2 border-amber-500/30 rounded-2xl p-4 sm:p-6" data-tutorial="verse-of-day">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
             <div className="flex items-center gap-2">
               <Calendar className="text-amber-400" size={20} />
@@ -7678,7 +7678,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     };
 
     return (
-      <div className="space-y-6">
+      <div className="space-y-6" data-tutorial="store">
         <div className="bg-gradient-to-br from-purple-900/40 to-teal-900/40 rounded-2xl p-6 border-2 border-purple-500/50">
           <div className="flex items-center gap-3 mb-2">
             <Crown size={32} className="text-yellow-400" />
@@ -8664,7 +8664,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     };
 
     return (
-      <div className="space-y-6">
+      <div className="space-y-6" data-tutorial="settings">
         <h2 className="text-2xl font-bold text-amber-400">Settings</h2>
 
         {/* Sound Settings */}
@@ -10248,7 +10248,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userData={userData}
           />
         )}
-        {currentView === 'tutorial' && <TutorialHelp onBack={() => setCurrentView('home')} />}
+        {currentView === 'tutorial' && (
+          <TutorialHelp
+            onBack={() => setCurrentView('home')}
+            onNavigate={setCurrentView}
+          />
+        )}
         {currentView === 'bonus-quizzes' && <BonusQuizzesView />}
         {currentView === 'spelling-bee' && (
           <BiblicalSpellingBee
