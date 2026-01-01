@@ -176,45 +176,67 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
     }
 
     const padding = 20;
-    const tooltipWidth = 400;
-    const tooltipHeight = 200;
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
 
-    switch (currentStepData.position) {
+    // Calculate available space in each direction
+    const spaceAbove = spotlightPosition.top;
+    const spaceBelow = viewportHeight - (spotlightPosition.top + spotlightPosition.height);
+    const spaceLeft = spotlightPosition.left;
+    const spaceRight = viewportWidth - (spotlightPosition.left + spotlightPosition.width);
+
+    let position = currentStepData.position;
+
+    // Auto-adjust position if preferred position doesn't have enough space
+    if (position === 'top' && spaceAbove < 250) {
+      position = 'bottom';
+    }
+    if (position === 'bottom' && spaceBelow < 250) {
+      position = 'top';
+    }
+    if (position === 'left' && spaceLeft < 450) {
+      position = 'right';
+    }
+    if (position === 'right' && spaceRight < 450) {
+      position = 'left';
+    }
+
+    switch (position) {
       case 'top':
         return {
-          top: spotlightPosition.top - tooltipHeight - padding,
-          left: spotlightPosition.left + spotlightPosition.width / 2,
-          transform: 'translateX(-50%)'
+          bottom: viewportHeight - spotlightPosition.top + padding,
+          left: Math.max(10, Math.min(viewportWidth - 410, spotlightPosition.left + spotlightPosition.width / 2 - 200)),
+          transform: 'none'
         };
       case 'bottom':
         return {
           top: spotlightPosition.top + spotlightPosition.height + padding,
-          left: spotlightPosition.left + spotlightPosition.width / 2,
-          transform: 'translateX(-50%)'
+          left: Math.max(10, Math.min(viewportWidth - 410, spotlightPosition.left + spotlightPosition.width / 2 - 200)),
+          transform: 'none'
         };
       case 'left':
         return {
-          top: spotlightPosition.top + spotlightPosition.height / 2,
-          left: spotlightPosition.left - tooltipWidth - padding,
-          transform: 'translateY(-50%)'
+          top: Math.max(10, Math.min(viewportHeight - 250, spotlightPosition.top + spotlightPosition.height / 2 - 125)),
+          right: viewportWidth - spotlightPosition.left + padding,
+          transform: 'none'
         };
       case 'right':
         return {
-          top: spotlightPosition.top + spotlightPosition.height / 2,
+          top: Math.max(10, Math.min(viewportHeight - 250, spotlightPosition.top + spotlightPosition.height / 2 - 125)),
           left: spotlightPosition.left + spotlightPosition.width + padding,
-          transform: 'translateY(-50%)'
+          transform: 'none'
         };
       default: // center
         return {
           top: spotlightPosition.top + spotlightPosition.height + padding,
-          left: spotlightPosition.left + spotlightPosition.width / 2,
-          transform: 'translateX(-50%)'
+          left: Math.max(10, Math.min(viewportWidth - 410, spotlightPosition.left + spotlightPosition.width / 2 - 200)),
+          transform: 'none'
         };
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[100]">
+    <div className="fixed inset-0 z-[100] pointer-events-none">
       {/* Gray overlay with spotlight cutout */}
       <div
         ref={overlayRef}
@@ -240,7 +262,7 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
       {/* Spotlight highlight border */}
       {spotlightPosition && (
         <div
-          className="absolute pointer-events-none transition-all duration-300"
+          className="absolute pointer-events-none transition-all duration-300 z-10"
           style={{
             top: spotlightPosition.top - 4,
             left: spotlightPosition.left - 4,
@@ -256,7 +278,7 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
 
       {/* Tutorial tooltip */}
       <div
-        className="absolute bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 border-2 border-amber-500/50 rounded-2xl shadow-2xl shadow-amber-500/20 max-w-md w-11/12 sm:w-96 transition-all duration-300"
+        className="absolute bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 border-2 border-amber-500/50 rounded-2xl shadow-2xl shadow-amber-500/20 max-w-md w-11/12 sm:w-96 transition-all duration-300 pointer-events-auto z-20"
         style={getTooltipPosition()}
       >
         {/* Header */}
