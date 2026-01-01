@@ -4776,6 +4776,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <button
         onClick={() => setCurrentView('personal-verse-bank')}
         className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 active:from-cyan-800 active:to-blue-800 text-white p-3 sm:p-4 rounded-xl border-2 border-cyan-500 hover:border-cyan-400 transition-all shadow-lg min-h-[64px]"
+        data-tutorial="verse-bank"
       >
         <div className="font-bold text-base sm:text-lg flex items-center justify-center gap-2">
           <span className="text-xl sm:text-2xl"></span>
@@ -4920,6 +4921,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border-2 border-amber-500/50 cursor-pointer hover:from-amber-900/50 hover:to-orange-900/50 transition-all"
           onClick={() => setShowCurrencyInfo('manna')}
+          data-tutorial="currencies"
         >
           <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
             <img src={`${process.env.PUBLIC_URL || ''}/manna 4.png`} alt="Manna" width="35" height="35" className="inline-block" />
@@ -5000,6 +5002,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   onClick={() => startQuiz('fill-blank')}
   disabled={loading || !canTakeQuiz('fill-blank')}
   className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
+  data-tutorial="quiz-modes"
 >
   <div className="flex items-center justify-between gap-2">
     <div className="font-bold text-base sm:text-lg">Fill in the Blank</div>
@@ -9710,6 +9713,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <button
                       onClick={() => setShowCoursesDropdown(!showCoursesDropdown)}
                       className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all flex items-center gap-3 border-2 border-red-500"
+                      data-tutorial="academy"
                     >
                       <img src={`${process.env.PUBLIC_URL || ''}/neon sword.png`} alt="Academy" width="24" height="24" className="inline-block" />
                       <div className="flex-1">
@@ -9950,6 +9954,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-yellow-600/20 transition-all flex items-center gap-3"
+                    data-tutorial="daily-rewards"
                   >
                     <span className="text-lg">🎁</span> Daily Rewards
                   </button>
@@ -10047,6 +10052,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-amber-600/20 hover:to-orange-600/20 transition-all flex items-center gap-3"
+                    data-tutorial="points-bank"
                   >
                     <span className="text-lg">💫</span>
                     <div className="flex-1">
@@ -12652,6 +12658,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <WalkthroughTutorial
           onClose={() => setShowWalkthrough(false)}
           onNavigate={setCurrentView}
+          onOpenMenu={setShowMenu}
         />
       )}
     </div>

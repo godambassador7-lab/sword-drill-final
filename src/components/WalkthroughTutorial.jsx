@@ -10,9 +10,9 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
  *
  * @param {Function} onClose - Callback to close the walkthrough
  * @param {Function} onNavigate - Callback to navigate to different views (currentView setter)
- * @param {Function} onCloseTutorialHelp - Callback to close tutorial help page
+ * @param {Function} onOpenMenu - Callback to open the menu
  */
-const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
+const WalkthroughTutorial = ({ onClose, onNavigate, onOpenMenu }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [spotlightPosition, setSpotlightPosition] = useState(null);
   const overlayRef = useRef(null);
@@ -44,6 +44,14 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
       navigate: 'home'
     },
     {
+      id: 'currencies',
+      title: 'Understanding Currencies',
+      description: 'Sword Drill has multiple currencies! Manna (shown here) resets daily - use it for daily power-ups. You\'ll also earn Talents (long-term currency), Keys of Understanding (earned from mistakes to unlock insights), and Scrolls (boost your points). Each serves a unique purpose in your journey!',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
       id: 'menu-button',
       title: 'Main Menu',
       description: 'Tap this button to access all features! The menu contains practice modes, study tools, courses, store, and settings. Everything you need is just a tap away.',
@@ -58,6 +66,49 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
       selector: '[data-tutorial="verse-of-day"]',
       position: 'center',
       navigate: 'home'
+    },
+    {
+      id: 'quiz-modes',
+      title: 'Practice Quiz Modes',
+      description: 'Test your Scripture knowledge with various quiz types! Try Fill in the Blank, Multiple Choice, True/False, and more. Each mode helps you memorize verses in different ways. The more you practice, the stronger your memory becomes!',
+      selector: '[data-tutorial="quiz-modes"]',
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'verse-bank',
+      title: 'Personal Verse Bank',
+      description: 'Save your favorite verses here! Build your own collection of meaningful scriptures and practice them anytime. This is your personal library of verses that speak to your heart.',
+      selector: '[data-tutorial="verse-bank"]',
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'daily-rewards',
+      title: 'Daily Rewards',
+      description: 'Open the daily chest for amazing rewards! Come back every day to collect Manna, Talents, power-ups, and special bonuses. The chest resets daily, so don\'t miss out!',
+      selector: '[data-tutorial="daily-rewards"]',
+      position: 'right',
+      navigate: 'home',
+      openMenu: true
+    },
+    {
+      id: 'academy',
+      title: 'Sword Drill Academy',
+      description: 'Take your learning to the next level! The Academy offers comprehensive courses on Biblical history, theology, archaeology, and more. Complete courses to earn certificates and deepen your understanding of Scripture.',
+      selector: '[data-tutorial="academy"]',
+      position: 'right',
+      navigate: 'home',
+      openMenu: true
+    },
+    {
+      id: 'points-bank',
+      title: 'Points Bank Exchange',
+      description: 'Invest your points wisely! Convert points to Talents (which grow 2% per week over 25 days), redeem Keys of Understanding, and track all your transactions. This is where you manage your spiritual economy and grow your resources!',
+      selector: '[data-tutorial="points-bank"]',
+      position: 'right',
+      navigate: 'home',
+      openMenu: true
     },
     {
       id: 'store',
@@ -78,7 +129,7 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
     {
       id: 'completion',
       title: 'You\'re Ready!',
-      description: 'You now know the basics of Sword Drill! Start your journey by memorizing today\'s verse. Remember: consistency is key. Practice daily, maintain your streak, and watch your Scripture knowledge grow. May God bless your studies!',
+      description: 'You now know all the features of Sword Drill! Start your journey by memorizing today\'s verse. Remember: consistency is key. Practice daily, maintain your streak, and watch your Scripture knowledge grow. May God bless your studies!',
       selector: null,
       position: 'center',
       navigate: 'home'
@@ -93,7 +144,15 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onCloseTutorialHelp }) => {
       // Navigate to the specified view (don't close tutorial help - we want walkthrough to persist)
       onNavigate(currentStepData.navigate);
     }
-  }, [currentStep, currentStepData.navigate, onNavigate]);
+
+    // Open menu if this step requires it
+    if (currentStepData.openMenu && onOpenMenu) {
+      // Delay slightly to allow navigation to complete first
+      setTimeout(() => {
+        onOpenMenu(true);
+      }, 150);
+    }
+  }, [currentStep, currentStepData.navigate, currentStepData.openMenu, onNavigate, onOpenMenu]);
 
   // Calculate spotlight position when step changes
   useEffect(() => {
