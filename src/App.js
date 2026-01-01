@@ -1661,7 +1661,7 @@ const SwordDrillApp = () => {
 
     // Keys of Understanding System (Special Reward Currency)
     keys: 0, // Keys of Understanding - earned through perseverance during struggles
-    keysLastReset: Date.now(), // Track when keys were last reset for weekly reset
+    keysLastReset: Date.now(), // Track when keys were last reset for Sabbath reset
     currentIncorrectStreak: 0, // Track consecutive incorrect answers for Keys rewards
     keysEarnedToday: 0, // Track keys earned today for daily cap (resets daily)
     keysLastDailyReset: Date.now(), // Track when keys earned today was last reset
@@ -1800,67 +1800,91 @@ const SwordDrillApp = () => {
       }
     };
 
-    // Check Keys weekly reset and daily keysEarnedToday reset
+    // Check Keys Sabbath reset and daily keysEarnedToday reset
     const checkKeysReset = () => {
-      const now = Date.now();
-      const lastReset = userData.keysLastReset || now;
-      const lastDailyReset = userData.keysLastDailyReset || now;
-      const weekInMs = 7 * 24 * 60 * 60 * 1000;
-      const dayInMs = 24 * 60 * 60 * 1000;
+      const now = new Date();
+      const lastResetDate = userData.keysLastReset ? new Date(userData.keysLastReset) : null;
+      const lastDailyResetDate = userData.keysLastDailyReset ? new Date(userData.keysLastDailyReset) : null;
+
+      // Check if today is Sabbath (Saturday)
+      const isSabbatToday = now.getDay() === 6;
 
       // Check if a day has passed - reset keysEarnedToday
-      if (now - lastDailyReset >= dayInMs && userData.keysEarnedToday > 0) {
-        console.log('Day passed - resetting keysEarnedToday from', userData.keysEarnedToday, 'to 0');
-        setUserData(prev => ({
-          ...prev,
-          keysEarnedToday: 0,
-          keysLastDailyReset: now
-        }));
-
-        // Sync to Firebase
-        if (currentUser?.uid) {
-          updateUserProgress(currentUser.uid, {
+      if (lastDailyResetDate) {
+        const isSameDay = now.toDateString() === lastDailyResetDate.toDateString();
+        if (!isSameDay && userData.keysEarnedToday > 0) {
+          console.log('Day passed - resetting keysEarnedToday from', userData.keysEarnedToday, 'to 0');
+          setUserData(prev => ({
+            ...prev,
             keysEarnedToday: 0,
-            keysLastDailyReset: now
-          }).catch(err => console.error('Error resetting keysEarnedToday:', err));
+            keysLastDailyReset: now.getTime()
+          }));
+
+          // Sync to Firebase
+          if (currentUser?.uid) {
+            updateUserProgress(currentUser.uid, {
+              keysEarnedToday: 0,
+              keysLastDailyReset: now.getTime()
+            }).catch(err => console.error('Error resetting keysEarnedToday:', err));
+          }
         }
       }
 
-      // Check if a week has passed - reset entire keys balance
-      if (now - lastReset >= weekInMs) {
-        console.log('Week passed - resetting Keys from', userData.keys, 'to 0');
-        setUserData(prev => ({
-          ...prev,
-          keys: 0,
-          keysLastReset: now,
-          currentIncorrectStreak: 0,
-          keysEarnedToday: 0,
-          keysLastDailyReset: now
-        }));
+      // Check if it's Sabbath and keys haven't been reset this Sabbath yet
+      if (isSabbatToday && lastResetDate) {
+        const wasLastResetThisSabbath = lastResetDate.getDay() === 6 &&
+                                        now.toDateString() === lastResetDate.toDateString();
 
-        // Sync to Firebase
-        if (currentUser?.uid) {
-          updateUserProgress(currentUser.uid, {
+        // Only reset if last reset was NOT today (this Sabbath)
+        if (!wasLastResetThisSabbath) {
+          console.log('Sabbath arrived - resetting Keys from', userData.keys, 'to 0');
+          console.log('Keys can be earned again immediately after reset');
+
+          setUserData(prev => ({
+            ...prev,
             keys: 0,
-            keysLastReset: now,
+            keysLastReset: now.getTime(),
             currentIncorrectStreak: 0,
             keysEarnedToday: 0,
-            keysLastDailyReset: now
-          }).catch(err => console.error('Error resetting Keys:', err));
+            keysLastDailyReset: now.getTime()
+          }));
+
+          // Sync to Firebase
+          if (currentUser?.uid) {
+            updateUserProgress(currentUser.uid, {
+              keys: 0,
+              keysLastReset: now.getTime(),
+              currentIncorrectStreak: 0,
+              keysEarnedToday: 0,
+              keysLastDailyReset: now.getTime()
+            }).catch(err => console.error('Error resetting Keys on Sabbath:', err));
+          }
+        }
+      } else if (isSabbatToday && !lastResetDate) {
+        // First time setup - mark that we've done the Sabbath reset for today
+        setUserData(prev => ({
+          ...prev,
+          keysLastReset: now.getTime()
+        }));
+
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, {
+            keysLastReset: now.getTime()
+          }).catch(err => console.error('Error initializing keysLastReset:', err));
         }
       }
     };
 
-    // Check on mount and every hour
+    // Check on mount and every 15 minutes (for more responsive Sabbath reset)
     checkMannaExpiry();
     checkKeysReset();
     const interval = setInterval(() => {
       checkMannaExpiry();
       checkKeysReset();
-    }, 60 * 60 * 1000); // Check every hour
+    }, 15 * 60 * 1000); // Check every 15 minutes
 
     return () => clearInterval(interval);
-  }, [userData.manna, userData.mannaLastUpdated, userData.keys, userData.keysLastReset, currentUser?.uid]);
+  }, [userData.manna, userData.mannaLastUpdated, userData.keys, userData.keysLastReset, userData.keysLastDailyReset, userData.keysEarnedToday, currentUser?.uid]);
 
   // Use focus tracking hook
   const focusTracking = useFocusTracking(focusEnabled && quizState !== null, examMode);
@@ -6926,7 +6950,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </div>
               <div className="flex items-start gap-2">
                 <span>•</span>
-                <span><strong>Reset:</strong> Keys reset every week (7 days)</span>
+                <span><strong>Reset:</strong> Keys reset to 0 every Sabbath (Saturday), but you can earn more immediately</span>
               </div>
               <div className="flex items-start gap-2">
                 <span>•</span>
@@ -12147,10 +12171,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                     <span className="font-semibold text-cyan-300">Important notes:</span>
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-2">
-                    <li>Keys reset every 7 days (weekly)</li>
+                    <li>Keys reset to 0 every Sabbath (Saturday), but you can earn more immediately</li>
                     <li>Each Key is worth 2 points when redeemed</li>
                     <li>Daily earning limit resets at midnight</li>
-                    <li>Redeem in the Points Bank Exchange before weekly reset</li>
+                    <li>Redeem in the Points Bank Exchange before Sabbath reset</li>
                   </ul>
                 </div>
               </div>
