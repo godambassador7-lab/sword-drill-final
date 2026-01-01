@@ -105,6 +105,7 @@ import UnlockableEliChallenge from './components/UnlockableEliChallenge';
 import BibleWordSearch from './components/BibleWordSearch';
 import GreekLexicon from './components/GreekLexicon';
 import HebrewLexicon from './components/HebrewLexicon';
+import VerseShareModal from './components/VerseShareModal';
 import EnhancedReviewModal from './components/EnhancedReviewModal';
 import EnhancedReviewMultipleChoice from './components/EnhancedReviewMultipleChoice';
 import { getRandomMemoryTip } from './data/memoryTips';
@@ -1575,6 +1576,10 @@ const SwordDrillApp = () => {
   // Purchase confirmation modal
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [purchaseModalData, setPurchaseModalData] = useState(null);
+
+  // Verse sharing
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [verseToShare, setVerseToShare] = useState(null);
 
   // Achievement unlock states
   const [showAchievementUnlock, setShowAchievementUnlock] = useState(null);
@@ -4734,7 +4739,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
           </div>
           <p className="text-white text-base sm:text-lg mb-3 leading-relaxed">{verseOfDay.text}</p>
-          <p className="text-amber-300 font-semibold text-sm sm:text-base"> {verseOfDay.reference}</p>
+          <div className="flex items-center justify-between">
+            <p className="text-amber-300 font-semibold text-sm sm:text-base"> {verseOfDay.reference}</p>
+            <button
+              onClick={() => {
+                setVerseToShare({ text: verseOfDay.text, reference: verseOfDay.reference });
+                setShowShareModal(true);
+              }}
+              className="flex items-center gap-2 px-3 py-1.5 bg-amber-600/20 hover:bg-amber-600/40 border border-amber-500/50 hover:border-amber-400 rounded-lg transition-all text-amber-300 hover:text-amber-200 text-sm"
+            >
+              <span className="text-base">📤</span>
+              Share
+            </button>
+          </div>
         </div>
       )}
 
@@ -12605,6 +12622,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           />
         </div>
       )}
+
+      {/* Verse Share Modal */}
+      <VerseShareModal
+        verse={verseToShare}
+        show={showShareModal}
+        onClose={() => {
+          setShowShareModal(false);
+          setVerseToShare(null);
+        }}
+      />
     </div>
   );
 };
