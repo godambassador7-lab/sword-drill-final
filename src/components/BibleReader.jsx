@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Search, X, Columns, Heart, BookmarkPlus, BookOpen } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Search, X, Columns, BookOpen } from 'lucide-react';
 import { simplifyText } from '../services/simplifiedMode';
 import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
 import AddVerseConfirmation from './AddVerseConfirmation';
@@ -683,76 +683,147 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     );
   };
 
+  // State for collapsible advanced features
+  const [showAdvancedFeatures, setShowAdvancedFeatures] = useState(false);
+
   return (
     <div className="w-full">
-      {/* Translation Info & Control Buttons */}
-      <div className="mb-4 flex items-center justify-between flex-wrap gap-2">
-        <p className="text-slate-400 text-sm">Reading from {activeTranslation} • ✅ Works offline - all content stored locally</p>
-        <div className="flex items-center gap-2">
+      {/* Clean Header - YouVersion Style */}
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <BookOpen size={20} className="text-amber-400 flex-shrink-0" />
+          <span className="text-white font-semibold text-base truncate">
+            {selectedBook ? `${selectedBook.name} ${selectedChapter}` : 'Bible Reader'}
+          </span>
+          <span className="text-slate-400 text-sm flex-shrink-0">{activeTranslation}</span>
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={toggleParallelMode}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+            className={`p-2 rounded-lg transition-all ${
               parallelMode
-                ? 'bg-emerald-500 text-white hover:bg-emerald-600'
-                : 'bg-slate-700 text-white hover:bg-slate-600'
+                ? 'bg-emerald-500/20 text-emerald-400'
+                : 'text-slate-400 hover:text-white hover:bg-slate-700'
             }`}
+            title="Parallel View"
           >
-            <Columns size={18} />
-            {parallelMode ? 'Single View' : 'Parallel View'}
+            <Columns size={20} />
           </button>
           <button
             onClick={toggleSearchMode}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+            className={`p-2 rounded-lg transition-all ${
               searchMode
-                ? 'bg-amber-500 text-slate-900 hover:bg-amber-600'
-                : 'bg-slate-700 text-white hover:bg-slate-600'
+                ? 'bg-amber-500/20 text-amber-400'
+                : 'text-slate-400 hover:text-white hover:bg-slate-700'
             }`}
+            title="Search Bible"
           >
-            {searchMode ? <X size={18} /> : <Search size={18} />}
-            {searchMode ? 'Close Search' : 'Search Bible'}
+            <Search size={20} />
           </button>
         </div>
       </div>
 
       {/* Quick reference jump */}
-      <div className="mb-4 flex items-center gap-2">
+      <div className="mb-3 flex items-center gap-2">
         <input
           type="text"
           value={quickReference}
           onChange={(e) => setQuickReference(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') handleQuickReferenceGo(); }}
           placeholder="Jump to reference (e.g., John 3:16)"
-          className="flex-1 px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none"
+          className="flex-1 px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-sm"
         />
         <button
           onClick={handleQuickReferenceGo}
-          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-all"
+          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-all text-sm"
         >
           Go
         </button>
       </div>
 
-      {/* Secondary Translation Selector (visible in parallel mode) */}
-      {parallelMode && !searchMode && (
-        <div className="mb-4 p-3 bg-slate-800/50 rounded-lg border border-slate-600">
-          <label className="block text-slate-300 text-sm font-semibold mb-2">
-            Secondary Translation for Comparison
-          </label>
-          <select
-            value={secondaryTranslation}
-            onChange={(e) => handleSecondaryTranslationChange(e.target.value)}
-            className="w-full px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none"
-          >
-            {unlockedTranslations
-              .filter(trans => trans !== activeTranslation)
-              .map(trans => (
-                <option key={trans} value={trans}>
-                  {trans}
-                </option>
-              ))}
-          </select>
-        </div>
-      )}
+      {/* Collapsible Advanced Features */}
+      <div className="mb-3">
+        <button
+          onClick={() => setShowAdvancedFeatures(!showAdvancedFeatures)}
+          className="w-full text-left px-3 py-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg border border-slate-600 transition-all flex items-center justify-between text-sm"
+        >
+          <span className="text-slate-300">Advanced Features</span>
+          <ChevronRight
+            size={16}
+            className={`text-slate-400 transition-transform ${showAdvancedFeatures ? 'rotate-90' : ''}`}
+          />
+        </button>
+
+        {showAdvancedFeatures && (
+          <div className="mt-2 p-3 bg-slate-800/30 rounded-lg border border-slate-600 space-y-3">
+            {/* Parallel Translation Selector */}
+            {parallelMode && !searchMode && (
+              <div>
+                <label className="block text-slate-300 text-xs font-semibold mb-1">
+                  Secondary Translation
+                </label>
+                <select
+                  value={secondaryTranslation}
+                  onChange={(e) => handleSecondaryTranslationChange(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-sm"
+                >
+                  {unlockedTranslations
+                    .filter(trans => trans !== activeTranslation)
+                    .map(trans => (
+                      <option key={trans} value={trans}>
+                        {trans}
+                      </option>
+                    ))}
+                </select>
+              </div>
+            )}
+
+            {/* Verse Range Filter */}
+            {selectedBook && chapterContent.length > 0 && (
+              <div>
+                <label className="block text-slate-300 text-xs font-semibold mb-1">
+                  Verse Range Filter
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min="1"
+                    max={chapterContent.length}
+                    value={startVerse}
+                    onChange={(e) => setStartVerse(e.target.value)}
+                    placeholder="From"
+                    className="w-20 px-2 py-1 bg-slate-700 text-white border border-slate-600 rounded text-center text-sm"
+                  />
+                  <span className="text-slate-400 text-xs">to</span>
+                  <input
+                    type="number"
+                    min={startVerse || "1"}
+                    max={chapterContent.length}
+                    value={endVerse}
+                    onChange={(e) => setEndVerse(e.target.value)}
+                    placeholder="To"
+                    className="w-20 px-2 py-1 bg-slate-700 text-white border border-slate-600 rounded text-center text-sm"
+                  />
+                  {(startVerse || endVerse) && (
+                    <button
+                      onClick={() => {
+                        setStartVerse('');
+                        setEndVerse('');
+                      }}
+                      className="px-2 py-1 bg-slate-600 hover:bg-slate-700 text-white rounded text-xs"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+                <div className="mt-1 text-slate-400 text-xs">
+                  Showing {filteredVerses.length} of {chapterContent.length} verses
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Search Interface */}
       {searchMode ? (
@@ -767,7 +838,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Enter keywords (e.g., faith love hope)..."
                 className="flex-1 px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
               />
@@ -842,32 +913,29 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
         </div>
       ) : (
         <>
-          {/* Book Selection Input */}
-          <div className="mb-4">
-            <label className="block text-slate-300 text-sm font-semibold mb-2">
-              Select Book
-            </label>
+          {/* Compact Book Selection */}
+          <div className="mb-3">
             <div className="relative">
               <input
                 type="text"
                 value={bookInput}
                 onChange={(e) => setBookInput(e.target.value)}
                 onFocus={() => bookInput && setShowSuggestions(true)}
-                placeholder="Type a book name (e.g., John, Genesis, Romans)..."
-                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-emerald-500 focus:outline-none"
+                placeholder="Select a book..."
+                className="w-full px-3 py-2 rounded-lg bg-slate-700 text-white border border-slate-600 focus:border-emerald-500 focus:outline-none text-sm"
               />
 
               {/* Book Suggestions Dropdown */}
               {showSuggestions && filteredBooks.length > 0 && (
-                <div className="absolute z-10 w-full mt-2 bg-slate-800 border border-slate-600 rounded-lg shadow-xl max-h-60 overflow-y-auto">
+                <div className="absolute z-10 w-full mt-1 bg-slate-800 border border-slate-600 rounded-lg shadow-xl max-h-60 overflow-y-auto">
                   {filteredBooks.map((book) => (
                     <button
                       key={book.abbr}
                       onClick={() => handleBookSelect(book)}
-                      className="w-full text-left px-4 py-3 hover:bg-slate-700 transition-all border-b border-slate-700 last:border-0"
+                      className="w-full text-left px-3 py-2 hover:bg-slate-700 transition-all border-b border-slate-700 last:border-0 text-sm"
                     >
                       <span className="text-white font-semibold">{book.name}</span>
-                      <span className="text-slate-400 text-sm ml-2">({book.chapters} chapters)</span>
+                      <span className="text-slate-400 text-xs ml-2">({book.chapters} chapters)</span>
                     </button>
                   ))}
                 </div>
@@ -875,88 +943,39 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             </div>
           </div>
 
-          {/* Chapter Navigation */}
+          {/* Compact Chapter Navigation */}
           {selectedBook && (
-            <>
-              <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-600">
-                <button
-                  onClick={() => handleChapterChange(selectedChapter - 1)}
-                  disabled={selectedChapter === 1}
-                  className="p-2 bg-slate-600 hover:bg-slate-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <ChevronLeft size={20} />
-                </button>
+            <div className="flex items-center gap-2 mb-3">
+              <button
+                onClick={() => handleChapterChange(selectedChapter - 1)}
+                disabled={selectedChapter === 1}
+                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Previous chapter"
+              >
+                <ChevronLeft size={18} />
+              </button>
 
-                <select
-                  value={selectedChapter}
-                  onChange={(e) => handleChapterChange(parseInt(e.target.value))}
-                  className="flex-1 px-4 py-2 bg-slate-800 text-white border border-slate-600 rounded-lg focus:border-amber-500 focus:outline-none"
-                >
-                  {Array.from({ length: selectedBook.chapters }, (_, i) => i + 1).map(ch => (
-                    <option key={ch} value={ch}>
-                      {selectedBook.name} Chapter {ch}
-                    </option>
-                  ))}
-                </select>
+              <select
+                value={selectedChapter}
+                onChange={(e) => handleChapterChange(parseInt(e.target.value))}
+                className="flex-1 px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-amber-500 focus:outline-none text-sm"
+              >
+                {Array.from({ length: selectedBook.chapters }, (_, i) => i + 1).map(ch => (
+                  <option key={ch} value={ch}>
+                    {selectedBook.name} {ch}
+                  </option>
+                ))}
+              </select>
 
-                <button
-                  onClick={() => handleChapterChange(selectedChapter + 1)}
-                  disabled={selectedChapter === selectedBook.chapters}
-                  className="p-2 bg-slate-600 hover:bg-slate-700 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-
-              {/* Verse Range Selector */}
-              {chapterContent.length > 0 && (
-                <div className="mb-4 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
-                  <label className="block text-slate-300 text-sm font-semibold mb-2">
-                    Filter by Verse Range (Optional)
-                  </label>
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-2">
-                      <span className="text-slate-400 text-sm whitespace-nowrap">From:</span>
-                      <input
-                        type="number"
-                        min="1"
-                        max={chapterContent.length}
-                        value={startVerse}
-                        onChange={(e) => setStartVerse(e.target.value)}
-                        placeholder="1"
-                        className="w-16 min-w-[4rem] max-w-[6rem] px-2 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-center"
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-slate-400 text-sm whitespace-nowrap">To:</span>
-                      <input
-                        type="number"
-                        min={startVerse || "1"}
-                        max={chapterContent.length}
-                        value={endVerse}
-                        onChange={(e) => setEndVerse(e.target.value)}
-                        placeholder={chapterContent.length.toString()}
-                        className="w-16 min-w-[4rem] max-w-[6rem] px-2 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-center"
-                      />
-                    </div>
-                    {(startVerse || endVerse) && (
-                      <button
-                        onClick={() => {
-                          setStartVerse('');
-                          setEndVerse('');
-                        }}
-                        className="px-3 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-all text-sm"
-                      >
-                        Clear
-                      </button>
-                    )}
-                    <div className="ml-auto text-slate-400 text-sm">
-                      Showing {filteredVerses.length} of {chapterContent.length} verses
-                    </div>
-                  </div>
-                </div>
-              )}
-            </>
+              <button
+                onClick={() => handleChapterChange(selectedChapter + 1)}
+                disabled={selectedChapter === selectedBook.chapters}
+                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Next chapter"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           )}
 
           {/* Chapter Content */}
@@ -966,27 +985,12 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
               <p className="text-slate-400">Loading chapter...</p>
             </div>
           ) : selectedBook && chapterContent.length > 0 ? (
-            <div ref={contentRef} className="relative rounded-lg p-0 max-h-96 overflow-y-auto overflow-x-hidden">
-              <div className="sticky top-0 z-40 bg-slate-900 shadow-lg border-b border-slate-700 mb-4 px-2 md:px-4 py-3">
-                {parallelMode ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <h3 className="text-lg font-bold text-amber-400">
-                      {selectedBook.name} {selectedChapter} ({activeTranslation})
-                    </h3>
-                    <h3 className="text-lg font-bold text-emerald-400">
-                      {selectedBook.name} {selectedChapter} ({secondaryTranslation})
-                    </h3>
-                  </div>
-                ) : (
-                  <h3 className="text-lg font-bold text-amber-400">
-                    {selectedBook.name} {selectedChapter}
-                  </h3>
-                )}
-              </div>
+            <div ref={contentRef} className="relative max-h-[70vh] overflow-y-auto overflow-x-hidden">
+              {/* Removed sticky header - book/chapter shown in top navigation */}
 
               {parallelMode ? (
                 // Parallel View Layout
-                <div className="space-y-4 w-full">
+                <div className="space-y-6 px-1">
                   {loadingSecondary ? (
                     <div className="text-center py-8">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-400 mx-auto mb-2"></div>
@@ -1000,34 +1004,31 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                       return (
                         <div
                           key={index}
-                          className="group grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 p-3 md:p-3 hover:bg-slate-700/30 rounded transition-all border border-transparent hover:border-slate-600 relative w-full cursor-pointer"
+                          className="group grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 border-b border-slate-700/50 last:border-0"
                           onDoubleClick={() => {
                             if (!inBank && activeTranslation !== 'KJV_STRONGS') {
                               showAddVerseModal(verse);
                             }
                           }}
                         >
-                          {/* Primary Translation (Left Column) */}
-                          <div className="flex gap-3 w-full">
-                            <span className="text-amber-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0">
+                          {/* Primary Translation */}
+                          <div className="flex gap-2">
+                            <span className="text-slate-400 font-semibold text-sm mt-1 flex-shrink-0">
                               {verse.verse}
                             </span>
-                            <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
+                            <div className="text-slate-100 leading-relaxed text-base flex-1">
                               {activeTranslation === 'KJV_STRONGS' && verse.tokens
                                 ? renderStrongsTokens(verse.tokens)
                                 : verse.text}
                             </div>
                           </div>
 
-                          {/* Divider for mobile */}
-                          <div className="md:hidden border-t border-slate-600 my-2"></div>
-
-                          {/* Secondary Translation (Right Column) */}
-                          <div className="flex gap-3 md:border-l-2 md:border-slate-600 md:pl-4 w-full">
-                            <span className="text-emerald-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0 md:hidden">
+                          {/* Secondary Translation */}
+                          <div className="flex gap-2 md:border-l md:border-slate-600 md:pl-4">
+                            <span className="text-slate-400 font-semibold text-sm mt-1 flex-shrink-0 md:hidden">
                               {verse.verse}
                             </span>
-                            <div className="text-slate-200 leading-relaxed text-base md:text-base break-words flex-1">
+                            <div className="text-slate-300 leading-relaxed text-base flex-1">
                               {secondaryTranslation === 'KJV_STRONGS' && secondaryVerse?.tokens
                                 ? renderStrongsTokens(secondaryVerse.tokens)
                                 : (secondaryVerse ? secondaryVerse.text : '...')}
@@ -1039,28 +1040,30 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
                   )}
                 </div>
               ) : (
-                // Single View Layout
-                <div className="space-y-3 w-full">
+                // Single View Layout - Full Width YouVersion Style
+                <div className="space-y-5 px-2">
                   {filteredVerses.map((verse, index) => {
                     const inBank = isVerseInBank(verse);
 
                     return (
                       <div
                         key={index}
-                        className="group relative flex gap-3 hover:bg-slate-700/30 p-3 rounded transition-all border border-transparent hover:border-slate-600 w-full cursor-pointer"
+                        className="group relative"
                         onDoubleClick={() => {
                           if (!inBank && activeTranslation !== 'KJV_STRONGS') {
                             showAddVerseModal(verse);
                           }
                         }}
                       >
-                        <span className="text-amber-400 font-bold text-base mt-0.5 min-w-[2rem] flex-shrink-0">
-                          {verse.verse}
-                        </span>
-                        <div className="text-slate-200 leading-relaxed text-base md:text-base flex-1 break-words">
-                          {activeTranslation === 'KJV_STRONGS' && verse.tokens
-                            ? renderStrongsTokens(verse.tokens)
-                            : verse.text}
+                        <div className="flex gap-3 items-start">
+                          <span className="text-slate-400 font-semibold text-sm mt-1 flex-shrink-0">
+                            {verse.verse}
+                          </span>
+                          <p className="text-slate-100 leading-relaxed text-base flex-1">
+                            {activeTranslation === 'KJV_STRONGS' && verse.tokens
+                              ? renderStrongsTokens(verse.tokens)
+                              : verse.text}
+                          </p>
                         </div>
                       </div>
                     );
