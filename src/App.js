@@ -1,4 +1,4 @@
-import { signUp, signIn, signOut, onAuthChange, resetPassword } from './services/authService';
+import { signUp, signIn, signInWithGoogle, signOut, onAuthChange, resetPassword } from './services/authService';
 import { getUserData, addQuizResult, updateUserProgress, purchaseUnlockable, recordVerseOfDayRead } from './services/dbService';
 import { simplifyText, TRANSLATION_STYLES, getComparisonLabel, isSimplificationRecommended } from './services/simplifiedMode';
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
@@ -2531,6 +2531,83 @@ const handleVerseOfDayRead = async () => {
 };
 
 
+const completeLogin = async (user) => {
+  const data = await getUserData(user.uid);
+  if (data.success && data.user && data.progress) {
+    // Use the higher value between localStorage and Firebase for streak
+    const localStreak = calculateCurrentStreak();
+    const firebaseStreak = data.progress.currentStreak || 0;
+
+    const verseProgressData = data.progress.verseProgress || {};
+
+    // Restore streakData from Firebase to localStorage
+    const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
+    const firebaseStreakData = normalizeStreakData(data.progress.streakData || {});
+    const mergedStreakData = { ...existingStreak, ...firebaseStreakData };
+    const toDate = (ts) => {
+      if (!ts) return null;
+      if (typeof ts.toDate === 'function') return ts.toDate();
+      if (typeof ts === 'object' && ts.seconds) return new Date(ts.seconds * 1000);
+      const d = new Date(ts);
+      return isNaN(d) ? null : d;
+    };
+    (data.progress.quizHistory || []).forEach(q => {
+      if (q.correct) {
+        const d = toDate(q.timestamp || q.ts || q.date);
+        if (d) {
+          const key = localDateString(d);
+          mergedStreakData[key] = { ...(mergedStreakData[key] || {}), marked: true };
+        }
+      }
+    });
+    localStorage.setItem('streakData', JSON.stringify(mergedStreakData));
+
+    // IMPORTANT: Recalculate streak AFTER merging streakData
+    const recalculatedStreak = calculateCurrentStreak();
+
+    const mergedUserData = mergeProgressRecords(
+      loadProgressFromLocalStorage() || {},
+      {
+        name: data.user.name || 'User',
+        versesMemorized: calculateMasteredVerses(verseProgressData),
+        quizzesCompleted: data.progress.quizzesCompleted || 0,
+        currentStreak: Math.max(recalculatedStreak, firebaseStreak),
+        totalPoints: data.progress.totalPoints || 0,
+        achievements: Array.isArray(data.progress.achievements) ? data.progress.achievements : [],
+        selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'KJV'),
+        includeApocrypha: data.user.includeApocrypha || false,
+        verseProgress: verseProgressData,
+        currentLevel: data.progress.currentLevel || 'Beginner',
+        unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
+        newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
+        achievementClickHistory: data.progress.achievementClickHistory || {},
+        quizHistory: data.progress.quizHistory || [],
+        lastVerseOfDayRead: normalizeTimestampValue(data.progress.lastVerseOfDayRead)
+      },
+      Math.max(recalculatedStreak, firebaseStreak)
+    );
+
+    // CRITICAL FIX: Use HIGHEST streak from any source (including recalculated)
+    const finalStreak = Math.max(recalculatedStreak, firebaseStreak);
+    console.log(' Sign-in Sync: Using highest streak from any source');
+    console.log(' Firebase streak:', firebaseStreak, '| Recalculated from merged data:', recalculatedStreak, '| Using:', finalStreak);
+    mergedUserData.currentStreak = finalStreak;
+    mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
+
+    // If recalculated streak is higher, sync it back to Firebase
+    if (recalculatedStreak > firebaseStreak) {
+      console.log(' Recalculated streak higher - syncing to Firebase:', recalculatedStreak);
+      updateUserProgress(user.uid, {
+        currentStreak: recalculatedStreak,
+        streakData: mergedStreakData
+      }).catch(err => console.error('Error syncing streak to Firebase:', err));
+    }
+
+    setUserData(mergedUserData);
+    setIsLoggedIn(true);
+  }
+};
+
 const handleSignIn = async (e) => {
   e.preventDefault();
   setError('');
@@ -2538,80 +2615,20 @@ const handleSignIn = async (e) => {
   
   const result = await signIn(email, password);
   if (result.success) {
-    const data = await getUserData(result.user.uid);
-    if (data.success && data.user && data.progress) {
-      // Use the higher value between localStorage and Firebase for streak
-      const localStreak = calculateCurrentStreak();
-      const firebaseStreak = data.progress.currentStreak || 0;
+    await completeLogin(result.user);
+  } else {
+    setError(result.error);
+  }
+  setLoading(false);
+};
 
-      const verseProgressData = data.progress.verseProgress || {};
+const handleGoogleSignIn = async () => {
+  setError('');
+  setLoading(true);
 
-      // Restore streakData from Firebase to localStorage
-      const existingStreak = normalizeStreakData(JSON.parse(localStorage.getItem('streakData') || '{}'));
-      const firebaseStreakData = normalizeStreakData(data.progress.streakData || {});
-      const mergedStreakData = { ...existingStreak, ...firebaseStreakData };
-      const toDate = (ts) => {
-        if (!ts) return null;
-        if (typeof ts.toDate === 'function') return ts.toDate();
-        if (typeof ts === 'object' && ts.seconds) return new Date(ts.seconds * 1000);
-        const d = new Date(ts);
-        return isNaN(d) ? null : d;
-      };
-      (data.progress.quizHistory || []).forEach(q => {
-        if (q.correct) {
-          const d = toDate(q.timestamp || q.ts || q.date);
-          if (d) {
-            const key = localDateString(d);
-            mergedStreakData[key] = { ...(mergedStreakData[key] || {}), marked: true };
-          }
-        }
-      });
-      localStorage.setItem('streakData', JSON.stringify(mergedStreakData));
-
-      // IMPORTANT: Recalculate streak AFTER merging streakData
-      const recalculatedStreak = calculateCurrentStreak();
-
-      const mergedUserData = mergeProgressRecords(
-        loadProgressFromLocalStorage() || {},
-        {
-          name: data.user.name || 'User',
-          versesMemorized: calculateMasteredVerses(verseProgressData),
-          quizzesCompleted: data.progress.quizzesCompleted || 0,
-          currentStreak: Math.max(recalculatedStreak, firebaseStreak),
-          totalPoints: data.progress.totalPoints || 0,
-          achievements: Array.isArray(data.progress.achievements) ? data.progress.achievements : [],
-          selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'KJV'),
-          includeApocrypha: data.user.includeApocrypha || false,
-          verseProgress: verseProgressData,
-          currentLevel: data.progress.currentLevel || 'Beginner',
-          unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
-          newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
-          achievementClickHistory: data.progress.achievementClickHistory || {},
-          quizHistory: data.progress.quizHistory || [],
-          lastVerseOfDayRead: normalizeTimestampValue(data.progress.lastVerseOfDayRead)
-        },
-        Math.max(recalculatedStreak, firebaseStreak)
-      );
-
-      // CRITICAL FIX: Use HIGHEST streak from any source (including recalculated)
-      const finalStreak = Math.max(recalculatedStreak, firebaseStreak);
-      console.log(' Sign-in Sync: Using highest streak from any source');
-      console.log(' Firebase streak:', firebaseStreak, '| Recalculated from merged data:', recalculatedStreak, '| Using:', finalStreak);
-      mergedUserData.currentStreak = finalStreak;
-      mergedUserData.totalPoints = data.progress.totalPoints || 0; // Firebase is authoritative
-
-      // If recalculated streak is higher, sync it back to Firebase
-      if (recalculatedStreak > firebaseStreak) {
-        console.log(' Recalculated streak higher - syncing to Firebase:', recalculatedStreak);
-        updateUserProgress(result.user.uid, {
-          currentStreak: recalculatedStreak,
-          streakData: mergedStreakData
-        }).catch(err => console.error('Error syncing streak to Firebase:', err));
-      }
-
-      setUserData(mergedUserData);
-      setIsLoggedIn(true);
-    }
+  const result = await signInWithGoogle();
+  if (result.success) {
+    await completeLogin(result.user);
   } else {
     setError(result.error);
   }
@@ -9202,6 +9219,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             >
               {loading ? 'Loading...' : (isSignUp ? 'Create Account' : 'Sign In')}
             </button>
+
+            {!isSignUp && (
+              <div className="flex items-center gap-3">
+                <div className="h-px bg-slate-600 flex-1" />
+                <span className="text-slate-400 text-xs uppercase tracking-wide">or</span>
+                <div className="h-px bg-slate-600 flex-1" />
+              </div>
+            )}
+
+            {!isSignUp && (
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                disabled={loading}
+                className="w-full bg-slate-800 text-white font-semibold py-3 rounded-lg border border-slate-600 hover:border-amber-400 hover:text-amber-200 transition-all disabled:opacity-50"
+              >
+                Continue with Google
+              </button>
+            )}
             
             <button
               type="button"
@@ -9230,6 +9266,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               </button>
             </div>
           )}
+
+          <div className="text-center mt-4 text-slate-400 text-xs">
+            Need help? Contact <a className="text-amber-300 hover:text-amber-200 underline" href="mailto:ygamify.help@gmail.com">ygamify.help@gmail.com</a>
+          </div>
         </div>
 
         {/* Forgot Password Modal */}
