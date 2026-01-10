@@ -12325,7 +12325,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             </div>
             <div
               ref={bibleReaderScrollRef}
-              className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pb-6"
+              className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pt-4 pb-6"
               style={{ touchAction: 'pan-y pinch-zoom' }}
             >
               <BibleReader
