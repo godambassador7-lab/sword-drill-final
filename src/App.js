@@ -9432,7 +9432,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="bg-slate-900/95 backdrop-blur border-b border-amber-500/30 fixed top-0 left-0 right-0 z-[9999] shadow-lg"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)',
+          paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 8px)',
           paddingBottom: '8px',
           paddingLeft: 'max(env(safe-area-inset-left, 0px), 16px)',
           paddingRight: 'max(env(safe-area-inset-right, 0px), 16px)'
@@ -10207,7 +10207,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       <div
         className="max-w-2xl mx-auto px-3 sm:px-4 md:px-6"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 80px)',
+          paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 80px)',
           paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 60px)'
         }}
       >
