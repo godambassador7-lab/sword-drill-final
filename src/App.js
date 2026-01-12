@@ -12302,13 +12302,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {showBibleReader && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4"
-          style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 12px)' }}
+          style={{ paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 12px)' }}
           onClick={() => { setShowBibleReader(false); setPendingReference(null); }}
         >
           <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ touchAction: 'pinch-zoom' }}>
             <div
               className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700"
-              style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 8px)' }}
+              style={{ paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 8px)' }}
             >
               <div className="flex items-center gap-3">
                 <div className="text-4xl">📖</div>
