@@ -2205,7 +2205,7 @@ useEffect(() => {
   }, 0);
 
   return () => clearTimeout(scrollTimer);
-}, [currentView, showBibleReader]);
+}, [currentView]);
 
 // Set loading to false after initial setup
 useEffect(() => {
@@ -2229,20 +2229,13 @@ useEffect(() => {
   syncVerseOfDayReadState(userData);
 }, [userData.lastVerseOfDayRead, hasHydratedProgress, syncVerseOfDayReadState]);
 
-// Ensure Bible Reader opens scrolled to top
-useEffect(() => {
-  if (showBibleReader && bibleReaderScrollRef.current) {
-    bibleReaderScrollRef.current.scrollTop = 0;
-  }
-}, [showBibleReader]);
-
 // Enable pinch-to-zoom ONLY for Bible Reader and Bloodlines pages
 useEffect(() => {
   const viewport = document.querySelector('meta[name="viewport"]');
   if (!viewport) return;
 
   // Allow pinch-to-zoom only on Bible Reader and Bloodlines pages
-  const shouldAllowZoom = showBibleReader || currentView === 'biblical-bloodlines' || currentView === 'crossword';
+  const shouldAllowZoom = currentView === 'bible-reader' || currentView === 'biblical-bloodlines' || currentView === 'crossword';
 
   if (shouldAllowZoom) {
     // Enable pinch-to-zoom
@@ -2251,7 +2244,7 @@ useEffect(() => {
     // Disable pinch-to-zoom on all other pages
     viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');
   }
-}, [showBibleReader, currentView]);
+}, [currentView]);
 
 // Check for time decay and missed day tax on app load
 useEffect(() => {
@@ -2407,7 +2400,7 @@ useEffect(() => {
   if (pendingRef && currentView === 'home') {
     localStorage.removeItem('pendingBibleReference');
     setPendingReference(pendingRef);
-    setShowBibleReader(true);
+    setCurrentView('bible-reader');
   }
 }, [currentView]);
 
@@ -4785,7 +4778,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {/* Bible Reader Button */}
       <button
-        onClick={() => setShowBibleReader(true)}
+        onClick={() => setCurrentView('bible-reader')}
         className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 active:from-amber-800 active:to-yellow-800 text-white p-3 sm:p-4 rounded-xl border-2 border-amber-500 hover:border-amber-400 transition-all shadow-lg min-h-[64px]"
       >
         <div className="font-bold text-base sm:text-lg flex items-center justify-center gap-2">
@@ -9589,7 +9582,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <div className="space-y-1">
                   <button
                     onClick={() => {
-                      setShowBibleReader(true);
+                      setCurrentView('bible-reader');
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-emerald-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3"
@@ -10230,11 +10223,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             userId={currentUser?.uid}
             showToast={showToast}
             onNavigate={(view) => {
-              if (view === 'bible-reader') {
-                setShowBibleReader(true);
-              } else {
-                setCurrentView(view);
-              }
+              setCurrentView(view);
             }}
             onStartQuiz={(action) => {
               if (action === 'start-verse-detective') {
@@ -10262,6 +10251,26 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {currentView === 'bible-study-plans' && <BibleStudyPlansView />}
         {currentView === 'academy-about' && (
           <AcademyAbout onBack={() => setCurrentView('home')} />
+        )}
+        {currentView === 'bible-reader' && (
+          <div className="space-y-4">
+            <button
+              onClick={() => {
+                setCurrentView('home');
+                setPendingReference(null);
+              }}
+              className="flex items-center gap-2 bg-slate-700 hover:bg-amber-600 text-white font-semibold px-4 py-2 rounded-lg border border-slate-600 hover:border-amber-400 transition-all"
+            >
+              <ArrowLeft size={18} />
+              <span>Back to Home</span>
+            </button>
+            <BibleReader
+              selectedTranslation={userData.selectedTranslation}
+              initialReference={pendingReference}
+              userData={userData}
+              onUpdateUserData={setUserData}
+            />
+          </div>
         )}
         {currentView === 'my-library' && (
           <MyLibrary
@@ -12122,7 +12131,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       )}
 
-      {/* Bible Reader Modal */}
       {/* Currency Info Modal */}
       {showCurrencyInfo && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowCurrencyInfo(null)}>
@@ -12299,45 +12307,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       )}
 
-      {showBibleReader && (
-        <div
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4"
-          style={{ paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 12px)' }}
-          onClick={() => { setShowBibleReader(false); setPendingReference(null); }}
-        >
-          <div className="bg-slate-800 rounded-xl w-full max-w-full sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ touchAction: 'pinch-zoom' }}>
-            <div
-              className="flex justify-between items-center px-4 sm:px-6 py-4 sticky top-0 bg-slate-800 z-20 shadow-md border-b border-slate-700"
-              style={{ paddingTop: 'calc(max(env(safe-area-inset-top, 0px), var(--safe-top-fallback, 0px)) + 8px)' }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="text-4xl">📖</div>
-                <h2 className="text-2xl font-bold text-amber-400">Bible Reader</h2>
-              </div>
-              <button
-                onClick={() => { setShowBibleReader(false); setPendingReference(null); }}
-                className="flex items-center gap-2 bg-slate-700 hover:bg-amber-600 text-white font-semibold px-3 py-2 rounded-lg border border-slate-600 hover:border-amber-400 transition-all shadow-md"
-                aria-label="Exit Bible Reader"
-              >
-                <X size={18} />
-                <span className="text-sm">Exit Reader</span>
-              </button>
-            </div>
-            <div
-              ref={bibleReaderScrollRef}
-              className="relative overflow-y-auto overflow-x-hidden px-4 sm:px-6 pt-8 pb-6"
-              style={{ touchAction: 'pan-y pinch-zoom' }}
-            >
-              <BibleReader
-                selectedTranslation={userData.selectedTranslation}
-                initialReference={pendingReference}
-                userData={userData}
-                onUpdateUserData={setUserData}
-              />
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Personal Quiz Selection Modal */}
       {showPersonalQuizModal && (
