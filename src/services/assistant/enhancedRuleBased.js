@@ -27,6 +27,41 @@ import { findIdiomsInText, formatIdiom } from '../../data/idioms';
 import { BIBLE_BOOKS } from '../../data/bibleBooks';
 
 /**
+ * Extract scripture references from text (e.g., from Smith's Dictionary definitions)
+ * Matches patterns like: Genesis 8:4, 2 Kings 19:37, (Exodus 4:30; 7:2), etc.
+ * @param {string} text - Text to extract references from
+ * @returns {Array<string>} Array of unique references found
+ */
+function extractScriptureReferences(text) {
+  if (!text) return [];
+
+  const references = [];
+
+  // Pattern 1: Book chapter:verse (with optional parentheses)
+  // Matches: Genesis 8:4, 2 Kings 19:37, (Exodus 4:30; 7:2), etc.
+  const fullRefPattern = /\(?\s*([1-3]?\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+(\d+):(\d+(?:-\d+)?)\s*(?:;|,|\))?/g;
+
+  let match;
+  while ((match = fullRefPattern.exec(text)) !== null) {
+    const book = match[1].trim();
+    const chapter = match[2];
+    const verse = match[3];
+
+    // Verify it's a real Bible book
+    const normalizedBook = book.replace(/\s+/g, ' ');
+    const bookExists = BIBLE_BOOKS.some(b =>
+      b.toLowerCase() === normalizedBook.toLowerCase()
+    );
+
+    if (bookExists) {
+      references.push(`${normalizedBook} ${chapter}:${verse}`);
+    }
+  }
+
+  return [...new Set(references)]; // Remove duplicates
+}
+
+/**
  * Main entry point for answering queries
  * @param {string} userMessage - User's question
  * @param {Object} context - Context including conversation history, preferences, etc.
@@ -341,6 +376,13 @@ async function generateWhoResponse(message, retrieved, context) {
   // ALWAYS show Key Passages section
   answer += `## 📖 Key Passages\n\n`;
 
+  // Extract scripture references from Smith's Dictionary definition
+  let dictRefs = [];
+  if (retrieved.definitions && retrieved.definitions.length > 0) {
+    const def = retrieved.definitions[0];
+    dictRefs = extractScriptureReferences(def.definition);
+  }
+
   // Check if there's a biblical book named after this person
   const bookMatch = person ? BIBLE_BOOKS.find(book =>
     book.toLowerCase() === person.toLowerCase()
@@ -361,15 +403,26 @@ async function generateWhoResponse(message, retrieved, context) {
     }
   }
 
+  // Display scripture references from Smith's Dictionary first
+  if (dictRefs.length > 0) {
+    answer += `**From Smith's Bible Dictionary**:\n`;
+    dictRefs.slice(0, 8).forEach(ref => {
+      answer += `- ${ref}\n`;
+      citations.push({ type: 'verse', ref, source: 'smiths' });
+    });
+    answer += `\n💡 *Open these references in Bible Reader to read the full context*\n\n`;
+  }
+
   if (retrieved.verses && retrieved.verses.length > 0) {
     // Show top 3-5 most relevant verses mentioning this person/entity
-    retrieved.verses.slice(0, 5).forEach(verse => {
+    const limit = dictRefs.length > 0 ? 3 : 5; // Show fewer if we already have dict refs
+    retrieved.verses.slice(0, limit).forEach(verse => {
       const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
     });
-  } else if (person && !bookMatch) {
-    // If no verses found and no book match, provide search tip
+  } else if (person && !bookMatch && dictRefs.length === 0) {
+    // If no verses found and no book match and no dict refs, provide search tip
     answer += `💡 Use Bible Reader's search feature to find all mentions of "${person}" throughout Scripture.\n\n`;
   }
 
@@ -499,6 +552,13 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
   // Show key passages
   answer += `### 📖 Key Passages\n\n`;
 
+  // Extract scripture references from Smith's Dictionary definition
+  let dictRefs = [];
+  if (retrieved.definitions && retrieved.definitions.length > 0) {
+    const def = retrieved.definitions[0];
+    dictRefs = extractScriptureReferences(def.definition);
+  }
+
   // Check if there's a biblical book named after this person
   const bookMatch = BIBLE_BOOKS.find(book =>
     book.toLowerCase() === personName.toLowerCase()
@@ -519,15 +579,26 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
     }
   }
 
+  // Display scripture references from Smith's Dictionary first
+  if (dictRefs.length > 0) {
+    answer += `**From Smith's Bible Dictionary**:\n`;
+    dictRefs.slice(0, 8).forEach(ref => {
+      answer += `- ${ref}\n`;
+      citations.push({ type: 'verse', ref, source: 'smiths' });
+    });
+    answer += `\n💡 *Open these references in Bible Reader to read the full context*\n\n`;
+  }
+
   if (retrieved.verses && retrieved.verses.length > 0) {
     // Filter verses relevant to this person, show top 5
-    retrieved.verses.slice(0, 5).forEach(verse => {
+    const limit = dictRefs.length > 0 ? 3 : 5; // Show fewer if we already have dict refs
+    retrieved.verses.slice(0, limit).forEach(verse => {
       const snippet = truncateText(verse.text, 110);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
-  } else if (!bookMatch) {
-    // Only show generic search message if there's no book match
+  } else if (!bookMatch && dictRefs.length === 0) {
+    // Only show generic search message if there's no book match and no dict refs
     answer += `Use Bible Reader's search feature to find all mentions of "${personName}" throughout Scripture.\n\n`;
   }
 
@@ -798,17 +869,35 @@ async function generateWhereResponse(message, retrieved, context) {
     citations.push({ type: 'dictionary', source: def.source, entry: def.headword });
   }
 
+  // Extract scripture references from Smith's Dictionary definition
+  let dictRefs = [];
+  if (retrieved.definitions && retrieved.definitions.length > 0) {
+    const def = retrieved.definitions[0];
+    dictRefs = extractScriptureReferences(def.definition);
+  }
+
   // ALWAYS show verses for "where" questions about places
+  answer += `## 📖 Biblical Mentions\n\n`;
+
+  // Display scripture references from Smith's Dictionary first
+  if (dictRefs.length > 0) {
+    answer += `**From Smith's Bible Dictionary**:\n`;
+    dictRefs.slice(0, 8).forEach(ref => {
+      answer += `- ${ref}\n`;
+      citations.push({ type: 'verse', ref, source: 'smiths' });
+    });
+    answer += `\n💡 *Open these references in Bible Reader to read the full context*\n\n`;
+  }
+
   if (retrieved.verses && retrieved.verses.length > 0) {
-    answer += `## 📖 Biblical Mentions\n\n`;
-    retrieved.verses.slice(0, 5).forEach(verse => {
+    const limit = dictRefs.length > 0 ? 3 : 5; // Show fewer if we already have dict refs
+    retrieved.verses.slice(0, limit).forEach(verse => {
       const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
-  } else if (place) {
-    // If no verses found, provide helpful message
-    answer += `## 📖 Biblical Mentions\n\n`;
+  } else if (place && dictRefs.length === 0) {
+    // If no verses found and no dict refs, provide helpful message
     answer += `Search for "${place}" in Bible Reader to find all references in Scripture.\n\n`;
   }
 
