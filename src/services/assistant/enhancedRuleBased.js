@@ -442,16 +442,24 @@ async function generateWhoResponse(message, retrieved, context) {
     answer += `\n💡 *Open these references in Bible Reader to read the full context*\n\n`;
   }
 
-  if (retrieved.verses && retrieved.verses.length > 0) {
-    // Show top 3-5 most relevant verses mentioning this person/entity
-    const limit = dictRefs.length > 0 ? 3 : 5; // Show fewer if we already have dict refs
-    retrieved.verses.slice(0, limit).forEach(verse => {
+  // Only show generic verse snippets if we don't have a book match or dict refs
+  // For people with dedicated books (Ruth, Esther, etc.), the book reference is sufficient
+  if (!bookMatch && dictRefs.length === 0 && retrieved.verses && retrieved.verses.length > 0) {
+    // Show verse snippets only when we don't have better sources
+    retrieved.verses.slice(0, 5).forEach(verse => {
+      const snippet = truncateText(verse.text, 100);
+      answer += `**${verse.reference}**: ${snippet}\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
+    });
+  } else if (dictRefs.length > 0 && !bookMatch && retrieved.verses && retrieved.verses.length > 0) {
+    // If we have dict refs but no book match, show a couple relevant verses
+    retrieved.verses.slice(0, 2).forEach(verse => {
       const snippet = truncateText(verse.text, 100);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
     });
   } else if (person && !bookMatch && dictRefs.length === 0) {
-    // If no verses found and no book match and no dict refs, provide search tip
+    // No book, no dict refs, no verses - show search tip
     answer += `💡 Use Bible Reader's search feature to find all mentions of "${person}" throughout Scripture.\n\n`;
   }
 
@@ -618,16 +626,24 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
     answer += `\n💡 *Open these references in Bible Reader to read the full context*\n\n`;
   }
 
-  if (retrieved.verses && retrieved.verses.length > 0) {
-    // Filter verses relevant to this person, show top 5
-    const limit = dictRefs.length > 0 ? 3 : 5; // Show fewer if we already have dict refs
-    retrieved.verses.slice(0, limit).forEach(verse => {
+  // Only show generic verse snippets if we don't have a book match or dict refs
+  // For people with dedicated books (Ruth, Esther, etc.), the book reference is sufficient
+  if (!bookMatch && dictRefs.length === 0 && retrieved.verses && retrieved.verses.length > 0) {
+    // Show verse snippets only when we don't have better sources
+    retrieved.verses.slice(0, 5).forEach(verse => {
+      const snippet = truncateText(verse.text, 110);
+      answer += `**${verse.reference}**: ${snippet}\n\n`;
+      citations.push({ type: 'verse', ref: verse.reference });
+    });
+  } else if (dictRefs.length > 0 && !bookMatch && retrieved.verses && retrieved.verses.length > 0) {
+    // If we have dict refs but no book match, show a couple relevant verses
+    retrieved.verses.slice(0, 2).forEach(verse => {
       const snippet = truncateText(verse.text, 110);
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
   } else if (!bookMatch && dictRefs.length === 0) {
-    // Only show generic search message if there's no book match and no dict refs
+    // No book, no dict refs, no verses - show search tip
     answer += `Use Bible Reader's search feature to find all mentions of "${personName}" throughout Scripture.\n\n`;
   }
 
