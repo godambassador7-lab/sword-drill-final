@@ -420,16 +420,22 @@ async function generateWhoResponse(message, retrieved, context) {
   if (bookMatch) {
     // Get book context for this person's book
     const bookContext = getBookContext(bookMatch);
+
+    answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${person}'s story.\n`;
+
     if (bookContext) {
-      answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${person}'s story.\n`;
       answer += `- **Author**: ${bookContext.author}\n`;
       answer += `- **Date**: ${bookContext.date}\n`;
       if (bookContext.keyPassages && bookContext.keyPassages.length > 0) {
         answer += `- **Key chapters**: ${bookContext.keyPassages.map(p => p.reference || p).join(', ')}\n`;
       }
-      answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
-      citations.push({ type: 'book', book: bookMatch });
+    } else {
+      // Fallback when no detailed context available
+      answer += `- Read the entire book to discover ${person}'s complete story\n`;
     }
+
+    answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
+    citations.push({ type: 'book', book: bookMatch });
   }
 
   // Display scripture references from Smith's Dictionary first
@@ -604,16 +610,22 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
   if (bookMatch) {
     // Get book context for this person's book
     const bookContext = getBookContext(bookMatch);
+
+    answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${personName}'s story.\n`;
+
     if (bookContext) {
-      answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${personName}'s story.\n`;
       answer += `- **Author**: ${bookContext.author}\n`;
       answer += `- **Date**: ${bookContext.date}\n`;
       if (bookContext.keyPassages && bookContext.keyPassages.length > 0) {
         answer += `- **Key chapters**: ${bookContext.keyPassages.map(p => p.reference || p).join(', ')}\n`;
       }
-      answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
-      citations.push({ type: 'book', book: bookMatch });
+    } else {
+      // Fallback when no detailed context available
+      answer += `- Read the entire book to discover ${personName}'s complete story\n`;
     }
+
+    answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
+    citations.push({ type: 'book', book: bookMatch });
   }
 
   // Display scripture references from Smith's Dictionary first
