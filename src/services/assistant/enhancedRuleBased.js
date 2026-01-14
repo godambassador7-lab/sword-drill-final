@@ -341,6 +341,26 @@ async function generateWhoResponse(message, retrieved, context) {
   // ALWAYS show Key Passages section
   answer += `## 📖 Key Passages\n\n`;
 
+  // Check if there's a biblical book named after this person
+  const bookMatch = person ? BIBLE_BOOKS.find(book =>
+    book.toLowerCase() === person.toLowerCase()
+  ) : null;
+
+  if (bookMatch) {
+    // Get book context for this person's book
+    const bookContext = getBookContext(bookMatch);
+    if (bookContext) {
+      answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${person}'s story.\n`;
+      answer += `- **Author**: ${bookContext.author}\n`;
+      answer += `- **Date**: ${bookContext.date}\n`;
+      if (bookContext.keyPassages && bookContext.keyPassages.length > 0) {
+        answer += `- **Key chapters**: ${bookContext.keyPassages.map(p => p.reference || p).join(', ')}\n`;
+      }
+      answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
+      citations.push({ type: 'book', book: bookMatch });
+    }
+  }
+
   if (retrieved.verses && retrieved.verses.length > 0) {
     // Show top 3-5 most relevant verses mentioning this person/entity
     retrieved.verses.slice(0, 5).forEach(verse => {
@@ -348,9 +368,8 @@ async function generateWhoResponse(message, retrieved, context) {
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference, book: verse.book, chapter: verse.chapter, verse: verse.verse });
     });
-  } else if (person) {
-    // If no verses found in limited pool, provide book reference and search tip
-    answer += `For comprehensive study of ${person}, explore the Book of ${person} in Bible Reader.\n\n`;
+  } else if (person && !bookMatch) {
+    // If no verses found and no book match, provide search tip
     answer += `💡 Use Bible Reader's search feature to find all mentions of "${person}" throughout Scripture.\n\n`;
   }
 
@@ -480,6 +499,26 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
   // Show key passages
   answer += `### 📖 Key Passages\n\n`;
 
+  // Check if there's a biblical book named after this person
+  const bookMatch = BIBLE_BOOKS.find(book =>
+    book.toLowerCase() === personName.toLowerCase()
+  );
+
+  if (bookMatch) {
+    // Get book context for this person's book
+    const bookContext = getBookContext(bookMatch);
+    if (bookContext) {
+      answer += `**Book of ${bookMatch}**: This entire book is dedicated to ${personName}'s story.\n`;
+      answer += `- **Author**: ${bookContext.author}\n`;
+      answer += `- **Date**: ${bookContext.date}\n`;
+      if (bookContext.keyPassages && bookContext.keyPassages.length > 0) {
+        answer += `- **Key chapters**: ${bookContext.keyPassages.map(p => p.reference || p).join(', ')}\n`;
+      }
+      answer += `\n💡 *Read the full Book of ${bookMatch} in Bible Reader for the complete story*\n\n`;
+      citations.push({ type: 'book', book: bookMatch });
+    }
+  }
+
   if (retrieved.verses && retrieved.verses.length > 0) {
     // Filter verses relevant to this person, show top 5
     retrieved.verses.slice(0, 5).forEach(verse => {
@@ -487,7 +526,8 @@ async function generatePersonResponse(personName, retrieved, context, ambiguity 
       answer += `**${verse.reference}**: ${snippet}\n\n`;
       citations.push({ type: 'verse', ref: verse.reference });
     });
-  } else {
+  } else if (!bookMatch) {
+    // Only show generic search message if there's no book match
     answer += `Use Bible Reader's search feature to find all mentions of "${personName}" throughout Scripture.\n\n`;
   }
 
