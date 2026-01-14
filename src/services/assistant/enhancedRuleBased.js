@@ -28,7 +28,7 @@ import { BIBLE_BOOKS } from '../../data/bibleBooks';
 
 /**
  * Extract scripture references from text (e.g., from Smith's Dictionary definitions)
- * Matches patterns like: Genesis 8:4, 2 Kings 19:37, (Exodus 4:30; 7:2), etc.
+ * Matches patterns like: Genesis 8:4, 2 Kings 19:37, (Exodus 4:30; 7:2), (Numbers 26:59; 33:39), etc.
  * @param {string} text - Text to extract references from
  * @returns {Array<string>} Array of unique references found
  */
@@ -37,12 +37,37 @@ function extractScriptureReferences(text) {
 
   const references = [];
 
-  // Pattern 1: Book chapter:verse (with optional parentheses)
-  // Matches: Genesis 8:4, 2 Kings 19:37, (Exodus 4:30; 7:2), etc.
-  const fullRefPattern = /\(?\s*([1-3]?\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+(\d+):(\d+(?:-\d+)?)\s*(?:;|,|\))?/g;
+  // Combined pattern: Match references including continuations within parentheses
+  // Example: (Numbers 26:59; 33:39) or (Exodus 4:30; 7:2)
+  const parenthesisRefPattern = /\(([1-3]?\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+(\d+:\d+(?:-\d+)?(?:\s*;\s*\d+:\d+(?:-\d+)?)*)\)/g;
 
   let match;
-  while ((match = fullRefPattern.exec(text)) !== null) {
+  while ((match = parenthesisRefPattern.exec(text)) !== null) {
+    const book = match[1].trim();
+    const refsString = match[2]; // e.g., "26:59; 33:39" or "4:30; 7:2"
+
+    // Verify it's a real Bible book
+    const normalizedBook = book.replace(/\s+/g, ' ');
+    const bookExists = BIBLE_BOOKS.some(b =>
+      b.toLowerCase() === normalizedBook.toLowerCase()
+    );
+
+    if (bookExists) {
+      // Split by semicolon to get all chapter:verse pairs
+      const chapVerses = refsString.split(/\s*;\s*/);
+      for (const cv of chapVerses) {
+        const cvMatch = cv.match(/(\d+):(\d+(?:-\d+)?)/);
+        if (cvMatch) {
+          references.push(`${normalizedBook} ${cvMatch[1]}:${cvMatch[2]}`);
+        }
+      }
+    }
+  }
+
+  // Also match standalone references (not in parentheses)
+  const standalonePattern = /(?<!\()([1-3]?\s*[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+(\d+):(\d+(?:-\d+)?)(?!\s*;)/g;
+
+  while ((match = standalonePattern.exec(text)) !== null) {
     const book = match[1].trim();
     const chapter = match[2];
     const verse = match[3];
@@ -54,7 +79,11 @@ function extractScriptureReferences(text) {
     );
 
     if (bookExists) {
-      references.push(`${normalizedBook} ${chapter}:${verse}`);
+      const ref = `${normalizedBook} ${chapter}:${verse}`;
+      // Check if we haven't already added this from a parenthesis group
+      if (!references.includes(ref)) {
+        references.push(ref);
+      }
     }
   }
 
