@@ -45,7 +45,8 @@ import {
   Sparkles,
   Gift,
   Award,
-  Scale
+  Scale,
+  ArrowLeft
 } from 'lucide-react';
 import VerseScrambleQuiz from './components/VerseScrambleQuiz';
 import BookOrderQuiz from './components/BookOrderQuiz';
