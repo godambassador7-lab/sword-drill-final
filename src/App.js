@@ -12419,27 +12419,40 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               <p className="text-slate-300 text-sm mb-3">{purchaseModalData.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-sm">Cost:</span>
-                <span className="text-amber-400 text-2xl font-bold">{purchaseModalData.cost} currency</span>
+                <span className="text-amber-400 text-2xl font-bold">
+                  {purchaseModalData.talents > 0 && purchaseModalData.points > 0
+                    ? `${purchaseModalData.talents}T + ${purchaseModalData.points} pts`
+                    : purchaseModalData.talents > 0
+                      ? `${purchaseModalData.talents} Talent${purchaseModalData.talents !== 1 ? 's' : ''}`
+                      : `${purchaseModalData.points || purchaseModalData.cost || 0} pts`}
+                </span>
               </div>
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                 <span className="text-slate-400 text-sm">Your Points:</span>
-                <span className="text-white text-lg font-semibold">{userData.totalPoints} pts</span>
+                <span className="text-white text-lg font-semibold">{userData.totalPoints || 0} pts</span>
               </div>
-              {purchaseModalData.hasTalents && (
+              {(purchaseModalData.hasTalents || purchaseModalData.talents > 0) && (
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
                   <span className="text-slate-400 text-sm">Your Talents:</span>
                   <span className="text-yellow-400 text-lg font-semibold flex items-center gap-1">
                     <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="22" height="22" className="inline-block" />
-                    {purchaseModalData.currentTalents}
+                    {purchaseModalData.currentTalents || userData.talents || 0}
                   </span>
                 </div>
               )}
-              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
-                <span className="text-slate-400 text-sm">After Purchase:</span>
-                <span className={`text-lg font-semibold ${(userData.totalPoints + (userData.talents || 0)) - purchaseModalData.cost >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {Math.max(0, (userData.totalPoints + (userData.talents || 0)) - purchaseModalData.cost)} total
-                </span>
-              </div>
+              {(() => {
+                const totalCost = ((purchaseModalData.talents || 0) * 500) + (purchaseModalData.points || purchaseModalData.cost || 0);
+                const totalWealth = (userData.totalPoints || 0) + ((userData.talents || 0) * 500);
+                const remaining = totalWealth - totalCost;
+                return (
+                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-600">
+                    <span className="text-slate-400 text-sm">After Purchase:</span>
+                    <span className={`text-lg font-semibold ${remaining >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                      {Math.max(0, remaining)} pts equivalent
+                    </span>
+                  </div>
+                );
+              })()}
             </div>
 
             <div className="flex gap-3">
@@ -12449,11 +12462,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               >
                 Cancel
               </button>
-              {purchaseModalData.hasTalents ? (
+              {(purchaseModalData.hasTalents || purchaseModalData.talents > 0) ? (
                 <>
                   <button
                     onClick={() => purchaseModalData.onConfirm(false)}
-                    disabled={userData.totalPoints < purchaseModalData.cost}
+                    disabled={(userData.totalPoints || 0) < (((purchaseModalData.talents || 0) * 500) + (purchaseModalData.points || purchaseModalData.cost || 0))}
                     className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white font-bold py-3 px-4 rounded-lg transition-all"
                   >
                     Pay with Points
