@@ -27,7 +27,7 @@ const FocusCovenant = ({ onAccept, onCancel, mode = 'quiz' }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/90 z-50 flex items-start justify-center p-4 overflow-y-auto">
       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl max-w-2xl w-full border-2 border-amber-500/50 shadow-2xl my-8">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-6 rounded-t-xl">

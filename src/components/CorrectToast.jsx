@@ -13,7 +13,7 @@ const CorrectToast = ({ points, show }) => {
           </h2>
           <div className="flex items-center justify-center gap-2 text-white text-3xl font-semibold">
             <Coins className="text-amber-300 animate-pulse" size={36} />
-            <span className="drop-shadow-md">+{points}</span>
+            <span className="drop-shadow-md">{points >= 0 ? '+' : ''}{points}</span>
           </div>
         </div>
       </div>
