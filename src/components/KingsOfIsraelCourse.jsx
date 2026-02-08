@@ -9,6 +9,13 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [showAnswer, setShowAnswer] = useState(false);
   const [kingsData, setKingsData] = useState({ beginner: [], intermediate: [], advanced: [] });
   const [completedKings, setCompletedKings] = useState({ beginner: [], intermediate: [], advanced: [] });
+  const [finalExamQuestions, setFinalExamQuestions] = useState([]);
+  const [showFinalExam, setShowFinalExam] = useState(false);
+  const [finalExamAnswers, setFinalExamAnswers] = useState({});
+  const [finalExamSubmitted, setFinalExamSubmitted] = useState(false);
+  const [finalExamScore, setFinalExamScore] = useState(0);
+  const [finalExamPassed, setFinalExamPassed] = useState(false);
+  const [examCompleted, setExamCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -38,7 +45,18 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         (firebaseProgress.advanced && firebaseProgress.advanced.length > 0);
 
       console.log('📊 [KingsOfIsrael] Loading from Firebase:', firebaseProgress, 'Has progress:', hasAnyProgress);
-      setCompletedKings(firebaseProgress);
+      const normalizedProgress = {
+        beginner: firebaseProgress.beginner || [],
+        intermediate: firebaseProgress.intermediate || [],
+        advanced: firebaseProgress.advanced || [],
+        examCompleted: !!firebaseProgress.examCompleted
+      };
+      setCompletedKings({
+        beginner: normalizedProgress.beginner,
+        intermediate: normalizedProgress.intermediate,
+        advanced: normalizedProgress.advanced
+      });
+      setExamCompleted(normalizedProgress.examCompleted);
       firebaseDataLoaded.current = true;
       hasLoadedInitialData.current = true;
       return;
@@ -50,7 +68,18 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       try {
         const localProgress = JSON.parse(localSaved);
         console.log('💾 [KingsOfIsrael] Loading from localStorage:', localProgress);
-        setCompletedKings(localProgress);
+        const normalizedProgress = {
+          beginner: localProgress.beginner || [],
+          intermediate: localProgress.intermediate || [],
+          advanced: localProgress.advanced || [],
+          examCompleted: !!localProgress.examCompleted
+        };
+        setCompletedKings({
+          beginner: normalizedProgress.beginner,
+          intermediate: normalizedProgress.intermediate,
+          advanced: normalizedProgress.advanced
+        });
+        setExamCompleted(normalizedProgress.examCompleted);
         hasLoadedInitialData.current = true;
 
         // Auto-sync to Firebase if user is logged in
@@ -58,9 +87,9 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
           console.log('🔄 [KingsOfIsrael] Auto-syncing localStorage to Firebase');
           setUserData(prev => ({
             ...prev,
-            kingsOfIsraelProgress: localProgress
+            kingsOfIsraelProgress: normalizedProgress
           }));
-          updateUserProgress(userId, { kingsOfIsraelProgress: localProgress })
+          updateUserProgress(userId, { kingsOfIsraelProgress: normalizedProgress })
             .then(() => console.log('✅ [KingsOfIsrael] Auto-sync complete'))
             .catch(err => console.error('❌ [KingsOfIsrael] Auto-sync failed:', err));
         }
@@ -82,7 +111,18 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     if (firebaseDataLoaded.current) return; // Don't sync if we already loaded from Firebase
 
     console.log('🔄 [KingsOfIsrael] Syncing updated Firebase data:', userData.kingsOfIsraelProgress);
-    setCompletedKings(userData.kingsOfIsraelProgress);
+    const normalizedProgress = {
+      beginner: userData.kingsOfIsraelProgress.beginner || [],
+      intermediate: userData.kingsOfIsraelProgress.intermediate || [],
+      advanced: userData.kingsOfIsraelProgress.advanced || [],
+      examCompleted: !!userData.kingsOfIsraelProgress.examCompleted
+    };
+    setCompletedKings({
+      beginner: normalizedProgress.beginner,
+      intermediate: normalizedProgress.intermediate,
+      advanced: normalizedProgress.advanced
+    });
+    setExamCompleted(normalizedProgress.examCompleted);
   }, [userData?.kingsOfIsraelProgress]);
 
   // Save progress whenever completedKings changes (but not on initial load)
@@ -93,20 +133,24 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     }
 
     console.log('💾 [KingsOfIsrael] Saving progress:', completedKings);
-    localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(completedKings));
+    const progressPayload = {
+      ...completedKings,
+      examCompleted
+    };
+    localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(progressPayload));
 
     if (userId && setUserData && updateUserProgress) {
       console.log('☁️ [KingsOfIsrael] Syncing to Firebase');
       setUserData(prev => ({
         ...prev,
-        kingsOfIsraelProgress: completedKings
+        kingsOfIsraelProgress: progressPayload
       }));
 
-      updateUserProgress(userId, { kingsOfIsraelProgress: completedKings })
+      updateUserProgress(userId, { kingsOfIsraelProgress: progressPayload })
         .then(() => console.log('✅ [KingsOfIsrael] Firebase save complete'))
         .catch(err => console.error('❌ [KingsOfIsrael] Firebase save failed:', err));
     }
-  }, [completedKings, userId, setUserData]);
+  }, [completedKings, examCompleted, userId, setUserData]);
 
   // Shuffle array helper
   const shuffleArray = (array) => {
@@ -116,6 +160,23 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+  };
+
+  const buildFinalExamQuestions = (levels) => {
+    const questions = [];
+    levels.forEach(level => {
+      level.forEach(king => {
+        if (!king.questions) return;
+        king.questions.forEach(q => {
+          questions.push({
+            question: `${king.king}: ${q.question}`,
+            options: q.options,
+            answer: q.answer
+          });
+        });
+      });
+    });
+    return questions;
   };
 
   // Auto-resume: Start at first incomplete level when course loads
@@ -169,6 +230,9 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         advanced: advanced
       };
       setKingsData({ beginner, intermediate, advanced });
+      const allQuestions = buildFinalExamQuestions([beginner, intermediate, advanced]);
+      const maxQuestions = Math.min(20, allQuestions.length);
+      setFinalExamQuestions(shuffleArray(allQuestions).slice(0, maxQuestions));
       setIsLoading(false);
     }).catch(err => {
       console.error('Error loading Kings of Israel data:', err);
@@ -220,6 +284,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     return { completed, total, percentage: total > 0 ? (completed / total) * 100 : 0 };
   };
 
+  const allLevelsComplete = ['beginner', 'intermediate', 'advanced'].every(level => {
+    const total = kingsData[level]?.length || 0;
+    const completed = completedKings[level]?.length || 0;
+    return total > 0 && completed === total;
+  });
+
   const handleKingComplete = () => {
     const currentKing = kingsData[selectedLevel][currentKingIndex];
     if (!completedKings[selectedLevel].includes(currentKingIndex)) {
@@ -258,10 +328,178 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     setShowQuizResults(false);
     setShuffledOptions({});
     setIsStudyMode(true);
+    setShowFinalExam(false);
+    setFinalExamAnswers({});
+    setFinalExamSubmitted(false);
+    setFinalExamScore(0);
+    setFinalExamPassed(false);
+  };
+
+  const handleStartFinalExam = () => {
+    setShowFinalExam(true);
+    setFinalExamAnswers({});
+    setFinalExamSubmitted(false);
+    setFinalExamScore(0);
+    setFinalExamPassed(false);
+  };
+
+  const handleFinalExamSubmit = () => {
+    if (finalExamQuestions.length === 0) return;
+    const score = finalExamQuestions.reduce((total, question, index) => {
+      return total + (finalExamAnswers[index] === question.answer ? 1 : 0);
+    }, 0);
+    const passScore = Math.ceil(finalExamQuestions.length * 0.7);
+    const passed = score >= passScore;
+    setFinalExamScore(score);
+    setFinalExamPassed(passed);
+    setFinalExamSubmitted(true);
+    if (passed) {
+      setExamCompleted(true);
+      onComplete({ type: 'course', courseId: 'kingsOfIsrael' });
+    }
   };
 
   // Level selection view
   if (!selectedLevel) {
+    if (showFinalExam) {
+      const passScore = Math.ceil(finalExamQuestions.length * 0.7);
+      const answeredCount = Object.keys(finalExamAnswers).length;
+
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-1 sm:p-2">
+          <div className="max-w-4xl mx-auto">
+            <div className="p-2 sm:p-3 md:p-4">
+              <div className="flex items-center justify-between mb-6">
+                <button
+                  onClick={handleBackToLevels}
+                  className="flex items-center gap-2 text-amber-200 hover:text-white transition-colors"
+                >
+                  <ArrowLeft size={20} />
+                  Back to Levels
+                </button>
+                {examCompleted && (
+                  <div className="flex items-center gap-2 text-green-300 font-semibold">
+                    <CheckCircle size={20} />
+                    Final Exam Passed
+                  </div>
+                )}
+              </div>
+
+              <div className="bg-gradient-to-br from-amber-600/20 to-orange-600/20 rounded-xl p-6 mb-6">
+                <div className="flex items-start gap-3">
+                  <Trophy className="text-amber-300 flex-shrink-0" size={32} />
+                  <div>
+                    <h1 className="text-3xl font-bold text-amber-300 mb-2">Final Exam</h1>
+                    <p className="text-slate-200 text-sm">
+                      Demonstrate mastery across all three levels. Pass by scoring at least {passScore} out of {finalExamQuestions.length}.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {finalExamQuestions.length === 0 ? (
+                <div className="bg-slate-800/50 rounded-xl p-6 text-center text-slate-200">
+                  Final exam questions are still loading. Please try again in a moment.
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-6">
+                    {finalExamQuestions.map((question, index) => (
+                      <div key={index} className="bg-slate-800/50 rounded-xl p-6">
+                        <div className="text-slate-400 text-xs mb-2">Question {index + 1}</div>
+                        <h3 className="text-white text-lg mb-4">{question.question}</h3>
+                        <div className="space-y-3">
+                          {question.options.map((option, optionIndex) => {
+                            const isSelected = finalExamAnswers[index] === option;
+                            const isCorrect = option === question.answer;
+                            const showResult = finalExamSubmitted;
+
+                            return (
+                              <button
+                                key={optionIndex}
+                                onClick={() => {
+                                  if (!finalExamSubmitted) {
+                                    setFinalExamAnswers(prev => ({
+                                      ...prev,
+                                      [index]: option
+                                    }));
+                                  }
+                                }}
+                                disabled={finalExamSubmitted}
+                                className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
+                                  showResult
+                                    ? isSelected
+                                      ? isCorrect
+                                        ? 'bg-green-600 border-green-400 text-white'
+                                        : 'bg-red-600 border-red-400 text-white'
+                                      : isCorrect
+                                      ? 'bg-green-600/30 border-green-400 text-white'
+                                      : 'bg-slate-700 border-slate-600 text-slate-400'
+                                    : isSelected
+                                    ? 'bg-amber-600 border-amber-400 text-white'
+                                    : 'bg-slate-700 border-slate-600 text-white hover:border-amber-500'
+                                }`}
+                              >
+                                {option}
+                                {showResult && isCorrect && ' ✓'}
+                                {showResult && isSelected && !isCorrect && ' ✗'}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8">
+                    {!finalExamSubmitted ? (
+                      <button
+                        onClick={handleFinalExamSubmit}
+                        disabled={answeredCount < finalExamQuestions.length}
+                        className={`w-full font-bold py-4 px-6 rounded-xl transition-all ${
+                          answeredCount >= finalExamQuestions.length
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white'
+                            : 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                        }`}
+                      >
+                        Submit Final Exam
+                      </button>
+                    ) : (
+                      <div className="bg-slate-800/50 rounded-xl p-6 text-center">
+                        <Trophy className="text-amber-300 mx-auto mb-3" size={48} />
+                        <h3 className="text-2xl font-bold text-white mb-2">Final Exam Results</h3>
+                        <p className="text-amber-200 text-lg mb-3">
+                          Score: {finalExamScore} / {finalExamQuestions.length} (Pass {passScore}+)
+                        </p>
+                        <p className={`text-sm mb-4 ${finalExamPassed ? 'text-green-300' : 'text-red-300'}`}>
+                          {finalExamPassed
+                            ? 'Excellent work. You have completed the Kings of Israel course.'
+                            : 'Review the material and try again to earn a passing score.'}
+                        </p>
+                        {!finalExamPassed && (
+                          <button
+                            onClick={() => {
+                              setFinalExamAnswers({});
+                              setFinalExamSubmitted(false);
+                              setFinalExamScore(0);
+                              setFinalExamPassed(false);
+                            }}
+                            className="bg-slate-600 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-lg transition-all"
+                          >
+                            Retake Exam
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 p-1 sm:p-2">
         <div className="max-w-4xl mx-auto">
@@ -297,6 +535,59 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     <li>• <strong>Intermediate:</strong> Discover which prophets ministered during each reign</li>
                     <li>• <strong>Advanced:</strong> Deep dive into prophetic ministry with harder questions</li>
                   </ul>
+                </div>
+              </div>
+
+              {/* Final Exam */}
+              <div
+                onClick={() => allLevelsComplete && handleStartFinalExam()}
+                className={`p-4 sm:p-6 rounded-xl border-2 transition-all ${
+                  allLevelsComplete
+                    ? 'bg-gradient-to-r from-amber-600/20 to-orange-600/20 border-amber-500/50 hover:border-amber-400 cursor-pointer'
+                    : 'bg-slate-700/30 border-slate-600 opacity-50 cursor-not-allowed'
+                }`}
+              >
+                <div className="flex items-start sm:items-center justify-between mb-3 gap-3">
+                  <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
+                    {allLevelsComplete ? (
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0">
+                        <Trophy className="text-white" size={20} />
+                      </div>
+                    ) : (
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0">
+                        <Lock className="text-slate-400" size={20} />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Final Exam</h3>
+                      <p className="text-xs sm:text-sm text-slate-300">Comprehensive assessment across all three levels</p>
+                    </div>
+                  </div>
+                  {allLevelsComplete && (
+                    examCompleted ? (
+                      <div className="flex items-center gap-2 text-green-300 font-semibold">
+                        <CheckCircle size={20} />
+                        Completed
+                      </div>
+                    ) : (
+                      <ChevronRight className="text-amber-400 flex-shrink-0 hidden sm:block" size={28} />
+                    )
+                  )}
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="text-xs sm:text-sm text-slate-300">
+                    {allLevelsComplete
+                      ? `${finalExamQuestions.length} questions • Pass ${Math.ceil(finalExamQuestions.length * 0.7)}+`
+                      : 'Complete all levels to unlock'}
+                  </div>
+                  {allLevelsComplete && (
+                    <div className="w-full sm:w-1/3 bg-slate-700 rounded-full h-2">
+                      <div
+                        className="bg-amber-500 h-2 rounded-full transition-all"
+                        style={{ width: examCompleted ? '100%' : '0%' }}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -634,7 +925,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   <p className="text-slate-300 mb-6">
                     {score === 5 ? '🎉 Perfect! You mastered this king!' :
                      score >= 4 ? '👑 Great job! You know this king well!' :
-                     score >= 3 ? '👍 Good effort! Review the details and try again.' :
+                     score >= 4 ? '👍 Good effort! Review the details and try again.' :
                      '📚 Keep studying! Review the material above.'}
                   </p>
                   <div className="flex gap-1 sm:p-2">
@@ -672,7 +963,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                             };
 
                             // Save immediately to localStorage and Firebase
-                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify({ ...updatedCompletedKings, examCompleted }));
                             console.log('💾 Saved to localStorage immediately');
                             console.log('💾 localStorage data:', JSON.stringify(updatedCompletedKings));
 
@@ -684,12 +975,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                               console.log('☁️ Saving to Firebase immediately before navigation');
                               setUserData(prev => ({
                                 ...prev,
-                                kingsOfIsraelProgress: updatedCompletedKings
+                                kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                               }));
 
                               try {
                                 await updateUserProgress(userId, {
-                                  kingsOfIsraelProgress: updatedCompletedKings
+                                  kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                                 });
                                 console.log('✅ Successfully saved to Firebase before navigation');
                               } catch (err) {
@@ -957,7 +1248,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   <p className="text-slate-300 mb-6">
                     {score === 5 ? '🎉 Perfect! You mastered the prophetic ministry during this reign!' :
                      score >= 4 ? '👑 Excellent! You understand the prophetic context well!' :
-                     score >= 3 ? '👍 Good effort! Review the prophetic details and try again.' :
+                     score >= 4 ? '👍 Good effort! Review the prophetic details and try again.' :
                      '📚 Keep studying! Review the prophetic ministry section above.'}
                   </p>
                   <div className="flex gap-1 sm:p-2">
@@ -989,7 +1280,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                             };
 
                             // Save immediately to localStorage and Firebase
-                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify({ ...updatedCompletedKings, examCompleted }));
                             console.log('💾 [Advanced] Saved to localStorage immediately');
 
                             setCompletedKings(updatedCompletedKings);
@@ -999,12 +1290,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                               console.log('☁️ [Advanced] Saving to Firebase immediately before navigation');
                               setUserData(prev => ({
                                 ...prev,
-                                kingsOfIsraelProgress: updatedCompletedKings
+                                kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                               }));
 
                               try {
                                 await updateUserProgress(userId, {
-                                  kingsOfIsraelProgress: updatedCompletedKings
+                                  kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                                 });
                                 console.log('✅ [Advanced] Successfully saved to Firebase before navigation');
                               } catch (err) {
@@ -1270,7 +1561,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   <p className="text-slate-300 mb-6">
                     {score === 5 ? '🎉 Perfect! You mastered the events of this reign!' :
                      score >= 4 ? '👑 Excellent! You understand the key events well!' :
-                     score >= 3 ? '👍 Good effort! Review the events and try again.' :
+                     score >= 4 ? '👍 Good effort! Review the events and try again.' :
                      '📚 Keep studying! Review the events section above.'}
                   </p>
                   <div className="flex gap-1 sm:p-2">
@@ -1302,7 +1593,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                             };
 
                             // Save immediately to localStorage and Firebase
-                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify(updatedCompletedKings));
+                            localStorage.setItem('kingsOfIsraelProgress', JSON.stringify({ ...updatedCompletedKings, examCompleted }));
                             console.log('💾 [Intermediate] Saved to localStorage immediately');
 
                             setCompletedKings(updatedCompletedKings);
@@ -1312,12 +1603,12 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                               console.log('☁️ [Intermediate] Saving to Firebase immediately before navigation');
                               setUserData(prev => ({
                                 ...prev,
-                                kingsOfIsraelProgress: updatedCompletedKings
+                                kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                               }));
 
                               try {
                                 await updateUserProgress(userId, {
-                                  kingsOfIsraelProgress: updatedCompletedKings
+                                  kingsOfIsraelProgress: { ...updatedCompletedKings, examCompleted }
                                 });
                                 console.log('✅ [Intermediate] Successfully saved to Firebase before navigation');
                               } catch (err) {

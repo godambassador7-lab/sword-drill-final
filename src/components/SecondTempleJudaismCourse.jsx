@@ -315,7 +315,7 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
-    if (correct >= 3 && !completedQuizzes.includes(unit.id)) {
+    if (correct >= 4 && !completedQuizzes.includes(unit.id)) {
       setCompletedQuizzes(prev => [...prev, unit.id]);
       if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
     }
@@ -370,12 +370,12 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
               Submit Quiz
             </button>
           ) : (
-            <div className={`mt-6 p-6 rounded-xl border-2 text-center ${quizScore >= 3 ? 'bg-emerald-900/30 border-emerald-500/50' : 'bg-red-900/30 border-red-500/50'}`}>
-              <div className="text-4xl mb-2">{quizScore >= 3 ? '🎉' : '📚'}</div>
+            <div className={`mt-6 p-6 rounded-xl border-2 text-center ${quizScore >= 4 ? 'bg-emerald-900/30 border-emerald-500/50' : 'bg-red-900/30 border-red-500/50'}`}>
+              <div className="text-4xl mb-2">{quizScore >= 4 ? '🎉' : '📚'}</div>
               <h3 className="text-2xl font-bold text-white mb-2">{quizScore}/{unit.quiz.length} Correct</h3>
-              <p className="text-slate-300 mb-4">{quizScore >= 3 ? 'You passed! Great understanding of the material.' : 'You need 3/5 to pass. Review the lesson and try again.'}</p>
+              <p className="text-slate-300 mb-4">{quizScore >= 4 ? 'You passed! Great understanding of the material.' : 'You need 4/5 to pass. Review the lesson and try again.'}</p>
               <div className="flex gap-3 justify-center">
-                {quizScore < 3 && <button onClick={() => { setQuizAnswers({}); setQuizSubmitted(false); }} className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg"><RotateCcw size={18} /> Retry</button>}
+                {quizScore < 4 && <button onClick={() => { setQuizAnswers({}); setQuizSubmitted(false); }} className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg"><RotateCcw size={18} /> Retry</button>}
                 <button onClick={() => setCurrentView('list')} className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Back to Course</button>
               </div>
             </div>
