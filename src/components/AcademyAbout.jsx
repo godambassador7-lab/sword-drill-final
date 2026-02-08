@@ -87,7 +87,8 @@ const AcademyAbout = ({ onBack }) => {
         { name: 'Textual Criticism', level: 'Advanced', description: 'Study manuscript evidence and textual variants' },
         { name: 'Biblical Canon', level: 'Intermediate', description: 'Understand how the Bible was formed and preserved' },
         { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' },
-        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' }
+        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' },
+        { name: 'World Religions', level: 'Upper-Level', description: 'Origins, claims, and biblical evaluation of major religions' }
       ]
     },
     {

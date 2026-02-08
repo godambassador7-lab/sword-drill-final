@@ -1,0 +1,17 @@
+{
+      "exam": "World Religions Final",
+      "questions": [
+        {
+          "question": "What defines religion biblically?",
+          "type": "short_answer"
+        },
+        {
+          "question": "How does Scripture respond to polytheism?",
+          "type": "essay"
+        },
+        {
+          "question": "Why is resurrection essential to biblical faith?",
+          "type": "essay"
+        }
+      ]
+    }

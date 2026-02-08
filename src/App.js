@@ -69,6 +69,7 @@ import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
 import BiblicalCanonCourse from './components/BiblicalCanonCourse';
+import WorldReligionsCourse from './components/WorldReligionsCourse';
 import DemonologyCourse from './components/DemonologyCourse';
 import MosaicLawCourse from './components/MosaicLawCourse';
 import BiblicalFeastDaysCourse from './components/BiblicalFeastDaysCourse';
@@ -1090,6 +1091,7 @@ const SwordDrillApp = () => {
     'apologetics-course': { talents: 1, points: 300, name: 'Apologetics', icon: Shield, color: 'indigo', description: 'Defending the Faith' },
     'biblical-canon-course': { talents: 2, points: 0, name: 'Biblical Canons', icon: BookOpen, color: 'violet', description: 'Scripture Canon History' },
     'biblical-archaeology-course': { talents: 2, points: 0, name: 'Biblical Archaeology', icon: MapPin, color: 'amber', description: 'Archaeological Evidence & Antiquity' },
+    'world-religions-course': { talents: 2, points: 0, courseNumber: 'BIB 310', name: 'World Religions', icon: Scroll, color: 'amber', description: 'Origins, claims, and biblical evaluation', credits: 3 },
     // Associate-Level Courses with Academic Course Numbers
     'biblical-hermeneutics-course': { talents: 2, points: 0, courseNumber: 'BIB 101', name: 'Biblical Hermeneutics', icon: Lightbulb, color: 'purple', description: 'Principles of Biblical Interpretation', credits: 3 },
     'biblical-exegetical-methods-course': { talents: 2, points: 0, courseNumber: 'BIB 102', name: 'Exegetical Methods', icon: BookOpen, color: 'emerald', description: 'Methods of Biblical Exegesis', credits: 3 },
@@ -1315,6 +1317,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-amber-500/50',
       description: 'Biblical Archaeology Scholar',
       achievement: 'Completed all Biblical Archaeology lessons'
+    },
+    'world-religions-course': {
+      id: 'world-religions-course',
+      name: 'World Religions Scholar',
+      symbol: 'ðŸŒ',
+      emoji: 'ðŸ—ºï¸',
+      color: 'amber',
+      gradient: 'from-amber-600 to-orange-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Comparative Religion Scholar',
+      achievement: 'Completed all World Religions lessons'
     },
     'demonology-course': {
       id: 'demonology-course',
@@ -9912,7 +9927,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   Advanced Biblical Studies
                                 </div>
                                 <div className="space-y-1">
-                                  {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course'].map(courseId => {
+                                  {['hermeneutics-course', 'textual-criticism-course', 'biblical-canon-course', 'apologetics-course', 'biblical-archaeology-course', 'world-religions-course'].map(courseId => {
                                     const course = COURSE_ADMISSION[courseId];
                                     const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                                     return (
@@ -11290,6 +11305,31 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-canon"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'world-religions-course' && (
+          <CourseWithFocus
+            CourseComponent={WorldReligionsCourse}
+            courseProps={{
+              onComplete: (results) => {
+                console.log('World Religions course results:', results);
+
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this World Religions lesson!`, 'success');
+
+                setUserData(prev => ({
+                  ...prev,
+                  totalPoints: prev.totalPoints + pointsEarned
+                }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="world-religions"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
