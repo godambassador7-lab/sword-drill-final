@@ -13,11 +13,43 @@ const hebrewICourse = {
       content: [
         {
           heading: 'Alphabet Basics',
-          text: 'Biblical Hebrew uses a 22-letter consonantal alphabet written right to left. Letter recognition is the first step.'
+          text: 'Biblical Hebrew (ancient, not modern Israeli Hebrew) uses a 22-letter consonantal alphabet written right to left. Letter recognition is the first step.'
+        },
+        {
+          heading: 'Alphabet (1-11)',
+          text: 'Aleph א (silent/stop), Bet ב (b/v), Gimel ג (g), Dalet ד (d), He ה (h), Vav ו (v/w), Zayin ז (z), Het ח (kh), Tet ט (t), Yod י (y), Kaf כ/ך (k/kh).'
+        },
+        {
+          heading: 'Alphabet (12-22)',
+          text: 'Lamed ל (l), Mem מ/ם (m), Nun נ/ן (n), Samekh ס (s), Ayin ע (silent/`), Pe פ/ף (p/f), Tsadi צ/ץ (ts), Qof ק (q), Resh ר (r), Shin ש (sh/s), Tav ת (t).'
         },
         {
           heading: 'Final Forms',
-          text: 'Several letters have final forms used at word endings. These must be memorized for reading.'
+          text: 'Several letters have final forms used at word endings. Final forms: ך, ם, ן, ף, ץ.'
+        },
+        {
+          heading: 'Practice Strings',
+          text: 'Read right-to-left: אב, בד, גד, יד, לב, מלך, ספר. Focus on letter shapes and direction.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Which letter is Aleph? A) א B) מ C) ר D) ת\n\n2) Which letter is Shin? A) ש B) ס C) צ D) ק\n\n3) Which is a final form? A) ם B) מ C) נ D) ל\n\n4) Which pair is Bet/Final Kaf? A) ב/ך B) כ/ב C) ג/ך D) ד/ך\n\nAnswers: 1-A, 2-A, 3-A, 4-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match letter to name:\n\n1) א 2) ב 3) ג 4) ד 5) ה\n\nA) He B) Bet C) Aleph D) Gimel E) Dalet\n\nAnswers: 1-C, 2-B, 3-D, 4-E, 5-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Read right-to-left (word — transliteration — gloss):\n\nאב — av — father\nמלך — melek — king\nספר — sefer — book'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Genesis 1:1 (selected words):\n\nבראשית — bereshit — in the beginning\nברא — bara — created\nאלהים — elohim — God'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Genesis 1:1 (short): bereshit bara — in the beginning created'
         }
       ],
       keyTerms: [
@@ -46,6 +78,26 @@ const hebrewICourse = {
         {
           heading: 'Syllables',
           text: 'Syllables are built around vowels. Recognizing open and closed syllables supports pronunciation.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Vowel points were standardized by: A) Masoretes B) Romans C) Greeks D) Modern printers\n\n2) Syllables are built around: A) Vowels B) Consonants C) Punctuation D) Stress only\n\n3) Open syllables end with: A) A vowel B) A consonant C) A dot D) A prefix\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Vowel points 2) Open syllable 3) Closed syllable\n\nA) Ends with consonant B) Ends with vowel C) Marks indicating vowels\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Short syllable drills (sound out): ba, be, bi, bo\n\nConsonant+vowel examples: בָּ, בֶּ, בִּ, בֹ (practice direction and spacing)'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Genesis 1:3 (selected words):\n\nיהי — yehi — let there be\nאור — or — light'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Genesis 1:3 (graded): yehi or — vayehi or — let there be light — and there was light'
         }
       ],
       keyTerms: [
@@ -74,6 +126,26 @@ const hebrewICourse = {
         {
           heading: 'Definiteness',
           text: 'The definite article marks known or specific nouns.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Hebrew nouns mark: A) Gender and number B) Tense only C) Case only D) Aspect only\n\n2) Plural forms often use: A) Common suffixes B) Only prefixes C) Only vowel change D) No change\n\n3) The definite article marks: A) Specific nouns B) Only verbs C) Only prepositions D) Only particles\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Gender 2) Plural 3) Definite article\n\nA) More than one B) Masculine or feminine C) Marks specificity\n\nAnswers: 1-B, 2-A, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Noun patterns (consonantal):\n\nמלך — melek — king\nמַלְכִים — melakhim — kings\nספר — sefer — book'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Exodus 3:14 (selected words):\n\nאהיה — ehyeh — I AM\nאשר — asher — that/which'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Exodus 3:14 (short): ehyeh asher ehyeh — I AM WHO I AM'
         }
       ],
       keyTerms: [
@@ -102,6 +174,26 @@ const hebrewICourse = {
         {
           heading: 'Qal Stem',
           text: 'Qal is the basic stem and a starting point for verb study.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Hebrew verbs are based on: A) Three-consonant roots B) Two vowels C) Numbers D) Articles\n\n2) Qal is: A) The basic stem B) Only passive C) A noun D) A particle\n\n3) A stem indicates: A) Meaning pattern B) Only spelling C) Only number D) Only gender\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Root 2) Stem 3) Qal\n\nA) Basic verbal stem B) Pattern modifying meaning C) Core consonants\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Root recognition (three consonants):\n\nכתב — ktb — write\nמלך — mlk — reign/king\nאמר — amr — say'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Psalm 23:1 (selected words):\n\nיהוה — YHWH — the LORD\nרעי — ro‘i — my shepherd'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Psalm 23:1 (graded): YHWH ro‘i — lo ehsar — the LORD is my shepherd — I shall not lack'
         }
       ],
       keyTerms: [
@@ -130,6 +222,26 @@ const hebrewICourse = {
         {
           heading: 'Particles',
           text: 'Particles and prepositions show relationships between words and clauses.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Hebrew narrative often uses: A) Verb-initial clauses B) Noun-initial only C) Adjective-initial only D) Passive only\n\n2) Word order can vary for: A) Emphasis B) Randomness C) Vowels only D) Punctuation only\n\n3) Particles show: A) Relationships B) Only spelling C) Only pronunciation D) Only vocabulary\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Verb-initial 2) Particle 3) Clause\n\nA) Small word with grammatical function B) Unit with verb and complements C) Verb first in clause\n\nAnswers: 1-C, 2-A, 3-B'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Clause fragments (right-to-left):\n\nויאמר המלך — vayeʼmer ha-melek — and the king said\nבראשית ברא — bereshit bara — in the beginning created'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Ruth 1:16 (selected words):\n\nעמך — amekh — your people\nעמי — ami — my people'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Ruth 1:16 (short): amekh ami — your people (are) my people'
         }
       ],
       keyTerms: [
@@ -158,6 +270,26 @@ const hebrewICourse = {
         {
           heading: 'Translation Practice',
           text: 'Use context and grammar to select the best translation. Be attentive to textual variants.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Parsing identifies: A) Grammatical form B) Punctuation only C) Genre only D) History only\n\n2) A variant is: A) Manuscript difference B) Translation error only C) A vowel point D) A suffix\n\n3) Translation should consider: A) Context and grammar B) Word order only C) Vocabulary only D) Punctuation only\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Parsing 2) Variant 3) Context\n\nA) Surrounding text shaping meaning B) Difference among manuscripts C) Identifying grammatical form\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Short phrases for parsing:\n\nשׁמע ישראל — shema yisrael — hear, Israel\nאמן — amen — truly/so be it'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Deuteronomy 6:4 (selected words):\n\nשמע — shema — hear\nישראל — yisrael — Israel\nיהוה — YHWH — the LORD'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Deuteronomy 6:4 (graded): shema yisrael YHWH eloheinu YHWH echad — Hear, Israel: the LORD our God, the LORD is one'
         }
       ],
       keyTerms: [

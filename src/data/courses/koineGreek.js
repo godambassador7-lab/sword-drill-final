@@ -1,4 +1,4 @@
-const koineGreekCourse = {
+﻿const koineGreekCourse = {
   id: 'koineGreek',
   title: 'Koine Greek',
   subtitle: 'Language Course | 8 Units + Final Exam',
@@ -16,12 +16,40 @@ const koineGreekCourse = {
           text: 'Koine Greek uses a 24-letter alphabet. Learning letter shapes and names is the first step to reading and pronunciation.'
         },
         {
+          heading: 'Alphabet (1-12)',
+          text: 'Alpha (A), Beta (B), Gamma (G), Delta (D), Epsilon (E), Zeta (Z), Eta (E), Theta (TH), Iota (I), Kappa (K), Lambda (L), Mu (M).'
+        },
+        {
+          heading: 'Alphabet (13-24)',
+          text: 'Nu (N), Xi (X), Omicron (O), Pi (P), Rho (R), Sigma (S), Tau (T), Upsilon (U/Y), Phi (PH), Chi (CH), Psi (PS), Omega (O).'
+        },
+        {
           heading: 'Uppercase and Lowercase',
           text: 'Greek manuscripts and printed texts use both uppercase and lowercase forms. Many letters resemble Latin forms, while others are unique.'
         },
         {
           heading: 'Reading Practice',
           text: 'Early practice focuses on recognizing letter shapes, distinguishing similar letters, and reading short syllables.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Which letter is Omega? A) O B) X C) TH D) S\n\n2) Which letter is Chi? A) CH B) PS C) X D) PH\n\n3) Which letter is Eta? A) E B) N C) P D) R\n\n4) Which letter is Psi? A) PS B) S C) X D) CH\n\nAnswers: 1-A, 2-A, 3-A, 4-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match letter to sound:\n\n1) B 2) G 3) D 4) TH 5) PH\n\nA) th B) b C) d D) g E) ph\n\nAnswers: 1-B, 2-D, 3-C, 4-A, 5-E'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Greek words (transliteration):\n\ntheos — God\nlogos — word\nzoe — life'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'John 1:1 (transliteration):\n\nen arche — in the beginning\nho logos — the word'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'John 1:1 (short): en arche — in the beginning'
         }
       ],
       keyTerms: [
@@ -45,7 +73,7 @@ const koineGreekCourse = {
       content: [
         {
           heading: 'Vowels and Consonants',
-          text: 'Greek has seven vowel letters and a set of consonants. Pronunciation in Koine is reconstructed for study and classroom use.'
+          text: 'Greek has seven vowel letters and a set of consonants. Koine (Biblical/NT) pronunciation is reconstructed for study and is not the same as Modern Greek.'
         },
         {
           heading: 'Diphthongs',
@@ -54,6 +82,26 @@ const koineGreekCourse = {
         {
           heading: 'Syllable Division',
           text: 'Greek syllables are divided by vowel sounds. Consonant clusters typically follow standard rules for splitting between syllables.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Greek has how many vowel letters? A) 5 B) 6 C) 7 D) 8\n\n2) A diphthong is: A) Two vowels forming one sound B) A consonant cluster C) A stress mark D) A punctuation mark\n\n3) Syllables are divided around: A) Vowels B) Consonants C) Punctuation D) Stress only\n\nAnswers: 1-C, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Vowel 2) Diphthong 3) Syllable\n\nA) Unit containing a vowel B) Two vowels forming one sound C) Letter representing vowel sound\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Diphthong examples:\n\nai, ei, oi\n\nSound out slowly.'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Diphthong practice (transliteration):\n\nai, ei, oi\naios — age\noikos — house'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'John 1:1 (graded): ho logos en pros ton theon — the Word was with God'
         }
       ],
       keyTerms: [
@@ -86,6 +134,26 @@ const koineGreekCourse = {
         {
           heading: 'Declensions',
           text: 'Most nouns follow declension patterns. Learning common endings is essential for identifying case and function.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Greek cases include: A) Nominative, genitive, dative, accusative B) Only nominative C) Only genitive D) No cases\n\n2) Gender in Greek includes: A) Masculine, feminine, neuter B) Only masculine C) Only feminine D) Only neuter\n\n3) Declensions are: A) Noun ending patterns B) Verb patterns C) Sentence types D) Pronunciation systems\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Case 2) Declension 3) Gender\n\nA) Pattern of noun endings B) Grammatical form indicating role C) Masculine/feminine/neuter\n\nAnswers: 1-B, 2-A, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Noun forms:\n\nlogos — word\nanthropos — man\nbasileia — kingdom'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Noun phrases:\n\nho theos — the God\nlogos theou — word of God'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'John 1:1 (short): ho logos — the word'
         }
       ],
       keyTerms: [
@@ -94,11 +162,11 @@ const koineGreekCourse = {
         { term: 'Gender', definition: 'Masculine, feminine, or neuter' }
       ],
       quiz: [
-        { question: 'Greek cases include:', options: ['Nominative, genitive, dative, accusative', 'Only nominative and accusative', 'Only genitive', 'No cases'], correct: 0, explanation: 'Greek commonly uses four cases.' },
+        { question: 'Greek cases include:', options: ['Nominative, genitive, dative, accusative', 'Only nominative', 'Only genitive', 'No cases'], correct: 0, explanation: 'Greek commonly uses four cases.' },
         { question: 'Gender in Greek nouns includes:', options: ['Only masculine and feminine', 'Masculine, feminine, neuter', 'Only neuter', 'Only plural'], correct: 1, explanation: 'Greek has three genders.' },
         { question: 'Declensions are:', options: ['Verb patterns', 'Noun ending patterns', 'Sentence types', 'Pronunciation systems'], correct: 1, explanation: 'Declensions are noun ending patterns.' },
         { question: 'Cases primarily indicate:', options: ['Pronunciation', 'Grammatical function', 'Text genre', 'Manuscript type'], correct: 1, explanation: 'Cases indicate grammatical function.' },
-        { question: 'Number in Greek nouns refers to:', options: ['Syllable count', 'Singular and plural forms', 'Verb tenses', 'Stress patterns'], correct: 1, explanation: 'Number indicates singular or plural.' }
+        { question: 'Number in Greek nouns refers to:', options: ['Syllable count', 'Singular and plural forms', 'Verb tenses', 'Stress patterns'], correct: 1, explanation: 'Number indicates singular and plural.' }
       ]
     },
     {
@@ -118,6 +186,26 @@ const koineGreekCourse = {
         {
           heading: 'Voice and Mood',
           text: 'Active, middle, and passive voice indicate how the subject relates to the action. Moods include indicative, imperative, subjunctive, and optative.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Greek verbs mark: A) Person, number, tense-aspect, voice, mood B) Only tense C) Only person D) Only mood\n\n2) Aspect describes: A) How an action is viewed B) Spelling C) Only time D) Only person\n\n3) Indicative mood is used for: A) Statements of fact B) Commands only C) Questions only D) Wishes only\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Voice 2) Mood 3) Aspect\n\nA) Relation of subject to action B) Type of statement C) How action is viewed\n\nAnswers: 1-A, 2-B, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Verb forms:\n\nluo — I release\nlego — I say\ngrapho — I write'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Mark 1:11 (transliteration):\n\nsu ei — you are\nho huios mou — my son'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Mark 1:11 (graded): su ei ho huios mou — you are my Son'
         }
       ],
       keyTerms: [
@@ -150,6 +238,26 @@ const koineGreekCourse = {
         {
           heading: 'Translation Strategy',
           text: 'Identifying participles and infinitives is essential for accurate translation and sentence flow.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Participles function as: A) Verbal adjectives B) Only nouns C) Only pronouns D) Only particles\n\n2) Infinitives function as: A) Verbal nouns B) Only adjectives C) Only prepositions D) Only pronouns\n\n3) Infinitives often translate with: A) To + verb B) A preposition C) A noun only D) A suffix only\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Participle 2) Infinitive 3) Syntax\n\nA) Arrangement of words and phrases B) Verbal adjective C) Verbal noun\n\nAnswers: 1-B, 2-C, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Participle/infinitive samples:\n\nlegon — saying\ngraphein — to write'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Participles/infinitives:\n\nlegon — saying\ngraphein — to write'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'John 1:3 (short): panta — all things'
         }
       ],
       keyTerms: [
@@ -182,6 +290,26 @@ const koineGreekCourse = {
         {
           heading: 'Emphasis',
           text: 'Word order can highlight emphasis. Elements placed first may be foregrounded.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Greek word order is: A) Relatively flexible B) Rigid like English C) Never meaningful D) Always alphabetical\n\n2) Endings indicate: A) Grammatical relationships B) Genre C) Only vocabulary D) Only pronunciation\n\n3) Particles and conjunctions signal: A) Relationships between clauses B) Only punctuation C) Only spelling D) No meaning\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Clause 2) Particle 3) Emphasis\n\nA) Highlighting a word or phrase B) Small word with grammatical function C) Unit with verb and complements\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Clause fragments:\n\nkai egeneto — and it happened\nho theos agapa — God loves'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'Clause fragments:\n\nkai egeneto — and it happened\nho theos agapa — God loves'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'John 1:3 (graded): panta di autou egeneto — all things came into being through him'
         }
       ],
       keyTerms: [
@@ -214,6 +342,26 @@ const koineGreekCourse = {
         {
           heading: 'Lexical Tools',
           text: 'Lexicons and glossaries assist with meaning, but context determines usage.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) High-frequency vocabulary helps: A) Reading fluency B) Only pronunciation C) Only grammar D) Only syntax\n\n2) A gloss is: A) A short meaning B) A paragraph C) A verb form D) A suffix\n\n3) A reading strategy is to: A) Identify known forms first B) Translate without parsing C) Ignore endings D) Skip unknown words\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Lexicon 2) Gloss 3) Frequency\n\nA) How often a word appears B) Dictionary of word meanings C) Short meaning or translation\n\nAnswers: 1-B, 2-C, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'High-frequency words:\n\nkai — and\nde — but/and\nen — in'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'High-frequency:\n\nkai — and\nde — but/and\nen — in'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Romans 1:16 (short): euangelion theou — gospel of God'
         }
       ],
       keyTerms: [
@@ -246,6 +394,26 @@ const koineGreekCourse = {
         {
           heading: 'Responsible Reading',
           text: 'Language study supports responsible reading by grounding interpretation in the text itself.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Translation is shaped by: A) Grammar, context, and meaning B) Only word order C) Only pronunciation D) Only punctuation\n\n2) A textual variant is: A) A manuscript difference B) A translation error C) A punctuation mark D) A loanword\n\n3) Context is important because it: A) Determines intended meaning B) Eliminates grammar C) Replaces vocabulary D) Limits meaning only\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Variant 2) Translation 3) Context\n\nA) Surrounding text shaping meaning B) Rendering text into another language C) Difference among manuscripts\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Short phrases:\n\nen arche — in the beginning\namen — truly/so be it'
+        },
+        {
+          heading: 'Reading Sequence',
+          text: 'John 1:3 (transliteration):\n\npanta di autou — all things through him'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'John 1:3 (graded): panta di autou egeneto — all things came into being through him'
         }
       ],
       keyTerms: [
@@ -266,7 +434,7 @@ const koineGreekCourse = {
     { question: 'Koine Greek uses how many letters?', options: ['22', '24', '26', '28'], correct: 1, explanation: 'It has 24 letters.' },
     { question: 'A diphthong is:', options: ['A consonant cluster', 'Two vowels forming one sound', 'A punctuation mark', 'A stress mark'], correct: 1, explanation: 'A diphthong is two vowels forming one sound.' },
     { question: 'Greek cases include:', options: ['Nominative, genitive, dative, accusative', 'Only nominative', 'Only genitive', 'No cases'], correct: 0, explanation: 'Greek commonly uses four cases.' },
-    { question: 'Aspect describes:', options: ['Spelling', 'How an action is viewed', 'Only time', 'Only person'], correct: 1, explanation: 'Aspect is how the action is viewed.' },
+    { question: 'Aspect describes:', options: ['Spelling', 'How an action is viewed', 'Only time', 'Only person'], correct: 1, explanation: 'Aspect is how an action is viewed.' },
     { question: 'Voice indicates:', options: ['Sentence length', 'Subject’s relation to action', 'Only tense', 'Only number'], correct: 1, explanation: 'Voice indicates subject relation to action.' },
     { question: 'Participles are:', options: ['Verbal adjectives', 'Only nouns', 'Only pronouns', 'Only particles'], correct: 0, explanation: 'Participles are verbal adjectives.' },
     { question: 'Infinitives are:', options: ['Verbal nouns', 'Only adjectives', 'Only prepositions', 'Only pronouns'], correct: 0, explanation: 'Infinitives are verbal nouns.' },

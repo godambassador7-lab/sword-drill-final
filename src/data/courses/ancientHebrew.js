@@ -13,15 +13,39 @@ const ancientHebrewCourse = {
       content: [
         {
           heading: 'Alphabet Overview',
-          text: 'Biblical Hebrew uses a 22-letter consonantal alphabet. Learning letter shapes and names is foundational for reading.'
+          text: 'Biblical Hebrew (ancient, not modern Israeli Hebrew) uses a 22-letter consonantal alphabet. Learning letter shapes and names is foundational for reading.'
+        },
+        {
+          heading: 'Alphabet (1-11)',
+          text: 'Aleph א (silent/stop), Bet ב (b/v), Gimel ג (g), Dalet ד (d), He ה (h), Vav ו (v/w), Zayin ז (z), Het ח (kh), Tet ט (t), Yod י (y), Kaf כ/ך (k/kh).'
+        },
+        {
+          heading: 'Alphabet (12-22)',
+          text: 'Lamed ל (l), Mem מ/ם (m), Nun נ/ן (n), Samekh ס (s), Ayin ע (silent/`), Pe פ/ף (p/f), Tsadi צ/ץ (ts), Qof ק (q), Resh ר (r), Shin ש (sh/s), Tav ת (t).'
         },
         {
           heading: 'Final Forms',
-          text: 'Five letters have final forms used at the end of words. Recognizing these forms is essential for word identification.'
+          text: 'Five letters have final forms used at the end of words. Final forms: ך, ם, ן, ף, ץ.'
         },
         {
           heading: 'Direction of Writing',
           text: 'Hebrew is written from right to left. Early practice focuses on correct orientation and letter recognition.'
+        },
+        {
+          heading: 'Practice Strings',
+          text: 'Read right-to-left: אב, בד, גד, יד, לב, מלך, ספר. Focus on letter shapes and direction.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Which letter is Qof? A) ק B) כ C) ג D) פ\n\n2) Which letter is Tsadi? A) צ B) ס C) ש D) ת\n\n3) Which is a final form? A) ן B) נ C) י D) ו\n\n4) Which letter is Ayin? A) ע B) א C) ה D) ח\n\nAnswers: 1-A, 2-A, 3-A, 4-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match letter to sound:\n\n1) ח 2) ט 3) ש 4) צ 5) ק\n\nA) ts B) q C) kh D) t E) sh\n\nAnswers: 1-C, 2-D, 3-E, 4-A, 5-B'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Read right-to-left (word — transliteration — gloss):\n\nאב — av — father\nמלך — melek — king\nספר — sefer — book'
         }
       ],
       keyTerms: [
@@ -54,6 +78,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Syllables',
           text: 'Hebrew syllables are typically open or closed. Vowel length and syllable type affect pronunciation.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Vowel points were standardized by: A) Masoretes B) Romans C) Greeks D) Modern printers\n\n2) A syllable is: A) A unit with a vowel B) Only consonants C) Only punctuation D) Only stress\n\n3) Hebrew syllables are often: A) Open or closed B) Only closed C) Only open D) Always long\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Vowel points 2) Open syllable 3) Closed syllable\n\nA) Ends with consonant B) Ends with vowel C) Marks indicating vowels\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Sound drills (read right-to-left):\n\nba, be, bi, bo\n\nConsonant+vowel examples: בָּ, בֶּ, בִּ, בֹ (practice spacing)'
         }
       ],
       keyTerms: [
@@ -86,6 +122,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Definiteness',
           text: 'Definiteness is often marked by the article. In construct chains, definiteness can be carried from the second noun.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Construct state indicates: A) Possession B) Verb tense C) Only gender D) Only number\n\n2) Plural forms often use: A) Common suffixes B) Only prefixes C) Only vowel change D) No change\n\n3) Definiteness is often shown by: A) A prefix article B) A suffix only C) Word order only D) No marking\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Construct state 2) Definiteness 3) Plural suffix\n\nA) Ending indicating plural number B) Marked by article C) Possession relationship\n\nAnswers: 1-C, 2-B, 3-A'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Construct-style phrases:\n\nמלך ישראל — melek yisrael — king of Israel\nדבר יהוה — devar YHWH — word of the LORD'
         }
       ],
       keyTerms: [
@@ -118,6 +166,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Perfect and Imperfect',
           text: 'Hebrew verbal forms often indicate aspect. The perfect typically views action as complete; the imperfect views action as incomplete or ongoing.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Hebrew verbs are built from: A) Three-consonant roots B) Two vowels C) Numbers D) Articles\n\n2) Qal is: A) The basic stem B) Only passive C) A noun D) A particle\n\n3) The imperfect form often views action as: A) Incomplete/ongoing B) Complete C) Only past D) Only future\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Root 2) Stem 3) Perfect\n\nA) Basic consonants B) Pattern indicating meaning C) Views action as complete\n\nAnswers: 1-A, 2-B, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Root recognition:\n\nכתב — ktb — write\nאמר — amr — say\nהלך — hlk — walk'
         }
       ],
       keyTerms: [
@@ -150,6 +210,14 @@ const ancientHebrewCourse = {
         {
           heading: 'Parsing Strategy',
           text: 'Identify root, stem, and form to determine meaning and function.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Derived stems include: A) Niphal and Hiphil B) Only Qal C) Only passive D) Only imperatives\n\n2) Weak verbs are: A) Irregular due to certain consonants B) Always regular C) Only in poetry D) Only in modern Hebrew\n\n3) Gutturals affect: A) Vowel patterns B) Only word order C) Only number D) Only case\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Derived stem 2) Weak verb 3) Guttural\n\nA) Irregular verb pattern B) Consonant affecting vowels C) Stem modifying meaning\n\nAnswers: 1-C, 2-A, 3-B'
         }
       ],
       keyTerms: [
@@ -182,6 +250,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Particles and Prepositions',
           text: 'Particles and prepositions shape relationships between clauses and phrases.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Waw-consecutive is used for: A) Narrative sequencing B) Poetic rhyme C) Only questions D) Only commands\n\n2) Word order can indicate: A) Emphasis B) Only tense C) Only gender D) Only number\n\n3) Particles help show: A) Relationships between clauses B) Only vocabulary C) Only spelling D) Only vowels\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Verb-initial 2) Waw-consecutive 3) Particle\n\nA) Narrative sequencing construction B) Small word with grammatical function C) Verb first in clause\n\nAnswers: 1-C, 2-A, 3-B'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Narrative fragments:\n\nוַיֹּאמֶר — vayyomer — and he said\nוַיְהִי — vayehi — and it happened'
         }
       ],
       keyTerms: [
@@ -214,6 +294,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Reading Strategy',
           text: 'Identify parallel lines and key repeated terms to follow the poetic logic.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Hebrew poetry relies on: A) Parallelism B) End rhyme only C) Alphabetical order D) No structure\n\n2) Metaphor is: A) Figurative comparison B) A verb form C) A suffix D) A particle\n\n3) Reading strategy includes: A) Noting repeated terms B) Ignoring repetition C) Skipping context D) Avoiding imagery\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Parallelism 2) Imagery 3) Metaphor\n\nA) Language evoking pictures B) Corresponding poetic lines C) Figurative comparison\n\nAnswers: 1-B, 2-A, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Poetic mini-lines:\n\nיהוה רֹעי — YHWH ro‘i — the LORD is my shepherd\nאור — or — light'
         }
       ],
       keyTerms: [
@@ -246,6 +338,18 @@ const ancientHebrewCourse = {
         {
           heading: 'Textual Awareness',
           text: 'Manuscript traditions and textual variants can influence translation notes, especially in poetic texts.'
+        },
+        {
+          heading: 'Practice: Multiple Choice',
+          text: '1) Lexicons help with: A) Word meanings B) Only punctuation C) Only genre D) Only history\n\n2) Parsing identifies: A) Grammar form B) Only vowels C) Only word order D) Only genre\n\n3) Variants are: A) Manuscript differences B) Translation errors only C) Accent marks D) Loanwords\n\nAnswers: 1-A, 2-A, 3-A'
+        },
+        {
+          heading: 'Practice: Matching',
+          text: 'Match term to meaning:\n\n1) Lexicon 2) Parsing 3) Variant\n\nA) Identifying grammatical form B) Dictionary of Hebrew words C) Difference among manuscripts\n\nAnswers: 1-B, 2-A, 3-C'
+        },
+        {
+          heading: 'Reading Snippets',
+          text: 'Short phrases:\n\nשׁלום — shalom — peace\nאמן — amen — truly/so be it'
         }
       ],
       keyTerms: [

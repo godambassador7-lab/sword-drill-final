@@ -29,7 +29,6 @@ const AcademyAbout = ({ onBack }) => {
         { courseNumber: 'HEBR 201', name: 'Biblical Hebrew III', level: 'Elective', description: 'Guided Reading & Syntax' },
         { name: 'Paleo Hebrew', level: 'Elective', description: 'Study the ancient script form of Hebrew' },
         { name: 'Aramaic', level: 'Elective', description: 'Explore the language Jesus spoke' },
-        { name: 'Ge\'ez', level: 'Elective', description: 'Study the ancient Ethiopian liturgical language' },
         { name: 'Amharic', level: 'Elective', description: 'Learn the modern Ethiopian language' }
       ]
     },
@@ -563,6 +562,24 @@ const AcademyAbout = ({ onBack }) => {
           >
             View Available Courses
           </button>
+        </div>
+
+        {/* Licenses & Credits */}
+        <div className="bg-slate-800/50 rounded-xl p-6 md:p-8 mb-8 border border-slate-700">
+          <h2 className="text-3xl font-bold text-emerald-300 mb-4 flex items-center gap-3">
+            <Scroll size={28} />
+            Licenses & Credits
+          </h2>
+          <div className="text-slate-300 text-sm leading-relaxed space-y-2">
+            <p className="text-emerald-200 font-semibold">
+              Amharic New Testament (Revised Amharic Bible in XML, 2003)
+            </p>
+            <p>Copyright (c) 2003 Bible Society of Ethiopia. All rights reserved.</p>
+            <p>Non-commercial use only.</p>
+            <p>Any non-commercial work MUST fully include this copyright statement in any and all copies.</p>
+            <p>Used with kind permission of the Bible Society of Ethiopia (author of the revised amharic Bible).</p>
+            <p>(c) 2026 New Christian Bible Study Corporation. All rights reserved. Printed from newchristianbiblestudy.org.</p>
+          </div>
         </div>
 
         {/* Footer */}

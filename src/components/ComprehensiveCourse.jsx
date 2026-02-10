@@ -85,6 +85,7 @@ const ComprehensiveCourse = ({
   const progress = Math.round((completedSteps / totalSteps) * 100);
 
   const quizPassScore = courseData.quizPassScore ?? 4;
+  const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
   const examPassScore = useMemo(() => {
     if (courseData.examPassScore) return courseData.examPassScore;
     const pct = courseData.examPassPercentage ?? 70;
@@ -124,6 +125,138 @@ const ComprehensiveCourse = ({
 
   const startQuiz = () => { setQuizAnswers({}); setQuizSubmitted(false); setQuizScore(0); setCurrentView('quiz'); };
   const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
+
+  const getLanguageDrills = (courseData, unit) => {
+    const id = courseData?.id || '';
+    const isHebrew = id === 'hebrewI' || id === 'ancientHebrew' || id === 'paleoHebrew';
+    const isAramaic = id === 'aramaic';
+    const isGreek = id === 'greekI' || id === 'koineGreek';
+    const isGeez = id === 'geez';
+    const isAmharic = id === 'amharic';
+
+    if (isHebrew) {
+      return [
+        {
+          heading: 'Unit Drill: Key Forms',
+          text: `Write 8 items from "${unit.title}". Format: form — transliteration — gloss (e.g., מלך — melek — king).`
+        },
+        {
+          heading: 'Unit Drill: Parsing',
+          text: 'Parse 5 Hebrew forms from this unit. Include root (3 consonants), part of speech, and basic function.'
+        },
+        {
+          heading: 'Unit Drill: Translation',
+          text: 'Translate 3 short Hebrew fragments. Do a literal gloss first, then smooth English.'
+        },
+        {
+          heading: 'Unit Drill: Vocabulary',
+          text: 'Build a 10-item list. Mark each item as noun/verb/particle; mark final forms where applicable.'
+        },
+        {
+          heading: 'Unit Drill: Reading',
+          text: 'Read right-to-left aloud twice, then copy one line from the snippets without looking.'
+        }
+      ];
+    }
+
+    if (isAramaic) {
+      return [
+        {
+          heading: 'Unit Drill: Key Forms',
+          text: `Write 8 items from "${unit.title}". Format: form — transliteration — gloss (e.g., מלכא — malka — king).`
+        },
+        {
+          heading: 'Unit Drill: Parsing',
+          text: 'Parse 5 Aramaic forms. Include root, part of speech, and basic function (watch suffix pronouns).'
+        },
+        {
+          heading: 'Unit Drill: Translation',
+          text: 'Translate 3 short Aramaic fragments. Do a literal gloss first, then smooth English.'
+        },
+        {
+          heading: 'Unit Drill: Vocabulary',
+          text: 'Build a 10-item list. Mark noun/verb/particle and note any suffix pronouns.'
+        },
+        {
+          heading: 'Unit Drill: Reading',
+          text: 'Read right-to-left aloud twice, then copy one line from the snippets without looking.'
+        }
+      ];
+    }
+
+    if (isGreek) {
+      return [
+        {
+          heading: 'Unit Drill: Key Forms',
+          text: `Write 8 items from "${unit.title}". Format: form — transliteration — gloss (e.g., λογος — logos — word).`
+        },
+        {
+          heading: 'Unit Drill: Parsing',
+          text: 'Parse 5 Greek forms. Include case (if noun), tense-aspect/voice/mood (if verb), and basic function.'
+        },
+        {
+          heading: 'Unit Drill: Translation',
+          text: 'Translate 3 short Greek fragments. Do a literal gloss first, then smooth English.'
+        },
+        {
+          heading: 'Unit Drill: Vocabulary',
+          text: 'Build a 10-item list. Mark part of speech and note case or tense-aspect where relevant.'
+        },
+        {
+          heading: 'Unit Drill: Reading',
+          text: 'Read left-to-right aloud twice. Then copy one line from the snippets without looking.'
+        }
+      ];
+    }
+
+    if (isGeez || isAmharic) {
+      return [
+        {
+          heading: 'Unit Drill: Key Forms',
+          text: `Write 8 forms from "${unit.title}". Format: romanized form — gloss (use fidel series order where relevant).`
+        },
+        {
+          heading: 'Unit Drill: Parsing',
+          text: 'Identify 5 forms by series order (1-7) or by role (noun/verb). Note any vowel patterns.'
+        },
+        {
+          heading: 'Unit Drill: Translation',
+          text: 'Translate 3 short romanized fragments. Do a literal gloss first, then smooth English.'
+        },
+        {
+          heading: 'Unit Drill: Vocabulary',
+          text: 'Build a 10-item list. Mark noun/verb/particle (or series family for script units).'
+        },
+        {
+          heading: 'Unit Drill: Reading',
+          text: 'Read the romanized snippets aloud twice, then write one series line from memory.'
+        }
+      ];
+    }
+
+    return [
+      {
+        heading: 'Unit Drill: Key Forms',
+        text: `Write and recite 8 key forms from "${unit.title}". Format each as: form — transliteration — gloss.`
+      },
+      {
+        heading: 'Unit Drill: Parsing',
+        text: 'Parse 5 forms from this unit. For each: root, part of speech, and basic function.'
+      },
+      {
+        heading: 'Unit Drill: Translation',
+        text: 'Translate 3 short fragments from this unit\'s reading snippets. Aim for a literal gloss first, then smooth English.'
+      },
+      {
+        heading: 'Unit Drill: Vocabulary',
+        text: 'Create a 10-item list from this unit. Mark each item as noun/verb/particle (or consonant/vowel for script units).'
+      },
+      {
+        heading: 'Unit Drill: Reading',
+        text: 'Read the unit\'s snippets aloud twice. Then write them once from memory and check accuracy.'
+      }
+    ];
+  };
 
   if (currentView === 'quiz' && selectedUnit !== null) {
     const unit = courseData.units[selectedUnit];
@@ -252,6 +385,12 @@ const ComprehensiveCourse = ({
           <div className="space-y-6">
             {unit.content.map((section, si) => (
               <div key={si} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                <h2 className={`text-xl font-bold ${theme.examText} mb-3`}>{section.heading}</h2>
+                {section.text.split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
+              </div>
+            ))}
+            {isLanguageCourse && getLanguageDrills(courseData, unit).map((section, si) => (
+              <div key={`drill-${si}`} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
                 <h2 className={`text-xl font-bold ${theme.examText} mb-3`}>{section.heading}</h2>
                 {section.text.split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
               </div>

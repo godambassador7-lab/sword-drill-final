@@ -64,7 +64,6 @@ import KoineGreekCourse from './components/KoineGreekCourse';
 import AncientHebrewCourse from './components/AncientHebrewCourse';
 import PaleoHebrewCourse from './components/PaleoHebrewCourse';
 import AmharicCourse from './components/AmharicCourse';
-import GeezCourse from './components/GeezCourse';
 import AramaicCourse from './components/AramaicCourse';
 import HermeneuticsCourse from './components/HermeneuticsCourse';
 import ApologeticsCourse from './components/ApologeticsCourse';
@@ -100,6 +99,8 @@ import BiblicalEthicsCourse from './components/BiblicalEthicsCourse';
 import CapstoneCourse from './components/CapstoneCourse';
 import GreekICourse from './components/GreekICourse';
 import HebrewICourse from './components/HebrewICourse';
+import GreekIICourse from './components/GreekIICourse';
+import HebrewIICourse from './components/HebrewIICourse';
 import DiplomaCapstoneCourse from './components/DiplomaCapstoneCourse';
 import UnlockableLXX from './components/UnlockableLXX';
 import UnlockableSinaiticus from './components/UnlockableSinaiticus';
@@ -1082,7 +1083,6 @@ const SwordDrillApp = () => {
     'hebrew-course': { talents: 1, points: 300, name: 'עברית עתיק', icon: GraduationCap, color: 'amber', description: 'Ancient Hebrew Course' },
     'paleo-hebrew-course': { talents: 1, points: 300, name: 'Paleo-Hebrew', icon: Scroll, color: 'orange', description: 'Ancient Script & Symbols' },
     'amharic-course': { talents: 1, points: 300, name: 'አማርኛ Amharic', icon: BookOpen, color: 'emerald', description: 'Ethiopian Language & Dictionary' },
-    'geez-course': { talents: 1, points: 300, name: 'ግዕዝ Ge\'ez', icon: Scroll, color: 'rose', description: 'Ancient Ethiopian Script' },
     'aramaic-course': { talents: 1, points: 300, name: 'ܐܪܡܝܐ Aramaic', icon: Book, color: 'cyan', description: 'Language of Jesus' },
     'hermeneutics-course': { talents: 1, points: 300, name: 'Hermeneutics', icon: Lightbulb, color: 'teal', description: 'Biblical Interpretation' },
     'church-history-course': { talents: 1, points: 300, name: 'Church History', icon: Book, color: 'purple', description: 'From Genesis to Early Church' },
@@ -1109,7 +1109,9 @@ const SwordDrillApp = () => {
     'capstone-course': { talents: 3, points: 0, courseNumber: 'BIB 299', name: 'Capstone Seminar', icon: GraduationCap, color: 'indigo', description: 'Integrative Research Paper & Final Project', credits: 3 },
     // Biblical Languages (Associate-Appropriate)
     'greek-i-course': { talents: 2, points: 0, courseNumber: 'GREK 101', name: 'Biblical Greek I', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED', credits: 3 },
+    'greek-ii-course': { talents: 2, points: 0, courseNumber: 'GREK 102', name: 'Biblical Greek II', icon: BookOpen, color: 'indigo', description: 'Aorist, participles, and NT readings', credits: 3 },
     'hebrew-i-course': { talents: 2, points: 0, courseNumber: 'HEBR 101', name: 'Biblical Hebrew I', icon: BookOpen, color: 'amber', description: 'Introduction to Ancient Hebrew - REQUIRED', credits: 3 },
+    'hebrew-ii-course': { talents: 2, points: 0, courseNumber: 'HEBR 102', name: 'Biblical Hebrew II', icon: BookOpen, color: 'amber', description: 'Weak verbs, stems, and readings', credits: 3 },
     'diploma-capstone-course': { talents: 4, points: 0, name: 'Diploma Capstone', icon: GraduationCap, color: 'amber', description: 'Advanced Research Paper & Thesis' }
   };
 
@@ -1200,19 +1202,6 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-emerald-500/50',
       description: 'Mastered Amharic',
       achievement: 'Completed all lessons in Amharic Language'
-    },
-    'geez-course': {
-      id: 'geez-course',
-      name: 'Ge\'ez Expert',
-      symbol: 'ገ',
-      emoji: '⛪',
-      color: 'rose',
-      gradient: 'from-rose-600 to-pink-600',
-      borderColor: 'border-rose-500',
-      textColor: 'text-rose-400',
-      glowColor: 'shadow-rose-500/50',
-      description: 'Mastered Ge\'ez',
-      achievement: 'Completed all lessons in Ancient Ge\'ez'
     },
     'aramaic-course': {
       id: 'aramaic-course',
@@ -1507,6 +1496,19 @@ const SwordDrillApp = () => {
       description: 'Koine Greek I Expert',
       achievement: 'Completed all Koine Greek I lessons (Associate Level)'
     },
+    'greek-ii-course': {
+      id: 'greek-ii-course',
+      name: 'Greek II Scholar',
+      symbol: 'Î©Î©',
+      emoji: 'ðŸ“˜',
+      color: 'indigo',
+      gradient: 'from-indigo-600 to-purple-600',
+      borderColor: 'border-indigo-500',
+      textColor: 'text-indigo-400',
+      glowColor: 'shadow-indigo-500/50',
+      description: 'Koine Greek II Expert',
+      achievement: 'Completed all Koine Greek II lessons (Associate Level)'
+    },
     'hebrew-i-course': {
       id: 'hebrew-i-course',
       name: 'Hebrew I Scholar',
@@ -1519,6 +1521,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-amber-500/50',
       description: 'Biblical Hebrew I Expert',
       achievement: 'Completed all Biblical Hebrew I lessons (Associate Level)'
+    },
+    'hebrew-ii-course': {
+      id: 'hebrew-ii-course',
+      name: 'Hebrew II Scholar',
+      symbol: '××',
+      emoji: 'ðŸ“œ',
+      color: 'amber',
+      gradient: 'from-amber-600 to-yellow-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Biblical Hebrew II Expert',
+      achievement: 'Completed all Biblical Hebrew II lessons (Associate Level)'
     },
     'capstone-course': {
       id: 'capstone-course',
@@ -9818,7 +9833,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   Biblical Languages
                                 </div>
                                 <div className="space-y-1">
-                                  {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'geez-course', 'amharic-course'].map(courseId => {
+                                  {['greek-course', 'hebrew-course', 'paleo-hebrew-course', 'aramaic-course', 'amharic-course'].map(courseId => {
                                     const course = COURSE_ADMISSION[courseId];
                                     const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                                     return (
@@ -11021,46 +11036,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onExit={() => setCurrentView('home')}
           />
         )}
-        {currentView === 'geez-course' && (
-          <CourseWithFocus
-            CourseComponent={GeezCourse}
-            courseProps={{
-              onComplete: (results) => {
-                console.log('Ge\'ez course results:', results);
-
-                // Award 100 points for lessons and levels
-                const pointsEarned = results.points || 100;
-
-                if (results.type === 'lesson') {
-                  showToast(` Ge'ez Lesson Complete!\n\n+${pointsEarned} points earned!\n\n mastery in progress!`, 'success');
-                } else if (results.type === 'level') {
-                  showToast(` Level Complete!\n\n+${pointsEarned} points earned!\n\n! (Great!) You've mastered ${results.levelTitle}!`, 'success');
-                }
-
-                setUserData(prev => ({
-                  ...prev,
-                  totalPoints: prev.totalPoints + pointsEarned
-                }));
-
-                // Track completion
-                recordQuizAttempt({
-                  verseReference: `Ge'ez ${results.type}`,
-                  type: 'geez-course',
-                  correct: true,
-                  points: pointsEarned
-                });
-              },
-              onCancel: () => setCurrentView('home'),
-              userId: currentUser?.uid,
-              userData: userData,
-              setUserData: setUserData,
-              initialLocation: userData.lastCourseLocation,
-              onLocationChange: persistCourseLocation
-            }}
-            courseName="geez"
-            isExam={false}
-            onExit={() => setCurrentView('home')}
-          />
+                  />
         )}
         {currentView === 'aramaic-course' && (
           <CourseWithFocus
@@ -11656,6 +11632,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onExit={() => setCurrentView('home')}
           />
         )}
+        {currentView === 'greek-ii-course' && (
+          <CourseWithFocus
+            CourseComponent={GreekIICourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Greek II lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="greek-ii"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
         {currentView === 'hebrew-i-course' && (
           <CourseWithFocus
             CourseComponent={HebrewICourse}
@@ -11671,6 +11666,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="hebrew-i"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'hebrew-ii-course' && (
+          <CourseWithFocus
+            CourseComponent={HebrewIICourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Hebrew II lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="hebrew-ii"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />

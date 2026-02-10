@@ -6,7 +6,6 @@ import {
   recomputeStreakFromHistory,
   recomputeTotalPoints,
   signQuizEvent,
-  validateUnlockablePurchase,
   validateVerseOfDayRead
 } from './pointValidation';
 
@@ -184,34 +183,39 @@ export const addQuizResult = async (userId, quizData) => {
 
 /**
  * Secure unlockable purchase with server-side validation
- * Prevents point tampering exploits
+ * Supports dual currency (points + talents)
  */
-export const purchaseUnlockable = async (userId, unlockableId, cost) => {
+export const purchaseUnlockable = async (userId, unlockableId, pointsCost, talentsCost = 0) => {
   try {
-    console.log('[dbService] purchaseUnlockable:', { userId, unlockableId, cost });
+    console.log('[dbService] purchaseUnlockable:', { userId, unlockableId, pointsCost, talentsCost });
 
-    // Get existing data
+    // Get existing data from DB (this IS the server-side truth)
     const userDoc = await getDoc(doc(db, 'userProgress', userId));
     const existingData = userDoc.data() || {};
-    const quizHistory = existingData.quizHistory || [];
+    const dbPoints = existingData.totalPoints || 0;
+    const dbTalents = existingData.talents || 0;
 
-    // SERVER-SIDE VALIDATION: Validate purchase
-    const validation = validateUnlockablePurchase(
-      cost,
-      existingData.totalPoints || 0,
-      quizHistory
-    );
-
-    if (!validation.valid) {
-      console.warn('[dbService] Purchase validation FAILED:', validation.error);
+    // Validate: user has enough points and talents in the DB
+    if (pointsCost > dbPoints) {
+      console.warn('[dbService] Purchase validation FAILED: insufficient points', { need: pointsCost, have: dbPoints });
       return {
         success: false,
-        error: validation.error,
-        suspectedTampering: validation.suspectedTampering
+        error: `Insufficient points: need ${pointsCost}, have ${dbPoints}`
       };
     }
 
-    // Update unlockables and deduct points
+    if (talentsCost > dbTalents) {
+      console.warn('[dbService] Purchase validation FAILED: insufficient talents', { need: talentsCost, have: dbTalents });
+      return {
+        success: false,
+        error: `Insufficient talents: need ${talentsCost}, have ${dbTalents}`
+      };
+    }
+
+    const remainingPoints = dbPoints - pointsCost;
+    const remainingTalents = dbTalents - talentsCost;
+
+    // Update unlockables and deduct currency
     const updatedUnlockables = {
       ...(existingData.unlockables || {}),
       [unlockableId]: true
@@ -220,24 +224,33 @@ export const purchaseUnlockable = async (userId, unlockableId, cost) => {
     // Track purchase in history for transaction tracking
     const purchaseRecord = {
       unlockableId: unlockableId,
-      cost: cost,
+      pointsCost,
+      talentsCost,
       timestamp: Date.now(),
-      pointsAfter: validation.remainingPoints
+      pointsAfter: remainingPoints,
+      talentsAfter: remainingTalents
     };
 
-    await updateDoc(doc(db, 'userProgress', userId), {
+    const updateData = {
       unlockables: updatedUnlockables,
-      totalPoints: validation.remainingPoints, // Use validated remaining points
+      totalPoints: remainingPoints,
       lastPurchaseTimestamp: serverTimestamp(),
       purchaseHistory: arrayUnion(purchaseRecord)
-    });
+    };
+
+    // Only update talents field if talents were used
+    if (talentsCost > 0) {
+      updateData.talents = remainingTalents;
+    }
+
+    await updateDoc(doc(db, 'userProgress', userId), updateData);
 
     return {
       success: true,
       validatedData: {
         unlockables: updatedUnlockables,
-        totalPoints: validation.remainingPoints,
-        recomputedPoints: validation.recomputedPoints
+        totalPoints: remainingPoints,
+        talents: remainingTalents
       }
     };
   } catch (error) {
