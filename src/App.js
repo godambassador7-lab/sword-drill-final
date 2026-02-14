@@ -1772,12 +1772,13 @@ const SwordDrillApp = () => {
     if (userData.streakLostAt && userData.lastKnownStreak > 0) {
       const elapsed = Date.now() - userData.streakLostAt;
 
-      // Check if user dismissed this specific streak loss instance
-      const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
-      const isDismissed = localStorage.getItem(dismissalKey) === 'true';
+      // Allow this popup to be dismissed up to 2 times per streak loss instance.
+      const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
+      const dismissalCount = Number(localStorage.getItem(dismissalCountKey) || '0');
+      const reachedDismissLimit = Number.isFinite(dismissalCount) && dismissalCount >= 2;
 
-      // Only show if within 24 hours, modal isn't already shown, and user hasn't dismissed it
-      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !isDismissed) {
+      // Only show if within 24 hours, modal isn't already shown, and dismiss limit not reached.
+      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !reachedDismissLimit) {
         // Delay showing the modal slightly to avoid overwhelming the user
         const timer = setTimeout(() => {
           setShowStreakRedemption(true);
@@ -1785,15 +1786,16 @@ const SwordDrillApp = () => {
         return () => clearTimeout(timer);
       }
 
-      // If expired, clear the streakLostAt and cleanup dismissal flag
+      // If expired, clear streak-loss metadata and cleanup dismissal tracking.
       if (elapsed >= TWENTY_FOUR_HOURS) {
         setUserData(prev => ({
           ...prev,
           streakLostAt: null,
           lastKnownStreak: 0
         }));
-        // Clean up the dismissal flag for this expired streak
-        localStorage.removeItem(dismissalKey);
+        localStorage.removeItem(dismissalCountKey);
+        // Backward-compatible cleanup for older key format.
+        localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
       }
     }
   }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
@@ -3032,9 +3034,11 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       return;
     }
 
-    // Clean up dismissal flag for this redeemed streak
-    const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
-    localStorage.removeItem(dismissalKey);
+    // Clean up dismissal tracking for this redeemed streak.
+    const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
+    localStorage.removeItem(dismissalCountKey);
+    // Backward-compatible cleanup for older key format.
+    localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
 
     // Deduct points
     const newPoints = userData.totalPoints - REDEMPTION_COST;
@@ -5300,6 +5304,15 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       });
     }, []);
 
+    const handleMultipleChoiceSelect = (option) => {
+      if (isSubmittingQuiz) return;
+      setQuizState(prev => {
+        if (!prev || prev.type !== 'multiple-choice') return prev;
+        if (prev.userAnswer === option) return prev;
+        return { ...prev, userAnswer: option };
+      });
+    };
+
     // Debug: Log submit button state
     useEffect(() => {
       if (quizState?.type === 'fill-blank' && quizState?.userAnswers) {
@@ -5501,9 +5514,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 <button
                   key={idx}
                   type="button"
-                  onPointerDown={(e) => {
+                  onClick={(e) => {
                     e.stopPropagation();
-                    setQuizState(prev => ({ ...prev, userAnswer: option }));
+                    handleMultipleChoiceSelect(option);
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onTouchStart={(e) => e.stopPropagation()}
@@ -5525,11 +5538,19 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onClick={submitQuiz}
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
-          disabled={
-    quizState.type === 'fill-blank'
-      ? !quizState.userAnswers || quizState.userAnswers.some(a => !a)
-      : !quizState.userAnswer || isSubmittingQuiz
-  }
+          disabled={(() => {
+            if (isSubmittingQuiz) return true;
+            if (quizState.type === 'fill-blank') {
+              return !quizState.userAnswers || quizState.userAnswers.some(a => !a);
+            }
+            if (quizState.type === 'multiple-choice') {
+              return quizState.userAnswer === null || quizState.userAnswer === undefined;
+            }
+            if (quizState.type === 'reference-recall') {
+              return !String(quizState.userAnswer || '').trim();
+            }
+            return !quizState.userAnswer;
+          })()}
           className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold py-3 sm:py-4 text-base sm:text-lg rounded-xl hover:from-amber-600 hover:to-amber-700 active:from-amber-700 active:to-amber-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[52px]"
         >
           {isSubmittingQuiz ? 'Submitting...' : 'Submit Answer'}
@@ -12720,9 +12741,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onPurchase={handleStreakRedemption}
           onDismiss={() => {
             setShowStreakRedemption(false);
-            // Store dismissal for this specific streak loss instance
-            const dismissalKey = `streakRedemptionDismissed_${userData.streakLostAt}`;
-            localStorage.setItem(dismissalKey, 'true');
+            // Track dismissals for this streak loss instance (max 2 enforced by display logic).
+            const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
+            const currentDismissCount = Number(localStorage.getItem(dismissalCountKey) || '0');
+            const nextDismissCount = Number.isFinite(currentDismissCount) ? currentDismissCount + 1 : 1;
+            localStorage.setItem(dismissalCountKey, String(nextDismissCount));
+            // Backward-compatible cleanup for older key format.
+            localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
           }}
         />
       )}
