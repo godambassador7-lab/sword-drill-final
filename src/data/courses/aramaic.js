@@ -215,14 +215,6 @@ const aramaicCourse = {
         { question: 'Derived stems:', options: ['Never change meaning', 'Modify meaning', 'Only affect spelling', 'Only affect vowels'], correct: 1, explanation: 'Derived stems modify meaning.' },
         { question: 'Peal is similar to:', options: ['Greek aorist', 'Hebrew Qal', 'Latin passive', 'English gerund'], correct: 1, explanation: 'Peal is similar to Hebrew Qal.' },
         { question: 'Roots are typically:', options: ['Two consonants', 'Three consonants', 'Four vowels', 'Single letters'], correct: 1, explanation: 'Most roots are three consonants.' }
-        {
-          heading: 'Reading Sequence',
-          text: 'Ezra 5:1 (selected words):\n\nnevi - prophet\nqam - rose/stood'
-        },
-        {
-          heading: 'Canonical Graded Reading',
-          text: 'Ezra 5:1 (graded): qamu neviya — the prophets arose'
-        },
       ]
     },
     {
@@ -271,14 +263,6 @@ const aramaicCourse = {
     },
     {
       id: '06',
-        {
-          heading: 'Reading Sequence',
-          text: 'Daniel 3:25 (selected words):\n\nmalka - king\natun - furnace\nelahin - gods'
-        },
-        {
-          heading: 'Canonical Short Reading',
-          text: 'Daniel 3:25 (short): bar elahin — son of the gods'
-        },
       title: 'Biblical Aramaic Texts',
       icon: 'A',
       duration: '25 min',
@@ -351,3 +335,5 @@ const aramaicCourse = {
 };
 
 export default aramaicCourse;
+
+

@@ -416,14 +416,6 @@ const amharicCourse = {
 
         { question: 'Roots are typically:', options: ['Three consonants', 'Only vowels', 'Numbers', 'Articles'], correct: 0, explanation: 'Roots are often three consonants.' }
 
-        {
-
-          heading: 'Reading Sequence',
-
-          text: 'Verb roots (romanized):\n\nktb - write\nmlk - reign\nsbr - hope'
-
-        },
-
       ]
 
     },
@@ -511,14 +503,6 @@ const amharicCourse = {
     {
 
       id: '06',
-
-        {
-
-          heading: 'Reading Sequence',
-
-          text: 'Clause practice (romanized):\n\nselam eneh - peace to me\nbe bet - in the house'
-
-        },
 
       title: 'Reading and Translation',
 

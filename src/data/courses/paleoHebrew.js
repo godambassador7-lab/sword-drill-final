@@ -26,7 +26,31 @@ const paleoHebrewCourse = {
         {
           heading: 'Reading Sequence',
           text: 'Artifact words (consonantal):\n\nmlk - king\nbn - son\nbyt - house'
-        },\r\n        {\r\n          heading: 'Canonical Graded Reading',\r\n          text: 'Gen 1:3 (graded): yehi or - vayehi or - let there be light, and there was light'\r\n        },\r\n        {\r\n          heading: 'Canonical Short Reading',\r\n          text: 'Exod 3:14 (short): ehyeh asher ehyeh - I AM WHO I AM'\r\n        },\r\n        {\r\n          heading: 'Canonical Graded Reading',\r\n          text: 'Deut 6:4 (graded): shema yisrael YHWH echad - Hear, Israel, the LORD is one'\r\n        },\r\n        {\r\n          heading: 'Canonical Short Reading',\r\n          text: 'Ruth 1:16 (short): amekh ami - your people (are) my people'\r\n        },\r\n        {\r\n          heading: 'Canonical Graded Reading',\r\n          text: 'Psalm 23:1 (graded): YHWH roi - lo ehsar - the LORD is my shepherd, I shall not lack'\r\n        },\r\n        {\r\n          heading: 'Canonical Short Reading',\r\n          text: 'Genesis 1:1 (short): brashit bra - in the beginning created'\r\n        },
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Gen 1:3 (graded): yehi or - vayehi or - let there be light, and there was light'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Exod 3:14 (short): ehyeh asher ehyeh - I AM WHO I AM'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Deut 6:4 (graded): shema yisrael YHWH echad - Hear, Israel, the LORD is one'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Ruth 1:16 (short): amekh ami - your people (are) my people'
+        },
+        {
+          heading: 'Canonical Graded Reading',
+          text: 'Psalm 23:1 (graded): YHWH roi - lo ehsar - the LORD is my shepherd, I shall not lack'
+        },
+        {
+          heading: 'Canonical Short Reading',
+          text: 'Genesis 1:1 (short): brashit bra - in the beginning created'
+        },
       ],
       keyTerms: [
         { term: 'Paleo-Hebrew', definition: 'Early Hebrew script used in ancient inscriptions' },
@@ -219,10 +243,6 @@ const paleoHebrewCourse = {
         { question: 'Context is important because it:', options: ['Guides meaning', 'Eliminates meaning', 'Replaces grammar', 'Removes vocabulary'], correct: 0, explanation: 'Context guides meaning.' },
         { question: 'Roots are:', options: ['Core consonants', 'Vowels', 'Punctuation marks', 'Numbers'], correct: 0, explanation: 'Roots are core consonants.' },
         { question: 'Short forms require:', options: ['Careful analysis', 'No analysis', 'Only guessing', 'Only translation notes'], correct: 0, explanation: 'They require careful analysis.' }
-        {
-          heading: 'Reading Sequence',
-          text: 'Root samples:\n\nktb - write\namr - say'
-        },
       ]
     },
     {
@@ -291,4 +311,5 @@ const paleoHebrewCourse = {
 };
 
 export default paleoHebrewCourse;
+
 
