@@ -240,26 +240,50 @@ const DailyChestsPage = ({ onCancel, userData, setUserData, userId, showToast, o
     return null; // Still loading
   }
 
-  // Format time for display
-  const formatTime = (date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    });
+  const getNextChestActivation = (date) => {
+    const hour = date.getHours();
+    const nextActivation = new Date(date);
+
+    if (hour >= 3 && hour < 15) {
+      nextActivation.setHours(15, 0, 0, 0);
+      return { chestName: 'Evening Grace', activationTime: nextActivation };
+    }
+
+    nextActivation.setHours(3, 0, 0, 0);
+    if (hour >= 15) {
+      nextActivation.setDate(nextActivation.getDate() + 1);
+    }
+
+    return { chestName: 'Morning Blessing', activationTime: nextActivation };
   };
+
+  const formatCountdown = (milliseconds) => {
+    const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  };
+
+  const nextChestActivation = getNextChestActivation(currentTime);
+  const timeUntilNextActivation = nextChestActivation.activationTime.getTime() - currentTime.getTime();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
       <div className="max-w-4xl mx-auto">
-        {/* Live Clock */}
+        {/* Next Chest Activation Countdown */}
         <div className="mb-6 text-center">
           <div className="inline-block bg-gradient-to-r from-blue-600/30 to-purple-600/30 border-2 border-blue-500/50 rounded-xl px-6 py-3">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <Clock size={24} className="text-blue-400" />
-              <div className="text-2xl font-mono font-bold text-white">
-                {formatTime(currentTime)}
+              <div className="text-left">
+                <div className="text-xs uppercase tracking-wide text-blue-200/90">
+                  Next {nextChestActivation.chestName} in
+                </div>
+                <div className="text-2xl font-mono font-bold text-white">
+                  {formatCountdown(timeUntilNextActivation)}
+                </div>
               </div>
             </div>
           </div>

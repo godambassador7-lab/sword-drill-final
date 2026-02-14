@@ -226,7 +226,7 @@ const normalizeTimestampValue = (ts) => {
 // Point Economy Constants
 const ECONOMY = {
   MISSED_DAY_TAX: 10, // Daily upkeep if no activity
-  HINT_COST: 25, // Cost per hint
+  HINT_COST: 3, // Cost per hint
   SKIP_COST: 50, // Cost to skip a question
   RETRY_PENALTY: 0.5, // Multiply reward by this per retry
   TIME_DECAY_DAYS: 3, // Days before decay starts
@@ -4302,10 +4302,11 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     points += awardBonusPoints('dailyStreakMaintained', Math.min(currentStreakValue, 10)); // Cap at 10x
   }
 
-  // Apply inactivity penalty (only on first quiz after inactivity)
+  // Apply inactivity penalty (only on first quiz after inactivity, and only on incorrect answers)
+  // Correct answers should never result in negative points - that's too punishing for returning users
   const inactivityPenalty = calculateInactivityPenalty();
-  if (inactivityPenalty < 0 && isFirstQuizToday) {
-    points += inactivityPenalty; // Penalty is negative
+  if (inactivityPenalty < 0 && isFirstQuizToday && !isCorrect) {
+    points += inactivityPenalty; // Penalty is negative, only on wrong answers
   }
 
   // Apply Scrolls multiplier (max 100 scrolls for 100% boost, but only if earning points)
@@ -4505,56 +4506,43 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
   console.log('[Quiz Data to Save]', newQuizData);
 
-  let effectiveQuizData = newQuizData;
+  // Update UI immediately with client-calculated data (don't wait for Firebase)
+  setUserData(prev => ({
+    ...prev,
+    ...newQuizData
+  }));
 
-  // Save to Firebase
-  try {
-    if (currentUser) {
-      console.log('[Firebase] Saving quiz result with achievements:', newAchievements);
-      const saveResult = await addQuizResult(currentUser.uid, {
-        verseId: quizVerse.id,
-        verseReference: verseId,
-        type: quizType,
-        correct: isCorrect,
-        timestamp: new Date(),
-        points: points,
-        currentStreak: currentStreakValue,
-        streakData: streakData, // Sync streak calendar data to Firebase
-        ...newQuizData
-      });
+  // Save to Firebase in the background (non-blocking for responsive UI)
+  if (currentUser) {
+    console.log('[Firebase] Saving quiz result with achievements:', newAchievements);
+    addQuizResult(currentUser.uid, {
+      verseId: quizVerse.id,
+      verseReference: verseId,
+      type: quizType,
+      correct: isCorrect,
+      timestamp: new Date(),
+      points: points,
+      currentStreak: currentStreakValue,
+      streakData: streakData,
+      ...newQuizData
+    }).then(saveResult => {
       console.log('[Firebase] Save result:', saveResult);
-
-      // SECURITY: Use server-validated data if available
+      // SECURITY: Reconcile with server-validated data if available
       if (saveResult.success && saveResult.validatedData) {
         console.log('[Security] Using server-validated points:', saveResult.validatedData);
         const validatedStreak = Math.max(currentStreakValue, saveResult.validatedData.currentStreak || 0);
-        effectiveQuizData = {
-          ...newQuizData,
-          totalPoints: saveResult.validatedData.totalPoints,
+        setUserData(prev => ({
+          ...prev,
+          totalPoints: saveResult.validatedData.totalPoints ?? prev.totalPoints,
           currentStreak: validatedStreak,
-          quizzesCompleted: saveResult.validatedData.quizzesCompleted,
-          currentLevel: saveResult.validatedData.currentLevel || newQuizData.currentLevel
-        };
-        currentStreakValue = validatedStreak;
+          quizzesCompleted: saveResult.validatedData.quizzesCompleted ?? prev.quizzesCompleted,
+          currentLevel: saveResult.validatedData.currentLevel || prev.currentLevel
+        }));
       }
-    }
-  } catch (err) {
-    console.error('[Firebase] Save result failed, using local data:', err);
+    }).catch(err => {
+      console.error('[Firebase] Save result failed, local data retained:', err);
+    });
   }
-
-  // If server provided overrides, align local variables for UI messages
-  if (effectiveQuizData !== newQuizData) {
-    newTotalPoints = effectiveQuizData.totalPoints ?? newTotalPoints;
-    newQuizzesCompleted = effectiveQuizData.quizzesCompleted ?? newQuizzesCompleted;
-    currentStreakValue = effectiveQuizData.currentStreak ?? currentStreakValue;
-    newLevel = effectiveQuizData.currentLevel ?? newLevel;
-  }
-
-  // Fallback: update with client-calculated data (only if Firebase save failed)
-  setUserData(prev => ({
-    ...prev,
-    ...effectiveQuizData
-  }));
 
   // Show achievement unlock notifications
   if (newlyUnlockedIds.length > 0) {
@@ -4621,7 +4609,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     }
 
     if (inactivityPenalty < 0) {
-      message += `  ️ Inactivity Penalty: ${inactivityPenalty} pts\n`;
+      message += `  Welcome back! Inactivity penalty waived for correct answer\n`;
     }
 
     message += `\n Total: ${points > 0 ? '+' : ''}${points} points`;
@@ -5354,9 +5342,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             <button
               type="button"
               onClick={() => {
-                const hintCost = 25;
+                const hintCost = ECONOMY.HINT_COST;
                 if (userData.totalPoints < hintCost) {
-                  showToast('Not enough points for a hint! (Cost: 25 points)', 'error');
+                  showToast(`Not enough points for a hint! (Cost: ${hintCost} points)`, 'error');
                   return;
                 }
 
@@ -5425,7 +5413,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               className="w-full mb-3 sm:mb-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-2.5 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-lg hover:from-purple-500 hover:to-purple-600 active:from-purple-700 active:to-purple-800 transition-all border border-purple-500 flex items-center justify-center gap-2 min-h-[44px]"
             >
               <Lightbulb size={18} className="sm:w-[20px] sm:h-[20px]" />
-              Get Hint (25 points)
+              Get Hint ({ECONOMY.HINT_COST} points)
             </button>
           )}
 
