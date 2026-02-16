@@ -767,102 +767,16 @@ const LAST_TRANSLATION_KEY = 'lastSelectedTranslation';
 
 const saveProgressToLocalStorage = (progress) => {
   try {
-    const {
-      name,
-      versesMemorized,
-      quizzesCompleted,
-      currentStreak,
-      totalPoints,
-    achievements,
-    selectedTranslation,
-    includeApocrypha,
-    verseProgress,
-    currentLevel,
-    lastCourseLocation,
-    unlockables,
-    newlyUnlockedAchievements,
-    achievementClickHistory,
-    purchaseHistory,
-    hintPurchases,
-      investments,
-      activeBoosts,
-      accountCreated,
-      kingsOfIsraelProgress,
-      ancientHebrewProgress,
-      hermeneuticsProgress,
-      koineGreekProgress,
-      amharicProgress,
-      geezProgress,
-      aramaicProgress,
-      paleoHebrewProgress,
-      churchHistoryProgress,
-      textualCriticismProgress,
-      spiritualGiftsResults,
-      lastVerseOfDayRead,
-      scrolls,
-      talents,
-      talentsConversions,
-      manna,
-      mannaLastUpdated,
-      mannaEarningActive,
-      mannaRedemptionsToday,
-      keys,
-      keysLastReset,
-      currentIncorrectStreak,
-      usernameChangeCount,
-      lastActivityDate
-    } = progress;
-
-    const normalizedLastVerseOfDayRead = normalizeTimestampValue(lastVerseOfDayRead);
-    const normalizedMannaLastUpdated = normalizeTimestampValue(mannaLastUpdated);
-    const normalizedKeysLastReset = normalizeTimestampValue(keysLastReset);
-    const normalizedLastActivityDate = normalizeTimestampValue(lastActivityDate);
-
+    // Normalize timestamps before saving
     const payload = {
-      name,
-      versesMemorized,
-      quizzesCompleted,
-      currentStreak,
-      totalPoints,
-      achievements,
-    selectedTranslation,
-    includeApocrypha,
-    verseProgress,
-    currentLevel,
-    lastCourseLocation,
-    unlockables,
-    newlyUnlockedAchievements,
-    achievementClickHistory,
-    purchaseHistory,
-    hintPurchases,
-      investments,
-      activeBoosts,
-      spiritualGiftsResults,
-      kingsOfIsraelProgress,
-      ancientHebrewProgress,
-      hermeneuticsProgress,
-      koineGreekProgress,
-      amharicProgress,
-      geezProgress,
-      aramaicProgress,
-      paleoHebrewProgress,
-      churchHistoryProgress,
-      textualCriticismProgress,
-      accountCreated,
-      lastVerseOfDayRead: normalizedLastVerseOfDayRead,
-      scrolls,
-      talents,
-      talentsConversions,
-      manna,
-      mannaLastUpdated: normalizedMannaLastUpdated,
-      mannaEarningActive,
-      mannaRedemptionsToday,
-      keys,
-      keysLastReset: normalizedKeysLastReset,
-      currentIncorrectStreak,
-      usernameChangeCount,
-      lastActivityDate: normalizedLastActivityDate
+      ...progress,
+      lastVerseOfDayRead: normalizeTimestampValue(progress.lastVerseOfDayRead),
+      mannaLastUpdated: normalizeTimestampValue(progress.mannaLastUpdated),
+      keysLastReset: normalizeTimestampValue(progress.keysLastReset),
+      lastActivityDate: normalizeTimestampValue(progress.lastActivityDate)
     };
+    // Remove large/transient fields that don't belong in localStorage
+    delete payload.quizHistory;
 
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(payload));
   } catch (error) {
@@ -982,18 +896,16 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     ...(remoteProgress.completedCourses || [])
   ]));
 
-  // Merge course progress (prefer remote, fallback to local)
-  const kingsOfIsraelProgress = remoteProgress.kingsOfIsraelProgress || localProgress.kingsOfIsraelProgress || { beginner: [], intermediate: [], advanced: [] };
-  const ancientHebrewProgress = remoteProgress.ancientHebrewProgress || localProgress.ancientHebrewProgress || { beginner: [], intermediate: [], advanced: [] };
-  const hermeneuticsProgress = remoteProgress.hermeneuticsProgress || localProgress.hermeneuticsProgress || { beginner: [], intermediate: [], advanced: [] };
-  const koineGreekProgress = remoteProgress.koineGreekProgress || localProgress.koineGreekProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
-  const amharicProgress = remoteProgress.amharicProgress || localProgress.amharicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
-  const geezProgress = remoteProgress.geezProgress || localProgress.geezProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
-  const aramaicProgress = remoteProgress.aramaicProgress || localProgress.aramaicProgress || { completedLessons: { level1: [], level2: [], level3: [] }, completedLevels: [] };
-  const paleoHebrewProgress = remoteProgress.paleoHebrewProgress || localProgress.paleoHebrewProgress || { completedLessons: { level1: [], level2: [], level3: [] } };
-  const churchHistoryProgress = remoteProgress.churchHistoryProgress || localProgress.churchHistoryProgress || { completedLessons: { beginner: [], intermediate: [], advanced: [] } };
-  const textualCriticismProgress = remoteProgress.textualCriticismProgress || localProgress.textualCriticismProgress || { completedModules: [], quizScores: {} };
-  const biblicalCanonProgress = remoteProgress.biblicalCanonProgress || localProgress.biblicalCanonProgress || { completedLessons: [] };
+  // Dynamically merge ALL course progress keys (any key ending in "Progress")
+  // This ensures new courses are automatically preserved without needing manual additions
+  const allCourseProgress = {};
+  const progressKeyPattern = /Progress$/;
+  const allKeys = new Set([...Object.keys(localProgress), ...Object.keys(remoteProgress)]);
+  allKeys.forEach(key => {
+    if (progressKeyPattern.test(key) && typeof (remoteProgress[key] || localProgress[key]) === 'object') {
+      allCourseProgress[key] = remoteProgress[key] || localProgress[key];
+    }
+  });
 
   // Merge verse-of-day read timestamp (newest wins)
   const remoteLastVerse = normalizeTimestampValue(remoteProgress.lastVerseOfDayRead);
@@ -1027,6 +939,8 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
       : preferredTranslation;
 
     return {
+      // Spread all course progress first (so explicit fields below can override if needed)
+      ...allCourseProgress,
       name: remoteProgress.name || localProgress.name || 'Guest',
     versesMemorized: Math.max(localProgress.versesMemorized || 0, remoteProgress.versesMemorized || 0),
     quizzesCompleted: Math.max(localProgress.quizzesCompleted || 0, remoteProgress.quizzesCompleted || 0),
@@ -1040,17 +954,6 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     lastCourseLocation,
     unlockables,
     spiritualGiftsResults,
-    kingsOfIsraelProgress,
-    ancientHebrewProgress,
-    hermeneuticsProgress,
-    koineGreekProgress,
-    amharicProgress,
-    geezProgress,
-    aramaicProgress,
-    paleoHebrewProgress,
-    churchHistoryProgress,
-    textualCriticismProgress,
-    biblicalCanonProgress,
     lastVerseOfDayRead,
     newlyUnlockedAchievements,
     achievementClickHistory,

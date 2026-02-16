@@ -52,14 +52,27 @@ const ComprehensiveCourse = ({
   const [examScore, setExamScore] = useState(0);
   const [examPassed, setExamPassed] = useState(false);
 
+  // Load progress from userData first, then fallback to individual localStorage entry
+  const loadSavedProgress = () => {
+    if (userData?.[progressKey]) return userData[progressKey];
+    try {
+      const saved = localStorage.getItem(progressKey);
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error(`Error parsing ${progressKey} from localStorage:`, e);
+    }
+    return {};
+  };
+  const savedProgress = loadSavedProgress();
+
   const [completedLessons, setCompletedLessons] = useState(() => {
-    return userData?.[progressKey]?.completedLessons || [];
+    return savedProgress.completedLessons || [];
   });
   const [completedQuizzes, setCompletedQuizzes] = useState(() => {
-    return userData?.[progressKey]?.completedQuizzes || [];
+    return savedProgress.completedQuizzes || [];
   });
   const [examCompleted, setExamCompleted] = useState(() => {
-    return userData?.[progressKey]?.examCompleted || false;
+    return savedProgress.examCompleted || false;
   });
 
   useEffect(() => {
