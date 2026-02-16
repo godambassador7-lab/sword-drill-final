@@ -4052,6 +4052,31 @@ const fadeOutMusic = () => {
 
 // Note: matchBiblicalReference now imported from './core' (private submodule)
 
+const formatUserAnswerForReview = (state) => {
+  if (!state) return '';
+
+  if (Array.isArray(state.userAnswers)) {
+    return state.userAnswers
+      .map((answer) => {
+        if (!answer) return '';
+        if (typeof answer === 'string') return answer.trim();
+        if (typeof answer === 'object') {
+          return String(answer.word ?? answer.text ?? '').trim();
+        }
+        return String(answer).trim();
+      })
+      .filter(Boolean)
+      .join(', ');
+  }
+
+  if (state.userAnswer === null || state.userAnswer === undefined) return '';
+  if (typeof state.userAnswer === 'object') {
+    return String(state.userAnswer.word ?? state.userAnswer.text ?? '').trim();
+  }
+
+  return String(state.userAnswer).trim();
+};
+
 
 const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState = null) => {
   if (isSubmittingQuiz) return;
@@ -4550,7 +4575,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     setCorrectAnswerData({
       question: quizState.question,
       correctAnswer: quizState.answer || quizState.correctAnswer,
-      userAnswer: quizState.userAnswer || quizState.userAnswers?.join(', '),
+      userAnswer: formatUserAnswerForReview(effectiveQuizState),
       type: quizState.type,
       verse: quizState.verse,
       verseText: quizVerse.text,
@@ -12513,8 +12538,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {/* Correct Answer Modal - Shows after incorrect answer */}
       {showCorrectAnswerModal && correctAnswerData && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="bg-gradient-to-br from-red-900 via-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 border-2 border-red-500/50 shadow-2xl max-w-2xl w-full animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/80 p-3 sm:p-4 overflow-y-auto">
+          <div className="relative bg-gradient-to-br from-red-900 via-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 border-2 border-red-500/50 shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto animate-fade-in my-2 sm:my-4">
             {/* Close Button */}
             <button
               onClick={() => {
