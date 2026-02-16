@@ -795,8 +795,81 @@ const loadProgressFromLocalStorage = () => {
   }
 };
 
+const isProgressPayloadEmpty = (value) => {
+  if (value === null || value === undefined) return true;
+  if (Array.isArray(value)) return value.length === 0;
+  if (typeof value !== 'object') {
+    if (typeof value === 'boolean') return value === false;
+    if (typeof value === 'number') return value === 0;
+    if (typeof value === 'string') return value.trim().length === 0;
+    return !value;
+  }
+
+  const keys = Object.keys(value);
+  if (keys.length === 0) return true;
+  return keys.every((k) => isProgressPayloadEmpty(value[k]));
+};
+
+const buildCourseProgressBackfill = (mergedProgress = {}, remoteProgress = {}) => {
+  const updates = {};
+  const progressKeyPattern = /Progress$/;
+  const keys = new Set([...Object.keys(mergedProgress || {}), ...Object.keys(remoteProgress || {})]);
+
+  keys.forEach((key) => {
+    if (!progressKeyPattern.test(key)) return;
+    const mergedValue = mergedProgress?.[key];
+    const remoteValue = remoteProgress?.[key];
+
+    if (!mergedValue || typeof mergedValue !== 'object') return;
+    if (!isProgressPayloadEmpty(mergedValue) && isProgressPayloadEmpty(remoteValue)) {
+      updates[key] = mergedValue;
+    }
+  });
+
+  return updates;
+};
+
 // Merge local (offline/guest) progress with remote (Firebase) progress
 const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStreakValue = 0) => {
+  const isEmptyProgressValue = (value) => {
+    if (value === null || value === undefined) return true;
+    if (Array.isArray(value)) return value.length === 0;
+    if (typeof value !== 'object') {
+      if (typeof value === 'boolean') return value === false;
+      if (typeof value === 'number') return value === 0;
+      if (typeof value === 'string') return value.trim().length === 0;
+      return !value;
+    }
+
+    const keys = Object.keys(value);
+    if (keys.length === 0) return true;
+    return keys.every((k) => isEmptyProgressValue(value[k]));
+  };
+
+  const mergeCourseProgressValue = (localValue, remoteValue) => {
+    if (localValue === undefined) return remoteValue;
+    if (remoteValue === undefined) return localValue;
+
+    const localEmpty = isEmptyProgressValue(localValue);
+    const remoteEmpty = isEmptyProgressValue(remoteValue);
+
+    if (remoteEmpty && !localEmpty) return localValue;
+    if (localEmpty && !remoteEmpty) return remoteValue;
+
+    if (
+      localValue &&
+      remoteValue &&
+      typeof localValue === 'object' &&
+      typeof remoteValue === 'object' &&
+      !Array.isArray(localValue) &&
+      !Array.isArray(remoteValue)
+    ) {
+      return { ...localValue, ...remoteValue };
+    }
+
+    return remoteValue;
+  };
+
   const normalizeQuizHistory = (arr = []) => {
     return arr.map(q => {
       const ts = q.timestamp || q.ts || q.date;
@@ -902,8 +975,16 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const progressKeyPattern = /Progress$/;
   const allKeys = new Set([...Object.keys(localProgress), ...Object.keys(remoteProgress)]);
   allKeys.forEach(key => {
-    if (progressKeyPattern.test(key) && typeof (remoteProgress[key] || localProgress[key]) === 'object') {
-      allCourseProgress[key] = remoteProgress[key] || localProgress[key];
+    if (!progressKeyPattern.test(key)) return;
+
+    const localValue = localProgress[key];
+    const remoteValue = remoteProgress[key];
+    const hasObjectValue =
+      (localValue && typeof localValue === 'object') ||
+      (remoteValue && typeof remoteValue === 'object');
+
+    if (hasObjectValue) {
+      allCourseProgress[key] = mergeCourseProgressValue(localValue, remoteValue);
     }
   });
 
@@ -2106,6 +2187,15 @@ useEffect(() => {
           }).catch(err => console.error('Error syncing recalculated streak:', err));
         }
 
+        // Backfill recovered local course progress to Firebase when remote is empty/missing.
+        const courseProgressBackfill = buildCourseProgressBackfill(mergedProgress, result.progress || {});
+        if (Object.keys(courseProgressBackfill).length > 0) {
+          console.log(' Syncing recovered course progress to Firebase:', Object.keys(courseProgressBackfill));
+          updateUserProgress(user.uid, courseProgressBackfill).catch(err =>
+            console.error('Error syncing recovered course progress:', err)
+          );
+        }
+
         setUserData(mergedProgress);
         setIsLoggedIn(true);
       }
@@ -2531,6 +2621,15 @@ const completeLogin = async (user) => {
         currentStreak: recalculatedStreak,
         streakData: mergedStreakData
       }).catch(err => console.error('Error syncing streak to Firebase:', err));
+    }
+
+    // Backfill recovered local course progress to Firebase when remote is empty/missing.
+    const courseProgressBackfill = buildCourseProgressBackfill(mergedUserData, data.progress || {});
+    if (Object.keys(courseProgressBackfill).length > 0) {
+      console.log(' Sign-in backfill for recovered course progress:', Object.keys(courseProgressBackfill));
+      updateUserProgress(user.uid, courseProgressBackfill).catch(err =>
+        console.error('Error syncing recovered course progress during sign-in:', err)
+      );
     }
 
     setUserData(mergedUserData);
