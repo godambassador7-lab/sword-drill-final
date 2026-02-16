@@ -250,6 +250,35 @@ const FINAL_EXAM = [
   { question: 'True or False: Both the Spring and Fall Feasts have already been fulfilled in Christ.', options: ['True', 'False'], correct: 1, explanation: 'False. The Spring Feasts were fulfilled at Christ\'s first coming. The Fall Feasts are understood to await fulfillment at His second coming.' }
 ];
 
+const FEAST_DAYS_STORAGE_KEY = 'feastDaysProgress';
+
+const normalizeCourseProgress = (progress) => {
+  const completedLessons = Array.isArray(progress?.completedLessons)
+    ? Array.from(new Set(progress.completedLessons))
+    : [];
+  const completedQuizzes = Array.isArray(progress?.completedQuizzes)
+    ? Array.from(new Set(progress.completedQuizzes))
+    : [];
+  const examCompleted = Boolean(progress?.examCompleted);
+
+  return { completedLessons, completedQuizzes, examCompleted };
+};
+
+const getInitialFeastDaysProgress = (userData) => {
+  if (userData?.feastDaysProgress) {
+    return normalizeCourseProgress(userData.feastDaysProgress);
+  }
+
+  try {
+    const raw = localStorage.getItem(FEAST_DAYS_STORAGE_KEY);
+    if (raw) return normalizeCourseProgress(JSON.parse(raw));
+  } catch (error) {
+    console.error('Error loading local Feast Days progress:', error);
+  }
+
+  return normalizeCourseProgress({});
+};
+
 const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [currentView, setCurrentView] = useState('list');
   const [selectedUnit, setSelectedUnit] = useState(null);
@@ -260,22 +289,22 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [examScore, setExamScore] = useState(0);
   const [examPassed, setExamPassed] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState(() => userData?.feastDaysProgress?.completedLessons || []);
-  const [completedQuizzes, setCompletedQuizzes] = useState(() => userData?.feastDaysProgress?.completedQuizzes || []);
-  const [examCompleted, setExamCompleted] = useState(() => userData?.feastDaysProgress?.examCompleted || false);
+  const initialProgress = getInitialFeastDaysProgress(userData);
+  const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
+  const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
+  const [examCompleted, setExamCompleted] = useState(initialProgress.examCompleted);
 
   useEffect(() => {
-    if (userData?.feastDaysProgress) {
-      const p = userData.feastDaysProgress;
-      if (p.completedLessons) setCompletedLessons(p.completedLessons);
-      if (p.completedQuizzes) setCompletedQuizzes(p.completedQuizzes);
-      if (p.examCompleted) setExamCompleted(p.examCompleted);
-    }
+    if (!userData?.feastDaysProgress) return;
+    const p = normalizeCourseProgress(userData.feastDaysProgress);
+    setCompletedLessons(p.completedLessons);
+    setCompletedQuizzes(p.completedQuizzes);
+    setExamCompleted(p.examCompleted);
   }, [userData?.feastDaysProgress]);
 
   useEffect(() => {
-    const progressPayload = { completedLessons, completedQuizzes, examCompleted };
-    localStorage.setItem('feastDaysProgress', JSON.stringify(progressPayload));
+    const progressPayload = normalizeCourseProgress({ completedLessons, completedQuizzes, examCompleted });
+    localStorage.setItem(FEAST_DAYS_STORAGE_KEY, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, feastDaysProgress: progressPayload }));
     if (userId) updateUserProgress(userId, { feastDaysProgress: progressPayload }).catch(err => console.error('Error saving Feast Days progress:', err));
   }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData]);
@@ -292,6 +321,10 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
+    // Passing a quiz implies the lesson was read.
+    if (!completedLessons.includes(unit.id)) {
+      setCompletedLessons(prev => [...prev, unit.id]);
+    }
     if (correct >= 4 && !completedQuizzes.includes(unit.id)) {
       setCompletedQuizzes(prev => [...prev, unit.id]);
       if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
@@ -311,7 +344,18 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
     }
   };
 
-  const startQuiz = () => { setQuizAnswers({}); setQuizSubmitted(false); setQuizScore(0); setCurrentView('quiz'); };
+  const startQuiz = () => {
+    if (selectedUnit !== null) {
+      const unit = UNITS[selectedUnit];
+      if (unit && !completedLessons.includes(unit.id)) {
+        setCompletedLessons(prev => [...prev, unit.id]);
+      }
+    }
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+    setQuizScore(0);
+    setCurrentView('quiz');
+  };
   const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
 
   // QUIZ VIEW
