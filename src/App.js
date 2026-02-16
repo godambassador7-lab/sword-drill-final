@@ -945,7 +945,8 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     versesMemorized: Math.max(localProgress.versesMemorized || 0, remoteProgress.versesMemorized || 0),
     quizzesCompleted: Math.max(localProgress.quizzesCompleted || 0, remoteProgress.quizzesCompleted || 0),
     currentStreak,
-    totalPoints: Math.max(localProgress.totalPoints || 0, remoteProgress.totalPoints || 0),
+    // Points are spendable currency; prefer remote when available to avoid inflating from stale local cache.
+    totalPoints: remoteProgress.totalPoints ?? localProgress.totalPoints ?? 0,
     achievements,
     selectedTranslation: safeTranslation,
     includeApocrypha: remoteProgress.includeApocrypha ?? localProgress.includeApocrypha ?? false,
@@ -2943,9 +2944,6 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     // Backward-compatible cleanup for older key format.
     localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
 
-    // Deduct points
-    const newPoints = userData.totalPoints - REDEMPTION_COST;
-
     // Restore streak by backdating today's streak record
     const todayDate = new Date();
     todayDate.setHours(0, 0, 0, 0);
@@ -2958,14 +2956,17 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     // Recalculate streak
     const restoredStreak = calculateCurrentStreak();
 
-    // Update user data
-    setUserData(prev => ({
-      ...prev,
-      currentStreak: restoredStreak,
-      totalPoints: newPoints,
-      streakLostAt: null, // Clear the lost timestamp
-      lastKnownStreak: 0 // Reset
-    }));
+    // Update user data with functional math to avoid stale-state point drift.
+    setUserData(prev => {
+      const currentPoints = Number(prev.totalPoints) || 0;
+      return {
+        ...prev,
+        currentStreak: restoredStreak,
+        totalPoints: Math.max(0, currentPoints - REDEMPTION_COST),
+        streakLostAt: null, // Clear the lost timestamp
+        lastKnownStreak: 0 // Reset
+      };
+    });
 
     setShowStreakRedemption(false);
     showToast(`🔥 Streak Restored!\n\nYour ${restoredStreak}-day streak has been redeemed!\n\n-${REDEMPTION_COST} points`, 'success');

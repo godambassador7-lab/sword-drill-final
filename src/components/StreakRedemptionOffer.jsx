@@ -34,17 +34,44 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
   const canAfford = userData.totalPoints >= REDEMPTION_COST;
   const isExpired = timeRemaining === 'Expired';
 
+  const handleDismiss = (event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    onDismiss?.();
+  };
+
+  const handlePurchase = (event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    onPurchase?.();
+  };
+
   if (isExpired) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl max-w-lg w-full border-2 border-orange-500/50 shadow-2xl animate-pulse-slow my-auto">
+    <div
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div
+        className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl max-w-lg w-full border-2 border-orange-500/50 shadow-2xl animate-pulse-slow my-auto"
+        onMouseDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="bg-gradient-to-r from-orange-600 to-red-600 p-4 sm:p-6 rounded-t-xl relative flex-shrink-0">
           <button
-            onClick={onDismiss}
+            type="button"
+            onClick={handleDismiss}
             className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 hover:bg-white/20 rounded-lg transition-colors z-10"
           >
             <X size={20} className="text-white" />
@@ -111,13 +138,15 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
           {/* Action Buttons */}
           <div className="flex gap-3 pt-2">
             <button
-              onClick={onDismiss}
+              type="button"
+              onClick={handleDismiss}
               className="flex-1 px-6 py-3 bg-slate-600 hover:bg-slate-500 text-white font-semibold rounded-lg transition-all"
             >
               Maybe Later
             </button>
             <button
-              onClick={onPurchase}
+              type="button"
+              onClick={handlePurchase}
               disabled={!canAfford}
               className={`flex-1 px-6 py-3 font-semibold rounded-lg transition-all flex items-center justify-center gap-2 ${
                 canAfford
