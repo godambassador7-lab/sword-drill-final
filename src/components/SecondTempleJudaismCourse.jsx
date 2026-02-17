@@ -273,6 +273,35 @@ const FINAL_EXAM = [
   { question: 'True or False: Both Christianity and rabbinic Judaism emerged from Second Temple Judaism.', options: ['True', 'False'], correct: 0, explanation: 'True. Both are "children" of Second Temple Judaism, interpreting shared Scriptures through distinctive lenses.' }
 ];
 
+const SECOND_TEMPLE_PROGRESS_KEY = 'secondTempleJudaismProgress';
+
+const normalizeCourseProgress = (progress) => {
+  const completedLessons = Array.isArray(progress?.completedLessons)
+    ? Array.from(new Set(progress.completedLessons))
+    : [];
+  const completedQuizzes = Array.isArray(progress?.completedQuizzes)
+    ? Array.from(new Set(progress.completedQuizzes))
+    : [];
+  const examCompleted = Boolean(progress?.examCompleted);
+
+  return { completedLessons, completedQuizzes, examCompleted };
+};
+
+const getInitialSecondTempleProgress = (userData) => {
+  if (userData?.secondTempleJudaismProgress) {
+    return normalizeCourseProgress(userData.secondTempleJudaismProgress);
+  }
+
+  try {
+    const raw = localStorage.getItem(SECOND_TEMPLE_PROGRESS_KEY);
+    if (raw) return normalizeCourseProgress(JSON.parse(raw));
+  } catch (error) {
+    console.error('Error loading local Second Temple progress:', error);
+  }
+
+  return normalizeCourseProgress({});
+};
+
 const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [currentView, setCurrentView] = useState('list');
   const [selectedUnit, setSelectedUnit] = useState(null);
@@ -283,22 +312,22 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [examScore, setExamScore] = useState(0);
   const [examPassed, setExamPassed] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState(() => userData?.secondTempleJudaismProgress?.completedLessons || []);
-  const [completedQuizzes, setCompletedQuizzes] = useState(() => userData?.secondTempleJudaismProgress?.completedQuizzes || []);
-  const [examCompleted, setExamCompleted] = useState(() => userData?.secondTempleJudaismProgress?.examCompleted || false);
+  const initialProgress = getInitialSecondTempleProgress(userData);
+  const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
+  const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
+  const [examCompleted, setExamCompleted] = useState(initialProgress.examCompleted);
 
   useEffect(() => {
-    if (userData?.secondTempleJudaismProgress) {
-      const p = userData.secondTempleJudaismProgress;
-      if (p.completedLessons) setCompletedLessons(p.completedLessons);
-      if (p.completedQuizzes) setCompletedQuizzes(p.completedQuizzes);
-      if (p.examCompleted) setExamCompleted(p.examCompleted);
-    }
+    if (!userData?.secondTempleJudaismProgress) return;
+    const p = normalizeCourseProgress(userData.secondTempleJudaismProgress);
+    setCompletedLessons(p.completedLessons);
+    setCompletedQuizzes(p.completedQuizzes);
+    setExamCompleted(p.examCompleted);
   }, [userData?.secondTempleJudaismProgress]);
 
   useEffect(() => {
-    const progressPayload = { completedLessons, completedQuizzes, examCompleted };
-    localStorage.setItem('secondTempleJudaismProgress', JSON.stringify(progressPayload));
+    const progressPayload = normalizeCourseProgress({ completedLessons, completedQuizzes, examCompleted });
+    localStorage.setItem(SECOND_TEMPLE_PROGRESS_KEY, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, secondTempleJudaismProgress: progressPayload }));
     if (userId) updateUserProgress(userId, { secondTempleJudaismProgress: progressPayload }).catch(err => console.error('Error saving STJ progress:', err));
   }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData]);
@@ -315,6 +344,9 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
+    if (!completedLessons.includes(unit.id)) {
+      setCompletedLessons(prev => [...prev, unit.id]);
+    }
     if (correct >= 4 && !completedQuizzes.includes(unit.id)) {
       setCompletedQuizzes(prev => [...prev, unit.id]);
       if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
@@ -334,7 +366,18 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
     }
   };
 
-  const startQuiz = () => { setQuizAnswers({}); setQuizSubmitted(false); setQuizScore(0); setCurrentView('quiz'); };
+  const startQuiz = () => {
+    if (selectedUnit !== null) {
+      const unit = UNITS[selectedUnit];
+      if (unit && !completedLessons.includes(unit.id)) {
+        setCompletedLessons(prev => [...prev, unit.id]);
+      }
+    }
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+    setQuizScore(0);
+    setCurrentView('quiz');
+  };
   const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
 
   // QUIZ VIEW

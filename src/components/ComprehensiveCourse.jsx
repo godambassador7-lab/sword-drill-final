@@ -31,6 +31,21 @@ const DEFAULT_THEME = {
   badgeQuiz: 'text-amber-400'
 };
 
+const normalizeProgressPayload = (payload = {}) => {
+  const completedLessons = Array.isArray(payload.completedLessons)
+    ? Array.from(new Set(payload.completedLessons))
+    : [];
+  const completedQuizzes = Array.isArray(payload.completedQuizzes)
+    ? Array.from(new Set(payload.completedQuizzes))
+    : [];
+
+  return {
+    completedLessons,
+    completedQuizzes,
+    examCompleted: Boolean(payload.examCompleted)
+  };
+};
+
 const ComprehensiveCourse = ({
   courseData,
   progressKey,
@@ -54,14 +69,14 @@ const ComprehensiveCourse = ({
 
   // Load progress from userData first, then fallback to individual localStorage entry
   const loadSavedProgress = () => {
-    if (userData?.[progressKey]) return userData[progressKey];
+    if (userData?.[progressKey]) return normalizeProgressPayload(userData[progressKey]);
     try {
       const saved = localStorage.getItem(progressKey);
-      if (saved) return JSON.parse(saved);
+      if (saved) return normalizeProgressPayload(JSON.parse(saved));
     } catch (e) {
       console.error(`Error parsing ${progressKey} from localStorage:`, e);
     }
-    return {};
+    return normalizeProgressPayload({});
   };
   const savedProgress = loadSavedProgress();
 
@@ -77,15 +92,15 @@ const ComprehensiveCourse = ({
 
   useEffect(() => {
     if (userData?.[progressKey]) {
-      const p = userData[progressKey];
-      if (p.completedLessons) setCompletedLessons(p.completedLessons);
-      if (p.completedQuizzes) setCompletedQuizzes(p.completedQuizzes);
-      if (typeof p.examCompleted === 'boolean') setExamCompleted(p.examCompleted);
+      const p = normalizeProgressPayload(userData[progressKey]);
+      setCompletedLessons(p.completedLessons);
+      setCompletedQuizzes(p.completedQuizzes);
+      setExamCompleted(p.examCompleted);
     }
   }, [userData, progressKey]);
 
   useEffect(() => {
-    const progressPayload = { completedLessons, completedQuizzes, examCompleted };
+    const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted });
     localStorage.setItem(progressKey, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
     if (userId) updateUserProgress(userId, { [progressKey]: progressPayload }).catch(err =>
@@ -117,6 +132,9 @@ const ComprehensiveCourse = ({
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
+    if (!completedLessons.includes(unit.id)) {
+      setCompletedLessons(prev => [...prev, unit.id]);
+    }
     if (correct >= quizPassScore && !completedQuizzes.includes(unit.id)) {
       setCompletedQuizzes(prev => [...prev, unit.id]);
       if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
@@ -136,7 +154,18 @@ const ComprehensiveCourse = ({
     }
   };
 
-  const startQuiz = () => { setQuizAnswers({}); setQuizSubmitted(false); setQuizScore(0); setCurrentView('quiz'); };
+  const startQuiz = () => {
+    if (selectedUnit !== null) {
+      const unit = courseData.units[selectedUnit];
+      if (unit && !completedLessons.includes(unit.id)) {
+        setCompletedLessons(prev => [...prev, unit.id]);
+      }
+    }
+    setQuizAnswers({});
+    setQuizSubmitted(false);
+    setQuizScore(0);
+    setCurrentView('quiz');
+  };
   const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
 
   const getLanguageDrills = (courseData, unit) => {

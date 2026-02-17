@@ -829,6 +829,16 @@ const buildCourseProgressBackfill = (mergedProgress = {}, remoteProgress = {}) =
   return updates;
 };
 
+const extractCourseProgressFields = (progress = {}) => {
+  const out = {};
+  Object.entries(progress || {}).forEach(([key, value]) => {
+    if (/Progress$/u.test(key) && value && typeof value === 'object') {
+      out[key] = value;
+    }
+  });
+  return out;
+};
+
 // Merge local (offline/guest) progress with remote (Firebase) progress
 const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStreakValue = 0) => {
   const isEmptyProgressValue = (value) => {
@@ -2089,6 +2099,7 @@ useEffect(() => {
           includeApocrypha: result.user.includeApocrypha || false,
           verseProgress: verseProgressData,
           currentLevel: result.progress.currentLevel || 'Beginner',
+          ...extractCourseProgressFields(result.progress),
           unlockables: result.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
           newlyUnlockedAchievements: result.progress.newlyUnlockedAchievements || [],
           achievementClickHistory: result.progress.achievementClickHistory || {},
@@ -2598,6 +2609,7 @@ const completeLogin = async (user) => {
         includeApocrypha: data.user.includeApocrypha || false,
         verseProgress: verseProgressData,
         currentLevel: data.progress.currentLevel || 'Beginner',
+        ...extractCourseProgressFields(data.progress),
         unlockables: data.progress.unlockables || { lxx: false, masoretic: false, sinaiticus: false, smithDictionary: false, bloodlines: false, kjvStrongs: false },
         newlyUnlockedAchievements: data.progress.newlyUnlockedAchievements || [],
         achievementClickHistory: data.progress.achievementClickHistory || {},

@@ -9,22 +9,48 @@ import lessonContent from '../data/church_history_course/lesson_content.json';
 import ChurchHistoryQuiz from './ChurchHistoryQuiz';
 import { updateUserProgress } from '../services/dbService';
 
+const CHURCH_HISTORY_PROGRESS_KEY = 'churchHistoryProgress';
+
+const normalizeChurchHistoryProgress = (progress) => {
+  const fallback = { beginner: [], intermediate: [], advanced: [] };
+  const source = progress?.completedLessons || progress || fallback;
+
+  return {
+    completedLessons: {
+      beginner: Array.isArray(source.beginner) ? Array.from(new Set(source.beginner)) : [],
+      intermediate: Array.isArray(source.intermediate) ? Array.from(new Set(source.intermediate)) : [],
+      advanced: Array.isArray(source.advanced) ? Array.from(new Set(source.advanced)) : []
+    }
+  };
+};
+
+const getInitialChurchHistoryProgress = (userData) => {
+  if (userData?.churchHistoryProgress) {
+    return normalizeChurchHistoryProgress(userData.churchHistoryProgress);
+  }
+
+  try {
+    const raw = localStorage.getItem(CHURCH_HISTORY_PROGRESS_KEY);
+    if (raw) return normalizeChurchHistoryProgress(JSON.parse(raw));
+  } catch (error) {
+    console.error('Error loading local Church History progress:', error);
+  }
+
+  return normalizeChurchHistoryProgress({});
+};
+
 const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [completedLessons, setCompletedLessons] = useState(
-    userData?.churchHistoryProgress?.completedLessons || {
-      beginner: [],
-      intermediate: [],
-      advanced: []
-    }
-  );
+  const initialProgress = getInitialChurchHistoryProgress(userData);
+  const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
 
   // Hydrate from userData
   useEffect(() => {
     if (userData?.churchHistoryProgress?.completedLessons) {
-      setCompletedLessons(userData.churchHistoryProgress.completedLessons);
+      const progress = normalizeChurchHistoryProgress(userData.churchHistoryProgress);
+      setCompletedLessons(progress.completedLessons);
     }
   }, [userData?.churchHistoryProgress]);
 
@@ -66,8 +92,8 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
   // Persist progress
   useEffect(() => {
-    const progress = { completedLessons };
-    localStorage.setItem('churchHistoryProgress', JSON.stringify(progress));
+    const progress = normalizeChurchHistoryProgress({ completedLessons });
+    localStorage.setItem(CHURCH_HISTORY_PROGRESS_KEY, JSON.stringify(progress));
     if (setUserData) {
       setUserData(prev => ({ ...prev, churchHistoryProgress: progress }));
     }

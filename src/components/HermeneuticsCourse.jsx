@@ -8,33 +8,49 @@ import lessonContent from '../data/hermeneutics_course/lesson_content.json';
 import HermeneuticsQuiz from './HermeneuticsQuiz';
 import { updateUserProgress } from '../services/dbService';
 
+const HERMENEUTICS_PROGRESS_KEY = 'hermeneuticsProgress';
+
+const normalizeHermeneuticsProgress = (progress) => {
+  const source = progress || {};
+  return {
+    beginner: Array.isArray(source.beginner) ? Array.from(new Set(source.beginner)) : [],
+    intermediate: Array.isArray(source.intermediate) ? Array.from(new Set(source.intermediate)) : [],
+    advanced: Array.isArray(source.advanced) ? Array.from(new Set(source.advanced)) : []
+  };
+};
+
 const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [completedLessons, setCompletedLessons] = useState(() => {
     // Load from Firebase first, then localStorage as fallback
     if (userData?.hermeneuticsProgress) {
-      return userData.hermeneuticsProgress;
+      return normalizeHermeneuticsProgress(userData.hermeneuticsProgress);
     }
 
-    const saved = localStorage.getItem('hermeneuticsProgress');
+    const saved = localStorage.getItem(HERMENEUTICS_PROGRESS_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        return normalizeHermeneuticsProgress(JSON.parse(saved));
       } catch (e) {
         console.error('Error parsing hermeneutics progress:', e);
       }
     }
-    return { beginner: [], intermediate: [], advanced: [] };
+    return normalizeHermeneuticsProgress({});
   });
   const [showQuiz, setShowQuiz] = useState(false);
 
+  useEffect(() => {
+    if (!userData?.hermeneuticsProgress) return;
+    setCompletedLessons(normalizeHermeneuticsProgress(userData.hermeneuticsProgress));
+  }, [userData?.hermeneuticsProgress]);
+
   // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
   useEffect(() => {
-    const localSaved = localStorage.getItem('hermeneuticsProgress');
+    const localSaved = localStorage.getItem(HERMENEUTICS_PROGRESS_KEY);
     if (localSaved && userId && setUserData && updateUserProgress && !userData?.hermeneuticsProgress) {
       try {
-        const localProgress = JSON.parse(localSaved);
+        const localProgress = normalizeHermeneuticsProgress(JSON.parse(localSaved));
         console.log('🔄 AUTO-SYNC: Found localStorage progress but missing in Firebase. Syncing Hermeneutics progress...');
 
         setUserData(prev => ({
@@ -59,17 +75,18 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
 
   // Save progress to both localStorage and Firebase whenever completedLessons changes
   useEffect(() => {
-    localStorage.setItem('hermeneuticsProgress', JSON.stringify(completedLessons));
+    const normalizedProgress = normalizeHermeneuticsProgress(completedLessons);
+    localStorage.setItem(HERMENEUTICS_PROGRESS_KEY, JSON.stringify(normalizedProgress));
 
     // Sync to Firebase if user is logged in
     if (userId && setUserData && updateUserProgress) {
       setUserData(prev => ({
         ...prev,
-        hermeneuticsProgress: completedLessons
+        hermeneuticsProgress: normalizedProgress
       }));
 
       updateUserProgress(userId, {
-        hermeneuticsProgress: completedLessons
+        hermeneuticsProgress: normalizedProgress
       }).catch(err => {
         console.error('Error saving Hermeneutics progress to Firebase:', err);
       });
