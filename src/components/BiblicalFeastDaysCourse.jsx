@@ -34,7 +34,7 @@ const UNITS = [
     ]
   },
   {
-    id: '02', title: 'The Weekly Sabbath (Shabbat)', icon: '🕊️', duration: '25 min',
+    id: '02', title: 'The Weekly Sabbath (Shabbat)', icon: '\u{1F54A}\uFE0F', duration: '25 min',
     content: [
       { heading: 'Institution at Creation', text: 'The Sabbath is the foundation of all biblical sacred time. Genesis 2:1-3 records: "By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work. Then God blessed the seventh day and made it holy, because on it he rested from all the work of creating that he had done." The Hebrew verb shavat means "to cease" or "to stop," not merely "to rest" in the sense of recovering from fatigue. God\'s Sabbath rest is the rest of completion and satisfaction, not exhaustion.\n\nThe Sabbath is unique among the appointed times because it recurs weekly, establishing the fundamental rhythm of biblical time. It precedes the Mosaic covenant, being rooted in creation itself. When the Sabbath commandment appears in the Decalogue (Exodus 20:8-11), the reason given is creation: "For in six days the LORD made the heavens and the earth... but he rested on the seventh day." In Deuteronomy 5:12-15, a second reason is added: deliverance from Egypt. The Sabbath thus commemorates both God\'s creative and redemptive work.' },
       { heading: 'Sabbath in the Torah', text: 'The Sabbath commandment is the longest of the Ten Commandments and the only ceremonial observance included in the Decalogue, underscoring its supreme importance. Exodus 31:13-17 calls the Sabbath a "sign" (ot) between God and Israel forever, "so you may know that I am the LORD, who makes you holy." Violating the Sabbath carried the death penalty (Exodus 31:14-15; Numbers 15:32-36), indicating that it was not merely a social custom but a covenant obligation of the highest order.\n\nThe Sabbath extended beyond personal rest. Servants, animals, resident aliens, and even the land itself were to rest (Exodus 23:12; Leviticus 25:4). The manna provision in Exodus 16 established Sabbath observance even before Sinai: a double portion fell on the sixth day, and none appeared on the seventh. This required trust in God\'s provision, making the Sabbath a weekly exercise in faith. The showbread in the tabernacle was also renewed every Sabbath (Leviticus 24:8), connecting Sabbath to worship.' },
@@ -258,12 +258,19 @@ const FINAL_EXAM = [
 
 const FEAST_DAYS_STORAGE_KEY = 'feastDaysProgress';
 
+const normalizeUnitId = (value) => {
+  const raw = String(value ?? '').trim();
+  if (!raw) return '';
+  if (/^\d+$/.test(raw)) return raw.padStart(2, '0');
+  return raw;
+};
+
 const normalizeCourseProgress = (progress) => {
   const completedLessons = Array.isArray(progress?.completedLessons)
-    ? Array.from(new Set(progress.completedLessons))
+    ? Array.from(new Set(progress.completedLessons.map(normalizeUnitId).filter(Boolean)))
     : [];
   const completedQuizzes = Array.isArray(progress?.completedQuizzes)
-    ? Array.from(new Set(progress.completedQuizzes))
+    ? Array.from(new Set(progress.completedQuizzes.map(normalizeUnitId).filter(Boolean)))
     : [];
   const examCompleted = Boolean(progress?.examCompleted);
 
