@@ -12650,8 +12650,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       {/* Correct Answer Modal - Shows after incorrect answer */}
       {showCorrectAnswerModal && correctAnswerData && (
-        <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/80 p-3 sm:p-4 overflow-y-auto">
-          <div className="relative bg-gradient-to-br from-red-900 via-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 border-2 border-red-500/50 shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto animate-fade-in my-2 sm:my-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-3 sm:p-4 overflow-y-auto">
+          <div className="relative bg-gradient-to-br from-red-900 via-slate-900 to-blue-900 rounded-2xl p-6 sm:p-8 border-2 border-red-500/50 shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto animate-fade-in my-4">
             {/* Close Button */}
             <button
               onClick={() => {
@@ -12669,7 +12669,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                   }, 5000);
                 }, 2000); // Show incorrect toast for 2 seconds
               }}
-              className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="absolute top-3 right-3 z-10 p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Close"
             >
               <X className="text-white" size={24} />

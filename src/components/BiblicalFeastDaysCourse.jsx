@@ -323,12 +323,18 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
     if (userId) updateUserProgress(userId, { feastDaysProgress: progressPayload }).catch(err => console.error('Error saving Feast Days progress:', err));
   }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData]);
 
+  useEffect(() => {
+    if (completedQuizzes.length === 0) return;
+    setCompletedLessons(prev => {
+      const merged = Array.from(new Set([...prev, ...completedQuizzes].map(normalizeUnitId).filter(Boolean)));
+      return merged.length === prev.length ? prev : merged;
+    });
+  }, [completedQuizzes]);
+
   const totalSteps = UNITS.length * 2 + 1;
   const completedSteps = completedLessons.length + completedQuizzes.length + (examCompleted ? 1 : 0);
   const progress = Math.round((completedSteps / totalSteps) * 100);
   const examPassScore = Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
-
-  const markLessonComplete = (unitId) => { if (!completedLessons.includes(unitId)) setCompletedLessons(prev => [...prev, unitId]); };
 
   const submitQuiz = () => {
     const unit = UNITS[selectedUnit];
@@ -520,7 +526,6 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
             )}
           </div>
           <div className="flex gap-3 mt-6">
-            {!lessonDone && <button onClick={() => markLessonComplete(unit.id)} className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2"><CheckCircle size={18} /> Mark as Read</button>}
             <button onClick={startQuiz} className={`flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 ${quizDone ? 'opacity-70' : ''}`}>
               <Scroll size={18} /> {quizDone ? 'Retake Quiz' : 'Take Quiz'}
             </button>

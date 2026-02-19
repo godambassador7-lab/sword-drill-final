@@ -38,11 +38,17 @@ const DEFAULT_THEME = {
 };
 
 const normalizeProgressPayload = (payload = {}) => {
+  const normalizeUnitId = (value) => {
+    const raw = String(value ?? '').trim();
+    if (!raw) return '';
+    if (/^\d+$/.test(raw)) return raw.padStart(2, '0');
+    return raw;
+  };
   const completedLessons = Array.isArray(payload.completedLessons)
-    ? Array.from(new Set(payload.completedLessons))
+    ? Array.from(new Set(payload.completedLessons.map(normalizeUnitId).filter(Boolean)))
     : [];
   const completedQuizzes = Array.isArray(payload.completedQuizzes)
-    ? Array.from(new Set(payload.completedQuizzes))
+    ? Array.from(new Set(payload.completedQuizzes.map(normalizeUnitId).filter(Boolean)))
     : [];
 
   return {
@@ -129,11 +135,13 @@ const ComprehensiveCourse = ({
     return Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
   }, [examQuestions.length]);
 
-  const markLessonComplete = (unitId) => {
-    if (!completedLessons.includes(unitId)) {
-      setCompletedLessons(prev => [...prev, unitId]);
-    }
-  };
+  useEffect(() => {
+    if (completedQuizzes.length === 0) return;
+    setCompletedLessons(prev => {
+      const merged = Array.from(new Set([...prev, ...completedQuizzes]));
+      return merged.length === prev.length ? prev : merged;
+    });
+  }, [completedQuizzes]);
 
   const submitQuiz = () => {
     const unit = courseData.units[selectedUnit];
@@ -465,7 +473,6 @@ const ComprehensiveCourse = ({
             )}
           </div>
           <div className="flex gap-3 mt-6">
-            {!lessonDone && <button onClick={() => markLessonComplete(unit.id)} className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2"><CheckCircle size={18} /> Mark as Read</button>}
             <button onClick={startQuiz} className={`flex-1 bg-gradient-to-r ${theme.accentBgSolid} hover:${theme.accentBgSolidHover} text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 ${quizDone ? 'opacity-70' : ''}`}>
               <Scroll size={18} /> {quizDone ? 'Retake Quiz' : 'Take Quiz'}
             </button>

@@ -281,12 +281,19 @@ const FINAL_EXAM = [
 
 const SECOND_TEMPLE_PROGRESS_KEY = 'secondTempleJudaismProgress';
 
+const normalizeUnitId = (value) => {
+  const raw = String(value ?? '').trim();
+  if (!raw) return '';
+  if (/^\d+$/.test(raw)) return raw.padStart(2, '0');
+  return raw;
+};
+
 const normalizeCourseProgress = (progress) => {
   const completedLessons = Array.isArray(progress?.completedLessons)
-    ? Array.from(new Set(progress.completedLessons))
+    ? Array.from(new Set(progress.completedLessons.map(normalizeUnitId).filter(Boolean)))
     : [];
   const completedQuizzes = Array.isArray(progress?.completedQuizzes)
-    ? Array.from(new Set(progress.completedQuizzes))
+    ? Array.from(new Set(progress.completedQuizzes.map(normalizeUnitId).filter(Boolean)))
     : [];
   const examCompleted = Boolean(progress?.examCompleted);
 
@@ -339,12 +346,18 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
     if (userId) updateUserProgress(userId, { secondTempleJudaismProgress: progressPayload }).catch(err => console.error('Error saving STJ progress:', err));
   }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData]);
 
+  useEffect(() => {
+    if (completedQuizzes.length === 0) return;
+    setCompletedLessons(prev => {
+      const merged = Array.from(new Set([...prev, ...completedQuizzes].map(normalizeUnitId).filter(Boolean)));
+      return merged.length === prev.length ? prev : merged;
+    });
+  }, [completedQuizzes]);
+
   const totalSteps = UNITS.length * 2 + 1;
   const completedSteps = completedLessons.length + completedQuizzes.length + (examCompleted ? 1 : 0);
   const progress = Math.round((completedSteps / totalSteps) * 100);
   const examPassScore = Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
-
-  const markLessonComplete = (unitId) => { if (!completedLessons.includes(unitId)) setCompletedLessons(prev => [...prev, unitId]); };
 
   const submitQuiz = () => {
     const unit = UNITS[selectedUnit];
@@ -535,7 +548,6 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
             )}
           </div>
           <div className="flex gap-3 mt-6">
-            {!lessonDone && <button onClick={() => markLessonComplete(unit.id)} className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2"><CheckCircle size={18} /> Mark as Read</button>}
             <button onClick={startQuiz} className={`flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 ${quizDone ? 'opacity-70' : ''}`}>
               <Scroll size={18} /> {quizDone ? 'Retake Quiz' : 'Take Quiz'}
             </button>
