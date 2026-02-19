@@ -37,13 +37,21 @@ const DEFAULT_THEME = {
   badgeQuiz: 'text-amber-400'
 };
 
+const normalizeUnitId = (value) => {
+  const raw = String(value ?? '').trim();
+  if (!raw) return '';
+  if (/^\d+$/.test(raw)) return raw.padStart(2, '0');
+  return raw;
+};
+
+const sanitizeDisplayIcon = (icon) => {
+  const raw = String(icon ?? '').trim();
+  if (!raw) return '[icon]';
+  if (/(?:\u00C3|\u00C2|\u00E2|\u00F0|\u00EF|\uFFFD)/.test(raw)) return '[icon]';
+  return raw;
+};
+
 const normalizeProgressPayload = (payload = {}) => {
-  const normalizeUnitId = (value) => {
-    const raw = String(value ?? '').trim();
-    if (!raw) return '';
-    if (/^\d+$/.test(raw)) return raw.padStart(2, '0');
-    return raw;
-  };
   const completedLessons = Array.isArray(payload.completedLessons)
     ? Array.from(new Set(payload.completedLessons.map(normalizeUnitId).filter(Boolean)))
     : [];
@@ -145,16 +153,34 @@ const ComprehensiveCourse = ({
 
   const submitQuiz = () => {
     const unit = courseData.units[selectedUnit];
+    const unitId = normalizeUnitId(unit.id);
     let correct = 0;
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
-    if (!completedLessons.includes(unit.id)) {
-      setCompletedLessons(prev => [...prev, unit.id]);
+    const nextLessons = completedLessons.includes(unitId) ? completedLessons : [...completedLessons, unitId];
+    if (!completedLessons.includes(unitId)) {
+      setCompletedLessons(nextLessons);
     }
-    if (correct >= quizPassScore && !completedQuizzes.includes(unit.id)) {
-      setCompletedQuizzes(prev => [...prev, unit.id]);
-      if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
+    if (correct >= quizPassScore && !completedQuizzes.includes(unitId)) {
+      const nextQuizzes = [...completedQuizzes, unitId];
+      setCompletedQuizzes(nextQuizzes);
+
+      // Persist immediately so a parent onComplete navigation cannot lose this quiz update.
+      const progressPayload = normalizeProgressPayload({
+        completedLessons: nextLessons,
+        completedQuizzes: nextQuizzes,
+        examCompleted
+      });
+      localStorage.setItem(progressKey, JSON.stringify(progressPayload));
+      if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
+      if (userId) {
+        updateUserProgress(userId, { [progressKey]: progressPayload }).catch(err =>
+          console.error(`Error saving ${progressKey} after quiz submit:`, err)
+        );
+      }
+
+      if (onComplete) onComplete({ type: 'quiz', unitId });
     }
   };
 
@@ -174,8 +200,9 @@ const ComprehensiveCourse = ({
   const startQuiz = () => {
     if (selectedUnit !== null) {
       const unit = courseData.units[selectedUnit];
-      if (unit && !completedLessons.includes(unit.id)) {
-        setCompletedLessons(prev => [...prev, unit.id]);
+      const unitId = normalizeUnitId(unit?.id);
+      if (unit && unitId && !completedLessons.includes(unitId)) {
+        setCompletedLessons(prev => [...prev, unitId]);
       }
     }
     setQuizAnswers({});
@@ -426,8 +453,10 @@ const ComprehensiveCourse = ({
 
   if (currentView === 'lesson' && selectedUnit !== null) {
     const unit = courseData.units[selectedUnit];
-    const lessonDone = completedLessons.includes(unit.id);
-    const quizDone = completedQuizzes.includes(unit.id);
+    const unitId = normalizeUnitId(unit.id);
+    const lessonDone = completedLessons.includes(unitId);
+    const quizDone = completedQuizzes.includes(unitId);
+    const displayIcon = sanitizeDisplayIcon(unit.icon);
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
         <div className="max-w-3xl mx-auto">
@@ -440,9 +469,9 @@ const ComprehensiveCourse = ({
           </div>
           <div className={`bg-gradient-to-br ${theme.accentBgSoft} rounded-xl p-6 border-2 ${theme.accentBorder} mb-6`}>
             <div className="flex items-center gap-3">
-              <span className="text-4xl">{unit.icon}</span>
+              <span className="text-4xl">{displayIcon}</span>
               <div>
-                <p className="text-blue-300 text-sm font-mono">Unit {unit.id}</p>
+                <p className="text-blue-300 text-sm font-mono">Unit {unitId}</p>
                 <h1 className="text-2xl font-bold text-white">{unit.title}</h1>
                 <p className="text-blue-300 text-sm">{unit.duration}</p>
               </div>
@@ -488,7 +517,7 @@ const ComprehensiveCourse = ({
     );
   }
 
-  const allQuizzesDone = courseData.units.every(u => completedQuizzes.includes(u.id));
+  const allQuizzesDone = courseData.units.every(u => completedQuizzes.includes(normalizeUnitId(u.id)));
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
       <div className="max-w-4xl mx-auto">
@@ -514,17 +543,19 @@ const ComprehensiveCourse = ({
         </div>
         <div className="space-y-3 mb-6">
           {courseData.units.map((unit, idx) => {
-            const lessonDone = completedLessons.includes(unit.id);
-            const quizDone = completedQuizzes.includes(unit.id);
+            const unitId = normalizeUnitId(unit.id);
+            const lessonDone = completedLessons.includes(unitId);
+            const quizDone = completedQuizzes.includes(unitId);
+            const displayIcon = sanitizeDisplayIcon(unit.icon);
             return (
-              <button key={unit.id} onClick={() => { setSelectedUnit(idx); setCurrentView('lesson'); window.scrollTo(0, 0); }}
+              <button key={unitId} onClick={() => { setSelectedUnit(idx); setCurrentView('lesson'); window.scrollTo(0, 0); }}
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${lessonDone && quizDone ? 'bg-gradient-to-r from-emerald-900/40 to-teal-900/40 border-emerald-500/50 hover:border-emerald-400' : 'bg-slate-800/50 border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/70'}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="text-3xl">{unit.icon}</div>
+                    <div className="text-3xl">{displayIcon}</div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-slate-400 text-sm font-mono">Unit {unit.id}</span>
+                        <span className="text-slate-400 text-sm font-mono">Unit {unitId}</span>
                         {lessonDone && <CheckCircle size={14} className="text-emerald-400" />}
                         {quizDone && <Award size={14} className="text-amber-400" />}
                       </div>
