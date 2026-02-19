@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy, Crown, ArrowLeft, Scroll, Shield } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 import { getLocalChapterRange } from '../services/localBibleProvider';
+import {
+  FINAL_EXAM_NOVEL_RATIO,
+  FINAL_EXAM_PASS_PERCENT,
+  FINAL_EXAM_TOTAL_QUESTIONS
+} from '../services/finalExamBuilder';
 
 const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
@@ -163,12 +168,27 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   };
 
   const buildFinalExamQuestions = (levels) => {
-    const questions = [];
+    const quizPool = [];
+    const novelPool = [];
+    const allKings = [];
+    const allEvents = [];
+    const allScriptures = [];
+    const allVerdicts = [];
+    const allProphets = [];
+
     levels.forEach(level => {
       level.forEach(king => {
-        if (!king.questions) return;
+        if (!king?.king) return;
+        allKings.push(king);
+        if (Array.isArray(king.keyEvents)) allEvents.push(...king.keyEvents.filter(Boolean));
+        if (king.scripture) allScriptures.push(king.scripture);
+        if (king.verdict) allVerdicts.push(king.verdict);
+        if (Array.isArray(king.prophets)) allProphets.push(...king.prophets.filter(Boolean));
+
+        if (!Array.isArray(king.questions)) return;
         king.questions.forEach(q => {
-          questions.push({
+          if (!q?.question || !Array.isArray(q.options) || q.options.length < 2) return;
+          quizPool.push({
             question: `${king.king}: ${q.question}`,
             options: q.options,
             answer: q.answer
@@ -176,7 +196,85 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         });
       });
     });
-    return questions;
+
+    const unique = (values, current) => Array.from(new Set(values.filter(Boolean))).filter(v => v !== current);
+
+    const buildOptions = (correct, distractorPool) => {
+      const distractors = shuffleArray(unique(distractorPool, correct)).slice(0, 3);
+      while (distractors.length < 3) {
+        distractors.push(`Not ${correct}`);
+      }
+      return shuffleArray([correct, ...distractors]);
+    };
+
+    allKings.forEach(king => {
+      if (king.reign) {
+        const options = buildOptions(king.king, allKings.map(k => k.king));
+        novelPool.push({
+          question: `Which king reigned during ${king.reign}?`,
+          options,
+          answer: king.king
+        });
+      }
+
+      if (king.scripture) {
+        const options = buildOptions(king.scripture, allScriptures);
+        novelPool.push({
+          question: `Which Scripture range is associated with ${king.king}?`,
+          options,
+          answer: king.scripture
+        });
+      }
+
+      if (king.verdict) {
+        const options = buildOptions(king.verdict, allVerdicts);
+        novelPool.push({
+          question: `What is the biblical verdict for ${king.king}?`,
+          options,
+          answer: king.verdict
+        });
+      }
+
+      if (Array.isArray(king.keyEvents)) {
+        king.keyEvents.slice(0, 2).forEach(event => {
+          const options = buildOptions(event, allEvents);
+          novelPool.push({
+            question: `Which event is associated with ${king.king}?`,
+            options,
+            answer: event
+          });
+        });
+      }
+
+      if (Array.isArray(king.prophets) && king.prophets.length > 0) {
+        king.prophets.slice(0, 1).forEach(prophet => {
+          const options = buildOptions(prophet, allProphets.length > 0 ? allProphets : ['Ahijah', 'Elijah', 'Elisha', 'Isaiah']);
+          novelPool.push({
+            question: `Which prophet is associated with ${king.king}?`,
+            options,
+            answer: prophet
+          });
+        });
+      }
+    });
+
+    const fillPool = (pool, count) => {
+      if (!Array.isArray(pool) || pool.length === 0 || count <= 0) return [];
+      const out = [];
+      while (out.length < count) {
+        const batch = shuffleArray(pool).map(item => ({ ...item, options: shuffleArray(item.options) }));
+        for (let i = 0; i < batch.length && out.length < count; i += 1) {
+          out.push(batch[i]);
+        }
+      }
+      return out;
+    };
+
+    const novelTarget = Math.round(FINAL_EXAM_TOTAL_QUESTIONS * FINAL_EXAM_NOVEL_RATIO);
+    const quizTarget = FINAL_EXAM_TOTAL_QUESTIONS - novelTarget;
+    const selectedQuiz = fillPool(quizPool, quizTarget);
+    const selectedNovel = fillPool(novelPool.length > 0 ? novelPool : quizPool, novelTarget);
+    return shuffleArray([...selectedQuiz, ...selectedNovel]);
   };
 
   // Auto-resume: Start at first incomplete level when course loads
@@ -224,15 +322,8 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
       loadJson('/kings_of_israel_course/intermediate.json'),
       loadJson('/kings_of_israel_course/advanced.json')
     ]).then(([beginner, intermediate, advanced]) => {
-      const merged = {
-        beginner: beginner.map((b, i) => ({ ...b, ...intermediate[i], ...advanced[i] })),
-        intermediate: intermediate,
-        advanced: advanced
-      };
       setKingsData({ beginner, intermediate, advanced });
-      const allQuestions = buildFinalExamQuestions([beginner, intermediate, advanced]);
-      const maxQuestions = Math.min(20, allQuestions.length);
-      setFinalExamQuestions(shuffleArray(allQuestions).slice(0, maxQuestions));
+      setFinalExamQuestions(buildFinalExamQuestions([beginner, intermediate, advanced]));
       setIsLoading(false);
     }).catch(err => {
       console.error('Error loading Kings of Israel data:', err);
@@ -336,6 +427,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   };
 
   const handleStartFinalExam = () => {
+    setFinalExamQuestions(buildFinalExamQuestions([kingsData.beginner, kingsData.intermediate, kingsData.advanced]));
     setShowFinalExam(true);
     setFinalExamAnswers({});
     setFinalExamSubmitted(false);
@@ -348,7 +440,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     const score = finalExamQuestions.reduce((total, question, index) => {
       return total + (finalExamAnswers[index] === question.answer ? 1 : 0);
     }, 0);
-    const passScore = Math.ceil(finalExamQuestions.length * 0.7);
+    const passScore = Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * finalExamQuestions.length);
     const passed = score >= passScore;
     setFinalExamScore(score);
     setFinalExamPassed(passed);
@@ -362,7 +454,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   // Level selection view
   if (!selectedLevel) {
     if (showFinalExam) {
-      const passScore = Math.ceil(finalExamQuestions.length * 0.7);
+      const passScore = Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * finalExamQuestions.length);
       const answeredCount = Object.keys(finalExamAnswers).length;
 
       return (
@@ -391,7 +483,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                   <div>
                     <h1 className="text-3xl font-bold text-amber-300 mb-2">Final Exam</h1>
                     <p className="text-slate-200 text-sm">
-                      Demonstrate mastery across all three levels. Pass by scoring at least {passScore} out of {finalExamQuestions.length}.
+                      {finalExamQuestions.length} questions with a {Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}/{Math.round(FINAL_EXAM_NOVEL_RATIO * 100)} review/new mix. Pass by scoring at least {passScore} ({FINAL_EXAM_PASS_PERCENT}%).
                     </p>
                   </div>
                 </div>
@@ -560,7 +652,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                     )}
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Final Exam</h3>
-                      <p className="text-xs sm:text-sm text-slate-300">Comprehensive assessment across all three levels</p>
+                      <p className="text-xs sm:text-sm text-slate-300">{FINAL_EXAM_TOTAL_QUESTIONS} questions across all levels ({Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}% review, {Math.round(FINAL_EXAM_NOVEL_RATIO * 100)}% new)</p>
                     </div>
                   </div>
                   {allLevelsComplete && (
@@ -577,7 +669,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <div className="text-xs sm:text-sm text-slate-300">
                     {allLevelsComplete
-                      ? `${finalExamQuestions.length} questions • Pass ${Math.ceil(finalExamQuestions.length * 0.7)}+`
+                      ? `${finalExamQuestions.length} questions • Pass ${Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * finalExamQuestions.length)}+`
                       : 'Complete all levels to unlock'}
                   </div>
                   {allLevelsComplete && (

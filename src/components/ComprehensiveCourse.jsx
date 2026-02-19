@@ -12,6 +12,12 @@ import {
   X
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import {
+  FINAL_EXAM_PASS_PERCENT,
+  FINAL_EXAM_NOVEL_RATIO,
+  FINAL_EXAM_TOTAL_QUESTIONS,
+  buildFinalExamFromCourse
+} from '../services/finalExamBuilder';
 
 const DEFAULT_THEME = {
   accentText: 'text-blue-300',
@@ -66,6 +72,7 @@ const ComprehensiveCourse = ({
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [examScore, setExamScore] = useState(0);
   const [examPassed, setExamPassed] = useState(false);
+  const [examQuestions, setExamQuestions] = useState(() => buildFinalExamFromCourse(courseData));
 
   // Load progress from userData first, then fallback to individual localStorage entry
   const loadSavedProgress = () => {
@@ -100,6 +107,10 @@ const ComprehensiveCourse = ({
   }, [userData, progressKey]);
 
   useEffect(() => {
+    setExamQuestions(buildFinalExamFromCourse(courseData));
+  }, [courseData]);
+
+  useEffect(() => {
     const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted });
     localStorage.setItem(progressKey, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
@@ -115,10 +126,8 @@ const ComprehensiveCourse = ({
   const quizPassScore = courseData.quizPassScore ?? 4;
   const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
   const examPassScore = useMemo(() => {
-    if (courseData.examPassScore) return courseData.examPassScore;
-    const pct = courseData.examPassPercentage ?? 70;
-    return Math.ceil((pct / 100) * courseData.finalExam.length);
-  }, [courseData]);
+    return Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
+  }, [examQuestions.length]);
 
   const markLessonComplete = (unitId) => {
     if (!completedLessons.includes(unitId)) {
@@ -143,7 +152,7 @@ const ComprehensiveCourse = ({
 
   const submitExam = () => {
     let correct = 0;
-    courseData.finalExam.forEach((q, i) => { if (examAnswers[i] === q.correct) correct++; });
+    examQuestions.forEach((q, i) => { if (examAnswers[i] === q.correct) correct++; });
     setExamScore(correct);
     setExamSubmitted(true);
     const passed = correct >= examPassScore;
@@ -166,7 +175,14 @@ const ComprehensiveCourse = ({
     setQuizScore(0);
     setCurrentView('quiz');
   };
-  const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
+  const startExam = () => {
+    setExamQuestions(buildFinalExamFromCourse(courseData));
+    setExamAnswers({});
+    setExamSubmitted(false);
+    setExamScore(0);
+    setExamPassed(false);
+    setCurrentView('exam');
+  };
 
   const getLanguageDrills = (courseData, unit) => {
     const id = courseData?.id || '';
@@ -359,11 +375,11 @@ const ComprehensiveCourse = ({
           </div>
           {!examSubmitted && (
             <div className={`bg-amber-900/30 border border-amber-500/40 rounded-xl p-4 mb-6 text-amber-300 text-sm`}>
-              {courseData.finalExam.length} questions covering all units. You need {examPassScore}/{courseData.finalExam.length} to pass.
+              {examQuestions.length} questions ({Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}% quiz review, {Math.round(FINAL_EXAM_NOVEL_RATIO * 100)}% new lesson-based). You need {examPassScore}/{examQuestions.length} to pass.
             </div>
           )}
           <div className="space-y-6">
-            {courseData.finalExam.map((q, qi) => (
+            {examQuestions.map((q, qi) => (
               <div key={qi} className={`bg-slate-800/50 rounded-xl p-5 border ${examSubmitted ? (examAnswers[qi] === q.correct ? 'border-emerald-500/50' : 'border-red-500/50') : 'border-slate-700'}`}>
                 <p className="text-white font-semibold mb-3">{qi + 1}. {q.question}</p>
                 <div className="space-y-2">
@@ -380,15 +396,15 @@ const ComprehensiveCourse = ({
             ))}
           </div>
           {!examSubmitted ? (
-            <button onClick={submitExam} disabled={Object.keys(examAnswers).length < courseData.finalExam.length}
+            <button onClick={submitExam} disabled={Object.keys(examAnswers).length < examQuestions.length}
               className={`w-full mt-6 bg-gradient-to-r ${theme.examAccentBg} hover:${theme.examAccentBgHover} disabled:from-slate-600 disabled:to-slate-700 text-white font-bold py-3 px-6 rounded-lg transition-all`}>
               Submit Final Exam
             </button>
           ) : (
             <div className={`mt-6 p-6 rounded-xl border-2 text-center ${examPassed ? 'bg-emerald-900/30 border-emerald-500/50' : 'bg-red-900/30 border-red-500/50'}`}>
               <div className="text-5xl mb-3">{examPassed ? '🏆' : '📚'}</div>
-              <h3 className="text-2xl font-bold text-white mb-2">{examScore}/{courseData.finalExam.length} Correct ({Math.round((examScore / courseData.finalExam.length) * 100)}%)</h3>
-              <p className="text-slate-300 mb-4">{examPassed ? `Congratulations! You have completed the ${courseData.title} course!` : `You need ${examPassScore}/${courseData.finalExam.length} to pass. Review the units and try again.`}</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{examScore}/{examQuestions.length} Correct ({Math.round((examScore / examQuestions.length) * 100)}%)</h3>
+              <p className="text-slate-300 mb-4">{examPassed ? `Congratulations! You have completed the ${courseData.title} course!` : `You need ${examPassScore}/${examQuestions.length} to pass. Review the units and try again.`}</p>
               <div className="flex gap-3 justify-center">
                 {!examPassed && <button onClick={() => { setExamAnswers({}); setExamSubmitted(false); }} className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg"><RotateCcw size={18} /> Retry</button>}
                 <button onClick={() => setCurrentView('list')} className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">Back to Course</button>
@@ -522,7 +538,7 @@ const ComprehensiveCourse = ({
           {examCompleted && <p className="text-emerald-400 font-bold mb-3 flex items-center justify-center gap-2"><CheckCircle size={18} /> Exam Passed!</p>}
           <button onClick={startExam} disabled={!allQuizzesDone}
             className={`bg-gradient-to-r ${theme.examAccentBg} hover:${theme.examAccentBgHover} disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white font-bold py-3 px-8 rounded-lg transition-all`}>
-            {examCompleted ? 'Retake Exam' : 'Start Final Exam'}
+            {examCompleted ? `Retake ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Exam` : `Start ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Final`}
           </button>
         </div>
         <div className={`mt-6 bg-gradient-to-br ${theme.accentBgSoftAlt} rounded-xl p-6 border ${theme.accentBorderSoft}`}>

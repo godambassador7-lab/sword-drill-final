@@ -3,6 +3,12 @@ import {
   BookOpen, ChevronRight, CheckCircle, ArrowLeft, Book, Scroll, Trophy, Award, RotateCcw, X, Calendar
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import {
+  FINAL_EXAM_NOVEL_RATIO,
+  FINAL_EXAM_PASS_PERCENT,
+  FINAL_EXAM_TOTAL_QUESTIONS,
+  buildFinalExamFromUnitsAndFinal
+} from '../services/finalExamBuilder';
 
 const UNITS = [
   {
@@ -289,6 +295,7 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   const [examSubmitted, setExamSubmitted] = useState(false);
   const [examScore, setExamScore] = useState(0);
   const [examPassed, setExamPassed] = useState(false);
+  const [examQuestions, setExamQuestions] = useState(() => buildFinalExamFromUnitsAndFinal(UNITS, FINAL_EXAM));
   const initialProgress = getInitialFeastDaysProgress(userData);
   const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
   const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
@@ -312,6 +319,7 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   const totalSteps = UNITS.length * 2 + 1;
   const completedSteps = completedLessons.length + completedQuizzes.length + (examCompleted ? 1 : 0);
   const progress = Math.round((completedSteps / totalSteps) * 100);
+  const examPassScore = Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
 
   const markLessonComplete = (unitId) => { if (!completedLessons.includes(unitId)) setCompletedLessons(prev => [...prev, unitId]); };
 
@@ -333,10 +341,10 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
 
   const submitExam = () => {
     let correct = 0;
-    FINAL_EXAM.forEach((q, i) => { if (examAnswers[i] === q.correct) correct++; });
+    examQuestions.forEach((q, i) => { if (examAnswers[i] === q.correct) correct++; });
     setExamScore(correct);
     setExamSubmitted(true);
-    const passed = correct >= 14;
+    const passed = correct >= examPassScore;
     setExamPassed(passed);
     if (passed && !examCompleted) {
       setExamCompleted(true);
@@ -356,7 +364,14 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
     setQuizScore(0);
     setCurrentView('quiz');
   };
-  const startExam = () => { setExamAnswers({}); setExamSubmitted(false); setExamScore(0); setExamPassed(false); setCurrentView('exam'); };
+  const startExam = () => {
+    setExamQuestions(buildFinalExamFromUnitsAndFinal(UNITS, FINAL_EXAM));
+    setExamAnswers({});
+    setExamSubmitted(false);
+    setExamScore(0);
+    setExamPassed(false);
+    setCurrentView('exam');
+  };
 
   // QUIZ VIEW
   if (currentView === 'quiz' && selectedUnit !== null) {
@@ -415,9 +430,9 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
             <button onClick={() => setCurrentView('list')} className="flex items-center gap-2 text-purple-400 hover:text-purple-300"><ArrowLeft size={20} /> Back to Course</button>
             <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2"><Trophy size={24} /> Final Exam</h2>
           </div>
-          {!examSubmitted && <div className="bg-amber-900/30 border border-amber-500/40 rounded-xl p-4 mb-6 text-amber-300 text-sm">20 questions covering all units. You need 70% (14/20) to pass and earn your certificate.</div>}
+          {!examSubmitted && <div className="bg-amber-900/30 border border-amber-500/40 rounded-xl p-4 mb-6 text-amber-300 text-sm">{examQuestions.length} questions ({Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}% quiz review, {Math.round(FINAL_EXAM_NOVEL_RATIO * 100)}% new lesson-based). You need {FINAL_EXAM_PASS_PERCENT}% ({examPassScore}/{examQuestions.length}) to pass and earn your certificate.</div>}
           <div className="space-y-6">
-            {FINAL_EXAM.map((q, qi) => (
+            {examQuestions.map((q, qi) => (
               <div key={qi} className={`bg-slate-800/50 rounded-xl p-5 border ${examSubmitted ? (examAnswers[qi] === q.correct ? 'border-emerald-500/50' : 'border-red-500/50') : 'border-slate-700'}`}>
                 <p className="text-white font-semibold mb-3">{qi + 1}. {q.question}</p>
                 <div className="space-y-2">
@@ -434,15 +449,15 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
             ))}
           </div>
           {!examSubmitted ? (
-            <button onClick={submitExam} disabled={Object.keys(examAnswers).length < FINAL_EXAM.length}
+            <button onClick={submitExam} disabled={Object.keys(examAnswers).length < examQuestions.length}
               className="w-full mt-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 disabled:from-slate-600 disabled:to-slate-700 text-white font-bold py-3 px-6 rounded-lg transition-all">
               Submit Final Exam
             </button>
           ) : (
             <div className={`mt-6 p-6 rounded-xl border-2 text-center ${examPassed ? 'bg-emerald-900/30 border-emerald-500/50' : 'bg-red-900/30 border-red-500/50'}`}>
               <div className="text-5xl mb-3">{examPassed ? '🏆' : '📚'}</div>
-              <h3 className="text-2xl font-bold text-white mb-2">{examScore}/{FINAL_EXAM.length} Correct ({Math.round((examScore / FINAL_EXAM.length) * 100)}%)</h3>
-              <p className="text-slate-300 mb-4">{examPassed ? 'Congratulations! You have completed the Biblical Feast Days course!' : 'You need 70% (14/20) to pass. Review the units and try again.'}</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{examScore}/{examQuestions.length} Correct ({Math.round((examScore / examQuestions.length) * 100)}%)</h3>
+              <p className="text-slate-300 mb-4">{examPassed ? 'Congratulations! You have completed the Biblical Feast Days course!' : `You need ${FINAL_EXAM_PASS_PERCENT}% (${examPassScore}/${examQuestions.length}) to pass. Review the units and try again.`}</p>
               <div className="flex gap-3 justify-center">
                 {!examPassed && <button onClick={() => { setExamAnswers({}); setExamSubmitted(false); }} className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg"><RotateCcw size={18} /> Retry</button>}
                 <button onClick={() => setCurrentView('list')} className="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-lg">Back to Course</button>
@@ -572,7 +587,7 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
           {examCompleted && <p className="text-emerald-400 font-bold mb-3 flex items-center justify-center gap-2"><CheckCircle size={18} /> Exam Passed!</p>}
           <button onClick={startExam} disabled={!allQuizzesDone}
             className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white font-bold py-3 px-8 rounded-lg transition-all">
-            {examCompleted ? 'Retake Exam' : 'Start Final Exam'}
+            {examCompleted ? `Retake ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Exam` : `Start ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Final`}
           </button>
         </div>
         <div className="mt-6 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl p-6 border border-purple-500/30">
