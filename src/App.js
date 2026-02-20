@@ -866,6 +866,19 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     if (remoteEmpty && !localEmpty) return localValue;
     if (localEmpty && !remoteEmpty) return remoteValue;
 
+    if (Array.isArray(localValue) && Array.isArray(remoteValue)) {
+      const merged = [...localValue, ...remoteValue];
+      const seen = new Set();
+      return merged.filter((item) => {
+        const key = item && typeof item === 'object'
+          ? JSON.stringify(item)
+          : `${typeof item}:${String(item)}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
     if (
       localValue &&
       remoteValue &&
@@ -874,7 +887,12 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
       !Array.isArray(localValue) &&
       !Array.isArray(remoteValue)
     ) {
-      return { ...localValue, ...remoteValue };
+      const merged = {};
+      const keys = new Set([...Object.keys(localValue), ...Object.keys(remoteValue)]);
+      keys.forEach((key) => {
+        merged[key] = mergeCourseProgressValue(localValue[key], remoteValue[key]);
+      });
+      return merged;
     }
 
     return remoteValue;

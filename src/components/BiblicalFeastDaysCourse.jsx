@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   BookOpen, ChevronRight, CheckCircle, ArrowLeft, Book, Scroll, Trophy, Award, RotateCcw, X, Calendar
 } from 'lucide-react';
@@ -307,6 +307,17 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
   const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
   const [examCompleted, setExamCompleted] = useState(initialProgress.examCompleted);
+  const persistProgress = useCallback((nextProgress) => {
+    const progressPayload = normalizeCourseProgress(nextProgress);
+    localStorage.setItem(FEAST_DAYS_STORAGE_KEY, JSON.stringify(progressPayload));
+    if (setUserData) setUserData(prev => ({ ...prev, feastDaysProgress: progressPayload }));
+    if (userId) {
+      updateUserProgress(userId, { feastDaysProgress: progressPayload }).catch(err =>
+        console.error('Error saving Feast Days progress:', err)
+      );
+    }
+    return progressPayload;
+  }, [setUserData, userId]);
 
   useEffect(() => {
     if (!userData?.feastDaysProgress) return;
@@ -317,19 +328,8 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   }, [userData?.feastDaysProgress]);
 
   useEffect(() => {
-    const progressPayload = normalizeCourseProgress({ completedLessons, completedQuizzes, examCompleted });
-    localStorage.setItem(FEAST_DAYS_STORAGE_KEY, JSON.stringify(progressPayload));
-    if (setUserData) setUserData(prev => ({ ...prev, feastDaysProgress: progressPayload }));
-    if (userId) updateUserProgress(userId, { feastDaysProgress: progressPayload }).catch(err => console.error('Error saving Feast Days progress:', err));
-  }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData]);
-
-  useEffect(() => {
-    if (completedQuizzes.length === 0) return;
-    setCompletedLessons(prev => {
-      const merged = Array.from(new Set([...prev, ...completedQuizzes].map(normalizeUnitId).filter(Boolean)));
-      return merged.length === prev.length ? prev : merged;
-    });
-  }, [completedQuizzes]);
+    persistProgress({ completedLessons, completedQuizzes, examCompleted });
+  }, [completedLessons, completedQuizzes, examCompleted, persistProgress]);
 
   const totalSteps = UNITS.length * 2 + 1;
   const completedSteps = completedLessons.length + completedQuizzes.length + (examCompleted ? 1 : 0);
@@ -338,17 +338,24 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
 
   const submitQuiz = () => {
     const unit = UNITS[selectedUnit];
+    const unitId = normalizeUnitId(unit?.id);
+    if (!unit || !unitId) return;
     let correct = 0;
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
-    // Passing a quiz implies the lesson was read.
-    if (!completedLessons.includes(unit.id)) {
-      setCompletedLessons(prev => [...prev, unit.id]);
-    }
-    if (correct >= 4 && !completedQuizzes.includes(unit.id)) {
-      setCompletedQuizzes(prev => [...prev, unit.id]);
-      if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
+    if (correct >= 4 && !completedQuizzes.includes(unitId)) {
+      const nextQuizzes = [...completedQuizzes, unitId];
+      setCompletedQuizzes(nextQuizzes);
+
+      // Persist immediately so parent updates cannot lose this pass result.
+      persistProgress({
+        completedLessons,
+        completedQuizzes: nextQuizzes,
+        examCompleted
+      });
+
+      if (onComplete) onComplete({ type: 'quiz', unitId });
     }
   };
 
@@ -361,21 +368,34 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
     setExamPassed(passed);
     if (passed && !examCompleted) {
       setExamCompleted(true);
+      persistProgress({
+        completedLessons,
+        completedQuizzes,
+        examCompleted: true
+      });
       if (onComplete) onComplete({ type: 'course', courseId: 'biblicalFeastDays' });
     }
   };
 
   const startQuiz = () => {
-    if (selectedUnit !== null) {
-      const unit = UNITS[selectedUnit];
-      if (unit && !completedLessons.includes(unit.id)) {
-        setCompletedLessons(prev => [...prev, unit.id]);
-      }
-    }
     setQuizAnswers({});
     setQuizSubmitted(false);
     setQuizScore(0);
     setCurrentView('quiz');
+  };
+
+  const markCurrentLessonRead = () => {
+    if (selectedUnit === null) return;
+    const unit = UNITS[selectedUnit];
+    const unitId = normalizeUnitId(unit?.id);
+    if (!unitId || completedLessons.includes(unitId)) return;
+    const nextLessons = [...completedLessons, unitId];
+    setCompletedLessons(nextLessons);
+    persistProgress({
+      completedLessons: nextLessons,
+      completedQuizzes,
+      examCompleted
+    });
   };
   const startExam = () => {
     setExamQuestions(buildFinalExamFromUnitsAndFinal(UNITS, FINAL_EXAM));
@@ -526,6 +546,14 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
             )}
           </div>
           <div className="flex gap-3 mt-6">
+            {!lessonDone && (
+              <button
+                onClick={markCurrentLessonRead}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2"
+              >
+                <CheckCircle size={18} /> Mark as Read
+              </button>
+            )}
             <button onClick={startQuiz} className={`flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 ${quizDone ? 'opacity-70' : ''}`}>
               <Scroll size={18} /> {quizDone ? 'Retake Quiz' : 'Take Quiz'}
             </button>
