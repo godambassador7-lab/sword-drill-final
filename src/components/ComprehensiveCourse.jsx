@@ -4,12 +4,14 @@ import {
   Book,
   BookOpen,
   CheckCircle,
+  ChevronLeft,
   ChevronRight,
   Scroll,
   Trophy,
   ArrowLeft,
   RotateCcw,
-  X
+  X,
+  Zap
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
 import {
@@ -88,6 +90,15 @@ const ComprehensiveCourse = ({
   const [examPassed, setExamPassed] = useState(false);
   const [examQuestions, setExamQuestions] = useState(() => buildFinalExamFromCourse(courseData));
 
+  // Interactive lesson state (flashcards + practice)
+  const [flashcardIndex, setFlashcardIndex] = useState(0);
+  const [flashcardFlipped, setFlashcardFlipped] = useState(false);
+  const [practiceAnswers, setPracticeAnswers] = useState({});
+  const [practiceSubmitted, setPracticeSubmitted] = useState(false);
+  const [matchingSelectedTerm, setMatchingSelectedTerm] = useState(null);
+  const [matchingPairs, setMatchingPairs] = useState({});
+  const [matchingSubmitted, setMatchingSubmitted] = useState(false);
+
   // Load progress from userData first, then fallback to individual localStorage entry
   const loadSavedProgress = () => {
     if (userData?.[progressKey]) return normalizeProgressPayload(userData[progressKey]);
@@ -139,6 +150,48 @@ const ComprehensiveCourse = ({
 
   const quizPassScore = courseData.quizPassScore ?? 4;
   const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
+
+  // Generate stable (per-unit-visit) randomised practice questions from keyTerms
+  const practiceQuestions = useMemo(() => {
+    if (!isLanguageCourse || selectedUnit === null) return [];
+    const unit = courseData.units[selectedUnit];
+    const keyTerms = unit?.keyTerms;
+    if (!Array.isArray(keyTerms) || keyTerms.length < 3) return [];
+    return keyTerms.map((kt) => {
+      const wrongPool = keyTerms.filter(k => k !== kt);
+      const shuffledWrong = [...wrongPool].sort(() => Math.random() - 0.5);
+      const wrongOptions = shuffledWrong.slice(0, Math.min(3, shuffledWrong.length)).map(w => w.definition);
+      const allOptions = [...wrongOptions, kt.definition].sort(() => Math.random() - 0.5);
+      return {
+        question: `What does "${kt.term}" mean?`,
+        options: allOptions,
+        correct: allOptions.indexOf(kt.definition)
+      };
+    });
+  }, [selectedUnit, isLanguageCourse, courseData]);
+
+  // Generate stable shuffled matching pairs from keyTerms
+  const matchingData = useMemo(() => {
+    if (!isLanguageCourse || selectedUnit === null) return { terms: [], shuffledDefs: [] };
+    const unit = courseData.units[selectedUnit];
+    const keyTerms = unit?.keyTerms;
+    if (!Array.isArray(keyTerms) || keyTerms.length < 3) return { terms: [], shuffledDefs: [] };
+    const terms = keyTerms.slice(0, 6);
+    const shuffledDefs = [...terms.map((kt, i) => ({ def: kt.definition, originalIdx: i }))].sort(() => Math.random() - 0.5);
+    return { terms, shuffledDefs };
+  }, [selectedUnit, isLanguageCourse, courseData]);
+
+  // Reset interactive state whenever the user switches to a different unit
+  useEffect(() => {
+    setFlashcardIndex(0);
+    setFlashcardFlipped(false);
+    setPracticeAnswers({});
+    setPracticeSubmitted(false);
+    setMatchingSelectedTerm(null);
+    setMatchingPairs({});
+    setMatchingSubmitted(false);
+  }, [selectedUnit]);
+
   const examPassScore = useMemo(() => {
     return Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
   }, [examQuestions.length]);
@@ -490,7 +543,7 @@ const ComprehensiveCourse = ({
                 {section.text.split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
               </div>
             ))}
-            {unit.keyTerms && unit.keyTerms.length > 0 && (
+            {unit.keyTerms && unit.keyTerms.length > 0 && !isLanguageCourse && (
               <div className={`bg-gradient-to-br ${theme.accentBgSoftAlt} rounded-xl p-6 border ${theme.accentBorderSoft}`}>
                 <h3 className="text-lg font-bold text-indigo-300 mb-3 flex items-center gap-2"><Book size={20} /> Key Terms</h3>
                 <div className="space-y-2">
@@ -499,6 +552,240 @@ const ComprehensiveCourse = ({
                   ))}
                 </div>
               </div>
+            )}
+
+            {/* ── Language-course interactive section ── */}
+            {isLanguageCourse && unit.keyTerms && unit.keyTerms.length > 0 && (
+              <>
+                {/* FLASH CARDS */}
+                <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl p-6 border border-indigo-500/40">
+                  <h3 className="text-lg font-bold text-indigo-300 mb-1 flex items-center gap-2">
+                    <Book size={20} /> Vocabulary Flash Cards
+                  </h3>
+                  <p className="text-slate-400 text-sm mb-4">
+                    {unit.keyTerms.length} term{unit.keyTerms.length !== 1 ? 's' : ''} — click the card to flip
+                  </p>
+                  <div
+                    onClick={() => setFlashcardFlipped(f => !f)}
+                    className={`cursor-pointer min-h-[140px] rounded-xl border-2 p-6 text-center flex items-center justify-center transition-all select-none ${
+                      flashcardFlipped
+                        ? 'bg-emerald-900/20 border-emerald-500/60'
+                        : 'bg-indigo-900/20 border-indigo-500/60 hover:border-indigo-400'
+                    }`}
+                  >
+                    {flashcardFlipped ? (
+                      <div className="space-y-2">
+                        <p className="text-xs text-emerald-400 uppercase tracking-widest">Definition</p>
+                        <p className="text-base text-slate-200 leading-relaxed">{unit.keyTerms[flashcardIndex].definition}</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-2">
+                        <p className="text-xs text-indigo-400 uppercase tracking-widest">Tap to reveal</p>
+                        <p className="text-2xl font-bold text-white">{unit.keyTerms[flashcardIndex].term}</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between mt-3">
+                    <button
+                      onClick={() => { setFlashcardIndex(i => Math.max(0, i - 1)); setFlashcardFlipped(false); }}
+                      disabled={flashcardIndex === 0}
+                      className="flex items-center gap-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-slate-600 text-slate-200 rounded-lg text-sm transition-all"
+                    >
+                      <ChevronLeft size={16} /> Prev
+                    </button>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <span className="text-slate-400 text-sm">{flashcardIndex + 1} / {unit.keyTerms.length}</span>
+                      <div className="flex gap-1">
+                        {unit.keyTerms.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => { setFlashcardIndex(i); setFlashcardFlipped(false); }}
+                            className={`w-2 h-2 rounded-full transition-all ${i === flashcardIndex ? 'bg-indigo-400' : 'bg-slate-600 hover:bg-slate-500'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => { setFlashcardIndex(i => Math.min(unit.keyTerms.length - 1, i + 1)); setFlashcardFlipped(false); }}
+                      disabled={flashcardIndex === unit.keyTerms.length - 1}
+                      className="flex items-center gap-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:text-slate-600 text-slate-200 rounded-lg text-sm transition-all"
+                    >
+                      Next <ChevronRight size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* PRACTICE: MULTIPLE CHOICE */}
+                {practiceQuestions.length > 0 && (
+                  <div className="bg-gradient-to-br from-violet-900/30 to-fuchsia-900/30 rounded-xl p-6 border border-violet-500/40">
+                    <h3 className="text-lg font-bold text-violet-300 mb-1 flex items-center gap-2">
+                      <Zap size={20} /> Practice: Multiple Choice
+                    </h3>
+                    <p className="text-slate-400 text-sm mb-4">Answer all questions, then tap Check Answers</p>
+                    <div className="space-y-5">
+                      {practiceQuestions.map((q, qi) => (
+                        <div key={qi} className={`rounded-xl p-4 border ${
+                          practiceSubmitted
+                            ? practiceAnswers[qi] === q.correct
+                              ? 'border-emerald-500/50 bg-emerald-900/10'
+                              : 'border-red-500/50 bg-red-900/10'
+                            : 'border-slate-700 bg-slate-800/40'
+                        }`}>
+                          <p className="text-white font-semibold mb-3 text-sm">{qi + 1}. {q.question}</p>
+                          <div className="space-y-2">
+                            {q.options.map((opt, oi) => (
+                              <button
+                                key={oi}
+                                disabled={practiceSubmitted}
+                                onClick={() => setPracticeAnswers(prev => ({ ...prev, [qi]: oi }))}
+                                className={`w-full text-left p-2.5 rounded-lg border text-sm transition-all ${
+                                  practiceSubmitted
+                                    ? oi === q.correct
+                                      ? 'bg-emerald-900/40 border-emerald-500 text-emerald-300'
+                                      : practiceAnswers[qi] === oi
+                                        ? 'bg-red-900/40 border-red-500 text-red-300'
+                                        : 'bg-slate-700/30 border-slate-600 text-slate-400'
+                                    : practiceAnswers[qi] === oi
+                                      ? 'bg-violet-900/40 border-violet-400 text-white'
+                                      : 'bg-slate-700/30 border-slate-600 text-slate-300 hover:border-violet-400'
+                                }`}
+                              >
+                                {opt}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {!practiceSubmitted ? (
+                      <button
+                        onClick={() => setPracticeSubmitted(true)}
+                        disabled={Object.keys(practiceAnswers).length < practiceQuestions.length}
+                        className="w-full mt-4 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 disabled:from-slate-600 disabled:to-slate-700 text-white font-bold rounded-lg transition-all"
+                      >
+                        Check Answers ({Object.keys(practiceAnswers).length}/{practiceQuestions.length} answered)
+                      </button>
+                    ) : (
+                      <div className="mt-4 space-y-2">
+                        <div className={`p-3 rounded-xl text-center border ${
+                          practiceQuestions.every((q, i) => practiceAnswers[i] === q.correct)
+                            ? 'bg-emerald-900/20 border-emerald-500/50 text-emerald-300'
+                            : 'bg-slate-800/50 border-slate-600 text-slate-300'
+                        }`}>
+                          Score: {practiceQuestions.filter((q, i) => practiceAnswers[i] === q.correct).length} / {practiceQuestions.length} correct
+                        </div>
+                        <button
+                          onClick={() => { setPracticeAnswers({}); setPracticeSubmitted(false); }}
+                          className="w-full py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all flex items-center justify-center gap-2 text-sm"
+                        >
+                          <RotateCcw size={14} /> Try Again
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* PRACTICE: MATCHING */}
+                {matchingData.terms.length >= 3 && (
+                  <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl p-6 border border-teal-500/40">
+                    <h3 className="text-lg font-bold text-teal-300 mb-1 flex items-center gap-2">
+                      <Scroll size={20} /> Practice: Matching
+                    </h3>
+                    <p className="text-slate-400 text-sm mb-4">
+                      {matchingSubmitted
+                        ? 'Results — green = correct, red = incorrect'
+                        : matchingSelectedTerm !== null
+                          ? 'Now click a definition on the right to match it'
+                          : 'Click a term to select it, then click its matching definition'}
+                    </p>
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      {/* Terms column */}
+                      <div className="space-y-2">
+                        <p className="text-xs text-teal-400 uppercase tracking-widest text-center mb-1">Terms</p>
+                        {matchingData.terms.map((kt, termIdx) => {
+                          const isSelected = matchingSelectedTerm === termIdx;
+                          const isPaired = matchingPairs[termIdx] !== undefined;
+                          const isCorrect = matchingSubmitted && isPaired && matchingData.shuffledDefs[matchingPairs[termIdx]]?.originalIdx === termIdx;
+                          const isWrong = matchingSubmitted && isPaired && !isCorrect;
+                          return (
+                            <button
+                              key={termIdx}
+                              onClick={() => { if (!matchingSubmitted) setMatchingSelectedTerm(isSelected ? null : termIdx); }}
+                              className={`w-full text-left p-2.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                                isCorrect ? 'bg-emerald-900/30 border-emerald-500 text-emerald-300' :
+                                isWrong ? 'bg-red-900/30 border-red-500 text-red-300' :
+                                isSelected ? 'bg-teal-900/40 border-teal-400 text-white ring-2 ring-teal-400/20' :
+                                isPaired ? 'bg-slate-700/50 border-teal-500/40 text-slate-200' :
+                                'bg-slate-700/30 border-slate-600 text-slate-300 hover:border-teal-400'
+                              }`}
+                            >
+                              <span className="text-teal-400 font-bold mr-1">{termIdx + 1}.</span>{kt.term}
+                              {isPaired && !matchingSubmitted && <span className="text-slate-500 text-xs ml-1">✓</span>}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {/* Definitions column */}
+                      <div className="space-y-2">
+                        <p className="text-xs text-amber-400 uppercase tracking-widest text-center mb-1">Definitions</p>
+                        {matchingData.shuffledDefs.map((defItem, defIdx) => {
+                          const pairedTermKey = Object.keys(matchingPairs).find(k => matchingPairs[Number(k)] === defIdx);
+                          const isPaired = pairedTermKey !== undefined;
+                          const pairedTermIdx = isPaired ? Number(pairedTermKey) : -1;
+                          const isCorrect = matchingSubmitted && isPaired && defItem.originalIdx === pairedTermIdx;
+                          const isWrong = matchingSubmitted && isPaired && !isCorrect;
+                          const canSelect = !matchingSubmitted && matchingSelectedTerm !== null;
+                          return (
+                            <button
+                              key={defIdx}
+                              onClick={() => {
+                                if (!matchingSubmitted && matchingSelectedTerm !== null) {
+                                  setMatchingPairs(prev => ({ ...prev, [matchingSelectedTerm]: defIdx }));
+                                  setMatchingSelectedTerm(null);
+                                }
+                              }}
+                              className={`w-full text-left p-2.5 rounded-lg border-2 text-xs leading-snug transition-all ${
+                                isCorrect ? 'bg-emerald-900/30 border-emerald-500 text-emerald-300' :
+                                isWrong ? 'bg-red-900/30 border-red-500 text-red-300' :
+                                isPaired && !matchingSubmitted ? 'bg-slate-700/50 border-amber-500/40 text-slate-200' :
+                                canSelect ? 'bg-amber-900/10 border-amber-500/50 text-slate-200 hover:border-amber-400 cursor-pointer' :
+                                'bg-slate-700/30 border-slate-600 text-slate-300 cursor-default'
+                              }`}
+                            >
+                              <span className="text-amber-400 font-bold mr-1">{String.fromCharCode(65 + defIdx)}.</span>{defItem.def}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    {!matchingSubmitted ? (
+                      <button
+                        onClick={() => setMatchingSubmitted(true)}
+                        disabled={Object.keys(matchingPairs).length < matchingData.terms.length}
+                        className="w-full py-3 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 disabled:from-slate-600 disabled:to-slate-700 text-white font-bold rounded-lg transition-all"
+                      >
+                        Check Matches ({Object.keys(matchingPairs).length}/{matchingData.terms.length} paired)
+                      </button>
+                    ) : (
+                      <div className="space-y-2">
+                        <div className={`p-3 rounded-xl text-center border ${
+                          matchingData.terms.every((_, i) => matchingPairs[i] !== undefined && matchingData.shuffledDefs[matchingPairs[i]]?.originalIdx === i)
+                            ? 'bg-emerald-900/20 border-emerald-500/50 text-emerald-300'
+                            : 'bg-slate-800/50 border-slate-600 text-slate-300'
+                        }`}>
+                          Score: {matchingData.terms.filter((_, i) => matchingPairs[i] !== undefined && matchingData.shuffledDefs[matchingPairs[i]]?.originalIdx === i).length} / {matchingData.terms.length} correct
+                        </div>
+                        <button
+                          onClick={() => { setMatchingPairs({}); setMatchingSubmitted(false); setMatchingSelectedTerm(null); }}
+                          className="w-full py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm transition-all flex items-center justify-center gap-2"
+                        >
+                          <RotateCcw size={14} /> Try Again
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
             )}
           </div>
           <div className="flex gap-3 mt-6">
