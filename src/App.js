@@ -11103,8 +11103,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             onExit={() => setCurrentView('home')}
           />
         )}
-                  />
-        )}
         {currentView === 'aramaic-course' && (
           <CourseWithFocus
             CourseComponent={AramaicCourse}

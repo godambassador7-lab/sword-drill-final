@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   BookOpen, ChevronRight, CheckCircle, ArrowLeft, Book, Scroll, Trophy, Award, RotateCcw, X, Calendar
 } from 'lucide-react';
@@ -307,6 +307,7 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
   const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
   const [examCompleted, setExamCompleted] = useState(initialProgress.examCompleted);
+  const isInitialMount = useRef(true);
   const persistProgress = useCallback((nextProgress) => {
     const progressPayload = normalizeCourseProgress(nextProgress);
     localStorage.setItem(FEAST_DAYS_STORAGE_KEY, JSON.stringify(progressPayload));
@@ -322,12 +323,22 @@ const BiblicalFeastDaysCourse = ({ onComplete, onCancel, userId, userData, setUs
   useEffect(() => {
     if (!userData?.feastDaysProgress) return;
     const p = normalizeCourseProgress(userData.feastDaysProgress);
-    setCompletedLessons(p.completedLessons);
-    setCompletedQuizzes(p.completedQuizzes);
-    setExamCompleted(p.examCompleted);
+    // Use functional updates to avoid re-render (and loop) when values are unchanged
+    setCompletedLessons(prev => {
+      const prevSorted = [...prev].sort().join(',');
+      const newSorted = [...p.completedLessons].sort().join(',');
+      return prevSorted === newSorted ? prev : p.completedLessons;
+    });
+    setCompletedQuizzes(prev => {
+      const prevSorted = [...prev].sort().join(',');
+      const newSorted = [...p.completedQuizzes].sort().join(',');
+      return prevSorted === newSorted ? prev : p.completedQuizzes;
+    });
+    setExamCompleted(prev => prev === p.examCompleted ? prev : p.examCompleted);
   }, [userData?.feastDaysProgress]);
 
   useEffect(() => {
+    if (isInitialMount.current) { isInitialMount.current = false; return; }
     persistProgress({ completedLessons, completedQuizzes, examCompleted });
   }, [completedLessons, completedQuizzes, examCompleted, persistProgress]);
 
