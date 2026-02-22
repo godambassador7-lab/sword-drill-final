@@ -240,7 +240,8 @@ const ECONOMY = {
     STREAK_FREEZE: { cost: 150, duration: 86400000, name: 'Streak Freeze' }, // 24 hours
     EXTRA_TIME: { cost: 50, duration: 600000, extraTime: 60, name: 'Extra Time' }, // 10 min, +60sec
     POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' }, // 30 min, no penalties
-    STREAK_REDEMPTION: { cost: 2000, name: 'Streak Redemption', special: true } // Restore lost streak within 24hr
+    STREAK_REDEMPTION: { cost: 2000, name: 'Streak Redemption', special: true }, // Restore lost streak within 24hr
+    ATTEMPT_RESET: { name: 'Attempt Reset', baseCost: 50 } // Dynamic cost: 50 pts (1st), 100 pts (2nd); max 2/day
   }
 };
 
@@ -694,6 +695,38 @@ const getRemainingQuizzes = (quizType) => {
   const currentCount = counts[quizType] || 0;
   return Math.max(0, DAILY_QUIZ_LIMIT - currentCount);
 };
+
+// --- Attempt Reset powerup helpers ---
+const ATTEMPT_RESET_COSTS = [50, 100]; // 1st purchase: 50 pts, 2nd: 100 pts (max 2/day)
+const CORE_QUIZ_TYPES = ['fill-blank', 'multiple-choice', 'reference-recall', 'verse-scramble', 'verse-detective'];
+
+const getAttemptResetPurchasesToday = () => {
+  const today = localDateString();
+  const data = JSON.parse(localStorage.getItem('attemptResetPurchases') || '{}');
+  return data[today] || 0;
+};
+
+// Returns cost of next Attempt Reset, or null if daily limit (2) reached
+const getAttemptResetCost = () => {
+  const purchases = getAttemptResetPurchasesToday();
+  return purchases < ATTEMPT_RESET_COSTS.length ? ATTEMPT_RESET_COSTS[purchases] : null;
+};
+
+const incrementAttemptResetPurchases = () => {
+  const today = localDateString();
+  const data = JSON.parse(localStorage.getItem('attemptResetPurchases') || '{}');
+  const newCount = (data[today] || 0) + 1;
+  localStorage.setItem('attemptResetPurchases', JSON.stringify({ [today]: newCount }));
+};
+
+// Resets all core quiz type counts so user gets their 5 attempts back
+const resetAllDailyAttempts = () => {
+  const today = localDateString();
+  localStorage.setItem('dailyQuizCounts', JSON.stringify({ [today]: {} }));
+};
+
+const hasEarlyBirdRewardToday = () => !!localStorage.getItem(`earlyBirdReset_${localDateString()}`);
+const claimEarlyBirdReward = () => localStorage.setItem(`earlyBirdReset_${localDateString()}`, '1');
 
 // Helper function to check and apply inactivity penalties
 const calculateInactivityPenalty = () => {
@@ -1627,6 +1660,9 @@ const SwordDrillApp = () => {
   // Verse sharing
   const [showShareModal, setShowShareModal] = useState(false);
   const [verseToShare, setVerseToShare] = useState(null);
+
+  // Secret Early Bird reward modal
+  const [showEarlyBirdReward, setShowEarlyBirdReward] = useState(false);
 
   // Achievement unlock states
   const [showAchievementUnlock, setShowAchievementUnlock] = useState(null);
@@ -4406,6 +4442,18 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
   // Increment daily quiz counter for this quiz type (skip for personal verses - they're practice)
   if (!effectiveQuizState.isPersonalVerse) {
     incrementQuizCount(effectiveQuizState.type);
+
+    // Secret "Early Bird" reward: used up ALL core quiz type attempts before 3pm → free Attempt Reset
+    const nowHour = new Date().getHours();
+    if (nowHour < 15 && !hasEarlyBirdRewardToday()) {
+      const counts = getDailyQuizCounts();
+      const allExhausted = CORE_QUIZ_TYPES.every(t => (counts[t] || 0) >= DAILY_QUIZ_LIMIT);
+      if (allExhausted) {
+        claimEarlyBirdReward();
+        resetAllDailyAttempts();
+        setShowEarlyBirdReward(true);
+      }
+    }
   }
 
   // Initialize or update day's data
@@ -7743,6 +7791,29 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         return;
       }
 
+      // Special handling for Attempt Reset (dynamic cost, max 2/day)
+      if (powerUpType === 'ATTEMPT_RESET') {
+        const cost = getAttemptResetCost();
+        if (cost === null) {
+          showToast('Daily limit reached! Attempt Reset can only be purchased twice per day.', 'error');
+          return;
+        }
+        if (userData.totalPoints < cost) {
+          showToast(`Not enough points! Need ${cost} points.`, 'error');
+          return;
+        }
+        playChaChing();
+        const newPoints = userData.totalPoints - cost;
+        incrementAttemptResetPurchases();
+        resetAllDailyAttempts();
+        setUserData(prev => ({ ...prev, totalPoints: newPoints }));
+        if (currentUser?.uid) {
+          updateUserProgress(currentUser.uid, { totalPoints: newPoints });
+        }
+        showToast('🔄 Attempt Reset! All quiz attempts restored to 5/5!', 'success');
+        return;
+      }
+
       if (userData.totalPoints < powerUp.cost) {
         showToast(`Not enough points! Need ${powerUp.cost} points.`, 'error');
         return;
@@ -7923,6 +7994,52 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 : 'Purchase'}
             </button>
           </div>
+
+          {/* Attempt Reset */}
+          {(() => {
+            const purchasesToday = getAttemptResetPurchasesToday();
+            const cost = getAttemptResetCost();
+            const maxedOut = cost === null;
+            const canAfford = !maxedOut && userData.totalPoints >= cost;
+            return (
+              <div className={`bg-gradient-to-br from-violet-900/40 to-purple-900/40 rounded-xl p-6 border-2 border-violet-600/50 ${maxedOut ? 'opacity-60' : ''}`}>
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <RefreshCw size={28} className={maxedOut ? 'text-slate-500' : 'text-violet-400'} />
+                    <div>
+                      <h3 className={`text-xl font-bold ${maxedOut ? 'text-slate-400' : 'text-violet-300'}`}>Attempt Reset</h3>
+                      <p className={`text-sm ${maxedOut ? 'text-slate-500' : 'text-violet-200'}`}>Reset all verse quiz attempts to 5/5</p>
+                      {!maxedOut && purchasesToday === 1 && (
+                        <p className="text-amber-400 text-xs mt-1 font-semibold">1 use remaining today</p>
+                      )}
+                      {maxedOut && (
+                        <p className="text-red-400 text-xs mt-1 font-semibold">Daily limit reached (2/2)</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className={`font-bold text-lg ${maxedOut ? 'text-slate-500' : 'text-amber-400'}`}>
+                      {maxedOut ? '—' : `${cost} pts`}
+                    </div>
+                    <div className={`text-xs ${maxedOut ? 'text-slate-600' : 'text-violet-300'}`}>
+                      {purchasesToday === 0 ? '1st use · 2nd: 100 pts' : purchasesToday === 1 ? '2nd use (last)' : 'Sold out today'}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => purchasePowerUp('ATTEMPT_RESET')}
+                  disabled={!canAfford}
+                  className={`w-full font-bold py-3 rounded-lg transition-all ${
+                    canAfford
+                      ? 'bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white'
+                      : 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                  }`}
+                >
+                  {maxedOut ? 'Daily Limit Reached' : !canAfford ? 'Not Enough Points' : 'Purchase'}
+                </button>
+              </div>
+            );
+          })()}
 
           {/* Streak Redemption */}
           {(() => {
@@ -12607,6 +12724,33 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 </button>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Early Bird Secret Reward Modal */}
+      {showEarlyBirdReward && (
+        <div className="fixed inset-0 z-[10020] flex items-center justify-center p-4 bg-black/80">
+          <div className="bg-gradient-to-br from-amber-900 via-yellow-900 to-orange-900 rounded-2xl p-8 border-4 border-amber-400 shadow-2xl max-w-md w-full text-center animate-fade-in">
+            <div className="text-7xl mb-4">🌅</div>
+            <h2 className="text-3xl font-bold text-amber-300 mb-2">Secret Reward Unlocked!</h2>
+            <p className="text-amber-100 text-lg font-semibold mb-1">Early Bird Achievement</p>
+            <p className="text-yellow-200 text-sm mb-6">
+              You used all your quiz attempts before 3:00 PM — incredible dedication! Your efforts have been rewarded.
+            </p>
+            <div className="bg-black/30 rounded-xl p-4 border-2 border-amber-500/50 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <RefreshCw size={28} className="text-violet-300" />
+                <span className="text-2xl font-bold text-white">Attempt Reset</span>
+              </div>
+              <p className="text-amber-200 text-sm">All verse quiz attempts have been restored to 5/5 — completely free!</p>
+            </div>
+            <button
+              onClick={() => setShowEarlyBirdReward(false)}
+              className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-lg rounded-xl transition-all"
+            >
+              Amazing! Keep Going 🔥
+            </button>
           </div>
         </div>
       )}
