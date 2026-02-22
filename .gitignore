@@ -18,6 +18,8 @@
 .env.test.local
 .env.production.local
 .env
+src/data/sword_drill_achievements/achievements.json
+src/data/sword_drill_achievements/achievement_conditions.json
 
 npm-debug.log*
 yarn-debug.log*

@@ -5,9 +5,10 @@ import {
   calculateValidatedPoints,
   recomputeStreakFromHistory,
   recomputeTotalPoints,
-  signQuizEvent,
-  validateVerseOfDayRead
-} from './pointValidation';
+  signEvent,
+  validateCooldown,
+  RATE_LIMITS
+} from '../core/core/antiCheat/index.js';
 
 export const getUserData = async (userId) => {
   try {
@@ -98,7 +99,7 @@ export const addQuizResult = async (userId, quizData) => {
     });
 
     // Sign the quiz event with server timestamp
-    const signedEvent = signQuizEvent({
+    const signedEvent = signEvent({
       verseId: quizData.verseId,
       verseReference: quizData.verseReference,
       type: quizData.type,
@@ -267,10 +268,13 @@ export const recordVerseOfDayRead = async (userId) => {
   try {
     const userDoc = await getDoc(doc(db, 'userProgress', userId));
     const existingData = userDoc.data() || {};
-    const lastRead = existingData.lastVerseOfDayRead || 0;
+    const rawLastRead = existingData.lastVerseOfDayRead || 0;
+    const lastRead = typeof rawLastRead?.toMillis === 'function'
+      ? rawLastRead.toMillis()
+      : rawLastRead;
 
     // Validate cooldown
-    const validation = validateVerseOfDayRead(lastRead);
+    const validation = validateCooldown(lastRead, RATE_LIMITS.VERSE_OF_DAY_COOLDOWN);
 
     if (!validation.valid) {
       return {
