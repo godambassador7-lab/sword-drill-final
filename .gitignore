@@ -24,3 +24,7 @@ src/data/sword_drill_achievements/achievement_conditions.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Generated at CI time by copy step — not tracked
+src/core/data/
+src/core/dailyVerses.js
