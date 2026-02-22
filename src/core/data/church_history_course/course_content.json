@@ -1,0 +1,382 @@
+{
+  "courseTitle": "Church History & Bible Culture",
+  "courseDescription": "Explore the rich tapestry of biblical culture, ancient customs, and church history from the Old Testament through the early church period.",
+  "levels": {
+    "beginner": {
+      "title": "Foundations of Biblical Culture",
+      "description": "Understanding the world of the Bible - daily life, customs, and cultural practices",
+      "lessons": [
+        {
+          "id": "intro-biblical-world",
+          "title": "Introduction to the Biblical World",
+          "icon": "🌍",
+          "duration": "20 min",
+          "topics": [
+            "Geography of the Ancient Near East",
+            "Time periods: Patriarchal, Exodus, Judges, Kingdom, Exile, Post-Exile",
+            "The three major regions: Mesopotamia, Egypt, Canaan",
+            "Climate and agriculture in ancient Israel"
+          ],
+          "keyPoints": [
+            "The biblical world spanned from Egypt to Mesopotamia",
+            "Understanding geography helps interpret many biblical narratives",
+            "Agricultural cycles shaped religious festivals and daily life",
+            "Trade routes connected Israel to surrounding nations"
+          ]
+        },
+        {
+          "id": "daily-life-ancient-israel",
+          "title": "Daily Life in Ancient Israel",
+          "icon": "🏘️",
+          "duration": "25 min",
+          "topics": [
+            "Family structure and roles",
+            "Housing and architecture",
+            "Food and meals",
+            "Clothing and dress",
+            "Occupations and trades"
+          ],
+          "keyPoints": [
+            "Extended families lived together in compounds",
+            "Most Israelites were farmers, shepherds, or craftsmen",
+            "Meals were communal and had social significance",
+            "Clothing indicated social status and occupation"
+          ]
+        },
+        {
+          "id": "biblical-calendar",
+          "title": "The Biblical Calendar & Feast Days",
+          "icon": "📅",
+          "duration": "30 min",
+          "topics": [
+            "The Hebrew calendar system",
+            "Seven major feasts of Israel",
+            "Sabbath observance",
+            "Agricultural and religious significance of festivals"
+          ],
+          "keyPoints": [
+            "Biblical calendar followed lunar cycles",
+            "Three pilgrimage feasts: Passover, Pentecost, Tabernacles",
+            "Feasts commemorate both agricultural cycles and salvation history",
+            "Jesus fulfilled feast day symbolism through His ministry"
+          ]
+        },
+        {
+          "id": "worship-tabernacle",
+          "title": "Worship & the Tabernacle",
+          "icon": "⛺",
+          "duration": "25 min",
+          "topics": [
+            "Design and symbolism of the Tabernacle",
+            "Sacrificial system overview",
+            "Priesthood and Levites",
+            "Holy days and offerings"
+          ],
+          "keyPoints": [
+            "Tabernacle design reflected God's holiness and presence",
+            "Sacrifices pointed forward to Christ's ultimate sacrifice",
+            "Only priests could enter the Holy Place",
+            "The Most Holy Place contained the Ark of the Covenant"
+          ]
+        },
+        {
+          "id": "marriage-family",
+          "title": "Marriage & Family in Biblical Times",
+          "icon": "👨‍👩‍👧‍👦",
+          "duration": "20 min",
+          "topics": [
+            "Betrothal and wedding customs",
+            "Role of parents and extended family",
+            "Inheritance laws",
+            "Education of children"
+          ],
+          "keyPoints": [
+            "Marriages were often arranged by families",
+            "Wedding celebrations lasted seven days",
+            "Firstborn sons received double inheritance",
+            "Children learned trades from their parents"
+          ]
+        },
+        {
+          "id": "beginner-exam",
+          "title": "Foundations Certification",
+          "icon": "🎓",
+          "duration": "30 min",
+          "isExam": true
+        }
+      ]
+    },
+    "intermediate": {
+      "title": "Temple, Tradition & Early Church",
+      "description": "Deep dive into Second Temple Judaism, Jesus' cultural context, and the birth of the church",
+      "lessons": [
+        {
+          "id": "second-temple-period",
+          "title": "The Second Temple Period",
+          "icon": "🕍",
+          "duration": "30 min",
+          "topics": [
+            "From Exile to Roman rule",
+            "Rebuilding the Temple under Zerubbabel",
+            "Herod's Temple expansion",
+            "Religious groups: Pharisees, Sadducees, Essenes, Zealots"
+          ],
+          "keyPoints": [
+            "400 years between Old and New Testaments",
+            "Greek and Roman influence on Jewish culture",
+            "Temple was center of Jewish religious life",
+            "Various groups interpreted Torah differently"
+          ]
+        },
+        {
+          "id": "synagogue-system",
+          "title": "Synagogue & Jewish Education",
+          "icon": "📖",
+          "duration": "25 min",
+          "topics": [
+            "Origin and purpose of synagogues",
+            "Sabbath services and Torah reading",
+            "Rabbis and religious teachers",
+            "Education system: Bet Sefer, Bet Talmud, Bet Midrash"
+          ],
+          "keyPoints": [
+            "Synagogues developed during Babylonian exile",
+            "Centers for prayer, study, and community",
+            "Jesus regularly taught in synagogues",
+            "Paul used synagogues as starting point for evangelism"
+          ]
+        },
+        {
+          "id": "jesus-cultural-context",
+          "title": "Jesus in His Cultural Context",
+          "icon": "✝️",
+          "duration": "35 min",
+          "topics": [
+            "Nazareth and Galilean culture",
+            "Jesus as a rabbi and teacher",
+            "Parables reflecting agricultural life",
+            "Conflict with religious authorities",
+            "Jewish expectations of Messiah"
+          ],
+          "keyPoints": [
+            "Jesus lived as a devout Jew observing Torah",
+            "His parables used familiar agricultural imagery",
+            "He challenged legalistic interpretations of the Law",
+            "Many expected a political/military Messiah"
+          ]
+        },
+        {
+          "id": "festivals-jesus",
+          "title": "Biblical Festivals & Jesus",
+          "icon": "🕯️",
+          "duration": "30 min",
+          "topics": [
+            "Jesus and Passover - The Last Supper",
+            "Pentecost and the Holy Spirit",
+            "Jesus at the Feast of Tabernacles",
+            "Hanukkah encounter in John 10",
+            "Fulfillment of festival symbolism"
+          ],
+          "keyPoints": [
+            "Jesus died during Passover as the Lamb of God",
+            "Holy Spirit came on Pentecost/Shavuot",
+            "Jesus proclaimed Himself living water at Tabernacles",
+            "Feasts form a prophetic calendar of redemption"
+          ]
+        },
+        {
+          "id": "birth-of-church",
+          "title": "Birth of the Church (Acts 1-12)",
+          "icon": "🔥",
+          "duration": "35 min",
+          "topics": [
+            "Pentecost and the Holy Spirit",
+            "Jerusalem church: Acts 2-7",
+            "Stephen's martyrdom and persecution",
+            "Gospel spreads to Samaria and Gentiles",
+            "Peter and Cornelius"
+          ],
+          "keyPoints": [
+            "Church began with 120 believers, grew to thousands",
+            "Early believers shared possessions communally",
+            "Persecution scattered Christians, spreading the gospel",
+            "God revealed gospel was for all nations, not just Jews"
+          ]
+        },
+        {
+          "id": "paul-missionary-journeys",
+          "title": "Paul's Missionary Journeys",
+          "icon": "🗺️",
+          "duration": "30 min",
+          "topics": [
+            "Conversion of Saul to Paul",
+            "Three missionary journeys overview",
+            "Church planting strategy",
+            "Letters to the churches",
+            "Journey to Rome"
+          ],
+          "keyPoints": [
+            "Paul targeted major urban centers",
+            "He began in synagogues, then reached Gentiles",
+            "Paul established leadership in each church",
+            "His letters addressed specific church issues"
+          ]
+        },
+        {
+          "id": "intermediate-exam",
+          "title": "Temple & Church Certification",
+          "icon": "🏆",
+          "duration": "45 min",
+          "isExam": true
+        }
+      ]
+    },
+    "advanced": {
+      "title": "Early Church History & Development",
+      "description": "From apostolic fathers through the early church councils and theological development",
+      "lessons": [
+        {
+          "id": "apostolic-fathers",
+          "title": "The Apostolic Fathers",
+          "icon": "📜",
+          "duration": "35 min",
+          "topics": [
+            "Clement of Rome (c. 96 AD)",
+            "Ignatius of Antioch (c. 110 AD)",
+            "Polycarp of Smyrna (c. 69-155 AD)",
+            "The Didache - early church manual",
+            "Shepherd of Hermas"
+          ],
+          "keyPoints": [
+            "These leaders knew the apostles personally",
+            "Their writings preserve apostolic teaching",
+            "They addressed heresies and maintained orthodoxy",
+            "Emphasized episcopal church structure"
+          ]
+        },
+        {
+          "id": "persecution-martyrdom",
+          "title": "Persecution & Martyrdom",
+          "icon": "⚔️",
+          "duration": "30 min",
+          "topics": [
+            "Roman persecution under Nero, Domitian, Decius",
+            "Reasons Romans persecuted Christians",
+            "Famous martyrs: Polycarp, Perpetua, Felicity",
+            "Martyrdom as witness to faith",
+            "Edict of Milan (313 AD) - Constantine's tolerance"
+          ],
+          "keyPoints": [
+            "Christians refused to worship Roman gods/emperor",
+            "Persecution was sporadic, not constant",
+            "Blood of martyrs became 'seed of the church'",
+            "Constantine ended persecution, favored Christianity"
+          ]
+        },
+        {
+          "id": "early-heresies",
+          "title": "Early Heresies & Orthodoxy",
+          "icon": "⚠️",
+          "duration": "40 min",
+          "topics": [
+            "Gnosticism - secret knowledge teachings",
+            "Marcionism - rejection of Old Testament",
+            "Montanism - new prophecy movement",
+            "Arianism - Christ as created being",
+            "Church's response: creeds and canon"
+          ],
+          "keyPoints": [
+            "Heresies forced church to clarify core beliefs",
+            "Canon of Scripture established to counter false teachings",
+            "Apostolic succession emphasized for authority",
+            "Creeds summarized orthodox Christian belief"
+          ]
+        },
+        {
+          "id": "church-councils",
+          "title": "The Ecumenical Councils",
+          "icon": "⚖️",
+          "duration": "40 min",
+          "topics": [
+            "Council of Nicaea (325) - deity of Christ",
+            "Council of Constantinople (381) - Trinity",
+            "Council of Ephesus (431) - nature of Mary",
+            "Council of Chalcedon (451) - two natures of Christ",
+            "Formation of Nicene Creed"
+          ],
+          "keyPoints": [
+            "Councils resolved major theological disputes",
+            "Nicaea affirmed Jesus is fully God",
+            "Chalcedon affirmed Jesus is fully God and fully human",
+            "Creeds became standard of orthodoxy"
+          ]
+        },
+        {
+          "id": "church-fathers",
+          "title": "The Church Fathers & Theology",
+          "icon": "✍️",
+          "duration": "35 min",
+          "topics": [
+            "Justin Martyr - early apologist",
+            "Irenaeus - Against Heresies",
+            "Tertullian - Latin theology",
+            "Origen - allegorical interpretation",
+            "Augustine - theology of grace",
+            "Jerome - Latin Vulgate translation"
+          ],
+          "keyPoints": [
+            "Church fathers defended and explained the faith",
+            "They wrote commentaries, apologetics, theology",
+            "Different schools: Alexandrian vs. Antiochene",
+            "Their work shaped all later Christian theology"
+          ]
+        },
+        {
+          "id": "monasticism-worship",
+          "title": "Monasticism & Early Worship",
+          "icon": "⛪",
+          "duration": "30 min",
+          "topics": [
+            "Desert fathers: Anthony, Pachomius",
+            "Monastic orders and rules",
+            "Benedict and Benedictine Rule",
+            "Early liturgy and worship patterns",
+            "Development of church calendar"
+          ],
+          "keyPoints": [
+            "Monasticism arose from desire for spiritual devotion",
+            "Monks preserved Scripture and learning",
+            "Liturgical worship developed from synagogue patterns",
+            "Church calendar commemorated Christ's life and saints"
+          ]
+        },
+        {
+          "id": "biblical-geography",
+          "title": "Biblical Geography Deep Dive",
+          "icon": "🗾",
+          "duration": "35 min",
+          "topics": [
+            "Detailed study of Israel's geography",
+            "Paul's missionary journey routes",
+            "Seven churches of Revelation",
+            "Trade routes and communication",
+            "Archaeological discoveries"
+          ],
+          "keyPoints": [
+            "Geography shaped biblical events and theology",
+            "Modern archaeology confirms many biblical locations",
+            "Travel in ancient world was difficult but common",
+            "Strategic locations became centers of Christianity"
+          ]
+        },
+        {
+          "id": "advanced-exam",
+          "title": "Church History Mastery Certification",
+          "icon": "👑",
+          "duration": "60 min",
+          "isExam": true
+        }
+      ]
+    }
+  }
+}

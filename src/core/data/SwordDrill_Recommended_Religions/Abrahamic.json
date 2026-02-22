@@ -1,0 +1,40 @@
+{
+    "Judaism": {
+        "summary": "Monotheistic faith of the Israelites centered on the covenant with YHWH, observing Torah and awaiting the Messiah.",
+        "key_concepts": [
+            "Covenant",
+            "Law",
+            "Prophets",
+            "Messiah",
+            "Temple Worship"
+        ]
+    },
+    "Christianity": {
+        "summary": "Faith in Jesus Christ as the Son of God and Savior of humanity, emphasizing salvation by grace and eternal life.",
+        "key_concepts": [
+            "Trinity",
+            "Salvation",
+            "Resurrection",
+            "Grace",
+            "Kingdom of God"
+        ]
+    },
+    "Islam": {
+        "summary": "Monotheistic faith revealed to Muhammad, affirming earlier prophets but denying the divinity of Christ.",
+        "key_concepts": [
+            "Tawhid",
+            "Five Pillars",
+            "Prophethood",
+            "Judgment Day"
+        ]
+    },
+    "Baha'i Faith": {
+        "summary": "Modern monotheistic religion teaching the unity of all faiths and progressive revelation through multiple prophets.",
+        "key_concepts": [
+            "Unity of God",
+            "Unity of Religion",
+            "Equality",
+            "Progressive Revelation"
+        ]
+    }
+}

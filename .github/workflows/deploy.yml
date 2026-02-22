@@ -21,9 +21,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: true
-          token: ${{ secrets.GH_PAT }}
 
       - name: Use Node.js 20
         uses: actions/setup-node@v4

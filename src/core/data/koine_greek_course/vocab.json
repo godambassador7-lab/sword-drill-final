@@ -1,0 +1,28 @@
+{
+  "basic": [
+    {
+      "greek": "θεος",
+      "gloss": "God",
+      "phonetic": "theh-OSS"
+    },
+    {
+      "greek": "λογος",
+      "gloss": "word",
+      "phonetic": "LO-goss"
+    }
+  ],
+  "intermediate": [
+    {
+      "greek": "πιστις",
+      "gloss": "faith",
+      "phonetic": "PIS-tis"
+    }
+  ],
+  "advanced": [
+    {
+      "greek": "δικαιοσυνη",
+      "gloss": "righteousness",
+      "phonetic": "dee-kai-o-SOO-nay"
+    }
+  ]
+}

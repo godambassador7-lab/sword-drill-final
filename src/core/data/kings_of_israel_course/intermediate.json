@@ -1,0 +1,124 @@
+[
+  {
+    "king": "Jeroboam I",
+    "prophets": [
+      "Ahijah"
+    ],
+    "prophet_card": "Prophets during Jeroboam I: Ahijah."
+  },
+  {
+    "king": "Nadab",
+    "prophets": [],
+    "prophet_card": "Prophets during Nadab: None recorded."
+  },
+  {
+    "king": "Baasha",
+    "prophets": [
+      "Jehu son of Hanani"
+    ],
+    "prophet_card": "Prophets during Baasha: Jehu son of Hanani."
+  },
+  {
+    "king": "Elah",
+    "prophets": [],
+    "prophet_card": "Prophets during Elah: None recorded."
+  },
+  {
+    "king": "Zimri",
+    "prophets": [],
+    "prophet_card": "Prophets during Zimri: None recorded."
+  },
+  {
+    "king": "Omri",
+    "prophets": [],
+    "prophet_card": "Prophets during Omri: None recorded."
+  },
+  {
+    "king": "Ahab",
+    "prophets": [
+      "Elijah",
+      "Micaiah"
+    ],
+    "prophet_card": "Prophets during Ahab: Elijah, Micaiah."
+  },
+  {
+    "king": "Ahaziah",
+    "prophets": [
+      "Elijah"
+    ],
+    "prophet_card": "Prophets during Ahaziah: Elijah."
+  },
+  {
+    "king": "Joram",
+    "prophets": [
+      "Elisha"
+    ],
+    "prophet_card": "Prophets during Joram: Elisha."
+  },
+  {
+    "king": "Jehu",
+    "prophets": [
+      "Elisha"
+    ],
+    "prophet_card": "Prophets during Jehu: Elisha."
+  },
+  {
+    "king": "Jehoahaz",
+    "prophets": [
+      "Elisha"
+    ],
+    "prophet_card": "Prophets during Jehoahaz: Elisha."
+  },
+  {
+    "king": "Jehoash",
+    "prophets": [
+      "Elisha"
+    ],
+    "prophet_card": "Prophets during Jehoash: Elisha."
+  },
+  {
+    "king": "Jeroboam II",
+    "prophets": [
+      "Jonah",
+      "Amos",
+      "Hosea"
+    ],
+    "prophet_card": "Prophets during Jeroboam II: Jonah, Amos, Hosea."
+  },
+  {
+    "king": "Zechariah",
+    "prophets": [],
+    "prophet_card": "Prophets during Zechariah: None recorded."
+  },
+  {
+    "king": "Shallum",
+    "prophets": [],
+    "prophet_card": "Prophets during Shallum: None recorded."
+  },
+  {
+    "king": "Menahem",
+    "prophets": [],
+    "prophet_card": "Prophets during Menahem: None recorded."
+  },
+  {
+    "king": "Pekahiah",
+    "prophets": [],
+    "prophet_card": "Prophets during Pekahiah: None recorded."
+  },
+  {
+    "king": "Pekah",
+    "prophets": [
+      "Isaiah",
+      "Hosea"
+    ],
+    "prophet_card": "Prophets during Pekah: Isaiah, Hosea."
+  },
+  {
+    "king": "Hoshea",
+    "prophets": [
+      "Isaiah",
+      "Hosea"
+    ],
+    "prophet_card": "Prophets during Hoshea: Isaiah, Hosea."
+  }
+]

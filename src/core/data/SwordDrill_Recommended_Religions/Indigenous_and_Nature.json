@@ -1,0 +1,29 @@
+{
+    "African_Traditional": {
+        "summary": "Diverse tribal faiths emphasizing ancestors, spirits, and balance between visible and invisible worlds.",
+        "key_concepts": [
+            "Ancestor Veneration",
+            "Spirits",
+            "Ritual",
+            "Community Harmony"
+        ]
+    },
+    "Native_American": {
+        "summary": "Spiritual traditions honoring the Creator and all living beings, emphasizing respect for nature and balance.",
+        "key_concepts": [
+            "Great Spirit",
+            "Nature",
+            "Ceremony",
+            "Harmony"
+        ]
+    },
+    "Aboriginal": {
+        "summary": "Australian indigenous spirituality rooted in Dreamtime creation stories and connection to sacred land.",
+        "key_concepts": [
+            "Dreamtime",
+            "Totemism",
+            "Sacred Geography",
+            "Ancestral Beings"
+        ]
+    }
+}
