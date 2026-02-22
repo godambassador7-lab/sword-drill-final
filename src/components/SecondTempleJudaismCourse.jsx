@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, CheckCircle, ArrowLeft, Book, Scroll, Trophy, Award, RotateCcw, X
 } from 'lucide-react';
@@ -330,16 +330,29 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
   const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
   const [completedQuizzes, setCompletedQuizzes] = useState(initialProgress.completedQuizzes);
   const [examCompleted, setExamCompleted] = useState(initialProgress.examCompleted);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     if (!userData?.secondTempleJudaismProgress) return;
     const p = normalizeCourseProgress(userData.secondTempleJudaismProgress);
-    setCompletedLessons(p.completedLessons);
-    setCompletedQuizzes(p.completedQuizzes);
-    setExamCompleted(p.examCompleted);
+    setCompletedLessons(prev => {
+      const prevSorted = [...prev].sort().join(',');
+      const newSorted = [...p.completedLessons].sort().join(',');
+      return prevSorted === newSorted ? prev : p.completedLessons;
+    });
+    setCompletedQuizzes(prev => {
+      const prevSorted = [...prev].sort().join(',');
+      const newSorted = [...p.completedQuizzes].sort().join(',');
+      return prevSorted === newSorted ? prev : p.completedQuizzes;
+    });
+    setExamCompleted(prev => prev === p.examCompleted ? prev : p.examCompleted);
   }, [userData?.secondTempleJudaismProgress]);
 
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     const progressPayload = normalizeCourseProgress({ completedLessons, completedQuizzes, examCompleted });
     localStorage.setItem(SECOND_TEMPLE_PROGRESS_KEY, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, secondTempleJudaismProgress: progressPayload }));
@@ -361,16 +374,18 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
 
   const submitQuiz = () => {
     const unit = UNITS[selectedUnit];
+    const unitId = normalizeUnitId(unit?.id);
+    if (!unit || !unitId) return;
     let correct = 0;
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
     setQuizSubmitted(true);
-    if (!completedLessons.includes(unit.id)) {
-      setCompletedLessons(prev => [...prev, unit.id]);
+    if (!completedLessons.includes(unitId)) {
+      setCompletedLessons(prev => [...prev, unitId]);
     }
-    if (correct >= 4 && !completedQuizzes.includes(unit.id)) {
-      setCompletedQuizzes(prev => [...prev, unit.id]);
-      if (onComplete) onComplete({ type: 'quiz', unitId: unit.id });
+    if (correct >= 4 && !completedQuizzes.includes(unitId)) {
+      setCompletedQuizzes(prev => [...prev, unitId]);
+      if (onComplete) onComplete({ type: 'quiz', unitId });
     }
   };
 
@@ -390,8 +405,9 @@ const SecondTempleJudaismCourse = ({ onComplete, onCancel, userId, userData, set
   const startQuiz = () => {
     if (selectedUnit !== null) {
       const unit = UNITS[selectedUnit];
-      if (unit && !completedLessons.includes(unit.id)) {
-        setCompletedLessons(prev => [...prev, unit.id]);
+      const unitId = normalizeUnitId(unit?.id);
+      if (unitId && !completedLessons.includes(unitId)) {
+        setCompletedLessons(prev => [...prev, unitId]);
       }
     }
     setQuizAnswers({});

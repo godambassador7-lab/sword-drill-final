@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Lightbulb
@@ -18,6 +18,10 @@ const normalizeHermeneuticsProgress = (progress) => {
     advanced: Array.isArray(source.advanced) ? Array.from(new Set(source.advanced)) : []
   };
 };
+
+const hermeneuticsProgressEqual = (a = {}, b = {}) => (
+  JSON.stringify(normalizeHermeneuticsProgress(a)) === JSON.stringify(normalizeHermeneuticsProgress(b))
+);
 
 const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserData }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
@@ -39,10 +43,12 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
     return normalizeHermeneuticsProgress({});
   });
   const [showQuiz, setShowQuiz] = useState(false);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     if (!userData?.hermeneuticsProgress) return;
-    setCompletedLessons(normalizeHermeneuticsProgress(userData.hermeneuticsProgress));
+    const next = normalizeHermeneuticsProgress(userData.hermeneuticsProgress);
+    setCompletedLessons(prev => (hermeneuticsProgressEqual(prev, next) ? prev : next));
   }, [userData?.hermeneuticsProgress]);
 
   // AUTO-SYNC: If we have localStorage progress but NOT Firebase progress, sync to Firebase
@@ -75,6 +81,11 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
 
   // Save progress to both localStorage and Firebase whenever completedLessons changes
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const normalizedProgress = normalizeHermeneuticsProgress(completedLessons);
     localStorage.setItem(HERMENEUTICS_PROGRESS_KEY, JSON.stringify(normalizedProgress));
 

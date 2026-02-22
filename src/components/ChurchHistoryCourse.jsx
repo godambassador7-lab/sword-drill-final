@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BookOpen, ChevronRight, Lock, CheckCircle, Star, Trophy,
   GraduationCap, Zap, Target, Award, ArrowLeft, Church, Globe, Scroll
@@ -24,6 +24,11 @@ const normalizeChurchHistoryProgress = (progress) => {
   };
 };
 
+const churchHistoryLessonsEqual = (a = {}, b = {}) => (
+  JSON.stringify(normalizeChurchHistoryProgress({ completedLessons: a }).completedLessons) ===
+  JSON.stringify(normalizeChurchHistoryProgress({ completedLessons: b }).completedLessons)
+);
+
 const getInitialChurchHistoryProgress = (userData) => {
   if (userData?.churchHistoryProgress) {
     return normalizeChurchHistoryProgress(userData.churchHistoryProgress);
@@ -45,12 +50,15 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   const [showQuiz, setShowQuiz] = useState(false);
   const initialProgress = getInitialChurchHistoryProgress(userData);
   const [completedLessons, setCompletedLessons] = useState(initialProgress.completedLessons);
+  const isInitialMount = useRef(true);
 
   // Hydrate from userData
   useEffect(() => {
     if (userData?.churchHistoryProgress?.completedLessons) {
       const progress = normalizeChurchHistoryProgress(userData.churchHistoryProgress);
-      setCompletedLessons(progress.completedLessons);
+      setCompletedLessons(prev => (
+        churchHistoryLessonsEqual(prev, progress.completedLessons) ? prev : progress.completedLessons
+      ));
     }
   }, [userData?.churchHistoryProgress]);
 
@@ -92,6 +100,11 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 
   // Persist progress
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const progress = normalizeChurchHistoryProgress({ completedLessons });
     localStorage.setItem(CHURCH_HISTORY_PROGRESS_KEY, JSON.stringify(progress));
     if (setUserData) {

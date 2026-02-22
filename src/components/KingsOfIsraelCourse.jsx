@@ -34,6 +34,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   // Use ref to track if we've loaded initial data to prevent auto-save on mount
   const hasLoadedInitialData = useRef(false);
   const firebaseDataLoaded = useRef(false);
+  const isInitialSave = useRef(true);
 
   // Load progress from Firebase/localStorage on mount
   useEffect(() => {
@@ -134,6 +135,10 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
   useEffect(() => {
     if (!hasLoadedInitialData.current) {
       console.log('⏭️ [KingsOfIsrael] Skipping save - initial data not loaded yet');
+      return;
+    }
+    if (isInitialSave.current) {
+      isInitialSave.current = false;
       return;
     }
 
@@ -1793,3 +1798,4 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
 };
 
 export default KingsOfIsraelCourse;
+

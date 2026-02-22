@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Award,
   Book,
@@ -68,6 +68,10 @@ const normalizeProgressPayload = (payload = {}) => {
   };
 };
 
+const arraysEqual = (a = [], b = []) => (
+  a.length === b.length && a.every((value, index) => value === b[index])
+);
+
 const ComprehensiveCourse = ({
   courseData,
   progressKey,
@@ -121,13 +125,14 @@ const ComprehensiveCourse = ({
   const [examCompleted, setExamCompleted] = useState(() => {
     return savedProgress.examCompleted || false;
   });
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     if (userData?.[progressKey]) {
       const p = normalizeProgressPayload(userData[progressKey]);
-      setCompletedLessons(p.completedLessons);
-      setCompletedQuizzes(p.completedQuizzes);
-      setExamCompleted(p.examCompleted);
+      setCompletedLessons(prev => (arraysEqual(prev, p.completedLessons) ? prev : p.completedLessons));
+      setCompletedQuizzes(prev => (arraysEqual(prev, p.completedQuizzes) ? prev : p.completedQuizzes));
+      setExamCompleted(prev => (prev === p.examCompleted ? prev : p.examCompleted));
     }
   }, [userData, progressKey]);
 
@@ -136,6 +141,11 @@ const ComprehensiveCourse = ({
   }, [courseData]);
 
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted });
     localStorage.setItem(progressKey, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
