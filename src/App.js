@@ -240,7 +240,7 @@ const ECONOMY = {
     STREAK_FREEZE: { cost: 150, duration: 86400000, name: 'Streak Freeze' }, // 24 hours
     EXTRA_TIME: { cost: 50, duration: 600000, extraTime: 60, name: 'Extra Time' }, // 10 min, +60sec
     POINT_SHIELD: { cost: 200, duration: 1800000, name: 'Point Shield' }, // 30 min, no penalties
-    STREAK_REDEMPTION: { cost: 2000, name: 'Streak Redemption', special: true }, // Restore lost streak within 24hr
+    STREAK_REDEMPTION: { name: 'Streak Redemption', special: true }, // Cost is dynamic: 1/3 pts (or 1/2 if repeated < 8 days); max 2 redemptions per 30 days
     ATTEMPT_RESET: { name: 'Attempt Reset', baseCost: 50 } // Dynamic cost: 50 pts (1st), 100 pts (2nd); max 2/day
   }
 };
@@ -727,6 +727,42 @@ const resetAllDailyAttempts = () => {
 
 const hasEarlyBirdRewardToday = () => !!localStorage.getItem(`earlyBirdReset_${localDateString()}`);
 const claimEarlyBirdReward = () => localStorage.setItem(`earlyBirdReset_${localDateString()}`, '1');
+
+// --- Streak Redemption dynamic pricing ---
+const STREAK_REDEMPTION_WINDOW = 30 * 24 * 60 * 60 * 1000; // 30 days
+const STREAK_REDEMPTION_REPEAT_THRESHOLD = 8 * 24 * 60 * 60 * 1000; // 8 days
+
+/**
+ * Returns redemption eligibility, cost, and context for the Streak Redemption powerup.
+ * Cost = 1/3 of current points (first/spaced redemption) or 1/2 (repeat within 8 days).
+ * Blocked entirely after 2 redemptions in the last 30 days.
+ */
+const getStreakRedemptionInfo = (userData) => {
+  const now = Date.now();
+  const history = (userData.streakRedemptionHistory || [])
+    .map(t => (typeof t?.toMillis === 'function' ? t.toMillis() : Number(t)))
+    .filter(Boolean);
+
+  const recentRedemptions = history.filter(t => now - t < STREAK_REDEMPTION_WINDOW);
+  const recentCount = recentRedemptions.length;
+
+  if (recentCount >= 2) {
+    // Find when the oldest of the two most recent will expire from the 30-day window
+    const sorted = [...recentRedemptions].sort((a, b) => a - b);
+    const oldestRecent = sorted[sorted.length - 2] ?? sorted[0];
+    const unlocksAt = oldestRecent + STREAK_REDEMPTION_WINDOW;
+    return { allowed: false, reason: 'limit', recentCount, unlocksAt };
+  }
+
+  const lastRedemption = recentRedemptions.length > 0 ? Math.max(...recentRedemptions) : null;
+  const isQuickRepeat = lastRedemption !== null && (now - lastRedemption < STREAK_REDEMPTION_REPEAT_THRESHOLD);
+  const currentPoints = userData.totalPoints || 0;
+  const cost = Math.max(1, isQuickRepeat
+    ? Math.floor(currentPoints / 2)
+    : Math.floor(currentPoints / 3));
+
+  return { allowed: true, cost, isQuickRepeat, recentCount, lastRedemption };
+};
 
 // Helper function to check and apply inactivity penalties
 const calculateInactivityPenalty = () => {
@@ -7728,7 +7764,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     const purchasePowerUp = (powerUpType) => {
       const powerUp = ECONOMY.POWER_UPS[powerUpType];
 
-      // Special handling for Streak Redemption
+      // Special handling for Streak Redemption (dynamic cost, max 2 per 30 days)
       if (powerUpType === 'STREAK_REDEMPTION') {
         const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
 
@@ -7743,14 +7779,22 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           return;
         }
 
-        if (userData.totalPoints < powerUp.cost) {
-          showToast(`Not enough points! Need ${powerUp.cost} points.`, 'error');
+        const redemptionInfo = getStreakRedemptionInfo(userData);
+        if (!redemptionInfo.allowed) {
+          const daysUntilUnlock = Math.ceil((redemptionInfo.unlocksAt - Date.now()) / (24 * 60 * 60 * 1000));
+          showToast(`❌ Limit reached! You've used Streak Redemption twice this month. Available again in ~${daysUntilUnlock} day${daysUntilUnlock !== 1 ? 's' : ''}.`, 'error');
+          return;
+        }
+
+        const { cost, isQuickRepeat } = redemptionInfo;
+        if (userData.totalPoints < cost) {
+          showToast(`Not enough points! Need ${cost.toLocaleString()} points (${isQuickRepeat ? '½' : '⅓'} of your balance).`, 'error');
           return;
         }
 
         // Restore the streak
         playChaChing();
-        const newPoints = userData.totalPoints - powerUp.cost;
+        const newPoints = userData.totalPoints - cost;
         const restoredStreak = userData.lastKnownStreak;
 
         // Mark streak days in localStorage including TODAY
@@ -7758,11 +7802,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        // Mark today first (most important)
         const todayString = today.toISOString().split('T')[0];
         streakData[todayString] = { marked: true, quizCount: (streakData[todayString]?.quizCount || 0) + 1, quizzes: streakData[todayString]?.quizzes || [] };
 
-        // Then mark previous days for the restored streak
         for (let i = 1; i < restoredStreak; i++) {
           const date = new Date(today);
           date.setDate(today.getDate() - i);
@@ -7773,12 +7815,16 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         }
         localStorage.setItem('streakData', JSON.stringify(streakData));
 
+        // Record this redemption timestamp in history
+        const updatedRedemptionHistory = [...(userData.streakRedemptionHistory || []), Date.now()];
+
         const updatedData = {
           ...userData,
           currentStreak: restoredStreak,
           totalPoints: newPoints,
           streakLostAt: null,
-          lastKnownStreak: 0
+          lastKnownStreak: 0,
+          streakRedemptionHistory: updatedRedemptionHistory
         };
 
         setUserData(updatedData);
@@ -7787,7 +7833,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           updateUserProgress(currentUser.uid, updatedData);
         }
 
-        showToast(`🔥 ${restoredStreak}-day streak restored!`, 'success');
+        showToast(`🔥 ${restoredStreak}-day streak restored! (-${cost.toLocaleString()} pts)`, 'success');
         return;
       }
 
@@ -8044,18 +8090,29 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           {/* Streak Redemption */}
           {(() => {
             const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
-            const hasLostStreak = userData.streakLostAt && userData.lastKnownStreak;
+            const hasLostStreak = !!(userData.streakLostAt && userData.lastKnownStreak);
             const elapsed = hasLostStreak ? (Date.now() - userData.streakLostAt) : TWENTY_FOUR_HOURS;
-            const isExpired = elapsed >= TWENTY_FOUR_HOURS;
-            const isAvailable = hasLostStreak && !isExpired;
-            const hoursLeft = isAvailable ? Math.floor((TWENTY_FOUR_HOURS - elapsed) / (60 * 60 * 1000)) : 0;
-            const minutesLeft = isAvailable ? Math.floor(((TWENTY_FOUR_HOURS - elapsed) % (60 * 60 * 1000)) / (60 * 1000)) : 0;
+            const windowExpired = elapsed >= TWENTY_FOUR_HOURS;
+            const hoursLeft = !windowExpired ? Math.floor((TWENTY_FOUR_HOURS - elapsed) / (60 * 60 * 1000)) : 0;
+            const minutesLeft = !windowExpired ? Math.floor(((TWENTY_FOUR_HOURS - elapsed) % (60 * 60 * 1000)) / (60 * 1000)) : 0;
+
+            const redemptionInfo = getStreakRedemptionInfo(userData);
+            const monthlyLimitHit = !redemptionInfo.allowed;
+            const isAvailable = hasLostStreak && !windowExpired && !monthlyLimitHit;
+            const { cost, isQuickRepeat, recentCount } = redemptionInfo.allowed
+              ? redemptionInfo
+              : { cost: 0, isQuickRepeat: false, recentCount: 2 };
+            const canAfford = isAvailable && userData.totalPoints >= cost;
+
+            const daysUntilUnlock = monthlyLimitHit
+              ? Math.ceil((redemptionInfo.unlocksAt - Date.now()) / (24 * 60 * 60 * 1000))
+              : 0;
 
             return (
               <div className={`bg-gradient-to-br ${isAvailable ? 'from-red-900/40 to-orange-900/40 border-red-600/50' : 'from-slate-900/40 to-slate-800/40 border-slate-700/50'} rounded-xl p-6 border-2 ${!isAvailable ? 'opacity-60' : ''}`}>
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <Flame size={28} className={isAvailable ? "text-red-400" : "text-slate-500"} />
+                    <Flame size={28} className={isAvailable ? 'text-red-400' : 'text-slate-500'} />
                     <div>
                       <h3 className={`text-xl font-bold ${isAvailable ? 'text-red-300' : 'text-slate-400'}`}>Streak Redemption</h3>
                       <p className={`text-sm ${isAvailable ? 'text-red-200' : 'text-slate-500'}`}>
@@ -8064,26 +8121,46 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       {isAvailable && (
                         <p className="text-green-400 text-xs mt-1 font-semibold">⏰ {hoursLeft}h {minutesLeft}m remaining</p>
                       )}
-                      {hasLostStreak && isExpired && (
+                      {isAvailable && isQuickRepeat && (
+                        <p className="text-amber-400 text-xs mt-1 font-semibold">⚠️ Repeat within 8 days — costs ½ of your points</p>
+                      )}
+                      {hasLostStreak && windowExpired && (
                         <p className="text-red-400 text-xs mt-1 font-semibold">❌ 24hr window expired</p>
+                      )}
+                      {monthlyLimitHit && (
+                        <p className="text-red-400 text-xs mt-1 font-semibold">🚫 Monthly limit (2/2) — resets in ~{daysUntilUnlock}d</p>
                       )}
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-amber-400 font-bold text-lg">{ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost} pts</div>
-                    <div className={`text-xs ${isAvailable ? 'text-red-300' : 'text-slate-500'}`}>One-time use</div>
+                    <div className={`font-bold text-lg ${isAvailable ? 'text-amber-400' : 'text-slate-500'}`}>
+                      {isAvailable ? `${cost.toLocaleString()} pts` : '—'}
+                    </div>
+                    <div className={`text-xs ${isAvailable ? 'text-red-300' : 'text-slate-500'}`}>
+                      {isAvailable
+                        ? (isQuickRepeat ? '½ of your points' : '⅓ of your points')
+                        : `${recentCount}/2 used this month`}
+                    </div>
                   </div>
                 </div>
                 <button
                   onClick={() => purchasePowerUp('STREAK_REDEMPTION')}
-                  disabled={!isAvailable || userData.totalPoints < ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost}
+                  disabled={!canAfford}
                   className={`w-full font-bold py-3 rounded-lg transition-all ${
-                    isAvailable && userData.totalPoints >= ECONOMY.POWER_UPS.STREAK_REDEMPTION.cost
+                    canAfford
                       ? 'bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white'
                       : 'bg-slate-700 text-slate-500 cursor-not-allowed'
                   }`}
                 >
-                  {!hasLostStreak ? 'No Lost Streak' : isExpired ? 'Window Expired' : 'Redeem Streak'}
+                  {monthlyLimitHit
+                    ? 'Monthly Limit Reached'
+                    : !hasLostStreak
+                    ? 'No Lost Streak'
+                    : windowExpired
+                    ? 'Window Expired'
+                    : !canAfford
+                    ? 'Not Enough Points'
+                    : `Redeem for ${cost.toLocaleString()} pts`}
                 </button>
               </div>
             );
