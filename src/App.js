@@ -4698,8 +4698,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
     const tip = getRandomMemoryTip();
     setMemoryTip(tip);
 
-    // Store penalty for toast (to be shown after modal)
-    setToastPoints(penalty);
+    // Store penalty for toast (to be shown after modal) — use full deduction (points), not just base penalty
+    setToastPoints(points);
 
     // Store correct answer data for modal
     setCorrectAnswerData({
