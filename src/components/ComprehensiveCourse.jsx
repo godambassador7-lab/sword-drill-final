@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import LanguageLessonFlow from './LanguageLessonFlow';
 import {
   FINAL_EXAM_PASS_PERCENT,
   FINAL_EXAM_NOVEL_RATIO,
@@ -520,6 +521,18 @@ const ComprehensiveCourse = ({
     const lessonDone = completedLessons.includes(unitId);
     const quizDone = completedQuizzes.includes(unitId);
     const displayIcon = sanitizeDisplayIcon(unit.icon);
+
+    // Language courses get the Duolingo-style interactive flow
+    if (isLanguageCourse) {
+      return (
+        <LanguageLessonFlow
+          unit={unit}
+          onComplete={startQuiz}
+          onBack={() => { setCurrentView('list'); window.scrollTo(0, 0); }}
+        />
+      );
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
         <div className="max-w-3xl mx-auto">
