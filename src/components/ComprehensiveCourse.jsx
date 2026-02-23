@@ -526,6 +526,7 @@ const ComprehensiveCourse = ({
     if (isLanguageCourse) {
       return (
         <LanguageLessonFlow
+          languageId={courseData.id}
           unit={unit}
           onComplete={startQuiz}
           onBack={() => { setCurrentView('list'); window.scrollTo(0, 0); }}

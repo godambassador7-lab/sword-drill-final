@@ -3,10 +3,162 @@ import { ArrowLeft, Heart, RotateCcw } from 'lucide-react';
 
 const MAX_HEARTS = 3;
 
+const COURSE_ALPHABETS = {
+  ancientHebrew: [
+    { char: 'א', name: 'Aleph', transliteration: 'ʾ', sound: 'silent / glottal stop' },
+    { char: 'ב', name: 'Bet', transliteration: 'b/v', sound: 'b or v' },
+    { char: 'ג', name: 'Gimel', transliteration: 'g', sound: 'g as in go' },
+    { char: 'ד', name: 'Dalet', transliteration: 'd', sound: 'd as in door' },
+    { char: 'ה', name: 'He', transliteration: 'h', sound: 'h as in house' },
+    { char: 'ו', name: 'Vav', transliteration: 'w/v', sound: 'w or v' },
+    { char: 'ז', name: 'Zayin', transliteration: 'z', sound: 'z as in zoo' },
+    { char: 'ח', name: 'Het', transliteration: 'h', sound: 'kh as in Bach' },
+    { char: 'ט', name: 'Tet', transliteration: 't', sound: 'emphatic t' },
+    { char: 'י', name: 'Yod', transliteration: 'y', sound: 'y as in yes' },
+    { char: 'כ', name: 'Kaf', transliteration: 'k/kh', sound: 'k or kh', finalForm: 'ך' },
+    { char: 'ל', name: 'Lamed', transliteration: 'l', sound: 'l as in lamp' },
+    { char: 'מ', name: 'Mem', transliteration: 'm', sound: 'm as in moon', finalForm: 'ם' },
+    { char: 'נ', name: 'Nun', transliteration: 'n', sound: 'n as in noon', finalForm: 'ן' },
+    { char: 'ס', name: 'Samekh', transliteration: 's', sound: 's as in sun' },
+    { char: 'ע', name: 'Ayin', transliteration: 'ʿ', sound: 'voiced guttural' },
+    { char: 'פ', name: 'Pe', transliteration: 'p/f', sound: 'p or f', finalForm: 'ף' },
+    { char: 'צ', name: 'Tsadi', transliteration: 'ts', sound: 'ts as in cats', finalForm: 'ץ' },
+    { char: 'ק', name: 'Qof', transliteration: 'q', sound: 'back-of-throat k' },
+    { char: 'ר', name: 'Resh', transliteration: 'r', sound: 'r as in run' },
+    { char: 'ש', name: 'Shin', transliteration: 'sh/s', sound: 'sh or s' },
+    { char: 'ת', name: 'Tav', transliteration: 't', sound: 't as in top' }
+  ],
+  paleoHebrew: [
+    { char: '𐤀', name: 'Aleph', transliteration: 'ʾ', sound: 'silent / glottal stop' },
+    { char: '𐤁', name: 'Bet', transliteration: 'b', sound: 'b as in bed' },
+    { char: '𐤂', name: 'Gimel', transliteration: 'g', sound: 'g as in go' },
+    { char: '𐤃', name: 'Dalet', transliteration: 'd', sound: 'd as in door' },
+    { char: '𐤄', name: 'He', transliteration: 'h', sound: 'h as in house' },
+    { char: '𐤅', name: 'Waw', transliteration: 'w', sound: 'w as in water' },
+    { char: '𐤆', name: 'Zayin', transliteration: 'z', sound: 'z as in zoo' },
+    { char: '𐤇', name: 'Het', transliteration: 'h', sound: 'kh as in Bach' },
+    { char: '𐤈', name: 'Tet', transliteration: 't', sound: 'emphatic t' },
+    { char: '𐤉', name: 'Yod', transliteration: 'y', sound: 'y as in yes' },
+    { char: '𐤊', name: 'Kaf', transliteration: 'k', sound: 'k as in kit' },
+    { char: '𐤋', name: 'Lamed', transliteration: 'l', sound: 'l as in lamp' },
+    { char: '𐤌', name: 'Mem', transliteration: 'm', sound: 'm as in moon' },
+    { char: '𐤍', name: 'Nun', transliteration: 'n', sound: 'n as in noon' },
+    { char: '𐤎', name: 'Samekh', transliteration: 's', sound: 's as in sun' },
+    { char: '𐤏', name: 'Ayin', transliteration: 'ʿ', sound: 'guttural consonant' },
+    { char: '𐤐', name: 'Pe', transliteration: 'p', sound: 'p as in pit' },
+    { char: '𐤑', name: 'Tsadi', transliteration: 'ts', sound: 'ts as in cats' },
+    { char: '𐤒', name: 'Qof', transliteration: 'q', sound: 'back-of-throat k' },
+    { char: '𐤓', name: 'Resh', transliteration: 'r', sound: 'r as in run' },
+    { char: '𐤔', name: 'Shin', transliteration: 'sh', sound: 'sh as in ship' },
+    { char: '𐤕', name: 'Tav', transliteration: 't', sound: 't as in top' }
+  ],
+  aramaic: [
+    { char: 'ܐ', name: 'Alaph', transliteration: 'ʾ', sound: 'silent / glottal stop' },
+    { char: 'ܒ', name: 'Beth', transliteration: 'b/v', sound: 'b or v' },
+    { char: 'ܓ', name: 'Gamal', transliteration: 'g', sound: 'g as in go' },
+    { char: 'ܕ', name: 'Dalath', transliteration: 'd', sound: 'd as in door' },
+    { char: 'ܗ', name: 'He', transliteration: 'h', sound: 'h as in house' },
+    { char: 'ܘ', name: 'Waw', transliteration: 'w', sound: 'w as in water' },
+    { char: 'ܙ', name: 'Zain', transliteration: 'z', sound: 'z as in zoo' },
+    { char: 'ܚ', name: 'Heth', transliteration: 'h', sound: 'kh as in Bach' },
+    { char: 'ܛ', name: 'Teth', transliteration: 't', sound: 'emphatic t' },
+    { char: 'ܝ', name: 'Yodh', transliteration: 'y', sound: 'y as in yes' },
+    { char: 'ܟ', name: 'Kaph', transliteration: 'k/kh', sound: 'k or kh' },
+    { char: 'ܠ', name: 'Lamadh', transliteration: 'l', sound: 'l as in lamp' },
+    { char: 'ܡ', name: 'Mim', transliteration: 'm', sound: 'm as in moon' },
+    { char: 'ܢ', name: 'Nun', transliteration: 'n', sound: 'n as in noon' },
+    { char: 'ܣ', name: 'Semkath', transliteration: 's', sound: 's as in sun' },
+    { char: 'ܥ', name: 'E', transliteration: 'ʿ', sound: 'voiced guttural' },
+    { char: 'ܦ', name: 'Pe', transliteration: 'p/f', sound: 'p or f' },
+    { char: 'ܨ', name: 'Sadhe', transliteration: 's', sound: 'emphatic s' },
+    { char: 'ܩ', name: 'Qoph', transliteration: 'q', sound: 'back-of-throat k' },
+    { char: 'ܪ', name: 'Rish', transliteration: 'r', sound: 'r as in run' },
+    { char: 'ܫ', name: 'Shin', transliteration: 'sh', sound: 'sh as in ship' },
+    { char: 'ܬ', name: 'Taw', transliteration: 't', sound: 't as in top' }
+  ],
+  koineGreek: [
+    { char: 'Α', name: 'Alpha', lowercase: 'α', transliteration: 'a', sound: 'a as in father' },
+    { char: 'Β', name: 'Beta', lowercase: 'β', transliteration: 'b', sound: 'b as in bed' },
+    { char: 'Γ', name: 'Gamma', lowercase: 'γ', transliteration: 'g', sound: 'g as in go' },
+    { char: 'Δ', name: 'Delta', lowercase: 'δ', transliteration: 'd', sound: 'd as in door' },
+    { char: 'Ε', name: 'Epsilon', lowercase: 'ε', transliteration: 'e', sound: 'short e as in met' },
+    { char: 'Ζ', name: 'Zeta', lowercase: 'ζ', transliteration: 'z', sound: 'dz or z' },
+    { char: 'Η', name: 'Eta', lowercase: 'η', transliteration: 'e', sound: 'long e as in they' },
+    { char: 'Θ', name: 'Theta', lowercase: 'θ', transliteration: 'th', sound: 'th as in thin' },
+    { char: 'Ι', name: 'Iota', lowercase: 'ι', transliteration: 'i', sound: 'i as in sit' },
+    { char: 'Κ', name: 'Kappa', lowercase: 'κ', transliteration: 'k', sound: 'k as in kit' },
+    { char: 'Λ', name: 'Lambda', lowercase: 'λ', transliteration: 'l', sound: 'l as in lamp' },
+    { char: 'Μ', name: 'Mu', lowercase: 'μ', transliteration: 'm', sound: 'm as in moon' },
+    { char: 'Ν', name: 'Nu', lowercase: 'ν', transliteration: 'n', sound: 'n as in noon' },
+    { char: 'Ξ', name: 'Xi', lowercase: 'ξ', transliteration: 'x', sound: 'x as in box' },
+    { char: 'Ο', name: 'Omicron', lowercase: 'ο', transliteration: 'o', sound: 'short o as in hot' },
+    { char: 'Π', name: 'Pi', lowercase: 'π', transliteration: 'p', sound: 'p as in pit' },
+    { char: 'Ρ', name: 'Rho', lowercase: 'ρ', transliteration: 'r', sound: 'rolled r' },
+    { char: 'Σ', name: 'Sigma', lowercase: 'σ', transliteration: 's', sound: 's as in sun', finalForm: 'ς' },
+    { char: 'Τ', name: 'Tau', lowercase: 'τ', transliteration: 't', sound: 't as in top' },
+    { char: 'Υ', name: 'Upsilon', lowercase: 'υ', transliteration: 'u', sound: 'u as in French tu' },
+    { char: 'Φ', name: 'Phi', lowercase: 'φ', transliteration: 'ph', sound: 'f as in phone' },
+    { char: 'Χ', name: 'Chi', lowercase: 'χ', transliteration: 'ch', sound: 'ch as in Bach' },
+    { char: 'Ψ', name: 'Psi', lowercase: 'ψ', transliteration: 'ps', sound: 'ps as in lapse' },
+    { char: 'Ω', name: 'Omega', lowercase: 'ω', transliteration: 'o', sound: 'long o as in bone' }
+  ],
+  geez: [
+    { char: 'ሀ', name: 'Ha (1st order)', transliteration: 'hae', sound: 'hae' },
+    { char: 'ሁ', name: 'Hu (2nd order)', transliteration: 'hu', sound: 'hu' },
+    { char: 'ሂ', name: 'Hi (3rd order)', transliteration: 'hi', sound: 'hi' },
+    { char: 'ሃ', name: 'Ha (4th order)', transliteration: 'ha', sound: 'ha' },
+    { char: 'ሄ', name: 'He (5th order)', transliteration: 'he', sound: 'he' },
+    { char: 'ህ', name: 'He (6th order)', transliteration: 'huh', sound: 'huh (schwa-like)' },
+    { char: 'ሆ', name: 'Ho (7th order)', transliteration: 'ho', sound: 'ho' }
+  ],
+  amharic: [
+    { char: 'ሀ', name: 'Hae', transliteration: 'hae', sound: 'hae' },
+    { char: 'ሁ', name: 'Hu', transliteration: 'hu', sound: 'hu' },
+    { char: 'ሂ', name: 'Hi', transliteration: 'hi', sound: 'hi' },
+    { char: 'ሃ', name: 'Ha', transliteration: 'ha', sound: 'ha' },
+    { char: 'ሄ', name: 'He', transliteration: 'he', sound: 'he' },
+    { char: 'ህ', name: 'Huh', transliteration: 'huh', sound: 'huh (schwa-like)' },
+    { char: 'ሆ', name: 'Ho', transliteration: 'ho', sound: 'ho' },
+    { char: 'ለ', name: 'Lae', transliteration: 'lae', sound: 'lae' },
+    { char: 'ሉ', name: 'Lu', transliteration: 'lu', sound: 'lu' },
+    { char: 'ሊ', name: 'Li', transliteration: 'li', sound: 'li' },
+    { char: 'ላ', name: 'La', transliteration: 'la', sound: 'la' },
+    { char: 'ሌ', name: 'Le', transliteration: 'le', sound: 'le' },
+    { char: 'ል', name: 'Luh', transliteration: 'luh', sound: 'luh (schwa-like)' },
+    { char: 'ሎ', name: 'Lo', transliteration: 'lo', sound: 'lo' }
+  ]
+};
+
+const COURSE_ALPHABET_ALIASES = {
+  hebrewII: 'ancientHebrew',
+  greekII: 'koineGreek'
+};
+
+function shouldUseFallbackAlphabet(unit) {
+  const title = String(unit?.title || '').toLowerCase();
+  return (
+    title.includes('alphabet') ||
+    title.includes('script') ||
+    title.includes('fidel') ||
+    title.includes('pronunciation')
+  );
+}
+
+function resolveLetters(unit, languageId) {
+  if (Array.isArray(unit?.letters) && unit.letters.length > 0) {
+    return unit.letters;
+  }
+  if (!shouldUseFallbackAlphabet(unit)) {
+    return [];
+  }
+  const mappedId = COURSE_ALPHABET_ALIASES[languageId] || languageId;
+  return COURSE_ALPHABETS[mappedId] || [];
+}
+
 // ── Step Builder ──────────────────────────────────────────────────────────────
-function buildSteps(unit) {
+function buildSteps(unit, languageId) {
   const steps = [];
-  const allLetters = unit.letters || [];
+  const allLetters = resolveLetters(unit, languageId);
 
   // Letter-by-letter flow
   if (allLetters.length > 0) {
@@ -307,8 +459,8 @@ function MatchStep({ step, matchSel, matchPairs, matchChecked, onLeftClick, onRi
 }
 
 // ── Main Component ────────────────────────────────────────────────────────────
-const LanguageLessonFlow = ({ unit, onComplete, onBack }) => {
-  const steps = useMemo(() => buildSteps(unit), [unit]);
+const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack }) => {
+  const steps = useMemo(() => buildSteps(unit, languageId), [unit, languageId]);
 
   const [stepIdx, setStepIdx] = useState(0);
   const [hearts, setHearts] = useState(MAX_HEARTS);
@@ -496,11 +648,18 @@ const LanguageLessonFlow = ({ unit, onComplete, onBack }) => {
             <SelectStep
               prompt="What is the name of this letter?"
               display={
-                <div
-                  className="text-[90px] leading-none font-bold text-white select-none"
-                  style={{ fontFamily: '"SBL Hebrew","Ezra SIL",serif' }}
-                >
-                  {step.letter.char}
+                <div className="text-center">
+                  <div
+                    className="text-[90px] leading-none font-bold text-white select-none"
+                    style={{ fontFamily: '"SBL Hebrew","Ezra SIL",serif' }}
+                  >
+                    {step.letter.char}
+                  </div>
+                  <p className="text-slate-400 mt-2">
+                    <span className="text-indigo-400 font-mono">{step.letter.transliteration}</span>
+                    {' · '}
+                    {step.letter.sound}
+                  </p>
                 </div>
               }
               options={step.options}
