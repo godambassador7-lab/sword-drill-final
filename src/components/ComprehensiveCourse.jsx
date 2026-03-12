@@ -524,12 +524,21 @@ const ComprehensiveCourse = ({
 
     // Language courses get the Duolingo-style interactive flow
     if (isLanguageCourse) {
+      const handleBuyHeart = (cost) => {
+        const newPoints = Math.max(0, (userData?.totalPoints || 0) - cost);
+        if (setUserData) setUserData(prev => ({ ...prev, totalPoints: newPoints }));
+        if (userId) updateUserProgress(userId, { totalPoints: newPoints }).catch(err =>
+          console.error('Error saving points after heart purchase:', err)
+        );
+      };
       return (
         <LanguageLessonFlow
           languageId={courseData.id}
           unit={unit}
           onComplete={startQuiz}
           onBack={() => { setCurrentView('list'); window.scrollTo(0, 0); }}
+          userData={userData}
+          onBuyHeart={handleBuyHeart}
         />
       );
     }

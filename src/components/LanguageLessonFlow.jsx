@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowLeft, Heart, RotateCcw } from 'lucide-react';
 
-const MAX_HEARTS = 3;
+const MAX_HEARTS = 5;
+const HEART_COST = 50;
+const MAX_EXTRA_HEARTS = 2;
 
 const COURSE_ALPHABETS = {
   ancientHebrew: [
@@ -224,13 +226,13 @@ function buildSteps(unit, languageId) {
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
-function HeartsRow({ count }) {
+function HeartsRow({ count, max = MAX_HEARTS }) {
   return (
     <div className="flex gap-1">
-      {Array.from({ length: MAX_HEARTS }).map((_, i) => (
+      {Array.from({ length: max }).map((_, i) => (
         <Heart
           key={i}
-          size={20}
+          size={18}
           fill={i < count ? '#ef4444' : 'none'}
           className={i < count ? 'text-red-500' : 'text-slate-600'}
         />
@@ -459,7 +461,7 @@ function MatchStep({ step, matchSel, matchPairs, matchChecked, onLeftClick, onRi
 }
 
 // ── Main Component ────────────────────────────────────────────────────────────
-const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack }) => {
+const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack, userData, onBuyHeart }) => {
   const steps = useMemo(() => buildSteps(unit, languageId), [unit, languageId]);
 
   const [stepIdx, setStepIdx] = useState(0);
@@ -467,6 +469,7 @@ const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack }) => {
   const [selected, setSelected] = useState(null);
   const [stepResult, setStepResult] = useState(null);
   const [noLives, setNoLives] = useState(false);
+  const [extraHeartsBought, setExtraHeartsBought] = useState(0);
 
   // Match state
   const [matchSel, setMatchSel] = useState(null);
@@ -549,27 +552,83 @@ const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack }) => {
     setStepIdx(0);
     setHearts(MAX_HEARTS);
     setNoLives(false);
+    setExtraHeartsBought(0);
+  };
+
+  const handleBuyHeart = () => {
+    if (extraHeartsBought >= MAX_EXTRA_HEARTS) return;
+    if ((userData?.totalPoints || 0) < HEART_COST) return;
+    onBuyHeart && onBuyHeart(HEART_COST);
+    setExtraHeartsBought(n => n + 1);
+    setHearts(1);
+    setNoLives(false);
   };
 
   // ── No lives screen ───────────────────────────────────────────
   if (noLives) {
+    const canAfford = (userData?.totalPoints || 0) >= HEART_COST;
+    const heartsLeft = MAX_EXTRA_HEARTS - extraHeartsBought;
+    const canBuy = heartsLeft > 0 && canAfford;
+
     return (
       <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-6 text-center">
         <div className="text-6xl mb-4">💔</div>
         <h2 className="text-3xl font-bold text-white mb-2">Out of Hearts!</h2>
-        <p className="text-slate-400 mb-8">
-          Don't worry — practice makes perfect. Try this lesson again!
+        <p className="text-slate-400 mb-6">
+          Don't give up — you can buy an extra heart to keep going!
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
+
+        {/* Buy heart option */}
+        {heartsLeft > 0 && (
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5 mb-6 w-full max-w-sm">
+            <p className="text-slate-300 text-sm mb-3">
+              Extra hearts available:{' '}
+              <span className="text-red-400 font-bold">
+                {heartsLeft} remaining
+              </span>
+            </p>
+            <div className="flex items-center justify-center gap-1 mb-4">
+              {Array.from({ length: MAX_EXTRA_HEARTS }).map((_, i) => (
+                <Heart
+                  key={i}
+                  size={22}
+                  fill={i < heartsLeft ? '#ef4444' : 'none'}
+                  className={i < heartsLeft ? 'text-red-500' : 'text-slate-700'}
+                />
+              ))}
+            </div>
+            <button
+              onClick={handleBuyHeart}
+              disabled={!canBuy}
+              className={`w-full py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 ${
+                canBuy
+                  ? 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white'
+                  : 'bg-slate-700 text-slate-500 cursor-not-allowed'
+              }`}
+            >
+              <Heart size={16} fill={canBuy ? 'white' : 'none'} />
+              {canAfford
+                ? `Buy +1 Heart — ${HEART_COST} pts`
+                : `Not enough points (need ${HEART_COST})`}
+            </button>
+            {!canAfford && (
+              <p className="text-slate-500 text-xs mt-2">
+                You have {userData?.totalPoints || 0} pts
+              </p>
+            )}
+          </div>
+        )}
+
+        <div className="flex gap-3 justify-center flex-wrap">
           <button
             onClick={restartLesson}
-            className="flex items-center gap-2 px-8 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl transition-all"
+            className="flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl transition-all"
           >
             <RotateCcw size={18} /> Try Again
           </button>
           <button
             onClick={onBack}
-            className="flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl transition-all"
+            className="flex items-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl transition-all"
           >
             <ArrowLeft size={18} /> Back
           </button>
@@ -580,7 +639,7 @@ const LanguageLessonFlow = ({ unit, languageId, onComplete, onBack }) => {
 
   // ── Complete screen ───────────────────────────────────────────
   if (step.type === 'complete') {
-    const stars = hearts >= 3 ? '⭐⭐⭐' : hearts >= 2 ? '⭐⭐' : '⭐';
+    const stars = hearts >= 4 ? '⭐⭐⭐' : hearts >= 2 ? '⭐⭐' : '⭐';
     return (
       <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-6 text-center">
         <div className="text-5xl mb-4">{stars}</div>
