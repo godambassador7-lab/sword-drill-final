@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import { getLocalChapterRange } from '../services/localBibleProvider';
 import LanguageLessonFlow from './LanguageLessonFlow';
 import {
   FINAL_EXAM_PASS_PERCENT,
@@ -52,6 +53,69 @@ const sanitizeDisplayIcon = (icon) => {
   if (!raw) return '[icon]';
   if (/(?:\u00C3|\u00C2|\u00E2|\u00F0|\u00EF|\uFFFD)/.test(raw)) return '[icon]';
   return raw;
+};
+
+const CANONICAL_BOOKS = [
+  'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy',
+  'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel',
+  '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles',
+  'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms',
+  'Proverbs', 'Ecclesiastes', 'Song of Solomon', 'Isaiah', 'Jeremiah',
+  'Lamentations', 'Ezekiel', 'Daniel', 'Hosea', 'Joel',
+  'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum',
+  'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi',
+  'Matthew', 'Mark', 'Luke', 'John', 'Acts',
+  'Romans', '1 Corinthians', '2 Corinthians', 'Galatians', 'Ephesians',
+  'Philippians', 'Colossians', '1 Thessalonians', '2 Thessalonians',
+  '1 Timothy', '2 Timothy', 'Titus', 'Philemon', 'Hebrews',
+  'James', '1 Peter', '2 Peter', '1 John', '2 John', '3 John',
+  'Jude', 'Revelation'
+];
+
+const BOOK_INDEX = new Map(CANONICAL_BOOKS.map((book) => [book.toLowerCase(), book]));
+const BOOK_PATTERN = CANONICAL_BOOKS
+  .slice()
+  .sort((a, b) => b.length - a.length)
+  .map((book) => book.replace(/\s+/g, '\\s+'))
+  .join('|');
+const BOOK_REFERENCE_RE = new RegExp(
+  `\\b(${BOOK_PATTERN})\\s+(\\d{1,3}(?::\\d{1,3}(?:\\s*[-]\\s*\\d{1,3}(?::\\d{1,3})?)?)?(?:\\s*[-]\\s*\\d{1,3})?)\\b`,
+  'gi'
+);
+const SHORTHAND_REFERENCE_RE = /\b(\d{1,3}:\d{1,3}(?:\s*-\s*\d{1,3}(?::\d{1,3})?)?)\b/g;
+
+const normalizeBookName = (bookRaw) => {
+  const compact = String(bookRaw || '').trim().replace(/\s+/g, ' ').toLowerCase();
+  return BOOK_INDEX.get(compact) || null;
+};
+
+const normalizeRefToken = (token) => String(token || '')
+  .replace(/[\u2013\u2014]/g, '-')
+  .replace(/\s*-\s*/g, '-')
+  .trim();
+
+const extractScriptureReferences = (text) => {
+  if (!text) return [];
+  const normalized = String(text).replace(/[\u2013\u2014]/g, '-');
+  const found = [];
+  let match;
+
+  while ((match = BOOK_REFERENCE_RE.exec(normalized)) !== null) {
+    const book = normalizeBookName(match[1]);
+    const refToken = normalizeRefToken(match[2]);
+    if (!book || !refToken) continue;
+    found.push(`${book} ${refToken}`);
+
+    const tail = normalized.slice(match.index + match[0].length, match.index + match[0].length + 80);
+    const shorthandMatches = tail.match(SHORTHAND_REFERENCE_RE);
+    if (Array.isArray(shorthandMatches)) {
+      shorthandMatches.forEach((shortRef) => {
+        found.push(`${book} ${normalizeRefToken(shortRef)}`);
+      });
+    }
+  }
+
+  return Array.from(new Set(found));
 };
 
 const normalizeProgressPayload = (payload = {}) => {
@@ -103,6 +167,8 @@ const ComprehensiveCourse = ({
   const [matchingSelectedTerm, setMatchingSelectedTerm] = useState(null);
   const [matchingPairs, setMatchingPairs] = useState({});
   const [matchingSubmitted, setMatchingSubmitted] = useState(false);
+  const [sectionScriptures, setSectionScriptures] = useState({});
+  const scriptureCacheRef = useRef(new Map());
 
   // Load progress from userData first, then fallback to individual localStorage entry
   const loadSavedProgress = () => {
@@ -202,6 +268,63 @@ const ComprehensiveCourse = ({
     setMatchingPairs({});
     setMatchingSubmitted(false);
   }, [selectedUnit]);
+
+  useEffect(() => {
+    if (currentView !== 'lesson' || selectedUnit === null || isLanguageCourse) {
+      setSectionScriptures({});
+      return;
+    }
+
+    const unit = courseData.units[selectedUnit];
+    const sections = Array.isArray(unit?.content) ? unit.content : [];
+    const refsBySection = sections.map((section) => extractScriptureReferences(section?.text || ''));
+
+    const initial = refsBySection.reduce((acc, refs, index) => {
+      if (refs.length > 0) {
+        acc[index] = { refs, loading: true, passages: [] };
+      }
+      return acc;
+    }, {});
+    setSectionScriptures(initial);
+
+    let cancelled = false;
+
+    const loadAll = async () => {
+      const nextState = {};
+      for (let i = 0; i < refsBySection.length; i += 1) {
+        const refs = refsBySection[i];
+        if (!refs.length) continue;
+
+        const passages = [];
+        for (const ref of refs) {
+          const cacheKey = `${Boolean(userData?.simplifiedMode)}:${ref}`;
+          if (scriptureCacheRef.current.has(cacheKey)) {
+            const cached = scriptureCacheRef.current.get(cacheKey);
+            if (cached) passages.push(cached);
+            continue;
+          }
+
+          try {
+            const data = await getLocalChapterRange('KJV', ref, { simplifiedMode: userData?.simplifiedMode });
+            scriptureCacheRef.current.set(cacheKey, data || null);
+            if (data) passages.push(data);
+          } catch (err) {
+            console.error(`Error loading scripture for ${ref}:`, err);
+            scriptureCacheRef.current.set(cacheKey, null);
+          }
+        }
+
+        nextState[i] = { refs, loading: false, passages };
+      }
+
+      if (!cancelled) setSectionScriptures(nextState);
+    };
+
+    loadAll();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentView, selectedUnit, isLanguageCourse, courseData, userData?.simplifiedMode]);
 
   const examPassScore = useMemo(() => {
     return Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
@@ -568,6 +691,21 @@ const ComprehensiveCourse = ({
               <div key={si} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
                 <h2 className={`text-xl font-bold ${theme.examText} mb-3`}>{section.heading}</h2>
                 {section.text.split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
+                {sectionScriptures[si]?.loading && (
+                  <div className="mt-4 bg-slate-900/50 rounded-lg p-4 border border-slate-600">
+                    <p className="text-slate-400 text-sm">Loading scripture passage...</p>
+                  </div>
+                )}
+                {!sectionScriptures[si]?.loading && Array.isArray(sectionScriptures[si]?.passages) && sectionScriptures[si].passages.length > 0 && (
+                  <div className="mt-4 space-y-3">
+                    {sectionScriptures[si].passages.map((passage) => (
+                      <div key={passage.reference} className="bg-slate-900/60 rounded-lg p-4 border border-emerald-500/30">
+                        <h4 className="text-sm font-bold text-emerald-300 mb-2">Full Scripture Passage ({passage.reference})</h4>
+                        <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-line">{passage.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
             {isLanguageCourse && getLanguageDrills(courseData, unit).map((section, si) => (
@@ -910,3 +1048,4 @@ const ComprehensiveCourse = ({
 };
 
 export default ComprehensiveCourse;
+
