@@ -250,6 +250,7 @@ const HermeneuticsCourse = ({ onComplete, onCancel, userId, userData, setUserDat
         isExam={lesson.isExam}
         onComplete={handleQuizComplete}
         onRetry={handleQuizRetry}
+        onOpenBibleReader={onCancel}
       />
     );
   }

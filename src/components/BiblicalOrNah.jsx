@@ -1,6 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, CheckCircle, XCircle, Book, Trophy, Zap, Star, Brain, Target } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+
+const TRUTH_TYPE_METHOD = {
+  AccurateBiblical: {
+    label: 'Directly Biblical',
+    textualStatus: 'The wording is a faithful biblical quotation or close canonical wording.',
+    interpretiveCaution: 'Read the full passage to preserve authorial context and argument flow.'
+  },
+  Doctrine: {
+    label: 'Doctrinal Summary',
+    textualStatus: 'The exact wording is not a single verse but summarizes multi-text biblical teaching.',
+    interpretiveCaution: 'Treat as synthesis and verify the doctrine across multiple passages.'
+  },
+  MisappliedVerse: {
+    label: 'Context Misapplication',
+    textualStatus: 'The phrase borrows biblical language but applies it outside its passage intent.',
+    interpretiveCaution: 'Check audience, literary setting, and original purpose before application.'
+  },
+  MisquotedVerse: {
+    label: 'Misquotation',
+    textualStatus: 'The phrase is commonly attributed to Scripture but is not an exact biblical quotation.',
+    interpretiveCaution: 'Compare wording directly against canonical text before citing.'
+  },
+  PartialTruth: {
+    label: 'Partial Biblical Truth',
+    textualStatus: 'The idea overlaps with biblical themes but is incomplete or overstated.',
+    interpretiveCaution: 'Balance with counter-texts and broader canonical theology.'
+  },
+  NotInBible: {
+    label: 'Not in Bible',
+    textualStatus: 'The phrase is absent from biblical text, even if spiritually popular.',
+    interpretiveCaution: 'Do not present this wording as Scripture; cite actual passages instead.'
+  }
+};
+
+const getMethodProfile = (question) => {
+  const truthType = question?.truthType || (question?.isBiblical ? 'AccurateBiblical' : 'NotInBible');
+  const method = TRUTH_TYPE_METHOD[truthType] || TRUTH_TYPE_METHOD.NotInBible;
+  const references = Array.isArray(question?.scriptureRefs) ? question.scriptureRefs : [];
+
+  return {
+    ...method,
+    truthType,
+    referenceCount: references.length,
+    referenceQuality:
+      references.length >= 3 ? 'Multi-text support' : references.length >= 1 ? 'Single/limited support' : 'No reference provided'
+  };
+};
 
 const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
@@ -48,6 +96,8 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
   }, [selectedDifficulty]);
 
   const currentQuestion = allQuestions[currentQuestionIndex];
+  const methodProfile = getMethodProfile(currentQuestion);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onBack);
 
   const handleAnswer = (answer) => {
     if (selectedAnswer !== null) return; // Already answered
@@ -483,9 +533,15 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
                     <p className="text-xs text-slate-400 mb-1">Scripture References:</p>
                     <div className="flex flex-wrap gap-2">
                       {currentQuestion.scriptureRefs.map((ref, idx) => (
-                        <span key={idx} className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono">
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => openRef(ref)}
+                          className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono hover:bg-purple-500/40 transition-colors"
+                          title="Open in Bible Reader"
+                        >
                           {ref}
-                        </span>
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -497,13 +553,40 @@ const BiblicalOrNah = ({ onBack, userId, userData, setUserData }) => {
                     <p className="text-xs text-slate-400 mb-1">Related Biblical Concepts:</p>
                     <div className="flex flex-wrap gap-2">
                       {currentQuestion.scriptureRefs.map((ref, idx) => (
-                        <span key={idx} className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono">
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => openRef(ref)}
+                          className="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded font-mono hover:bg-purple-500/40 transition-colors"
+                          title="Open in Bible Reader"
+                        >
                           {ref}
-                        </span>
+                        </button>
                       ))}
                     </div>
                   </div>
                 )}
+
+                <div className="mt-3 pt-3 border-t border-slate-600">
+                  <p className="text-xs text-slate-400 mb-2">Study Method (Scholarly Lens):</p>
+                  <div className="space-y-2 text-xs text-slate-300">
+                    <p>
+                      <span className="text-slate-400">Classification:</span>{' '}
+                      <span className="text-purple-300 font-semibold">{methodProfile.label}</span>
+                      {methodProfile.truthType ? ` (${methodProfile.truthType})` : ''}
+                    </p>
+                    <p>
+                      <span className="text-slate-400">Textual Status:</span> {methodProfile.textualStatus}
+                    </p>
+                    <p>
+                      <span className="text-slate-400">Evidence Basis:</span>{' '}
+                      {methodProfile.referenceCount} reference(s) | {methodProfile.referenceQuality}
+                    </p>
+                    <p>
+                      <span className="text-slate-400">Interpretive Caution:</span> {methodProfile.interpretiveCaution}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <button

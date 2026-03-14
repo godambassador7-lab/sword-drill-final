@@ -14,28 +14,98 @@
     "questions": [
       {
         "question": "Who was Jeroboam I before becoming king?",
-        "options": ["Solomon's servant", "A priest", "A prophet", "A shepherd"],
-        "answer": "Solomon's servant"
+        "options": [
+          "Solomon's servant",
+          "A priest",
+          "A prophet",
+          "A shepherd"
+        ],
+        "answer": "Solomon's servant",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Solomon's servant\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How many tribes did Jeroboam rule over?",
-        "options": ["Ten", "Twelve", "Two", "Seven"],
-        "answer": "Ten"
+        "options": [
+          "Ten",
+          "Twelve",
+          "Two",
+          "Seven"
+        ],
+        "answer": "Ten",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ten\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Where did Jeroboam set up golden calves?",
-        "options": ["Dan and Bethel", "Jerusalem and Samaria", "Bethel and Jerusalem", "Dan and Beersheba"],
-        "answer": "Dan and Bethel"
+        "options": [
+          "Dan and Bethel",
+          "Jerusalem and Samaria",
+          "Bethel and Jerusalem",
+          "Dan and Beersheba"
+        ],
+        "answer": "Dan and Bethel",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Dan and Bethel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophet predicted Jeroboam's rise to power?",
-        "options": ["Ahijah", "Elijah", "Elisha", "Isaiah"],
-        "answer": "Ahijah"
+        "options": [
+          "Ahijah",
+          "Elijah",
+          "Elisha",
+          "Isaiah"
+        ],
+        "answer": "Ahijah",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ahijah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What was Jeroboam's main sin?",
-        "options": ["Leading Israel into idolatry", "Murder", "Adultery", "Theft"],
-        "answer": "Leading Israel into idolatry"
+        "options": [
+          "Leading Israel into idolatry",
+          "Murder",
+          "Adultery",
+          "Theft"
+        ],
+        "answer": "Leading Israel into idolatry",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Leading Israel into idolatry\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -54,28 +124,98 @@
     "questions": [
       {
         "question": "How long did Nadab reign?",
-        "options": ["2 years", "10 years", "20 years", "1 year"],
-        "answer": "2 years"
+        "options": [
+          "2 years",
+          "10 years",
+          "20 years",
+          "1 year"
+        ],
+        "answer": "2 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"2 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who was Nadab's father?",
-        "options": ["Jeroboam I", "Solomon", "Rehoboam", "Baasha"],
-        "answer": "Jeroboam I"
+        "options": [
+          "Jeroboam I",
+          "Solomon",
+          "Rehoboam",
+          "Baasha"
+        ],
+        "answer": "Jeroboam I",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jeroboam I\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Nadab?",
-        "options": ["Baasha", "Zimri", "Omri", "Jehu"],
-        "answer": "Baasha"
+        "options": [
+          "Baasha",
+          "Zimri",
+          "Omri",
+          "Jehu"
+        ],
+        "answer": "Baasha",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baasha\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Where was Nadab killed?",
-        "options": ["Gibbethon", "Jerusalem", "Samaria", "Bethel"],
-        "answer": "Gibbethon"
+        "options": [
+          "Gibbethon",
+          "Jerusalem",
+          "Samaria",
+          "Bethel"
+        ],
+        "answer": "Gibbethon",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Gibbethon\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What happened to Nadab's family after his death?",
-        "options": ["They were all destroyed", "They fled to Egypt", "They were spared", "They became servants"],
-        "answer": "They were all destroyed"
+        "options": [
+          "They were all destroyed",
+          "They fled to Egypt",
+          "They were spared",
+          "They became servants"
+        ],
+        "answer": "They were all destroyed",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"They were all destroyed\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -94,28 +234,98 @@
     "questions": [
       {
         "question": "How did Baasha become king?",
-        "options": ["Assassinated Nadab", "Elected by the people", "Inherited the throne", "Appointed by a prophet"],
-        "answer": "Assassinated Nadab"
+        "options": [
+          "Assassinated Nadab",
+          "Elected by the people",
+          "Inherited the throne",
+          "Appointed by a prophet"
+        ],
+        "answer": "Assassinated Nadab",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Assassinated Nadab\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What did Baasha do to Jeroboam's family?",
-        "options": ["Destroyed them all", "Spared them", "Exiled them", "Made them servants"],
-        "answer": "Destroyed them all"
+        "options": [
+          "Destroyed them all",
+          "Spared them",
+          "Exiled them",
+          "Made them servants"
+        ],
+        "answer": "Destroyed them all",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Destroyed them all\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophet prophesied against Baasha?",
-        "options": ["Jehu", "Elijah", "Ahijah", "Elisha"],
-        "answer": "Jehu"
+        "options": [
+          "Jehu",
+          "Elijah",
+          "Ahijah",
+          "Elisha"
+        ],
+        "answer": "Jehu",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jehu\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Baasha reign?",
-        "options": ["23 years", "2 years", "40 years", "10 years"],
-        "answer": "23 years"
+        "options": [
+          "23 years",
+          "2 years",
+          "40 years",
+          "10 years"
+        ],
+        "answer": "23 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"23 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did Baasha turn from idolatry after becoming king?",
-        "options": ["No, he continued in sin", "Yes, he served the LORD", "He partially reformed", "He was neutral"],
-        "answer": "No, he continued in sin"
+        "options": [
+          "No, he continued in sin",
+          "Yes, he served the LORD",
+          "He partially reformed",
+          "He was neutral"
+        ],
+        "answer": "No, he continued in sin",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, he continued in sin\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -134,28 +344,98 @@
     "questions": [
       {
         "question": "Who was Elah's father?",
-        "options": ["Baasha", "Jeroboam I", "Nadab", "Omri"],
-        "answer": "Baasha"
+        "options": [
+          "Baasha",
+          "Jeroboam I",
+          "Nadab",
+          "Omri"
+        ],
+        "answer": "Baasha",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baasha\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Elah reign?",
-        "options": ["2 years", "10 years", "20 years", "1 year"],
-        "answer": "2 years"
+        "options": [
+          "2 years",
+          "10 years",
+          "20 years",
+          "1 year"
+        ],
+        "answer": "2 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"2 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Elah?",
-        "options": ["Zimri", "Omri", "Baasha", "Jehu"],
-        "answer": "Zimri"
+        "options": [
+          "Zimri",
+          "Omri",
+          "Baasha",
+          "Jehu"
+        ],
+        "answer": "Zimri",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Zimri\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What was Elah doing when he was killed?",
-        "options": ["Drinking and drunk", "Praying", "Fighting a battle", "Sleeping"],
-        "answer": "Drinking and drunk"
+        "options": [
+          "Drinking and drunk",
+          "Praying",
+          "Fighting a battle",
+          "Sleeping"
+        ],
+        "answer": "Drinking and drunk",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Drinking and drunk\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Where was Elah assassinated?",
-        "options": ["Tirzah", "Samaria", "Jerusalem", "Bethel"],
-        "answer": "Tirzah"
+        "options": [
+          "Tirzah",
+          "Samaria",
+          "Jerusalem",
+          "Bethel"
+        ],
+        "answer": "Tirzah",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Tirzah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -174,28 +454,98 @@
     "questions": [
       {
         "question": "How long did Zimri reign?",
-        "options": ["7 days", "7 months", "7 years", "2 years"],
-        "answer": "7 days"
+        "options": [
+          "7 days",
+          "7 months",
+          "7 years",
+          "2 years"
+        ],
+        "answer": "7 days",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"7 days\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What was Zimri's position before becoming king?",
-        "options": ["Chariot commander", "High priest", "Prophet", "Shepherd"],
-        "answer": "Chariot commander"
+        "options": [
+          "Chariot commander",
+          "High priest",
+          "Prophet",
+          "Shepherd"
+        ],
+        "answer": "Chariot commander",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Chariot commander\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How did Zimri die?",
-        "options": ["Burned himself in the palace", "Killed in battle", "Assassinated", "Natural causes"],
-        "answer": "Burned himself in the palace"
+        "options": [
+          "Burned himself in the palace",
+          "Killed in battle",
+          "Assassinated",
+          "Natural causes"
+        ],
+        "answer": "Burned himself in the palace",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Burned himself in the palace\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who besieged Zimri in Tirzah?",
-        "options": ["Omri", "Ahab", "Jehu", "Baasha"],
-        "answer": "Omri"
+        "options": [
+          "Omri",
+          "Ahab",
+          "Jehu",
+          "Baasha"
+        ],
+        "answer": "Omri",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Omri\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Whose family did Zimri destroy?",
-        "options": ["Baasha's", "Jeroboam's", "Solomon's", "His own"],
-        "answer": "Baasha's"
+        "options": [
+          "Baasha's",
+          "Jeroboam's",
+          "Solomon's",
+          "His own"
+        ],
+        "answer": "Baasha's",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baasha's\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -214,28 +564,98 @@
     "questions": [
       {
         "question": "What city did Omri build as Israel's capital?",
-        "options": ["Samaria", "Jerusalem", "Tirzah", "Bethel"],
-        "answer": "Samaria"
+        "options": [
+          "Samaria",
+          "Jerusalem",
+          "Tirzah",
+          "Bethel"
+        ],
+        "answer": "Samaria",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Samaria\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who did Omri defeat to secure his throne?",
-        "options": ["Tibni", "Zimri", "Ahab", "Baasha"],
-        "answer": "Tibni"
+        "options": [
+          "Tibni",
+          "Zimri",
+          "Ahab",
+          "Baasha"
+        ],
+        "answer": "Tibni",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Tibni\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What was Omri's position before becoming king?",
-        "options": ["Commander of the army", "High priest", "Prophet", "Governor"],
-        "answer": "Commander of the army"
+        "options": [
+          "Commander of the army",
+          "High priest",
+          "Prophet",
+          "Governor"
+        ],
+        "answer": "Commander of the army",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Commander of the army\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How was Omri's evil compared to previous kings?",
-        "options": ["He did more evil than all before him", "He was the most righteous", "He was neutral", "He partially reformed"],
-        "answer": "He did more evil than all before him"
+        "options": [
+          "He did more evil than all before him",
+          "He was the most righteous",
+          "He was neutral",
+          "He partially reformed"
+        ],
+        "answer": "He did more evil than all before him",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"He did more evil than all before him\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who was Omri's famous son?",
-        "options": ["Ahab", "Jehu", "Jeroboam", "Zimri"],
-        "answer": "Ahab"
+        "options": [
+          "Ahab",
+          "Jehu",
+          "Jeroboam",
+          "Zimri"
+        ],
+        "answer": "Ahab",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ahab\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -256,28 +676,98 @@
     "questions": [
       {
         "question": "Who was Ahab's wife?",
-        "options": ["Jezebel", "Bathsheba", "Ruth", "Esther"],
-        "answer": "Jezebel"
+        "options": [
+          "Jezebel",
+          "Bathsheba",
+          "Ruth",
+          "Esther"
+        ],
+        "answer": "Jezebel",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jezebel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophet opposed Ahab?",
-        "options": ["Elijah", "Isaiah", "Jeremiah", "Amos"],
-        "answer": "Elijah"
+        "options": [
+          "Elijah",
+          "Isaiah",
+          "Jeremiah",
+          "Amos"
+        ],
+        "answer": "Elijah",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Elijah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What false god did Ahab promote?",
-        "options": ["Baal", "Molech", "Asherah", "Dagon"],
-        "answer": "Baal"
+        "options": [
+          "Baal",
+          "Molech",
+          "Asherah",
+          "Dagon"
+        ],
+        "answer": "Baal",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baal\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Whose vineyard did Ahab take through murder?",
-        "options": ["Naboth's", "David's", "Solomon's", "Elijah's"],
-        "answer": "Naboth's"
+        "options": [
+          "Naboth's",
+          "David's",
+          "Solomon's",
+          "Elijah's"
+        ],
+        "answer": "Naboth's",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Naboth's\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How did Ahab die?",
-        "options": ["In battle as prophesied", "Natural causes", "Assassination", "Suicide"],
-        "answer": "In battle as prophesied"
+        "options": [
+          "In battle as prophesied",
+          "Natural causes",
+          "Assassination",
+          "Suicide"
+        ],
+        "answer": "In battle as prophesied",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"In battle as prophesied\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -296,28 +786,96 @@
     "questions": [
       {
         "question": "Who were Ahaziah's parents?",
-        "options": ["Ahab and Jezebel", "Omri and Jezebel", "Ahab and Ruth", "Jeroboam and Jezebel"],
-        "answer": "Ahab and Jezebel"
+        "options": [
+          "Ahab and Jezebel",
+          "Omri and Jezebel",
+          "Ahab and Ruth",
+          "Jeroboam and Jezebel"
+        ],
+        "answer": "Ahab and Jezebel",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ahab and Jezebel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How was Ahaziah injured?",
-        "options": ["Fell through a lattice", "In battle", "Horse accident", "Poison"],
-        "answer": "Fell through a lattice"
+        "options": [
+          "Fell through a lattice",
+          "In battle",
+          "Horse accident",
+          "Poison"
+        ],
+        "answer": "Fell through a lattice",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Fell through a lattice\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which false god did Ahaziah consult?",
-        "options": ["Baal-zebub", "Baal", "Molech", "Asherah"],
-        "answer": "Baal-zebub"
+        "options": [
+          "Baal-zebub",
+          "Baal",
+          "Molech",
+          "Asherah"
+        ],
+        "answer": "Baal-zebub",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baal-zebub\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophet confronted Ahaziah?",
-        "options": ["Elijah", "Elisha", "Isaiah", "Jeremiah"],
-        "answer": "Elijah"
+        "options": [
+          "Elijah",
+          "Elisha",
+          "Isaiah",
+          "Jeremiah"
+        ],
+        "answer": "Elijah",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Elijah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Ahaziah reign?",
-        "options": ["About 2 years", "10 years", "20 years", "1 month"],
-        "answer": "About 2 years"
+        "options": [
+          "About 2 years",
+          "10 years",
+          "20 years",
+          "1 month"
+        ],
+        "answer": "About 2 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"About 2 years\". Verify final wording against canonical text and course sources.",
+        "reference": "About 2",
+        "qaNeedsReferenceReview": false,
+        "scriptureRefs": [
+          "About 2"
+        ]
       }
     ]
   },
@@ -337,28 +895,98 @@
     "questions": [
       {
         "question": "What did Joram remove that his parents had set up?",
-        "options": ["Sacred stone of Baal", "Golden calves", "Temple of Molech", "Asherah pole"],
-        "answer": "Sacred stone of Baal"
+        "options": [
+          "Sacred stone of Baal",
+          "Golden calves",
+          "Temple of Molech",
+          "Asherah pole"
+        ],
+        "answer": "Sacred stone of Baal",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Sacred stone of Baal\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophet ministered during Joram's reign?",
-        "options": ["Elisha", "Elijah", "Isaiah", "Jeremiah"],
-        "answer": "Elisha"
+        "options": [
+          "Elisha",
+          "Elijah",
+          "Isaiah",
+          "Jeremiah"
+        ],
+        "answer": "Elisha",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Elisha\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who killed Joram?",
-        "options": ["Jehu", "Elisha", "Hazael", "Baasha"],
-        "answer": "Jehu"
+        "options": [
+          "Jehu",
+          "Elisha",
+          "Hazael",
+          "Baasha"
+        ],
+        "answer": "Jehu",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jehu\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did Joram fully turn from evil?",
-        "options": ["No, he continued in Jeroboam's sins", "Yes, he served the LORD", "He was neutral", "He partially reformed"],
-        "answer": "No, he continued in Jeroboam's sins"
+        "options": [
+          "No, he continued in Jeroboam's sins",
+          "Yes, he served the LORD",
+          "He was neutral",
+          "He partially reformed"
+        ],
+        "answer": "No, he continued in Jeroboam's sins",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, he continued in Jeroboam's sins\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who was Joram's father?",
-        "options": ["Ahab", "Omri", "Jeroboam", "Baasha"],
-        "answer": "Ahab"
+        "options": [
+          "Ahab",
+          "Omri",
+          "Jeroboam",
+          "Baasha"
+        ],
+        "answer": "Ahab",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ahab\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -379,28 +1007,98 @@
     "questions": [
       {
         "question": "Who anointed Jehu to be king?",
-        "options": ["A disciple of Elisha", "Elisha himself", "Elijah", "A priest"],
-        "answer": "A disciple of Elisha"
+        "options": [
+          "A disciple of Elisha",
+          "Elisha himself",
+          "Elijah",
+          "A priest"
+        ],
+        "answer": "A disciple of Elisha",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"A disciple of Elisha\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What did Jehu do to Jezebel?",
-        "options": ["Had her thrown from a window", "Exiled her", "Made her a servant", "Imprisoned her"],
-        "answer": "Had her thrown from a window"
+        "options": [
+          "Had her thrown from a window",
+          "Exiled her",
+          "Made her a servant",
+          "Imprisoned her"
+        ],
+        "answer": "Had her thrown from a window",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Had her thrown from a window\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What false worship did Jehu eliminate from Israel?",
-        "options": ["Baal worship", "Golden calf worship", "Molech worship", "Asherah worship"],
-        "answer": "Baal worship"
+        "options": [
+          "Baal worship",
+          "Golden calf worship",
+          "Molech worship",
+          "Asherah worship"
+        ],
+        "answer": "Baal worship",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Baal worship\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What sin did Jehu NOT turn away from?",
-        "options": ["Golden calf worship", "Baal worship", "Murder", "Theft"],
-        "answer": "Golden calf worship"
+        "options": [
+          "Golden calf worship",
+          "Baal worship",
+          "Murder",
+          "Theft"
+        ],
+        "answer": "Golden calf worship",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Golden calf worship\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How many generations did God promise Jehu's dynasty would last?",
-        "options": ["Four", "Two", "Seven", "Ten"],
-        "answer": "Four"
+        "options": [
+          "Four",
+          "Two",
+          "Seven",
+          "Ten"
+        ],
+        "answer": "Four",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Four\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -419,28 +1117,98 @@
     "questions": [
       {
         "question": "Who was Jehoahaz's father?",
-        "options": ["Jehu", "Joram", "Ahab", "Jeroboam"],
-        "answer": "Jehu"
+        "options": [
+          "Jehu",
+          "Joram",
+          "Ahab",
+          "Jeroboam"
+        ],
+        "answer": "Jehu",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jehu\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which nation oppressed Israel during Jehoahaz's reign?",
-        "options": ["Syria (Aram)", "Assyria", "Babylon", "Egypt"],
-        "answer": "Syria (Aram)"
+        "options": [
+          "Syria (Aram)",
+          "Assyria",
+          "Babylon",
+          "Egypt"
+        ],
+        "answer": "Syria (Aram)",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Syria (Aram)\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What did Jehoahaz do when Israel was oppressed?",
-        "options": ["Sought the LORD", "Fled to Egypt", "Made an alliance with Assyria", "Surrendered"],
-        "answer": "Sought the LORD"
+        "options": [
+          "Sought the LORD",
+          "Fled to Egypt",
+          "Made an alliance with Assyria",
+          "Surrendered"
+        ],
+        "answer": "Sought the LORD",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Sought the LORD\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did the people turn from sin after God delivered them?",
-        "options": ["No, they continued in sin", "Yes, they fully repented", "Some did, some didn't", "They partially reformed"],
-        "answer": "No, they continued in sin"
+        "options": [
+          "No, they continued in sin",
+          "Yes, they fully repented",
+          "Some did, some didn't",
+          "They partially reformed"
+        ],
+        "answer": "No, they continued in sin",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, they continued in sin\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What happened to Israel's army under Jehoahaz?",
-        "options": ["It was reduced to minimal strength", "It grew stronger", "It was completely destroyed", "It remained the same"],
-        "answer": "It was reduced to minimal strength"
+        "options": [
+          "It was reduced to minimal strength",
+          "It grew stronger",
+          "It was completely destroyed",
+          "It remained the same"
+        ],
+        "answer": "It was reduced to minimal strength",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"It was reduced to minimal strength\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -460,28 +1228,98 @@
     "questions": [
       {
         "question": "Which dying prophet did Jehoash visit?",
-        "options": ["Elisha", "Elijah", "Isaiah", "Jeremiah"],
-        "answer": "Elisha"
+        "options": [
+          "Elisha",
+          "Elijah",
+          "Isaiah",
+          "Jeremiah"
+        ],
+        "answer": "Elisha",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Elisha\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How many times did Jehoash strike the ground with arrows?",
-        "options": ["Three times", "Five times", "Seven times", "Once"],
-        "answer": "Three times"
+        "options": [
+          "Three times",
+          "Five times",
+          "Seven times",
+          "Once"
+        ],
+        "answer": "Three times",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Three times\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How many times did Jehoash defeat Syria?",
-        "options": ["Three times", "Five times", "Seven times", "Once"],
-        "answer": "Three times"
+        "options": [
+          "Three times",
+          "Five times",
+          "Seven times",
+          "Once"
+        ],
+        "answer": "Three times",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Three times\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What did Jehoash recover from Syria?",
-        "options": ["Cities of Israel", "The temple treasures", "The ark of covenant", "Sacred vessels"],
-        "answer": "Cities of Israel"
+        "options": [
+          "Cities of Israel",
+          "The temple treasures",
+          "The ark of covenant",
+          "Sacred vessels"
+        ],
+        "answer": "Cities of Israel",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Cities of Israel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did Jehoash turn from Jeroboam's sins?",
-        "options": ["No, he continued in them", "Yes, he fully repented", "He partially reformed", "He was neutral"],
-        "answer": "No, he continued in them"
+        "options": [
+          "No, he continued in them",
+          "Yes, he fully repented",
+          "He partially reformed",
+          "He was neutral"
+        ],
+        "answer": "No, he continued in them",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, he continued in them\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -502,28 +1340,98 @@
     "questions": [
       {
         "question": "Which prophet prophesied Jeroboam II's military success?",
-        "options": ["Jonah", "Elisha", "Isaiah", "Jeremiah"],
-        "answer": "Jonah"
+        "options": [
+          "Jonah",
+          "Elisha",
+          "Isaiah",
+          "Jeremiah"
+        ],
+        "answer": "Jonah",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jonah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What characterized Jeroboam II's reign?",
-        "options": ["Great prosperity and expansion", "Constant warfare", "Internal strife", "Poverty"],
-        "answer": "Great prosperity and expansion"
+        "options": [
+          "Great prosperity and expansion",
+          "Constant warfare",
+          "Internal strife",
+          "Poverty"
+        ],
+        "answer": "Great prosperity and expansion",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Great prosperity and expansion\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Jeroboam II reign?",
-        "options": ["41 years", "20 years", "10 years", "2 years"],
-        "answer": "41 years"
+        "options": [
+          "41 years",
+          "20 years",
+          "10 years",
+          "2 years"
+        ],
+        "answer": "41 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"41 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which prophets ministered during Jeroboam II's reign?",
-        "options": ["Amos and Hosea", "Isaiah and Jeremiah", "Elijah and Elisha", "Ezekiel and Daniel"],
-        "answer": "Amos and Hosea"
+        "options": [
+          "Amos and Hosea",
+          "Isaiah and Jeremiah",
+          "Elijah and Elisha",
+          "Ezekiel and Daniel"
+        ],
+        "answer": "Amos and Hosea",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Amos and Hosea\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did Jeroboam II turn from sin despite his success?",
-        "options": ["No, he continued in evil", "Yes, he repented", "He partially reformed", "He was neutral"],
-        "answer": "No, he continued in evil"
+        "options": [
+          "No, he continued in evil",
+          "Yes, he repented",
+          "He partially reformed",
+          "He was neutral"
+        ],
+        "answer": "No, he continued in evil",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, he continued in evil\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -542,28 +1450,96 @@
     "questions": [
       {
         "question": "How long did Zechariah reign?",
-        "options": ["6 months", "2 years", "1 year", "7 days"],
-        "answer": "6 months"
+        "options": [
+          "6 months",
+          "2 years",
+          "1 year",
+          "7 days"
+        ],
+        "answer": "6 months",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"6 months\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which generation of Jehu's dynasty was Zechariah?",
-        "options": ["Fourth", "Second", "Third", "Fifth"],
-        "answer": "Fourth"
+        "options": [
+          "Fourth",
+          "Second",
+          "Third",
+          "Fifth"
+        ],
+        "answer": "Fourth",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Fourth\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Zechariah?",
-        "options": ["Shallum", "Menahem", "Pekah", "Hoshea"],
-        "answer": "Shallum"
+        "options": [
+          "Shallum",
+          "Menahem",
+          "Pekah",
+          "Hoshea"
+        ],
+        "answer": "Shallum",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Shallum\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Whose dynasty ended with Zechariah?",
-        "options": ["Jehu's", "Jeroboam I's", "Omri's", "Ahab's"],
-        "answer": "Jehu's"
+        "options": [
+          "Jehu's",
+          "Jeroboam I's",
+          "Omri's",
+          "Ahab's"
+        ],
+        "answer": "Jehu's",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jehu's\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What promise was fulfilled when Zechariah died?",
-        "options": ["Jehu's 4-generation dynasty promise", "Destruction of Baal worship", "Israel's restoration", "Temple rebuilding"],
-        "answer": "Jehu's 4-generation dynasty promise"
+        "options": [
+          "Jehu's 4-generation dynasty promise",
+          "Destruction of Baal worship",
+          "Israel's restoration",
+          "Temple rebuilding"
+        ],
+        "answer": "Jehu's 4-generation dynasty promise",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Jehu's 4-generation dynasty promise\". Verify final wording against canonical text and course sources.",
+        "reference": "Jehu's 4",
+        "qaNeedsReferenceReview": false,
+        "scriptureRefs": [
+          "Jehu's 4"
+        ]
       }
     ]
   },
@@ -582,28 +1558,98 @@
     "questions": [
       {
         "question": "How long did Shallum reign?",
-        "options": ["1 month", "7 days", "6 months", "1 year"],
-        "answer": "1 month"
+        "options": [
+          "1 month",
+          "7 days",
+          "6 months",
+          "1 year"
+        ],
+        "answer": "1 month",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"1 month\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who did Shallum assassinate?",
-        "options": ["Zechariah", "Jeroboam II", "Menahem", "Pekahiah"],
-        "answer": "Zechariah"
+        "options": [
+          "Zechariah",
+          "Jeroboam II",
+          "Menahem",
+          "Pekahiah"
+        ],
+        "answer": "Zechariah",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Zechariah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Shallum?",
-        "options": ["Menahem", "Pekah", "Hoshea", "Zechariah"],
-        "answer": "Menahem"
+        "options": [
+          "Menahem",
+          "Pekah",
+          "Hoshea",
+          "Zechariah"
+        ],
+        "answer": "Menahem",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Menahem\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What was significant about Shallum's reign?",
-        "options": ["Shortest reign in Israel", "Longest reign in Israel", "Most prosperous", "Most peaceful"],
-        "answer": "Shortest reign in Israel"
+        "options": [
+          "Shortest reign in Israel",
+          "Longest reign in Israel",
+          "Most prosperous",
+          "Most peaceful"
+        ],
+        "answer": "Shortest reign in Israel",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Shortest reign in Israel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What period did Shallum's reign mark?",
-        "options": ["Beginning of rapid decline", "Golden age", "Period of peace", "Religious revival"],
-        "answer": "Beginning of rapid decline"
+        "options": [
+          "Beginning of rapid decline",
+          "Golden age",
+          "Period of peace",
+          "Religious revival"
+        ],
+        "answer": "Beginning of rapid decline",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Beginning of rapid decline\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -623,28 +1669,98 @@
     "questions": [
       {
         "question": "How did Menahem secure his throne?",
-        "options": ["Through brutal force and assassination", "Peaceful election", "Inheritance", "Prophet's anointing"],
-        "answer": "Through brutal force and assassination"
+        "options": [
+          "Through brutal force and assassination",
+          "Peaceful election",
+          "Inheritance",
+          "Prophet's anointing"
+        ],
+        "answer": "Through brutal force and assassination",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Through brutal force and assassination\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which Assyrian king did Menahem pay tribute to?",
-        "options": ["Pul (Tiglath-pileser III)", "Sennacherib", "Shalmaneser", "Nebuchadnezzar"],
-        "answer": "Pul (Tiglath-pileser III)"
+        "options": [
+          "Pul (Tiglath-pileser III)",
+          "Sennacherib",
+          "Shalmaneser",
+          "Nebuchadnezzar"
+        ],
+        "answer": "Pul (Tiglath-pileser III)",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Pul (Tiglath-pileser III)\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How did Menahem get money for tribute?",
-        "options": ["Taxed the wealthy heavily", "Sold temple treasures", "Borrowed from Egypt", "Plundered cities"],
-        "answer": "Taxed the wealthy heavily"
+        "options": [
+          "Taxed the wealthy heavily",
+          "Sold temple treasures",
+          "Borrowed from Egypt",
+          "Plundered cities"
+        ],
+        "answer": "Taxed the wealthy heavily",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"Taxed the wealthy heavily\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What brutal act did Menahem commit?",
-        "options": ["Ripped open pregnant women", "Burned children", "Mass executions", "Poisoned wells"],
-        "answer": "Ripped open pregnant women"
+        "options": [
+          "Ripped open pregnant women",
+          "Burned children",
+          "Mass executions",
+          "Poisoned wells"
+        ],
+        "answer": "Ripped open pregnant women",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Ripped open pregnant women\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Did Menahem turn from sin?",
-        "options": ["No, he continued in evil", "Yes, he repented", "He partially reformed", "He was neutral"],
-        "answer": "No, he continued in evil"
+        "options": [
+          "No, he continued in evil",
+          "Yes, he repented",
+          "He partially reformed",
+          "He was neutral"
+        ],
+        "answer": "No, he continued in evil",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"No, he continued in evil\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -663,28 +1779,98 @@
     "questions": [
       {
         "question": "Who was Pekahiah's father?",
-        "options": ["Menahem", "Jeroboam II", "Zechariah", "Shallum"],
-        "answer": "Menahem"
+        "options": [
+          "Menahem",
+          "Jeroboam II",
+          "Zechariah",
+          "Shallum"
+        ],
+        "answer": "Menahem",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Menahem\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Pekahiah reign?",
-        "options": ["2 years", "1 month", "10 years", "6 months"],
-        "answer": "2 years"
+        "options": [
+          "2 years",
+          "1 month",
+          "10 years",
+          "6 months"
+        ],
+        "answer": "2 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"2 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who was Pekahiah's position before he assassinated the king?",
-        "options": ["His captain", "His son", "A prophet", "A priest"],
-        "answer": "His captain"
+        "options": [
+          "His captain",
+          "His son",
+          "A prophet",
+          "A priest"
+        ],
+        "answer": "His captain",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"His captain\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Pekahiah?",
-        "options": ["Pekah", "Hoshea", "Menahem", "Shallum"],
-        "answer": "Pekah"
+        "options": [
+          "Pekah",
+          "Hoshea",
+          "Menahem",
+          "Shallum"
+        ],
+        "answer": "Pekah",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Pekah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Where was Pekahiah killed?",
-        "options": ["Palace citadel in Samaria", "Temple", "Battlefield", "Tirzah"],
-        "answer": "Palace citadel in Samaria"
+        "options": [
+          "Palace citadel in Samaria",
+          "Temple",
+          "Battlefield",
+          "Tirzah"
+        ],
+        "answer": "Palace citadel in Samaria",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Palace citadel in Samaria\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -705,28 +1891,98 @@
     "questions": [
       {
         "question": "Who did Pekah ally with against Assyria?",
-        "options": ["Rezin of Syria", "Egypt", "Babylon", "Moab"],
-        "answer": "Rezin of Syria"
+        "options": [
+          "Rezin of Syria",
+          "Egypt",
+          "Babylon",
+          "Moab"
+        ],
+        "answer": "Rezin of Syria",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Rezin of Syria\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which kingdom did Pekah attack to force an alliance?",
-        "options": ["Judah", "Egypt", "Moab", "Edom"],
-        "answer": "Judah"
+        "options": [
+          "Judah",
+          "Egypt",
+          "Moab",
+          "Edom"
+        ],
+        "answer": "Judah",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Judah\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What did Assyria do to northern Israel during Pekah's reign?",
-        "options": ["Captured it and deported people", "Made peace treaty", "Paid tribute", "Ignored it"],
-        "answer": "Captured it and deported people"
+        "options": [
+          "Captured it and deported people",
+          "Made peace treaty",
+          "Paid tribute",
+          "Ignored it"
+        ],
+        "answer": "Captured it and deported people",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Captured it and deported people\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Who assassinated Pekah?",
-        "options": ["Hoshea", "Menahem", "Tiglath-pileser", "Rezin"],
-        "answer": "Hoshea"
+        "options": [
+          "Hoshea",
+          "Menahem",
+          "Tiglath-pileser",
+          "Rezin"
+        ],
+        "answer": "Hoshea",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"Hoshea\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long did Pekah reign?",
-        "options": ["20 years", "2 years", "9 years", "1 year"],
-        "answer": "20 years"
+        "options": [
+          "20 years",
+          "2 years",
+          "9 years",
+          "1 year"
+        ],
+        "answer": "20 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"20 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   },
@@ -749,28 +2005,98 @@
     "questions": [
       {
         "question": "What was significant about Hoshea?",
-        "options": ["Last king of Israel", "First king of Israel", "Most righteous king", "Longest reigning king"],
-        "answer": "Last king of Israel"
+        "options": [
+          "Last king of Israel",
+          "First king of Israel",
+          "Most righteous king",
+          "Longest reigning king"
+        ],
+        "answer": "Last king of Israel",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Last king of Israel\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "Which nation did Hoshea conspire with against Assyria?",
-        "options": ["Egypt", "Babylon", "Syria", "Moab"],
-        "answer": "Egypt"
+        "options": [
+          "Egypt",
+          "Babylon",
+          "Syria",
+          "Moab"
+        ],
+        "answer": "Egypt",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Egypt\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "How long was Samaria besieged?",
-        "options": ["3 years", "7 days", "1 year", "6 months"],
-        "answer": "3 years"
+        "options": [
+          "3 years",
+          "7 days",
+          "1 year",
+          "6 months"
+        ],
+        "answer": "3 years",
+        "claimType": "Interpretive Reasoning Claim",
+        "explanation": "QA rationale: the keyed answer is \"3 years\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "When did the northern kingdom fall?",
-        "options": ["722 BC", "586 BC", "931 BC", "1000 BC"],
-        "answer": "722 BC"
+        "options": [
+          "722 BC",
+          "586 BC",
+          "931 BC",
+          "1000 BC"
+        ],
+        "answer": "722 BC",
+        "claimType": "Historical/Textual Fact Claim",
+        "explanation": "QA rationale: the keyed answer is \"722 BC\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       },
       {
         "question": "What happened to the Israelites after Samaria fell?",
-        "options": ["Deported to Assyria", "Fled to Egypt", "Moved to Judah", "Remained in the land"],
-        "answer": "Deported to Assyria"
+        "options": [
+          "Deported to Assyria",
+          "Fled to Egypt",
+          "Moved to Judah",
+          "Remained in the land"
+        ],
+        "answer": "Deported to Assyria",
+        "claimType": "Factual Recall Claim",
+        "explanation": "QA rationale: the keyed answer is \"Deported to Assyria\". Verify final wording against canonical text and course sources.",
+        "reference": "1-2 Kings (Masoretic Text).",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "1-2 Kings (Masoretic Text).",
+          "1-2 Chronicles (Masoretic Text).",
+          "2 Kings 17; 2 Kings 25 for kingdom-transition anchors."
+        ]
       }
     ]
   }

@@ -12,7 +12,15 @@
             "Babylon, Assyria, Media"
           ],
           "correct": 0,
-          "explanation": "The biblical world primarily spanned from Egypt in the southwest, through Canaan in the center, to Mesopotamia in the northeast."
+          "explanation": "The biblical world primarily spanned from Egypt in the southwest, through Canaan in the center, to Mesopotamia in the northeast.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -24,14 +32,33 @@
             "They were banned by Moses"
           ],
           "correct": 1,
-          "explanation": "Agricultural cycles were deeply integrated with religious festivals. Harvest festivals like Passover, Pentecost, and Tabernacles coincided with planting and harvesting seasons."
+          "explanation": "Agricultural cycles were deeply integrated with religious festivals. Harvest festivals like Passover, Pentecost, and Tabernacles coincided with planting and harvesting seasons.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
           "question": "True or False: Trade routes had little impact on Israel's interactions with other nations.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 1,
-          "explanation": "False. Major trade routes passed through Israel, connecting it to surrounding nations and bringing cultural, economic, and religious influences."
+          "explanation": "False. Major trade routes passed through Israel, connecting it to surrounding nations and bringing cultural, economic, and religious influences.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -43,7 +70,15 @@
             "Post-Exile period"
           ],
           "correct": 1,
-          "explanation": "The Period of the Judges followed the Exodus and preceded the establishment of the Kingdom under Saul, David, and Solomon."
+          "explanation": "The Period of the Judges followed the Exodus and preceded the establishment of the Kingdom under Saul, David, and Solomon.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
@@ -55,7 +90,15 @@
             "It only matters for New Testament study"
           ],
           "correct": 1,
-          "explanation": "Geography helps us understand the context of biblical events, trade, warfare, and why certain locations were strategically important in God's redemptive plan."
+          "explanation": "Geography helps us understand the context of biblical events, trade, warfare, and why certain locations were strategically important in God's redemptive plan.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -71,7 +114,15 @@
             "Communal living with no family structure"
           ],
           "correct": 1,
-          "explanation": "Extended families (including grandparents, parents, children, and sometimes other relatives) lived together in family compounds."
+          "explanation": "Extended families (including grandparents, parents, children, and sometimes other relatives) lived together in family compounds.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -83,7 +134,15 @@
             "Scribes and lawyers"
           ],
           "correct": 2,
-          "explanation": "The majority of Israelites were farmers, shepherds, or craftsmen. These agricultural and skilled trades formed the backbone of society."
+          "explanation": "The majority of Israelites were farmers, shepherds, or craftsmen. These agricultural and skilled trades formed the backbone of society.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -95,7 +154,15 @@
             "Meals had no cultural importance"
           ],
           "correct": 1,
-          "explanation": "Meals were communal events that strengthened family bonds and had deep social and religious significance, including fellowship and covenant relationships."
+          "explanation": "Meals were communal events that strengthened family bonds and had deep social and religious significance, including fellowship and covenant relationships.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -107,14 +174,33 @@
             "Only priests wore special clothing"
           ],
           "correct": 1,
-          "explanation": "Clothing indicated a person's social status, occupation, and sometimes religious role. Quality, color, and style all communicated social information."
+          "explanation": "Clothing indicated a person's social status, occupation, and sometimes religious role. Quality, color, and style all communicated social information.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Housing in ancient Israel was typically made of stone or mud brick.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Houses were typically constructed from stone or sun-dried mud bricks, with flat roofs that served as additional living space."
+          "explanation": "True. Houses were typically constructed from stone or sun-dried mud bricks, with flat roofs that served as additional living space.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -130,7 +216,15 @@
             "Random agricultural markers"
           ],
           "correct": 1,
-          "explanation": "The Hebrew calendar followed lunar cycles, with months beginning at the new moon. An extra month was added periodically to align with solar seasons."
+          "explanation": "The Hebrew calendar followed lunar cycles, with months beginning at the new moon. An extra month was added periodically to align with solar seasons.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -142,7 +236,15 @@
             "Sabbath, New Moon, Jubilee"
           ],
           "correct": 1,
-          "explanation": "The three pilgrimage feasts were Passover (Unleavened Bread), Pentecost (Weeks/Shavuot), and Tabernacles (Booths/Sukkot)."
+          "explanation": "The three pilgrimage feasts were Passover (Unleavened Bread), Pentecost (Weeks/Shavuot), and Tabernacles (Booths/Sukkot).",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -154,7 +256,15 @@
             "Individual and corporate"
           ],
           "correct": 2,
-          "explanation": "Feasts commemorated both agricultural cycles (harvest times) and salvation history (God's mighty acts of deliverance)."
+          "explanation": "Feasts commemorated both agricultural cycles (harvest times) and salvation history (God's mighty acts of deliverance).",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -166,14 +276,33 @@
             "He created new feasts to replace them"
           ],
           "correct": 1,
-          "explanation": "Jesus fulfilled the feast days' prophetic symbolism - dying as the Passover Lamb, sending the Spirit at Pentecost, and being the true Light and Water at Tabernacles."
+          "explanation": "Jesus fulfilled the feast days' prophetic symbolism - dying as the Passover Lamb, sending the Spirit at Pentecost, and being the true Light and Water at Tabernacles.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: The Sabbath was observed every seventh day as a day of rest.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The Sabbath (Saturday) was observed every week as a day of rest, commemorating God's rest after creation and deliverance from Egypt."
+          "explanation": "True. The Sabbath (Saturday) was observed every week as a day of rest, commemorating God's rest after creation and deliverance from Egypt.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -189,7 +318,15 @@
             "Royal palace design"
           ],
           "correct": 1,
-          "explanation": "The Tabernacle's design and layout reflected God's holiness, His desire to dwell among His people, and the way to approach Him through sacrifice."
+          "explanation": "The Tabernacle's design and layout reflected God's holiness, His desire to dwell among His people, and the way to approach Him through sacrifice.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -201,7 +338,13 @@
             "It had no theological meaning"
           ],
           "correct": 1,
-          "explanation": "The sacrificial system taught about sin, atonement, and pointed forward to Jesus Christ as the ultimate sacrifice for sin (Hebrews 9-10)."
+          "explanation": "The sacrificial system taught about sin, atonement, and pointed forward to Jesus Christ as the ultimate sacrifice for sin (Hebrews 9-10).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Hebrews 9"
+          ],
+          "reference": "Hebrews 9",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -213,7 +356,15 @@
             "Only the High Priest"
           ],
           "correct": 1,
-          "explanation": "Only priests (descendants of Aaron) could enter the Holy Place to perform daily duties like tending the lampstand and offering incense."
+          "explanation": "Only priests (descendants of Aaron) could enter the Holy Place to perform daily duties like tending the lampstand and offering incense.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -225,14 +376,33 @@
             "The Altar of Incense"
           ],
           "correct": 2,
-          "explanation": "The Ark of the Covenant, containing the tablets of the Law, was kept in the Most Holy Place, representing God's throne and presence."
+          "explanation": "The Ark of the Covenant, containing the tablets of the Law, was kept in the Most Holy Place, representing God's throne and presence.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: The Levites were responsible for assisting priests and maintaining the Tabernacle.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The Levites assisted the priests, carried and set up the Tabernacle, and performed various support roles in worship."
+          "explanation": "True. The Levites assisted the priests, carried and set up the Tabernacle, and performed various support roles in worship.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -248,7 +418,15 @@
             "Through government officials"
           ],
           "correct": 1,
-          "explanation": "Marriages were typically arranged by families, with parents playing a key role in selecting suitable spouses for their children."
+          "explanation": "Marriages were typically arranged by families, with parents playing a key role in selecting suitable spouses for their children.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -260,7 +438,13 @@
             "Forty days"
           ],
           "correct": 2,
-          "explanation": "Wedding celebrations lasted seven days, filled with feasting, music, and rejoicing. This is seen in Judges 14:12 and Jesus' attendance at Cana."
+          "explanation": "Wedding celebrations lasted seven days, filled with feasting, music, and rejoicing. This is seen in Judges 14:12 and Jesus' attendance at Cana.",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "is seen in Judges 14:12"
+          ],
+          "reference": "is seen in Judges 14:12",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -272,7 +456,13 @@
             "None - all sons received equal shares"
           ],
           "correct": 2,
-          "explanation": "The firstborn son received a double portion of the inheritance (Deuteronomy 21:17), recognizing his special role and responsibilities in the family."
+          "explanation": "The firstborn son received a double portion of the inheritance (Deuteronomy 21:17), recognizing his special role and responsibilities in the family.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Deuteronomy 21:17"
+          ],
+          "reference": "Deuteronomy 21:17",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -284,14 +474,33 @@
             "They didn't learn trades until adulthood"
           ],
           "correct": 1,
-          "explanation": "Children learned trades and skills primarily from their parents, with sons learning their father's occupation and daughters learning household management from mothers."
+          "explanation": "Children learned trades and skills primarily from their parents, with sons learning their father's occupation and daughters learning household management from mothers.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Extended family played little role in marriages and child-rearing.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 1,
-          "explanation": "False. Extended family was deeply involved in all aspects of life, including arranging marriages, raising children, and providing economic and social support."
+          "explanation": "False. Extended family was deeply involved in all aspects of life, including arranging marriages, raising children, and providing economic and social support.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -307,7 +516,15 @@
             "Its coastal access"
           ],
           "correct": 2,
-          "explanation": "Israel's location on the land bridge between Africa, Asia, and Europe made it a natural crossroads for trade and cultural exchange."
+          "explanation": "Israel's location on the land bridge between Africa, Asia, and Europe made it a natural crossroads for trade and cultural exchange.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -319,7 +536,15 @@
             "Craftsmen"
           ],
           "correct": 1,
-          "explanation": "Most Israelites were engaged in agriculture - farming crops or tending flocks - which shaped their daily life and religious calendar."
+          "explanation": "Most Israelites were engaged in agriculture - farming crops or tending flocks - which shaped their daily life and religious calendar.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -331,7 +556,15 @@
             "Trumpets"
           ],
           "correct": 2,
-          "explanation": "Passover commemorated God's deliverance of Israel from Egyptian slavery and the angel of death 'passing over' Hebrew homes marked with lamb's blood."
+          "explanation": "Passover commemorated God's deliverance of Israel from Egyptian slavery and the angel of death 'passing over' Hebrew homes marked with lamb's blood.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -343,7 +576,15 @@
             "The Table of Showbread"
           ],
           "correct": 1,
-          "explanation": "The Ark of the Covenant, containing the stone tablets of the Law, was the only item in the Most Holy Place, representing God's throne."
+          "explanation": "The Ark of the Covenant, containing the stone tablets of the Law, was the only item in the Most Holy Place, representing God's throne.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
@@ -355,7 +596,15 @@
             "Once per year on the Day of Atonement"
           ],
           "correct": 3,
-          "explanation": "Only the High Priest could enter the Most Holy Place, and only once per year on Yom Kippur (Day of Atonement) to make atonement for the nation's sins."
+          "explanation": "Only the High Priest could enter the Most Holy Place, and only once per year on Yom Kippur (Day of Atonement) to make atonement for the nation's sins.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 6,
@@ -367,7 +616,15 @@
             "Family ties were discouraged"
           ],
           "correct": 1,
-          "explanation": "Extended families lived in compounds together, provided mutual support, arranged marriages, and functioned as the basic economic and social unit."
+          "explanation": "Extended families lived in compounds together, provided mutual support, arranged marriages, and functioned as the basic economic and social unit.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 7,
@@ -379,14 +636,33 @@
             "The calendar had no agricultural connection"
           ],
           "correct": 1,
-          "explanation": "The three pilgrimage feasts (Passover, Pentecost, Tabernacles) aligned with key harvest seasons: barley, wheat, and fruit/final harvest."
+          "explanation": "The three pilgrimage feasts (Passover, Pentecost, Tabernacles) aligned with key harvest seasons: barley, wheat, and fruit/final harvest.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 8,
           "question": "True or False: Meals in ancient Israel were primarily individual affairs with little social significance.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 1,
-          "explanation": "False. Meals were highly communal and socially significant, strengthening family bonds and expressing fellowship and covenant relationships."
+          "explanation": "False. Meals were highly communal and socially significant, strengthening family bonds and expressing fellowship and covenant relationships.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 9,
@@ -398,7 +674,15 @@
             "To appease pagan gods"
           ],
           "correct": 2,
-          "explanation": "Sacrifices provided atonement for sin, symbolizing substitutionary death and pointing forward to Christ's ultimate sacrifice."
+          "explanation": "Sacrifices provided atonement for sin, symbolizing substitutionary death and pointing forward to Christ's ultimate sacrifice.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 10,
@@ -410,7 +694,13 @@
             "Forty days"
           ],
           "correct": 2,
-          "explanation": "Wedding celebrations lasted seven days, as seen in biblical accounts (Judges 14:12) and Jesus' attendance at the wedding in Cana."
+          "explanation": "Wedding celebrations lasted seven days, as seen in biblical accounts (Judges 14:12) and Jesus' attendance at the wedding in Cana.",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Judges 14:12"
+          ],
+          "reference": "Judges 14:12",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 11,
@@ -422,7 +712,15 @@
             "Only non-monetary blessings"
           ],
           "correct": 1,
-          "explanation": "The firstborn son received a double portion of the inheritance, recognizing his role as future head of the family with additional responsibilities."
+          "explanation": "The firstborn son received a double portion of the inheritance, recognizing his role as future head of the family with additional responsibilities.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 12,
@@ -434,7 +732,15 @@
             "Hanukkah"
           ],
           "correct": 3,
-          "explanation": "Hanukkah (Feast of Dedication) was established later. The three pilgrimage feasts commanded in Torah were Passover, Pentecost, and Tabernacles."
+          "explanation": "Hanukkah (Feast of Dedication) was established later. The three pilgrimage feasts commanded in Torah were Passover, Pentecost, and Tabernacles.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 13,
@@ -446,7 +752,15 @@
             "Religious affiliation only"
           ],
           "correct": 2,
-          "explanation": "Clothing communicated social status, occupation, and sometimes religious role through quality, color, style, and special garments."
+          "explanation": "Clothing communicated social status, occupation, and sometimes religious role through quality, color, style, and special garments.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 14,
@@ -458,7 +772,15 @@
             "Royal administrators"
           ],
           "correct": 1,
-          "explanation": "The Levites were from the tribe of Levi, set apart to assist priests, maintain the Tabernacle/Temple, and serve in worship."
+          "explanation": "The Levites were from the tribe of Levi, set apart to assist priests, maintain the Tabernacle/Temple, and serve in worship.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 15,
@@ -470,7 +792,15 @@
             "Sending children to distant schools"
           ],
           "correct": 1,
-          "explanation": "Children learned primarily from parents in the context of daily life, with fathers teaching sons their trade and mothers teaching daughters household skills."
+          "explanation": "Children learned primarily from parents in the context of daily life, with fathers teaching sons their trade and mothers teaching daughters household skills.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     }
@@ -488,7 +818,14 @@
             "600 years"
           ],
           "correct": 2,
-          "explanation": "Approximately 400 years passed between Malachi (c. 430 BC) and the birth of Christ, often called the '400 silent years.'"
+          "explanation": "Approximately 400 years passed between Malachi (c. 430 BC) and the birth of Christ, often called the '400 silent years.'",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Approximately 400",
+            "c. 430"
+          ],
+          "reference": "Approximately 400",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -500,7 +837,15 @@
             "Zealots"
           ],
           "correct": 1,
-          "explanation": "The Pharisees believed in resurrection, angels, spirits, and valued oral tradition alongside written Torah. They were the most influential group among common people."
+          "explanation": "The Pharisees believed in resurrection, angels, spirits, and valued oral tradition alongside written Torah. They were the most influential group among common people.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -512,7 +857,15 @@
             "Roman authority"
           ],
           "correct": 2,
-          "explanation": "The Sadducees rejected resurrection, angels, and spirits, accepting only the written Torah. They were aristocratic and politically pragmatic."
+          "explanation": "The Sadducees rejected resurrection, angels, and spirits, accepting only the written Torah. They were aristocratic and politically pragmatic.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -524,14 +877,33 @@
             "Ezra"
           ],
           "correct": 1,
-          "explanation": "Zerubbabel led the rebuilding of the Temple around 516 BC (Ezra 3-6). Herod later greatly expanded and beautified it starting around 20 BC."
+          "explanation": "Zerubbabel led the rebuilding of the Temple around 516 BC (Ezra 3-6). Herod later greatly expanded and beautified it starting around 20 BC.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "of the Temple around 516",
+            "Ezra 3",
+            "beautified it starting around 20"
+          ],
+          "reference": "of the Temple around 516",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
           "question": "True or False: The Zealots sought political liberation from Rome through military action.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The Zealots were a revolutionary movement that sought to overthrow Roman rule through armed resistance and rebellion."
+          "explanation": "True. The Zealots were a revolutionary movement that sought to overthrow Roman rule through armed resistance and rebellion.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -547,7 +919,15 @@
             "During the Judges period"
           ],
           "correct": 1,
-          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't access the Temple. They became centers for prayer, Torah study, and community."
+          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't access the Temple. They became centers for prayer, Torah study, and community.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -559,7 +939,14 @@
             "Reading, Writing, Torah"
           ],
           "correct": 1,
-          "explanation": "Jewish boys attended Bet Sefer (elementary, ages 5-10), Bet Talmud (secondary, ages 10-14), and exceptional students continued to Bet Midrash (advanced study)."
+          "explanation": "Jewish boys attended Bet Sefer (elementary, ages 5-10), Bet Talmud (secondary, ages 10-14), and exceptional students continued to Bet Midrash (advanced study).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "ages 5",
+            "ages 10"
+          ],
+          "reference": "ages 5",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -571,7 +958,13 @@
             "He established new ones"
           ],
           "correct": 2,
-          "explanation": "Jesus regularly attended and taught in synagogues throughout Galilee and Judea, using them as platforms to proclaim the Kingdom (Luke 4:16-21)."
+          "explanation": "Jesus regularly attended and taught in synagogues throughout Galilee and Judea, using them as platforms to proclaim the Kingdom (Luke 4:16-21).",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Luke 4:16-21"
+          ],
+          "reference": "Luke 4:16-21",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -583,14 +976,31 @@
             "Building maintenance"
           ],
           "correct": 1,
-          "explanation": "Rabbis were religious teachers and interpreters of Torah. They taught in synagogues and trained disciples in understanding and applying Scripture."
+          "explanation": "Rabbis were religious teachers and interpreters of Torah. They taught in synagogues and trained disciples in understanding and applying Scripture.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Paul used synagogues as a starting point for evangelism in new cities.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Paul's typical pattern was to begin preaching in the local synagogue when entering a new city (Acts 13:14-15, 14:1, 17:1-2)."
+          "explanation": "True. Paul's typical pattern was to begin preaching in the local synagogue when entering a new city (Acts 13:14-15, 14:1, 17:1-2).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 13:14-15"
+          ],
+          "reference": "Acts 13:14-15",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -606,7 +1016,15 @@
             "Capernaum in Galilee"
           ],
           "correct": 1,
-          "explanation": "Jesus grew up in Nazareth in the region of Galilee, though He was born in Bethlehem and later based His ministry in Capernaum."
+          "explanation": "Jesus grew up in Nazareth in the region of Galilee, though He was born in Bethlehem and later based His ministry in Capernaum.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -618,7 +1036,15 @@
             "He only ministered to gentiles"
           ],
           "correct": 1,
-          "explanation": "Jesus functioned as a rabbi - teaching, gathering disciples, and interpreting Torah. He was addressed as 'Rabbi' and used rabbinic teaching methods."
+          "explanation": "Jesus functioned as a rabbi - teaching, gathering disciples, and interpreting Torah. He was addressed as 'Rabbi' and used rabbinic teaching methods.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -630,7 +1056,15 @@
             "He only taught farmers"
           ],
           "correct": 2,
-          "explanation": "Jesus used agricultural imagery (seeds, harvests, vineyards) because His audience lived in an agricultural society and could easily relate to these concepts."
+          "explanation": "Jesus used agricultural imagery (seeds, harvests, vineyards) because His audience lived in an agricultural society and could easily relate to these concepts.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -642,14 +1076,33 @@
             "A priest"
           ],
           "correct": 2,
-          "explanation": "Many Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, missing the prophecies about a suffering servant."
+          "explanation": "Many Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, missing the prophecies about a suffering servant.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Jesus lived as a devout Jew who observed Torah.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Jesus observed Torah, attended synagogue and Temple, kept the feasts, and lived as a devout Jew while challenging legalistic misinterpretations."
+          "explanation": "True. Jesus observed Torah, attended synagogue and Temple, kept the feasts, and lived as a devout Jew while challenging legalistic misinterpretations.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -665,7 +1118,15 @@
             "Hanukkah"
           ],
           "correct": 2,
-          "explanation": "Jesus celebrated Passover with His disciples and transformed the Passover meal into the Lord's Supper, identifying Himself as the Passover Lamb."
+          "explanation": "Jesus celebrated Passover with His disciples and transformed the Passover meal into the Lord's Supper, identifying Himself as the Passover Lamb.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -677,7 +1138,13 @@
             "Day of Atonement"
           ],
           "correct": 1,
-          "explanation": "The Holy Spirit came on Pentecost (Acts 2), 50 days after Passover. Pentecost celebrated the wheat harvest and commemorated the giving of the Law at Sinai."
+          "explanation": "The Holy Spirit came on Pentecost (Acts 2), 50 days after Passover. Pentecost celebrated the wheat harvest and commemorated the giving of the Law at Sinai.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 2"
+          ],
+          "reference": "Acts 2",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -689,7 +1156,14 @@
             "Trumpets"
           ],
           "correct": 2,
-          "explanation": "At the Feast of Tabernacles, Jesus proclaimed Himself the living water (John 7:37-39) and light of the world (John 8:12), fulfilling the feast's symbolism."
+          "explanation": "At the Feast of Tabernacles, Jesus proclaimed Himself the living water (John 7:37-39) and light of the world (John 8:12), fulfilling the feast's symbolism.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "John 7:37-39",
+            "John 8:12"
+          ],
+          "reference": "John 7:37-39",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -701,14 +1175,32 @@
             "Pentecost"
           ],
           "correct": 1,
-          "explanation": "At Hanukkah (Feast of Dedication), Jesus declared Himself the Good Shepherd and stated 'I and the Father are one' (John 10:22-30)."
+          "explanation": "At Hanukkah (Feast of Dedication), Jesus declared Himself the Good Shepherd and stated 'I and the Father are one' (John 10:22-30).",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "is mentioned in John 10",
+            "John 10:22-30"
+          ],
+          "reference": "is mentioned in John 10",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
           "question": "True or False: The feasts form a prophetic calendar pointing to Messiah's work.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The spring feasts prophetically point to Christ's first coming (death, resurrection, sending of the Spirit) and fall feasts to His return."
+          "explanation": "True. The spring feasts prophetically point to Christ's first coming (death, resurrection, sending of the Spirit) and fall feasts to His return.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -724,7 +1216,14 @@
             "About 5,000"
           ],
           "correct": 1,
-          "explanation": "About 120 believers were gathered in the upper room when the Holy Spirit came (Acts 1:15). That day, 3,000 were added to their number."
+          "explanation": "About 120 believers were gathered in the upper room when the Holy Spirit came (Acts 1:15). That day, 3,000 were added to their number.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "About 120",
+            "Acts 1:15"
+          ],
+          "reference": "About 120",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -736,7 +1235,13 @@
             "They taxed members"
           ],
           "correct": 1,
-          "explanation": "The early Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35)."
+          "explanation": "The early Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 2:44-45"
+          ],
+          "reference": "Acts 2:44-45",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -748,7 +1253,13 @@
             "Paul"
           ],
           "correct": 2,
-          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus (Acts 7). His death sparked widespread persecution."
+          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus (Acts 7). His death sparked widespread persecution.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "Acts 7"
+          ],
+          "reference": "Acts 7",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -760,14 +1271,29 @@
             "It caused everyone to deny Christ"
           ],
           "correct": 2,
-          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to Judea, Samaria, and beyond (Acts 8:1-4)."
+          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to Judea, Samaria, and beyond (Acts 8:1-4).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 8:1-4"
+          ],
+          "reference": "Acts 8:1-4",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
           "question": "True or False: Peter's vision and encounter with Cornelius revealed that the gospel was for all nations, not just Jews.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Peter's vision (Acts 10) and Cornelius' conversion showed that God accepts Gentiles without requiring them to become Jews first."
+          "explanation": "True. Peter's vision (Acts 10) and Cornelius' conversion showed that God accepts Gentiles without requiring them to become Jews first.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 10"
+          ],
+          "reference": "Acts 10",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -783,7 +1309,13 @@
             "Teaching in Jerusalem Temple"
           ],
           "correct": 1,
-          "explanation": "Saul was a zealous Pharisee who persecuted Christians, approving of Stephen's death and seeking to imprison believers (Acts 7:58, 8:1-3, 9:1-2)."
+          "explanation": "Saul was a zealous Pharisee who persecuted Christians, approving of Stephen's death and seeking to imprison believers (Acts 7:58, 8:1-3, 9:1-2).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 7:58"
+          ],
+          "reference": "Acts 7:58",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -795,7 +1327,15 @@
             "Only preached to Gentiles"
           ],
           "correct": 1,
-          "explanation": "Paul strategically targeted major urban centers (Antioch, Ephesus, Corinth, Rome) where the gospel could spread to surrounding regions."
+          "explanation": "Paul strategically targeted major urban centers (Antioch, Ephesus, Corinth, Rome) where the gospel could spread to surrounding regions.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -807,7 +1347,13 @@
             "By avoiding Jewish communities"
           ],
           "correct": 1,
-          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is the Messiah, before turning to Gentiles (Acts 13:14-15, 17:1-2)."
+          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is the Messiah, before turning to Gentiles (Acts 13:14-15, 17:1-2).",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Acts 13:14-15"
+          ],
+          "reference": "Acts 13:14-15",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -819,14 +1365,31 @@
             "He never wrote letters"
           ],
           "correct": 1,
-          "explanation": "Paul wrote letters to address specific problems, answer questions, teach doctrine, and encourage the churches he had planted."
+          "explanation": "Paul wrote letters to address specific problems, answer questions, teach doctrine, and encourage the churches he had planted.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Paul established leadership in each church before moving on.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Paul appointed elders in each church (Acts 14:23) to provide ongoing leadership and oversight after he departed."
+          "explanation": "True. Paul appointed elders in each church (Acts 14:23) to provide ongoing leadership and oversight after he departed.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 14:23"
+          ],
+          "reference": "Acts 14:23",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -842,7 +1405,15 @@
             "Zealots"
           ],
           "correct": 1,
-          "explanation": "The Sadducees were the aristocratic priestly party who controlled the Temple, denied resurrection and angels, and accepted only the written Torah."
+          "explanation": "The Sadducees were the aristocratic priestly party who controlled the Temple, denied resurrection and angels, and accepted only the written Torah.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -854,7 +1425,15 @@
             "During the Roman period only"
           ],
           "correct": 1,
-          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't worship at the Temple, becoming centers for prayer, Torah study, and community."
+          "explanation": "Synagogues developed during the Babylonian exile when Jews couldn't worship at the Temple, becoming centers for prayer, Torah study, and community.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -866,7 +1445,14 @@
             "600 years"
           ],
           "correct": 2,
-          "explanation": "Approximately 400 years passed between the Old and New Testaments, from Malachi (c. 430 BC) to Jesus' birth."
+          "explanation": "Approximately 400 years passed between the Old and New Testaments, from Malachi (c. 430 BC) to Jesus' birth.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Approximately 400",
+            "c. 430"
+          ],
+          "reference": "Approximately 400",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -878,7 +1464,15 @@
             "A high priest"
           ],
           "correct": 1,
-          "explanation": "Most Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, based on their interpretation of prophecy."
+          "explanation": "Most Jews expected a political/military Messiah who would overthrow Rome and restore Israel's kingdom, based on their interpretation of prophecy.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
@@ -890,7 +1484,15 @@
             "Day of Atonement"
           ],
           "correct": 2,
-          "explanation": "Jesus instituted the Lord's Supper during the Passover meal, identifying Himself as the Passover Lamb whose body and blood bring salvation."
+          "explanation": "Jesus instituted the Lord's Supper during the Passover meal, identifying Himself as the Passover Lamb whose body and blood bring salvation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 6,
@@ -902,7 +1504,13 @@
             "Hanukkah"
           ],
           "correct": 1,
-          "explanation": "The Holy Spirit came on Pentecost (50 days after Passover), fulfilling Joel's prophecy and empowering the church (Acts 2)."
+          "explanation": "The Holy Spirit came on Pentecost (50 days after Passover), fulfilling Joel's prophecy and empowering the church (Acts 2).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 2"
+          ],
+          "reference": "Acts 2",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 7,
@@ -914,7 +1522,13 @@
             "Paul"
           ],
           "correct": 1,
-          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus. His death sparked widespread persecution (Acts 6-7)."
+          "explanation": "Stephen was the first Christian martyr, stoned for his bold testimony about Jesus. His death sparked widespread persecution (Acts 6-7).",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "Acts 6"
+          ],
+          "reference": "Acts 6",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 8,
@@ -926,7 +1540,13 @@
             "It caused apostasy"
           ],
           "correct": 2,
-          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to new regions (Acts 8:1-4)."
+          "explanation": "Persecution scattered believers from Jerusalem, but they preached wherever they went, spreading the gospel to new regions (Acts 8:1-4).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 8:1-4"
+          ],
+          "reference": "Acts 8:1-4",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 9,
@@ -938,7 +1558,13 @@
             "The food laws still apply"
           ],
           "correct": 2,
-          "explanation": "Peter's vision and Cornelius' conversion demonstrated that God accepts Gentiles through faith without requiring Jewish conversion (Acts 10)."
+          "explanation": "Peter's vision and Cornelius' conversion demonstrated that God accepts Gentiles through faith without requiring Jewish conversion (Acts 10).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 10"
+          ],
+          "reference": "Acts 10",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 10,
@@ -950,7 +1576,13 @@
             "Physician"
           ],
           "correct": 2,
-          "explanation": "Paul was a tentmaker by trade (Acts 18:3), which he continued during his missionary work to support himself and set an example."
+          "explanation": "Paul was a tentmaker by trade (Acts 18:3), which he continued during his missionary work to support himself and set an example.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 18:3"
+          ],
+          "reference": "Acts 18:3",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 11,
@@ -962,7 +1594,13 @@
             "Building a church first"
           ],
           "correct": 1,
-          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is Messiah, then turning to Gentiles (Acts 13:14-15, 17:1-2)."
+          "explanation": "Paul typically began in the local synagogue, reasoning from Scripture that Jesus is Messiah, then turning to Gentiles (Acts 13:14-15, 17:1-2).",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Acts 13:14-15"
+          ],
+          "reference": "Acts 13:14-15",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 12,
@@ -974,7 +1612,13 @@
             "They hoarded wealth"
           ],
           "correct": 1,
-          "explanation": "The Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35)."
+          "explanation": "The Jerusalem church shared possessions communally, selling property to meet needs and ensuring no one lacked (Acts 2:44-45, 4:32-35).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 2:44-45"
+          ],
+          "reference": "Acts 2:44-45",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 13,
@@ -986,7 +1630,15 @@
             "Perea"
           ],
           "correct": 2,
-          "explanation": "While Jesus ministered throughout Israel, Galilee was His primary region of ministry, where He performed most miracles and taught extensively."
+          "explanation": "While Jesus ministered throughout Israel, Galilee was His primary region of ministry, where He performed most miracles and taught extensively.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 14,
@@ -998,7 +1650,15 @@
             "Trumpets"
           ],
           "correct": 1,
-          "explanation": "Pentecost (Shavuot/Feast of Weeks) celebrates the wheat harvest and commemorates the giving of the Torah at Mount Sinai."
+          "explanation": "Pentecost (Shavuot/Feast of Weeks) celebrates the wheat harvest and commemorates the giving of the Torah at Mount Sinai.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 15,
@@ -1010,7 +1670,13 @@
             "A hospital"
           ],
           "correct": 2,
-          "explanation": "Paul appointed elders/leadership in each church (Acts 14:23) to provide ongoing pastoral care and oversight after his departure."
+          "explanation": "Paul appointed elders/leadership in each church (Acts 14:23) to provide ongoing pastoral care and oversight after his departure.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 14:23"
+          ],
+          "reference": "Acts 14:23",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 16,
@@ -1022,7 +1688,13 @@
             "Purim"
           ],
           "correct": 2,
-          "explanation": "At the Feast of Tabernacles, Jesus proclaimed He is the light of the world (John 8:12), fulfilling the feast's lampstand ceremony symbolism."
+          "explanation": "At the Feast of Tabernacles, Jesus proclaimed He is the light of the world (John 8:12), fulfilling the feast's lampstand ceremony symbolism.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "John 8:12"
+          ],
+          "reference": "John 8:12",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 17,
@@ -1034,7 +1706,15 @@
             "Zealots"
           ],
           "correct": 2,
-          "explanation": "The Essenes withdrew to the desert (like Qumran) to live in strict purity, separate from what they viewed as a corrupted Temple system."
+          "explanation": "The Essenes withdrew to the desert (like Qumran) to live in strict purity, separate from what they viewed as a corrupted Temple system.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 18,
@@ -1046,7 +1726,15 @@
             "Torah, Prophets, Writings"
           ],
           "correct": 1,
-          "explanation": "Jewish education had three levels: Bet Sefer (elementary), Bet Talmud (secondary), and Bet Midrash (advanced rabbinic study)."
+          "explanation": "Jewish education had three levels: Bet Sefer (elementary), Bet Talmud (secondary), and Bet Midrash (advanced rabbinic study).",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 19,
@@ -1058,7 +1746,14 @@
             "3,000"
           ],
           "correct": 2,
-          "explanation": "About 120 believers were gathered when the Holy Spirit came (Acts 1:15). After Peter's sermon, 3,000 were added that day."
+          "explanation": "About 120 believers were gathered when the Holy Spirit came (Acts 1:15). After Peter's sermon, 3,000 were added that day.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "About 120",
+            "Acts 1:15"
+          ],
+          "reference": "About 120",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 20,
@@ -1070,7 +1765,15 @@
             "To criticize other apostles"
           ],
           "correct": 1,
-          "explanation": "Paul wrote to address specific problems, answer questions, teach sound doctrine, encourage believers, and strengthen churches."
+          "explanation": "Paul wrote to address specific problems, answer questions, teach sound doctrine, encourage believers, and strengthen churches.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     }
@@ -1088,7 +1791,15 @@
             "Protestant reformers"
           ],
           "correct": 1,
-          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by those who did."
+          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by those who did.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -1100,7 +1811,15 @@
             "Translating Scripture"
           ],
           "correct": 1,
-          "explanation": "They preserved and faithfully taught apostolic doctrine, providing a crucial link between the apostles and later generations of Christians."
+          "explanation": "They preserved and faithfully taught apostolic doctrine, providing a crucial link between the apostles and later generations of Christians.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -1112,7 +1831,13 @@
             "An apocalyptic prophecy"
           ],
           "correct": 1,
-          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) containing instructions on Christian ethics, baptism, fasting, prayer, and church order."
+          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) containing instructions on Christian ethics, baptism, fasting, prayer, and church order.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 50"
+          ],
+          "reference": "c. 50",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -1124,14 +1849,32 @@
             "Author of Revelation"
           ],
           "correct": 1,
-          "explanation": "Polycarp was bishop of Smyrna, a disciple of the apostle John, and was martyred around 155 AD at age 86 for refusing to deny Christ."
+          "explanation": "Polycarp was bishop of Smyrna, a disciple of the apostle John, and was martyred around 155 AD at age 86 for refusing to deny Christ.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "and was martyred around 155",
+            "AD at age 86"
+          ],
+          "reference": "and was martyred around 155",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
           "question": "True or False: The Apostolic Fathers emphasized episcopal (bishop-led) church structure.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Writings like Ignatius' letters emphasize the authority of bishops as successors to the apostles and leaders of local churches."
+          "explanation": "True. Writings like Ignatius' letters emphasize the authority of bishops as successors to the apostles and leaders of local churches.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1147,7 +1890,13 @@
             "Diocletian"
           ],
           "correct": 1,
-          "explanation": "Nero began the first major persecution (c. 64 AD), blaming Christians for the Great Fire of Rome. Tradition says Peter and Paul died in this persecution."
+          "explanation": "Nero began the first major persecution (c. 64 AD), blaming Christians for the Great Fire of Rome. Tradition says Peter and Paul died in this persecution.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 64"
+          ],
+          "reference": "c. 64",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -1159,7 +1908,15 @@
             "Romans had no reason"
           ],
           "correct": 1,
-          "explanation": "Christians were persecuted primarily for refusing to worship Roman gods and the emperor, which was seen as atheism and disloyalty to the state."
+          "explanation": "Christians were persecuted primarily for refusing to worship Roman gods and the emperor, which was seen as atheism and disloyalty to the state.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -1171,7 +1928,15 @@
             "\"Victory through death\""
           ],
           "correct": 1,
-          "explanation": "Tertullian wrote, 'The blood of martyrs is the seed of the church,' noting how martyrs' faithful witness inspired conversions and strengthened believers."
+          "explanation": "Tertullian wrote, 'The blood of martyrs is the seed of the church,' noting how martyrs' faithful witness inspired conversions and strengthened believers.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1183,14 +1948,33 @@
             "A church council decision"
           ],
           "correct": 1,
-          "explanation": "Constantine's Edict of Milan (313 AD) granted religious tolerance to Christians, ending persecution and allowing public worship throughout the Roman Empire."
+          "explanation": "Constantine's Edict of Milan (313 AD) granted religious tolerance to Christians, ending persecution and allowing public worship throughout the Roman Empire.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Roman persecution of Christians was constant and empire-wide from the beginning.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 1,
-          "explanation": "False. Persecution was sporadic and localized, varying by emperor and region. Some periods saw intense persecution, others relative peace."
+          "explanation": "False. Persecution was sporadic and localized, varying by emperor and region. Some periods saw intense persecution, others relative peace.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1206,7 +1990,15 @@
             "Universal salvation"
           ],
           "correct": 1,
-          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed matter is evil, and denied Christ's true humanity."
+          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed matter is evil, and denied Christ's true humanity.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -1218,7 +2010,15 @@
             "All four Gospels"
           ],
           "correct": 2,
-          "explanation": "Marcion rejected the Old Testament and its God, claiming the God of the OT was different from Jesus' Father. He accepted only edited versions of Luke and Paul's letters."
+          "explanation": "Marcion rejected the Old Testament and its God, claiming the God of the OT was different from Jesus' Father. He accepted only edited versions of Luke and Paul's letters.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -1230,7 +2030,15 @@
             "Claiming multiple gods exist"
           ],
           "correct": 1,
-          "explanation": "Arius taught that Christ was the first and greatest created being, but not eternal God. This was condemned at the Council of Nicaea (325 AD)."
+          "explanation": "Arius taught that Christ was the first and greatest created being, but not eternal God. This was condemned at the Council of Nicaea (325 AD).",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1242,14 +2050,33 @@
             "Split into denominations"
           ],
           "correct": 1,
-          "explanation": "Heresies forced the church to clarify core beliefs through creeds (like the Nicene Creed) and establish the biblical canon to counter false teachings."
+          "explanation": "Heresies forced the church to clarify core beliefs through creeds (like the Nicene Creed) and establish the biblical canon to counter false teachings.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Heresies actually helped the church clarify and defend orthodox doctrine.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Confronting heresies forced the church to carefully define and defend core doctrines like the Trinity, Christ's nature, and the canon of Scripture."
+          "explanation": "True. Confronting heresies forced the church to carefully define and defend core doctrines like the Trinity, Christ's nature, and the canon of Scripture.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1265,7 +2092,15 @@
             "Church organization"
           ],
           "correct": 1,
-          "explanation": "The Council of Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father."
+          "explanation": "The Council of Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -1277,7 +2112,15 @@
             "The second coming"
           ],
           "correct": 1,
-          "explanation": "Constantinople clarified the doctrine of the Trinity, particularly affirming the deity and personhood of the Holy Spirit."
+          "explanation": "Constantinople clarified the doctrine of the Trinity, particularly affirming the deity and personhood of the Holy Spirit.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -1289,7 +2132,15 @@
             "He is partly God and partly human"
           ],
           "correct": 2,
-          "explanation": "Chalcedon affirmed that Christ is one person with two complete natures - fully God and fully human, without mixture, confusion, separation, or division."
+          "explanation": "Chalcedon affirmed that Christ is one person with two complete natures - fully God and fully human, without mixture, confusion, separation, or division.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1301,14 +2152,33 @@
             "To set worship liturgy"
           ],
           "correct": 1,
-          "explanation": "The Nicene Creed summarized orthodox Christian belief, particularly about the Trinity and Christ's nature, serving as a standard against heresy."
+          "explanation": "The Nicene Creed summarized orthodox Christian belief, particularly about the Trinity and Christ's nature, serving as a standard against heresy.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: The ecumenical councils were convened to resolve major theological disputes.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Ecumenical councils brought together bishops from throughout the Christian world to resolve major theological controversies and establish orthodox doctrine."
+          "explanation": "True. Ecumenical councils brought together bishops from throughout the Christian world to resolve major theological controversies and establish orthodox doctrine.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1324,7 +2194,13 @@
             "Organizing church councils"
           ],
           "correct": 1,
-          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity to pagan philosophers and Roman authorities, eventually dying as a martyr."
+          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity to pagan philosophers and Roman authorities, eventually dying as a martyr.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 100"
+          ],
+          "reference": "c. 100",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -1336,7 +2212,13 @@
             "Establishing monasticism"
           ],
           "correct": 0,
-          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnosticism and defending orthodox Christian teaching about God, Christ, and salvation."
+          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnosticism and defending orthodox Christian teaching about God, Christ, and salvation.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 130"
+          ],
+          "reference": "c. 130",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -1348,7 +2230,14 @@
             "Converted Constantine"
           ],
           "correct": 1,
-          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate translation of the Bible, which became the standard Bible for Western Christianity for over 1,000 years."
+          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate translation of the Bible, which became the standard Bible for Western Christianity for over 1,000 years.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 347",
+            "Western Christianity for over 1"
+          ],
+          "reference": "c. 347",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -1360,14 +2249,33 @@
             "Musical worship"
           ],
           "correct": 1,
-          "explanation": "Augustine (354-430) developed profound theology on grace, original sin, predestination, and the nature of the church. His works shaped all later Western theology."
+          "explanation": "Augustine (354-430) developed profound theology on grace, original sin, predestination, and the nature of the church. His works shaped all later Western theology.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: The Church Fathers' writings became foundational for all later Christian theology.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The Church Fathers' works in biblical interpretation, systematic theology, and apologetics shaped Christian thought for all subsequent generations."
+          "explanation": "True. The Church Fathers' works in biblical interpretation, systematic theology, and apologetics shaped Christian thought for all subsequent generations.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1383,7 +2291,13 @@
             "Jerome"
           ],
           "correct": 1,
-          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism. He withdrew to the desert for prayer and spiritual warfare, inspiring many to follow."
+          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism. He withdrew to the desert for prayer and spiritual warfare, inspiring many to follow.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "c. 251"
+          ],
+          "reference": "c. 251",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -1395,7 +2309,13 @@
             "Writing apologetics"
           ],
           "correct": 1,
-          "explanation": "Benedict of Nursia (c. 480-547) created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community."
+          "explanation": "Benedict of Nursia (c. 480-547) created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 480"
+          ],
+          "reference": "c. 480",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -1407,7 +2327,15 @@
             "Trading goods"
           ],
           "correct": 2,
-          "explanation": "Monks painstakingly copied Scripture and classical texts by hand, preserving learning and literacy through the Dark Ages when civilization collapsed around them."
+          "explanation": "Monks painstakingly copied Scripture and classical texts by hand, preserving learning and literacy through the Dark Ages when civilization collapsed around them.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1419,14 +2347,33 @@
             "Egyptian temple rituals"
           ],
           "correct": 2,
-          "explanation": "Early Christian liturgy developed from Jewish synagogue worship patterns, including Scripture reading, prayer, psalms, and teaching."
+          "explanation": "Early Christian liturgy developed from Jewish synagogue worship patterns, including Scripture reading, prayer, psalms, and teaching.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: The church calendar developed to commemorate Christ's life and honor martyrs.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. The church calendar developed to commemorate events in Christ's life (Christmas, Easter, Ascension) and honor martyrs and faithful saints."
+          "explanation": "True. The church calendar developed to commemorate events in Christ's life (Christmas, Easter, Ascension) and honor martyrs and faithful saints.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1442,7 +2389,13 @@
             "Corinth"
           ],
           "correct": 2,
-          "explanation": "Ephesus served as Paul's base for over two years during his third journey, from which the gospel spread throughout the province of Asia (Acts 19)."
+          "explanation": "Ephesus served as Paul's base for over two years during his third journey, from which the gospel spread throughout the province of Asia (Acts 19).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 19"
+          ],
+          "reference": "Acts 19",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 2,
@@ -1454,7 +2407,15 @@
             "None"
           ],
           "correct": 2,
-          "explanation": "All seven churches (Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea) were located in the Roman province of Asia (modern western Turkey)."
+          "explanation": "All seven churches (Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea) were located in the Roman province of Asia (modern western Turkey).",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 3,
@@ -1466,7 +2427,15 @@
             "Amber Road"
           ],
           "correct": 2,
-          "explanation": "The Via Maris connected Egypt to Damascus and Mesopotamia, passing through Israel and making it a strategic crossroads for trade and military campaigns."
+          "explanation": "The Via Maris connected Egypt to Damascus and Mesopotamia, passing through Israel and making it a strategic crossroads for trade and military campaigns.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1478,14 +2447,33 @@
             "Only Jerusalem"
           ],
           "correct": 1,
-          "explanation": "Modern archaeology has confirmed many biblical locations, events, and customs, providing external verification of Scripture's historical accuracy."
+          "explanation": "Modern archaeology has confirmed many biblical locations, events, and customs, providing external verification of Scripture's historical accuracy.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
           "question": "True or False: Strategic locations like Antioch, Ephesus, and Rome became major centers of early Christianity.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 0,
-          "explanation": "True. Strategically located cities with good transportation links became centers where the gospel could spread to surrounding regions."
+          "explanation": "True. Strategically located cities with good transportation links became centers where the gospel could spread to surrounding regions.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     },
@@ -1501,7 +2489,15 @@
             "Protestant reformers"
           ],
           "correct": 1,
-          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by apostolic disciples."
+          "explanation": "The Apostolic Fathers were early church leaders (late 1st-early 2nd century) who knew the apostles personally or were taught by apostolic disciples.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 2,
@@ -1513,7 +2509,13 @@
             "Diocletian"
           ],
           "correct": 1,
-          "explanation": "Nero began the first major persecution after the Great Fire of Rome (64 AD), blaming Christians. Peter and Paul likely died in this persecution."
+          "explanation": "Nero began the first major persecution after the Great Fire of Rome (64 AD), blaming Christians. Peter and Paul likely died in this persecution.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "persecution of Christians around 64"
+          ],
+          "reference": "persecution of Christians around 64",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -1525,7 +2527,15 @@
             "Salvation through works"
           ],
           "correct": 1,
-          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed physical matter is evil, and denied Christ's true physical humanity."
+          "explanation": "Gnosticism taught salvation through secret knowledge (gnosis), claimed physical matter is evil, and denied Christ's true physical humanity.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 4,
@@ -1537,7 +2547,15 @@
             "Teaching multiple gods"
           ],
           "correct": 1,
-          "explanation": "Arius taught that Christ was the first and greatest created being but not eternal God, denying His full deity."
+          "explanation": "Arius taught that Christ was the first and greatest created being but not eternal God, denying His full deity.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 5,
@@ -1549,7 +2567,15 @@
             "The nature of Mary"
           ],
           "correct": 1,
-          "explanation": "Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father, co-eternal and co-equal."
+          "explanation": "Nicaea addressed Arianism, affirming that Jesus Christ is fully God, of the same substance (homoousios) as the Father, co-eternal and co-equal.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 6,
@@ -1561,7 +2587,15 @@
             "Christ has a mixed divine-human nature"
           ],
           "correct": 2,
-          "explanation": "Chalcedon affirmed Christ is one person with two complete, distinct natures - fully God and fully human, without confusion or mixture."
+          "explanation": "Chalcedon affirmed Christ is one person with two complete, distinct natures - fully God and fully human, without confusion or mixture.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 7,
@@ -1573,7 +2607,15 @@
             "A military conscription order"
           ],
           "correct": 1,
-          "explanation": "Constantine's Edict of Milan granted religious tolerance to Christians, ending persecution and allowing public worship throughout the empire."
+          "explanation": "Constantine's Edict of Milan granted religious tolerance to Christians, ending persecution and allowing public worship throughout the empire.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 8,
@@ -1585,7 +2627,14 @@
             "He opposed the apostles' teaching"
           ],
           "correct": 1,
-          "explanation": "Polycarp was bishop of Smyrna and a direct disciple of the apostle John, martyred around 155 AD at age 86."
+          "explanation": "Polycarp was bishop of Smyrna and a direct disciple of the apostle John, martyred around 155 AD at age 86.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "martyred around 155",
+            "AD at age 86"
+          ],
+          "reference": "martyred around 155",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 9,
@@ -1597,7 +2646,13 @@
             "A letter from Paul"
           ],
           "correct": 1,
-          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) with instructions on ethics, baptism, prayer, fasting, and church order."
+          "explanation": "The Didache ('Teaching') is an early church manual (c. 50-120 AD) with instructions on ethics, baptism, prayer, fasting, and church order.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 50"
+          ],
+          "reference": "c. 50",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 10,
@@ -1609,7 +2664,13 @@
             "Cyprian"
           ],
           "correct": 1,
-          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnostic teachings and defending orthodox Christian doctrine."
+          "explanation": "Irenaeus (c. 130-202) wrote 'Against Heresies,' systematically refuting Gnostic teachings and defending orthodox Christian doctrine.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "c. 130"
+          ],
+          "reference": "c. 130",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 11,
@@ -1621,7 +2682,14 @@
             "Tertullian"
           ],
           "correct": 2,
-          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate, which became the standard Bible for Western Christianity for over 1,000 years."
+          "explanation": "Jerome (c. 347-420) produced the Latin Vulgate, which became the standard Bible for Western Christianity for over 1,000 years.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "c. 347",
+            "Western Christianity for over 1"
+          ],
+          "reference": "c. 347",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 12,
@@ -1633,7 +2701,15 @@
             "Church architecture"
           ],
           "correct": 1,
-          "explanation": "Augustine developed profound theology on grace, original sin, predestination, and the church, shaping all later Western Christian thought."
+          "explanation": "Augustine developed profound theology on grace, original sin, predestination, and the church, shaping all later Western Christian thought.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 13,
@@ -1645,7 +2721,13 @@
             "Pachomius"
           ],
           "correct": 1,
-          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism, withdrawing to the desert for prayer and inspiring the monastic movement."
+          "explanation": "Anthony of Egypt (c. 251-356) is considered the father of monasticism, withdrawing to the desert for prayer and inspiring the monastic movement.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "c. 251"
+          ],
+          "reference": "c. 251",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 14,
@@ -1657,7 +2739,15 @@
             "Evangelizing Europe"
           ],
           "correct": 1,
-          "explanation": "Benedict of Nursia created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community living."
+          "explanation": "Benedict of Nursia created the Benedictine Rule, a balanced guide for monastic life emphasizing prayer, work, study, and community living.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 15,
@@ -1669,7 +2759,15 @@
             "Building fortifications"
           ],
           "correct": 2,
-          "explanation": "Monks preserved learning by painstakingly copying Scripture and classical texts, maintaining literacy and knowledge through the Dark Ages."
+          "explanation": "Monks preserved learning by painstakingly copying Scripture and classical texts, maintaining literacy and knowledge through the Dark Ages.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 16,
@@ -1681,7 +2779,15 @@
             "Mystery religions"
           ],
           "correct": 2,
-          "explanation": "Early Christian worship developed from Jewish synagogue patterns, including Scripture reading, prayer, psalms, and exposition."
+          "explanation": "Early Christian worship developed from Jewish synagogue patterns, including Scripture reading, prayer, psalms, and exposition.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 17,
@@ -1693,7 +2799,15 @@
             "Teaching multiple gods"
           ],
           "correct": 1,
-          "explanation": "Marcion rejected the Old Testament and its God, claiming the OT God was different from Jesus' Father, accepting only edited versions of Luke and Paul."
+          "explanation": "Marcion rejected the Old Testament and its God, claiming the OT God was different from Jesus' Father, accepting only edited versions of Luke and Paul.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 18,
@@ -1705,7 +2819,15 @@
             "\"Faith conquers all\""
           ],
           "correct": 1,
-          "explanation": "Tertullian wrote that 'the blood of martyrs is the seed of the church,' noting how faithful witness unto death inspired conversions and growth."
+          "explanation": "Tertullian wrote that 'the blood of martyrs is the seed of the church,' noting how faithful witness unto death inspired conversions and growth.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 19,
@@ -1717,7 +2839,13 @@
             "Philippi"
           ],
           "correct": 2,
-          "explanation": "Ephesus served as Paul's base for over two years, from which 'all who dwelt in Asia heard the word of the Lord' (Acts 19:10)."
+          "explanation": "Ephesus served as Paul's base for over two years, from which 'all who dwelt in Asia heard the word of the Lord' (Acts 19:10).",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Acts 19:10"
+          ],
+          "reference": "Acts 19:10",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 20,
@@ -1729,7 +2857,15 @@
             "Italy"
           ],
           "correct": 2,
-          "explanation": "All seven churches were in the Roman province of Asia (modern western Turkey): Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea."
+          "explanation": "All seven churches were in the Roman province of Asia (modern western Turkey): Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, Laodicea.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 21,
@@ -1741,7 +2877,15 @@
             "Split into denominations"
           ],
           "correct": 1,
-          "explanation": "The church responded by developing creeds (Apostles', Nicene), clarifying the biblical canon, and defining orthodox doctrine against error."
+          "explanation": "The church responded by developing creeds (Apostles', Nicene), clarifying the biblical canon, and defining orthodox doctrine against error.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 22,
@@ -1753,14 +2897,33 @@
             "The second coming"
           ],
           "correct": 1,
-          "explanation": "Constantinople clarified Trinitarian doctrine, particularly affirming the full deity and personhood of the Holy Spirit against pneumatomachians."
+          "explanation": "Constantinople clarified Trinitarian doctrine, particularly affirming the full deity and personhood of the Holy Spirit against pneumatomachians.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 23,
           "question": "True or False: Roman persecution of Christians was constant from the beginning.",
-          "options": ["True", "False"],
+          "options": [
+            "True",
+            "False"
+          ],
           "correct": 1,
-          "explanation": "False. Persecution was sporadic and varied by emperor and region. Some periods saw intense persecution, others relative peace and tolerance."
+          "explanation": "False. Persecution was sporadic and varied by emperor and region. Some periods saw intense persecution, others relative peace and tolerance.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         },
         {
           "id": 24,
@@ -1772,7 +2935,13 @@
             "Church councils"
           ],
           "correct": 1,
-          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity intellectually to pagan philosophers and Roman authorities."
+          "explanation": "Justin Martyr (c. 100-165) was an early apologist who defended Christianity intellectually to pagan philosophers and Roman authorities.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "c. 100"
+          ],
+          "reference": "c. 100",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 25,
@@ -1784,7 +2953,15 @@
             "Incense Route only"
           ],
           "correct": 1,
-          "explanation": "The Via Maris connected Egypt to Mesopotamia through Israel, making it a strategic crossroads for trade, culture, and military campaigns."
+          "explanation": "The Via Maris connected Egypt to Mesopotamia through Israel, making it a strategic crossroads for trade, culture, and military campaigns.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Eusebius. Ecclesiastical History.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Eusebius. Ecclesiastical History.",
+            "Henry Bettenson and Chris Maunder (eds.). Documents of the Christian Church.",
+            "J. N. D. Kelly. Early Christian Doctrines."
+          ]
         }
       ]
     }

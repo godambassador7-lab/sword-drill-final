@@ -50,6 +50,12 @@ const TargumReader = ({ onBack, userData, targumType = 'jonathan' }) => {
   const targumDescription = targumType === 'jonathan'
     ? 'Aramaic Translation of the Prophets (Nevi\'im)'
     : 'Aramaic Translation of the Torah';
+  const pdfPath = targumType === 'jonathan'
+    ? 'The-Targum-of-Jonathan-Ben-Uzziel.pdf'
+    : 'targumjonathant00churgoog.pdf';
+  const pdfNote = targumType === 'jonathan'
+    ? 'Scholarly PDF edition of Targum Jonathan.'
+    : 'Legacy Targum scan currently used as an interim source while dedicated Onkelos chapter JSON is being prepared.';
 
   // Check if user has unlocked this Targum
   const isUnlocked = targumType === 'jonathan'
@@ -184,13 +190,14 @@ const TargumReader = ({ onBack, userData, targumType = 'jonathan' }) => {
               Access the complete scholarly edition of the {targumName}
             </p>
             <a
-              href={`${process.env.PUBLIC_URL}/${targumType === 'jonathan' ? 'The-Targum-of-Jonathan-Ben-Uzziel.pdf' : 'targumjonathant00churgoog.pdf'}`}
+              href={`${process.env.PUBLIC_URL}/${pdfPath}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 px-6 rounded-lg transition-all"
             >
               Open Full PDF Document
             </a>
+            <p className="mt-3 text-xs text-amber-100">{pdfNote}</p>
           </div>
 
           {/* Book Grid */}
@@ -299,13 +306,14 @@ const TargumReader = ({ onBack, userData, targumType = 'jonathan' }) => {
                 Please access the complete text via the PDF document:
               </p>
               <a
-                href={`${process.env.PUBLIC_URL}/${targumType === 'jonathan' ? 'The-Targum-of-Jonathan-Ben-Uzziel.pdf' : 'targumjonathant00churgoog.pdf'}`}
+                href={`${process.env.PUBLIC_URL}/${pdfPath}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-2 px-6 rounded-lg transition-all"
               >
                 Open PDF - {selectedBook.name} Chapter {selectedChapter}
               </a>
+              <p className="mt-3 text-xs text-amber-100">{pdfNote}</p>
             </div>
           )}
 

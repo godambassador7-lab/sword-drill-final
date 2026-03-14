@@ -16,6 +16,8 @@ import {
 import { updateUserProgress } from '../services/dbService';
 import { getLocalChapterRange } from '../services/localBibleProvider';
 import LanguageLessonFlow from './LanguageLessonFlow';
+import getCourseBibliography from '../data/courseBibliography';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
 import {
   FINAL_EXAM_PASS_PERCENT,
   FINAL_EXAM_NOVEL_RATIO,
@@ -227,6 +229,40 @@ const ComprehensiveCourse = ({
 
   const quizPassScore = courseData.quizPassScore ?? 4;
   const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
+  const bibliography = useMemo(() => getCourseBibliography(courseData), [courseData]);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onCancel);
+  const courseSourceIndex = useMemo(() => {
+    const refs = new Set();
+    (courseData.units || []).forEach((unit) => {
+      (unit.content || []).forEach((section) => {
+        extractScriptureReferences(section?.text || '').forEach(ref => refs.add(ref));
+      });
+      (unit.quiz || []).forEach((question) => {
+        extractScriptureReferences(`${question?.question || ''} ${question?.explanation || ''}`).forEach(ref => refs.add(ref));
+      });
+      (unit.keyTerms || []).forEach((kt) => {
+        extractScriptureReferences(`${kt?.term || ''} ${kt?.definition || ''}`).forEach(ref => refs.add(ref));
+      });
+    });
+    return Array.from(refs);
+  }, [courseData]);
+
+  const selectedUnitSourceIndex = useMemo(() => {
+    if (selectedUnit === null) return [];
+    const unit = courseData.units?.[selectedUnit];
+    if (!unit) return [];
+    const refs = new Set();
+    (unit.content || []).forEach((section) => {
+      extractScriptureReferences(section?.text || '').forEach(ref => refs.add(ref));
+    });
+    (unit.quiz || []).forEach((question) => {
+      extractScriptureReferences(`${question?.question || ''} ${question?.explanation || ''}`).forEach(ref => refs.add(ref));
+    });
+    (unit.keyTerms || []).forEach((kt) => {
+      extractScriptureReferences(`${kt?.term || ''} ${kt?.definition || ''}`).forEach(ref => refs.add(ref));
+    });
+    return Array.from(refs);
+  }, [selectedUnit, courseData]);
 
   // Generate stable (per-unit-visit) randomised practice questions from keyTerms
   const practiceQuestions = useMemo(() => {
@@ -686,6 +722,31 @@ const ComprehensiveCourse = ({
               </div>
             </div>
           </div>
+          {selectedUnitSourceIndex.length > 0 && (
+            <div className="bg-slate-800/60 rounded-xl p-4 border border-teal-500/30 mb-6">
+              <h3 className="text-sm font-bold text-teal-300 mb-2 flex items-center gap-2">
+                <BookOpen size={16} />
+                Unit Source Index
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {selectedUnitSourceIndex.slice(0, 24).map((ref) => (
+                  <button
+                    key={ref}
+                    onClick={() => openRef(ref)}
+                    className="px-2 py-1 rounded border border-teal-500/30 bg-teal-900/20 text-xs text-teal-200 hover:bg-teal-800/40 transition-colors"
+                    title="Open in Bible Reader"
+                  >
+                    {ref}
+                  </button>
+                ))}
+              </div>
+              {selectedUnitSourceIndex.length > 24 && (
+                <p className="text-xs text-slate-400 mt-2">
+                  Showing 24 of {selectedUnitSourceIndex.length} detected references.
+                </p>
+              )}
+            </div>
+          )}
           <div className="space-y-6">
             {unit.content.map((section, si) => (
               <div key={si} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
@@ -1042,6 +1103,74 @@ const ComprehensiveCourse = ({
           <p className="text-slate-300 mb-3"><strong className="text-blue-300">{courseData.about.level}</strong> - {courseData.about.description}</p>
           <p className="text-slate-300"><strong className="text-blue-300">Credit Equivalent:</strong> {courseData.about.credits} | <strong className="text-blue-300">Prerequisites:</strong> {courseData.about.prerequisites}</p>
         </div>
+        {courseSourceIndex.length > 0 && (
+          <div className="mt-6 bg-slate-800/50 rounded-xl p-6 border border-teal-500/30">
+            <h2 className="text-xl font-bold text-teal-300 mb-3 flex items-center gap-2">
+              <BookOpen size={22} />
+              Course Source Index
+            </h2>
+            <p className="text-slate-300 text-sm mb-3">
+              Automatically detected Scripture references used throughout lessons, terms, and quiz explanations.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {courseSourceIndex.slice(0, 60).map((ref) => (
+                <button
+                  key={ref}
+                  onClick={() => openRef(ref)}
+                  className="px-2 py-1 rounded border border-teal-500/30 bg-teal-900/20 text-xs text-teal-200 hover:bg-teal-800/40 transition-colors"
+                  title="Open in Bible Reader"
+                >
+                  {ref}
+                </button>
+              ))}
+            </div>
+            {courseSourceIndex.length > 60 && (
+              <p className="text-xs text-slate-400 mt-3">
+                Showing 60 of {courseSourceIndex.length} detected references.
+              </p>
+            )}
+          </div>
+        )}
+        {bibliography && (
+          <div className="mt-6 bg-slate-800/50 rounded-xl p-6 border border-purple-500/30">
+            <h2 className="text-xl font-bold text-purple-300 mb-3 flex items-center gap-2">
+              <BookOpen size={22} />
+              Bibliography
+            </h2>
+            <p className="text-slate-300 text-sm mb-4">
+              Recommended sources for deeper, citation-grade study.
+            </p>
+
+            <div className="mb-4">
+              <h3 className="text-sm font-bold text-amber-300 mb-2">Primary Sources</h3>
+              <ul className="space-y-1">
+                {(bibliography.primary || []).map((item, idx) => (
+                  <li key={`p-${idx}`} className="text-sm text-slate-200">- {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mb-4">
+              <h3 className="text-sm font-bold text-blue-300 mb-2">Secondary Scholarship</h3>
+              <ul className="space-y-1">
+                {(bibliography.secondary || []).map((item, idx) => (
+                  <li key={`s-${idx}`} className="text-sm text-slate-200">- {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {(bibliography.furtherReading || []).length > 0 && (
+              <div>
+                <h3 className="text-sm font-bold text-emerald-300 mb-2">Further Reading</h3>
+                <ul className="space-y-1">
+                  {bibliography.furtherReading.map((item, idx) => (
+                    <li key={`f-${idx}`} className="text-sm text-slate-200">- {item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

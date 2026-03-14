@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-03-13T17:37:20.763Z",
+  "overall": {
+    "totalFiles": 9,
+    "totalItems": 1430,
+    "avgScore": 10,
+    "referenceCoverage": 1,
+    "sourceReferenceCoverage": 0.64,
+    "explanationCoverage": 1,
+    "methodTagCoverage": 1,
+    "issues": {
+      "missing_reference": 0,
+      "missing_or_short_explanation": 0,
+      "missing_method_tag": 0,
+      "placeholder_reference": 0
+    }
+  },
+  "files": [
+    {
+      "file": "src/data/Bible_Trivia_3_Levels_750plus_Questions/advanced_trivia.json",
+      "items": 250,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "src/data/Bible_Trivia_3_Levels_750plus_Questions/beginner_trivia.json",
+      "items": 250,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.692,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "src/data/Bible_Trivia_3_Levels_750plus_Questions/intermediate_trivia.json",
+      "items": 250,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.664,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "src/data/church_history_course/quiz_content.json",
+      "items": 150,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.68,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "src/data/hermeneutics_course/quiz_content.json",
+      "items": 155,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.897,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "src/data/textual_criticism_course/quiz_content.json",
+      "items": 90,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.822,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "public/kings_of_israel_course/advanced.json",
+      "items": 95,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.968,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "public/kings_of_israel_course/beginner.json",
+      "items": 95,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.979,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    },
+    {
+      "file": "public/kings_of_israel_course/intermediate.json",
+      "items": 95,
+      "avgScore": 10,
+      "referenceCoverage": 1,
+      "sourceReferenceCoverage": 0.8,
+      "explanationCoverage": 1,
+      "methodTagCoverage": 1,
+      "issues": {
+        "missing_reference": 0,
+        "missing_or_short_explanation": 0,
+        "missing_method_tag": 0,
+        "placeholder_reference": 0
+      }
+    }
+  ]
+}

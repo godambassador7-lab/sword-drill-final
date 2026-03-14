@@ -3,6 +3,7 @@ import {
   Search, X, ArrowLeft, Users, BookOpen, Crown, Heart,
   ChevronRight, ChevronDown, Home, Sparkles
 } from 'lucide-react';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
 
 const BiblicalBloodlines = ({ onClose }) => {
   const baseUrl = process.env.PUBLIC_URL || '';
@@ -688,6 +689,16 @@ const BiblicalBloodlines = ({ onClose }) => {
     return null;
   };
 
+  const getTreeSourceLabel = () => {
+    if (!currentTree?.path) return 'Unknown source file';
+    try {
+      const parts = currentTree.path.split('/');
+      return parts[parts.length - 1] || currentTree.path;
+    } catch {
+      return currentTree.path;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 p-4" style={{ touchAction: 'pan-y pinch-zoom' }}>
       <div className="max-w-7xl mx-auto">
@@ -1015,6 +1026,16 @@ const BiblicalBloodlines = ({ onClose }) => {
                     </div>
                   )}
 
+                  <div className="mb-4 rounded-lg border border-teal-500/30 bg-slate-900/40 p-3">
+                    <h3 className="text-sm font-semibold text-teal-300 mb-1">Data Provenance</h3>
+                    <p className="text-xs text-slate-300">
+                      Tree source: <span className="text-teal-200 font-semibold">{getTreeSourceLabel()}</span>
+                    </p>
+                    <p className="text-xs text-slate-300 mt-1">
+                      Dataset type: <span className="text-teal-200 font-semibold">{currentTree?.datasetType || 'nested genealogy tree'}</span>
+                    </p>
+                  </div>
+
                   {selectedPerson.notes && (
                     <div className="mb-4">
                       <h3 className="text-sm font-semibold text-purple-300 mb-2 flex items-center gap-2">
@@ -1030,10 +1051,15 @@ const BiblicalBloodlines = ({ onClose }) => {
                       <h3 className="text-sm font-semibold text-purple-300 mb-2">Scripture References:</h3>
                       <div className="space-y-1">
                         {selectedPerson.source_refs.map((ref, idx) => (
-                          <div key={idx} className="text-sm text-purple-200 flex items-center gap-2">
+                          <button
+                            key={idx}
+                            onClick={() => openReferenceInBibleReader(ref, onClose)}
+                            className="w-full text-left text-sm text-purple-200 flex items-center gap-2 hover:text-white transition-colors"
+                            title="Open in Bible Reader"
+                          >
                             <Crown size={12} className="text-purple-400" />
                             {ref}
-                          </div>
+                          </button>
                         ))}
                       </div>
                     </div>

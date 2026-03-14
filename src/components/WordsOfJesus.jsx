@@ -1,26 +1,89 @@
 import React, { useState, useEffect } from 'react';
-import { X, Clock, Trophy, Zap, Check, AlertCircle, Timer } from 'lucide-react';
+import { X, Trophy, Zap, Check, Timer } from 'lucide-react';
 import CorrectToast from './CorrectToast';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
 
 // Load quiz data
 let QUIZ_DATA = [];
+
+const normalizeSaying = (text = '') =>
+  text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
+
+const QUESTION_METADATA = [
+  { match: 'i am the way the truth and the life', reference: 'John 14:6' },
+  { match: 'before abraham was i am', reference: 'John 8:58' },
+  { match: 'i am the bread of life', reference: 'John 6:35' },
+  { match: 'let not your heart be troubled', reference: 'John 14:1' },
+  { match: 'i am the resurrection and the life', reference: 'John 11:25' },
+  { match: 'love your enemies and pray for those who persecute you', reference: 'Matthew 5:44' },
+  { match: 'i am the good shepherd', reference: 'John 10:11' },
+  { match: 'come to me all you who labor and are heavy laden', reference: 'Matthew 11:28' },
+  { match: 'i am the light of the world', reference: 'John 8:12' },
+  { match: 'father forgive them for they do not know what they are doing', reference: 'Luke 23:34' },
+  { match: 'do not judge or you too will be judged', reference: 'Matthew 7:1' },
+  { match: 'i am the vine you are the branches', reference: 'John 15:5' },
+  { match: 'ask and it will be given to you seek and you will find', reference: 'Matthew 7:7' },
+  { match: 'blessed are the poor in spirit', reference: 'Matthew 5:3' },
+  { match: 'it is easier for a camel to go through the eye of a needle', reference: 'Matthew 19:24' },
+  { match: 'peace i leave with you my peace i give you', reference: 'John 14:27' },
+  { match: 'let the little children come to me', reference: 'Matthew 19:14' },
+  { match: 'for where two or three gather in my name there am i with them', reference: 'Matthew 18:20' },
+  { match: 'greater love has no one than this to lay down ones life for ones friends', reference: 'John 15:13' },
+  { match: 'go and make disciples of all nations', reference: 'Matthew 28:19' },
+  { match: 'take up your cross and follow me', reference: 'Matthew 16:24' },
+  { match: 'you are the salt of the earth', reference: 'Matthew 5:13' },
+  { match: 'unless you change and become like little children', reference: 'Matthew 18:3' },
+  { match: 'heaven and earth will pass away but my words will never pass away', reference: 'Matthew 24:35' },
+  { match: 'whoever believes in me as scripture has said rivers of living water', reference: 'John 7:38' },
+  { match: 'the lord is my shepherd i shall not want', reference: 'Psalm 23:1' },
+  { match: 'the fear of the lord is the beginning of wisdom', reference: 'Proverbs 9:10' },
+  { match: 'trust in the lord with all your heart', reference: 'Proverbs 3:5' },
+  { match: 'be still and know that i am god', reference: 'Psalm 46:10' },
+  { match: 'for god so loved the world', reference: 'John 3:16' },
+  { match: 'create in me a clean heart o god', reference: 'Psalm 51:10' },
+  { match: 'the heavens declare the glory of god', reference: 'Psalm 19:1' },
+  { match: 'i can do all things through christ who strengthens me', reference: 'Philippians 4:13' },
+  { match: 'for i know the plans i have for you', reference: 'Jeremiah 29:11' },
+  { match: 'but those who hope in the lord will renew their strength', reference: 'Isaiah 40:31' },
+  { match: 'if my people who are called by my name will humble themselves and pray', reference: '2 Chronicles 7:14' },
+  { match: 'cast all your anxiety on him because he cares for you', reference: '1 Peter 5:7' },
+  { match: 'the lord will fight for you you need only to be still', reference: 'Exodus 14:14' },
+  { match: 'this is the day the lord has made let us rejoice and be glad in it', reference: 'Psalm 118:24' },
+  { match: 'rejoice in the lord always i will say it again rejoice', reference: 'Philippians 4:4' }
+];
+
+const enrichQuestionMetadata = (question) => {
+  const normalized = normalizeSaying(question?.saying || '');
+  const metadata = QUESTION_METADATA.find(item => normalized.includes(item.match));
+  const reference = question.reference || metadata?.reference || null;
+
+  return {
+    ...question,
+    reference,
+    explanation:
+      question.explanation ||
+      (reference
+        ? `${question.is_jesus ? 'Jesus speaks this saying' : 'This saying is biblical, but not spoken by Jesus'} (${reference}).`
+        : `${question.is_jesus ? 'Jesus speaks this saying in the Gospels.' : 'This saying is biblical, but not spoken by Jesus.'}`)
+  };
+};
 
 const dataUrl = `${process.env.PUBLIC_URL || ''}/word_of_jesus_or_not/word_of_jesus_or_not.json`;
 fetch(dataUrl)
   .then(res => res.json())
   .then(data => {
-    QUIZ_DATA = data.quiz || [];
+    QUIZ_DATA = (data.quiz || []).map(enrichQuestionMetadata);
   })
   .catch(err => {
     console.warn('Failed to load Words of Jesus quiz data:', err);
     // Fallback to sample data
     QUIZ_DATA = [
-      { saying: "I am the way, the truth, and the life", is_jesus: true },
-      { saying: "The heart is deceitful above all things", is_jesus: false },
-      { saying: "Before Abraham was, I am", is_jesus: true },
-      { saying: "The Lord is my shepherd", is_jesus: false },
-      { saying: "I am the bread of life", is_jesus: true },
-    ];
+      { saying: "I am the way, the truth, and the life", is_jesus: true, reference: 'John 14:6' },
+      { saying: "The heart is deceitful above all things", is_jesus: false, reference: 'Jeremiah 17:9' },
+      { saying: "Before Abraham was, I am", is_jesus: true, reference: 'John 8:58' },
+      { saying: "The Lord is my shepherd", is_jesus: false, reference: 'Psalm 23:1' },
+      { saying: "I am the bread of life", is_jesus: true, reference: 'John 6:35' },
+    ].map(enrichQuestionMetadata);
   });
 
 const POINTS_PER_CORRECT = 10;
@@ -37,6 +100,7 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
   const [gameOver, setGameOver] = useState(false);
   const [showCorrectToast, setShowCorrectToast] = useState(false);
   const [answers, setAnswers] = useState([]);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onCancel);
 
   // Initialize questions
   useEffect(() => {
@@ -93,7 +157,9 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
       saying: currentQuestion.saying,
       userAnswer: isJesus,
       correctAnswer: currentQuestion.is_jesus,
-      isCorrect
+      isCorrect,
+      reference: currentQuestion.reference || null,
+      explanation: currentQuestion.explanation || null
     }]);
 
     setFeedback(isCorrect ? 'correct' : 'incorrect');
@@ -235,6 +301,21 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
                             </span>
                           )}
                         </div>
+                        {answer.reference && (
+                          <div className="mt-1 text-xs text-teal-300">
+                            Reference:{' '}
+                            <button
+                              onClick={() => openRef(answer.reference)}
+                              className="underline decoration-teal-300/70 hover:text-white transition-colors"
+                              title="Open in Bible Reader"
+                            >
+                              {answer.reference}
+                            </button>
+                          </div>
+                        )}
+                        {answer.explanation && (
+                          <p className="mt-1 text-xs text-slate-300">{answer.explanation}</p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -376,13 +457,35 @@ const WordsOfJesus = ({ onComplete, onCancel }) => {
 
           {/* Feedback */}
           {feedback && (
-            <div className={`mt-6 p-4 rounded-xl text-center font-bold ${
-              feedback === 'correct'
-                ? 'bg-green-900/30 border-2 border-green-500 text-green-300'
-                : 'bg-red-900/30 border-2 border-red-500 text-red-300'
-            }`}>
-              {feedback === 'correct' ? '✓ Correct!' : '✗ Incorrect'}
-            </div>
+            <>
+              <div className={`mt-6 p-4 rounded-xl text-center font-bold ${
+                feedback === 'correct'
+                  ? 'bg-green-900/30 border-2 border-green-500 text-green-300'
+                  : 'bg-red-900/30 border-2 border-red-500 text-red-300'
+              }`}>
+                {feedback === 'correct' ? '✓ Correct!' : '✗ Incorrect'}
+              </div>
+              <div className="mt-3 rounded-xl border border-purple-500/40 bg-slate-900/70 p-4">
+                <div className="mb-2 text-sm font-semibold text-purple-300">Source Check</div>
+                <div className="text-sm text-slate-200">
+                  {currentQuestion.reference
+                    ? (
+                      <>
+                        Reference:{' '}
+                        <button
+                          onClick={() => openRef(currentQuestion.reference)}
+                          className="underline decoration-teal-300/70 hover:text-white transition-colors"
+                          title="Open in Bible Reader"
+                        >
+                          {currentQuestion.reference}
+                        </button>
+                      </>
+                    )
+                    : 'Reference not mapped yet in the dataset.'}
+                </div>
+                <p className="mt-2 text-xs text-slate-300">{currentQuestion.explanation}</p>
+              </div>
+            </>
           )}
         </div>
       </div>

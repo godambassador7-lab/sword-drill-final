@@ -1,5 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Trophy, Lock, Grid3x3, ArrowLeft, CheckCircle, Award, Clock } from 'lucide-react';
+import { X, Trophy, Lock, Grid3x3, ArrowLeft, CheckCircle, Award, Clock, BookOpen } from 'lucide-react';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+import { buildStudyLens, buildConfidenceTier } from '../services/quizEvidence';
+import SourceStrengthBadge from './SourceStrengthBadge';
+
+const CLUE_REFERENCE_MAP = [
+  { match: ['first man', 'adam'], refs: ['Genesis 2:7'] },
+  { match: ['noah', 'ark', 'boat'], refs: ['Genesis 6:14', 'Genesis 7:1'] },
+  { match: ['prayer', 'talking to god'], refs: ['1 Thessalonians 5:17', 'Philippians 4:6'] },
+  { match: ['living water', 'water'], refs: ['John 4:10', 'John 7:38'] },
+  { match: ['hope', 'anchor'], refs: ['Hebrews 6:19', 'Romans 15:13'] },
+  { match: ['earth', 'genesis 1', 'created'], refs: ['Genesis 1:1', 'Genesis 1:10'] },
+  { match: ['king', 'title often used for god'], refs: ['Psalm 47:7', '1 Timothy 1:17'] }
+];
+
+const inferSourceRefsFromClues = (clues = {}) => {
+  const allClues = [...(clues.across || []), ...(clues.down || [])];
+  const refs = new Set();
+  allClues.forEach((entry) => {
+    const clueText = String(entry?.clue || '').toLowerCase();
+    CLUE_REFERENCE_MAP.forEach((rule) => {
+      if (rule.match.some(term => clueText.includes(term))) {
+        rule.refs.forEach(ref => refs.add(ref));
+      }
+    });
+  });
+  return Array.from(refs);
+};
 
 const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
@@ -261,6 +288,7 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
       let message = `${accuracy === 100 ? '🎉 Perfect!' : '✓ Completed!'}\n\n`;
       message += `Accuracy: ${accuracy}%\n`;
       message += `Time: ${timeStr}\n`;
+      message += `Source Confidence: ${puzzleConfidence.tier}\n`;
       if (timeBonus > 0) message += `Time Bonus: +${timeBonus}\n`;
       message += `\nPoints Earned: +${pointsEarned}\n`;
       message += `New Balance: ${newPoints} points`;
@@ -390,6 +418,17 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
   }
 
   const config = DIFFICULTY_CONFIG[selectedDifficulty];
+  const puzzleSourceRefs = inferSourceRefsFromClues(currentPuzzle.clues);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onBack);
+  const puzzleEvidenceQuestion = {
+    question: `${config.name} crossword puzzle`,
+    explanation: [...(currentPuzzle.clues?.across || []), ...(currentPuzzle.clues?.down || [])]
+      .map((c) => c.clue)
+      .join(' '),
+    scriptureRefs: puzzleSourceRefs
+  };
+  const puzzleStudyLens = buildStudyLens(puzzleEvidenceQuestion, 'general');
+  const puzzleConfidence = buildConfidenceTier(puzzleEvidenceQuestion, 'general');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-2">
@@ -486,6 +525,38 @@ const BiblicalCrossword = ({ onBack, userData, setUserData, userId }) => {
 
           {/* Clues */}
           <div className="bg-slate-800 rounded-xl p-6 space-y-6">
+            {puzzleSourceRefs.length > 0 && (
+              <div className="rounded-lg border border-teal-500/30 bg-slate-900/40 p-4">
+                <h3 className="text-sm font-bold text-teal-300 mb-2">Source Anchors</h3>
+                <div className="flex flex-wrap gap-2">
+                  {puzzleSourceRefs.map((ref) => (
+                    <button
+                      key={ref}
+                      onClick={() => openRef(ref)}
+                      className="rounded border border-teal-500/30 bg-teal-900/30 px-2 py-1 text-xs text-teal-200 hover:bg-teal-800/40 transition-colors"
+                      title="Open in Bible Reader"
+                    >
+                      {ref}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-slate-400">
+                  References are inferred from clue themes for study reinforcement.
+                </p>
+                <div className="mt-3 pt-3 border-t border-teal-500/20 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <BookOpen size={14} className="text-teal-300" />
+                    <span className="text-xs font-semibold text-teal-200">Source Strength</span>
+                    <SourceStrengthBadge tier={puzzleConfidence.tier} />
+                  </div>
+                  <p className="text-xs text-teal-100">{puzzleConfidence.rationale}</p>
+                  <p className="text-xs text-teal-100">
+                    <span className="text-teal-300">Evidence Basis:</span> {puzzleStudyLens.evidenceBasis}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Across Clues */}
             <div>
               <h3 className="text-xl font-bold text-amber-400 mb-3">Across</h3>

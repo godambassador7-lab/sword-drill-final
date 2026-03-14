@@ -1,6 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, Lightbulb, Zap, Trophy, Clock, Star, CheckCircle } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+
+const THEME_SOURCE_MAP = {
+  'Names of God': ['Genesis 17:1', 'Exodus 3:14', 'Psalm 23:1', 'Jeremiah 23:6'],
+  'Fruits of the Spirit': ['Galatians 5:22-23'],
+  'Armor of God': ['Ephesians 6:10-18'],
+  'Beatitudes': ['Matthew 5:3-12'],
+  'Miracles of Jesus': ['John 2:1-11', 'Mark 4:35-41', 'John 11:1-44'],
+  'Books of the Bible': ['Luke 24:44', '2 Timothy 3:16']
+};
+
+const getThemeSources = (theme) => {
+  if (!theme) return ['Psalm 119:105', '2 Timothy 3:16'];
+  return THEME_SOURCE_MAP[theme] || ['Psalm 119:105', '2 Timothy 3:16'];
+};
 
 const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
   const [puzzles, setPuzzles] = useState([]);
@@ -351,6 +366,8 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
 
   const progress = (completedPuzzles.length / puzzles.length) * 100;
   const isPuzzleCompleted = completedPuzzles.includes(currentPuzzle.id);
+  const themeSources = getThemeSources(currentPuzzle.theme);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onBack);
 
   // Show rotate screen prompt for mobile portrait mode
   if (isMobile && !isLandscape) {
@@ -480,6 +497,25 @@ const BibleWordSearch = ({ onBack, userId, userData, setUserData }) => {
               'bg-red-600/20 text-red-300'
             }`}>
               {currentPuzzle.difficulty}
+            </div>
+          </div>
+
+          <div className="mb-4 rounded-lg border border-teal-500/30 bg-slate-900/40 p-3">
+            <h4 className="mb-1 text-sm font-bold text-teal-300">Study Source Anchors</h4>
+            <p className="text-xs text-slate-300 mb-2">
+              This puzzle theme is reinforced by these passages:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {themeSources.map((ref) => (
+                <button
+                  key={ref}
+                  onClick={() => openRef(ref)}
+                  className="rounded bg-teal-900/40 px-2 py-1 text-xs text-teal-200 border border-teal-500/30 hover:bg-teal-800/50 transition-colors"
+                  title="Open in Bible Reader"
+                >
+                  {ref}
+                </button>
+              ))}
             </div>
           </div>
 

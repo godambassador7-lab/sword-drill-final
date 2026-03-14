@@ -180,6 +180,7 @@ const ChurchHistoryCourse = ({ onComplete, onCancel, userId, userData, setUserDa
         isExam={lessonData.isExam}
         onComplete={handleQuizComplete}
         onRetry={handleQuizRetry}
+        onOpenBibleReader={onCancel}
       />
     );
   }

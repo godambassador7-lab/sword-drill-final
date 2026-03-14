@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Wind, CheckCircle, ArrowLeft, Download, History, RotateCcw } from 'lucide-react';
+import { Wind, CheckCircle, ArrowLeft, Download, History, RotateCcw, BookOpen } from 'lucide-react';
 import { updateUserProgress } from '../services/dbService';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+import { buildStudyLens, extractScriptureReferences } from '../services/quizEvidence';
 
 const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [examData, setExamData] = useState(null);
@@ -13,6 +15,7 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
   const [showPreviousResults, setShowPreviousResults] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
+  const openRef = (ref) => openReferenceInBibleReader(ref, onBack);
 
   // Background music effect
   useEffect(() => {
@@ -477,6 +480,17 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
             <h2 className="text-2xl font-bold mb-4 text-blue-300">Your Top Three Gifts</h2>
             <div className="space-y-4">
               {topThreeGifts.map((gift, index) => (
+                (() => {
+                  const studyLens = buildStudyLens({
+                    question: gift.name,
+                    explanation: `${gift.summary || ''} ${gift.how_to_use_today || ''} ${gift.cultivation_tips || ''}`,
+                    scriptureRefs: gift.scripture_refs || []
+                  }, 'general');
+                  const exampleRefs = (gift.biblical_examples || [])
+                    .flatMap((example) => extractScriptureReferences({ question: example }))
+                    .slice(0, 8);
+
+                  return (
                 <div
                   key={gift.id}
                   className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur rounded-xl p-6 border border-blue-500/30"
@@ -524,9 +538,15 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                       <h4 className="font-semibold text-blue-300 mb-1">Scripture references:</h4>
                       <div className="flex flex-wrap gap-2">
                         {gift.scripture_refs.map((ref, idx) => (
-                          <span key={idx} className="text-xs bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30">
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => openRef(ref)}
+                            className="text-xs bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30 hover:bg-blue-800/40 transition-colors"
+                            title="Open in Bible Reader"
+                          >
                             {ref}
-                          </span>
+                          </button>
                         ))}
                       </div>
                     </div>
@@ -540,9 +560,37 @@ const SpiritualGiftsExam = ({ onBack, userId, userData, setUserData }) => {
                           <li key={idx}>{example}</li>
                         ))}
                       </ul>
+                      {exampleRefs.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {exampleRefs.map((ref) => (
+                            <button
+                              key={`${gift.id}-${ref}`}
+                              type="button"
+                              onClick={() => openRef(ref)}
+                              className="text-xs bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30 hover:bg-blue-800/40 transition-colors font-mono"
+                              title="Open in Bible Reader"
+                            >
+                              {ref}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
+
+                  <div className="mt-3 pt-3 border-t border-slate-700 text-sm space-y-2">
+                    <p className="text-blue-200 font-semibold flex items-center gap-1">
+                      <BookOpen size={14} />
+                      Study Method (Scholarly Lens)
+                    </p>
+                    <p className="text-slate-200"><span className="text-slate-400">Claim Type:</span> {studyLens.claimType}</p>
+                    <p className="text-slate-200"><span className="text-slate-400">Evidence Basis:</span> {studyLens.evidenceBasis}</p>
+                    <p className="text-slate-200"><span className="text-slate-400">Verification Step:</span> {studyLens.verification}</p>
+                    <p className="text-slate-200"><span className="text-slate-400">Interpretive Caution:</span> {studyLens.caution}</p>
+                  </div>
                 </div>
+                  );
+                })()
               ))}
             </div>
           </div>

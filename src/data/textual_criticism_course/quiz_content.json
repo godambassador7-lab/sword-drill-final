@@ -11,7 +11,15 @@
           "The process of translating ancient texts"
         ],
         "correct": 1,
-        "explanation": "Textual criticism is the scholarly discipline that compares manuscript copies to reconstruct the most accurate form of the original text."
+        "explanation": "Textual criticism is the scholarly discipline that compares manuscript copies to reconstruct the most accurate form of the original text.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -23,7 +31,15 @@
           "Because modern translations need updating"
         ],
         "correct": 0,
-        "explanation": "We don't have the original biblical manuscripts. Textual criticism helps us determine what the originals most likely said by comparing thousands of manuscript copies."
+        "explanation": "We don't have the original biblical manuscripts. Textual criticism helps us determine what the originals most likely said by comparing thousands of manuscript copies.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 3,
@@ -35,7 +51,15 @@
           "The Latin Vulgate"
         ],
         "correct": 1,
-        "explanation": "Codex Sinaiticus and Codex Vaticanus, both dating to the 4th century AD, are among the oldest complete or nearly complete manuscripts of the New Testament."
+        "explanation": "Codex Sinaiticus and Codex Vaticanus, both dating to the 4th century AD, are among the oldest complete or nearly complete manuscripts of the New Testament.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -47,7 +71,15 @@
           "Jerome"
         ],
         "correct": 2,
-        "explanation": "Desiderius Erasmus published the first printed Greek New Testament in 1516, which became the basis for many translations and launched modern textual criticism."
+        "explanation": "Desiderius Erasmus published the first printed Greek New Testament in 1516, which became the basis for many translations and launched modern textual criticism.",
+        "claimType": "Historical/Textual Fact Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -59,7 +91,15 @@
           "An ancient manuscript discovered in Egypt"
         ],
         "correct": 1,
-        "explanation": "The Textus Receptus ('Received Text') was based on Erasmus's Greek New Testament and became the standard Greek text used for Protestant translations, including the KJV."
+        "explanation": "The Textus Receptus ('Received Text') was based on Erasmus's Greek New Testament and became the standard Greek text used for Protestant translations, including the KJV.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -71,7 +111,15 @@
           "The Gutenberg Bible"
         ],
         "correct": 1,
-        "explanation": "Constantin von Tischendorf's discovery of Codex Sinaiticus at St. Catherine's Monastery in 1844 provided scholars with one of the oldest and most complete biblical manuscripts."
+        "explanation": "Constantin von Tischendorf's discovery of Codex Sinaiticus at St. Catherine's Monastery in 1844 provided scholars with one of the oldest and most complete biblical manuscripts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -83,7 +131,13 @@
           "Nearly all of them"
         ],
         "correct": 2,
-        "explanation": "While there are many textual variants among manuscripts, less than 1% affect the meaning of passages, and virtually none affect core Christian doctrines."
+        "explanation": "While there are many textual variants among manuscripts, less than 1% affect the meaning of passages, and virtually none affect core Christian doctrines.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "less than 1"
+        ],
+        "reference": "less than 1",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 8,
@@ -95,7 +149,15 @@
           "Leather scrolls from Qumran"
         ],
         "correct": 1,
-        "explanation": "Papyri are ancient manuscripts written on papyrus, a paper-like material made from reeds. Many early New Testament manuscripts were preserved on papyrus."
+        "explanation": "Papyri are ancient manuscripts written on papyrus, a paper-like material made from reeds. Many early New Testament manuscripts were preserved on papyrus.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -107,7 +169,15 @@
           "They contain lost books of the Bible"
         ],
         "correct": 1,
-        "explanation": "The Chester Beatty Papyri, discovered in the 1930s, contain portions of the New Testament dating to the 2nd-3rd centuries AD, making them among the earliest witnesses."
+        "explanation": "The Chester Beatty Papyri, discovered in the 1930s, contain portions of the New Testament dating to the 2nd-3rd centuries AD, making them among the earliest witnesses.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -119,7 +189,15 @@
           "To remove difficult teachings"
         ],
         "correct": 1,
-        "explanation": "Most intentional changes were made with good intentions—to harmonize Gospel accounts, clarify grammar, or make theological points clearer. These changes are identifiable through textual criticism."
+        "explanation": "Most intentional changes were made with good intentions—to harmonize Gospel accounts, clarify grammar, or make theological points clearer. These changes are identifiable through textual criticism.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       }
     ]
   },
@@ -135,7 +213,15 @@
           "Testimony from church fathers"
         ],
         "correct": 1,
-        "explanation": "External evidence refers to evaluating manuscript age, quality, text-type families, and geographical distribution to determine which reading is more likely original."
+        "explanation": "External evidence refers to evaluating manuscript age, quality, text-type families, and geographical distribution to determine which reading is more likely original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -147,7 +233,15 @@
           "Theological doctrines about Scripture"
         ],
         "correct": 0,
-        "explanation": "Internal evidence examines the text itself—author's style, vocabulary, context, and which reading best explains the others—to determine originality."
+        "explanation": "Internal evidence examines the text itself—author's style, vocabulary, context, and which reading best explains the others—to determine originality.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 3,
@@ -159,7 +253,15 @@
           "The smoother reading is preferred"
         ],
         "correct": 2,
-        "explanation": "'Lectio difficilior potior' (the more difficult reading is preferred) assumes scribes were more likely to simplify difficult passages than to complicate simple ones."
+        "explanation": "'Lectio difficilior potior' (the more difficult reading is preferred) assumes scribes were more likely to simplify difficult passages than to complicate simple ones.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -171,7 +273,15 @@
           "Because old manuscripts are harder to read"
         ],
         "correct": 0,
-        "explanation": "An old manuscript could have been copied from a corrupt earlier manuscript, while a later manuscript might preserve a better textual tradition. Age is important but not the only factor."
+        "explanation": "An old manuscript could have been copied from a corrupt earlier manuscript, while a later manuscript might preserve a better textual tradition. Age is important but not the only factor.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -183,7 +293,15 @@
           "Different languages the Bible was translated into"
         ],
         "correct": 1,
-        "explanation": "Text-types are groups of manuscripts that share distinctive readings and characteristics, indicating they were copied from similar earlier sources."
+        "explanation": "Text-types are groups of manuscripts that share distinctive readings and characteristics, indicating they were copied from similar earlier sources.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -195,7 +313,15 @@
           "Being the easiest to read"
         ],
         "correct": 1,
-        "explanation": "The Alexandrian text-type is generally shorter and more austere, and most scholars believe it best preserves the earliest form of the New Testament text."
+        "explanation": "The Alexandrian text-type is generally shorter and more austere, and most scholars believe it best preserves the earliest form of the New Testament text.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -207,7 +333,15 @@
           "The text found in the Dead Sea Scrolls"
         ],
         "correct": 2,
-        "explanation": "The Byzantine text-type represents the majority of later Greek manuscripts. It tends to be longer and smoother, with harmonized readings."
+        "explanation": "The Byzantine text-type represents the majority of later Greek manuscripts. It tends to be longer and smoother, with harmonized readings.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -219,7 +353,15 @@
           "Because ancient manuscripts were expensive"
         ],
         "correct": 0,
-        "explanation": "Scribes were more likely to add clarifications or harmonize passages than to delete sacred text, so shorter readings are often considered more original."
+        "explanation": "Scribes were more likely to add clarifications or harmonize passages than to delete sacred text, so shorter readings are often considered more original.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -231,7 +373,15 @@
           "The chance of finding new manuscripts"
         ],
         "correct": 1,
-        "explanation": "Transcriptional probability asks: 'Which reading best explains the existence of the others?' by considering typical scribal habits and errors."
+        "explanation": "Transcriptional probability asks: 'Which reading best explains the existence of the others?' by considering typical scribal habits and errors.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -243,7 +393,15 @@
           "Measuring the importance of a variant"
         ],
         "correct": 0,
-        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective throughout their writing."
+        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective throughout their writing.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       }
     ]
   },
@@ -259,7 +417,13 @@
           "About 50,000"
         ],
         "correct": 2,
-        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, more than any other ancient document, providing abundant evidence for textual criticism."
+        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, more than any other ancient document, providing abundant evidence for textual criticism.",
+        "claimType": "Interpretive Reasoning Claim",
+        "scriptureRefs": [
+          "There are approximately 5"
+        ],
+        "reference": "There are approximately 5",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 2,
@@ -271,7 +435,15 @@
           "A letter from the Apostle Paul"
         ],
         "correct": 0,
-        "explanation": "P52, also called the Rylands Papyrus, contains John 18:31-33, 37-38 and dates to around 125 AD, making it the earliest known New Testament fragment."
+        "explanation": "P52, also called the Rylands Papyrus, contains John 18:31-33, 37-38 and dates to around 125 AD, making it the earliest known New Testament fragment.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "Papyrus 52",
+          "contains John 18:31-33",
+          "and dates to around 125"
+        ],
+        "reference": "Papyrus 52",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 3,
@@ -283,7 +455,15 @@
           "Stone inscriptions with biblical text"
         ],
         "correct": 1,
-        "explanation": "Uncials are manuscripts written in all capital letters (majuscules), typically dating from the 4th-9th centuries AD."
+        "explanation": "Uncials are manuscripts written in all capital letters (majuscules), typically dating from the 4th-9th centuries AD.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -295,7 +475,15 @@
           "Miniature decorative Bibles"
         ],
         "correct": 1,
-        "explanation": "Minuscules are manuscripts written in lowercase cursive script, which became common from the 9th century onward. They make up the majority of Greek manuscripts."
+        "explanation": "Minuscules are manuscripts written in lowercase cursive script, which became common from the 9th century onward. They make up the majority of Greek manuscripts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -307,7 +495,15 @@
           "A collection of Paul's letters"
         ],
         "correct": 1,
-        "explanation": "Codex Sinaiticus is a 4th-century manuscript containing one of the oldest complete copies of the New Testament and portions of the Old Testament in Greek."
+        "explanation": "Codex Sinaiticus is a 4th-century manuscript containing one of the oldest complete copies of the New Testament and portions of the Old Testament in Greek.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -319,7 +515,15 @@
           "The Latin Vulgate"
         ],
         "correct": 0,
-        "explanation": "Codex Vaticanus is a 4th-century Greek manuscript housed in the Vatican Library, considered one of the most valuable biblical manuscripts for textual criticism."
+        "explanation": "Codex Vaticanus is a 4th-century Greek manuscript housed in the Vatican Library, considered one of the most valuable biblical manuscripts for textual criticism.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -331,7 +535,15 @@
           "An Arabic Bible translation"
         ],
         "correct": 0,
-        "explanation": "Codex Alexandrinus is a 5th-century manuscript containing most of the Greek Bible, representing a mixed text-type tradition."
+        "explanation": "Codex Alexandrinus is a 5th-century manuscript containing most of the Greek Bible, representing a mixed text-type tradition.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -343,7 +555,15 @@
           "Different manuscript text-types"
         ],
         "correct": 1,
-        "explanation": "Versions are ancient translations of the Bible into other languages (Latin, Syriac, Coptic, etc.). They provide important witness to the underlying Greek and Hebrew texts."
+        "explanation": "Versions are ancient translations of the Bible into other languages (Latin, Syriac, Coptic, etc.). They provide important witness to the underlying Greek and Hebrew texts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -355,7 +575,13 @@
           "The first printed Bible"
         ],
         "correct": 0,
-        "explanation": "The Latin Vulgate, translated by Jerome in the late 4th century, became the standard Bible of Western Christianity for over 1,000 years."
+        "explanation": "The Latin Vulgate, translated by Jerome in the late 4th century, became the standard Bible of Western Christianity for over 1,000 years.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "Western Christianity for over 1"
+        ],
+        "reference": "Western Christianity for over 1",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 10,
@@ -367,7 +593,13 @@
           "Alphabetical Bible concordances"
         ],
         "correct": 1,
-        "explanation": "Lectionaries are manuscripts organized with Scripture passages for reading in church services throughout the year. They number over 2,000 and provide textual evidence."
+        "explanation": "Lectionaries are manuscripts organized with Scripture passages for reading in church services throughout the year. They number over 2,000 and provide textual evidence.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "year. They number over 2"
+        ],
+        "reference": "year. They number over 2",
+        "qaNeedsReferenceReview": false
       }
     ]
   },
@@ -383,7 +615,15 @@
           "An error in printing modern Bibles"
         ],
         "correct": 1,
-        "explanation": "A textual variant is any place where the wording differs among manuscript copies, whether due to intentional changes or copying errors."
+        "explanation": "A textual variant is any place where the wording differs among manuscript copies, whether due to intentional changes or copying errors.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -395,7 +635,15 @@
           "Ancient, medieval, modern, contemporary"
         ],
         "correct": 0,
-        "explanation": "Textual variants can be classified as additions (text added), deletions (text removed), substitutions (words changed), or transpositions (word order changed)."
+        "explanation": "Textual variants can be classified as additions (text added), deletions (text removed), substitutions (words changed), or transpositions (word order changed).",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 3,
@@ -407,7 +655,15 @@
           "A variant scholars ignore"
         ],
         "correct": 1,
-        "explanation": "Unintentional variants are scribal errors made accidentally—misreading letters, skipping lines, spelling mistakes, or hearing errors in dictation."
+        "explanation": "Unintentional variants are scribal errors made accidentally—misreading letters, skipping lines, spelling mistakes, or hearing errors in dictation.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -419,7 +675,15 @@
           "When word order is changed"
         ],
         "correct": 1,
-        "explanation": "Homoioteleuton ('similar ending') occurs when a scribe's eye jumps from one word or line ending to a similar one, accidentally skipping the text between them."
+        "explanation": "Homoioteleuton ('similar ending') occurs when a scribe's eye jumps from one word or line ending to a similar one, accidentally skipping the text between them.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -431,7 +695,15 @@
           "Changing word order"
         ],
         "correct": 1,
-        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying."
+        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -443,7 +715,15 @@
           "Finding agreement between science and Scripture"
         ],
         "correct": 1,
-        "explanation": "Harmonization is when scribes changed wording in one passage to match a parallel passage (especially in the Gospels), creating conformity between similar accounts."
+        "explanation": "Harmonization is when scribes changed wording in one passage to match a parallel passage (especially in the Gospels), creating conformity between similar accounts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -455,7 +735,15 @@
           "To make the text shorter"
         ],
         "correct": 1,
-        "explanation": "Scribes sometimes 'improved' grammar, clarified confusing statements, or resolved apparent contradictions—not to corrupt, but to make the text clearer for readers."
+        "explanation": "Scribes sometimes 'improved' grammar, clarified confusing statements, or resolved apparent contradictions—not to corrupt, but to make the text clearer for readers.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -467,7 +755,15 @@
           "An error in translating theology"
         ],
         "correct": 1,
-        "explanation": "Theologically motivated variants occur when scribes altered wording to clarify or emphasize theological points they considered important, often to combat heresies."
+        "explanation": "Theologically motivated variants occur when scribes altered wording to clarify or emphasize theological points they considered important, often to combat heresies.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -479,7 +775,15 @@
           "Modern scholars don't study it"
         ],
         "correct": 0,
-        "explanation": "Most variants are insignificant—spelling differences, word order changes, or synonyms that don't change the passage's meaning or theological significance."
+        "explanation": "Most variants are insignificant—spelling differences, word order changes, or synonyms that don't change the passage's meaning or theological significance.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -491,7 +795,13 @@
           "A medieval addition to explain Mark's Gospel"
         ],
         "correct": 1,
-        "explanation": "Mark 16:9-20 is absent from the earliest and most reliable manuscripts, leading most scholars to conclude it was added later, though it's included in most Bible translations with a note."
+        "explanation": "Mark 16:9-20 is absent from the earliest and most reliable manuscripts, leading most scholars to conclude it was added later, though it's included in most Bible translations with a note.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "Mark 16:9-20"
+        ],
+        "reference": "Mark 16:9-20",
+        "qaNeedsReferenceReview": false
       }
     ]
   },
@@ -507,7 +817,15 @@
           "As mysteries that can't be solved"
         ],
         "correct": 1,
-        "explanation": "The abundance of manuscripts and variants actually helps us reconstruct the original text with great accuracy. No core doctrine is affected by textual uncertainty."
+        "explanation": "The abundance of manuscripts and variants actually helps us reconstruct the original text with great accuracy. No core doctrine is affected by textual uncertainty.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -519,7 +837,15 @@
           "Choose a different Bible version"
         ],
         "correct": 1,
-        "explanation": "Bible footnotes about textual variants are valuable information. Reading them helps you understand the evidence and see scholarly transparency about manuscript differences."
+        "explanation": "Bible footnotes about textual variants are valuable information. Reading them helps you understand the evidence and see scholarly transparency about manuscript differences.",
+        "claimType": "Historical/Textual Fact Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 3,
@@ -531,7 +857,13 @@
           "It contradicts other Gospel accounts"
         ],
         "correct": 1,
-        "explanation": "This passage is absent from early Greek manuscripts, but many scholars believe it reflects a genuine tradition about Jesus. Most Bibles include it with a note about its textual history."
+        "explanation": "This passage is absent from early Greek manuscripts, but many scholars believe it reflects a genuine tradition about Jesus. Most Bibles include it with a note about its textual history.",
+        "claimType": "Interpretive Reasoning Claim",
+        "scriptureRefs": [
+          "In John 7:53-8"
+        ],
+        "reference": "In John 7:53-8",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 4,
@@ -543,7 +875,16 @@
           "Modern scholars added this verse"
         ],
         "correct": 1,
-        "explanation": "The explicit Trinitarian language in 1 John 5:7 ('the Father, the Word, and the Holy Spirit') is found in late Latin manuscripts but not in Greek manuscripts. The Trinity doctrine is well-supported elsewhere."
+        "explanation": "The explicit Trinitarian language in 1 John 5:7 ('the Father, the Word, and the Holy Spirit') is found in late Latin manuscripts but not in Greek manuscripts. The Trinity doctrine is well-supported elsewhere.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "the textual issue with 1",
+          "John 5:7-8",
+          "explicit Trinitarian language in 1",
+          "John 5:7"
+        ],
+        "reference": "the textual issue with 1",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 5,
@@ -555,7 +896,13 @@
           "To mark it as symbolic rather than literal"
         ],
         "correct": 1,
-        "explanation": "Brackets or notes indicate that scholars recognize this passage isn't in the earliest manuscripts, giving readers transparency about the textual evidence."
+        "explanation": "Brackets or notes indicate that scholars recognize this passage isn't in the earliest manuscripts, giving readers transparency about the textual evidence.",
+        "claimType": "Interpretive Reasoning Claim",
+        "scriptureRefs": [
+          "some Bibles include Mark 16:9-20"
+        ],
+        "reference": "some Bibles include Mark 16:9-20",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 6,
@@ -567,7 +914,15 @@
           "It makes Bible study unnecessary"
         ],
         "correct": 1,
-        "explanation": "Textual criticism demonstrates the careful transmission of Scripture and the honesty of biblical scholarship, showing we can have confidence in the reliability of the biblical text."
+        "explanation": "Textual criticism demonstrates the careful transmission of Scripture and the honesty of biblical scholarship, showing we can have confidence in the reliability of the biblical text.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -579,7 +934,15 @@
           "Only use the King James Version"
         ],
         "correct": 1,
-        "explanation": "We should appreciate scholarly work in textual criticism while maintaining confidence that no essential doctrine depends on disputed variants."
+        "explanation": "We should appreciate scholarly work in textual criticism while maintaining confidence that no essential doctrine depends on disputed variants.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -591,7 +954,15 @@
           "It replaces the need for prayer and devotion"
         ],
         "correct": 1,
-        "explanation": "Understanding textual criticism helps explain why translations differ, deepens appreciation for Scripture's transmission, and encourages thoughtful engagement with God's Word."
+        "explanation": "Understanding textual criticism helps explain why translations differ, deepens appreciation for Scripture's transmission, and encourages thoughtful engagement with God's Word.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -603,7 +974,15 @@
           "They prove modern Bibles are unreliable"
         ],
         "correct": 1,
-        "explanation": "Comparing translations helps you see the range of textual and interpretive possibilities, enriching your understanding of Scripture's meaning."
+        "explanation": "Comparing translations helps you see the range of textual and interpretive possibilities, enriching your understanding of Scripture's meaning.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -615,7 +994,15 @@
           "None—all core doctrines are firmly established"
         ],
         "correct": 3,
-        "explanation": "While textual variants exist, they don't affect any essential Christian doctrine. All core beliefs are supported by multiple, well-attested passages."
+        "explanation": "While textual variants exist, they don't affect any essential Christian doctrine. All core beliefs are supported by multiple, well-attested passages.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       }
     ]
   },
@@ -631,7 +1018,15 @@
           "Trust the oldest manuscript only"
         ],
         "correct": 1,
-        "explanation": "This canon assumes scribes were more likely to simplify or clarify difficult passages than to create difficulties, so the harder reading is often original."
+        "explanation": "This canon assumes scribes were more likely to simplify or clarify difficult passages than to create difficulties, so the harder reading is often original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -643,7 +1038,15 @@
           "Only applies to Old Testament texts"
         ],
         "correct": 1,
-        "explanation": "Scribes were more inclined to add explanatory material than to delete sacred text, so shorter readings are often (but not always) more original."
+        "explanation": "Scribes were more inclined to add explanatory material than to delete sacred text, so shorter readings are often (but not always) more original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 3,
@@ -655,7 +1058,15 @@
           "Accept all variants equally"
         ],
         "correct": 1,
-        "explanation": "The reading that best accounts for the existence of the other variants (through understandable scribal changes) is likely the original."
+        "explanation": "The reading that best accounts for the existence of the other variants (through understandable scribal changes) is likely the original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -667,7 +1078,15 @@
           "Focus only on Latin versions"
         ],
         "correct": 1,
-        "explanation": "External evidence considers manuscript age, quality, and text-type. Earlier manuscripts and better textual families generally receive more weight."
+        "explanation": "External evidence considers manuscript age, quality, and text-type. Earlier manuscripts and better textual families generally receive more weight.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -679,7 +1098,15 @@
           "Trust the King James translation"
         ],
         "correct": 1,
-        "explanation": "The reading that best fits the author's typical vocabulary, grammar, and theological perspective throughout their writings is likely original."
+        "explanation": "The reading that best fits the author's typical vocabulary, grammar, and theological perspective throughout their writings is likely original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -691,7 +1118,15 @@
           "Ignore context entirely"
         ],
         "correct": 1,
-        "explanation": "The reading that fits best with the surrounding verses and the book's overall message is more likely to be original than one that seems out of place."
+        "explanation": "The reading that fits best with the surrounding verses and the book's overall message is more likely to be original than one that seems out of place.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -703,7 +1138,15 @@
           "Harmonized readings are always wrong"
         ],
         "correct": 1,
-        "explanation": "Scribes tended to make parallel passages agree (especially in the Gospels). A reading that differs from a parallel may be more original."
+        "explanation": "Scribes tended to make parallel passages agree (especially in the Gospels). A reading that differs from a parallel may be more original.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -715,7 +1158,15 @@
           "Only Western manuscripts are reliable"
         ],
         "correct": 1,
-        "explanation": "If a reading appears in manuscripts from diverse geographical areas (Egypt, Syria, Rome, etc.), it likely predates the geographical separation of these texts."
+        "explanation": "If a reading appears in manuscripts from diverse geographical areas (Egypt, Syria, Rome, etc.), it likely predates the geographical separation of these texts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -727,7 +1178,15 @@
           "Scholars can never agree"
         ],
         "correct": 1,
-        "explanation": "No single rule determines the original reading. Textual critics must weigh multiple canons together, considering external evidence, internal evidence, and scribal tendencies."
+        "explanation": "No single rule determines the original reading. Textual critics must weigh multiple canons together, considering external evidence, internal evidence, and scribal tendencies.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -739,7 +1198,15 @@
           "Reject all critical methods"
         ],
         "correct": 1,
-        "explanation": "Christians can embrace rigorous textual scholarship while maintaining confidence that God has faithfully preserved His Word through the manuscript tradition."
+        "explanation": "Christians can embrace rigorous textual scholarship while maintaining confidence that God has faithfully preserved His Word through the manuscript tradition.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       }
     ]
   },
@@ -755,7 +1222,15 @@
           "To harmonize all biblical passages"
         ],
         "correct": 1,
-        "explanation": "Textual criticism aims to compare manuscript evidence to determine what the original authors most likely wrote."
+        "explanation": "Textual criticism aims to compare manuscript evidence to determine what the original authors most likely wrote.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 2,
@@ -767,7 +1242,13 @@
           "About 50,000"
         ],
         "correct": 2,
-        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, providing abundant evidence for textual comparison."
+        "explanation": "There are approximately 5,800 Greek New Testament manuscripts, providing abundant evidence for textual comparison.",
+        "claimType": "Interpretive Reasoning Claim",
+        "scriptureRefs": [
+          "There are approximately 5"
+        ],
+        "reference": "There are approximately 5",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 3,
@@ -779,7 +1260,15 @@
           "Hebrew Old Testament scrolls"
         ],
         "correct": 1,
-        "explanation": "Both are 4th-century Greek manuscripts representing the Alexandrian text-type and are highly valued for textual criticism."
+        "explanation": "Both are 4th-century Greek manuscripts representing the Alexandrian text-type and are highly valued for textual criticism.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 4,
@@ -791,7 +1280,15 @@
           "The smoother reading is preferred"
         ],
         "correct": 2,
-        "explanation": "This canon assumes scribes would simplify difficult passages, so the harder reading is more likely original."
+        "explanation": "This canon assumes scribes would simplify difficult passages, so the harder reading is more likely original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 5,
@@ -803,7 +1300,15 @@
           "Being the basis for the King James Version"
         ],
         "correct": 1,
-        "explanation": "The Alexandrian text is generally shorter, more austere, and most scholars believe it best preserves the earliest text."
+        "explanation": "The Alexandrian text is generally shorter, more austere, and most scholars believe it best preserves the earliest text.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 6,
@@ -815,7 +1320,15 @@
           "Historical records outside the Bible"
         ],
         "correct": 1,
-        "explanation": "External evidence evaluates manuscript characteristics—age, quality, text-type, geographical spread—to determine reliability."
+        "explanation": "External evidence evaluates manuscript characteristics—age, quality, text-type, geographical spread—to determine reliability.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 7,
@@ -827,7 +1340,15 @@
           "Personal interpretation"
         ],
         "correct": 0,
-        "explanation": "Internal evidence examines author's style, context, and which reading best explains the variants to determine originality."
+        "explanation": "Internal evidence examines author's style, context, and which reading best explains the variants to determine originality.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 8,
@@ -839,7 +1360,15 @@
           "Adding explanatory notes"
         ],
         "correct": 1,
-        "explanation": "Homoioteleuton occurs when a scribe's eye skips from one ending to a similar one, omitting the text between."
+        "explanation": "Homoioteleuton occurs when a scribe's eye skips from one ending to a similar one, omitting the text between.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 9,
@@ -851,7 +1380,15 @@
           "Musical settings of Scripture"
         ],
         "correct": 1,
-        "explanation": "Harmonization is when scribes altered wording to make parallel passages (especially in Gospels) conform to each other."
+        "explanation": "Harmonization is when scribes altered wording to make parallel passages (especially in Gospels) conform to each other.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 10,
@@ -863,7 +1400,13 @@
           "A Dead Sea Scroll"
         ],
         "correct": 0,
-        "explanation": "P52 (Rylands Papyrus) is the earliest known fragment of the New Testament, dating to around 125 AD."
+        "explanation": "P52 (Rylands Papyrus) is the earliest known fragment of the New Testament, dating to around 125 AD.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "dating to around 125"
+        ],
+        "reference": "dating to around 125",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 11,
@@ -875,7 +1418,15 @@
           "It's the only accurate Greek text"
         ],
         "correct": 1,
-        "explanation": "The Textus Receptus was the standard Greek text for Protestant translations for centuries, including the KJV."
+        "explanation": "The Textus Receptus was the standard Greek text for Protestant translations for centuries, including the KJV.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 12,
@@ -887,7 +1438,13 @@
           "Nearly 100%"
         ],
         "correct": 2,
-        "explanation": "While variants exist, less than 1% affect meaning significantly, and virtually none affect core doctrines."
+        "explanation": "While variants exist, less than 1% affect meaning significantly, and virtually none affect core doctrines.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "less than 1"
+        ],
+        "reference": "less than 1",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 13,
@@ -899,7 +1456,15 @@
           "Various interpretations of Scripture"
         ],
         "correct": 1,
-        "explanation": "Versions are ancient translations that provide important witness to the underlying Greek and Hebrew texts."
+        "explanation": "Versions are ancient translations that provide important witness to the underlying Greek and Hebrew texts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 14,
@@ -911,7 +1476,15 @@
           "The rarest manuscript family"
         ],
         "correct": 1,
-        "explanation": "The Byzantine text represents the majority of later Greek manuscripts, characterized by longer, harmonized readings."
+        "explanation": "The Byzantine text represents the majority of later Greek manuscripts, characterized by longer, harmonized readings.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 15,
@@ -923,7 +1496,15 @@
           "To shorten the text"
         ],
         "correct": 1,
-        "explanation": "Scribes made intentional changes with good intentions—to clarify, harmonize, or emphasize theological points."
+        "explanation": "Scribes made intentional changes with good intentions—to clarify, harmonize, or emphasize theological points.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 16,
@@ -935,7 +1516,15 @@
           "The age of a manuscript"
         ],
         "correct": 1,
-        "explanation": "Transcriptional probability asks which reading best explains the others based on typical scribal habits."
+        "explanation": "Transcriptional probability asks which reading best explains the others based on typical scribal habits.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 17,
@@ -947,7 +1536,15 @@
           "Archaeological verification"
         ],
         "correct": 0,
-        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective."
+        "explanation": "Intrinsic probability considers which reading best matches the author's vocabulary, style, and theological perspective.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 18,
@@ -959,7 +1556,14 @@
           "Only in Latin Bibles"
         ],
         "correct": 1,
-        "explanation": "Mark 16:9-20 is absent from the earliest manuscripts, leading scholars to conclude it was a later addition."
+        "explanation": "Mark 16:9-20 is absent from the earliest manuscripts, leading scholars to conclude it was a later addition.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "textual status of Mark 16:9-20",
+          "Mark 16:9-20"
+        ],
+        "reference": "textual status of Mark 16:9-20",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 19,
@@ -971,7 +1575,13 @@
           "It was invented in the Middle Ages"
         ],
         "correct": 1,
-        "explanation": "This passage lacks early manuscript support but is widely considered to reflect an authentic tradition about Jesus."
+        "explanation": "This passage lacks early manuscript support but is widely considered to reflect an authentic tradition about Jesus.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "textual issue with John 7:53-8"
+        ],
+        "reference": "textual issue with John 7:53-8",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 20,
@@ -983,7 +1593,13 @@
           "The original reading in all manuscripts"
         ],
         "correct": 1,
-        "explanation": "The explicit Trinitarian language appears in late Latin manuscripts but not in Greek manuscripts, though the Trinity is well-supported elsewhere."
+        "explanation": "The explicit Trinitarian language appears in late Latin manuscripts but not in Greek manuscripts, though the Trinity is well-supported elsewhere.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "1 John 5:7-8"
+        ],
+        "reference": "1 John 5:7-8",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 21,
@@ -995,7 +1611,15 @@
           "As proof the Bible is unreliable"
         ],
         "correct": 1,
-        "explanation": "Textual criticism demonstrates careful preservation and allows us to reconstruct the original with great confidence."
+        "explanation": "Textual criticism demonstrates careful preservation and allows us to reconstruct the original with great confidence.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 22,
@@ -1007,7 +1631,15 @@
           "Ignore Gospel parallels"
         ],
         "correct": 1,
-        "explanation": "Since scribes tended to harmonize parallel accounts, a reading that differs from parallels may be more original."
+        "explanation": "Since scribes tended to harmonize parallel accounts, a reading that differs from parallels may be more original.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 23,
@@ -1019,7 +1651,15 @@
           "Western texts are most reliable"
         ],
         "correct": 1,
-        "explanation": "A reading found across different geographical areas likely predates the spread of texts to those regions."
+        "explanation": "A reading found across different geographical areas likely predates the spread of texts to those regions.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 24,
@@ -1031,7 +1671,15 @@
           "Stone inscriptions"
         ],
         "correct": 1,
-        "explanation": "Uncials are manuscripts written in all capital letters, dating primarily from the 4th-9th centuries."
+        "explanation": "Uncials are manuscripts written in all capital letters, dating primarily from the 4th-9th centuries.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 25,
@@ -1043,7 +1691,15 @@
           "Decorative Bibles"
         ],
         "correct": 1,
-        "explanation": "Minuscules use lowercase cursive script and became common from the 9th century, comprising the majority of manuscripts."
+        "explanation": "Minuscules use lowercase cursive script and became common from the 9th century, comprising the majority of manuscripts.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 26,
@@ -1055,7 +1711,15 @@
           "Changing word order"
         ],
         "correct": 1,
-        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying."
+        "explanation": "Dittography is the unintentional repetition of letters, words, or phrases during copying.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 27,
@@ -1067,7 +1731,15 @@
           "Because manuscripts were expensive"
         ],
         "correct": 1,
-        "explanation": "Scribes were more likely to add clarifications than to delete sacred text, making shorter readings often more original."
+        "explanation": "Scribes were more likely to add clarifications than to delete sacred text, making shorter readings often more original.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 28,
@@ -1079,7 +1751,13 @@
           "A manuscript family"
         ],
         "correct": 1,
-        "explanation": "Jerome's Latin Vulgate (late 4th century) became the standard Bible of Western Christianity for over 1,000 years."
+        "explanation": "Jerome's Latin Vulgate (late 4th century) became the standard Bible of Western Christianity for over 1,000 years.",
+        "claimType": "Factual Recall Claim",
+        "scriptureRefs": [
+          "Western Christianity for over 1"
+        ],
+        "reference": "Western Christianity for over 1",
+        "qaNeedsReferenceReview": false
       },
       {
         "id": 29,
@@ -1091,7 +1769,15 @@
           "It makes Bible study unnecessary"
         ],
         "correct": 1,
-        "explanation": "Textual criticism shows the careful transmission of Scripture and gives confidence in the Bible's reliability."
+        "explanation": "Textual criticism shows the careful transmission of Scripture and gives confidence in the Bible's reliability.",
+        "claimType": "Interpretive Reasoning Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       },
       {
         "id": 30,
@@ -1103,7 +1789,15 @@
           "Always follow the majority reading"
         ],
         "correct": 1,
-        "explanation": "No single canon decides the issue. Textual critics must weigh multiple principles together, considering all external and internal evidence."
+        "explanation": "No single canon decides the issue. Textual critics must weigh multiple principles together, considering all external and internal evidence.",
+        "claimType": "Factual Recall Claim",
+        "reference": "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+        "qaNeedsReferenceReview": false,
+        "sourceRefs": [
+          "Bruce M. Metzger and Bart D. Ehrman. The Text of the New Testament.",
+          "Emanuel Tov. Textual Criticism of the Hebrew Bible.",
+          "David C. Parker. An Introduction to the New Testament Manuscripts and Their Texts."
+        ]
       }
     ]
   }

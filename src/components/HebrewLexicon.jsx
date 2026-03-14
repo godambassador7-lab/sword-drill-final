@@ -156,57 +156,6 @@ const HebrewLexicon = ({ onBack }) => {
     }
   }, [selectedEntry, selectedBook, selectedChapter]);
 
-  // Generate mock usage count based on Strong's number
-  const getMockUsageCount = (strongsNum) => {
-    const num = parseInt(strongsNum.replace('H', ''));
-    if (num <= 100) {
-      return Math.floor(Math.random() * 400) + 100; // 100-500 occurrences
-    } else if (num <= 1000) {
-      return Math.floor(Math.random() * 80) + 20; // 20-100 occurrences
-    } else {
-      return Math.floor(Math.random() * 19) + 1; // 1-20 occurrences
-    }
-  };
-
-  // Generate sample Bible references for a Strong's number
-  const generateSampleReferences = (strongsNum) => {
-    const num = parseInt(strongsNum.replace('H', ''));
-
-    // Common references database (simplified version)
-    const commonReferences = {
-      // God-related words
-      430: [ // elohim
-        { reference: 'Genesis 1:1', preview: 'In the beginning God created the heaven and the earth.' },
-        { reference: 'Deuteronomy 6:4', preview: 'Hear, O Israel: The LORD our God is one LORD.' },
-        { reference: 'Psalm 23:1', preview: 'The LORD is my shepherd; I shall not want.' },
-      ],
-      // LORD-related
-      3068: [ // YHWH
-        { reference: 'Exodus 3:14', preview: 'And God said unto Moses, I AM THAT I AM...' },
-        { reference: 'Psalm 100:3', preview: 'Know ye that the LORD he is God...' },
-        { reference: 'Isaiah 40:28', preview: 'Hast thou not known? hast thou not heard, that the everlasting God, the LORD...' },
-      ],
-      // Love-related
-      157: [ // ahab
-        { reference: 'Leviticus 19:18', preview: 'Thou shalt love thy neighbour as thyself...' },
-        { reference: 'Deuteronomy 6:5', preview: 'And thou shalt love the LORD thy God with all thine heart...' },
-        { reference: 'Proverbs 8:17', preview: 'I love them that love me; and those that seek me early shall find me.' },
-      ],
-    };
-
-    // Return specific references if available, otherwise generic ones
-    if (commonReferences[num]) {
-      return commonReferences[num];
-    }
-
-    // Generic sample references for demonstration
-    return [
-      { reference: 'Psalm 119:105', preview: 'Thy word is a lamp unto my feet, and a light unto my path.' },
-      { reference: 'Isaiah 40:8', preview: 'The grass withereth, the flower fadeth: but the word of our God shall stand for ever.' },
-      { reference: 'Jeremiah 29:11', preview: 'For I know the thoughts that I think toward you, saith the LORD...' },
-    ];
-  };
-
   // Handle reference click - toggle verse expansion and fetch text
   const handleReferenceClick = async (ref, idx) => {
     const key = `${ref.reference}-${idx}`;
@@ -338,8 +287,6 @@ const HebrewLexicon = ({ onBack }) => {
 
   // Render single entry card
   const renderEntryCard = ([strongsNum, entry]) => {
-    const usageCount = getMockUsageCount(strongsNum);
-
     return (
       <div
         key={strongsNum}
@@ -382,10 +329,7 @@ const HebrewLexicon = ({ onBack }) => {
 
         <div className="mt-2 pt-2 border-t border-slate-700/50">
           <div className="text-sm text-slate-400">
-            <span className="font-semibold text-amber-400">{usageCount}</span> occurrences in Scripture
-          </div>
-          <div className="text-xs text-slate-500 italic mt-1">
-            Approximate count - full concordance coming soon
+            Open entry for real concordance occurrence counts and references
           </div>
         </div>
       </div>

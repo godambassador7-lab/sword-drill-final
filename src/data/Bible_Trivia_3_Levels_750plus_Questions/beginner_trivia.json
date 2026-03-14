@@ -9,7 +9,15 @@
       "Ecclesiastes"
     ],
     "answer": "Exodus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Exodus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -21,7 +29,15 @@
       "Song of Solomon"
     ],
     "answer": "Leviticus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Leviticus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -33,7 +49,15 @@
       "1 Chronicles"
     ],
     "answer": "Numbers",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Numbers\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -45,7 +69,15 @@
       "2 Chronicles"
     ],
     "answer": "Deuteronomy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Deuteronomy\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -57,7 +89,15 @@
       "Ezra"
     ],
     "answer": "Joshua",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joshua\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -69,7 +109,15 @@
       "Judges"
     ],
     "answer": "Judges",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Judges\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -81,7 +129,15 @@
       "Daniel"
     ],
     "answer": "Ruth",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ruth\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -93,7 +149,15 @@
       "1 Samuel"
     ],
     "answer": "1 Samuel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Samuel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -105,7 +169,13 @@
       "Psalms"
     ],
     "answer": "2 Samuel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -117,7 +187,13 @@
       "Amos"
     ],
     "answer": "1 Kings",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -129,7 +205,13 @@
       "Nehemiah"
     ],
     "answer": "2 Kings",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -141,7 +223,13 @@
       "Jonah"
     ],
     "answer": "1 Chronicles",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Chronicles\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -153,7 +241,13 @@
       "2 Chronicles"
     ],
     "answer": "2 Chronicles",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Chronicles\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -165,7 +259,13 @@
       "Nahum"
     ],
     "answer": "Ezra",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ezra\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -177,7 +277,15 @@
       "Proverbs"
     ],
     "answer": "Nehemiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nehemiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -189,7 +297,15 @@
       "Ezekiel"
     ],
     "answer": "Esther",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Esther\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -201,7 +317,15 @@
       "Job"
     ],
     "answer": "Job",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Job\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -213,7 +337,15 @@
       "Hosea"
     ],
     "answer": "Psalms",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Psalms\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -225,7 +357,15 @@
       "Joel"
     ],
     "answer": "Proverbs",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Proverbs\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -237,7 +377,15 @@
       "Ecclesiastes"
     ],
     "answer": "Ecclesiastes",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ecclesiastes\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -249,7 +397,15 @@
       "Song of Solomon"
     ],
     "answer": "Song of Solomon",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Song of Solomon\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -261,7 +417,15 @@
       "Isaiah"
     ],
     "answer": "Isaiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Isaiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -273,7 +437,15 @@
       "Micah"
     ],
     "answer": "Jeremiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jeremiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -285,7 +457,15 @@
       "Nahum"
     ],
     "answer": "Lamentations",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Lamentations\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -297,7 +477,15 @@
       "Ezekiel"
     ],
     "answer": "Ezekiel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ezekiel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -309,7 +497,15 @@
       "Daniel"
     ],
     "answer": "Daniel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Daniel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -321,7 +517,15 @@
       "Haggai"
     ],
     "answer": "Hosea",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Hosea\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -333,7 +537,15 @@
       "Micah"
     ],
     "answer": "Joel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -345,7 +557,15 @@
       "Amos"
     ],
     "answer": "Amos",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Amos\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -357,7 +577,15 @@
       "Habakkuk"
     ],
     "answer": "Obadiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Obadiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -369,7 +597,15 @@
       "Mark"
     ],
     "answer": "Jonah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jonah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -381,7 +617,15 @@
       "1 Thessalonians"
     ],
     "answer": "Micah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Micah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -393,7 +637,15 @@
       "2 Thessalonians"
     ],
     "answer": "Nahum",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nahum\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -405,7 +657,15 @@
       "Habakkuk"
     ],
     "answer": "Habakkuk",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Habakkuk\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -417,7 +677,15 @@
       "Zephaniah"
     ],
     "answer": "Zephaniah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Zephaniah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -429,7 +697,15 @@
       "Titus"
     ],
     "answer": "Haggai",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Haggai\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -441,7 +717,15 @@
       "Philemon"
     ],
     "answer": "Zechariah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Zechariah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -453,7 +737,15 @@
       "Malachi"
     ],
     "answer": "Malachi",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Malachi\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -465,7 +757,15 @@
       "Matthew"
     ],
     "answer": "Matthew",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Matthew\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -477,7 +777,15 @@
       "Mark"
     ],
     "answer": "Mark",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Mark\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -489,7 +797,15 @@
       "Luke"
     ],
     "answer": "Luke",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Luke\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -501,7 +817,15 @@
       "John"
     ],
     "answer": "John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"John\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -513,7 +837,15 @@
       "Acts"
     ],
     "answer": "Acts",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -525,7 +857,15 @@
       "3 John"
     ],
     "answer": "Romans",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Romans\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -537,7 +877,15 @@
       "Jude"
     ],
     "answer": "1 Corinthians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Corinthians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -549,7 +897,13 @@
       "Titus"
     ],
     "answer": "2 Corinthians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Corinthians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -561,7 +915,13 @@
       "1 Thessalonians"
     ],
     "answer": "Galatians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Galatians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -573,7 +933,15 @@
       "2 Thessalonians"
     ],
     "answer": "Ephesians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ephesians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -585,7 +953,15 @@
       "1 Timothy"
     ],
     "answer": "Philippians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Philippians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -597,7 +973,15 @@
       "Colossians"
     ],
     "answer": "Colossians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Colossians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -609,7 +993,15 @@
       "1 Thessalonians"
     ],
     "answer": "1 Thessalonians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Thessalonians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -621,7 +1013,13 @@
       "1 John"
     ],
     "answer": "2 Thessalonians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Thessalonians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -633,7 +1031,13 @@
       "1 Timothy"
     ],
     "answer": "1 Timothy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Timothy\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -645,7 +1049,13 @@
       "3 John"
     ],
     "answer": "2 Timothy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Timothy\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -657,7 +1067,13 @@
       "Titus"
     ],
     "answer": "Titus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Titus\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -669,7 +1085,15 @@
       "2 Peter"
     ],
     "answer": "Philemon",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Philemon\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -681,7 +1105,15 @@
       "Hebrews"
     ],
     "answer": "Hebrews",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Hebrews\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -693,7 +1125,15 @@
       "2 Kings"
     ],
     "answer": "James",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"James\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -705,7 +1145,15 @@
       "1 Chronicles"
     ],
     "answer": "1 Peter",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Peter\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -717,7 +1165,13 @@
       "2 Chronicles"
     ],
     "answer": "2 Peter",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Peter\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -729,7 +1183,13 @@
       "Deuteronomy"
     ],
     "answer": "1 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -741,7 +1201,13 @@
       "Genesis"
     ],
     "answer": "2 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -753,7 +1219,13 @@
       "Exodus"
     ],
     "answer": "3 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"3 John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -765,7 +1237,13 @@
       "Leviticus"
     ],
     "answer": "Jude",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jude\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -777,7 +1255,15 @@
       "Revelation"
     ],
     "answer": "Revelation",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Revelation\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -789,7 +1275,15 @@
       "2 Kings"
     ],
     "answer": "Genesis",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Genesis\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -801,7 +1295,15 @@
       "Exodus"
     ],
     "answer": "Exodus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Exodus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -813,7 +1315,15 @@
       "1 Samuel"
     ],
     "answer": "Leviticus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Leviticus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -825,7 +1335,15 @@
       "Numbers"
     ],
     "answer": "Numbers",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Numbers\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -837,7 +1355,15 @@
       "Nehemiah"
     ],
     "answer": "Deuteronomy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Deuteronomy\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -849,7 +1375,15 @@
       "Joshua"
     ],
     "answer": "Joshua",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joshua\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -861,7 +1395,15 @@
       "Job"
     ],
     "answer": "Judges",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Judges\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -873,7 +1415,13 @@
       "Psalms"
     ],
     "answer": "Ruth",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ruth\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -885,7 +1433,13 @@
       "Amos"
     ],
     "answer": "1 Samuel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -897,7 +1451,13 @@
       "Nehemiah"
     ],
     "answer": "2 Samuel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -909,7 +1469,13 @@
       "1 Kings"
     ],
     "answer": "1 Kings",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -921,7 +1487,13 @@
       "Micah"
     ],
     "answer": "2 Kings",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -933,7 +1505,13 @@
       "Psalms"
     ],
     "answer": "1 Chronicles",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Chronicles\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -945,7 +1523,15 @@
       "2 Chronicles"
     ],
     "answer": "2 Chronicles",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Chronicles\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -957,7 +1543,15 @@
       "Ezekiel"
     ],
     "answer": "Ezra",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ezra\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -969,7 +1563,15 @@
       "Haggai"
     ],
     "answer": "Nehemiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nehemiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -981,7 +1583,15 @@
       "Esther"
     ],
     "answer": "Esther",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Esther\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -993,7 +1603,15 @@
       "Job"
     ],
     "answer": "Job",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Job\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1005,7 +1623,15 @@
       "Matthew"
     ],
     "answer": "Psalms",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Psalms\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1017,7 +1643,15 @@
       "Mark"
     ],
     "answer": "Proverbs",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Proverbs\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1029,7 +1663,15 @@
       "Daniel"
     ],
     "answer": "Ecclesiastes",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ecclesiastes\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1041,7 +1683,15 @@
       "John"
     ],
     "answer": "Song of Solomon",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Song of Solomon\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1053,7 +1703,15 @@
       "Nahum"
     ],
     "answer": "Isaiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Isaiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1065,7 +1723,15 @@
       "Jeremiah"
     ],
     "answer": "Jeremiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jeremiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1077,7 +1743,15 @@
       "1 Corinthians"
     ],
     "answer": "Lamentations",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Lamentations\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1089,7 +1763,15 @@
       "Haggai"
     ],
     "answer": "Ezekiel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ezekiel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1101,7 +1783,15 @@
       "Zechariah"
     ],
     "answer": "Daniel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Daniel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1113,7 +1803,15 @@
       "Hosea"
     ],
     "answer": "Hosea",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Hosea\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1125,7 +1823,15 @@
       "Habakkuk"
     ],
     "answer": "Joel",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1137,7 +1843,15 @@
       "Colossians"
     ],
     "answer": "Amos",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Amos\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1149,7 +1863,15 @@
       "1 Thessalonians"
     ],
     "answer": "Obadiah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Obadiah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1161,7 +1883,15 @@
       "2 Thessalonians"
     ],
     "answer": "Jonah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jonah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1173,7 +1903,15 @@
       "Malachi"
     ],
     "answer": "Micah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Micah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1185,7 +1923,15 @@
       "Nahum"
     ],
     "answer": "Nahum",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nahum\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1197,7 +1943,15 @@
       "Habakkuk"
     ],
     "answer": "Habakkuk",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Habakkuk\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1209,7 +1963,15 @@
       "Zephaniah"
     ],
     "answer": "Zephaniah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Zephaniah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1221,7 +1983,15 @@
       "Galatians"
     ],
     "answer": "Haggai",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Haggai\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1233,7 +2003,15 @@
       "Ephesians"
     ],
     "answer": "Zechariah",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Zechariah\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1245,7 +2023,15 @@
       "Philippians"
     ],
     "answer": "Malachi",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Malachi\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1257,7 +2043,15 @@
       "Matthew"
     ],
     "answer": "Matthew",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Matthew\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1269,7 +2063,15 @@
       "1 John"
     ],
     "answer": "Mark",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Mark\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1281,7 +2083,15 @@
       "2 John"
     ],
     "answer": "Luke",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Luke\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1293,7 +2103,15 @@
       "John"
     ],
     "answer": "John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"John\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1305,7 +2123,15 @@
       "Acts"
     ],
     "answer": "Acts",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1317,7 +2143,13 @@
       "Revelation"
     ],
     "answer": "Romans",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Romans\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1329,7 +2161,13 @@
       "1 Thessalonians"
     ],
     "answer": "1 Corinthians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Corinthians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1341,7 +2179,15 @@
       "2 Thessalonians"
     ],
     "answer": "2 Corinthians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Corinthians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1353,7 +2199,15 @@
       "Leviticus"
     ],
     "answer": "Galatians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Galatians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1365,7 +2219,15 @@
       "Ephesians"
     ],
     "answer": "Ephesians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ephesians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1377,7 +2239,15 @@
       "Philippians"
     ],
     "answer": "Philippians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Philippians\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1389,7 +2259,13 @@
       "Colossians"
     ],
     "answer": "Colossians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Colossians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1401,7 +2277,13 @@
       "1 Thessalonians"
     ],
     "answer": "1 Thessalonians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Thessalonians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1413,7 +2295,13 @@
       "2 Thessalonians"
     ],
     "answer": "2 Thessalonians",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Thessalonians\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1425,7 +2313,13 @@
       "1 Timothy"
     ],
     "answer": "1 Timothy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Timothy\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1437,7 +2331,15 @@
       "2 Samuel"
     ],
     "answer": "2 Timothy",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Timothy\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1449,7 +2351,15 @@
       "1 Kings"
     ],
     "answer": "Titus",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Titus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1461,7 +2371,15 @@
       "Exodus"
     ],
     "answer": "Philemon",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Philemon\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1473,7 +2391,15 @@
       "Hebrews"
     ],
     "answer": "Hebrews",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Hebrews\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1485,7 +2411,13 @@
       "2 Chronicles"
     ],
     "answer": "James",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"James\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1497,7 +2429,13 @@
       "1 Peter"
     ],
     "answer": "1 Peter",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Peter\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1509,7 +2447,13 @@
       "Genesis"
     ],
     "answer": "2 Peter",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Peter\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1521,7 +2465,13 @@
       "Judges"
     ],
     "answer": "1 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1533,7 +2483,13 @@
       "Job"
     ],
     "answer": "2 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately before 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1545,7 +2501,15 @@
       "1 Samuel"
     ],
     "answer": "3 John",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"3 John\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1557,403 +2521,939 @@
       "Proverbs"
     ],
     "answer": "Jude",
-    "reference": "Book order"
+    "reference": "Book order",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jude\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Genesis is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Exodus is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Leviticus is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Numbers is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Deuteronomy is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judges is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ruth is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Samuel is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Samuel is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Kings is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Kings is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Chronicles is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Chronicles is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezra is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nehemiah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Esther is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Job is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Psalms is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Proverbs is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ecclesiastes is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Song of Solomon is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Isaiah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jeremiah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Lamentations is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezekiel is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Daniel is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hosea is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joel is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Amos is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Obadiah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jonah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Micah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nahum is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Habakkuk is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zephaniah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Haggai is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zechariah is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Malachi is in the Old Testament. (True/False)",
     "answer": "True",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Matthew is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Mark is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Luke is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "John is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Acts is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Romans is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Corinthians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Corinthians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Galatians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ephesians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philippians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Colossians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Thessalonians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Thessalonians is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Timothy is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Timothy is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Titus is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philemon is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hebrews is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "James is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Peter is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Peter is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 John is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 John is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "3 John is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jude is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Revelation is in the Old Testament. (True/False)",
     "answer": "False",
-    "reference": "Canon"
+    "reference": "Canon",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1965,13 +3465,25 @@
       "Joshua"
     ],
     "answer": "Noah",
-    "reference": "Genesis 6–9"
+    "reference": "Genesis 6–9",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Noah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Noah built an ark to survive the flood. (True/False)",
     "answer": "True",
-    "reference": "Genesis 6–9"
+    "reference": "Genesis 6–9",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1981,7 +3493,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Genesis 6–9"
+    "reference": "Genesis 6–9",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1993,13 +3511,25 @@
       "Samuel"
     ],
     "answer": "Moses",
-    "reference": "Exodus 12–14"
+    "reference": "Exodus 12–14",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Moses\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Exodus 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Moses led the Israelites out of Egypt. (True/False)",
     "answer": "True",
-    "reference": "Exodus 12–14"
+    "reference": "Exodus 12–14",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Exodus 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2009,7 +3539,13 @@
       "New Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Exodus 12–14"
+    "reference": "Exodus 12–14",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Exodus 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2021,13 +3557,25 @@
       "Moses"
     ],
     "answer": "David",
-    "reference": "1 Samuel 17"
+    "reference": "1 Samuel 17",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"David\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 17"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "David defeated Goliath with a sling and a stone. (True/False)",
     "answer": "True",
-    "reference": "1 Samuel 17"
+    "reference": "1 Samuel 17",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 17"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2037,7 +3585,13 @@
       "New Testament"
     ],
     "answer": "Old Testament",
-    "reference": "1 Samuel 17"
+    "reference": "1 Samuel 17",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 17"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2049,13 +3603,25 @@
       "Abraham"
     ],
     "answer": "Abraham",
-    "reference": "Genesis 12"
+    "reference": "Genesis 12",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Abraham\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Abraham was called by God to leave his homeland. (True/False)",
     "answer": "True",
-    "reference": "Genesis 12"
+    "reference": "Genesis 12",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2065,7 +3631,13 @@
       "New Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Genesis 12"
+    "reference": "Genesis 12",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 12"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2077,13 +3649,25 @@
       "Moses"
     ],
     "answer": "Joseph",
-    "reference": "Genesis 37–41"
+    "reference": "Genesis 37–41",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joseph\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 37"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joseph was sold by his brothers and rose to power in Egypt. (True/False)",
     "answer": "True",
-    "reference": "Genesis 37–41"
+    "reference": "Genesis 37–41",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 37"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2093,7 +3677,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Genesis 37–41"
+    "reference": "Genesis 37–41",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Genesis 37"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2105,13 +3695,25 @@
       "Abraham"
     ],
     "answer": "Joshua",
-    "reference": "Joshua 1–6"
+    "reference": "Joshua 1–6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joshua\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Joshua 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua led the Israelites into the Promised Land. (True/False)",
     "answer": "True",
-    "reference": "Joshua 1–6"
+    "reference": "Joshua 1–6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Joshua 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2121,7 +3723,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Joshua 1–6"
+    "reference": "Joshua 1–6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Joshua 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2133,13 +3741,25 @@
       "Moses"
     ],
     "answer": "Daniel",
-    "reference": "Daniel 6"
+    "reference": "Daniel 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Daniel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Daniel was thrown into a den of lions. (True/False)",
     "answer": "True",
-    "reference": "Daniel 6"
+    "reference": "Daniel 6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2149,7 +3769,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Daniel 6"
+    "reference": "Daniel 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2161,13 +3787,25 @@
       "Noah"
     ],
     "answer": "Jonah",
-    "reference": "Jonah 1–2"
+    "reference": "Jonah 1–2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jonah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Jonah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jonah was swallowed by a great fish. (True/False)",
     "answer": "True",
-    "reference": "Jonah 1–2"
+    "reference": "Jonah 1–2",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Jonah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2177,7 +3815,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Jonah 1–2"
+    "reference": "Jonah 1–2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Jonah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2189,13 +3833,25 @@
       "Elijah"
     ],
     "answer": "Elijah",
-    "reference": "1 Kings 18"
+    "reference": "1 Kings 18",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Elijah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 18"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Elijah challenged the prophets of Baal on Mount Carmel. (True/False)",
     "answer": "True",
-    "reference": "1 Kings 18"
+    "reference": "1 Kings 18",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 18"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2205,7 +3861,13 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "1 Kings 18"
+    "reference": "1 Kings 18",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 18"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2217,13 +3879,27 @@
       "Solomon"
     ],
     "answer": "Solomon",
-    "reference": "1 Kings 3; 1 Kings 6"
+    "reference": "1 Kings 3; 1 Kings 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Solomon\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 3",
+      "1 Kings 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Solomon was known for wisdom and built the temple. (True/False)",
     "answer": "True",
-    "reference": "1 Kings 3; 1 Kings 6"
+    "reference": "1 Kings 3; 1 Kings 6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 3",
+      "1 Kings 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2233,7 +3909,14 @@
       "Old Testament"
     ],
     "answer": "Old Testament",
-    "reference": "1 Kings 3; 1 Kings 6"
+    "reference": "1 Kings 3; 1 Kings 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Kings 3",
+      "1 Kings 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2245,13 +3928,25 @@
       "Samuel"
     ],
     "answer": "Peter",
-    "reference": "Matthew 14"
+    "reference": "Matthew 14",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Peter\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 14"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Peter walked on water toward Jesus. (True/False)",
     "answer": "True",
-    "reference": "Matthew 14"
+    "reference": "Matthew 14",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 14"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2261,7 +3956,13 @@
       "Old Testament"
     ],
     "answer": "New Testament",
-    "reference": "Matthew 14"
+    "reference": "Matthew 14",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"New Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 14"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2273,13 +3974,25 @@
       "Paul"
     ],
     "answer": "Paul",
-    "reference": "Acts 9; Pauline epistles"
+    "reference": "Acts 9; Pauline epistles",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Paul\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Paul traveled as a missionary and wrote many letters. (True/False)",
     "answer": "True",
-    "reference": "Acts 9; Pauline epistles"
+    "reference": "Acts 9; Pauline epistles",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2289,7 +4002,13 @@
       "Old Testament"
     ],
     "answer": "New Testament",
-    "reference": "Acts 9; Pauline epistles"
+    "reference": "Acts 9; Pauline epistles",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"New Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2301,13 +4020,27 @@
       "Noah"
     ],
     "answer": "Mary",
-    "reference": "Matthew 1–2; Luke 1–2"
+    "reference": "Matthew 1–2; Luke 1–2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Mary\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 1",
+      "Luke 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Mary gave birth to Jesus. (True/False)",
     "answer": "True",
-    "reference": "Matthew 1–2; Luke 1–2"
+    "reference": "Matthew 1–2; Luke 1–2",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 1",
+      "Luke 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2317,7 +4050,14 @@
       "Old Testament"
     ],
     "answer": "New Testament",
-    "reference": "Matthew 1–2; Luke 1–2"
+    "reference": "Matthew 1–2; Luke 1–2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"New Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 1",
+      "Luke 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2329,13 +4069,25 @@
       "Moses"
     ],
     "answer": "Jesus",
-    "reference": "John 6"
+    "reference": "John 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jesus\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jesus fed five thousand people with loaves and fish. (True/False)",
     "answer": "True",
-    "reference": "John 6"
+    "reference": "John 6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2345,7 +4097,13 @@
       "New Testament"
     ],
     "answer": "New Testament",
-    "reference": "John 6"
+    "reference": "John 6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"New Testament\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2357,13 +4115,29 @@
       "Peter"
     ],
     "answer": "Jesus",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Jesus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jesus was crucified and rose again on the third day. (True/False)",
     "answer": "True",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2373,7 +4147,15 @@
       "New Testament"
     ],
     "answer": "Old Testament",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Old Testament\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2386,7 +4168,15 @@
     ],
     "answer": "Exodus",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Exodus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2399,7 +4189,15 @@
     ],
     "answer": "Leviticus",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Leviticus\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2412,7 +4210,15 @@
     ],
     "answer": "Numbers",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Numbers\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2425,7 +4231,15 @@
     ],
     "answer": "Deuteronomy",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Deuteronomy\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2438,7 +4252,15 @@
     ],
     "answer": "Joshua",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Joshua\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2451,7 +4273,15 @@
     ],
     "answer": "Judges",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Judges\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2464,7 +4294,15 @@
     ],
     "answer": "Ruth",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ruth\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2477,7 +4315,15 @@
     ],
     "answer": "1 Samuel",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Samuel\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -2490,6 +4336,12 @@
     ],
     "answer": "2 Samuel",
     "reference": "Book order",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "book comes immediately after 1"
+    ],
+    "qaNeedsReferenceReview": false
   }
 ]

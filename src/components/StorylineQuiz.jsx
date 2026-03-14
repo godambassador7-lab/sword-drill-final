@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Trophy, Star, ArrowLeft, CheckCircle, XCircle, Zap } from 'lucide-react';
+import { Clock, Trophy, Star, ArrowLeft, CheckCircle, XCircle, Zap, BookOpen } from 'lucide-react';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+import { buildStudyLens, buildConfidenceTier } from '../services/quizEvidence';
+import SourceStrengthBadge from './SourceStrengthBadge';
 
 const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
   const [metadata, setMetadata] = useState(null);
@@ -12,6 +15,18 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const getPrimarySourceLabel = (pack) => {
+    if (!pack?.reference) return 'Reference not specified';
+    return pack.reference;
+  };
+  const buildPackEvidenceQuestion = (pack) => ({
+    question: pack?.title || '',
+    explanation: Array.isArray(pack?.events) ? pack.events.map((e) => e.text).join(' ') : '',
+    reference: pack?.reference || '',
+    scriptureRefs: pack?.reference ? [pack.reference] : []
+  });
+  const openRef = (ref) => openReferenceInBibleReader(ref, onBack);
 
   // Load metadata and discover available packs
   useEffect(() => {
@@ -214,6 +229,8 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
     const profile = metadata.difficultyProfiles[quizData.difficulty];
     const maxPossibleScore = (profile.basePointsPerCorrect * quizData.events.length) +
                              profile.perfectBonus + 50; // Max time bonus
+    const packStudyLens = buildStudyLens(buildPackEvidenceQuestion(quizData), 'general');
+    const packConfidence = buildConfidenceTier(buildPackEvidenceQuestion(quizData), 'general');
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-4 flex items-center justify-center">
@@ -245,6 +262,35 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
                 </li>
               ))}
             </ol>
+          </div>
+
+          <div className="rounded-xl border border-teal-500/40 bg-teal-900/20 p-4 mb-6">
+            <div className="flex items-center gap-2 mb-2">
+              <BookOpen size={16} className="text-teal-300" />
+              <p className="text-sm font-bold text-teal-200">Source Strength</p>
+              <SourceStrengthBadge tier={packConfidence.tier} />
+            </div>
+            <p className="text-xs text-teal-100 mb-1">{packConfidence.rationale}</p>
+            <p className="text-xs text-teal-100 mb-1">
+              <span className="text-teal-300">Evidence Basis:</span> {packStudyLens.evidenceBasis}
+            </p>
+            <p className="text-xs text-teal-100 mb-2">
+              <span className="text-teal-300">Verification Step:</span> {packStudyLens.verification}
+            </p>
+            {packStudyLens.references.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {packStudyLens.references.map((ref) => (
+                  <button
+                    key={ref}
+                    onClick={() => openRef(ref)}
+                    className="rounded border border-teal-500/30 bg-teal-900/30 px-2 py-1 text-xs text-teal-200 hover:bg-teal-800/40 transition-colors font-mono"
+                    title="Open in Bible Reader"
+                  >
+                    {ref}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="space-y-3">
@@ -303,6 +349,23 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
             <p className="text-slate-300">{quizData.reference}</p>
             <p className="text-purple-300 text-sm mt-2">
               Drag and drop events into the correct chronological order
+            </p>
+          </div>
+
+          <div className="mb-6 rounded-xl border border-teal-500/40 bg-teal-900/20 p-4">
+            <h3 className="mb-2 text-sm font-bold text-teal-300">Primary Source Scope</h3>
+            <p className="text-sm text-teal-100">
+              This timeline is anchored to:{' '}
+              <button
+                onClick={() => openRef(getPrimarySourceLabel(quizData))}
+                className="font-semibold underline decoration-teal-300/70 hover:text-white transition-colors"
+                title="Open in Bible Reader"
+              >
+                {getPrimarySourceLabel(quizData)}
+              </button>
+            </p>
+            <p className="mt-1 text-xs text-teal-200">
+              Chronology packs are pedagogical summaries; always confirm ordering by reading the full passage context.
             </p>
           </div>
 
@@ -416,6 +479,22 @@ const StorylineQuiz = ({ onComplete, onBack, userLevel = 'Beginner' }) => {
                   <div className="text-slate-400">
                     {pack.tags?.join(', ')}
                   </div>
+                </div>
+
+                <div className="mt-3 rounded-lg border border-teal-500/30 bg-slate-900/40 p-2">
+                  <p className="text-xs text-teal-200">
+                    Primary source:{' '}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openRef(getPrimarySourceLabel(pack));
+                      }}
+                      className="underline decoration-teal-300/70 hover:text-white transition-colors"
+                      title="Open in Bible Reader"
+                    >
+                      {getPrimarySourceLabel(pack)}
+                    </button>
+                  </p>
                 </div>
 
                 <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">

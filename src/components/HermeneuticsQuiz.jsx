@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Check, X, ChevronRight, Award, TrendingUp, Target, RotateCcw } from 'lucide-react';
+import { Check, X, ChevronRight, Award, TrendingUp, Target, RotateCcw, BookOpen } from 'lucide-react';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+import { buildStudyLens } from '../services/quizEvidence';
 
-const HermeneuticsQuiz = ({ questions, lessonTitle, isExam = false, onComplete, onRetry }) => {
+const HermeneuticsQuiz = ({ questions, lessonTitle, isExam = false, onComplete, onRetry, onOpenBibleReader }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
@@ -190,6 +192,8 @@ const HermeneuticsQuiz = ({ questions, lessonTitle, isExam = false, onComplete, 
   const question = questions[currentQuestion];
   const isCorrect = selectedAnswer === question.correct;
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const studyLens = buildStudyLens(question, 'hermeneutics');
+  const openRef = (ref) => openReferenceInBibleReader(ref, onOpenBibleReader);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 p-4">
@@ -285,6 +289,36 @@ const HermeneuticsQuiz = ({ questions, lessonTitle, isExam = false, onComplete, 
               <p className="text-white leading-relaxed">
                 {question.explanation}
               </p>
+
+              {studyLens.references.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-slate-600">
+                  <p className="text-xs text-slate-300 mb-2 flex items-center gap-1">
+                    <BookOpen size={14} />
+                    Primary Text Anchors
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {studyLens.references.map((ref) => (
+                      <button
+                        key={ref}
+                        type="button"
+                        onClick={() => openRef(ref)}
+                        className="text-xs bg-teal-600/30 text-teal-200 px-2 py-1 rounded font-mono hover:bg-teal-500/40 transition-colors"
+                        title="Open in Bible Reader"
+                      >
+                        {ref}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="mt-3 pt-3 border-t border-slate-600 text-sm space-y-2">
+                <p className="text-teal-200 font-semibold">Study Method (Scholarly Lens)</p>
+                <p className="text-slate-200"><span className="text-slate-400">Claim Type:</span> {studyLens.claimType}</p>
+                <p className="text-slate-200"><span className="text-slate-400">Evidence Basis:</span> {studyLens.evidenceBasis}</p>
+                <p className="text-slate-200"><span className="text-slate-400">Verification Step:</span> {studyLens.verification}</p>
+                <p className="text-slate-200"><span className="text-slate-400">Interpretive Caution:</span> {studyLens.caution}</p>
+              </div>
             </div>
           )}
 

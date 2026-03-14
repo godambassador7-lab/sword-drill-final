@@ -12,7 +12,15 @@
             "The history of the Christian church"
           ],
           "correct": 1,
-          "explanation": "Hermeneutics is the science and art of biblical interpretation. It encompasses both the methodological principles (science) and the skillful application (art) needed to understand and explain Scripture accurately."
+          "explanation": "Hermeneutics is the science and art of biblical interpretation. It encompasses both the methodological principles (science) and the skillful application (art) needed to understand and explain Scripture accurately.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -24,7 +32,15 @@
             "It makes Bible study easier by removing difficult passages"
           ],
           "correct": 0,
-          "explanation": "Hermeneutics is crucial because it provides a systematic approach to understanding what the biblical text meant in its original context and how to apply those truths today, bridging the historical and cultural gap between the ancient text and modern readers."
+          "explanation": "Hermeneutics is crucial because it provides a systematic approach to understanding what the biblical text meant in its original context and how to apply those truths today, bridging the historical and cultural gap between the ancient text and modern readers.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -36,7 +52,15 @@
             "To prove our theological positions"
           ],
           "correct": 1,
-          "explanation": "The primary goal of biblical hermeneutics is to discover the author's intended meaning. We seek to understand what the human author (and ultimately the divine Author) meant to communicate to the original audience."
+          "explanation": "The primary goal of biblical hermeneutics is to discover the author's intended meaning. We seek to understand what the human author (and ultimately the divine Author) meant to communicate to the original audience.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -48,7 +72,15 @@
             "Examining the grammatical structure"
           ],
           "correct": 2,
-          "explanation": "Imposing modern ideas onto the text (eisegesis) is the opposite of proper hermeneutical practice. Good hermeneutics involves drawing meaning out of the text (exegesis) by examining historical context, literary genre, and grammatical structure."
+          "explanation": "Imposing modern ideas onto the text (eisegesis) is the opposite of proper hermeneutical practice. Good hermeneutics involves drawing meaning out of the text (exegesis) by examining historical context, literary genre, and grammatical structure.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -60,7 +92,15 @@
             "Exegesis is for the Old Testament, eisegesis is for the New Testament"
           ],
           "correct": 2,
-          "explanation": "Exegesis (from Greek 'to lead out') means drawing the meaning out of the text based on what the author intended, while eisegesis ('to lead into') means reading our own ideas into the text. Proper interpretation requires exegesis, not eisegesis."
+          "explanation": "Exegesis (from Greek 'to lead out') means drawing the meaning out of the text based on what the author intended, while eisegesis ('to lead into') means reading our own ideas into the text. Proper interpretation requires exegesis, not eisegesis.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -76,7 +116,15 @@
             "Church attendance increases"
           ],
           "correct": 1,
-          "explanation": "Poor interpretation of Scripture has led to serious consequences throughout church history, including theological errors, church divisions, harmful practices, and even abuse. Proper interpretation is essential for the health of individuals and the church."
+          "explanation": "Poor interpretation of Scripture has led to serious consequences throughout church history, including theological errors, church divisions, harmful practices, and even abuse. Proper interpretation is essential for the health of individuals and the church.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -88,7 +136,15 @@
             "Because scholars need to justify their positions"
           ],
           "correct": 1,
-          "explanation": "We are separated from the biblical text by thousands of years, different cultures, and original languages. While much of Scripture is clear, proper interpretation requires bridging these gaps through sound hermeneutical principles."
+          "explanation": "We are separated from the biblical text by thousands of years, different cultures, and original languages. While much of Scripture is clear, proper interpretation requires bridging these gaps through sound hermeneutical principles.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -100,7 +156,13 @@
             "The Spirit only helps pastors and scholars, not ordinary believers"
           ],
           "correct": 2,
-          "explanation": "The Holy Spirit illuminates Scripture and helps believers understand God's truth (John 16:13), but this doesn't replace the need for careful study. The Spirit works through our diligent use of proper interpretive methods."
+          "explanation": "The Holy Spirit illuminates Scripture and helps believers understand God's truth (John 16:13), but this doesn't replace the need for careful study. The Spirit works through our diligent use of proper interpretive methods.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "John 16:13"
+          ],
+          "reference": "John 16:13",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -112,7 +174,15 @@
             "As long as we're sincere, our interpretation doesn't matter"
           ],
           "correct": 1,
-          "explanation": "Interpretation directly impacts theology, and theology shapes how we live. Correct understanding of Scripture leads to proper beliefs about God, salvation, ethics, and Christian living. Poor interpretation can lead to harmful beliefs and practices."
+          "explanation": "Interpretation directly impacts theology, and theology shapes how we live. Correct understanding of Scripture leads to proper beliefs about God, salvation, ethics, and Christian living. Poor interpretation can lead to harmful beliefs and practices.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -124,7 +194,15 @@
             "The teaching that only educated people can understand the Bible"
           ],
           "correct": 1,
-          "explanation": "The clarity of Scripture means that the Bible's central message about salvation through Christ is clear enough for anyone to understand. However, this doesn't mean all passages are equally clear or that careful interpretation is unnecessary for deeper understanding."
+          "explanation": "The clarity of Scripture means that the Bible's central message about salvation through Christ is clear enough for anyone to understand. However, this doesn't mean all passages are equally clear or that careful interpretation is unnecessary for deeper understanding.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -140,7 +218,15 @@
             "Prayer, Study, Fellowship, and Worship"
           ],
           "correct": 1,
-          "explanation": "The Four Pillars of biblical interpretation are Historical context (when and where it was written), Literary context (what kind of literature it is), Theological context (how it fits in God's overall revelation), and Practical context (how we apply it today)."
+          "explanation": "The Four Pillars of biblical interpretation are Historical context (when and where it was written), Literary context (what kind of literature it is), Theological context (how it fits in God's overall revelation), and Practical context (how we apply it today).",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -152,7 +238,15 @@
             "It is not actually important for interpretation"
           ],
           "correct": 0,
-          "explanation": "Historical context is crucial because it helps us understand the circumstances, culture, and issues the original audience faced. This prevents us from misapplying texts by understanding what they meant in their original setting before applying them today."
+          "explanation": "Historical context is crucial because it helps us understand the circumstances, culture, and issues the original audience faced. This prevents us from misapplying texts by understanding what they meant in their original setting before applying them today.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -164,7 +258,15 @@
             "How poetic the passage sounds"
           ],
           "correct": 1,
-          "explanation": "Literary context includes both the genre (narrative, poetry, prophecy, epistle, etc.) and the immediate context (surrounding verses and chapters). Understanding the literary form and flow of thought is essential for proper interpretation."
+          "explanation": "Literary context includes both the genre (narrative, poetry, prophecy, epistle, etc.) and the immediate context (surrounding verses and chapters). Understanding the literary form and flow of thought is essential for proper interpretation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -176,7 +278,15 @@
             "Because individual verses have no connection to the rest of the Bible"
           ],
           "correct": 0,
-          "explanation": "Theological context means understanding how a passage fits within the entire biblical revelation. Scripture interprets Scripture, and we must read individual passages in light of the whole counsel of God, ensuring our interpretation aligns with clear biblical teaching."
+          "explanation": "Theological context means understanding how a passage fits within the entire biblical revelation. Scripture interprets Scripture, and we must read individual passages in light of the whole counsel of God, ensuring our interpretation aligns with clear biblical teaching.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -188,7 +298,15 @@
             "To replace ancient teachings with modern ideas"
           ],
           "correct": 2,
-          "explanation": "Practical context involves proper application of the text to our lives today. After understanding what the text meant in its original context, we must discern how its timeless truths apply to our contemporary situation without distorting the original meaning."
+          "explanation": "Practical context involves proper application of the text to our lives today. After understanding what the text meant in its original context, we must discern how its timeless truths apply to our contemporary situation without distorting the original meaning.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -204,7 +322,15 @@
             "Genre determines which parts of the Bible are trustworthy"
           ],
           "correct": 0,
-          "explanation": "Recognizing genre is crucial because different literary forms communicate truth differently. Poetry uses figurative language, narrative tells stories, prophecy uses symbolic imagery, and epistles use logical argumentation. Each requires appropriate interpretive methods."
+          "explanation": "Recognizing genre is crucial because different literary forms communicate truth differently. Poetry uses figurative language, narrative tells stories, prophecy uses symbolic imagery, and epistles use logical argumentation. Each requires appropriate interpretive methods.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -216,7 +342,13 @@
             "Epistle (letter)"
           ],
           "correct": 2,
-          "explanation": "Narrative (story) makes up approximately 40% of the Old Testament and significant portions of the New Testament (Gospels and Acts). Understanding how to interpret biblical narrative is essential for understanding much of Scripture."
+          "explanation": "Narrative (story) makes up approximately 40% of the Old Testament and significant portions of the New Testament (Gospels and Acts). Understanding how to interpret biblical narrative is essential for understanding much of Scripture.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "makes up approximately 40"
+          ],
+          "reference": "makes up approximately 40",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -228,7 +360,15 @@
             "There is no difference in how we interpret them"
           ],
           "correct": 1,
-          "explanation": "Hebrew poetry extensively uses parallelism (repeating ideas in different words), metaphor, and figurative language. We must recognize these poetic devices and not interpret them with the same literalness we would apply to straightforward narrative."
+          "explanation": "Hebrew poetry extensively uses parallelism (repeating ideas in different words), metaphor, and figurative language. We must recognize these poetic devices and not interpret them with the same literalness we would apply to straightforward narrative.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -240,7 +380,15 @@
             "Epistles should not be applied to modern readers"
           ],
           "correct": 1,
-          "explanation": "Epistles are letters written to specific churches or individuals addressing particular situations. They contain theological teaching applied to real-life issues. Understanding the original situation helps us apply the principles to our own contexts."
+          "explanation": "Epistles are letters written to specific churches or individuals addressing particular situations. They contain theological teaching applied to real-life issues. Understanding the original situation helps us apply the principles to our own contexts.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -252,7 +400,15 @@
             "Legal codes and regulations"
           ],
           "correct": 1,
-          "explanation": "Apocalyptic literature is a special type of prophetic writing that uses highly symbolic imagery, numbers, colors, and visions to communicate truth about God's sovereignty and future events. It requires careful attention to its symbolic conventions."
+          "explanation": "Apocalyptic literature is a special type of prophetic writing that uses highly symbolic imagery, numbers, colors, and visions to communicate truth about God's sovereignty and future events. It requires careful attention to its symbolic conventions.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -268,7 +424,15 @@
             "Reading the Bible like a science textbook"
           ],
           "correct": 1,
-          "explanation": "Literal interpretation means taking the text according to its natural, intended meaning - which includes recognizing when the author uses figurative language. A literal approach respects the author's intent, whether that involves metaphor, hyperbole, or straightforward description."
+          "explanation": "Literal interpretation means taking the text according to its natural, intended meaning - which includes recognizing when the author uses figurative language. A literal approach respects the author's intent, whether that involves metaphor, hyperbole, or straightforward description.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -280,7 +444,13 @@
             "This proves we cannot understand the Bible"
           ],
           "correct": 1,
-          "explanation": "Jesus uses a metaphor here. He is not literally a wooden door, but is comparing himself to a door to communicate that he is the means of entry into salvation and relationship with God. Recognizing figures of speech is essential to proper interpretation."
+          "explanation": "Jesus uses a metaphor here. He is not literally a wooden door, but is comparing himself to a door to communicate that he is the means of entry into salvation and relationship with God. Recognizing figures of speech is essential to proper interpretation.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "John 10:9"
+          ],
+          "reference": "John 10:9",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -292,7 +462,15 @@
             "Only poetry uses figurative language"
           ],
           "correct": 1,
-          "explanation": "We identify figurative language by paying attention to context, recognizing the genre, noting obvious impossibilities (like mountains singing), observing comparative language ('like,' 'as'), and comparing with clearer passages on the same topic."
+          "explanation": "We identify figurative language by paying attention to context, recognizing the genre, noting obvious impossibilities (like mountains singing), observing comparative language ('like,' 'as'), and comparing with clearer passages on the same topic.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -304,7 +482,13 @@
             "A Greek philosophical concept"
           ],
           "correct": 1,
-          "explanation": "Hyperbole is deliberate exaggeration used for emphasis or effect. When Jesus says to remove the plank from your own eye (Matthew 7:5), he uses hyperbolic imagery to emphasize the importance of self-examination before judging others."
+          "explanation": "Hyperbole is deliberate exaggeration used for emphasis or effect. When Jesus says to remove the plank from your own eye (Matthew 7:5), he uses hyperbolic imagery to emphasize the importance of self-examination before judging others.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Matthew 7:5"
+          ],
+          "reference": "Matthew 7:5",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
@@ -316,7 +500,15 @@
             "Because it means we cannot know anything about God"
           ],
           "correct": 1,
-          "explanation": "Anthropomorphism uses human characteristics to describe God (like 'the arm of the Lord'). God doesn't have a physical body, but uses human language to help us understand his power, knowledge, and presence. Recognizing this prevents misunderstanding."
+          "explanation": "Anthropomorphism uses human characteristics to describe God (like 'the arm of the Lord'). God doesn't have a physical body, but uses human language to help us understand his power, knowledge, and presence. Recognizing this prevents misunderstanding.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -332,7 +524,15 @@
             "Modern context matters more than ancient context"
           ],
           "correct": 1,
-          "explanation": "The phrase 'context is king' means that we must interpret any verse or passage in light of its surrounding context - the verses before and after, the chapter, the book, and ultimately all of Scripture. Context determines meaning."
+          "explanation": "The phrase 'context is king' means that we must interpret any verse or passage in light of its surrounding context - the verses before and after, the chapter, the book, and ultimately all of Scripture. Context determines meaning.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -344,7 +544,15 @@
             "God blesses our sincere efforts"
           ],
           "correct": 1,
-          "explanation": "Taking verses out of context is one of the most common interpretive errors. Without context, we can make the Bible appear to say almost anything, leading to false teaching. Many cults and false doctrines arise from proof-texting verses out of context."
+          "explanation": "Taking verses out of context is one of the most common interpretive errors. Without context, we can make the Bible appear to say almost anything, leading to false teaching. Many cults and false doctrines arise from proof-texting verses out of context.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -356,7 +564,15 @@
             "Personal, church, and cultural"
           ],
           "correct": 1,
-          "explanation": "We should examine immediate context (surrounding verses), book context (the purpose and flow of the entire book), and canonical context (how the passage fits within all of Scripture). Each level helps ensure accurate interpretation."
+          "explanation": "We should examine immediate context (surrounding verses), book context (the purpose and flow of the entire book), and canonical context (how the passage fits within all of Scripture). Each level helps ensure accurate interpretation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -368,7 +584,13 @@
             "God's plans have changed since then"
           ],
           "correct": 0,
-          "explanation": "While this verse reveals God's character and care, it was originally spoken to Israelites in Babylonian exile about their eventual return to the land. We can apply the principle of God's faithful care, but must not ignore the original historical context."
+          "explanation": "While this verse reveals God's character and care, it was originally spoken to Israelites in Babylonian exile about their eventual return to the land. We can apply the principle of God's faithful care, but must not ignore the original historical context.",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "Why is Jeremiah 29:11"
+          ],
+          "reference": "Why is Jeremiah 29:11",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
@@ -380,7 +602,15 @@
             "What do modern scholars think about this?"
           ],
           "correct": 1,
-          "explanation": "The first and most important question in interpretation is 'What did this mean to the original audience?' Understanding the original meaning provides the foundation for proper application to our lives today."
+          "explanation": "The first and most important question in interpretation is 'What did this mean to the original audience?' Understanding the original meaning provides the foundation for proper application to our lives today.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -396,7 +626,15 @@
             "To harmonize all apparent contradictions"
           ],
           "correct": 1,
-          "explanation": "The foundational goal of hermeneutics is to discover what the biblical author intended to communicate to the original audience. This original meaning forms the basis for all legitimate application to our lives today."
+          "explanation": "The foundational goal of hermeneutics is to discover what the biblical author intended to communicate to the original audience. This original meaning forms the basis for all legitimate application to our lives today.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -408,7 +646,15 @@
             "Hermeneutics"
           ],
           "correct": 1,
-          "explanation": "Eisegesis is the error of reading our own ideas, biases, or desired meanings into the text rather than drawing out what the text actually says. Proper interpretation requires exegesis, not eisegesis."
+          "explanation": "Eisegesis is the error of reading our own ideas, biases, or desired meanings into the text rather than drawing out what the text actually says. Proper interpretation requires exegesis, not eisegesis.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -420,7 +666,15 @@
             "Practical context"
           ],
           "correct": 2,
-          "explanation": "Historical context focuses on understanding when and where the text was written, who the original audience was, and what circumstances they faced. This prevents us from misapplying the text by first understanding its original setting."
+          "explanation": "Historical context focuses on understanding when and where the text was written, who the original audience was, and what circumstances they faced. This prevents us from misapplying the text by first understanding its original setting.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -432,7 +686,15 @@
             "Genre identification is not necessary for interpretation"
           ],
           "correct": 1,
-          "explanation": "Genre identification is essential because different literary types communicate truth differently. Poetry uses different conventions than narrative, prophecy differs from epistles, and each requires appropriate interpretive methods."
+          "explanation": "Genre identification is essential because different literary types communicate truth differently. Poetry uses different conventions than narrative, prophecy differs from epistles, and each requires appropriate interpretive methods.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -444,7 +706,15 @@
             "Treating all Scripture as allegory"
           ],
           "correct": 2,
-          "explanation": "Proper literal interpretation means taking the text according to its natural, intended meaning - which includes recognizing when authors use figures of speech, poetry, metaphors, and other literary devices. We seek the author's intent, not wooden literalism."
+          "explanation": "Proper literal interpretation means taking the text according to its natural, intended meaning - which includes recognizing when authors use figures of speech, poetry, metaphors, and other literary devices. We seek the author's intent, not wooden literalism.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 6,
@@ -456,7 +726,13 @@
             "A mistranslation"
           ],
           "correct": 1,
-          "explanation": "Jesus uses a metaphor comparing himself to a vine and believers to branches to illustrate the vital connection believers must maintain with him for spiritual life and fruitfulness. Recognizing figures of speech is essential to interpretation."
+          "explanation": "Jesus uses a metaphor comparing himself to a vine and believers to branches to illustrate the vital connection believers must maintain with him for spiritual life and fruitfulness. Recognizing figures of speech is essential to interpretation.",
+          "claimType": "Historical/Textual Fact Claim",
+          "scriptureRefs": [
+            "John 15:5"
+          ],
+          "reference": "John 15:5",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 7,
@@ -468,7 +744,15 @@
             "Textual variants"
           ],
           "correct": 1,
-          "explanation": "Taking verses out of their context is perhaps the most common interpretive error. Context determines meaning, and ignoring context allows people to make Scripture appear to say almost anything, leading to false teaching."
+          "explanation": "Taking verses out of their context is perhaps the most common interpretive error. Context determines meaning, and ignoring context allows people to make Scripture appear to say almost anything, leading to false teaching.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 8,
@@ -480,7 +764,13 @@
             "The Spirit only helps clergy, not laypeople"
           ],
           "correct": 2,
-          "explanation": "The Holy Spirit illuminates Scripture and guides believers into truth (John 16:13), but this doesn't replace the need for diligent study using proper interpretive methods. The Spirit works through our careful examination of God's Word."
+          "explanation": "The Holy Spirit illuminates Scripture and guides believers into truth (John 16:13), but this doesn't replace the need for diligent study using proper interpretive methods. The Spirit works through our careful examination of God's Word.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "John 16:13"
+          ],
+          "reference": "John 16:13",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 9,
@@ -492,7 +782,15 @@
             "Because we need to update ancient theology for modern times"
           ],
           "correct": 1,
-          "explanation": "Theological context means reading individual passages in light of the entire biblical revelation. Scripture interprets Scripture, and we must ensure our interpretation of one passage aligns with the clear teaching of the whole Bible."
+          "explanation": "Theological context means reading individual passages in light of the entire biblical revelation. Scripture interprets Scripture, and we must ensure our interpretation of one passage aligns with the clear teaching of the whole Bible.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 10,
@@ -504,7 +802,15 @@
             "Only scholars can truly understand the Bible"
           ],
           "correct": 1,
-          "explanation": "The clarity of Scripture means the Bible's central message about salvation through Christ is clear enough for anyone to understand. However, this doesn't mean all passages are equally clear or that careful interpretation is unnecessary."
+          "explanation": "The clarity of Scripture means the Bible's central message about salvation through Christ is clear enough for anyone to understand. However, this doesn't mean all passages are equally clear or that careful interpretation is unnecessary.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 11,
@@ -516,7 +822,15 @@
             "Law"
           ],
           "correct": 2,
-          "explanation": "Hebrew poetry extensively uses parallelism (expressing the same idea in different words), metaphor, simile, and other figurative language. Recognizing these poetic devices is essential for proper interpretation of Psalms, Proverbs, and other poetic books."
+          "explanation": "Hebrew poetry extensively uses parallelism (expressing the same idea in different words), metaphor, simile, and other figurative language. Recognizing these poetic devices is essential for proper interpretation of Psalms, Proverbs, and other poetic books.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 12,
@@ -528,7 +842,15 @@
             "A type of biblical prophecy"
           ],
           "correct": 1,
-          "explanation": "Anthropomorphism uses human characteristics to describe God (like 'the eyes of the Lord' or 'the arm of the Lord'). God is spirit and doesn't have a physical body, but uses human language to help us understand his attributes and actions."
+          "explanation": "Anthropomorphism uses human characteristics to describe God (like 'the eyes of the Lord' or 'the arm of the Lord'). God is spirit and doesn't have a physical body, but uses human language to help us understand his attributes and actions.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 13,
@@ -540,7 +862,15 @@
             "How can I use this in evangelism?"
           ],
           "correct": 1,
-          "explanation": "The first question must always be 'What did this mean to the original audience?' Understanding the original meaning provides the foundation for all legitimate application. We must know what it meant before we can properly apply what it means today."
+          "explanation": "The first question must always be 'What did this mean to the original audience?' Understanding the original meaning provides the foundation for all legitimate application. We must know what it meant before we can properly apply what it means today.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 14,
@@ -552,7 +882,15 @@
             "The Bible means whatever it means to you personally"
           ],
           "correct": 1,
-          "explanation": "A biblical passage has one intended meaning (what the author meant to communicate) but can have many appropriate applications to different situations and contexts. The meaning is fixed by the author's intent; applications may vary while remaining true to that meaning."
+          "explanation": "A biblical passage has one intended meaning (what the author meant to communicate) but can have many appropriate applications to different situations and contexts. The meaning is fixed by the author's intent; applications may vary while remaining true to that meaning.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 15,
@@ -564,7 +902,15 @@
             "Poor interpretation only affects personal Bible study"
           ],
           "correct": 2,
-          "explanation": "Poor interpretation has serious consequences: theological error, division in the church, harmful practices, and distorted views of God. Correct interpretation leads to correct theology, which shapes our beliefs, values, and actions as Christians."
+          "explanation": "Poor interpretation has serious consequences: theological error, division in the church, harmful practices, and distorted views of God. Correct interpretation leads to correct theology, which shapes our beliefs, values, and actions as Christians.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     }
@@ -582,7 +928,15 @@
             "A method used only by liberal scholars"
           ],
           "correct": 1,
-          "explanation": "The grammatical-historical method interprets Scripture by examining the grammar (language, syntax, word meanings) and historical context (original setting, culture, circumstances). This approach seeks the author's intended meaning in its original context."
+          "explanation": "The grammatical-historical method interprets Scripture by examining the grammar (language, syntax, word meanings) and historical context (original setting, culture, circumstances). This approach seeks the author's intended meaning in its original context.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -594,7 +948,15 @@
             "It allows us to translate the Bible ourselves"
           ],
           "correct": 1,
-          "explanation": "Grammar significantly affects meaning. Word choice, verb tenses, sentence structure, and grammatical relationships all contribute to what the author intended to communicate. Understanding grammar helps prevent misinterpretation."
+          "explanation": "Grammar significantly affects meaning. Word choice, verb tenses, sentence structure, and grammatical relationships all contribute to what the author intended to communicate. Understanding grammar helps prevent misinterpretation.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -606,7 +968,15 @@
             "Historical context is irrelevant to interpretation"
           ],
           "correct": 1,
-          "explanation": "Historical context encompasses who wrote the text, to whom, when, where, why, and under what circumstances. It includes cultural norms, political situations, religious practices, and the specific issues the original audience faced."
+          "explanation": "Historical context encompasses who wrote the text, to whom, when, where, why, and under what circumstances. It includes cultural norms, political situations, religious practices, and the specific issues the original audience faced.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -618,7 +988,15 @@
             "It makes us superior to other Christians"
           ],
           "correct": 1,
-          "explanation": "While good translations are reliable, knowing Hebrew and Greek allows interpreters to catch nuances, understand word ranges of meaning, recognize plays on words, and resolve translation questions. Original language study enriches interpretation but isn't required for basic understanding."
+          "explanation": "While good translations are reliable, knowing Hebrew and Greek allows interpreters to catch nuances, understand word ranges of meaning, recognize plays on words, and resolve translation questions. Original language study enriches interpretation but isn't required for basic understanding.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -630,7 +1008,15 @@
             "Historical context is less important than personal application"
           ],
           "correct": 1,
-          "explanation": "A foundational principle of the grammatical-historical method is that each text has a single intended meaning determined by the author in the original context. While applications may vary, the meaning is anchored in what the author meant to communicate."
+          "explanation": "A foundational principle of the grammatical-historical method is that each text has a single intended meaning determined by the author in the original context. While applications may vary, the meaning is anchored in what the author meant to communicate.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -646,7 +1032,15 @@
             "To teach systematic theology directly"
           ],
           "correct": 1,
-          "explanation": "Biblical narrative primarily reveals God's character and his work in human history. While narratives contain moral lessons, their main purpose is theological - showing us what God is like and how he relates to his people."
+          "explanation": "Biblical narrative primarily reveals God's character and his work in human history. While narratives contain moral lessons, their main purpose is theological - showing us what God is like and how he relates to his people.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -658,7 +1052,15 @@
             "Looking for theological themes"
           ],
           "correct": 1,
-          "explanation": "A common error is treating every narrative detail as prescriptive (commanding us to do the same) when most narrative is descriptive (recording what happened). Not everything described is endorsed or prescribed for us to follow."
+          "explanation": "A common error is treating every narrative detail as prescriptive (commanding us to do the same) when most narrative is descriptive (recording what happened). Not everything described is endorsed or prescribed for us to follow.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -670,7 +1072,15 @@
             "As reasons to reject the Bible's authority"
           ],
           "correct": 0,
-          "explanation": "The Bible honestly records the failures of even its greatest heroes (like David's adultery or Peter's denial). These accounts teach us about human sinfulness, God's grace, and consequences of sin - not that we should imitate their failures."
+          "explanation": "The Bible honestly records the failures of even its greatest heroes (like David's adultery or Peter's denial). These accounts teach us about human sinfulness, God's grace, and consequences of sin - not that we should imitate their failures.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -682,7 +1092,15 @@
             "Personal, local, universal"
           ],
           "correct": 1,
-          "explanation": "Biblical narratives should be read at three levels: the individual story, the flow of the entire book, and how it fits in the overall biblical narrative. Each level adds understanding and prevents misinterpretation."
+          "explanation": "Biblical narratives should be read at three levels: the individual story, the flow of the entire book, and how it fits in the overall biblical narrative. Each level adds understanding and prevents misinterpretation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -694,7 +1112,15 @@
             "How entertaining is this story?"
           ],
           "correct": 1,
-          "explanation": "The key question is 'What does this narrative reveal about God?' Biblical narratives are fundamentally God-centered, revealing his character, purposes, and ways of working. This theological focus guides proper interpretation and application."
+          "explanation": "The key question is 'What does this narrative reveal about God?' Biblical narratives are fundamentally God-centered, revealing his character, purposes, and ways of working. This theological focus guides proper interpretation and application.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -710,7 +1136,15 @@
             "An error in translation"
           ],
           "correct": 0,
-          "explanation": "Parallelism is the primary feature of Hebrew poetry where two or more lines express related ideas - either saying the same thing differently (synonymous), expressing contrasts (antithetic), or building on the idea (synthetic). Recognizing parallelism is key to interpreting poetry."
+          "explanation": "Parallelism is the primary feature of Hebrew poetry where two or more lines express related ideas - either saying the same thing differently (synonymous), expressing contrasts (antithetic), or building on the idea (synthetic). Recognizing parallelism is key to interpreting poetry.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -722,7 +1156,15 @@
             "As proof that Old Testament ethics were inferior"
           ],
           "correct": 2,
-          "explanation": "Imprecatory Psalms honestly express human anguish and desire for justice while ultimately leaving vengeance to God. They teach us to bring our deepest emotions to God rather than taking revenge ourselves, and they anticipate God's final justice."
+          "explanation": "Imprecatory Psalms honestly express human anguish and desire for justice while ultimately leaving vengeance to God. They teach us to bring our deepest emotions to God rather than taking revenge ourselves, and they anticipate God's final justice.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -734,7 +1176,15 @@
             "It makes the poetry easier to understand"
           ],
           "correct": 1,
-          "explanation": "Over-literalizing poetry misses the point. When the Psalmist says God is a 'rock' or 'shield,' these are metaphors for his strength and protection, not literal descriptions. Understanding poetic devices is essential to grasping the intended meaning."
+          "explanation": "Over-literalizing poetry misses the point. When the Psalmist says God is a 'rock' or 'shield,' these are metaphors for his strength and protection, not literal descriptions. Understanding poetic devices is essential to grasping the intended meaning.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -746,7 +1196,15 @@
             "There is no real difference"
           ],
           "correct": 1,
-          "explanation": "Hebrew poetry uses extensive figurative language, parallelism, metaphor, and emotional expression. While narrative describes events chronologically, poetry explores themes, emotions, and theological truths through artistic language requiring different interpretive sensitivity."
+          "explanation": "Hebrew poetry uses extensive figurative language, parallelism, metaphor, and emotional expression. While narrative describes events chronologically, poetry explores themes, emotions, and theological truths through artistic language requiring different interpretive sensitivity.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -758,7 +1216,14 @@
             "We should allegorize the Psalms to find Christ"
           ],
           "correct": 2,
-          "explanation": "Some Psalms are directly messianic (like Psalm 22 or 110). Others are quoted by or applied to Christ in the New Testament. Many express the faith and struggles of God's people that Christ experienced perfectly. We should follow the New Testament's lead in finding Christ in the Psalms."
+          "explanation": "Some Psalms are directly messianic (like Psalm 22 or 110). Others are quoted by or applied to Christ in the New Testament. Many express the faith and struggles of God's people that Christ experienced perfectly. We should follow the New Testament's lead in finding Christ in the Psalms.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "like Psalm 22",
+            "or 110"
+          ],
+          "reference": "like Psalm 22",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -774,7 +1239,15 @@
             "To provide entertainment through visions"
           ],
           "correct": 1,
-          "explanation": "While prophets did predict future events, their primary role was calling Israel back to covenant faithfulness, warning of judgment for disobedience, and offering hope for restoration. They were forth-tellers (speaking for God) even more than foretellers."
+          "explanation": "While prophets did predict future events, their primary role was calling Israel back to covenant faithfulness, warning of judgment for disobedience, and offering hope for restoration. They were forth-tellers (speaking for God) even more than foretellers.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -786,7 +1259,13 @@
             "A discredited interpretive approach"
           ],
           "correct": 1,
-          "explanation": "Some prophecies have both near and far fulfillments - an initial fulfillment in the prophet's day and an ultimate fulfillment in the future (often in Christ or the end times). For example, aspects of Isaiah 7:14 applied to Isaiah's time and ultimately to Christ's virgin birth."
+          "explanation": "Some prophecies have both near and far fulfillments - an initial fulfillment in the prophet's day and an ultimate fulfillment in the future (often in Christ or the end times). For example, aspects of Isaiah 7:14 applied to Isaiah's time and ultimately to Christ's virgin birth.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "aspects of Isaiah 7:14"
+          ],
+          "reference": "aspects of Isaiah 7:14",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 3,
@@ -798,7 +1277,15 @@
             "By adding them up to predict exact dates"
           ],
           "correct": 2,
-          "explanation": "Numbers in prophecy and apocalyptic literature often carry symbolic significance (7 = completeness, 12 = people of God, 40 = testing, etc.). While some numbers are literal, context and genre help us recognize when symbolic meaning is intended."
+          "explanation": "Numbers in prophecy and apocalyptic literature often carry symbolic significance (7 = completeness, 12 = people of God, 40 = testing, etc.). While some numbers are literal, context and genre help us recognize when symbolic meaning is intended.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -810,7 +1297,15 @@
             "Set dates for prophetic fulfillment"
           ],
           "correct": 2,
-          "explanation": "With unfulfilled prophecy, we should hold firmly to clear truths (Christ will return, God will judge, believers will be with him forever) while maintaining humility about details and timelines. History shows that prophetic details often become clear only in fulfillment."
+          "explanation": "With unfulfilled prophecy, we should hold firmly to clear truths (Christ will return, God will judge, believers will be with him forever) while maintaining humility about details and timelines. History shows that prophetic details often become clear only in fulfillment.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -822,7 +1317,13 @@
             "Prophecy was irrelevant to Jesus' mission"
           ],
           "correct": 1,
-          "explanation": "Jesus fulfilled prophecy in multiple ways: direct messianic predictions (like Isaiah 53), typology (being the ultimate Passover lamb), and recapitulating Israel's story perfectly (coming out of Egypt, 40 days in wilderness, etc.). The New Testament shows various levels of prophetic fulfillment."
+          "explanation": "Jesus fulfilled prophecy in multiple ways: direct messianic predictions (like Isaiah 53), typology (being the ultimate Passover lamb), and recapitulating Israel's story perfectly (coming out of Egypt, 40 days in wilderness, etc.). The New Testament shows various levels of prophetic fulfillment.",
+          "claimType": "Interpretive Reasoning Claim",
+          "scriptureRefs": [
+            "like Isaiah 53"
+          ],
+          "reference": "like Isaiah 53",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -838,7 +1339,15 @@
             "They should be read as systematic theology textbooks"
           ],
           "correct": 1,
-          "explanation": "Epistles address specific situations with theological teaching. We must understand the original situation to properly apply the universal principles today. Distinguishing between culturally specific applications and timeless truths is key to interpreting epistles."
+          "explanation": "Epistles address specific situations with theological teaching. We must understand the original situation to properly apply the universal principles today. Distinguishing between culturally specific applications and timeless truths is key to interpreting epistles.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -850,7 +1359,15 @@
             "All epistles have identical structures"
           ],
           "correct": 1,
-          "explanation": "Understanding an epistle's structure helps us follow the author's argument, see how ideas connect, and avoid taking verses out of context. Most epistles move from theological teaching to practical application, and recognizing this structure aids interpretation."
+          "explanation": "Understanding an epistle's structure helps us follow the author's argument, see how ideas connect, and avoid taking verses out of context. Most epistles move from theological teaching to practical application, and recognizing this structure aids interpretation.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -862,7 +1379,15 @@
             "Assume all commands were only for the original audience"
           ],
           "correct": 2,
-          "explanation": "Some commands addressed specific cultural situations (like 'greet one another with a holy kiss'). We should identify the timeless principle (show warm, genuine affection) and apply it appropriately in our culture, rather than either ignoring it or blindly imitating the cultural form."
+          "explanation": "Some commands addressed specific cultural situations (like 'greet one another with a holy kiss'). We should identify the timeless principle (show warm, genuine affection) and apply it appropriately in our culture, rather than either ignoring it or blindly imitating the cultural form.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -874,7 +1399,15 @@
             "Only theological teaching with no application"
           ],
           "correct": 1,
-          "explanation": "Paul typically presents theological teaching about what God has done (indicative - 'you are...'), then applies it practically to how Christians should live (imperative - 'therefore do...'). Understanding this pattern helps us see how theology drives ethics in Christian living."
+          "explanation": "Paul typically presents theological teaching about what God has done (indicative - 'you are...'), then applies it practically to how Christians should live (imperative - 'therefore do...'). Understanding this pattern helps us see how theology drives ethics in Christian living.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -886,7 +1419,15 @@
             "The situation doesn't affect the meaning"
           ],
           "correct": 1,
-          "explanation": "Epistles are occasional documents addressing specific situations. Understanding the recipients' issues, questions, or problems helps us grasp why the author writes what he does and how to apply similar principles to our different but analogous situations today."
+          "explanation": "Epistles are occasional documents addressing specific situations. Understanding the recipients' issues, questions, or problems helps us grasp why the author writes what he does and how to apply similar principles to our different but analogous situations today.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -902,7 +1443,15 @@
             "Typing out biblical texts"
           ],
           "correct": 1,
-          "explanation": "Typology recognizes that God designed certain Old Testament persons (like Adam or David), events (like the Exodus), or institutions (like the priesthood) to prefigure greater New Testament realities, ultimately pointing to Christ and his work."
+          "explanation": "Typology recognizes that God designed certain Old Testament persons (like Adam or David), events (like the Exodus), or institutions (like the priesthood) to prefigure greater New Testament realities, ultimately pointing to Christ and his work.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -914,7 +1463,15 @@
             "Typology is only for scholars"
           ],
           "correct": 1,
-          "explanation": "Typology is based on real historical events or persons that God designed to foreshadow future realities. Allegory often ignores the historical reality and assigns arbitrary spiritual meanings. Typology respects the literal-historical sense while seeing God's design pointing forward."
+          "explanation": "Typology is based on real historical events or persons that God designed to foreshadow future realities. Allegory often ignores the historical reality and assigns arbitrary spiritual meanings. Typology respects the literal-historical sense while seeing God's design pointing forward.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -926,7 +1483,15 @@
             "Typology is never valid"
           ],
           "correct": 2,
-          "explanation": "Valid typology requires: (1) the type had real historical existence, (2) there's genuine correspondence between type and antitype, (3) the type is part of God's redemptive plan, and ideally (4) the New Testament identifies it. While the NT gives us certain examples, careful scholars may identify additional valid types."
+          "explanation": "Valid typology requires: (1) the type had real historical existence, (2) there's genuine correspondence between type and antitype, (3) the type is part of God's redemptive plan, and ideally (4) the New Testament identifies it. While the NT gives us certain examples, careful scholars may identify additional valid types.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -938,7 +1503,15 @@
             "An outdated concept not used in Scripture"
           ],
           "correct": 1,
-          "explanation": "Biblical symbols are images or objects that represent deeper spiritual realities (like water symbolizing cleansing or rebirth, light representing truth or God's presence). Understanding symbols requires attention to how Scripture itself uses them consistently."
+          "explanation": "Biblical symbols are images or objects that represent deeper spiritual realities (like water symbolizing cleansing or rebirth, light representing truth or God's presence). Understanding symbols requires attention to how Scripture itself uses them consistently.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -950,7 +1523,15 @@
             "An error in interpretation"
           ],
           "correct": 1,
-          "explanation": "The antitype is the greater reality that the type foreshadows. For example, the Passover lamb (type) points forward to Christ, the Lamb of God (antitype) who takes away sin. The antitype fulfills and exceeds what the type prefigured."
+          "explanation": "The antitype is the greater reality that the type foreshadows. For example, the Passover lamb (type) points forward to Christ, the Lamb of God (antitype) who takes away sin. The antitype fulfills and exceeds what the type prefigured.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -966,7 +1547,15 @@
             "An outdated concept from the Old Testament only"
           ],
           "correct": 1,
-          "explanation": "A biblical covenant is a solemn agreement initiated by God that establishes or regulates relationship between God and his people. Unlike contracts between equals, biblical covenants are established by the greater party (God) and include promises, obligations, and often signs."
+          "explanation": "A biblical covenant is a solemn agreement initiated by God that establishes or regulates relationship between God and his people. Unlike contracts between equals, biblical covenants are established by the greater party (God) and include promises, obligations, and often signs.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -978,7 +1567,15 @@
             "Covenants are a Catholic invention"
           ],
           "correct": 1,
-          "explanation": "Scripture records major covenants with Noah (creation/preservation), Abraham (promise/blessing), Moses/Sinai (law), David (kingdom), and the New Covenant in Christ's blood (grace and internalized law). Each builds on previous covenants in God's redemptive plan."
+          "explanation": "Scripture records major covenants with Noah (creation/preservation), Abraham (promise/blessing), Moses/Sinai (law), David (kingdom), and the New Covenant in Christ's blood (grace and internalized law). Each builds on previous covenants in God's redemptive plan.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -990,7 +1587,15 @@
             "It makes interpretation more complicated than necessary"
           ],
           "correct": 1,
-          "explanation": "Understanding covenant reveals the unity of God's redemptive plan across Scripture. It helps us see how the testaments relate, why certain laws change or continue, and how God progressively reveals his plan of salvation culminating in Christ."
+          "explanation": "Understanding covenant reveals the unity of God's redemptive plan across Scripture. It helps us see how the testaments relate, why certain laws change or continue, and how God progressively reveals his plan of salvation culminating in Christ.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1002,7 +1607,13 @@
             "Only Jews need to follow the Mosaic Covenant"
           ],
           "correct": 2,
-          "explanation": "Christ fulfilled the Mosaic Covenant (Matthew 5:17). The moral law reflects God's character and continues. Ceremonial laws pointed to Christ and are fulfilled in him. Civil laws were for Israel's theocracy. Understanding these distinctions helps us properly apply Old Testament law."
+          "explanation": "Christ fulfilled the Mosaic Covenant (Matthew 5:17). The moral law reflects God's character and continues. Ceremonial laws pointed to Christ and are fulfilled in him. Civil laws were for Israel's theocracy. Understanding these distinctions helps us properly apply Old Testament law.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Matthew 5:17"
+          ],
+          "reference": "Matthew 5:17",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
@@ -1014,7 +1625,14 @@
             "It is only for Gentiles, not Jews"
           ],
           "correct": 1,
-          "explanation": "The New Covenant (Jeremiah 31:31-34; Luke 22:20) fulfills previous covenants, is established through Christ's blood, provides forgiveness of sins, internalizes God's law in believers' hearts through the Spirit, and includes both Jews and Gentiles in God's people."
+          "explanation": "The New Covenant (Jeremiah 31:31-34; Luke 22:20) fulfills previous covenants, is established through Christ's blood, provides forgiveness of sins, internalizes God's law in believers' hearts through the Spirit, and includes both Jews and Gentiles in God's people.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Jeremiah 31:31-34",
+            "Luke 22:20"
+          ],
+          "reference": "Jeremiah 31:31-34",
+          "qaNeedsReferenceReview": false
         }
       ]
     },
@@ -1030,7 +1648,15 @@
             "Only the historical background without considering language"
           ],
           "correct": 1,
-          "explanation": "The grammatical-historical method combines grammatical analysis (language, syntax, word meanings) with historical context (original setting) to determine what the text meant to the original audience - the foundation for all proper application."
+          "explanation": "The grammatical-historical method combines grammatical analysis (language, syntax, word meanings) with historical context (original setting) to determine what the text meant to the original audience - the foundation for all proper application.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1042,7 +1668,15 @@
             "To teach systematic theology directly"
           ],
           "correct": 1,
-          "explanation": "Biblical narrative primarily reveals God - his character, purposes, and work in human history. While narratives teach moral lessons, their main purpose is theological: showing us what God is like and how he relates to his people."
+          "explanation": "Biblical narrative primarily reveals God - his character, purposes, and work in human history. While narratives teach moral lessons, their main purpose is theological: showing us what God is like and how he relates to his people.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1054,7 +1688,15 @@
             "A type of prophecy"
           ],
           "correct": 1,
-          "explanation": "Parallelism is the hallmark of Hebrew poetry where multiple lines express related ideas - either saying the same thing differently (synonymous), expressing contrasts (antithetic), or building on the idea (synthetic). Recognizing parallelism is essential for interpreting poetry."
+          "explanation": "Parallelism is the hallmark of Hebrew poetry where multiple lines express related ideas - either saying the same thing differently (synonymous), expressing contrasts (antithetic), or building on the idea (synthetic). Recognizing parallelism is essential for interpreting poetry.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1066,7 +1708,15 @@
             "To provide mystical experiences"
           ],
           "correct": 1,
-          "explanation": "Prophets were primarily covenant enforcers, calling Israel back to faithfulness, warning of judgment, and offering hope for restoration. While they predicted future events, they were more forth-tellers (speaking for God) than mere foretellers."
+          "explanation": "Prophets were primarily covenant enforcers, calling Israel back to faithfulness, warning of judgment, and offering hope for restoration. While they predicted future events, they were more forth-tellers (speaking for God) than mere foretellers.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1078,7 +1728,15 @@
             "The situation doesn't affect meaning"
           ],
           "correct": 1,
-          "explanation": "Epistles are occasional documents addressing specific situations. Understanding the recipients' issues helps us grasp why the author writes what he does and how to apply similar principles to our analogous situations today."
+          "explanation": "Epistles are occasional documents addressing specific situations. Understanding the recipients' issues helps us grasp why the author writes what he does and how to apply similar principles to our analogous situations today.",
+          "claimType": "Historical/Textual Fact Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 6,
@@ -1090,7 +1748,15 @@
             "Finding hidden codes in Scripture"
           ],
           "correct": 1,
-          "explanation": "Typology recognizes that God designed certain Old Testament persons (like Adam), events (like the Exodus), or institutions (like the priesthood) to foreshadow greater New Testament realities, ultimately pointing to Christ."
+          "explanation": "Typology recognizes that God designed certain Old Testament persons (like Adam), events (like the Exodus), or institutions (like the priesthood) to foreshadow greater New Testament realities, ultimately pointing to Christ.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 7,
@@ -1102,7 +1768,15 @@
             "Typology is more creative than allegory"
           ],
           "correct": 1,
-          "explanation": "Typology is based on real historical events or persons that God designed to foreshadow future realities. Allegory often ignores historical reality and assigns arbitrary spiritual meanings. Typology respects the literal-historical sense while seeing God's forward-pointing design."
+          "explanation": "Typology is based on real historical events or persons that God designed to foreshadow future realities. Allegory often ignores historical reality and assigns arbitrary spiritual meanings. Typology respects the literal-historical sense while seeing God's forward-pointing design.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 8,
@@ -1114,7 +1788,15 @@
             "An Old Testament concept irrelevant today"
           ],
           "correct": 1,
-          "explanation": "A biblical covenant is a solemn agreement initiated by the greater party (God) that establishes or regulates relationship with his people. Covenants include promises, obligations, and often signs, forming the structure of God's redemptive plan."
+          "explanation": "A biblical covenant is a solemn agreement initiated by the greater party (God) that establishes or regulates relationship with his people. Covenants include promises, obligations, and often signs, forming the structure of God's redemptive plan.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 9,
@@ -1126,7 +1808,15 @@
             "Only theological teaching"
           ],
           "correct": 1,
-          "explanation": "Paul typically presents theological teaching about what God has done (indicative - 'you are...'), then applies it to how Christians should live (imperative - 'therefore do...'). This pattern shows how theology drives Christian ethics."
+          "explanation": "Paul typically presents theological teaching about what God has done (indicative - 'you are...'), then applies it to how Christians should live (imperative - 'therefore do...'). This pattern shows how theology drives Christian ethics.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 10,
@@ -1138,7 +1828,15 @@
             "As reasons to reject Scripture"
           ],
           "correct": 0,
-          "explanation": "Scripture honestly records failures of even great heroes (David's adultery, Peter's denial). These teach us about human sinfulness, God's grace, and consequences of sin - not that we should imitate their failures. The Bible describes what happened without endorsing every action."
+          "explanation": "Scripture honestly records failures of even great heroes (David's adultery, Peter's denial). These teach us about human sinfulness, God's grace, and consequences of sin - not that we should imitate their failures. The Bible describes what happened without endorsing every action.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 11,
@@ -1150,7 +1848,15 @@
             "Set specific dates for fulfillment"
           ],
           "correct": 2,
-          "explanation": "With unfulfilled prophecy, hold firmly to clear truths (Christ will return, God will judge) while maintaining humility about details. History shows that prophetic details often become clear only in fulfillment. Avoid date-setting and dogmatism about speculative details."
+          "explanation": "With unfulfilled prophecy, hold firmly to clear truths (Christ will return, God will judge) while maintaining humility about details. History shows that prophetic details often become clear only in fulfillment. Avoid date-setting and dogmatism about speculative details.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 12,
@@ -1162,7 +1868,15 @@
             "Assume all commands were only for the original audience"
           ],
           "correct": 2,
-          "explanation": "Some commands addressed specific cultural situations (like 'greet with a holy kiss'). Identify the timeless principle (show genuine affection) and apply it appropriately in our context, rather than either ignoring it or blindly imitating the cultural form."
+          "explanation": "Some commands addressed specific cultural situations (like 'greet with a holy kiss'). Identify the timeless principle (show genuine affection) and apply it appropriately in our context, rather than either ignoring it or blindly imitating the cultural form.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 13,
@@ -1174,7 +1888,15 @@
             "Typology is never valid"
           ],
           "correct": 2,
-          "explanation": "Valid typology requires: (1) real historical existence of the type, (2) genuine correspondence between type and antitype, (3) connection to God's redemptive plan, and ideally (4) New Testament identification. While the NT gives certain examples, careful scholars may identify additional valid types."
+          "explanation": "Valid typology requires: (1) real historical existence of the type, (2) genuine correspondence between type and antitype, (3) connection to God's redemptive plan, and ideally (4) New Testament identification. While the NT gives certain examples, careful scholars may identify additional valid types.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 14,
@@ -1186,7 +1908,13 @@
             "Only ethnic Jews need to follow it"
           ],
           "correct": 2,
-          "explanation": "Christ fulfilled the Mosaic Covenant (Matthew 5:17). The moral law reflects God's character and continues. Ceremonial laws pointed to Christ and are fulfilled in him. Civil laws were for Israel's theocracy. Understanding these distinctions helps proper application."
+          "explanation": "Christ fulfilled the Mosaic Covenant (Matthew 5:17). The moral law reflects God's character and continues. Ceremonial laws pointed to Christ and are fulfilled in him. Civil laws were for Israel's theocracy. Understanding these distinctions helps proper application.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Matthew 5:17"
+          ],
+          "reference": "Matthew 5:17",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 15,
@@ -1198,7 +1926,15 @@
             "It complicates interpretation unnecessarily"
           ],
           "correct": 1,
-          "explanation": "Understanding covenant reveals the unity of God's redemptive plan across Scripture. It helps us see how the testaments relate, why certain laws change or continue, and how God progressively revealed his plan of salvation culminating in Christ."
+          "explanation": "Understanding covenant reveals the unity of God's redemptive plan across Scripture. It helps us see how the testaments relate, why certain laws change or continue, and how God progressively revealed his plan of salvation culminating in Christ.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     }
@@ -1216,7 +1952,15 @@
             "Finding errors in modern translations"
           ],
           "correct": 1,
-          "explanation": "Textual criticism is the careful, scientific process of comparing ancient manuscripts to determine what the original text said. Since we don't have the original manuscripts (autographs), scholars compare thousands of copies to reconstruct the original with remarkable accuracy."
+          "explanation": "Textual criticism is the careful, scientific process of comparing ancient manuscripts to determine what the original text said. Since we don't have the original manuscripts (autographs), scholars compare thousands of copies to reconstruct the original with remarkable accuracy.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1228,7 +1972,15 @@
             "The church intentionally destroyed them"
           ],
           "correct": 2,
-          "explanation": "The original manuscripts (autographs) written on papyrus or leather deteriorated over time in the ancient world. However, we have thousands of early copies that allow us to reconstruct the original text with great confidence. The abundance of manuscripts gives us certainty about the biblical text."
+          "explanation": "The original manuscripts (autographs) written on papyrus or leather deteriorated over time in the ancient world. However, we have thousands of early copies that allow us to reconstruct the original text with great confidence. The abundance of manuscripts gives us certainty about the biblical text.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1240,7 +1992,15 @@
             "Errors that undermine biblical reliability"
           ],
           "correct": 2,
-          "explanation": "Textual variants are differences between manuscript copies, usually minor (spelling, word order). The vast majority don't affect meaning. Having many variants actually demonstrates we have many early manuscripts. No major doctrine depends on a disputed variant."
+          "explanation": "Textual variants are differences between manuscript copies, usually minor (spelling, word order). The vast majority don't affect meaning. Having many variants actually demonstrates we have many early manuscripts. No major doctrine depends on a disputed variant.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1252,7 +2012,15 @@
             "They use a Ouija board"
           ],
           "correct": 1,
-          "explanation": "Textual critics use multiple criteria: manuscript evidence (number, date, quality), internal evidence (which reading best fits the author's style and context), and transcriptional probability (which reading best explains how the others arose). It's a careful, scientific process."
+          "explanation": "Textual critics use multiple criteria: manuscript evidence (number, date, quality), internal evidence (which reading best fits the author's style and context), and transcriptional probability (which reading best explains how the others arose). It's a careful, scientific process.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1264,7 +2032,15 @@
             "Only modern translations are reliable"
           ],
           "correct": 1,
-          "explanation": "The abundance of manuscripts and variants actually demonstrates the Bible's reliability. We can reconstruct the original with great confidence. No cardinal Christian doctrine depends on a disputed variant. The biblical text is the best-attested document from the ancient world."
+          "explanation": "The abundance of manuscripts and variants actually demonstrates the Bible's reliability. We can reconstruct the original with great confidence. No cardinal Christian doctrine depends on a disputed variant. The biblical text is the best-attested document from the ancient world.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1280,7 +2056,15 @@
             "It's only for academic scholars"
           ],
           "correct": 1,
-          "explanation": "The Bible was written in specific cultural contexts. Understanding ANE customs, marriage practices, legal conventions, and religious concepts helps us grasp what would have been clear to the original audience but may be foreign to us. This prevents misinterpretation."
+          "explanation": "The Bible was written in specific cultural contexts. Understanding ANE customs, marriage practices, legal conventions, and religious concepts helps us grasp what would have been clear to the original audience but may be foreign to us. This prevents misinterpretation.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1292,7 +2076,15 @@
             "Conclude the Bible is just mythology"
           ],
           "correct": 2,
-          "explanation": "God didn't reveal himself in a cultural vacuum. Some similarities exist (flood accounts, law codes), but biblical accounts are unique in their monotheism, ethics, and theology. God used familiar literary forms while revealing unique truth. Similarities don't mean borrowing."
+          "explanation": "God didn't reveal himself in a cultural vacuum. Some similarities exist (flood accounts, law codes), but biblical accounts are unique in their monotheism, ethics, and theology. God used familiar literary forms while revealing unique truth. Similarities don't mean borrowing.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1304,7 +2096,15 @@
             "A mistranslation"
           ],
           "correct": 1,
-          "explanation": "The covenant lawsuit follows an ANE treaty pattern: summons, charges, evidence, verdict. Prophets used this familiar form to present God's case against covenant-breaking Israel. Understanding this form helps us grasp the structure and force of prophetic books."
+          "explanation": "The covenant lawsuit follows an ANE treaty pattern: summons, charges, evidence, verdict. Prophets used this familiar form to present God's case against covenant-breaking Israel. Understanding this form helps us grasp the structure and force of prophetic books.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1316,7 +2116,15 @@
             "It replaces guilt with shame"
           ],
           "correct": 1,
-          "explanation": "Ancient Mediterranean culture was heavily honor-shame oriented (unlike modern Western guilt-innocence orientation). Understanding this helps us grasp why actions like public shaming, family honor, or foot-washing carried such significance. The Bible addresses both honor-shame and guilt-innocence."
+          "explanation": "Ancient Mediterranean culture was heavily honor-shame oriented (unlike modern Western guilt-innocence orientation). Understanding this helps us grasp why actions like public shaming, family honor, or foot-washing carried such significance. The Bible addresses both honor-shame and guilt-innocence.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1328,7 +2136,15 @@
             "Cultural reading is the only valid approach"
           ],
           "correct": 1,
-          "explanation": "Reading Scripture only through our cultural lens can cause us to miss the point, misunderstand the text, or impose foreign concepts (like Western individualism) on communal cultures. We must first understand the text in its culture before applying it in ours."
+          "explanation": "Reading Scripture only through our cultural lens can cause us to miss the point, misunderstand the text, or impose foreign concepts (like Western individualism) on communal cultures. We must first understand the text in its culture before applying it in ours.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1344,7 +2160,15 @@
             "A postmodern rejection of meaning"
           ],
           "correct": 1,
-          "explanation": "Intertextuality examines how biblical texts refer to, quote, echo, or build upon other biblical texts. Later texts often assume knowledge of earlier ones, building theological themes across Scripture. Recognizing these connections enriches interpretation."
+          "explanation": "Intertextuality examines how biblical texts refer to, quote, echo, or build upon other biblical texts. Later texts often assume knowledge of earlier ones, building theological themes across Scripture. Recognizing these connections enriches interpretation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1356,7 +2180,15 @@
             "By rejecting Old Testament teachings"
           ],
           "correct": 1,
-          "explanation": "The New Testament uses the Old Testament in multiple ways: direct quotations, allusions, typology (seeing Christ as the greater David, exodus, etc.), and showing fulfillment of promises and patterns. Understanding these connections is essential for grasping the New Testament's meaning."
+          "explanation": "The New Testament uses the Old Testament in multiple ways: direct quotations, allusions, typology (seeing Christ as the greater David, exodus, etc.), and showing fulfillment of promises and patterns. Understanding these connections is essential for grasping the New Testament's meaning.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1368,7 +2200,15 @@
             "Reading only certain approved interpretations"
           ],
           "correct": 1,
-          "explanation": "Canonical reading interprets individual texts in light of the entire biblical canon, recognizing that Scripture is a unified whole. Later texts build on earlier ones, and the full meaning of some passages becomes clear only in light of later revelation."
+          "explanation": "Canonical reading interprets individual texts in light of the entire biblical canon, recognizing that Scripture is a unified whole. Later texts build on earlier ones, and the full meaning of some passages becomes clear only in light of later revelation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1380,7 +2220,15 @@
             "Background noise"
           ],
           "correct": 1,
-          "explanation": "An echo or allusion is when a text subtly refers to or recalls language, themes, or events from another text without directly quoting it. For example, Mark's Gospel echoes Exodus themes in describing Jesus' ministry. Catching these enriches understanding."
+          "explanation": "An echo or allusion is when a text subtly refers to or recalls language, themes, or events from another text without directly quoting it. For example, Mark's Gospel echoes Exodus themes in describing Jesus' ministry. Catching these enriches understanding.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1392,7 +2240,15 @@
             "It undermines the individual meaning of texts"
           ],
           "correct": 1,
-          "explanation": "Recognizing intertextual connections shows how God progressively reveals his redemptive plan. Later texts build on earlier ones, themes develop, and the full significance of events or prophecies may only become clear through later revelation. Scripture interprets Scripture."
+          "explanation": "Recognizing intertextual connections shows how God progressively reveals his redemptive plan. Later texts build on earlier ones, themes develop, and the full significance of events or prophecies may only become clear through later revelation. Scripture interprets Scripture.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1408,7 +2264,15 @@
             "A form of conversation"
           ],
           "correct": 1,
-          "explanation": "Discourse analysis examines how texts are structured, how arguments develop, how ideas connect across paragraphs and chapters, and how authors guide readers through their material. It looks beyond individual verses to see the flow of thought."
+          "explanation": "Discourse analysis examines how texts are structured, how arguments develop, how ideas connect across paragraphs and chapters, and how authors guide readers through their material. It looks beyond individual verses to see the flow of thought.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1420,7 +2284,15 @@
             "An ancient manuscript mark"
           ],
           "correct": 1,
-          "explanation": "Discourse markers are words or phrases that signal structure: 'therefore,' 'but,' 'for this reason,' 'in conclusion.' These guide readers through the argument's flow. Paying attention to these markers helps us follow the author's logic and avoid misinterpretation."
+          "explanation": "Discourse markers are words or phrases that signal structure: 'therefore,' 'but,' 'for this reason,' 'in conclusion.' These guide readers through the argument's flow. Paying attention to these markers helps us follow the author's logic and avoid misinterpretation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1432,7 +2304,15 @@
             "Arguments don't matter; only individual verses do"
           ],
           "correct": 1,
-          "explanation": "Understanding the flow of argument prevents proof-texting and helps us see how ideas connect. Paul's 'therefore' connects teaching to application. Recognizing argument structure ensures we grasp the author's point and don't misuse isolated verses."
+          "explanation": "Understanding the flow of argument prevents proof-texting and helps us see how ideas connect. Paul's 'therefore' connects teaching to application. Recognizing argument structure ensures we grasp the author's point and don't misuse isolated verses.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1444,7 +2324,15 @@
             "An error in manuscript copying"
           ],
           "correct": 1,
-          "explanation": "Chiasm is a literary structure where ideas are arranged concentrically (A-B-C-B'-A'). The center often contains the key point. Recognizing chiastic structures (common in Hebrew literature) helps us identify the author's emphasis and understand the text's organization."
+          "explanation": "Chiasm is a literary structure where ideas are arranged concentrically (A-B-C-B'-A'). The center often contains the key point. Recognizing chiastic structures (common in Hebrew literature) helps us identify the author's emphasis and understand the text's organization.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1456,7 +2344,15 @@
             "It's only for Greek texts"
           ],
           "correct": 1,
-          "explanation": "Rhetorical analysis examines how authors structure arguments, use repetition, employ questions, and guide readers to conclusions. Understanding these techniques helps us better grasp the author's intended impact and message. It complements grammatical-historical interpretation."
+          "explanation": "Rhetorical analysis examines how authors structure arguments, use repetition, employ questions, and guide readers to conclusions. Understanding these techniques helps us better grasp the author's intended impact and message. It complements grammatical-historical interpretation.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1472,7 +2368,15 @@
             "Using cannons to defend interpretation"
           ],
           "correct": 1,
-          "explanation": "Canonical interpretation reads individual passages in light of the entire biblical canon, recognizing Scripture as a unified whole. It considers how texts function within the complete canon and how the full scope of revelation informs our understanding of individual parts."
+          "explanation": "Canonical interpretation reads individual passages in light of the entire biblical canon, recognizing Scripture as a unified whole. It considers how texts function within the complete canon and how the full scope of revelation informs our understanding of individual parts.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1484,7 +2388,15 @@
             "There is no difference"
           ],
           "correct": 1,
-          "explanation": "While respecting historical context, canonical interpretation reads Scripture as the church's authoritative text with continuing theological significance. It asks not only 'What did this mean historically?' but also 'How does this function as Scripture for God's people?'"
+          "explanation": "While respecting historical context, canonical interpretation reads Scripture as the church's authoritative text with continuing theological significance. It asks not only 'What did this mean historically?' but also 'How does this function as Scripture for God's people?'",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1496,7 +2408,15 @@
             "Personal faith preferences"
           ],
           "correct": 1,
-          "explanation": "The 'rule of faith' is the core Christian confession (God as Creator, Christ's incarnation/death/resurrection, Spirit's work, church, future hope) that guided the early church. It provides a framework for canonical interpretation, ensuring individual texts are read in light of Scripture's overall message."
+          "explanation": "The 'rule of faith' is the core Christian confession (God as Creator, Christ's incarnation/death/resurrection, Spirit's work, church, future hope) that guided the early church. It provides a framework for canonical interpretation, ensuring individual texts are read in light of Scripture's overall message.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1508,7 +2428,15 @@
             "It has no bearing on interpretation"
           ],
           "correct": 1,
-          "explanation": "The New Testament's Christocentric reading of the Old Testament shows how Christ is the key to understanding all Scripture. The apostles saw Scripture's unity in Christ while respecting the Old Testament's original meaning. This models canonical interpretation for us."
+          "explanation": "The New Testament's Christocentric reading of the Old Testament shows how Christ is the key to understanding all Scripture. The apostles saw Scripture's unity in Christ while respecting the Old Testament's original meaning. This models canonical interpretation for us.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1520,7 +2448,15 @@
             "Only historical meaning matters"
           ],
           "correct": 1,
-          "explanation": "Canonical interpretation doesn't abandon historical meaning but builds on it. The original historical meaning remains foundational, but canonical reading also asks how this text functions within the entire Scripture and God's complete revelation in Christ. Both levels matter."
+          "explanation": "Canonical interpretation doesn't abandon historical meaning but builds on it. The original historical meaning remains foundational, but canonical reading also asks how this text functions within the entire Scripture and God's complete revelation in Christ. Both levels matter.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1536,7 +2472,15 @@
             "Only for professional theologians"
           ],
           "correct": 1,
-          "explanation": "Theological interpretation reads Scripture not merely as ancient literature but as divine revelation. It seeks to understand what God is revealing about himself, his purposes, and his people. It combines rigorous exegesis with attention to Scripture's theological content and purpose."
+          "explanation": "Theological interpretation reads Scripture not merely as ancient literature but as divine revelation. It seeks to understand what God is revealing about himself, his purposes, and his people. It combines rigorous exegesis with attention to Scripture's theological content and purpose.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1548,7 +2492,15 @@
             "They are identical"
           ],
           "correct": 1,
-          "explanation": "Theological interpretation doesn't replace historical-grammatical exegesis but builds on it. After determining what the text meant in its original context (historical-grammatical), theological interpretation asks what God is revealing about himself, his work, and his purposes through this text."
+          "explanation": "Theological interpretation doesn't replace historical-grammatical exegesis but builds on it. After determining what the text meant in its original context (historical-grammatical), theological interpretation asks what God is revealing about himself, his work, and his purposes through this text.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1560,7 +2512,15 @@
             "Tradition replaces personal interpretation"
           ],
           "correct": 2,
-          "explanation": "While Scripture alone is our final authority, the church's faithful interpretation over two millennia can inform our reading. We don't interpret in isolation but as part of the global and historical church. Tradition guides and corrects while Scripture judges tradition."
+          "explanation": "While Scripture alone is our final authority, the church's faithful interpretation over two millennia can inform our reading. We don't interpret in isolation but as part of the global and historical church. Tradition guides and corrects while Scripture judges tradition.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1572,7 +2532,13 @@
             "Ignoring the Old Testament"
           ],
           "correct": 2,
-          "explanation": "Christological reading recognizes that Christ is the center and goal of all Scripture (Luke 24:27, 44-45). Without eisegesis, we read the Old Testament seeing how it points to and is fulfilled in Christ, and we read the New Testament as the revelation of Christ. He's the key to Scripture's unity."
+          "explanation": "Christological reading recognizes that Christ is the center and goal of all Scripture (Luke 24:27, 44-45). Without eisegesis, we read the Old Testament seeing how it points to and is fulfilled in Christ, and we read the New Testament as the revelation of Christ. He's the key to Scripture's unity.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Luke 24:27"
+          ],
+          "reference": "Luke 24:27",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 5,
@@ -1584,7 +2550,15 @@
             "Doctrine is more important than Scripture"
           ],
           "correct": 2,
-          "explanation": "Scripture forms doctrine, providing the content of what we believe. Sound doctrine (drawn from Scripture) then guides interpretation, helping us read individual texts in light of Scripture's overall teaching. This is a healthy, mutually-informing relationship, always with Scripture as final authority."
+          "explanation": "Scripture forms doctrine, providing the content of what we believe. Sound doctrine (drawn from Scripture) then guides interpretation, helping us read individual texts in light of Scripture's overall teaching. This is a healthy, mutually-informing relationship, always with Scripture as final authority.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1600,7 +2574,15 @@
             "We can skip interpretation and go straight to application"
           ],
           "correct": 1,
-          "explanation": "Proper interpretation must precede application. We must first understand what the text meant in its original context before we can legitimately apply it today. Application without proper interpretation leads to misapplication and error."
+          "explanation": "Proper interpretation must precede application. We must first understand what the text meant in its original context before we can legitimately apply it today. Application without proper interpretation leads to misapplication and error.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1612,7 +2594,15 @@
             "We can never really tell"
           ],
           "correct": 2,
-          "explanation": "We must distinguish between cultural form and timeless principle. For example, 'greet with a holy kiss' - the principle (show genuine Christian affection) is timeless; the cultural form (kissing as greeting) may vary. Look for the underlying principle that transcends culture."
+          "explanation": "We must distinguish between cultural form and timeless principle. For example, 'greet with a holy kiss' - the principle (show genuine Christian affection) is timeless; the cultural form (kissing as greeting) may vary. Look for the underlying principle that transcends culture.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1624,7 +2614,13 @@
             "A faulty method that should be avoided"
           ],
           "correct": 1,
-          "explanation": "Principlizing identifies the timeless principle underlying a specific biblical command or example, then applies that principle to our context. For instance, the principle behind 'don't muzzle an ox' (Deuteronomy 25:4) is that workers deserve their wages - applicable beyond ancient farming."
+          "explanation": "Principlizing identifies the timeless principle underlying a specific biblical command or example, then applies that principle to our context. For instance, the principle behind 'don't muzzle an ox' (Deuteronomy 25:4) is that workers deserve their wages - applicable beyond ancient farming.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Deuteronomy 25:4"
+          ],
+          "reference": "Deuteronomy 25:4",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 4,
@@ -1636,7 +2632,15 @@
             "Application doesn't need guiding questions"
           ],
           "correct": 1,
-          "explanation": "Good application asks: (1) What did this mean to the original audience? (2) What is the timeless theological/moral principle? (3) How does this principle apply to my context, considering both similarities and differences? This process ensures faithful application."
+          "explanation": "Good application asks: (1) What did this mean to the original audience? (2) What is the timeless theological/moral principle? (3) How does this principle apply to my context, considering both similarities and differences? This process ensures faithful application.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1648,7 +2652,15 @@
             "Community replaces personal study"
           ],
           "correct": 2,
-          "explanation": "While individuals must apply Scripture personally, community (local church, broader Christian tradition) provides accountability, catches our blind spots, corrects individualistic misapplications, and helps us understand how Scripture applies to corporate life, not just private devotion."
+          "explanation": "While individuals must apply Scripture personally, community (local church, broader Christian tradition) provides accountability, catches our blind spots, corrects individualistic misapplications, and helps us understand how Scripture applies to corporate life, not just private devotion.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1664,7 +2676,15 @@
             "A translation mistake"
           ],
           "correct": 1,
-          "explanation": "The 'golden calf' error is making Scripture serve our own agenda rather than seeking God's intended meaning. Like Israel fashioning a god to their liking, we can shape Scripture to say what we want rather than submitting to what God says. This is eisegesis, not exegesis."
+          "explanation": "The 'golden calf' error is making Scripture serve our own agenda rather than seeking God's intended meaning. Like Israel fashioning a god to their liking, we can shape Scripture to say what we want rather than submitting to what God says. This is eisegesis, not exegesis.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1676,7 +2696,15 @@
             "Testing different interpretations"
           ],
           "correct": 1,
-          "explanation": "Proof-texting takes verses out of context to support a position already held, rather than deriving beliefs from careful study of Scripture in context. This method can make the Bible appear to support almost anything and is a serious interpretive error."
+          "explanation": "Proof-texting takes verses out of context to support a position already held, rather than deriving beliefs from careful study of Scripture in context. This method can make the Bible appear to support almost anything and is a serious interpretive error.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1688,7 +2716,15 @@
             "Learning Greek and Hebrew"
           ],
           "correct": 1,
-          "explanation": "The word study fallacy assumes a word carries all its possible meanings (or its etymology) in every use. Context determines which meaning applies. For example, 'trunk' could mean tree trunk, car trunk, or elephant's trunk - context decides. Don't read all possible meanings into every occurrence."
+          "explanation": "The word study fallacy assumes a word carries all its possible meanings (or its etymology) in every use. Context determines which meaning applies. For example, 'trunk' could mean tree trunk, car trunk, or elephant's trunk - context decides. Don't read all possible meanings into every occurrence.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1700,7 +2736,15 @@
             "Emphasizing the Holy Spirit's role"
           ],
           "correct": 1,
-          "explanation": "Over-spiritualizing or excessive allegorizing finds hidden spiritual meanings while ignoring the text's plain sense. While Scripture uses figures and types, we must first honor the literal-historical meaning. Not everything is a secret spiritual code; sometimes bread means bread."
+          "explanation": "Over-spiritualizing or excessive allegorizing finds hidden spiritual meanings while ignoring the text's plain sense. While Scripture uses figures and types, we must first honor the literal-historical meaning. Not everything is a secret spiritual code; sometimes bread means bread.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1712,7 +2756,15 @@
             "Comparing Scripture with Scripture"
           ],
           "correct": 1,
-          "explanation": "The 'canon within the canon' error elevates favorite portions (like red letter verses, or Paul over James) above others, effectively creating a smaller, personal canon. All Scripture is equally inspired and authoritative. We must let less favorite texts also shape our theology."
+          "explanation": "The 'canon within the canon' error elevates favorite portions (like red letter verses, or Paul over James) above others, effectively creating a smaller, personal canon. All Scripture is equally inspired and authoritative. We must let less favorite texts also shape our theology.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     },
@@ -1728,7 +2780,15 @@
             "Finding errors in modern translations"
           ],
           "correct": 1,
-          "explanation": "Textual criticism is the scientific process of comparing ancient manuscript copies to determine what the original text (autographs) said. Since ancient writing materials deteriorated, we rely on thousands of copies to reconstruct the original with remarkable accuracy. This supports, not undermines, biblical reliability."
+          "explanation": "Textual criticism is the scientific process of comparing ancient manuscript copies to determine what the original text (autographs) said. Since ancient writing materials deteriorated, we rely on thousands of copies to reconstruct the original with remarkable accuracy. This supports, not undermines, biblical reliability.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 2,
@@ -1740,7 +2800,15 @@
             "The Bible is just mythology like ANE literature"
           ],
           "correct": 2,
-          "explanation": "God didn't reveal himself in a cultural vacuum but used familiar forms (like covenant treaties, flood accounts) while revealing unique truth. Biblical monotheism, ethics, and theology are distinct from ANE polytheism. Similarities don't mean borrowing; God used familiar forms to communicate unique revelation."
+          "explanation": "God didn't reveal himself in a cultural vacuum but used familiar forms (like covenant treaties, flood accounts) while revealing unique truth. Biblical monotheism, ethics, and theology are distinct from ANE polytheism. Similarities don't mean borrowing; God used familiar forms to communicate unique revelation.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 3,
@@ -1752,7 +2820,15 @@
             "A postmodern denial of meaning"
           ],
           "correct": 1,
-          "explanation": "Intertextuality examines how biblical texts refer to, quote, echo, or build upon earlier texts. Later Scripture assumes knowledge of earlier revelation and develops theological themes across the canon. Recognizing these connections enriches understanding of God's progressive revelation."
+          "explanation": "Intertextuality examines how biblical texts refer to, quote, echo, or build upon earlier texts. Later Scripture assumes knowledge of earlier revelation and develops theological themes across the canon. Recognizing these connections enriches understanding of God's progressive revelation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 4,
@@ -1764,7 +2840,15 @@
             "A form of conversation"
           ],
           "correct": 1,
-          "explanation": "Discourse analysis examines text structure, argument development, idea connections across paragraphs and chapters, and how authors guide readers. It moves beyond individual verses to see the flow of thought, helping us follow the author's logic and avoid proof-texting."
+          "explanation": "Discourse analysis examines text structure, argument development, idea connections across paragraphs and chapters, and how authors guide readers. It moves beyond individual verses to see the flow of thought, helping us follow the author's logic and avoid proof-texting.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 5,
@@ -1776,7 +2860,15 @@
             "Using weapons to defend interpretation"
           ],
           "correct": 1,
-          "explanation": "Canonical interpretation reads individual passages in light of the entire biblical canon, recognizing Scripture as a unified whole with Christ at its center. It asks how texts function within the complete canon and how the full scope of revelation informs our understanding of individual parts."
+          "explanation": "Canonical interpretation reads individual passages in light of the entire biblical canon, recognizing Scripture as a unified whole with Christ at its center. It asks how texts function within the complete canon and how the full scope of revelation informs our understanding of individual parts.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 6,
@@ -1788,7 +2880,15 @@
             "They are identical"
           ],
           "correct": 1,
-          "explanation": "Theological interpretation builds on historical-grammatical exegesis. After determining what the text meant originally (historical-grammatical), theological interpretation asks what God is revealing about himself, his work, and his purposes. They complement rather than contradict each other."
+          "explanation": "Theological interpretation builds on historical-grammatical exegesis. After determining what the text meant originally (historical-grammatical), theological interpretation asks what God is revealing about himself, his work, and his purposes. They complement rather than contradict each other.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 7,
@@ -1800,7 +2900,15 @@
             "We can skip interpretation"
           ],
           "correct": 1,
-          "explanation": "Proper interpretation must precede application. We must first understand what the text meant in its original context before legitimately applying it today. Application without proper interpretation leads to misapplication and can make Scripture say almost anything we want."
+          "explanation": "Proper interpretation must precede application. We must first understand what the text meant in its original context before legitimately applying it today. Application without proper interpretation leads to misapplication and can make Scripture say almost anything we want.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 8,
@@ -1812,7 +2920,15 @@
             "Testing different interpretations"
           ],
           "correct": 1,
-          "explanation": "Proof-texting takes verses out of context to support positions already held, rather than deriving beliefs from careful contextual study. This serious error can make Scripture appear to support almost anything and is a primary cause of false teaching and division."
+          "explanation": "Proof-texting takes verses out of context to support positions already held, rather than deriving beliefs from careful contextual study. This serious error can make Scripture appear to support almost anything and is a primary cause of false teaching and division.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 9,
@@ -1824,7 +2940,15 @@
             "Learning original languages"
           ],
           "correct": 1,
-          "explanation": "The word study fallacy assumes a word carries all its possible meanings (or its etymology) in every use. Context determines which meaning applies in each instance. Words have a range of meanings, but each occurrence doesn't carry every possible meaning simultaneously."
+          "explanation": "The word study fallacy assumes a word carries all its possible meanings (or its etymology) in every use. Context determines which meaning applies in each instance. Words have a range of meanings, but each occurrence doesn't carry every possible meaning simultaneously.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 10,
@@ -1836,7 +2960,15 @@
             "We can never tell"
           ],
           "correct": 2,
-          "explanation": "Distinguish between cultural form and timeless principle. 'Greet with a holy kiss' - the principle (show genuine Christian affection) is timeless; the form (kissing) is cultural. Identify the underlying theological/moral principle that transcends culture and apply it appropriately to different contexts."
+          "explanation": "Distinguish between cultural form and timeless principle. 'Greet with a holy kiss' - the principle (show genuine Christian affection) is timeless; the form (kissing) is cultural. Identify the underlying theological/moral principle that transcends culture and apply it appropriately to different contexts.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 11,
@@ -1848,7 +2980,15 @@
             "Tradition replaces personal interpretation"
           ],
           "correct": 2,
-          "explanation": "Scripture alone is our final authority, but the church's faithful interpretation over two millennia can inform our reading. We don't interpret in isolation but as part of the global and historical church. Tradition guides and corrects us while Scripture judges tradition."
+          "explanation": "Scripture alone is our final authority, but the church's faithful interpretation over two millennia can inform our reading. We don't interpret in isolation but as part of the global and historical church. Tradition guides and corrects us while Scripture judges tradition.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 12,
@@ -1860,7 +3000,13 @@
             "Ignoring the Old Testament"
           ],
           "correct": 2,
-          "explanation": "Christological reading recognizes that Christ is the center and goal of all Scripture (Luke 24:27, 44-45). Without eisegesis, we read the Old Testament seeing how it points to and is fulfilled in Christ. The New Testament reveals Christ as the key to understanding all of God's revelation."
+          "explanation": "Christological reading recognizes that Christ is the center and goal of all Scripture (Luke 24:27, 44-45). Without eisegesis, we read the Old Testament seeing how it points to and is fulfilled in Christ. The New Testament reveals Christ as the key to understanding all of God's revelation.",
+          "claimType": "Factual Recall Claim",
+          "scriptureRefs": [
+            "Luke 24:27"
+          ],
+          "reference": "Luke 24:27",
+          "qaNeedsReferenceReview": false
         },
         {
           "id": 13,
@@ -1872,7 +3018,15 @@
             "A copying error"
           ],
           "correct": 1,
-          "explanation": "Chiasm is a literary structure where ideas are arranged concentrically (A-B-C-B'-A'), with the center often containing the key point. Common in Hebrew literature, recognizing chiastic structures helps us identify the author's emphasis and understand the text's organization."
+          "explanation": "Chiasm is a literary structure where ideas are arranged concentrically (A-B-C-B'-A'), with the center often containing the key point. Common in Hebrew literature, recognizing chiastic structures helps us identify the author's emphasis and understand the text's organization.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 14,
@@ -1884,7 +3038,15 @@
             "Comparing Scripture with Scripture"
           ],
           "correct": 1,
-          "explanation": "The 'canon within the canon' error elevates favorite portions (red letters, Paul over James, New Testament over Old) above others, creating a smaller, personal canon. All Scripture is equally inspired and authoritative. We must let all of Scripture shape our theology, not just favorite parts."
+          "explanation": "The 'canon within the canon' error elevates favorite portions (red letters, Paul over James, New Testament over Old) above others, creating a smaller, personal canon. All Scripture is equally inspired and authoritative. We must let all of Scripture shape our theology, not just favorite parts.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 15,
@@ -1896,7 +3058,15 @@
             "Only modern translations are reliable"
           ],
           "correct": 1,
-          "explanation": "The abundance of manuscripts and variants actually demonstrates the Bible's reliability. Variants allow us to reconstruct the original with great confidence. No cardinal Christian doctrine depends on a disputed variant. The biblical text is the best-attested document from the ancient world."
+          "explanation": "The abundance of manuscripts and variants actually demonstrates the Bible's reliability. Variants allow us to reconstruct the original with great confidence. No cardinal Christian doctrine depends on a disputed variant. The biblical text is the best-attested document from the ancient world.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 16,
@@ -1908,7 +3078,15 @@
             "Doctrine is more important than Scripture"
           ],
           "correct": 2,
-          "explanation": "Scripture forms doctrine, providing the content of Christian belief. Sound doctrine (drawn from Scripture) then guides interpretation, helping us read individual texts in light of Scripture's overall teaching. This is a healthy, mutually-informing relationship with Scripture as final authority."
+          "explanation": "Scripture forms doctrine, providing the content of Christian belief. Sound doctrine (drawn from Scripture) then guides interpretation, helping us read individual texts in light of Scripture's overall teaching. This is a healthy, mutually-informing relationship with Scripture as final authority.",
+          "claimType": "Interpretive Reasoning Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 17,
@@ -1920,7 +3098,15 @@
             "A faulty method to avoid"
           ],
           "correct": 1,
-          "explanation": "Principlizing identifies the timeless principle underlying specific biblical commands or examples, then applies that principle to our context. The principle behind 'don't muzzle an ox' is that workers deserve wages - applicable beyond ancient farming. This bridges the cultural gap while honoring the text."
+          "explanation": "Principlizing identifies the timeless principle underlying specific biblical commands or examples, then applies that principle to our context. The principle behind 'don't muzzle an ox' is that workers deserve wages - applicable beyond ancient farming. This bridges the cultural gap while honoring the text.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 18,
@@ -1932,7 +3118,15 @@
             "Emphasizing the Spirit's role"
           ],
           "correct": 1,
-          "explanation": "Over-spiritualizing or excessive allegorizing finds hidden spiritual meanings while ignoring the text's plain sense. While Scripture uses figures and types, we must first honor the literal-historical meaning. Not everything is a secret code; sometimes the straightforward meaning is the intended meaning."
+          "explanation": "Over-spiritualizing or excessive allegorizing finds hidden spiritual meanings while ignoring the text's plain sense. While Scripture uses figures and types, we must first honor the literal-historical meaning. Not everything is a secret code; sometimes the straightforward meaning is the intended meaning.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 19,
@@ -1944,7 +3138,15 @@
             "A mistranslation"
           ],
           "correct": 1,
-          "explanation": "The covenant lawsuit follows an ANE treaty pattern: summons, charges, evidence, verdict. Prophets used this familiar form to present God's case against covenant-breaking Israel. Understanding this form helps us grasp the structure and rhetorical force of prophetic books."
+          "explanation": "The covenant lawsuit follows an ANE treaty pattern: summons, charges, evidence, verdict. Prophets used this familiar form to present God's case against covenant-breaking Israel. Understanding this form helps us grasp the structure and rhetorical force of prophetic books.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         },
         {
           "id": 20,
@@ -1956,7 +3158,15 @@
             "Community replaces personal study"
           ],
           "correct": 2,
-          "explanation": "While individuals must study and apply Scripture personally, community (local church, broader Christian tradition) provides accountability, catches our blind spots, corrects individualistic misapplications, and helps us understand how Scripture applies to corporate life. We interpret as part of the church, not in isolation."
+          "explanation": "While individuals must study and apply Scripture personally, community (local church, broader Christian tradition) provides accountability, catches our blind spots, corrects individualistic misapplications, and helps us understand how Scripture applies to corporate life. We interpret as part of the church, not in isolation.",
+          "claimType": "Factual Recall Claim",
+          "reference": "Grant R. Osborne. The Hermeneutical Spiral.",
+          "qaNeedsReferenceReview": false,
+          "sourceRefs": [
+            "Grant R. Osborne. The Hermeneutical Spiral.",
+            "Anthony C. Thiselton. Hermeneutics: An Introduction.",
+            "Fee and Stuart. How to Read the Bible for All Its Worth."
+          ]
         }
       ]
     }

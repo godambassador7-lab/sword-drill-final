@@ -12019,6 +12019,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         {currentView === 'bible-trivia' && (
           <BibleTrivia
             userLevel={userData.currentLevel}
+            onOpenBibleReader={() => setCurrentView('home')}
             onComplete={(results) => {
               console.log('Bible Trivia results:', results);
 

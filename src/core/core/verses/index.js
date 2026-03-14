@@ -4,7 +4,7 @@
  * Keep this in a private submodule to protect content strategy.
  */
 
-import { DAILY_VERSES_POOL } from '../../dailyVerses';
+import { DAILY_VERSES_POOL } from '../../../dailyVerses';
 import { MOTIVATIONAL_VERSES_365 } from '../../../data/motivationalVerses365';
 
 // Default fallback verse

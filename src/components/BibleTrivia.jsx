@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Award, ChevronRight, Star, Zap, Target } from 'lucide-react';
+import { Trophy, Award, ChevronRight, Star, Zap, Target, BookOpen } from 'lucide-react';
 import beginnerQuestions from '../data/Bible_Trivia_3_Levels_750plus_Questions/beginner_trivia.json';
 import intermediateQuestions from '../data/Bible_Trivia_3_Levels_750plus_Questions/intermediate_trivia.json';
 import advancedQuestions from '../data/Bible_Trivia_3_Levels_750plus_Questions/advanced_trivia.json';
+import { openReferenceInBibleReader } from '../services/referenceNavigation';
+import { buildStudyLens, buildConfidenceTier } from '../services/quizEvidence';
+import SourceStrengthBadge from './SourceStrengthBadge';
 
-const BibleTrivia = ({ onComplete, userLevel = 'Beginner' }) => {
+const BibleTrivia = ({ onComplete, onOpenBibleReader, userLevel = 'Beginner' }) => {
   const [difficulty, setDifficulty] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -202,6 +205,9 @@ const BibleTrivia = ({ onComplete, userLevel = 'Beginner' }) => {
 
   const isMultipleChoice = currentQuestion.type === 'multiple_choice';
   const progress = ((currentQuestionIndex + 1) / questionsToAsk.length) * 100;
+  const studyLens = buildStudyLens(currentQuestion, 'general');
+  const confidence = buildConfidenceTier(currentQuestion, 'general');
+  const openRef = (ref) => openReferenceInBibleReader(ref, onOpenBibleReader);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white p-6">
@@ -245,7 +251,14 @@ const BibleTrivia = ({ onComplete, userLevel = 'Beginner' }) => {
           <div className="mb-6">
             <h3 className="text-2xl font-bold mb-2">{currentQuestion.question}</h3>
             {currentQuestion.reference && (
-              <p className="text-blue-300 text-sm">Reference: {currentQuestion.reference}</p>
+              <button
+                type="button"
+                onClick={() => openRef(currentQuestion.reference)}
+                className="text-blue-300 text-sm hover:text-blue-200 underline decoration-dotted"
+                title="Open in Bible Reader"
+              >
+                Reference: {currentQuestion.reference}
+              </button>
             )}
           </div>
 
@@ -328,6 +341,48 @@ const BibleTrivia = ({ onComplete, userLevel = 'Beginner' }) => {
           {/* Next button */}
           {showResult && (
             <div className="mt-6">
+              {(currentQuestion.explanation || currentQuestion.reference) && (
+                <div className="mb-4 rounded-lg border border-blue-400/30 bg-blue-900/30 p-4">
+                  <h4 className="mb-2 text-sm font-bold text-blue-200">Answer Rationale</h4>
+                  {currentQuestion.reference && (
+                    <p className="mb-2 text-xs text-blue-300">
+                      Source: {currentQuestion.reference}
+                    </p>
+                  )}
+                  {currentQuestion.explanation && (
+                    <p className="text-sm text-blue-100">{currentQuestion.explanation}</p>
+                  )}
+                  <div className="mt-3 pt-3 border-t border-blue-400/30 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <BookOpen size={14} className="text-blue-200" />
+                      <span className="text-xs font-semibold text-blue-200">Source Strength</span>
+                      <SourceStrengthBadge tier={confidence.tier} />
+                    </div>
+                    <p className="text-xs text-blue-100">{confidence.rationale}</p>
+                    <p className="text-xs text-blue-100">
+                      <span className="text-blue-300">Evidence Basis:</span> {studyLens.evidenceBasis}
+                    </p>
+                    <p className="text-xs text-blue-100">
+                      <span className="text-blue-300">Verification Step:</span> {studyLens.verification}
+                    </p>
+                    {studyLens.references.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {studyLens.references.map((ref) => (
+                          <button
+                            key={ref}
+                            type="button"
+                            onClick={() => openRef(ref)}
+                            className="text-xs bg-blue-800/50 text-blue-200 px-2 py-1 rounded font-mono hover:bg-blue-700/50 transition-colors"
+                            title="Open in Bible Reader"
+                          >
+                            {ref}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
               <button
                 onClick={nextQuestion}
                 className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-blue-900 font-bold py-4 px-6 rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-200 flex items-center justify-center"

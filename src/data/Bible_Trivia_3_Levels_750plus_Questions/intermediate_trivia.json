@@ -3,793 +3,1849 @@
     "type": "true_false",
     "question": "Genesis is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Genesis is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Exodus is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Exodus is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Leviticus is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Leviticus is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Numbers is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Numbers is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Deuteronomy is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Deuteronomy is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judges is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judges is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ruth is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ruth is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Samuel is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Samuel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Samuel is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Samuel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Kings is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Kings is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Kings is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Kings is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Chronicles is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Chronicles is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezra is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezra is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nehemiah is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nehemiah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Esther is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Esther is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Job is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Job is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Psalms is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Psalms is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Proverbs is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Proverbs is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ecclesiastes is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ecclesiastes is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Song of Solomon is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Song of Solomon is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Isaiah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Isaiah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jeremiah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jeremiah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Lamentations is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Lamentations is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezekiel is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezekiel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Daniel is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Daniel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hosea is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hosea is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joel is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Amos is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Amos is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Obadiah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Obadiah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jonah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jonah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Micah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Micah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nahum is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nahum is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Habakkuk is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Habakkuk is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zephaniah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zephaniah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Haggai is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Haggai is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zechariah is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zechariah is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Malachi is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Malachi is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Matthew is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Matthew is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Mark is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Mark is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Luke is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Luke is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "John is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "John is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Acts is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Acts is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Romans is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Romans is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Corinthians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Corinthians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Corinthians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Corinthians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Galatians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Galatians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ephesians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ephesians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philippians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philippians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Colossians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Colossians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Thessalonians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Thessalonians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Thessalonians is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Thessalonians is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Timothy is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Timothy is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Timothy is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Timothy is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Titus is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Titus is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philemon is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philemon is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hebrews is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hebrews is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "James is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "James is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Peter is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Peter is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Peter is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Peter is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 John is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 John is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 John is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 John is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "3 John is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "3 John is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jude is primarily considered a prophetic book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Jude is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Revelation is primarily considered a prophetic book. (True/False)",
     "answer": "True",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Revelation is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
-    "reference": "Genre"
+    "reference": "Genre",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -801,13 +1857,27 @@
       "Samuel"
     ],
     "answer": "Samuel",
-    "reference": "1 Samuel 10; 1 Samuel 16"
+    "reference": "1 Samuel 10; 1 Samuel 16",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 10",
+      "1 Samuel 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Samuel anointed both Saul and David as kings. (True/False)",
     "answer": "True",
-    "reference": "1 Samuel 10; 1 Samuel 16"
+    "reference": "1 Samuel 10; 1 Samuel 16",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 10",
+      "1 Samuel 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -819,13 +1889,27 @@
       "Leviticus"
     ],
     "answer": "1 Samuel",
-    "reference": "1 Samuel 10; 1 Samuel 16"
+    "reference": "1 Samuel 10; 1 Samuel 16",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 10",
+      "1 Samuel 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Samuel anointed both Saul and David as kings in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "1 Samuel 10; 1 Samuel 16"
+    "reference": "1 Samuel 10; 1 Samuel 16",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 10",
+      "1 Samuel 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -837,13 +1921,25 @@
       "Zacchaeus"
     ],
     "answer": "Saul",
-    "reference": "1 Samuel 9–10"
+    "reference": "1 Samuel 9–10",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Saul\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Saul was the first king of Israel. (True/False)",
     "answer": "True",
-    "reference": "1 Samuel 9–10"
+    "reference": "1 Samuel 9–10",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -855,13 +1951,25 @@
       "Habakkuk"
     ],
     "answer": "1 Samuel",
-    "reference": "1 Samuel 9–10"
+    "reference": "1 Samuel 9–10",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"1 Samuel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Saul was the first king of Israel in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "1 Samuel 9–10"
+    "reference": "1 Samuel 9–10",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "1 Samuel 9"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -873,13 +1981,25 @@
       "Nehemiah"
     ],
     "answer": "Nehemiah",
-    "reference": "Nehemiah 1–6"
+    "reference": "Nehemiah 1–6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nehemiah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Nehemiah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nehemiah led the rebuilding of Jerusalem's walls. (True/False)",
     "answer": "True",
-    "reference": "Nehemiah 1–6"
+    "reference": "Nehemiah 1–6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Nehemiah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -891,13 +2011,25 @@
       "Nehemiah"
     ],
     "answer": "Nehemiah",
-    "reference": "Nehemiah 1–6"
+    "reference": "Nehemiah 1–6",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nehemiah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Nehemiah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nehemiah led the rebuilding of Jerusalem's walls in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Nehemiah 1–6"
+    "reference": "Nehemiah 1–6",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Nehemiah 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -909,13 +2041,25 @@
       "Shadrach, Meshach, and Abednego"
     ],
     "answer": "Gideon",
-    "reference": "Judges 6–7"
+    "reference": "Judges 6–7",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Gideon\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Judges 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Gideon defeated the Midianites with a small army. (True/False)",
     "answer": "True",
-    "reference": "Judges 6–7"
+    "reference": "Judges 6–7",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Judges 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -927,13 +2071,25 @@
       "2 Corinthians"
     ],
     "answer": "Judges",
-    "reference": "Judges 6–7"
+    "reference": "Judges 6–7",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Judges\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Judges 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Gideon defeated the Midianites with a small army in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Judges 6–7"
+    "reference": "Judges 6–7",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Judges 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -945,13 +2101,25 @@
       "Zacchaeus"
     ],
     "answer": "Esther",
-    "reference": "Esther 1–8"
+    "reference": "Esther 1–8",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Esther\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Esther 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Esther became queen and helped save her people. (True/False)",
     "answer": "True",
-    "reference": "Esther 1–8"
+    "reference": "Esther 1–8",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Esther 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -963,13 +2131,25 @@
       "Romans"
     ],
     "answer": "Esther",
-    "reference": "Esther 1–8"
+    "reference": "Esther 1–8",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Esther\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Esther 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Esther became queen and helped save her people in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Esther 1–8"
+    "reference": "Esther 1–8",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Esther 1"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -981,13 +2161,25 @@
       "Judas Iscariot"
     ],
     "answer": "Shadrach, Meshach, and Abednego",
-    "reference": "Daniel 3"
+    "reference": "Daniel 3",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Shadrach, Meshach, and Abednego\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Shadrach, Meshach, and Abednego were thrown into a fiery furnace. (True/False)",
     "answer": "True",
-    "reference": "Daniel 3"
+    "reference": "Daniel 3",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -999,13 +2191,25 @@
       "Joel"
     ],
     "answer": "Daniel",
-    "reference": "Daniel 3"
+    "reference": "Daniel 3",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Daniel\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Shadrach, Meshach, and Abednego were thrown into a fiery furnace in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Daniel 3"
+    "reference": "Daniel 3",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Daniel 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1017,13 +2221,25 @@
       "Shadrach, Meshach, and Abednego"
     ],
     "answer": "Elisha",
-    "reference": "2 Kings 2"
+    "reference": "2 Kings 2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Elisha\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Elisha received a double portion of Elijah's spirit. (True/False)",
     "answer": "True",
-    "reference": "2 Kings 2"
+    "reference": "2 Kings 2",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1035,13 +2251,25 @@
       "Jeremiah"
     ],
     "answer": "2 Kings",
-    "reference": "2 Kings 2"
+    "reference": "2 Kings 2",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Elisha received a double portion of Elijah's spirit in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "2 Kings 2"
+    "reference": "2 Kings 2",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 2"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1053,13 +2281,25 @@
       "Nicodemus"
     ],
     "answer": "Hezekiah",
-    "reference": "2 Kings 20"
+    "reference": "2 Kings 20",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Hezekiah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hezekiah prayed and God added fifteen years to his life. (True/False)",
     "answer": "True",
-    "reference": "2 Kings 20"
+    "reference": "2 Kings 20",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1071,13 +2311,25 @@
       "Jude"
     ],
     "answer": "2 Kings",
-    "reference": "2 Kings 20"
+    "reference": "2 Kings 20",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Hezekiah prayed and God added fifteen years to his life in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "2 Kings 20"
+    "reference": "2 Kings 20",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1089,13 +2341,25 @@
       "John the Baptist"
     ],
     "answer": "Josiah",
-    "reference": "2 Kings 22–23"
+    "reference": "2 Kings 22–23",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Josiah\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 22"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Josiah found the Book of the Law and led reforms. (True/False)",
     "answer": "True",
-    "reference": "2 Kings 22–23"
+    "reference": "2 Kings 22–23",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 22"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1107,13 +2371,25 @@
       "2 Kings"
     ],
     "answer": "2 Kings",
-    "reference": "2 Kings 22–23"
+    "reference": "2 Kings 22–23",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"2 Kings\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 22"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Josiah found the Book of the Law and led reforms in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "2 Kings 22–23"
+    "reference": "2 Kings 22–23",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "2 Kings 22"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1125,13 +2401,25 @@
       "Barnabas"
     ],
     "answer": "Zacchaeus",
-    "reference": "Luke 19"
+    "reference": "Luke 19",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Zacchaeus\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 19"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zacchaeus climbed a tree to see Jesus. (True/False)",
     "answer": "True",
-    "reference": "Luke 19"
+    "reference": "Luke 19",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 19"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1143,13 +2431,25 @@
       "Titus"
     ],
     "answer": "Luke",
-    "reference": "Luke 19"
+    "reference": "Luke 19",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Luke\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 19"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Zacchaeus climbed a tree to see Jesus in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Luke 19"
+    "reference": "Luke 19",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 19"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1161,13 +2461,25 @@
       "Esther"
     ],
     "answer": "Nicodemus",
-    "reference": "John 3"
+    "reference": "John 3",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Nicodemus\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nicodemus came to Jesus at night to ask questions. (True/False)",
     "answer": "True",
-    "reference": "John 3"
+    "reference": "John 3",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1179,13 +2491,25 @@
       "John"
     ],
     "answer": "John",
-    "reference": "John 3"
+    "reference": "John 3",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Nicodemus came to Jesus at night to ask questions in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "John 3"
+    "reference": "John 3",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 3"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1197,13 +2521,25 @@
       "Stephen"
     ],
     "answer": "Stephen",
-    "reference": "Acts 6–7"
+    "reference": "Acts 6–7",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Stephen\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Stephen was the first Christian martyr. (True/False)",
     "answer": "True",
-    "reference": "Acts 6–7"
+    "reference": "Acts 6–7",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1215,13 +2551,25 @@
       "Nehemiah"
     ],
     "answer": "Acts",
-    "reference": "Acts 6–7"
+    "reference": "Acts 6–7",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Stephen was the first Christian martyr in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 6–7"
+    "reference": "Acts 6–7",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 6"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1233,13 +2581,27 @@
       "Cornelius"
     ],
     "answer": "Barnabas",
-    "reference": "Acts 4; Acts 13"
+    "reference": "Acts 4; Acts 13",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Barnabas\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 4",
+      "Acts 13"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Barnabas encouraged believers and traveled with Paul. (True/False)",
     "answer": "True",
-    "reference": "Acts 4; Acts 13"
+    "reference": "Acts 4; Acts 13",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 4",
+      "Acts 13"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1251,13 +2613,27 @@
       "Acts"
     ],
     "answer": "Acts",
-    "reference": "Acts 4; Acts 13"
+    "reference": "Acts 4; Acts 13",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 4",
+      "Acts 13"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Barnabas encouraged believers and traveled with Paul in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 4; Acts 13"
+    "reference": "Acts 4; Acts 13",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 4",
+      "Acts 13"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1269,13 +2645,25 @@
       "Zacchaeus"
     ],
     "answer": "Philip",
-    "reference": "Acts 8"
+    "reference": "Acts 8",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Philip\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philip explained the Scriptures to the Ethiopian eunuch. (True/False)",
     "answer": "True",
-    "reference": "Acts 8"
+    "reference": "Acts 8",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1287,13 +2675,25 @@
       "Philippians"
     ],
     "answer": "Acts",
-    "reference": "Acts 8"
+    "reference": "Acts 8",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Philip explained the Scriptures to the Ethiopian eunuch in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 8"
+    "reference": "Acts 8",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1305,13 +2705,25 @@
       "Saul"
     ],
     "answer": "Cornelius",
-    "reference": "Acts 10"
+    "reference": "Acts 10",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Cornelius\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 10"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Cornelius was a Roman centurion who received the Holy Spirit. (True/False)",
     "answer": "True",
-    "reference": "Acts 10"
+    "reference": "Acts 10",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 10"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1323,13 +2735,25 @@
       "Micah"
     ],
     "answer": "Acts",
-    "reference": "Acts 10"
+    "reference": "Acts 10",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 10"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Cornelius was a Roman centurion who received the Holy Spirit in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 10"
+    "reference": "Acts 10",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 10"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1341,13 +2765,25 @@
       "Barnabas"
     ],
     "answer": "Lydia",
-    "reference": "Acts 16"
+    "reference": "Acts 16",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Lydia\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Lydia was a seller of purple cloth who believed. (True/False)",
     "answer": "True",
-    "reference": "Acts 16"
+    "reference": "Acts 16",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1359,13 +2795,25 @@
       "Obadiah"
     ],
     "answer": "Acts",
-    "reference": "Acts 16"
+    "reference": "Acts 16",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Lydia was a seller of purple cloth who believed in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 16"
+    "reference": "Acts 16",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 16"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1377,13 +2825,25 @@
       "Ananias and Sapphira"
     ],
     "answer": "Ananias and Sapphira",
-    "reference": "Acts 5"
+    "reference": "Acts 5",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Ananias and Sapphira\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ananias and Sapphira lied about money and died. (True/False)",
     "answer": "True",
-    "reference": "Acts 5"
+    "reference": "Acts 5",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1395,13 +2855,25 @@
       "Acts"
     ],
     "answer": "Acts",
-    "reference": "Acts 5"
+    "reference": "Acts 5",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ananias and Sapphira lied about money and died in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Acts 5"
+    "reference": "Acts 5",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Acts 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1413,13 +2885,25 @@
       "Thomas"
     ],
     "answer": "Thomas",
-    "reference": "John 20"
+    "reference": "John 20",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Thomas\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Thomas said he would not believe until he saw Jesus' wounds. (True/False)",
     "answer": "True",
-    "reference": "John 20"
+    "reference": "John 20",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1431,13 +2915,25 @@
       "2 Thessalonians"
     ],
     "answer": "John",
-    "reference": "John 20"
+    "reference": "John 20",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"John\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Thomas said he would not believe until he saw Jesus' wounds in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "John 20"
+    "reference": "John 20",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "John 20"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1449,13 +2945,25 @@
       "Judas Iscariot"
     ],
     "answer": "Judas Iscariot",
-    "reference": "Matthew 26"
+    "reference": "Matthew 26",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Judas Iscariot\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 26"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judas Iscariot betrayed Jesus for silver. (True/False)",
     "answer": "True",
-    "reference": "Matthew 26"
+    "reference": "Matthew 26",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 26"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1467,13 +2975,25 @@
       "2 Chronicles"
     ],
     "answer": "Matthew",
-    "reference": "Matthew 26"
+    "reference": "Matthew 26",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Matthew\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 26"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judas Iscariot betrayed Jesus for silver in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Matthew 26"
+    "reference": "Matthew 26",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 26"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1485,13 +3005,29 @@
       "Josiah"
     ],
     "answer": "John the Baptist",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"John the Baptist\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "John the Baptist prepared the way of the Lord. (True/False)",
     "answer": "True",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1503,13 +3039,29 @@
       "Hebrews"
     ],
     "answer": "Acts",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"Acts\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "John the Baptist prepared the way of the Lord in the book of Genesis. (True/False)",
     "answer": "False",
-    "reference": "Gospels"
+    "reference": "Gospels",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1521,13 +3073,25 @@
       "Luke"
     ],
     "answer": "Luke",
-    "reference": "Luke 15"
+    "reference": "Luke 15",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Luke\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 15"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "The correct answer to: 'In which Gospel is the parable of the prodigal son found?' is 'Luke'. (True/False)",
     "answer": "True",
-    "reference": "Luke 15"
+    "reference": "Luke 15",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Luke 15"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1539,13 +3103,27 @@
       "The Word of God"
     ],
     "answer": "The Word of God",
-    "reference": "Matthew 13; Luke 8"
+    "reference": "Matthew 13; Luke 8",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"The Word of God\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 13",
+      "Luke 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "The correct answer to: 'In the parable of the sower, what does the seed represent?' is 'The Word of God'. (True/False)",
     "answer": "True",
-    "reference": "Matthew 13; Luke 8"
+    "reference": "Matthew 13; Luke 8",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 13",
+      "Luke 8"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1557,13 +3135,25 @@
       "Fame"
     ],
     "answer": "Life",
-    "reference": "Matthew 7"
+    "reference": "Matthew 7",
+    "claimType": "Factual Recall Claim",
+    "explanation": "QA rationale: the keyed answer is \"Life\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 7"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "The correct answer to: 'In Jesus' teaching, what is the narrow gate associated with?' is 'Life'. (True/False)",
     "answer": "True",
-    "reference": "Matthew 7"
+    "reference": "Matthew 7",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 7"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "multiple_choice",
@@ -1575,222 +3165,474 @@
       "Under a basket"
     ],
     "answer": "On a stand",
-    "reference": "Matthew 5"
+    "reference": "Matthew 5",
+    "claimType": "Historical/Textual Fact Claim",
+    "explanation": "QA rationale: the keyed answer is \"On a stand\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "The correct answer to: 'In the Sermon on the Mount, where should a lamp be placed?' is 'On a stand'. (True/False)",
     "answer": "True",
-    "reference": "Matthew 5"
+    "reference": "Matthew 5",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"True\". Verify final wording against canonical text and course sources.",
+    "scriptureRefs": [
+      "Matthew 5"
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Genesis is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Genesis is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Exodus is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Exodus is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Leviticus is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Leviticus is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Numbers is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Numbers is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Deuteronomy is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Deuteronomy is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Joshua is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judges is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Judges is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ruth is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ruth is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Samuel is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Samuel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Samuel is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Samuel is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Kings is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Kings is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Kings is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Kings is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Chronicles is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "1 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Chronicles is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "2 Chronicles is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezra is primarily considered a prophetic book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   },
   {
     "type": "true_false",
     "question": "Ezra is primarily considered a poetic or wisdom book. (True/False)",
     "answer": "False",
     "reference": "Genre",
-    "note": "duplicate_for_volume"
+    "note": "duplicate_for_volume",
+    "claimType": "Binary Factual Claim",
+    "explanation": "QA rationale: the keyed answer is \"False\". Verify final wording against canonical text and course sources.",
+    "sourceRefs": [
+      "Canonical Hebrew Bible and New Testament corpora (book/chapter context).",
+      "Use direct passage checks in a standard critical text or major translation.",
+      "Cross-check keyed answers against immediate literary context before finalizing."
+    ],
+    "qaNeedsReferenceReview": false
   }
 ]
