@@ -96,6 +96,7 @@ import OldTestamentSurveyCourse from './components/OldTestamentSurveyCourse';
 import NewTestamentSurveyCourse from './components/NewTestamentSurveyCourse';
 import TextualTransmissionCourse from './components/TextualTransmissionCourse';
 import BiblicalEthicsCourse from './components/BiblicalEthicsCourse';
+import PhilosophyAssociateCourse from './components/PhilosophyAssociateCourse';
 import CapstoneCourse from './components/CapstoneCourse';
 import GreekICourse from './components/GreekICourse';
 import HebrewICourse from './components/HebrewICourse';
@@ -1188,6 +1189,7 @@ const SwordDrillApp = () => {
     'pneumatology-course': { talents: 2, points: 0, courseNumber: 'BIB 260', name: 'Pneumatology', icon: Flame, color: 'cyan', description: 'Doctrine of the Holy Spirit', credits: 3 },
     'demonology-course': { talents: 2, points: 0, courseNumber: 'BIB 270', name: 'Demonology', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis', credits: 3 },
     'biblical-ethics-course': { talents: 2, points: 0, courseNumber: 'BIB 280', name: 'Biblical Ethics', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living', credits: 3 },
+    'philosophy-associate-course': { talents: 2, points: 0, courseNumber: 'PHIL 290', name: 'Biblical Philosophy', icon: Lightbulb, color: 'violet', description: 'Faith, Reason, Metaphysics & Ethics', credits: 3 },
     'capstone-course': { talents: 3, points: 0, courseNumber: 'BIB 299', name: 'Capstone Seminar', icon: GraduationCap, color: 'indigo', description: 'Integrative Research Paper & Final Project', credits: 3 },
     // Biblical Languages (Associate-Appropriate)
     'greek-i-course': { talents: 2, points: 0, courseNumber: 'GREK 101', name: 'Biblical Greek I', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED', credits: 3 },
@@ -1564,6 +1566,19 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-rose-500/50',
       description: 'Biblical Ethics Expert',
       achievement: 'Completed all Biblical Ethics lessons (Associate Level)'
+    },
+    'philosophy-associate-course': {
+      id: 'philosophy-associate-course',
+      name: 'Philosopher-Theologian',
+      symbol: '🔭',
+      emoji: '💡',
+      color: 'violet',
+      gradient: 'from-violet-600 to-purple-600',
+      borderColor: 'border-violet-500',
+      textColor: 'text-violet-400',
+      glowColor: 'shadow-violet-500/50',
+      description: 'Master of Biblical Philosophy',
+      achievement: 'Completed all Biblical Philosophy lessons (Associate Level)'
     },
     'greek-i-course': {
       id: 'greek-i-course',
@@ -10124,7 +10139,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   Biblical Studies
                                 </div>
                                 <div className="space-y-1">
-                                  {['demonology-course', 'mosaic-law-course', 'feast-days-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course'].map(courseId => {
+                                  {['demonology-course', 'mosaic-law-course', 'feast-days-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course', 'philosophy-associate-course'].map(courseId => {
                                     const course = COURSE_ADMISSION[courseId];
                                     const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                                     return (
@@ -11868,6 +11883,25 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="biblical-ethics"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'philosophy-associate-course' && (
+          <CourseWithFocus
+            CourseComponent={PhilosophyAssociateCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Philosophy lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="philosophy-associate"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />
