@@ -17,6 +17,7 @@ import { updateUserProgress } from '../services/dbService';
 import { getLocalChapterRange } from '../services/localBibleProvider';
 import LanguageLessonFlow from './LanguageLessonFlow';
 import getCourseBibliography from '../data/courseBibliography';
+import applyAssociateProgramRigor from '../data/courses/rigorEnhancer';
 import { openReferenceInBibleReader } from '../services/referenceNavigation';
 import {
   FINAL_EXAM_PASS_PERCENT,
@@ -24,6 +25,7 @@ import {
   FINAL_EXAM_TOTAL_QUESTIONS,
   buildFinalExamFromCourse
 } from '../services/finalExamBuilder';
+import { enqueueRequiredWorkSubmission, findRequiredWorkReview } from '../services/requiredWorkModeration';
 
 const DEFAULT_THEME = {
   accentText: 'text-blue-300',
@@ -120,6 +122,111 @@ const extractScriptureReferences = (text) => {
   return Array.from(new Set(found));
 };
 
+const normalizeRequiredWorkRecords = (input) => {
+  if (!input || typeof input !== 'object') return {};
+  const normalized = {};
+  Object.entries(input).forEach(([unitId, taskMap]) => {
+    const safeUnitId = normalizeUnitId(unitId);
+    if (!safeUnitId || !taskMap || typeof taskMap !== 'object') return;
+    const normalizedTaskMap = {};
+    Object.entries(taskMap).forEach(([taskKey, value]) => {
+      const numericTask = Number(taskKey);
+      if (!Number.isInteger(numericTask) || numericTask < 0) return;
+      const text = String(value?.submissionText || '').trim();
+      const rubric = value?.rubric && typeof value.rubric === 'object' ? value.rubric : null;
+      normalizedTaskMap[numericTask] = {
+        submissionText: text,
+        submittedAt: value?.submittedAt || null,
+        rubric: rubric
+          ? {
+              textualEvidence: Number(rubric.textualEvidence || 0),
+              keyTermIntegration: Number(rubric.keyTermIntegration || 0),
+              argumentation: Number(rubric.argumentation || 0),
+              depthAndCompleteness: Number(rubric.depthAndCompleteness || 0),
+              total: Number(rubric.total || 0),
+              passed: Boolean(rubric.passed)
+            }
+          : null,
+        instructorReview: value?.instructorReview && typeof value.instructorReview === 'object'
+          ? {
+              reviewer: String(value.instructorReview.reviewer || 'Instructor'),
+              reviewedAt: value.instructorReview.reviewedAt || null,
+              rubric: value.instructorReview.rubric && typeof value.instructorReview.rubric === 'object'
+                ? {
+                    textualEvidence: Number(value.instructorReview.rubric.textualEvidence || 0),
+                    keyTermIntegration: Number(value.instructorReview.rubric.keyTermIntegration || 0),
+                    argumentation: Number(value.instructorReview.rubric.argumentation || 0),
+                    depthAndCompleteness: Number(value.instructorReview.rubric.depthAndCompleteness || 0),
+                    total: Number(value.instructorReview.rubric.total || 0),
+                    passed: Boolean(value.instructorReview.rubric.passed)
+                  }
+                : null,
+              feedback: Array.isArray(value.instructorReview.feedback) ? value.instructorReview.feedback.filter(Boolean) : [],
+              notes: String(value.instructorReview.notes || ''),
+              plagiarismCheck: String(value.instructorReview.plagiarismCheck || 'not-reviewed')
+            }
+          : null,
+        feedback: Array.isArray(value?.feedback) ? value.feedback.filter(Boolean) : [],
+        evaluatedAt: value?.evaluatedAt || null
+      };
+    });
+    normalized[safeUnitId] = normalizedTaskMap;
+  });
+  return normalized;
+};
+
+const scoreRequiredWorkSubmission = (unit = {}, submissionText = '') => {
+  const text = String(submissionText || '').trim();
+  const words = text.split(/\s+/).filter(Boolean);
+  const wordCount = words.length;
+  const sentenceCount = text.split(/[.!?]+/).map((s) => s.trim()).filter(Boolean).length || 1;
+  const references = extractScriptureReferences(text);
+  const keyTerms = (unit.keyTerms || []).map((item) => String(item?.term || '').toLowerCase()).filter(Boolean);
+
+  const lower = text.toLowerCase();
+  const matchedTerms = keyTerms.filter((term) => lower.includes(term));
+  const uniqueTermCount = Array.from(new Set(matchedTerms)).length;
+  const avgSentenceLength = wordCount / sentenceCount;
+  const connectorHits = (lower.match(/\btherefore\b|\bbecause\b|\bhowever\b|\bthus\b|\bso that\b|\balthough\b|\bwhile\b/g) || []).length;
+
+  const textualEvidence = references.length >= 3 ? 25 : references.length === 2 ? 20 : references.length === 1 ? 14 : 6;
+  const keyTermIntegration = uniqueTermCount >= 4 ? 25 : uniqueTermCount === 3 ? 21 : uniqueTermCount === 2 ? 16 : uniqueTermCount === 1 ? 10 : 4;
+  const argumentation = (avgSentenceLength >= 10 && avgSentenceLength <= 32 && connectorHits >= 2)
+    ? 25
+    : (avgSentenceLength >= 8 && avgSentenceLength <= 36 && connectorHits >= 1)
+      ? 20
+      : (avgSentenceLength >= 7 ? 15 : 8);
+  const depthAndCompleteness = wordCount >= 300 ? 25 : wordCount >= 220 ? 20 : wordCount >= 150 ? 16 : wordCount >= 100 ? 12 : 6;
+
+  const total = textualEvidence + keyTermIntegration + argumentation + depthAndCompleteness;
+  const passed = total >= 70;
+
+  const feedback = [];
+  if (references.length < 2) feedback.push('Add direct Scripture evidence with at least two explicit references.');
+  if (uniqueTermCount < 2) feedback.push('Integrate more unit key terms and define them in your argument.');
+  if (wordCount < 150) feedback.push('Expand depth: target at least 150 words with clearer analytical development.');
+  if (connectorHits < 1) feedback.push('Strengthen argument flow using reasoning connectors (for example: because, therefore, however).');
+  if (feedback.length === 0) feedback.push('Strong submission: textual evidence, terminology, and argument flow meet rubric expectations.');
+
+  return {
+    rubric: {
+      textualEvidence,
+      keyTermIntegration,
+      argumentation,
+      depthAndCompleteness,
+      total,
+      passed
+    },
+    meta: {
+      wordCount,
+      sentenceCount,
+      referenceCount: references.length,
+      keyTermMatches: uniqueTermCount
+    },
+    feedback
+  };
+};
+
 const normalizeProgressPayload = (payload = {}) => {
   const completedLessons = Array.isArray(payload.completedLessons)
     ? Array.from(new Set(payload.completedLessons.map(normalizeUnitId).filter(Boolean)))
@@ -127,11 +234,13 @@ const normalizeProgressPayload = (payload = {}) => {
   const completedQuizzes = Array.isArray(payload.completedQuizzes)
     ? Array.from(new Set(payload.completedQuizzes.map(normalizeUnitId).filter(Boolean)))
     : [];
+  const requiredWorkRecords = normalizeRequiredWorkRecords(payload.requiredWorkRecords);
 
   return {
     completedLessons,
     completedQuizzes,
-    examCompleted: Boolean(payload.examCompleted)
+    examCompleted: Boolean(payload.examCompleted),
+    requiredWorkRecords
   };
 };
 
@@ -140,7 +249,7 @@ const arraysEqual = (a = [], b = []) => (
 );
 
 const ComprehensiveCourse = ({
-  courseData,
+  courseData: rawCourseData,
   progressKey,
   onCompleteCourseId,
   userId,
@@ -149,6 +258,7 @@ const ComprehensiveCourse = ({
   onComplete,
   onCancel
 }) => {
+  const courseData = useMemo(() => applyAssociateProgramRigor(rawCourseData), [rawCourseData]);
   const theme = courseData.theme || DEFAULT_THEME;
   const [currentView, setCurrentView] = useState('list');
   const [selectedUnit, setSelectedUnit] = useState(null);
@@ -170,6 +280,7 @@ const ComprehensiveCourse = ({
   const [matchingPairs, setMatchingPairs] = useState({});
   const [matchingSubmitted, setMatchingSubmitted] = useState(false);
   const [sectionScriptures, setSectionScriptures] = useState({});
+  const [requiredWorkDrafts, setRequiredWorkDrafts] = useState({});
   const scriptureCacheRef = useRef(new Map());
 
   // Load progress from userData first, then fallback to individual localStorage entry
@@ -194,6 +305,9 @@ const ComprehensiveCourse = ({
   const [examCompleted, setExamCompleted] = useState(() => {
     return savedProgress.examCompleted || false;
   });
+  const [requiredWorkRecords, setRequiredWorkRecords] = useState(() => {
+    return savedProgress.requiredWorkRecords || {};
+  });
   const isInitialMount = useRef(true);
 
   useEffect(() => {
@@ -202,8 +316,11 @@ const ComprehensiveCourse = ({
       setCompletedLessons(prev => (arraysEqual(prev, p.completedLessons) ? prev : p.completedLessons));
       setCompletedQuizzes(prev => (arraysEqual(prev, p.completedQuizzes) ? prev : p.completedQuizzes));
       setExamCompleted(prev => (prev === p.examCompleted ? prev : p.examCompleted));
+      const nextSerialized = JSON.stringify(p.requiredWorkRecords || {});
+      const prevSerialized = JSON.stringify(requiredWorkRecords || {});
+      if (nextSerialized !== prevSerialized) setRequiredWorkRecords(p.requiredWorkRecords || {});
     }
-  }, [userData, progressKey]);
+  }, [userData, progressKey, requiredWorkRecords]);
 
   useEffect(() => {
     setExamQuestions(buildFinalExamFromCourse(courseData));
@@ -215,21 +332,35 @@ const ComprehensiveCourse = ({
       return;
     }
 
-    const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted });
+    const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted, requiredWorkRecords });
     localStorage.setItem(progressKey, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
     if (userId) updateUserProgress(userId, { [progressKey]: progressPayload }).catch(err =>
       console.error(`Error saving ${progressKey}:`, err)
     );
-  }, [completedLessons, completedQuizzes, examCompleted, userId, setUserData, progressKey]);
+  }, [completedLessons, completedQuizzes, examCompleted, requiredWorkRecords, userId, setUserData, progressKey]);
 
-  const totalSteps = courseData.units.length * 2 + 1;
-  const completedSteps = completedLessons.length + completedQuizzes.length + (examCompleted ? 1 : 0);
-  const progress = Math.round((completedSteps / totalSteps) * 100);
+  const requiredWorkUnitCount = useMemo(() => {
+    return (courseData.units || []).filter((unit) => Array.isArray(unit?.requiredWork) && unit.requiredWork.length > 0).length;
+  }, [courseData.units]);
+  const completedRequiredWorkCount = useMemo(() => {
+    return (courseData.units || []).filter((unit) => {
+      if (!Array.isArray(unit?.requiredWork) || unit.requiredWork.length === 0) return false;
+      const unitId = normalizeUnitId(unit.id);
+      const unitRecords = requiredWorkRecords[unitId] || {};
+      return unit.requiredWork.every((_, taskIndex) => Boolean(unitRecords?.[taskIndex]?.rubric?.passed));
+    }).length;
+  }, [courseData.units, requiredWorkRecords]);
 
-  const quizPassScore = courseData.quizPassScore ?? 4;
+  const totalSteps = courseData.units.length * 2 + requiredWorkUnitCount + 1;
+  const completedSteps = completedLessons.length + completedQuizzes.length + completedRequiredWorkCount + (examCompleted ? 1 : 0);
+  const progress = Math.round((completedSteps / Math.max(totalSteps, 1)) * 100);
+
+  const quizPassPercentage = courseData.quizPassPercentage
+    ?? (courseData.quizPassScore ? Math.round((courseData.quizPassScore / 5) * 100) : 80);
   const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
   const bibliography = useMemo(() => getCourseBibliography(courseData), [courseData]);
+  const rigorProfile = courseData.rigorProfile || null;
   const openRef = (ref) => openReferenceInBibleReader(ref, onCancel);
   const courseSourceIndex = useMemo(() => {
     const refs = new Set();
@@ -362,9 +493,123 @@ const ComprehensiveCourse = ({
     };
   }, [currentView, selectedUnit, isLanguageCourse, courseData, userData?.simplifiedMode]);
 
+  const examPassPercentage = courseData.examPassPercentage || FINAL_EXAM_PASS_PERCENT;
   const examPassScore = useMemo(() => {
-    return Math.ceil((FINAL_EXAM_PASS_PERCENT / 100) * examQuestions.length);
-  }, [examQuestions.length]);
+    return Math.ceil((examPassPercentage / 100) * examQuestions.length);
+  }, [examPassPercentage, examQuestions.length]);
+
+  const getQuizPassScore = (unit) => {
+    const questionCount = Array.isArray(unit?.quiz) ? unit.quiz.length : 0;
+    if (questionCount <= 0) return 0;
+    return Math.ceil((quizPassPercentage / 100) * questionCount);
+  };
+
+  const getUnitRecordMap = (unitId) => {
+    return requiredWorkRecords[normalizeUnitId(unitId)] || {};
+  };
+
+  const getTaskRecord = (unitId, taskIndex) => {
+    const recordMap = getUnitRecordMap(unitId);
+    return recordMap?.[taskIndex] || null;
+  };
+
+  const getEffectiveRubric = (taskRecord, unitId, taskIndex) => {
+    const localReview = findRequiredWorkReview({
+      userId,
+      progressKey,
+      unitId: normalizeUnitId(unitId),
+      taskIndex
+    });
+    if (localReview?.instructorReview?.rubric) return localReview.instructorReview.rubric;
+    if (taskRecord?.instructorReview?.rubric) return taskRecord.instructorReview.rubric;
+    return taskRecord?.rubric || null;
+  };
+
+  const getEffectiveTaskRecord = (unitId, taskIndex) => {
+    const base = getTaskRecord(unitId, taskIndex);
+    const localReview = findRequiredWorkReview({
+      userId,
+      progressKey,
+      unitId: normalizeUnitId(unitId),
+      taskIndex
+    });
+    if (!localReview?.instructorReview) return base;
+    return {
+      ...base,
+      instructorReview: localReview.instructorReview,
+      rubric: localReview.instructorReview.rubric || base?.rubric || null,
+      feedback: localReview.instructorReview.feedback || base?.feedback || []
+    };
+  };
+
+  const isUnitRequiredWorkComplete = (unit) => {
+    const tasks = Array.isArray(unit?.requiredWork) ? unit.requiredWork : [];
+    if (tasks.length === 0) return true;
+    return tasks.every((_, taskIndex) => {
+      const record = getTaskRecord(unit.id, taskIndex);
+      const rubric = getEffectiveRubric(record, unit.id, taskIndex);
+      return Boolean(rubric?.passed);
+    });
+  };
+
+  useEffect(() => {
+    if (selectedUnit === null) {
+      setRequiredWorkDrafts({});
+      return;
+    }
+    const unit = courseData.units[selectedUnit];
+    if (!unit || !Array.isArray(unit.requiredWork) || unit.requiredWork.length === 0) {
+      setRequiredWorkDrafts({});
+      return;
+    }
+    const unitId = normalizeUnitId(unit.id);
+    const unitRecords = getUnitRecordMap(unitId);
+    const nextDrafts = {};
+    unit.requiredWork.forEach((_, taskIndex) => {
+      nextDrafts[taskIndex] = String(unitRecords?.[taskIndex]?.submissionText || '');
+    });
+    setRequiredWorkDrafts(nextDrafts);
+  }, [selectedUnit, courseData.units, requiredWorkRecords]);
+
+  const evaluateRequiredWorkTask = (unit, taskIndex) => {
+    const unitId = normalizeUnitId(unit.id);
+    const submissionText = String(requiredWorkDrafts?.[taskIndex] || '').trim();
+    if (submissionText.length < 60) {
+      alert('Please provide a fuller submission before rubric evaluation (at least ~60 characters).');
+      return;
+    }
+    const evaluation = scoreRequiredWorkSubmission(unit, submissionText);
+    const evaluatedAt = new Date().toISOString();
+    setRequiredWorkRecords((prev) => {
+      const next = { ...prev };
+      const currentUnit = { ...(next[unitId] || {}) };
+      currentUnit[taskIndex] = {
+        submissionText,
+        submittedAt: evaluatedAt,
+        rubric: evaluation.rubric,
+        feedback: evaluation.feedback,
+        evaluatedAt,
+        instructorReview: null
+      };
+      next[unitId] = currentUnit;
+      return next;
+    });
+    enqueueRequiredWorkSubmission({
+      userId,
+      progressKey,
+      courseId: courseData.id,
+      courseTitle: courseData.title,
+      unitId,
+      unitTitle: unit.title,
+      taskIndex,
+      taskTitle: unit.requiredWork?.[taskIndex] || `Task ${taskIndex + 1}`,
+      submissionText,
+      autoRubric: evaluation.rubric,
+      autoFeedback: evaluation.feedback,
+      submittedAt: evaluatedAt,
+      status: 'pending_instructor_review'
+    });
+  };
 
   useEffect(() => {
     if (completedQuizzes.length === 0) return;
@@ -377,6 +622,7 @@ const ComprehensiveCourse = ({
   const submitQuiz = () => {
     const unit = courseData.units[selectedUnit];
     const unitId = normalizeUnitId(unit.id);
+    const quizPassScore = getQuizPassScore(unit);
     let correct = 0;
     unit.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
     setQuizScore(correct);
@@ -393,7 +639,8 @@ const ComprehensiveCourse = ({
       const progressPayload = normalizeProgressPayload({
         completedLessons: nextLessons,
         completedQuizzes: nextQuizzes,
-        examCompleted
+        examCompleted,
+        requiredWorkRecords
       });
       localStorage.setItem(progressKey, JSON.stringify(progressPayload));
       if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
@@ -576,6 +823,7 @@ const ComprehensiveCourse = ({
 
   if (currentView === 'quiz' && selectedUnit !== null) {
     const unit = courseData.units[selectedUnit];
+    const quizPassScore = getQuizPassScore(unit);
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
         <div className="max-w-3xl mx-auto">
@@ -585,6 +833,9 @@ const ComprehensiveCourse = ({
             </button>
             <h2 className="text-xl font-bold text-white">Unit {unit.id} Quiz</h2>
           </div>
+          <p className="text-slate-400 mb-4">
+            {unit.title} | {unit.quiz.length} questions | pass threshold: {quizPassScore}/{unit.quiz.length} ({quizPassPercentage}%)
+          </p>
           <div className="space-y-6">
             {unit.quiz.map((q, qi) => (
               <div key={qi} className={`bg-slate-800/50 rounded-xl p-5 border ${quizSubmitted ? (quizAnswers[qi] === q.correct ? 'border-emerald-500/50' : 'border-red-500/50') : 'border-slate-700'}`}>
@@ -633,7 +884,7 @@ const ComprehensiveCourse = ({
           </div>
           {!examSubmitted && (
             <div className={`bg-amber-900/30 border border-amber-500/40 rounded-xl p-4 mb-6 text-amber-300 text-sm`}>
-              {examQuestions.length} questions ({Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}% quiz review, {Math.round(FINAL_EXAM_NOVEL_RATIO * 100)}% new lesson-based). You need {examPassScore}/{examQuestions.length} to pass.
+              {examQuestions.length} questions ({Math.round((1 - FINAL_EXAM_NOVEL_RATIO) * 100)}% quiz review, {Math.round(FINAL_EXAM_NOVEL_RATIO * 100)}% new lesson-based). You need {examPassScore}/{examQuestions.length} ({examPassPercentage}%).
             </div>
           )}
           <div className="space-y-6">
@@ -679,6 +930,7 @@ const ComprehensiveCourse = ({
     const unitId = normalizeUnitId(unit.id);
     const lessonDone = completedLessons.includes(unitId);
     const quizDone = completedQuizzes.includes(unitId);
+    const workDone = isUnitRequiredWorkComplete(unit);
     const displayIcon = sanitizeDisplayIcon(unit.icon);
 
     // Language courses get the Duolingo-style interactive flow
@@ -710,6 +962,7 @@ const ComprehensiveCourse = ({
             <div className="flex items-center gap-2">
               {lessonDone && <span className={`text-sm flex items-center gap-1 ${theme.badgeLesson}`}><CheckCircle size={16} /> Read</span>}
               {quizDone && <span className={`text-sm flex items-center gap-1 ${theme.badgeQuiz}`}><Award size={16} /> Quiz Passed</span>}
+              {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && workDone && <span className="text-sm flex items-center gap-1 text-indigo-300"><Book size={16} /> Work Passed</span>}
             </div>
           </div>
           <div className={`bg-gradient-to-br ${theme.accentBgSoft} rounded-xl p-6 border-2 ${theme.accentBorder} mb-6`}>
@@ -722,6 +975,106 @@ const ComprehensiveCourse = ({
               </div>
             </div>
           </div>
+          {!isLanguageCourse && (
+            <div className="bg-slate-800/60 rounded-xl p-5 border border-indigo-500/30 mb-6">
+              <h3 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                <Scroll size={16} />
+                Unit Outcomes And Required Work
+              </h3>
+              {Array.isArray(unit.learningObjectives) && unit.learningObjectives.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs uppercase tracking-wide text-indigo-400 mb-2">Learning Objectives</p>
+                  <ul className="space-y-2">
+                    {unit.learningObjectives.map((objective, oi) => (
+                      <li key={`obj-${oi}`} className="text-sm text-slate-200">- {objective}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && (
+                <div>
+                  <p className="text-xs uppercase tracking-wide text-amber-400 mb-2">Required Work</p>
+                  <ul className="space-y-2">
+                    {unit.requiredWork.map((task, ti) => (
+                      <li key={`work-${ti}`} className="text-sm text-slate-200">- {task}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 space-y-4">
+                    <p className="text-xs uppercase tracking-wide text-violet-400">Submission And Rubric Grading</p>
+                    {unit.requiredWork.map((task, taskIndex) => {
+                      const record = getEffectiveTaskRecord(unitId, taskIndex);
+                      const rubric = record?.rubric || null;
+                      const hasPass = Boolean(rubric?.passed);
+                      const draftValue = String(requiredWorkDrafts?.[taskIndex] || '');
+                      const instructorReview = record?.instructorReview || null;
+                      return (
+                        <div key={`submission-${taskIndex}`} className={`rounded-lg border p-4 ${hasPass ? 'border-emerald-500/40 bg-emerald-900/10' : 'border-slate-600 bg-slate-900/40'}`}>
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-sm font-semibold text-slate-100">Task {taskIndex + 1}</p>
+                            {rubric && (
+                              <span className={`text-xs font-semibold px-2 py-1 rounded ${hasPass ? 'bg-emerald-900/40 text-emerald-300' : 'bg-red-900/40 text-red-300'}`}>
+                                {rubric.total}% {hasPass ? 'Passed' : 'Needs Revision'}{instructorReview ? ' (Instructor)' : ' (Auto)'}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-slate-400 mb-2">{task}</p>
+                          <textarea
+                            value={draftValue}
+                            onChange={(e) => setRequiredWorkDrafts((prev) => ({ ...prev, [taskIndex]: e.target.value }))}
+                            placeholder="Submit your analytical response here (include Scripture references and key terms)."
+                            rows={6}
+                            className="w-full px-3 py-2 bg-slate-900 border border-slate-600 rounded text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-violet-400"
+                          />
+                          <div className="flex items-center justify-between mt-3">
+                            <p className="text-xs text-slate-500">
+                              Last evaluated: {record?.evaluatedAt ? new Date(record.evaluatedAt).toLocaleString() : 'not yet'}
+                            </p>
+                            <button
+                              onClick={() => evaluateRequiredWorkTask(unit, taskIndex)}
+                              className="px-3 py-1.5 text-xs font-semibold rounded bg-violet-600 hover:bg-violet-500 text-white transition-colors"
+                            >
+                              Evaluate With Rubric
+                            </button>
+                          </div>
+                          {rubric && (
+                            <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-300">
+                              <p>Textual Evidence: <span className="text-violet-300">{rubric.textualEvidence}/25</span></p>
+                              <p>Key Terms: <span className="text-violet-300">{rubric.keyTermIntegration}/25</span></p>
+                              <p>Argumentation: <span className="text-violet-300">{rubric.argumentation}/25</span></p>
+                              <p>Depth: <span className="text-violet-300">{rubric.depthAndCompleteness}/25</span></p>
+                            </div>
+                          )}
+                          {Array.isArray(record?.feedback) && record.feedback.length > 0 && (
+                            <ul className="mt-3 space-y-1">
+                              {record.feedback.map((item, index) => (
+                                <li key={`fb-${taskIndex}-${index}`} className="text-xs text-slate-300">- {item}</li>
+                              ))}
+                            </ul>
+                          )}
+                          {instructorReview && (
+                            <div className="mt-3 rounded border border-indigo-500/40 bg-indigo-900/20 p-3">
+                              <p className="text-xs text-indigo-300 font-semibold">
+                                Instructor Review: {instructorReview.reviewer || 'Instructor'} {instructorReview.reviewedAt ? `| ${new Date(instructorReview.reviewedAt).toLocaleString()}` : ''}
+                              </p>
+                              {instructorReview.plagiarismCheck && (
+                                <p className="text-xs text-slate-300 mt-1">Plagiarism Check: {instructorReview.plagiarismCheck}</p>
+                              )}
+                              {instructorReview.notes && (
+                                <p className="text-xs text-slate-300 mt-1">Notes: {instructorReview.notes}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                    <p className={`text-xs font-semibold ${workDone ? 'text-emerald-300' : 'text-amber-300'}`}>
+                      {workDone ? 'All required work tasks for this unit are passed.' : 'Pass every required work task (70%+) to unlock final exam eligibility.'}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
           {selectedUnitSourceIndex.length > 0 && (
             <div className="bg-slate-800/60 rounded-xl p-4 border border-teal-500/30 mb-6">
               <h3 className="text-sm font-bold text-teal-300 mb-2 flex items-center gap-2">
@@ -1036,7 +1389,10 @@ const ComprehensiveCourse = ({
     );
   }
 
-  const allQuizzesDone = courseData.units.every(u => completedQuizzes.includes(normalizeUnitId(u.id)));
+  const allUnitsReadyForExam = courseData.units.every((unit) => {
+    const quizDone = completedQuizzes.includes(normalizeUnitId(unit.id));
+    return quizDone && isUnitRequiredWorkComplete(unit);
+  });
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
       <div className="max-w-4xl mx-auto">
@@ -1058,17 +1414,21 @@ const ComprehensiveCourse = ({
           <div className="w-full bg-slate-700 rounded-full h-4 overflow-hidden">
             <div className={`bg-gradient-to-r ${theme.accentBgSolid} h-full transition-all duration-500`} style={{ width: `${progress}%` }} />
           </div>
-          <div className="text-slate-400 text-sm mt-2">{completedLessons.length} lessons read | {completedQuizzes.length} quizzes passed | {examCompleted ? 'Exam passed' : 'Exam pending'}</div>
+          <div className="text-slate-400 text-sm mt-2">
+            {completedLessons.length} lessons read | {completedQuizzes.length} quizzes passed{requiredWorkUnitCount > 0 ? ` | ${completedRequiredWorkCount}/${requiredWorkUnitCount} required-work units passed` : ''} | {examCompleted ? 'Exam passed' : 'Exam pending'}
+          </div>
         </div>
         <div className="space-y-3 mb-6">
           {courseData.units.map((unit, idx) => {
             const unitId = normalizeUnitId(unit.id);
             const lessonDone = completedLessons.includes(unitId);
             const quizDone = completedQuizzes.includes(unitId);
+            const workDone = isUnitRequiredWorkComplete(unit);
+            const rowComplete = lessonDone && quizDone && workDone;
             const displayIcon = sanitizeDisplayIcon(unit.icon);
             return (
               <button key={unitId} onClick={() => { setSelectedUnit(idx); setCurrentView('lesson'); window.scrollTo(0, 0); }}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${lessonDone && quizDone ? 'bg-gradient-to-r from-emerald-900/40 to-teal-900/40 border-emerald-500/50 hover:border-emerald-400' : 'bg-slate-800/50 border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/70'}`}>
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${rowComplete ? 'bg-gradient-to-r from-emerald-900/40 to-teal-900/40 border-emerald-500/50 hover:border-emerald-400' : 'bg-slate-800/50 border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/70'}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="text-3xl">{displayIcon}</div>
@@ -1077,6 +1437,7 @@ const ComprehensiveCourse = ({
                         <span className="text-slate-400 text-sm font-mono">Unit {unitId}</span>
                         {lessonDone && <CheckCircle size={14} className="text-emerald-400" />}
                         {quizDone && <Award size={14} className="text-amber-400" />}
+                        {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && workDone && <Book size={14} className="text-indigo-400" />}
                       </div>
                       <h3 className="text-lg font-bold text-white">{unit.title}</h3>
                       <p className={`${theme.accentText} text-sm`}>{unit.duration}</p>
@@ -1088,12 +1449,16 @@ const ComprehensiveCourse = ({
             );
           })}
         </div>
-        <div className={`rounded-xl p-6 border-2 text-center ${allQuizzesDone ? `bg-gradient-to-r from-amber-900/30 to-orange-900/30 ${theme.examBorder}` : 'bg-slate-800/30 border-slate-700'}`}>
-          <Trophy size={32} className={allQuizzesDone ? 'text-amber-400 mx-auto mb-3' : 'text-slate-600 mx-auto mb-3'} />
+        <div className={`rounded-xl p-6 border-2 text-center ${allUnitsReadyForExam ? `bg-gradient-to-r from-amber-900/30 to-orange-900/30 ${theme.examBorder}` : 'bg-slate-800/30 border-slate-700'}`}>
+          <Trophy size={32} className={allUnitsReadyForExam ? 'text-amber-400 mx-auto mb-3' : 'text-slate-600 mx-auto mb-3'} />
           <h3 className="text-xl font-bold text-white mb-2">Final Exam</h3>
-          <p className="text-slate-400 text-sm mb-4">{allQuizzesDone ? 'All quizzes passed! You are ready for the final exam.' : `Pass all ${courseData.units.length} unit quizzes to unlock the final exam. (${completedQuizzes.length}/${courseData.units.length} complete)`}</p>
+          <p className="text-slate-400 text-sm mb-4">
+            {allUnitsReadyForExam
+              ? 'All unit quizzes and required work are passed. You are ready for the final exam.'
+              : `Pass all ${courseData.units.length} quizzes and all required work tasks to unlock the final exam.`}
+          </p>
           {examCompleted && <p className="text-emerald-400 font-bold mb-3 flex items-center justify-center gap-2"><CheckCircle size={18} /> Exam Passed!</p>}
-          <button onClick={startExam} disabled={!allQuizzesDone}
+          <button onClick={startExam} disabled={!allUnitsReadyForExam}
             className={`bg-gradient-to-r ${theme.examAccentBg} hover:${theme.examAccentBgHover} disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 text-white font-bold py-3 px-8 rounded-lg transition-all`}>
             {examCompleted ? `Retake ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Exam` : `Start ${FINAL_EXAM_TOTAL_QUESTIONS}-Question Final`}
           </button>
@@ -1103,6 +1468,25 @@ const ComprehensiveCourse = ({
           <p className="text-slate-300 mb-3"><strong className="text-blue-300">{courseData.about.level}</strong> - {courseData.about.description}</p>
           <p className="text-slate-300"><strong className="text-blue-300">Credit Equivalent:</strong> {courseData.about.credits} | <strong className="text-blue-300">Prerequisites:</strong> {courseData.about.prerequisites}</p>
         </div>
+        {rigorProfile && (
+          <div className="mt-6 bg-slate-800/50 rounded-xl p-6 border border-indigo-500/30">
+            <h2 className="text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
+              <Award size={22} />
+              Associate Program Standards
+            </h2>
+            <p className="text-slate-300 text-sm mb-3">
+              Quiz threshold: {quizPassPercentage}% per unit. Final exam threshold: {examPassPercentage}%.
+            </p>
+            <p className="text-slate-300 text-sm mb-1"><strong className="text-indigo-300">Instructional Time:</strong> {rigorProfile.contactHours}</p>
+            <p className="text-slate-300 text-sm mb-1"><strong className="text-indigo-300">Independent Study:</strong> {rigorProfile.studyHours}</p>
+            <p className="text-slate-300 text-sm mb-3"><strong className="text-indigo-300">Writing Expectations:</strong> {rigorProfile.writingLoad}</p>
+            <ul className="space-y-1">
+              {(rigorProfile.standards || []).map((standard, index) => (
+                <li key={`standard-${index}`} className="text-sm text-slate-200">- {standard}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         {courseSourceIndex.length > 0 && (
           <div className="mt-6 bg-slate-800/50 rounded-xl p-6 border border-teal-500/30">
             <h2 className="text-xl font-bold text-teal-300 mb-3 flex items-center gap-2">
