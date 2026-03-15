@@ -55,12 +55,60 @@ const buildObjectiveDefaults = (unit = {}) => {
   ];
 };
 
-const buildAssessmentTasks = (unit = {}) => {
+const buildAssessmentTasks = (unit = {}, courseData = {}) => {
+  const subtitle = String(courseData?.subtitle || '').toLowerCase();
+  if (subtitle.includes('language course')) {
+    const title = unit.title || 'this language unit';
+    return [
+      `Parsing worksheet: Identify morphology/syntax for 10 forms from ${title} and justify each decision.`,
+      `Translation brief: Translate one short passage tied to ${title} and annotate key lexical choices in 180-250 words.`,
+      'Reflection memo: Explain one recurrent grammar pattern from this unit and where it changes interpretation.'
+    ];
+  }
+
   const title = unit.title || 'this unit';
   return [
     `Exegetical worksheet: Record at least 12 text observations for ${title} and group them by literary function.`,
     `Context brief: Write a 250-350 word historical-literary analysis using unit headings and key terms.`,
     'Argument map: Present the passage flow with claims, evidence, and one peer-review question for revision.'
+  ];
+};
+
+const ensureLessonSections = (unit = {}) => {
+  const sections = Array.isArray(unit.content) ? unit.content.filter((section) => section && typeof section === 'object') : [];
+  if (sections.length > 0) return sections;
+  return [
+    {
+      heading: unit.title || 'Unit Lesson Material',
+      text: `Core lesson material for ${unit.title || 'this unit'}: identify the central claims, trace the argument flow, and document supporting textual evidence before moving to assessment.`
+    }
+  ];
+};
+
+const enrichSectionText = (section = {}, unit = {}) => {
+  const base = String(section?.text || '').trim();
+  if (!base) return base;
+  if (base.length >= 260) return base;
+  const keyTerms = (unit.keyTerms || []).map((item) => item?.term).filter(Boolean).slice(0, 3).join(', ');
+  const heading = section?.heading || unit?.title || 'this section';
+  return `${base}\n\nAssociate-level analysis checkpoint: explain how "${heading}" contributes to the unit argument, cite at least two textual observations, and integrate key terms (${keyTerms || 'unit terminology'}) with a defendable conclusion.`;
+};
+
+const ensureAssociateLevelSections = (unit = {}) => {
+  const sections = Array.isArray(unit.content) ? unit.content : [];
+  const enriched = sections.map((section) => ({
+    ...section,
+    text: enrichSectionText(section, unit)
+  }));
+
+  if (enriched.length >= 3) return enriched;
+  const sectionTitles = enriched.map((s) => s?.heading).filter(Boolean).join(', ');
+  return [
+    ...enriched,
+    {
+      heading: 'Associate-Level Synthesis Workshop',
+      text: `Integrate the unit sections (${sectionTitles || unit.title || 'core lesson sections'}) into one coherent argument. Distinguish observation, interpretation, and synthesis, then defend your final claim with textual evidence and precise terminology.`
+    }
   ];
 };
 
@@ -152,7 +200,47 @@ const buildRigorQuiz = (unit = {}) => {
   const existingQuiz = Array.isArray(unit.quiz) ? unit.quiz : [];
   const generated = [...buildTermQuestions(unit), ...buildSectionQuestions(unit)];
   const merged = uniqueByQuestion([...existingQuiz, ...generated]).slice(0, 12);
-  return merged.length >= 8 ? merged : existingQuiz;
+  if (merged.length >= 5) return merged;
+  if (existingQuiz.length >= 5) return existingQuiz;
+
+  const fallbackSection = unit.content?.[0]?.heading || unit.title || 'the unit lesson';
+  const fallbackTerm = unit.keyTerms?.[0]?.term || 'key terminology';
+  const fallbackDef = firstSentence(unit.keyTerms?.[0]?.definition || 'a central term for interpreting this unit');
+
+  const fallback = [
+    {
+      question: `Which area is the main focus of this unit?`,
+      options: [fallbackSection, 'Unrelated background details', 'Random historical trivia', 'A topic outside the course'],
+      correct: 0,
+      explanation: 'The quiz should test direct lesson content from this unit.'
+    },
+    {
+      question: `What should come first before attempting written assessment tasks?`,
+      options: ['Review lesson material and pass the quiz', 'Skip directly to final exam', 'Ignore unit objectives', 'Use only memory without text'],
+      correct: 0,
+      explanation: 'Unit flow requires lesson engagement and quiz performance before written assessment.'
+    },
+    {
+      question: `In this unit, which term should be defined with precision?`,
+      options: [fallbackTerm, 'Undefined speculation', 'Irrelevant vocabulary', 'Any random phrase'],
+      correct: 0,
+      explanation: 'Key terms anchor accurate analysis and interpretation.'
+    },
+    {
+      question: `What best reflects associate-level work in this unit?`,
+      options: ['Evidence-based claims with textual support', 'Unsupported assertions', 'Only personal preference', 'No use of source material'],
+      correct: 0,
+      explanation: 'Associate-level rigor requires evidence-grounded argumentation.'
+    },
+    {
+      question: `Which definition best matches the key term emphasized in this unit?`,
+      options: [fallbackDef, 'A contradictory definition', 'An unrelated concept', 'No definition needed'],
+      correct: 0,
+      explanation: `The lesson defines ${fallbackTerm} with this meaning.`
+    }
+  ];
+
+  return uniqueByQuestion([...existingQuiz, ...generated, ...fallback]).slice(0, 12);
 };
 
 const shouldEnhance = (courseData = {}) => {
@@ -162,25 +250,40 @@ const shouldEnhance = (courseData = {}) => {
 };
 
 export const applyAssociateProgramRigor = (courseData = {}) => {
-  if (!courseData || !shouldEnhance(courseData)) return courseData;
+  if (!courseData) return courseData;
+
+  const isAssociateTrack = shouldEnhance(courseData);
 
   const units = Array.isArray(courseData.units) ? courseData.units : [];
   const enhancedUnits = units.map((unit) => {
+    const normalizedUnit = {
+      ...unit,
+      content: ensureLessonSections(unit)
+    };
+
     const learningObjectives = Array.isArray(unit.learningObjectives) && unit.learningObjectives.length >= 3
       ? unit.learningObjectives
-      : buildObjectiveDefaults(unit);
+      : buildObjectiveDefaults(normalizedUnit);
 
     const requiredWork = Array.isArray(unit.requiredWork) && unit.requiredWork.length >= 2
       ? unit.requiredWork
-      : buildAssessmentTasks(unit);
+      : buildAssessmentTasks(normalizedUnit, courseData);
 
     return {
-      ...unit,
-      quiz: buildRigorQuiz(unit),
+      ...normalizedUnit,
+      content: ensureAssociateLevelSections(normalizedUnit),
+      quiz: buildRigorQuiz(normalizedUnit),
       learningObjectives,
       requiredWork
     };
   });
+
+  if (!isAssociateTrack) {
+    return {
+      ...courseData,
+      units: enhancedUnits
+    };
+  }
 
   const existingProfile = courseData.rigorProfile || {};
   const rigorProfile = {

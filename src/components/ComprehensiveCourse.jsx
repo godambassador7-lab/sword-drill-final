@@ -975,106 +975,35 @@ const ComprehensiveCourse = ({
               </div>
             </div>
           </div>
-          {!isLanguageCourse && (
-            <div className="bg-slate-800/60 rounded-xl p-5 border border-indigo-500/30 mb-6">
-              <h3 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
-                <Scroll size={16} />
-                Unit Outcomes And Required Work
-              </h3>
-              {Array.isArray(unit.learningObjectives) && unit.learningObjectives.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-xs uppercase tracking-wide text-indigo-400 mb-2">Learning Objectives</p>
-                  <ul className="space-y-2">
-                    {unit.learningObjectives.map((objective, oi) => (
-                      <li key={`obj-${oi}`} className="text-sm text-slate-200">- {objective}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && (
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-amber-400 mb-2">Required Work</p>
-                  <ul className="space-y-2">
-                    {unit.requiredWork.map((task, ti) => (
-                      <li key={`work-${ti}`} className="text-sm text-slate-200">- {task}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-4 space-y-4">
-                    <p className="text-xs uppercase tracking-wide text-violet-400">Submission And Rubric Grading</p>
-                    {unit.requiredWork.map((task, taskIndex) => {
-                      const record = getEffectiveTaskRecord(unitId, taskIndex);
-                      const rubric = record?.rubric || null;
-                      const hasPass = Boolean(rubric?.passed);
-                      const draftValue = String(requiredWorkDrafts?.[taskIndex] || '');
-                      const instructorReview = record?.instructorReview || null;
-                      return (
-                        <div key={`submission-${taskIndex}`} className={`rounded-lg border p-4 ${hasPass ? 'border-emerald-500/40 bg-emerald-900/10' : 'border-slate-600 bg-slate-900/40'}`}>
-                          <div className="flex items-center justify-between mb-2">
-                            <p className="text-sm font-semibold text-slate-100">Task {taskIndex + 1}</p>
-                            {rubric && (
-                              <span className={`text-xs font-semibold px-2 py-1 rounded ${hasPass ? 'bg-emerald-900/40 text-emerald-300' : 'bg-red-900/40 text-red-300'}`}>
-                                {rubric.total}% {hasPass ? 'Passed' : 'Needs Revision'}{instructorReview ? ' (Instructor)' : ' (Auto)'}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-xs text-slate-400 mb-2">{task}</p>
-                          <textarea
-                            value={draftValue}
-                            onChange={(e) => setRequiredWorkDrafts((prev) => ({ ...prev, [taskIndex]: e.target.value }))}
-                            placeholder="Submit your analytical response here (include Scripture references and key terms)."
-                            rows={6}
-                            className="w-full px-3 py-2 bg-slate-900 border border-slate-600 rounded text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-violet-400"
-                          />
-                          <div className="flex items-center justify-between mt-3">
-                            <p className="text-xs text-slate-500">
-                              Last evaluated: {record?.evaluatedAt ? new Date(record.evaluatedAt).toLocaleString() : 'not yet'}
-                            </p>
-                            <button
-                              onClick={() => evaluateRequiredWorkTask(unit, taskIndex)}
-                              className="px-3 py-1.5 text-xs font-semibold rounded bg-violet-600 hover:bg-violet-500 text-white transition-colors"
-                            >
-                              Evaluate With Rubric
-                            </button>
-                          </div>
-                          {rubric && (
-                            <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-300">
-                              <p>Textual Evidence: <span className="text-violet-300">{rubric.textualEvidence}/25</span></p>
-                              <p>Key Terms: <span className="text-violet-300">{rubric.keyTermIntegration}/25</span></p>
-                              <p>Argumentation: <span className="text-violet-300">{rubric.argumentation}/25</span></p>
-                              <p>Depth: <span className="text-violet-300">{rubric.depthAndCompleteness}/25</span></p>
-                            </div>
-                          )}
-                          {Array.isArray(record?.feedback) && record.feedback.length > 0 && (
-                            <ul className="mt-3 space-y-1">
-                              {record.feedback.map((item, index) => (
-                                <li key={`fb-${taskIndex}-${index}`} className="text-xs text-slate-300">- {item}</li>
-                              ))}
-                            </ul>
-                          )}
-                          {instructorReview && (
-                            <div className="mt-3 rounded border border-indigo-500/40 bg-indigo-900/20 p-3">
-                              <p className="text-xs text-indigo-300 font-semibold">
-                                Instructor Review: {instructorReview.reviewer || 'Instructor'} {instructorReview.reviewedAt ? `| ${new Date(instructorReview.reviewedAt).toLocaleString()}` : ''}
-                              </p>
-                              {instructorReview.plagiarismCheck && (
-                                <p className="text-xs text-slate-300 mt-1">Plagiarism Check: {instructorReview.plagiarismCheck}</p>
-                              )}
-                              {instructorReview.notes && (
-                                <p className="text-xs text-slate-300 mt-1">Notes: {instructorReview.notes}</p>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                    <p className={`text-xs font-semibold ${workDone ? 'text-emerald-300' : 'text-amber-300'}`}>
-                      {workDone ? 'All required work tasks for this unit are passed.' : 'Pass every required work task (70%+) to unlock final exam eligibility.'}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+          <div className="bg-slate-800/60 rounded-xl p-5 border border-indigo-500/30 mb-6">
+            <h3 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
+              <Scroll size={16} />
+              Unit Outcomes And Sequence
+            </h3>
+            {Array.isArray(unit.learningObjectives) && unit.learningObjectives.length > 0 && (
+              <div className="mb-4">
+                <p className="text-xs uppercase tracking-wide text-indigo-400 mb-2">Learning Objectives</p>
+                <ul className="space-y-2">
+                  {unit.learningObjectives.map((objective, oi) => (
+                    <li key={`obj-${oi}`} className="text-sm text-slate-200">- {objective}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && (
+              <div>
+                <p className="text-xs uppercase tracking-wide text-amber-400 mb-2">Unit Flow</p>
+                <p className="text-sm text-slate-300 mb-2">1) Lesson material  2) Unit quiz  3) Written assessment</p>
+                <p className="text-xs uppercase tracking-wide text-amber-400 mb-2 mt-3">Written Assessment Prompts</p>
+                <ul className="space-y-2">
+                  {unit.requiredWork.map((task, ti) => (
+                    <li key={`work-${ti}`} className="text-sm text-slate-200">- {task}</li>
+                  ))}
+                </ul>
+                <p className="text-xs text-slate-400 mt-3">Written assessment unlocks after quiz pass and appears at the end of this unit page.</p>
+              </div>
+            )}
+          </div>
           {selectedUnitSourceIndex.length > 0 && (
             <div className="bg-slate-800/60 rounded-xl p-4 border border-teal-500/30 mb-6">
               <h3 className="text-sm font-bold text-teal-300 mb-2 flex items-center gap-2">
@@ -1371,6 +1300,92 @@ const ComprehensiveCourse = ({
                   </div>
                 )}
               </>
+            )}
+
+            {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && (
+              <div className="bg-slate-800/60 rounded-xl p-5 border border-violet-500/30">
+                <h3 className="text-sm font-bold text-violet-300 mb-3 flex items-center gap-2">
+                  <Book size={16} />
+                  Written Assessment (Final Step Of Unit)
+                </h3>
+                {!quizDone ? (
+                  <div className="rounded border border-amber-500/40 bg-amber-900/20 p-3 text-sm text-amber-200">
+                    Complete and pass the unit quiz first. Written assessment unlocks after quiz pass.
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {unit.requiredWork.map((task, taskIndex) => {
+                      const record = getEffectiveTaskRecord(unitId, taskIndex);
+                      const rubric = record?.rubric || null;
+                      const hasPass = Boolean(rubric?.passed);
+                      const draftValue = String(requiredWorkDrafts?.[taskIndex] || '');
+                      const instructorReview = record?.instructorReview || null;
+                      return (
+                        <div key={`submission-${taskIndex}`} className={`rounded-lg border p-4 ${hasPass ? 'border-emerald-500/40 bg-emerald-900/10' : 'border-slate-600 bg-slate-900/40'}`}>
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-sm font-semibold text-slate-100">Task {taskIndex + 1}</p>
+                            {rubric && (
+                              <span className={`text-xs font-semibold px-2 py-1 rounded ${hasPass ? 'bg-emerald-900/40 text-emerald-300' : 'bg-red-900/40 text-red-300'}`}>
+                                {rubric.total}% {hasPass ? 'Passed' : 'Needs Revision'}{instructorReview ? ' (Instructor)' : ' (Auto)'}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-slate-400 mb-2">{task}</p>
+                          <textarea
+                            value={draftValue}
+                            onChange={(e) => setRequiredWorkDrafts((prev) => ({ ...prev, [taskIndex]: e.target.value }))}
+                            placeholder="Submit your analytical response here (include Scripture references and key terms)."
+                            rows={6}
+                            className="w-full px-3 py-2 bg-slate-900 border border-slate-600 rounded text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-violet-400"
+                          />
+                          <div className="flex items-center justify-between mt-3">
+                            <p className="text-xs text-slate-500">
+                              Last evaluated: {record?.evaluatedAt ? new Date(record.evaluatedAt).toLocaleString() : 'not yet'}
+                            </p>
+                            <button
+                              onClick={() => evaluateRequiredWorkTask(unit, taskIndex)}
+                              className="px-3 py-1.5 text-xs font-semibold rounded bg-violet-600 hover:bg-violet-500 text-white transition-colors"
+                            >
+                              Evaluate With Rubric
+                            </button>
+                          </div>
+                          {rubric && (
+                            <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-300">
+                              <p>Textual Evidence: <span className="text-violet-300">{rubric.textualEvidence}/25</span></p>
+                              <p>Key Terms: <span className="text-violet-300">{rubric.keyTermIntegration}/25</span></p>
+                              <p>Argumentation: <span className="text-violet-300">{rubric.argumentation}/25</span></p>
+                              <p>Depth: <span className="text-violet-300">{rubric.depthAndCompleteness}/25</span></p>
+                            </div>
+                          )}
+                          {Array.isArray(record?.feedback) && record.feedback.length > 0 && (
+                            <ul className="mt-3 space-y-1">
+                              {record.feedback.map((item, index) => (
+                                <li key={`fb-${taskIndex}-${index}`} className="text-xs text-slate-300">- {item}</li>
+                              ))}
+                            </ul>
+                          )}
+                          {instructorReview && (
+                            <div className="mt-3 rounded border border-indigo-500/40 bg-indigo-900/20 p-3">
+                              <p className="text-xs text-indigo-300 font-semibold">
+                                Instructor Review: {instructorReview.reviewer || 'Instructor'} {instructorReview.reviewedAt ? `| ${new Date(instructorReview.reviewedAt).toLocaleString()}` : ''}
+                              </p>
+                              {instructorReview.plagiarismCheck && (
+                                <p className="text-xs text-slate-300 mt-1">Plagiarism Check: {instructorReview.plagiarismCheck}</p>
+                              )}
+                              {instructorReview.notes && (
+                                <p className="text-xs text-slate-300 mt-1">Notes: {instructorReview.notes}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                    <p className={`text-xs font-semibold ${workDone ? 'text-emerald-300' : 'text-amber-300'}`}>
+                      {workDone ? 'All written assessment tasks for this unit are passed.' : 'Pass every written assessment task (70%+) to unlock final exam eligibility.'}
+                    </p>
+                  </div>
+                )}
+              </div>
             )}
           </div>
           <div className="flex gap-3 mt-6">
