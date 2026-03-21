@@ -605,28 +605,6 @@ const ComprehensiveCourse = ({
     );
   }, [completedLessons, completedQuizzes, examCompleted, requiredWorkRecords, actionVariantAttempts, userId, setUserData, progressKey]);
 
-  const requiredWorkUnitCount = useMemo(() => {
-    return (courseData.units || []).filter((unit) => Array.isArray(unit?.requiredWork) && unit.requiredWork.length > 0).length;
-  }, [courseData.units]);
-  const getUnitActionVariantSeed = useCallback((unit) => {
-    const unitId = normalizeUnitId(unit?.id);
-    const attemptIndex = Number(actionVariantAttempts?.[unitId] || 0);
-    return `${assessmentProfileId}:${courseData.id || 'course'}:${unitId}:${unit?.title || 'unit'}:attempt-${attemptIndex}`;
-  }, [assessmentProfileId, courseData.id, actionVariantAttempts]);
-  const completedRequiredWorkCount = useMemo(() => {
-    return (courseData.units || []).filter((unit) => {
-      if (!Array.isArray(unit?.requiredWork) || unit.requiredWork.length === 0) return false;
-      const unitId = normalizeUnitId(unit.id);
-      const unitRecords = requiredWorkRecords[unitId] || {};
-      const unitActionTasks = buildActionAssessmentTasks(unit, courseSourceIndex, getUnitActionVariantSeed(unit));
-      return unitActionTasks.every((_, taskIndex) => Boolean(unitRecords?.[taskIndex]?.rubric?.passed));
-    }).length;
-  }, [courseData.units, requiredWorkRecords, courseSourceIndex, getUnitActionVariantSeed]);
-
-  const totalSteps = courseData.units.length * 2 + requiredWorkUnitCount + 1;
-  const completedSteps = completedLessons.length + completedQuizzes.length + completedRequiredWorkCount + (examCompleted ? 1 : 0);
-  const progress = Math.round((completedSteps / Math.max(totalSteps, 1)) * 100);
-
   const quizPassPercentage = courseData.quizPassPercentage
     ?? (courseData.quizPassScore ? Math.round((courseData.quizPassScore / 5) * 100) : 80);
   const isLanguageCourse = /language course/i.test(courseData.subtitle || '');
@@ -648,6 +626,28 @@ const ComprehensiveCourse = ({
     });
     return Array.from(refs);
   }, [courseData]);
+
+  const requiredWorkUnitCount = useMemo(() => {
+    return (courseData.units || []).filter((unit) => Array.isArray(unit?.requiredWork) && unit.requiredWork.length > 0).length;
+  }, [courseData.units]);
+  const getUnitActionVariantSeed = useCallback((unit) => {
+    const unitId = normalizeUnitId(unit?.id);
+    const attemptIndex = Number(actionVariantAttempts?.[unitId] || 0);
+    return `${assessmentProfileId}:${courseData.id || 'course'}:${unitId}:${unit?.title || 'unit'}:attempt-${attemptIndex}`;
+  }, [assessmentProfileId, courseData.id, actionVariantAttempts]);
+  const completedRequiredWorkCount = useMemo(() => {
+    return (courseData.units || []).filter((unit) => {
+      if (!Array.isArray(unit?.requiredWork) || unit.requiredWork.length === 0) return false;
+      const unitId = normalizeUnitId(unit.id);
+      const unitRecords = requiredWorkRecords[unitId] || {};
+      const unitActionTasks = buildActionAssessmentTasks(unit, courseSourceIndex, getUnitActionVariantSeed(unit));
+      return unitActionTasks.every((_, taskIndex) => Boolean(unitRecords?.[taskIndex]?.rubric?.passed));
+    }).length;
+  }, [courseData.units, requiredWorkRecords, courseSourceIndex, getUnitActionVariantSeed]);
+
+  const totalSteps = courseData.units.length * 2 + requiredWorkUnitCount + 1;
+  const completedSteps = completedLessons.length + completedQuizzes.length + completedRequiredWorkCount + (examCompleted ? 1 : 0);
+  const progress = Math.round((completedSteps / Math.max(totalSteps, 1)) * 100);
 
   const selectedUnitSourceIndex = useMemo(() => {
     if (selectedUnit === null) return [];
@@ -2093,4 +2093,3 @@ const ComprehensiveCourse = ({
 };
 
 export default ComprehensiveCourse;
-
