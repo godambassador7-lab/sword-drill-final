@@ -97,6 +97,8 @@ import NewTestamentSurveyCourse from './components/NewTestamentSurveyCourse';
 import TextualTransmissionCourse from './components/TextualTransmissionCourse';
 import BiblicalEthicsCourse from './components/BiblicalEthicsCourse';
 import PhilosophyAssociateCourse from './components/PhilosophyAssociateCourse';
+import ArgumentationCourse from './components/ArgumentationCourse';
+import EschatologyCourse from './components/EschatologyCourse';
 import CapstoneCourse from './components/CapstoneCourse';
 import GreekICourse from './components/GreekICourse';
 import HebrewICourse from './components/HebrewICourse';
@@ -1190,6 +1192,8 @@ const SwordDrillApp = () => {
     'demonology-course': { talents: 2, points: 0, courseNumber: 'BIB 270', name: 'Demonology', icon: Shield, color: 'red', description: 'NT Demonology Survey + Exegesis', credits: 3 },
     'biblical-ethics-course': { talents: 2, points: 0, courseNumber: 'BIB 280', name: 'Biblical Ethics', icon: Scale, color: 'rose', description: 'Moral Principles & Christian Living', credits: 3 },
     'philosophy-associate-course': { talents: 2, points: 0, courseNumber: 'PHIL 290', name: 'Biblical Philosophy', icon: Lightbulb, color: 'violet', description: 'Faith, Reason, Metaphysics & Ethics', credits: 3 },
+    'argumentation-course': { talents: 2, points: 0, courseNumber: 'PHIL 291', name: 'Christian Argumentation', icon: Shield, color: 'blue', description: 'Logic, Fallacies & Apologetics Application', credits: 3 },
+    'eschatology-course': { talents: 2, points: 0, courseNumber: 'THEO 290', name: 'Biblical Eschatology', icon: Sparkles, color: 'amber', description: 'Last Things: Kingdom, Resurrection & New Creation', credits: 3 },
     'capstone-course': { talents: 3, points: 0, courseNumber: 'BIB 299', name: 'Capstone Seminar', icon: GraduationCap, color: 'indigo', description: 'Integrative Research Paper & Final Project', credits: 3 },
     // Biblical Languages (Associate-Appropriate)
     'greek-i-course': { talents: 2, points: 0, courseNumber: 'GREK 101', name: 'Biblical Greek I', icon: BookOpen, color: 'indigo', description: 'Introduction to Biblical Greek - REQUIRED', credits: 3 },
@@ -1579,6 +1583,32 @@ const SwordDrillApp = () => {
       glowColor: 'shadow-violet-500/50',
       description: 'Master of Biblical Philosophy',
       achievement: 'Completed all Biblical Philosophy lessons (Associate Level)'
+    },
+    'argumentation-course': {
+      id: 'argumentation-course',
+      name: 'Logician of the Faith',
+      symbol: '⚔️',
+      emoji: '🔷',
+      color: 'blue',
+      gradient: 'from-blue-600 to-cyan-600',
+      borderColor: 'border-blue-500',
+      textColor: 'text-blue-400',
+      glowColor: 'shadow-blue-500/50',
+      description: 'Master of Christian Argumentation',
+      achievement: 'Completed all Christian Argumentation & Logic lessons (Associate Level)'
+    },
+    'eschatology-course': {
+      id: 'eschatology-course',
+      name: 'Herald of Last Things',
+      symbol: '🌅',
+      emoji: '⚡',
+      color: 'amber',
+      gradient: 'from-amber-600 to-orange-600',
+      borderColor: 'border-amber-500',
+      textColor: 'text-amber-400',
+      glowColor: 'shadow-amber-500/50',
+      description: 'Scholar of Biblical Eschatology',
+      achievement: 'Completed all Biblical Eschatology lessons (Associate Level)'
     },
     'greek-i-course': {
       id: 'greek-i-course',
@@ -10139,7 +10169,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                                   Biblical Studies
                                 </div>
                                 <div className="space-y-1">
-                                  {['demonology-course', 'mosaic-law-course', 'feast-days-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course', 'philosophy-associate-course'].map(courseId => {
+                                  {['demonology-course', 'mosaic-law-course', 'feast-days-course', 'second-temple-judaism-course', 'pneumatology-course', 'christology-course', 'biblical-hermeneutics-course', 'biblical-exegetical-methods-course', 'philosophy-associate-course', 'argumentation-course', 'eschatology-course'].map(courseId => {
                                     const course = COURSE_ADMISSION[courseId];
                                     const isUnlocked = userData.unlockables?.[`course_${courseId}`];
                                     return (
@@ -11902,6 +11932,44 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
               setUserData: setUserData
             }}
             courseName="philosophy-associate"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'argumentation-course' && (
+          <CourseWithFocus
+            CourseComponent={ArgumentationCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Christian Argumentation lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="argumentation"
+            isExam={false}
+            onExit={() => setCurrentView('home')}
+          />
+        )}
+        {currentView === 'eschatology-course' && (
+          <CourseWithFocus
+            CourseComponent={EschatologyCourse}
+            courseProps={{
+              onComplete: (results) => {
+                const pointsEarned = awardBonusPoints('courseLesson');
+                showToast(` Lesson Complete!\n\n+${pointsEarned} points earned!\n\nGreat work on completing this Biblical Eschatology lesson!`, 'success');
+                setUserData(prev => ({ ...prev, totalPoints: prev.totalPoints + pointsEarned }));
+              },
+              onCancel: () => setCurrentView('home'),
+              userId: currentUser?.uid,
+              userData: userData,
+              setUserData: setUserData
+            }}
+            courseName="eschatology"
             isExam={false}
             onExit={() => setCurrentView('home')}
           />

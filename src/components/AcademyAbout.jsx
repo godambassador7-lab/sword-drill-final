@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, MapPin, ChevronRight, ArrowLeft } from 'lucide-react';
+import { GraduationCap, Award, Scroll, BookOpen, Trophy, Coins, Shield, CheckCircle, Star, MapPin, ChevronRight, ArrowLeft, X, ChevronDown, ChevronUp } from 'lucide-react';
 
 const AcademyAbout = ({ onBack }) => {
   const [catalogView, setCatalogView] = useState('main'); // 'main', 'associate', 'diploma'
+  const [expandedCourse, setExpandedCourse] = useState(null);
+
+  const toggleCourse = (key) => setExpandedCourse(prev => prev === key ? null : key);
 
   const associateCourseCategories = [
     {
@@ -10,8 +13,16 @@ const AcademyAbout = ({ onBack }) => {
       icon: BookOpen,
       color: 'from-indigo-600 to-purple-600',
       courses: [
-        { courseNumber: 'GREK 101', name: 'Biblical Greek I', credits: '3', description: 'Introduction to Biblical Greek (Choose Greek I OR Hebrew I)' },
-        { courseNumber: 'HEBR 101', name: 'Biblical Hebrew I', credits: '3', description: 'Introduction to Ancient Hebrew (Choose Greek I OR Hebrew I)' }
+        {
+          courseNumber: 'GREK 101', name: 'Biblical Greek I', credits: '3',
+          description: 'Introduction to Biblical Greek (Choose Greek I OR Hebrew I)',
+          summary: 'A foundational course in Koine Greek covering the alphabet, pronunciation, basic vocabulary, and essential grammar. Students will read and parse New Testament passages, developing the tools needed to engage the original Greek text in exegesis and personal study.'
+        },
+        {
+          courseNumber: 'HEBR 101', name: 'Biblical Hebrew I', credits: '3',
+          description: 'Introduction to Ancient Hebrew (Choose Greek I OR Hebrew I)',
+          summary: 'An introduction to Biblical Hebrew covering the aleph-bet, vowel pointing, basic morphology, and foundational vocabulary. Students will practice reading from the Hebrew Bible (Torah and Psalms) and gain the ability to trace word meanings to their roots.'
+        }
       ]
     },
     {
@@ -19,13 +30,41 @@ const AcademyAbout = ({ onBack }) => {
       icon: BookOpen,
       color: 'from-violet-600 to-fuchsia-600',
       courses: [
-        { courseNumber: 'GREK 102', name: 'Biblical Greek II', level: 'Elective', description: 'Advanced Greek studies (optional continuation)' },
-        { courseNumber: 'GREK 201', name: 'Biblical Greek III', level: 'Elective', description: 'Guided Reading & Exegesis' },
-        { courseNumber: 'HEBR 102', name: 'Biblical Hebrew II', level: 'Elective', description: 'Advanced Hebrew studies (optional continuation)' },
-        { courseNumber: 'HEBR 201', name: 'Biblical Hebrew III', level: 'Elective', description: 'Guided Reading & Syntax' },
-        { name: 'Paleo Hebrew', level: 'Elective', description: 'Study the ancient script form of Hebrew' },
-        { name: 'Aramaic', level: 'Elective', description: 'Explore the language Jesus spoke' },
-        { name: 'Amharic', level: 'Elective', description: 'Learn the modern Ethiopian language' }
+        {
+          courseNumber: 'GREK 102', name: 'Biblical Greek II', level: 'Elective',
+          description: 'Advanced Greek studies (optional continuation)',
+          summary: 'Builds on Greek I with advanced grammar: aorist systems, participles, infinitives, and subjunctive mood. Students will work through extended NT passages and develop the ability to produce basic grammatical analysis for sermon and teaching preparation.'
+        },
+        {
+          courseNumber: 'GREK 201', name: 'Biblical Greek III', level: 'Elective',
+          description: 'Guided Reading & Exegesis',
+          summary: 'Advanced guided reading in the Greek New Testament with focus on exegetical method. Students read selected epistles and Gospel texts, apply syntactical analysis, and produce a short exegetical paper integrating Greek grammar with theological interpretation.'
+        },
+        {
+          courseNumber: 'HEBR 102', name: 'Biblical Hebrew II', level: 'Elective',
+          description: 'Advanced Hebrew studies (optional continuation)',
+          summary: 'Advances into weak verbs, derived stems (niphal, piel, hiphil), and poetic texts. Students will work through Psalms and prophetic passages, learning to identify verb stems and trace their theological significance for interpretation.'
+        },
+        {
+          courseNumber: 'HEBR 201', name: 'Biblical Hebrew III', level: 'Elective',
+          description: 'Guided Reading & Syntax',
+          summary: 'Advanced Hebrew reading in prose and poetry with attention to Hebrew syntax, discourse analysis, and comparative Semitic linguistics. Students produce guided translation notes for an OT passage of their choosing with syntactical commentary.'
+        },
+        {
+          name: 'Paleo Hebrew', level: 'Elective',
+          description: 'Study the ancient script form of Hebrew',
+          summary: 'Explores the ancient Phoenician-derived script used in early Israelite inscriptions and found in some Dead Sea Scrolls. Students will read the Siloam Inscription, Gezer Calendar, and other ancient texts, placing them in their historical and archaeological context.'
+        },
+        {
+          name: 'Aramaic', level: 'Elective',
+          description: 'Explore the language Jesus spoke',
+          summary: 'An introduction to Biblical Aramaic, the language of portions of Daniel and Ezra and the everyday vernacular of 1st-century Judea. Students will read the Aramaic sections of Daniel, examine Targum traditions, and explore Aramaic loan-words in the Greek New Testament.'
+        },
+        {
+          name: 'Amharic', level: 'Elective',
+          description: 'Learn the modern Ethiopian language',
+          summary: 'An introduction to Amharic, the Semitic language of Ethiopia and liturgical language of the Ethiopian Orthodox Church. Students will learn the Ge\'ez script (fidel), basic vocabulary, and read portions of the Amharic New Testament, exploring the deep biblical heritage of Ethiopian Christianity.'
+        }
       ]
     },
     {
@@ -33,9 +72,21 @@ const AcademyAbout = ({ onBack }) => {
       icon: Scroll,
       color: 'from-purple-600 to-indigo-600',
       courses: [
-        { courseNumber: 'BIB 101', name: 'Biblical Hermeneutics', credits: '3', description: 'Principles of biblical interpretation' },
-        { courseNumber: 'BIB 102', name: 'Exegetical Methods', credits: '3', description: 'Methods of biblical exegesis' },
-        { courseNumber: 'BIB 299', name: 'Capstone Seminar', credits: '3', description: 'Integrative research paper & final project' }
+        {
+          courseNumber: 'BIB 101', name: 'Biblical Hermeneutics', credits: '3',
+          description: 'Principles of biblical interpretation',
+          summary: 'A rigorous study of the principles governing biblical interpretation, including grammatical-historical method, genre recognition, literary context, canonical reading, and application theory. Students will apply hermeneutical principles to Old and New Testament texts through structured exercises.'
+        },
+        {
+          courseNumber: 'BIB 102', name: 'Exegetical Methods', credits: '3',
+          description: 'Methods of biblical exegesis',
+          summary: 'Practical training in the exegetical process from original-language observation to theological synthesis. Topics include textual criticism basics, structural analysis, word studies, literary forms, and the production of a full exegetical outline for a selected biblical pericope.'
+        },
+        {
+          courseNumber: 'BIB 299', name: 'Capstone Seminar', credits: '3',
+          description: 'Integrative research paper & final project',
+          summary: 'The culminating academic experience of the Associate program. Students produce a 2,500-word integrative research paper on a biblical-theological topic of their choosing, synthesizing skills from across the curriculum: hermeneutics, exegesis, original languages, and theological application.'
+        }
       ]
     },
     {
@@ -43,8 +94,16 @@ const AcademyAbout = ({ onBack }) => {
       icon: BookOpen,
       color: 'from-blue-600 to-cyan-600',
       courses: [
-        { courseNumber: 'BIB 110', name: 'Old Testament Survey', credits: '3', description: 'Overview of OT books and themes' },
-        { courseNumber: 'BIB 120', name: 'New Testament Survey', credits: '3', description: 'Overview of NT books and themes' }
+        {
+          courseNumber: 'BIB 110', name: 'Old Testament Survey', credits: '3',
+          description: 'Overview of OT books and themes',
+          summary: 'A comprehensive survey of the Hebrew Bible from Genesis to Malachi. Students will trace major themes (covenant, creation, redemption, kingship, prophecy), understand the literary genres of the OT, and develop a canonical framework for interpreting Old Testament texts in light of the New.'
+        },
+        {
+          courseNumber: 'BIB 120', name: 'New Testament Survey', credits: '3',
+          description: 'Overview of NT books and themes',
+          summary: 'An overview of all 27 books of the New Testament with attention to authorship, historical background, theological themes, and canonical placement. Special emphasis on the Gospels\' portrait of Jesus, Paul\'s letter-writing theology, and the apocalyptic vision of Revelation.'
+        }
       ]
     },
     {
@@ -52,10 +111,26 @@ const AcademyAbout = ({ onBack }) => {
       icon: MapPin,
       color: 'from-amber-600 to-yellow-600',
       courses: [
-        { courseNumber: 'BIB 210', name: 'Second Temple Judaism', credits: '3', description: 'Judaism from Babylonian exile to AD 70' },
-        { courseNumber: 'BIB 220', name: 'Biblical Archaeology', credits: '3', description: 'Archaeological evidence and biblical history' },
-        { courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', credits: '3', description: 'Study of biblical manuscripts and transmission' },
-        { courseNumber: 'BIB 215', name: 'Biblical Feast Days', level: 'Elective', description: 'Sacred times and appointed feasts in Scripture' }
+        {
+          courseNumber: 'BIB 210', name: 'Second Temple Judaism', credits: '3',
+          description: 'Judaism from Babylonian exile to AD 70',
+          summary: 'Studies the Jewish world between the testaments and into the 1st century — the period that forms the immediate context of the New Testament. Topics include the Maccabean revolt, Pharisees and Sadducees, the Dead Sea Scrolls, Jewish apocalypticism, and the synagogue system Jesus and Paul inhabited.'
+        },
+        {
+          courseNumber: 'BIB 220', name: 'Biblical Archaeology', credits: '3',
+          description: 'Archaeological evidence and biblical history',
+          summary: 'Examines major archaeological discoveries that illuminate the biblical world: the Dead Sea Scrolls, Tel Dan Inscription, Hezekiah\'s Tunnel, Lachish Letters, and more. Students evaluate how archaeology confirms, clarifies, and occasionally challenges biblical texts, developing a nuanced approach to faith and evidence.'
+        },
+        {
+          courseNumber: 'BIB 230', name: 'Textual Transmission & Manuscripts', credits: '3',
+          description: 'Study of biblical manuscripts and transmission',
+          summary: 'Traces the journey of the biblical text from original autographs to modern translations: scribal practices, manuscript families, the Septuagint, Masoretic Text, Dead Sea Scrolls, Greek NT manuscript traditions, and the principles of textual criticism used to establish the biblical text.'
+        },
+        {
+          courseNumber: 'BIB 215', name: 'Biblical Feast Days', level: 'Elective',
+          description: 'Sacred times and appointed feasts in Scripture',
+          summary: 'A study of the seven appointed feasts of Leviticus 23 (Passover, Unleavened Bread, Firstfruits, Pentecost, Trumpets, Day of Atonement, Tabernacles) in their Old Testament context, their historical observance in Israel, and their typological fulfilment in Christ and the church.'
+        }
       ]
     },
     {
@@ -63,11 +138,46 @@ const AcademyAbout = ({ onBack }) => {
       icon: Scroll,
       color: 'from-red-600 to-orange-600',
       courses: [
-        { courseNumber: 'BIB 240', name: 'Mosaic Law', credits: '3', description: 'Torah: covenant, commandments, and theology' },
-        { courseNumber: 'BIB 250', name: 'Christology', credits: '3', description: 'Doctrine of Christ and His nature' },
-        { courseNumber: 'BIB 260', name: 'Pneumatology', credits: '3', description: 'Doctrine of the Holy Spirit' },
-        { courseNumber: 'BIB 270', name: 'Demonology', credits: '3', description: 'NT demonology with Greek analysis and exegesis' },
-        { courseNumber: 'BIB 280', name: 'Biblical Ethics', credits: '3', description: 'Moral principles and Christian living' }
+        {
+          courseNumber: 'BIB 240', name: 'Mosaic Law', credits: '3',
+          description: 'Torah: covenant, commandments, and theology',
+          summary: 'A theological and exegetical study of the Mosaic Law in its ancient Near Eastern context, covenant structure, and redemptive-historical function. Topics include the three categories of law (moral, civil, ceremonial), the Ten Commandments, the law\'s role in Israel\'s life, and its relationship to New Testament believers.'
+        },
+        {
+          courseNumber: 'BIB 250', name: 'Christology', credits: '3',
+          description: 'Doctrine of Christ and His nature',
+          summary: 'A comprehensive study of the person and work of Jesus Christ from Old Testament anticipation through New Testament fulfilment. Topics include the incarnation, divine and human natures (hypostatic union), titles of Christ, atonement theories, resurrection, and ascension — all grounded in biblical exegesis.'
+        },
+        {
+          courseNumber: 'BIB 260', name: 'Pneumatology', credits: '3',
+          description: 'Doctrine of the Holy Spirit',
+          summary: 'A biblical study of the Holy Spirit\'s person, attributes, and ministry. Students explore the Spirit\'s work in the Old Testament, the Pentecost event, spiritual gifts, the fruit of the Spirit, the Spirit\'s role in regeneration and sanctification, and key theological debates about continuationism and cessationism.'
+        },
+        {
+          courseNumber: 'BIB 270', name: 'Demonology', credits: '3',
+          description: 'NT demonology with Greek analysis and exegesis',
+          summary: 'A rigorous exegetical study of demonic activity in the New Testament with Greek textual analysis. Topics include the origin of evil, Satan\'s nature and strategies, the demonic, exorcism accounts in the Gospels and Acts, spiritual warfare theology (Ephesians 6), and the ultimate defeat of evil at the cross and consummation.'
+        },
+        {
+          courseNumber: 'BIB 280', name: 'Biblical Ethics', credits: '3',
+          description: 'Moral principles and Christian living',
+          summary: 'Explores the foundations of Christian moral reasoning grounded in Scripture, covenant, and the character of God. Topics include the relationship between law and gospel, virtue ethics in the NT, sexual ethics, social justice, bioethics, and the application of biblical principles to contemporary moral dilemmas.'
+        },
+        {
+          courseNumber: 'PHIL 290', name: 'Biblical Philosophy', credits: '3',
+          description: 'Faith, reason, metaphysics, and ethics',
+          summary: 'Examines fundamental philosophical questions through a biblical-theological lens: the existence of God, the nature of reality, epistemology (how we know what we know), human nature and free will, and the relationship between faith and reason. Students engage classical and contemporary philosophical arguments in dialogue with Scripture.'
+        },
+        {
+          courseNumber: 'PHIL 291', name: 'Christian Argumentation & Logic', credits: '3',
+          description: 'Logic, fallacies, and apologetics application',
+          summary: 'Trains students in the principles of valid reasoning: deductive and inductive logic, recognizing and responding to logical fallacies, the rhetorical forms used in Scripture, and the construction of well-formed arguments for Christian truth claims. Special focus on apologetics application: the cosmological, teleological, and moral arguments, and historical case for the resurrection.'
+        },
+        {
+          courseNumber: 'THEO 290', name: 'Biblical Eschatology', credits: '3',
+          description: 'Last things: kingdom, resurrection, and new creation',
+          summary: 'A comprehensive study of biblical teaching on last things: the kingdom of God (already/not yet), death and the intermediate state, the Second Coming of Christ, bodily resurrection, final judgment, the millennium (surveying premillennial, amillennial, and postmillennial views), and the eternal state of new heavens and new earth. Includes interpretation of Daniel and Revelation.'
+        }
       ]
     },
   ];
@@ -78,12 +188,36 @@ const AcademyAbout = ({ onBack }) => {
       icon: Scroll,
       color: 'from-amber-600 to-orange-600',
       courses: [
-        { name: 'Hermeneutics', level: 'Intermediate to Advanced', description: 'Master the principles of biblical interpretation' },
-        { name: 'Textual Criticism', level: 'Advanced', description: 'Study manuscript evidence and textual variants' },
-        { name: 'Biblical Canon', level: 'Intermediate', description: 'Understand how the Bible was formed and preserved' },
-        { name: 'Apologetics', level: 'Intermediate', description: 'Learn to defend the Christian faith' },
-        { name: 'Biblical Archaeology', level: 'Intermediate to Advanced', description: 'Explore archaeological evidence for biblical events and locations' },
-        { name: 'World Religions', level: 'Upper-Level', description: 'Origins, claims, and biblical evaluation of major religions' }
+        {
+          name: 'Hermeneutics', level: 'Intermediate to Advanced',
+          description: 'Master the principles of biblical interpretation',
+          summary: 'An advanced treatment of hermeneutical theory, moving beyond foundational principles into hermeneutical philosophy, reader-response theory, canonical approaches, and the relationship between exegesis and systematic theology. Students produce a full-length interpretive essay.'
+        },
+        {
+          name: 'Textual Criticism', level: 'Advanced',
+          description: 'Study manuscript evidence and textual variants',
+          summary: 'Advanced study of the textual tradition of the Old and New Testaments. Students evaluate major manuscript families, learn the principles of lower criticism, examine significant textual variants and their doctrinal implications, and engage primary manuscript evidence including Codex Sinaiticus and the Dead Sea Scrolls.'
+        },
+        {
+          name: 'Biblical Canon', level: 'Intermediate',
+          description: 'Understand how the Bible was formed and preserved',
+          summary: 'Examines the historical process by which the biblical canon was recognized — including criteria for inclusion, the role of the early church councils, the deuterocanonical/apocryphal books debate, and the canonical traditions of Protestant, Catholic, and Eastern Orthodox Christianity.'
+        },
+        {
+          name: 'Apologetics', level: 'Intermediate',
+          description: 'Learn to defend the Christian faith',
+          summary: 'A survey of classical, evidential, and presuppositional apologetics methodologies. Students engage the major objections to Christianity (problem of evil, religious pluralism, science vs. faith), study the historical case for the resurrection, and develop practical skills for gracious intellectual engagement with skeptics and seekers.'
+        },
+        {
+          name: 'Biblical Archaeology', level: 'Intermediate to Advanced',
+          description: 'Explore archaeological evidence for biblical events and locations',
+          summary: 'Advanced study of the archaeology of Israel and the ancient Near East at the diploma level, with focus on major excavations, the relationship between archaeology and biblical history, methodological debates, and the use of inscriptional evidence (Mesha Stele, Tel Dan, Lachish Letters, Siloam Inscription) for Old Testament historical reconstruction.'
+        },
+        {
+          name: 'World Religions', level: 'Upper-Level',
+          description: 'Origins, claims, and biblical evaluation of major religions',
+          summary: 'An upper-level comparative study of the world\'s major religions (Judaism, Islam, Hinduism, Buddhism, and new religious movements) examining their origins, sacred texts, core doctrines, and truth claims. Students develop a biblically grounded, respectful, and intellectually rigorous approach to interfaith dialogue and evangelism.'
+        }
       ]
     },
     {
@@ -91,8 +225,16 @@ const AcademyAbout = ({ onBack }) => {
       icon: Trophy,
       color: 'from-emerald-600 to-teal-600',
       courses: [
-        { name: 'Church History', level: 'Intermediate', description: 'Trace the development of Christianity through the ages' },
-        { name: 'Kings of Israel', level: 'Beginner to Intermediate', description: 'Study the monarchs of ancient Israel and Judah' }
+        {
+          name: 'Church History', level: 'Intermediate',
+          description: 'Trace the development of Christianity through the ages',
+          summary: 'A survey of Christian history from Pentecost to the present: the early church and persecution, the ecumenical councils, the medieval church, the Protestant Reformation (Luther, Calvin, Zwingli), the Great Awakenings, and the global expansion of Christianity. Students trace how historical forces have shaped doctrine and practice.'
+        },
+        {
+          name: 'Kings of Israel', level: 'Beginner to Intermediate',
+          description: 'Study the monarchs of ancient Israel and Judah',
+          summary: 'An exegetical and historical study of the monarchy period in Israel and Judah from Saul through the Exile. Students study key reigns (David, Solomon, Hezekiah, Josiah), the Deuteronomistic evaluation of kings, the role of prophets in confronting royal power, and the theological lessons of Israel\'s rise and fall.'
+        }
       ]
     }
   ];
@@ -139,6 +281,51 @@ const AcademyAbout = ({ onBack }) => {
 
   const crestLogo = `${process.env.PUBLIC_URL || ''}/imageedit_1_3946066529.png`;
 
+  // Reusable course card with click-to-expand summary
+  const CourseCard = ({ course, categoryIndex, courseIndex }) => {
+    const key = `${categoryIndex}-${courseIndex}`;
+    const isExpanded = expandedCourse === key;
+    return (
+      <div className="bg-slate-700/50 rounded-lg border border-slate-600 overflow-hidden">
+        <button
+          onClick={() => toggleCourse(key)}
+          className="w-full text-left p-4 hover:bg-slate-600/40 transition-all"
+        >
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex-1">
+              {course.courseNumber && (
+                <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
+              )}
+              <h4 className="font-bold text-slate-200">{course.name}</h4>
+              <p className="text-sm text-slate-400 mt-1">{course.description}</p>
+            </div>
+            <div className="flex flex-col items-end gap-1 shrink-0">
+              {course.credits && (
+                <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
+                  {course.credits} credits
+                </span>
+              )}
+              {course.level && !course.credits && (
+                <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
+                  {course.level}
+                </span>
+              )}
+              {isExpanded
+                ? <ChevronUp size={16} className="text-slate-400 mt-1" />
+                : <ChevronDown size={16} className="text-slate-400 mt-1" />
+              }
+            </div>
+          </div>
+        </button>
+        {isExpanded && course.summary && (
+          <div className="px-4 pb-4 border-t border-slate-600/50 pt-3">
+            <p className="text-sm text-slate-300 leading-relaxed">{course.summary}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // Show Associate Level Catalog
   if (catalogView === 'associate') {
     return (
@@ -167,6 +354,7 @@ const AcademyAbout = ({ onBack }) => {
                 Total: 45 Credits
               </span>
             </div>
+            <p className="text-center text-indigo-200 text-sm mt-3">Tap any course to read its full description</p>
           </div>
 
           {/* Course Categories */}
@@ -179,27 +367,7 @@ const AcademyAbout = ({ onBack }) => {
                 </div>
                 <div className="grid md:grid-cols-2 gap-4 mt-4">
                   {category.courses.map((course, courseIndex) => (
-                    <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex-1">
-                          {course.courseNumber && (
-                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
-                          )}
-                          <h4 className="font-bold text-slate-200">{course.name}</h4>
-                        </div>
-                        {course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
-                            {course.credits} credits
-                          </span>
-                        )}
-                        {course.level && !course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
-                            {course.level}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-slate-400">{course.description}</p>
-                    </div>
+                    <CourseCard key={courseIndex} course={course} categoryIndex={index} courseIndex={courseIndex} />
                   ))}
                 </div>
               </div>
@@ -254,6 +422,7 @@ const AcademyAbout = ({ onBack }) => {
                 Prerequisite: Complete Associate Level First
               </span>
             </div>
+            <p className="text-center text-amber-200 text-sm mt-3">Tap any course to read its full description</p>
           </div>
 
           {/* Course Categories */}
@@ -266,27 +435,12 @@ const AcademyAbout = ({ onBack }) => {
                 </div>
                 <div className="grid md:grid-cols-2 gap-4 mt-4">
                   {category.courses.map((course, courseIndex) => (
-                    <div key={courseIndex} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600">
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex-1">
-                          {course.courseNumber && (
-                            <div className="text-xs font-mono text-amber-400 mb-1">{course.courseNumber}</div>
-                          )}
-                          <h4 className="font-bold text-slate-200">{course.name}</h4>
-                        </div>
-                        {course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded whitespace-nowrap">
-                            {course.credits} credits
-                          </span>
-                        )}
-                        {course.level && !course.credits && (
-                          <span className="text-xs bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">
-                            {course.level}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-slate-400">{course.description}</p>
-                    </div>
+                    <CourseCard
+                      key={courseIndex}
+                      course={course}
+                      categoryIndex={index + 100}
+                      courseIndex={courseIndex}
+                    />
                   ))}
                 </div>
               </div>
