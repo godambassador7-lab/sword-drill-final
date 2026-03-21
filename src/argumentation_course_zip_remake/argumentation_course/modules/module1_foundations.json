@@ -1,0 +1,61 @@
+{
+  "module_id": "module1_foundations",
+  "title": "Foundations of Argumentation",
+  "lessons": [
+    {
+      "title": "What an Argument Is",
+      "objectives": [
+        "Define argument in formal and everyday settings",
+        "Distinguish argument from quarrel",
+        "Locate claims, premises, and conclusions"
+      ]
+    },
+    {
+      "title": "Truth, Persuasion, and Interpretation",
+      "objectives": [
+        "Differentiate truth from rhetorical success",
+        "Recognize emotionally persuasive but weak claims",
+        "Understand why context matters in biblical arguments"
+      ]
+    },
+    {
+      "title": "Types of Claims",
+      "objectives": [
+        "Identify factual, interpretive, moral, and theological claims",
+        "See how mixed claims create confusion in debate"
+      ]
+    }
+  ],
+  "key_terms": [
+    "claim",
+    "premise",
+    "conclusion",
+    "inference",
+    "burden of proof",
+    "rebuttal",
+    "counterexample"
+  ],
+  "activities": [
+    {
+      "type": "tap_sort",
+      "prompt": "Sort statements into claim, premise, or conclusion."
+    },
+    {
+      "type": "audio_identify",
+      "prompt": "Listen to a spoken argument and select the conclusion."
+    },
+    {
+      "type": "debate_tree",
+      "prompt": "Choose the strongest opening response to a weak argument."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "interactive",
+    "passing_score": 80,
+    "tasks": [
+      "reconstruct 5 arguments",
+      "identify 8/10 conclusions",
+      "spot hidden assumptions in 4 scenarios"
+    ]
+  }
+}

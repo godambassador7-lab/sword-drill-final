@@ -1,0 +1,56 @@
+{
+  "module_id": "module3_fallacies",
+  "title": "Logical Fallacies and Debate Distortions",
+  "lessons": [
+    {
+      "title": "Personal and Rhetorical Fallacies",
+      "objectives": [
+        "Recognize ad hominem, poisoning the well, ridicule, and tone policing"
+      ]
+    },
+    {
+      "title": "Structural Fallacies",
+      "objectives": [
+        "Recognize straw man, false dilemma, begging the question, circular reasoning, equivocation"
+      ]
+    },
+    {
+      "title": "Statistical and Emotional Fallacies",
+      "objectives": [
+        "Spot hasty generalization, anecdotal fallacy, appeal to fear, and appeal to popularity"
+      ]
+    }
+  ],
+  "key_terms": [
+    "straw man",
+    "steel man",
+    "ad hominem",
+    "false dichotomy",
+    "equivocation",
+    "begging the question",
+    "hasty generalization"
+  ],
+  "activities": [
+    {
+      "type": "rapid_fire",
+      "prompt": "Name the fallacy before the timer expires."
+    },
+    {
+      "type": "repair_mode",
+      "prompt": "Convert a straw man into a steel man."
+    },
+    {
+      "type": "dialogue_scan",
+      "prompt": "Tap the exact sentence where the fallacy occurs."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "fallacy_arena",
+    "passing_score": 85,
+    "tasks": [
+      "identify 20 fallacies",
+      "repair 5 arguments",
+      "explain why 5 non-fallacies are not fallacies"
+    ]
+  }
+}

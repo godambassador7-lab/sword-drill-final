@@ -1,0 +1,1631 @@
+{
+  "exam_title": "Final Exam: Argumentation & Critical Thinking for Biblical Studies",
+  "question_count": 125,
+  "questions": [
+    {
+      "id": "q_001",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_002",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_003",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_004",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_005",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_006",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_007",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_008",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_009",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_010",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_011",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_012",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_013",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_014",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_015",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_016",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_017",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_018",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_019",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_020",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_021",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_022",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_023",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_024",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_025",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_026",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_027",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_028",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_029",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_030",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_031",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_032",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_033",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_034",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_035",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_036",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_037",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_038",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_039",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_040",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_041",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_042",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_043",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_044",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_045",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_046",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_047",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_048",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_049",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_050",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_051",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_052",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_053",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_054",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_055",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_056",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_057",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_058",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_059",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_060",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_061",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_062",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_063",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_064",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_065",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_066",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_067",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_068",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_069",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_070",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_071",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_072",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_073",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_074",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_075",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_076",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_077",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_078",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_079",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_080",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_081",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_082",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_083",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_084",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_085",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_086",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_087",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_088",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_089",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_090",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_091",
+      "type": "multiple_choice",
+      "prompt": "Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_092",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_093",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_094",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_095",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_096",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_097",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_098",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_099",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_100",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_101",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_102",
+      "type": "multiple_choice",
+      "prompt": "A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_103",
+      "type": "multiple_choice",
+      "prompt": "Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_104",
+      "type": "multiple_choice",
+      "prompt": "What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_105",
+      "type": "multiple_choice",
+      "prompt": "Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_106",
+      "type": "multiple_choice",
+      "prompt": "A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_107",
+      "type": "multiple_choice",
+      "prompt": "Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_108",
+      "type": "multiple_choice",
+      "prompt": "What is equivocation?",
+      "choices": [
+        "Repeating a verse",
+        "Shifting the meaning of a key term mid-argument",
+        "Using a question",
+        "Stating a conclusion"
+      ],
+      "correct_answer": "Shifting the meaning of a key term mid-argument",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_109",
+      "type": "multiple_choice",
+      "prompt": "What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_110",
+      "type": "multiple_choice",
+      "prompt": "Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_111",
+      "type": "multiple_choice",
+      "prompt": "Scenario 1: Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_112",
+      "type": "multiple_choice",
+      "prompt": "Scenario 2: A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_113",
+      "type": "multiple_choice",
+      "prompt": "Scenario 3: Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_114",
+      "type": "multiple_choice",
+      "prompt": "Scenario 4: What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_115",
+      "type": "multiple_choice",
+      "prompt": "Scenario 5: Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_116",
+      "type": "multiple_choice",
+      "prompt": "Scenario 6: A sound argument is:",
+      "choices": [
+        "emotional and brief",
+        "valid with true premises",
+        "popular online",
+        "impossible in theology"
+      ],
+      "correct_answer": "valid with true premises",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_117",
+      "type": "multiple_choice",
+      "prompt": "Scenario 7: Which question best guards context?",
+      "choices": [
+        "How does this sound in English?",
+        "What is the author doing in the surrounding passage?",
+        "Did a teacher quote this once?",
+        "Can I use this quickly?"
+      ],
+      "correct_answer": "What is the author doing in the surrounding passage?",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_118",
+      "type": "scenario",
+      "prompt": "A speaker makes a confident doctrinal claim, gives one isolated verse, ignores context, and then says, 'Only rebels disagree.' What is the strongest diagnosis?",
+      "choices": [
+        "Valid deduction",
+        "Context-rich exegesis",
+        "Possible proof-texting plus ad hominem",
+        "Purely historical analysis"
+      ],
+      "correct_answer": "Possible proof-texting plus ad hominem",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_119",
+      "type": "multiple_choice",
+      "prompt": "Scenario 9: What should you attack first in rebuttal?",
+      "choices": [
+        "Their accent",
+        "A side issue",
+        "The weakest link that supports the opponent\u2019s conclusion",
+        "The oldest claim they made"
+      ],
+      "correct_answer": "The weakest link that supports the opponent\u2019s conclusion",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_120",
+      "type": "multiple_choice",
+      "prompt": "Scenario 10: Anecdotes are weakest when used as:",
+      "choices": [
+        "illustrations",
+        "personal examples",
+        "proof of a broad rule without adequate evidence",
+        "memory aids"
+      ],
+      "correct_answer": "proof of a broad rule without adequate evidence",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_121",
+      "type": "multiple_choice",
+      "prompt": "Scenario 11: Which option best identifies the conclusion of an argument?",
+      "choices": [
+        "The statement being supported",
+        "Any emotional sentence",
+        "The longest sentence",
+        "The first sentence"
+      ],
+      "correct_answer": "The statement being supported",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_122",
+      "type": "multiple_choice",
+      "prompt": "Scenario 12: A valid argument with a false premise is:",
+      "choices": [
+        "automatically sound",
+        "possibly unsound",
+        "not an argument",
+        "always persuasive"
+      ],
+      "correct_answer": "possibly unsound",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_123",
+      "type": "multiple_choice",
+      "prompt": "Scenario 13: Which is a straw man?",
+      "choices": [
+        "Giving the strongest version of a position",
+        "Misrepresenting a position to make it easier to attack",
+        "Asking for clarification",
+        "Using a counterexample"
+      ],
+      "correct_answer": "Misrepresenting a position to make it easier to attack",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_124",
+      "type": "multiple_choice",
+      "prompt": "Scenario 14: What does burden of proof refer to?",
+      "choices": [
+        "The loudest speaker wins",
+        "The responsibility to support a claim",
+        "Who quotes first",
+        "Who uses more verses"
+      ],
+      "correct_answer": "The responsibility to support a claim",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    },
+    {
+      "id": "q_125",
+      "type": "multiple_choice",
+      "prompt": "Scenario 15: Which is best for fair debate?",
+      "choices": [
+        "Interrupt often",
+        "Steel-man the opposing view before critiquing it",
+        "Assume motives",
+        "Use ridicule to expose weakness"
+      ],
+      "correct_answer": "Steel-man the opposing view before critiquing it",
+      "explanation": "This item tests core reasoning skill used in debate and biblical studies contexts."
+    }
+  ]
+}

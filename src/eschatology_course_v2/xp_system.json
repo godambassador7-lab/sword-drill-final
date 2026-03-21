@@ -1,0 +1,8 @@
+{
+  "levels": [
+    "Watchman",
+    "Interpreter",
+    "Architect"
+  ],
+  "points_per_module": 100
+}

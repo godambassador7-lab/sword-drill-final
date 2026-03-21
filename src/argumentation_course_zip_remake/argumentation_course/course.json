@@ -1,0 +1,59 @@
+{
+  "course_id": "sda_argumentation_critical_thinking_biblical_studies_v2",
+  "course_title": "Argumentation & Critical Thinking for Biblical Studies",
+  "subtitle": "An advanced debate, logic, and worldview course for Sword Drill Academy",
+  "track": "Apologetics / Debate",
+  "level": "Advanced",
+  "recommended_prerequisites": [
+    "Basic Hermeneutics",
+    "Intro to Biblical Theology",
+    "Foundations of Apologetics"
+  ],
+  "delivery_model": {
+    "primary": "Web app",
+    "optimized_for": "React/Vercel",
+    "supports_future_voice_mode": true
+  },
+  "competencies": [
+    "Recognize and reconstruct arguments",
+    "Distinguish validity, soundness, and persuasiveness",
+    "Identify and avoid major logical fallacies",
+    "Compare worldviews and presuppositions fairly",
+    "Use scripture responsibly in debate contexts",
+    "Cross-examine opposing claims with clarity and charity",
+    "Engage hot-button biblical topics without collapsing into rhetoric"
+  ],
+  "non_writing_demonstrations": [
+    "tap-to-identify claim, premise, and conclusion",
+    "oral response mode",
+    "timed fallacy recognition",
+    "branching debate simulations",
+    "audio listening drills",
+    "cross-examination choice trees"
+  ],
+  "module_order": [
+    "module1_foundations",
+    "module2_logic",
+    "module3_fallacies",
+    "module4_worldviews",
+    "module5_biblical_debate",
+    "module6_hot_topics",
+    "module7_live_simulation",
+    "module8_capstone"
+  ],
+  "grading": {
+    "competency_checkpoints_percent": 35,
+    "scenario_performance_percent": 25,
+    "capstone_percent": 15,
+    "final_exam_percent": 25
+  },
+  "completion_reward": {
+    "title": "Sword Drill Logician",
+    "badge_id": "logic_master_badge",
+    "unlocks": [
+      "Cross-Examiner title",
+      "Advanced Debate Arena",
+      "Logic Master frame"
+    ]
+  }
+}

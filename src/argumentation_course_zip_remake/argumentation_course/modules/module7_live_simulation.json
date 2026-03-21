@@ -1,0 +1,62 @@
+{
+  "module_id": "module7_live_simulation",
+  "title": "Live Simulation Arena",
+  "lessons": [
+    {
+      "title": "Opening Statements",
+      "objectives": [
+        "Build concise openings",
+        "State thesis clearly",
+        "Avoid overclaiming"
+      ]
+    },
+    {
+      "title": "Real-Time Rebuttal",
+      "objectives": [
+        "Respond under pressure",
+        "Prioritize the weakest link in the opponent’s argument",
+        "Avoid chasing side issues"
+      ]
+    },
+    {
+      "title": "Closing Arguments",
+      "objectives": [
+        "Summarize clearly",
+        "Recenter the burden of proof",
+        "Finish with clarity rather than volume"
+      ]
+    }
+  ],
+  "key_terms": [
+    "opening",
+    "rebuttal",
+    "cross-exam",
+    "closing",
+    "thesis discipline",
+    "time control"
+  ],
+  "activities": [
+    {
+      "type": "timer_duel",
+      "prompt": "Choose the best rebuttal in 10 seconds or less."
+    },
+    {
+      "type": "branching_debate",
+      "prompt": "Follow the opponent’s argument path and counter the central premise."
+    },
+    {
+      "type": "closing_builder",
+      "prompt": "Assemble a strong closing from mixed statements."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "simulation_score",
+    "passing_score": 80,
+    "tasks": [
+      "opening round",
+      "rebuttal round",
+      "closing round",
+      "cross-exam survival"
+    ]
+  }
+}

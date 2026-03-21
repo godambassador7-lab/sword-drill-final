@@ -1,0 +1,62 @@
+{
+  "module_id": "module2_logic",
+  "title": "Logic: Validity, Soundness, and Reasoning Types",
+  "lessons": [
+    {
+      "title": "Deductive Reasoning",
+      "objectives": [
+        "Define deductive form",
+        "Test for validity",
+        "Spot invalid jumps in argument form"
+      ]
+    },
+    {
+      "title": "Inductive and Abductive Reasoning",
+      "objectives": [
+        "Compare probable reasoning with necessary inference",
+        "Use best-explanation reasoning carefully in theology and history"
+      ]
+    },
+    {
+      "title": "Syllogisms and Structure",
+      "objectives": [
+        "Read categorical syllogisms",
+        "Recognize valid and invalid forms",
+        "Convert ordinary arguments into structure"
+      ]
+    }
+  ],
+  "key_terms": [
+    "valid",
+    "invalid",
+    "sound",
+    "unsound",
+    "deductive",
+    "inductive",
+    "abductive",
+    "syllogism"
+  ],
+  "activities": [
+    {
+      "type": "validity_check",
+      "prompt": "Mark each argument as valid or invalid."
+    },
+    {
+      "type": "soundness_check",
+      "prompt": "Determine whether a valid argument is also sound."
+    },
+    {
+      "type": "form_builder",
+      "prompt": "Rebuild a broken syllogism by placing each line correctly."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "timed_logic_round",
+    "passing_score": 75,
+    "tasks": [
+      "12 validity questions",
+      "8 soundness questions",
+      "3 syllogism reconstructions"
+    ]
+  }
+}

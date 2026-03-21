@@ -1,0 +1,58 @@
+{
+  "module_id": "module6_hot_topics",
+  "title": "Hot Topic Debate Labs",
+  "lessons": [
+    {
+      "title": "Law and Grace",
+      "objectives": [
+        "Clarify categories",
+        "Avoid false dilemmas",
+        "Differentiate covenant, command, and application arguments"
+      ]
+    },
+    {
+      "title": "Sabbath, Calendar, and Holy Days",
+      "objectives": [
+        "Map claim types",
+        "Separate historical from theological claims",
+        "Challenge loaded premises"
+      ]
+    },
+    {
+      "title": "Identity, Ecclesiology, and Doctrine",
+      "objectives": [
+        "Engage emotionally charged claims without losing analytical discipline"
+      ]
+    }
+  ],
+  "key_terms": [
+    "category error",
+    "theological claim",
+    "historical claim",
+    "burden of proof",
+    "loaded language"
+  ],
+  "activities": [
+    {
+      "type": "claim_map",
+      "prompt": "Classify each statement as exegetical, historical, doctrinal, or rhetorical."
+    },
+    {
+      "type": "burden_shift_alarm",
+      "prompt": "Identify when a speaker improperly shifts the burden of proof."
+    },
+    {
+      "type": "heated_dialogue_mode",
+      "prompt": "Choose the most disciplined response in a tense exchange."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "topic_lab",
+    "passing_score": 78,
+    "tasks": [
+      "topic claim mapping",
+      "burden-shift detection",
+      "tone-stable rebuttal"
+    ]
+  }
+}

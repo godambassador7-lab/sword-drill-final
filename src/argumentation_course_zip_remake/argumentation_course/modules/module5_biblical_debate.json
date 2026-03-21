@@ -1,0 +1,60 @@
+{
+  "module_id": "module5_biblical_debate",
+  "title": "Biblical Debate Methods",
+  "lessons": [
+    {
+      "title": "Reasoning in Scripture",
+      "objectives": [
+        "Observe questions, analogies, reductio moves, and appeals to precedent in scripture"
+      ]
+    },
+    {
+      "title": "Context, Genre, and Responsible Citation",
+      "objectives": [
+        "Avoid proof-text abuse",
+        "Use immediate and canonical context",
+        "Recognize when texts are descriptive rather than prescriptive"
+      ]
+    },
+    {
+      "title": "Cross-Examination with Scripture",
+      "objectives": [
+        "Ask focused questions",
+        "Test definitions",
+        "Expose category confusion"
+      ]
+    }
+  ],
+  "key_terms": [
+    "proof-texting",
+    "context",
+    "genre",
+    "analogy",
+    "reductio",
+    "cross-examination",
+    "parallel passage"
+  ],
+  "activities": [
+    {
+      "type": "context_guard",
+      "prompt": "Choose the best use of a verse in context."
+    },
+    {
+      "type": "cross_exam_tree",
+      "prompt": "Select the next best question to expose a weak premise."
+    },
+    {
+      "type": "parallel_match",
+      "prompt": "Pair arguments with the most relevant supporting passages."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "scripture_reasoning_drill",
+    "passing_score": 80,
+    "tasks": [
+      "context guard drill",
+      "cross-exam chain",
+      "parallel passage alignment"
+    ]
+  }
+}

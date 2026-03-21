@@ -1,0 +1,56 @@
+{
+  "module_id": "module8_capstone",
+  "title": "Capstone and Final Integration",
+  "lessons": [
+    {
+      "title": "Integrated Debate Analysis",
+      "objectives": [
+        "Combine logic, fallacy detection, worldview analysis, and scripture handling"
+      ]
+    },
+    {
+      "title": "Capstone Simulation",
+      "objectives": [
+        "Perform in a full debate tree",
+        "Maintain fairness and rigor across multiple rounds"
+      ]
+    },
+    {
+      "title": "Exam Preparation",
+      "objectives": [
+        "Review patterns of bad reasoning",
+        "Sharpen definitions",
+        "Prepare for the 125-question final"
+      ]
+    }
+  ],
+  "key_terms": [
+    "integration",
+    "capstone",
+    "multi-round reasoning",
+    "debate scorecard"
+  ],
+  "activities": [
+    {
+      "type": "full_simulation",
+      "prompt": "Complete a multi-round simulated debate and score at least proficient."
+    },
+    {
+      "type": "weakest_link",
+      "prompt": "Identify the single point that collapses an opponent’s case."
+    },
+    {
+      "type": "final_prep",
+      "prompt": "Beat the timer across mixed-format review rounds."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "capstone_exam_gate",
+    "passing_score": 80,
+    "tasks": [
+      "full integrated simulation",
+      "weakest-link analysis",
+      "mixed review gauntlet"
+    ]
+  }
+}

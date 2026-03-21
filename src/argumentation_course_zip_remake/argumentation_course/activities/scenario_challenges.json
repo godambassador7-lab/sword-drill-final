@@ -1,0 +1,34 @@
+[
+  {
+    "id": "scenario_001",
+    "topic": "problem_of_evil",
+    "prompt": "A speaker says, 'If God were good, evil would not exist. Evil exists. Therefore God is not good.'",
+    "best_first_move": "Clarify whether the argument assumes that a good God would eliminate all evil immediately and universally.",
+    "skills": [
+      "hidden assumption",
+      "premise testing",
+      "cross-exam"
+    ]
+  },
+  {
+    "id": "scenario_002",
+    "topic": "proof_texting",
+    "prompt": "A debate opponent quotes one isolated verse as decisive but ignores its surrounding argument.",
+    "best_first_move": "Ask for the immediate context and whether the verse is descriptive, prescriptive, or polemical.",
+    "skills": [
+      "context",
+      "genre",
+      "responsible citation"
+    ]
+  },
+  {
+    "id": "scenario_003",
+    "topic": "burden_shift",
+    "prompt": "A speaker makes a sweeping doctrinal claim and then says, 'Prove me wrong.'",
+    "best_first_move": "State that the claimant carries the initial burden to support the claim before demanding refutation.",
+    "skills": [
+      "burden of proof",
+      "debate discipline"
+    ]
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "checkpoint_design_notes": {
+    "purpose": "Gate learners into the final exam only after they demonstrate active reasoning skill.",
+    "non_writing_priority": true,
+    "delivery_examples": [
+      "tap-based categorization",
+      "drag-and-drop argument reconstruction",
+      "timed multiple choice",
+      "audio recognition",
+      "oral prompt recording",
+      "branching scenario navigation"
+    ]
+  },
+  "checkpoints": [
+    {
+      "module": "module1_foundations",
+      "required_score": 80,
+      "unlock": "module2_logic"
+    },
+    {
+      "module": "module2_logic",
+      "required_score": 75,
+      "unlock": "module3_fallacies"
+    },
+    {
+      "module": "module3_fallacies",
+      "required_score": 85,
+      "unlock": "module4_worldviews"
+    },
+    {
+      "module": "module4_worldviews",
+      "required_score": 80,
+      "unlock": "module5_biblical_debate"
+    },
+    {
+      "module": "module5_biblical_debate",
+      "required_score": 80,
+      "unlock": "module6_hot_topics"
+    },
+    {
+      "module": "module6_hot_topics",
+      "required_score": 78,
+      "unlock": "module7_live_simulation"
+    },
+    {
+      "module": "module7_live_simulation",
+      "required_score": 80,
+      "unlock": "module8_capstone"
+    },
+    {
+      "module": "module8_capstone",
+      "required_score": 80,
+      "unlock": "final_exam_125"
+    }
+  ]
+}

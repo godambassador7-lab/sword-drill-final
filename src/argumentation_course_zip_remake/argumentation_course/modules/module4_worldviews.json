@@ -1,0 +1,60 @@
+{
+  "module_id": "module4_worldviews",
+  "title": "Worldviews, Presuppositions, and Intellectual Fairness",
+  "lessons": [
+    {
+      "title": "What Is a Worldview?",
+      "objectives": [
+        "Define worldview",
+        "Identify first principles",
+        "Explain how worldview affects evidence assessment"
+      ]
+    },
+    {
+      "title": "Comparing Major Frameworks",
+      "objectives": [
+        "Compare Christian theism, naturalism, deism, pantheism, and sectarian readings of scripture"
+      ]
+    },
+    {
+      "title": "Fair Representation",
+      "objectives": [
+        "Learn steel-manning",
+        "Avoid caricature",
+        "Ask clarifying questions before critique"
+      ]
+    }
+  ],
+  "key_terms": [
+    "worldview",
+    "presupposition",
+    "naturalism",
+    "theism",
+    "deism",
+    "pantheism",
+    "charity principle"
+  ],
+  "activities": [
+    {
+      "type": "match_worldview",
+      "prompt": "Match the claim to the worldview most likely to produce it."
+    },
+    {
+      "type": "steelman_builder",
+      "prompt": "Choose the fairest summary of an opposing position."
+    },
+    {
+      "type": "presupposition_probe",
+      "prompt": "Identify the hidden assumption beneath a claim."
+    }
+  ],
+  "competency_checkpoint": {
+    "type": "scenario_matrix",
+    "passing_score": 80,
+    "tasks": [
+      "worldview matching",
+      "presupposition detection",
+      "fair-summary selection"
+    ]
+  }
+}

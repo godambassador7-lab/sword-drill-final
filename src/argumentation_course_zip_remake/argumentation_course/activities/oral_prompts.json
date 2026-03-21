@@ -1,0 +1,27 @@
+[
+  {
+    "id": "oral_001",
+    "prompt": "In 30 seconds, explain the difference between a claim and a premise.",
+    "skill": "foundations"
+  },
+  {
+    "id": "oral_002",
+    "prompt": "State why a valid argument can still be unsound.",
+    "skill": "logic"
+  },
+  {
+    "id": "oral_003",
+    "prompt": "Give a fair steel-man of a position you disagree with before critiquing it.",
+    "skill": "charity"
+  },
+  {
+    "id": "oral_004",
+    "prompt": "Respond to: 'That verse settles it' by asking two context questions first.",
+    "skill": "biblical_debate"
+  },
+  {
+    "id": "oral_005",
+    "prompt": "Identify the single weakest premise in the statement and explain why it matters.",
+    "skill": "cross-exam"
+  }
+]

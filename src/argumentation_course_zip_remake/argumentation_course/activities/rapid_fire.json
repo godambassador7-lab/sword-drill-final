@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rf_001",
+    "statement": "You only have two choices: agree with my doctrine or reject scripture.",
+    "answer": "false dichotomy"
+  },
+  {
+    "id": "rf_002",
+    "statement": "You disagree because you are proud and rebellious.",
+    "answer": "ad hominem"
+  },
+  {
+    "id": "rf_003",
+    "statement": "Everyone online says this teaching is true, so it must be.",
+    "answer": "appeal to popularity"
+  },
+  {
+    "id": "rf_004",
+    "statement": "The view is wrong because it sounds emotional.",
+    "answer": "tone policing"
+  },
+  {
+    "id": "rf_005",
+    "statement": "The conclusion is true because the conclusion says so.",
+    "answer": "begging the question"
+  }
+]
