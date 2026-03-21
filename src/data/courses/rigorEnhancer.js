@@ -196,6 +196,62 @@ const buildSectionQuestions = (unit = {}) => {
   );
 };
 
+const COVERAGE_STOPWORDS = new Set([
+  'this', 'that', 'with', 'from', 'into', 'your', 'their', 'about', 'which', 'where',
+  'when', 'what', 'why', 'how', 'does', 'used', 'only', 'unit', 'course', 'section',
+  'these', 'those', 'such', 'have', 'has', 'been', 'were', 'the', 'and', 'for', 'are',
+  'you', 'its', 'them', 'they', 'then', 'than', 'more', 'most', 'best', 'main'
+]);
+
+const coverageTokens = (value = '') => String(value || '')
+  .toLowerCase()
+  .replace(/[^a-z0-9\s]/g, ' ')
+  .split(/\s+/)
+  .map((token) => token.trim())
+  .filter((token) => token.length >= 4 && !COVERAGE_STOPWORDS.has(token));
+
+const isQuestionGroundedInUnit = (question = {}, unitCorpus = new Set()) => {
+  const answerIndex = Number(question?.correct);
+  const options = Array.isArray(question?.options) ? question.options : [];
+  const answerText = Number.isInteger(answerIndex) && answerIndex >= 0 && answerIndex < options.length
+    ? String(options[answerIndex] || '')
+    : '';
+  const tokenSource = `${question?.question || ''} ${answerText} ${question?.explanation || ''}`;
+  const tokens = coverageTokens(tokenSource);
+  if (tokens.length === 0) return true;
+
+  const overlap = tokens.filter((token) => unitCorpus.has(token)).length;
+  return overlap >= Math.max(2, Math.ceil(tokens.length * 0.18));
+};
+
+const ensureQuizCoverageSection = (unit = {}, quiz = []) => {
+  const existingContent = Array.isArray(unit.content) ? unit.content : [];
+  const hasAlignmentSection = existingContent.some((section) => String(section?.heading || '').toLowerCase() === 'quiz alignment notes');
+  if (hasAlignmentSection || !Array.isArray(quiz) || quiz.length === 0) return existingContent;
+
+  const corpusText = [
+    unit.title,
+    ...existingContent.map((section) => `${section?.heading || ''} ${section?.text || ''}`),
+    ...(unit.keyTerms || []).map((term) => `${term?.term || ''} ${term?.definition || ''}`)
+  ].join(' ');
+  const unitCorpus = new Set(coverageTokens(corpusText));
+  const uncovered = quiz.filter((question) => !isQuestionGroundedInUnit(question, unitCorpus));
+  if (uncovered.length === 0) return existingContent;
+
+  const coverageLines = uncovered.slice(0, 6).map((question, idx) => {
+    const fallback = 'Review the relevant heading, key terms, and cited passages before attempting this prompt.';
+    return `${idx + 1}. ${toSentence(question?.question || 'Review this unit prompt')} ${firstSentence(question?.explanation || fallback)}`;
+  });
+
+  return [
+    ...existingContent,
+    {
+      heading: 'Quiz Alignment Notes',
+      text: `The following prompts are explicitly in scope for this unit quiz:\n${coverageLines.join('\n')}`
+    }
+  ];
+};
+
 const buildRigorQuiz = (unit = {}) => {
   const existingQuiz = Array.isArray(unit.quiz) ? unit.quiz : [];
   const generated = [...buildTermQuestions(unit), ...buildSectionQuestions(unit)];
@@ -260,6 +316,13 @@ export const applyAssociateProgramRigor = (courseData = {}) => {
       ...unit,
       content: ensureLessonSections(unit)
     };
+    const associateSections = ensureAssociateLevelSections(normalizedUnit);
+    const unitForQuiz = {
+      ...normalizedUnit,
+      content: associateSections
+    };
+    const quiz = buildRigorQuiz(unitForQuiz);
+    const alignedContent = ensureQuizCoverageSection(unitForQuiz, quiz);
 
     const learningObjectives = Array.isArray(unit.learningObjectives) && unit.learningObjectives.length >= 3
       ? unit.learningObjectives
@@ -271,8 +334,8 @@ export const applyAssociateProgramRigor = (courseData = {}) => {
 
     return {
       ...normalizedUnit,
-      content: ensureAssociateLevelSections(normalizedUnit),
-      quiz: buildRigorQuiz(normalizedUnit),
+      content: alignedContent,
+      quiz,
       learningObjectives,
       requiredWork
     };

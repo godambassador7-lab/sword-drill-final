@@ -12,12 +12,16 @@ const demonologyCourse = {
       "duration": "25 min",
       "content": [
         {
-          "heading": "Key Terms",
-          "text": "New Testament texts use terms such as “daimōnion” (demon) and “pneuma akatharton” (unclean spirit). These terms appear across the Gospels and Acts.\n\nAssociate-level depth: separate explicit textual claims from speculation, and defend interpretive conclusions with context-aware exegesis."
+          "heading": "Greek Terminology Map",
+          "text": "Unit 1 establishes core vocabulary used in New Testament demonology passages. Key terms include daimonion (demon), pneuma akatharton (unclean spirit), ekballo (to cast out), and epitimao (to rebuke with authority).\n\nAssociate-level depth: define terms precisely, track where each term appears in context, and avoid importing meanings that the passage itself does not support."
         },
         {
-          "heading": "Categories in the Text",
-          "text": "The New Testament distinguishes between physical illness and demonic possession in some narratives, while in others the relationship is debated by interpreters. The focus here is on explicit textual claims.\n\nAssociate-level depth: separate explicit textual claims from speculation, and defend interpretive conclusions with context-aware exegesis."
+          "heading": "Biblical Categories in the Text",
+          "text": "This unit distinguishes four categories that appear in NT discussion: demonization, oppression/affliction, deception/false teaching, and temptation/testing. The categories should be treated as textual observations, not assumptions.\n\nAssociate-level depth: separate explicit textual claims from speculation and defend each category assignment with immediate literary context."
+        },
+        {
+          "heading": "Distinguishing Illness and Demonization",
+          "text": "The NT sometimes distinguishes sickness and demonic activity as separate categories, while certain passages remain debated among interpreters. This unit trains careful distinction by observing the narrator's wording, speaker intent, and outcome markers in each scene.\n\nAssociate-level depth: trace textual signals before drawing theological conclusions, and document where distinctions are explicit, implied, or uncertain."
         },
         {
           "heading": "Exegetical Controls for Deliverance Texts",
@@ -26,12 +30,20 @@ const demonologyCourse = {
       ],
       "keyTerms": [
         {
-          "term": "Daimōnion",
-          "definition": "Greek term commonly translated “demon”"
+          "term": "Daimonion",
+          "definition": "Greek term commonly translated 'demon'"
         },
         {
-          "term": "Unclean Spirit",
-          "definition": "Phrase used in the Gospels for demonic beings"
+          "term": "Pneuma Akatharton",
+          "definition": "Greek phrase for 'unclean spirit,' frequently used in Gospel narratives"
+        },
+        {
+          "term": "Ekballo",
+          "definition": "Greek verb meaning 'to cast out' or 'to drive out'"
+        },
+        {
+          "term": "Epitimao",
+          "definition": "Greek verb meaning 'to rebuke' with authority"
         },
         {
           "term": "Exorcism",
@@ -40,7 +52,7 @@ const demonologyCourse = {
       ],
       "quiz": [
         {
-          "question": "The Greek term “daimōnion” means:",
+          "question": "The Greek term 'daimonion' means:",
           "options": [
             "Angel",
             "Demon",
@@ -48,13 +60,13 @@ const demonologyCourse = {
             "Prophet"
           ],
           "correct": 1,
-          "explanation": "Daimōnion is commonly translated “demon.”"
+          "explanation": "Daimonion is commonly translated 'demon.'"
         },
         {
-          "question": "“Unclean spirit” is a phrase used in:",
+          "question": "'Unclean spirit' is a phrase used in:",
           "options": [
             "The Gospels",
-            "Only Paul’s letters",
+            "Only Paul's letters",
             "Only Revelation",
             "Only Hebrews"
           ],

@@ -226,6 +226,22 @@ const collectUnitReferences = (unit = {}) => {
   return Array.from(refs);
 };
 
+const buildFallbackLessonSections = (unit = {}) => {
+  const keyTermText = Array.isArray(unit?.keyTerms) && unit.keyTerms.length > 0
+    ? unit.keyTerms.slice(0, 6).map((term) => `${term?.term || 'Term'}: ${term?.definition || 'definition unavailable'}`).join('\n')
+    : 'No key terms are currently attached to this unit.';
+  const quizFocusText = Array.isArray(unit?.quiz) && unit.quiz.length > 0
+    ? unit.quiz.slice(0, 4).map((item, idx) => `${idx + 1}. ${item?.question || 'Review the unit focus question.'}`).join('\n')
+    : 'No quiz prompts are currently attached to this unit.';
+
+  return [
+    {
+      heading: 'Unit Lesson Material',
+      text: `Primary lesson sections were not available for this unit view. Use the key terms and quiz focus below to study the expected material.\n\nKey Terms:\n${keyTermText}\n\nQuiz Focus:\n${quizFocusText}`
+    }
+  ];
+};
+
 const buildActionAssessmentTasks = (unit = {}, courseSourceRefs = [], variantSeed = 'default') => {
   const rand = createSeededRandom(hashString(`${variantSeed}:${unit?.id || unit?.title || 'unit'}`));
   const keyTerms = (unit.keyTerms || []).map((item) => String(item?.term || '').trim()).filter(Boolean);
@@ -1290,6 +1306,9 @@ const ComprehensiveCourse = ({
   if (currentView === 'lesson' && selectedUnit !== null) {
     const unit = courseData.units[selectedUnit];
     const unitId = normalizeUnitId(unit.id);
+    const lessonSections = Array.isArray(unit?.content) && unit.content.length > 0
+      ? unit.content
+      : buildFallbackLessonSections(unit);
     const lessonDone = completedLessons.includes(unitId);
     const quizDone = completedQuizzes.includes(unitId);
     const workDone = isUnitRequiredWorkComplete(unit);
@@ -1392,10 +1411,10 @@ const ComprehensiveCourse = ({
             </div>
           )}
           <div className="space-y-6">
-            {unit.content.map((section, si) => (
+            {lessonSections.map((section, si) => (
               <div key={si} className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
                 <h2 className={`text-xl font-bold ${theme.examText} mb-3`}>{section.heading}</h2>
-                {section.text.split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
+                {String(section.text || '').split('\n\n').map((para, pi) => <p key={pi} className="text-slate-300 leading-relaxed mb-3">{para}</p>)}
                 {sectionScriptures[si]?.loading && (
                   <div className="mt-4 bg-slate-900/50 rounded-lg p-4 border border-slate-600">
                     <p className="text-slate-400 text-sm">Loading scripture passage...</p>
