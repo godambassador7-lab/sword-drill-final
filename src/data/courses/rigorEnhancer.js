@@ -215,10 +215,10 @@ const buildRigorQuiz = (unit = {}) => {
       explanation: 'The quiz should test direct lesson content from this unit.'
     },
     {
-      question: `What should come first before attempting written assessment tasks?`,
+      question: `What should come first before attempting unit action assessment tasks?`,
       options: ['Review lesson material and pass the quiz', 'Skip directly to final exam', 'Ignore unit objectives', 'Use only memory without text'],
       correct: 0,
-      explanation: 'Unit flow requires lesson engagement and quiz performance before written assessment.'
+      explanation: 'Unit flow requires lesson engagement and quiz performance before action assessment.'
     },
     {
       question: `In this unit, which term should be defined with precision?`,

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Award,
   Book,
@@ -137,6 +137,7 @@ const normalizeRequiredWorkRecords = (input) => {
       normalizedTaskMap[numericTask] = {
         submissionText: text,
         submittedAt: value?.submittedAt || null,
+        meta: value?.meta && typeof value.meta === 'object' ? value.meta : null,
         rubric: rubric
           ? {
               textualEvidence: Number(rubric.textualEvidence || 0),
@@ -175,56 +176,276 @@ const normalizeRequiredWorkRecords = (input) => {
   return normalized;
 };
 
-const scoreRequiredWorkSubmission = (unit = {}, submissionText = '') => {
-  const text = String(submissionText || '').trim();
-  const words = text.split(/\s+/).filter(Boolean);
-  const wordCount = words.length;
-  const sentenceCount = text.split(/[.!?]+/).map((s) => s.trim()).filter(Boolean).length || 1;
-  const references = extractScriptureReferences(text);
-  const keyTerms = (unit.keyTerms || []).map((item) => String(item?.term || '').toLowerCase()).filter(Boolean);
+const clampScore = (value, min = 0, max = 100) => Math.max(min, Math.min(max, value));
 
-  const lower = text.toLowerCase();
-  const matchedTerms = keyTerms.filter((term) => lower.includes(term));
-  const uniqueTermCount = Array.from(new Set(matchedTerms)).length;
-  const avgSentenceLength = wordCount / sentenceCount;
-  const connectorHits = (lower.match(/\btherefore\b|\bbecause\b|\bhowever\b|\bthus\b|\bso that\b|\balthough\b|\bwhile\b/g) || []).length;
+const hashString = (input = '') => {
+  let hash = 2166136261;
+  const text = String(input);
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= text.charCodeAt(i);
+    hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
+  }
+  return Math.abs(hash >>> 0);
+};
 
-  const textualEvidence = references.length >= 3 ? 25 : references.length === 2 ? 20 : references.length === 1 ? 14 : 6;
-  const keyTermIntegration = uniqueTermCount >= 4 ? 25 : uniqueTermCount === 3 ? 21 : uniqueTermCount === 2 ? 16 : uniqueTermCount === 1 ? 10 : 4;
-  const argumentation = (avgSentenceLength >= 10 && avgSentenceLength <= 32 && connectorHits >= 2)
-    ? 25
-    : (avgSentenceLength >= 8 && avgSentenceLength <= 36 && connectorHits >= 1)
-      ? 20
-      : (avgSentenceLength >= 7 ? 15 : 8);
-  const depthAndCompleteness = wordCount >= 300 ? 25 : wordCount >= 220 ? 20 : wordCount >= 150 ? 16 : wordCount >= 100 ? 12 : 6;
-
-  const total = textualEvidence + keyTermIntegration + argumentation + depthAndCompleteness;
-  const passed = total >= 70;
-
-  const feedback = [];
-  if (references.length < 2) feedback.push('Add direct Scripture evidence with at least two explicit references.');
-  if (uniqueTermCount < 2) feedback.push('Integrate more unit key terms and define them in your argument.');
-  if (wordCount < 150) feedback.push('Expand depth: target at least 150 words with clearer analytical development.');
-  if (connectorHits < 1) feedback.push('Strengthen argument flow using reasoning connectors (for example: because, therefore, however).');
-  if (feedback.length === 0) feedback.push('Strong submission: textual evidence, terminology, and argument flow meet rubric expectations.');
-
-  return {
-    rubric: {
-      textualEvidence,
-      keyTermIntegration,
-      argumentation,
-      depthAndCompleteness,
-      total,
-      passed
-    },
-    meta: {
-      wordCount,
-      sentenceCount,
-      referenceCount: references.length,
-      keyTermMatches: uniqueTermCount
-    },
-    feedback
+const createSeededRandom = (seedInt = 1) => {
+  let state = seedInt >>> 0;
+  return () => {
+    state += 0x6D2B79F5;
+    let t = state;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
+};
+
+const seededShuffle = (items = [], randomFn = Math.random) => {
+  const clone = [...items];
+  for (let i = clone.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(randomFn() * (i + 1));
+    [clone[i], clone[j]] = [clone[j], clone[i]];
+  }
+  return clone;
+};
+
+const seededSample = (items = [], count = 1, randomFn = Math.random) => {
+  return seededShuffle(items, randomFn).slice(0, Math.max(0, count));
+};
+
+const collectUnitReferences = (unit = {}) => {
+  const refs = new Set();
+  (unit.content || []).forEach((section) => {
+    extractScriptureReferences(section?.text || '').forEach((ref) => refs.add(ref));
+  });
+  (unit.quiz || []).forEach((question) => {
+    extractScriptureReferences(`${question?.question || ''} ${question?.explanation || ''}`).forEach((ref) => refs.add(ref));
+  });
+  (unit.keyTerms || []).forEach((term) => {
+    extractScriptureReferences(`${term?.term || ''} ${term?.definition || ''}`).forEach((ref) => refs.add(ref));
+  });
+  return Array.from(refs);
+};
+
+const buildActionAssessmentTasks = (unit = {}, courseSourceRefs = [], variantSeed = 'default') => {
+  const rand = createSeededRandom(hashString(`${variantSeed}:${unit?.id || unit?.title || 'unit'}`));
+  const keyTerms = (unit.keyTerms || []).map((item) => String(item?.term || '').trim()).filter(Boolean);
+  const headings = (unit.content || []).map((item) => String(item?.heading || '').trim()).filter(Boolean);
+  const unitRefs = collectUnitReferences(unit);
+  const primaryRefs = seededSample(unitRefs, Math.min(3, unitRefs.length), rand);
+  const distractorRefs = seededSample(courseSourceRefs.filter((ref) => !unitRefs.includes(ref)), 3, rand);
+  const scriptureOptions = seededShuffle(Array.from(new Set([...primaryRefs, ...distractorRefs])).slice(0, 6), rand);
+  const doctrinePairs = seededSample(unit.keyTerms || [], 5, rand).map((item) => ({
+    term: String(item?.term || '').trim(),
+    definition: String(item?.definition || '').trim()
+  })).filter((item) => item.term && item.definition);
+
+  const headingPool = headings.length > 0 ? headings : [unit.title || 'this unit'];
+  const firstHeading = headingPool[Math.floor(rand() * headingPool.length)] || unit.title || 'this unit';
+  const secondHeading = headingPool[Math.floor(rand() * headingPool.length)] || firstHeading;
+  const firstTerm = keyTerms[Math.floor(rand() * Math.max(keyTerms.length, 1))] || 'the core doctrine';
+  const secondTerm = keyTerms[Math.floor(rand() * Math.max(keyTerms.length, 1))] || 'the supporting evidence';
+
+  const voiceTemplates = [
+    `Teach "${firstHeading}" in 60 seconds and include ${firstTerm}${primaryRefs[0] ? ` with at least one reference such as ${primaryRefs[0]}` : ''}.`,
+    `Give a concise spoken defense of "${firstHeading}" in 60 seconds. Use ${firstTerm}${primaryRefs[0] ? ` and cite ${primaryRefs[0]} or another unit verse` : ''}.`,
+    `Explain "${firstHeading}" as if mentoring a new learner. Speak for ~60 seconds and ground your claim in ${firstTerm}${primaryRefs[0] ? ` plus Scripture (for example ${primaryRefs[0]})` : ''}.`
+  ];
+
+  const debateClaims = [
+    `${unit.title || 'This topic'} is mostly symbolic and does not require textual grounding.`,
+    `Key terms in ${unit.title || 'this unit'} are optional because doctrine can stand without definitions.`,
+    `Context is secondary for ${unit.title || 'this unit'}; isolated proof-texts are enough.`
+  ];
+
+  const debateOptionPool = [
+    {
+      text: `Ground interpretation in ${secondHeading} and explicit textual evidence; symbolism must still follow context.`,
+      correct: true
+    },
+    { text: 'Treat all viewpoints as equal and avoid evaluating evidence.', correct: false },
+    { text: 'Skip Scripture references and rely only on tradition.', correct: false },
+    { text: `Ignore ${secondTerm} because definitions are not necessary.`, correct: false }
+  ];
+  const shuffledDebateOptions = seededShuffle(debateOptionPool, rand);
+  const correctDebateIndex = shuffledDebateOptions.findIndex((item) => item.correct);
+
+  return [
+    {
+      type: 'voice',
+      title: 'Voice-Only Response',
+      prompt: voiceTemplates[Math.floor(rand() * voiceTemplates.length)],
+      expectedTerms: keyTerms.slice(0, 4),
+      expectedReferences: primaryRefs,
+      minWords: 30
+    },
+    {
+      type: 'scriptureTap',
+      title: 'Tap Scripture Selection (Timed)',
+      prompt: `Which references best support ${unit.title || 'this unit'}? Select all that apply.`,
+      options: scriptureOptions,
+      correctOptions: primaryRefs,
+      targetMs: 30000
+    },
+    {
+      type: 'debateTap',
+      title: 'Real-Time Debate Counter',
+      prompt: `Claim: "${debateClaims[Math.floor(rand() * debateClaims.length)]}" Pick the strongest counter-response.`,
+      options: shuffledDebateOptions.map((item) => item.text),
+      correctIndex: correctDebateIndex,
+      targetMs: 20000
+    },
+    {
+      type: 'doctrineBuilder',
+      title: 'Doctrine Builder',
+      prompt: 'Match each key term with its correct definition.',
+      pairs: doctrinePairs
+    }
+  ];
+};
+
+const scoreActionTask = ({ task, response, elapsedMs }) => {
+  if (!task || !task.type) return null;
+
+  if (task.type === 'voice') {
+    const transcript = String(response?.transcript || '').trim();
+    const words = transcript.split(/\s+/).filter(Boolean);
+    const lower = transcript.toLowerCase();
+    const references = extractScriptureReferences(transcript);
+    const expectedTerms = (task.expectedTerms || []).map((item) => String(item || '').toLowerCase()).filter(Boolean);
+    const matchedTerms = expectedTerms.filter((term) => lower.includes(term));
+    const sentenceCount = transcript.split(/[.!?]+/).map((s) => s.trim()).filter(Boolean).length || 1;
+    const connectors = (lower.match(/\btherefore\b|\bbecause\b|\bhowever\b|\bthus\b|\bso\b|\bfor\b/g) || []).length;
+    const structureScore = words.length >= task.minWords ? 20 : words.length >= Math.floor((task.minWords || 30) * 0.7) ? 14 : 8;
+    const keyTermScore = clampScore(Math.round((matchedTerms.length / Math.max(expectedTerms.length, 1)) * 35), 8, 35);
+    const referenceScore = references.length >= 2 ? 25 : references.length === 1 ? 17 : 8;
+    const clarityScore = (sentenceCount >= 3 && connectors >= 1) ? 20 : sentenceCount >= 2 ? 14 : 8;
+    const total = clampScore(structureScore + keyTermScore + referenceScore + clarityScore);
+    const confidence = clampScore(Math.round((clarityScore * 0.45) + (structureScore * 0.35) + (keyTermScore * 0.2)));
+    const passed = total >= 70;
+    const feedback = [];
+    if (matchedTerms.length < Math.max(1, Math.min(2, expectedTerms.length))) feedback.push('Use more key terms from this unit in your verbal explanation.');
+    if (references.length < 1) feedback.push('Cite at least one explicit Scripture reference while speaking.');
+    if (words.length < task.minWords) feedback.push(`Expand your explanation to roughly ${task.minWords}+ words for full depth.`);
+    if (feedback.length === 0) feedback.push('Strong spoken explanation with unit terminology and textual grounding.');
+
+    return {
+      rubric: {
+        textualEvidence: referenceScore,
+        keyTermIntegration: keyTermScore,
+        argumentation: clarityScore,
+        depthAndCompleteness: structureScore,
+        total,
+        passed
+      },
+      feedback,
+      meta: {
+        mode: 'voice',
+        confidence,
+        referenceCount: references.length,
+        matchedTerms: matchedTerms.length,
+        elapsedMs: elapsedMs || null,
+        transcript
+      }
+    };
+  }
+
+  if (task.type === 'scriptureTap') {
+    const selected = Array.isArray(response?.selected) ? response.selected : [];
+    const correctSet = new Set(task.correctOptions || []);
+    const selectedSet = new Set(selected);
+    const correctHits = Array.from(selectedSet).filter((item) => correctSet.has(item)).length;
+    const misses = Array.from(correctSet).filter((item) => !selectedSet.has(item)).length;
+    const wrongHits = Array.from(selectedSet).filter((item) => !correctSet.has(item)).length;
+    const precision = correctHits / Math.max(selectedSet.size, 1);
+    const recall = correctHits / Math.max(correctSet.size, 1);
+    const accuracyScore = clampScore(Math.round(((precision + recall) / 2) * 60));
+    const speedScore = clampScore(Math.round(((task.targetMs || 30000) / Math.max(elapsedMs || task.targetMs || 30000, 1)) * 20), 4, 20);
+    const selectionDiscipline = wrongHits === 0 ? 20 : wrongHits === 1 ? 12 : 6;
+    const total = clampScore(accuracyScore + speedScore + selectionDiscipline);
+    const passed = total >= 70;
+    const feedback = [];
+    if (misses > 0) feedback.push(`You missed ${misses} supporting reference${misses === 1 ? '' : 's'}.`);
+    if (wrongHits > 0) feedback.push(`You selected ${wrongHits} distractor reference${wrongHits === 1 ? '' : 's'}.`);
+    if ((elapsedMs || 0) > (task.targetMs || 30000)) feedback.push('Work on faster recognition under the time target.');
+    if (feedback.length === 0) feedback.push('Excellent Scripture recognition with strong speed and precision.');
+
+    return {
+      rubric: {
+        textualEvidence: accuracyScore,
+        keyTermIntegration: selectionDiscipline,
+        argumentation: speedScore,
+        depthAndCompleteness: 20,
+        total,
+        passed
+      },
+      feedback,
+      meta: {
+        mode: 'tap',
+        correctHits,
+        misses,
+        wrongHits,
+        elapsedMs: elapsedMs || null
+      }
+    };
+  }
+
+  if (task.type === 'debateTap') {
+    const selectedIndex = Number(response?.selectedIndex);
+    const correct = selectedIndex === Number(task.correctIndex);
+    const speedScore = clampScore(Math.round(((task.targetMs || 20000) / Math.max(elapsedMs || task.targetMs || 20000, 1)) * 25), 6, 25);
+    const doctrinalScore = correct ? 55 : 22;
+    const total = clampScore(doctrinalScore + speedScore + (correct ? 20 : 8));
+    const passed = total >= 70;
+    return {
+      rubric: {
+        textualEvidence: correct ? 22 : 10,
+        keyTermIntegration: correct ? 18 : 8,
+        argumentation: correct ? 35 : 14,
+        depthAndCompleteness: speedScore,
+        total,
+        passed
+      },
+      feedback: correct
+        ? ['Strong counter-response: your choice aligns with context-first reasoning.']
+        : ['Choose the response that anchors the argument in context and textual evidence.'],
+      meta: {
+        mode: 'tap',
+        selectedIndex,
+        correctIndex: task.correctIndex,
+        elapsedMs: elapsedMs || null
+      }
+    };
+  }
+
+  if (task.type === 'doctrineBuilder') {
+    const pairs = Array.isArray(task.pairs) ? task.pairs : [];
+    const mapping = response?.mapping && typeof response.mapping === 'object' ? response.mapping : {};
+    const correctCount = pairs.filter((_, termIdx) => Number(mapping[termIdx]) === termIdx).length;
+    const accuracy = correctCount / Math.max(pairs.length, 1);
+    const total = clampScore(Math.round(accuracy * 100));
+    const passed = total >= 70;
+    return {
+      rubric: {
+        textualEvidence: clampScore(Math.round(accuracy * 25)),
+        keyTermIntegration: clampScore(Math.round(accuracy * 35)),
+        argumentation: clampScore(Math.round(accuracy * 20)),
+        depthAndCompleteness: clampScore(Math.round(accuracy * 20)),
+        total,
+        passed
+      },
+      feedback: passed
+        ? ['Doctrine mapping is accurate and shows term-definition fluency.']
+        : ['Rebuild the mappings until each term is paired with its exact unit definition.'],
+      meta: {
+        mode: 'tap',
+        correctCount,
+        totalPairs: pairs.length,
+        elapsedMs: elapsedMs || null
+      }
+    };
+  }
+
+  return null;
 };
 
 const normalizeProgressPayload = (payload = {}) => {
@@ -235,12 +456,22 @@ const normalizeProgressPayload = (payload = {}) => {
     ? Array.from(new Set(payload.completedQuizzes.map(normalizeUnitId).filter(Boolean)))
     : [];
   const requiredWorkRecords = normalizeRequiredWorkRecords(payload.requiredWorkRecords);
+  const actionVariantAttempts = payload?.actionVariantAttempts && typeof payload.actionVariantAttempts === 'object'
+    ? Object.entries(payload.actionVariantAttempts).reduce((acc, [unitId, attempt]) => {
+        const safeUnitId = normalizeUnitId(unitId);
+        if (!safeUnitId) return acc;
+        const parsed = Number(attempt);
+        acc[safeUnitId] = Number.isFinite(parsed) && parsed >= 0 ? Math.floor(parsed) : 0;
+        return acc;
+      }, {})
+    : {};
 
   return {
     completedLessons,
     completedQuizzes,
     examCompleted: Boolean(payload.examCompleted),
-    requiredWorkRecords
+    requiredWorkRecords,
+    actionVariantAttempts
   };
 };
 
@@ -280,8 +511,36 @@ const ComprehensiveCourse = ({
   const [matchingPairs, setMatchingPairs] = useState({});
   const [matchingSubmitted, setMatchingSubmitted] = useState(false);
   const [sectionScriptures, setSectionScriptures] = useState({});
-  const [requiredWorkDrafts, setRequiredWorkDrafts] = useState({});
+  const [actionInteractions, setActionInteractions] = useState({});
+  const [voiceCaptureState, setVoiceCaptureState] = useState({ activeTaskIndex: null, listening: false, error: '' });
   const scriptureCacheRef = useRef(new Map());
+  const recognitionRef = useRef(null);
+  const assessmentProfileId = useMemo(() => {
+    if (userId) return `uid:${userId}`;
+    if (typeof window === 'undefined') return 'anon';
+    const storageKey = 'actionAssessmentProfileId';
+    try {
+      const existing = localStorage.getItem(storageKey);
+      if (existing) return existing;
+      const generated = `anon-${Math.random().toString(36).slice(2, 10)}`;
+      localStorage.setItem(storageKey, generated);
+      return generated;
+    } catch (err) {
+      return 'anon';
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    return () => {
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.stop();
+        } catch (err) {
+          // no-op
+        }
+      }
+    };
+  }, []);
 
   // Load progress from userData first, then fallback to individual localStorage entry
   const loadSavedProgress = () => {
@@ -308,6 +567,9 @@ const ComprehensiveCourse = ({
   const [requiredWorkRecords, setRequiredWorkRecords] = useState(() => {
     return savedProgress.requiredWorkRecords || {};
   });
+  const [actionVariantAttempts, setActionVariantAttempts] = useState(() => {
+    return savedProgress.actionVariantAttempts || {};
+  });
   const isInitialMount = useRef(true);
 
   useEffect(() => {
@@ -319,8 +581,11 @@ const ComprehensiveCourse = ({
       const nextSerialized = JSON.stringify(p.requiredWorkRecords || {});
       const prevSerialized = JSON.stringify(requiredWorkRecords || {});
       if (nextSerialized !== prevSerialized) setRequiredWorkRecords(p.requiredWorkRecords || {});
+      const nextAttemptSerialized = JSON.stringify(p.actionVariantAttempts || {});
+      const prevAttemptSerialized = JSON.stringify(actionVariantAttempts || {});
+      if (nextAttemptSerialized !== prevAttemptSerialized) setActionVariantAttempts(p.actionVariantAttempts || {});
     }
-  }, [userData, progressKey, requiredWorkRecords]);
+  }, [userData, progressKey, requiredWorkRecords, actionVariantAttempts]);
 
   useEffect(() => {
     setExamQuestions(buildFinalExamFromCourse(courseData));
@@ -332,25 +597,31 @@ const ComprehensiveCourse = ({
       return;
     }
 
-    const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted, requiredWorkRecords });
+    const progressPayload = normalizeProgressPayload({ completedLessons, completedQuizzes, examCompleted, requiredWorkRecords, actionVariantAttempts });
     localStorage.setItem(progressKey, JSON.stringify(progressPayload));
     if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
     if (userId) updateUserProgress(userId, { [progressKey]: progressPayload }).catch(err =>
       console.error(`Error saving ${progressKey}:`, err)
     );
-  }, [completedLessons, completedQuizzes, examCompleted, requiredWorkRecords, userId, setUserData, progressKey]);
+  }, [completedLessons, completedQuizzes, examCompleted, requiredWorkRecords, actionVariantAttempts, userId, setUserData, progressKey]);
 
   const requiredWorkUnitCount = useMemo(() => {
     return (courseData.units || []).filter((unit) => Array.isArray(unit?.requiredWork) && unit.requiredWork.length > 0).length;
   }, [courseData.units]);
+  const getUnitActionVariantSeed = useCallback((unit) => {
+    const unitId = normalizeUnitId(unit?.id);
+    const attemptIndex = Number(actionVariantAttempts?.[unitId] || 0);
+    return `${assessmentProfileId}:${courseData.id || 'course'}:${unitId}:${unit?.title || 'unit'}:attempt-${attemptIndex}`;
+  }, [assessmentProfileId, courseData.id, actionVariantAttempts]);
   const completedRequiredWorkCount = useMemo(() => {
     return (courseData.units || []).filter((unit) => {
       if (!Array.isArray(unit?.requiredWork) || unit.requiredWork.length === 0) return false;
       const unitId = normalizeUnitId(unit.id);
       const unitRecords = requiredWorkRecords[unitId] || {};
-      return unit.requiredWork.every((_, taskIndex) => Boolean(unitRecords?.[taskIndex]?.rubric?.passed));
+      const unitActionTasks = buildActionAssessmentTasks(unit, courseSourceIndex, getUnitActionVariantSeed(unit));
+      return unitActionTasks.every((_, taskIndex) => Boolean(unitRecords?.[taskIndex]?.rubric?.passed));
     }).length;
-  }, [courseData.units, requiredWorkRecords]);
+  }, [courseData.units, requiredWorkRecords, courseSourceIndex, getUnitActionVariantSeed]);
 
   const totalSteps = courseData.units.length * 2 + requiredWorkUnitCount + 1;
   const completedSteps = completedLessons.length + completedQuizzes.length + completedRequiredWorkCount + (examCompleted ? 1 : 0);
@@ -394,6 +665,13 @@ const ComprehensiveCourse = ({
     });
     return Array.from(refs);
   }, [selectedUnit, courseData]);
+
+  const actionTasks = useMemo(() => {
+    if (selectedUnit === null) return [];
+    const unit = courseData.units?.[selectedUnit];
+    if (!unit || !Array.isArray(unit.requiredWork) || unit.requiredWork.length === 0) return [];
+    return buildActionAssessmentTasks(unit, courseSourceIndex, getUnitActionVariantSeed(unit));
+  }, [selectedUnit, courseData, courseSourceIndex, getUnitActionVariantSeed]);
 
   // Generate stable (per-unit-visit) randomised practice questions from keyTerms
   const practiceQuestions = useMemo(() => {
@@ -545,7 +823,8 @@ const ComprehensiveCourse = ({
   const isUnitRequiredWorkComplete = (unit) => {
     const tasks = Array.isArray(unit?.requiredWork) ? unit.requiredWork : [];
     if (tasks.length === 0) return true;
-    return tasks.every((_, taskIndex) => {
+    const unitActionTasks = buildActionAssessmentTasks(unit, courseSourceIndex, getUnitActionVariantSeed(unit));
+    return unitActionTasks.every((_, taskIndex) => {
       const record = getTaskRecord(unit.id, taskIndex);
       const rubric = getEffectiveRubric(record, unit.id, taskIndex);
       return Boolean(rubric?.passed);
@@ -553,39 +832,120 @@ const ComprehensiveCourse = ({
   };
 
   useEffect(() => {
-    if (selectedUnit === null) {
-      setRequiredWorkDrafts({});
-      return;
+    setActionInteractions({});
+    setVoiceCaptureState({ activeTaskIndex: null, listening: false, error: '' });
+    if (recognitionRef.current) {
+      try {
+        recognitionRef.current.stop();
+      } catch (err) {
+        // no-op
+      }
+      recognitionRef.current = null;
     }
-    const unit = courseData.units[selectedUnit];
-    if (!unit || !Array.isArray(unit.requiredWork) || unit.requiredWork.length === 0) {
-      setRequiredWorkDrafts({});
-      return;
-    }
-    const unitId = normalizeUnitId(unit.id);
-    const unitRecords = getUnitRecordMap(unitId);
-    const nextDrafts = {};
-    unit.requiredWork.forEach((_, taskIndex) => {
-      nextDrafts[taskIndex] = String(unitRecords?.[taskIndex]?.submissionText || '');
-    });
-    setRequiredWorkDrafts(nextDrafts);
-  }, [selectedUnit, courseData.units, requiredWorkRecords]);
+  }, [selectedUnit]);
 
-  const evaluateRequiredWorkTask = (unit, taskIndex) => {
-    const unitId = normalizeUnitId(unit.id);
-    const submissionText = String(requiredWorkDrafts?.[taskIndex] || '').trim();
-    if (submissionText.length < 60) {
-      alert('Please provide a fuller submission before rubric evaluation (at least ~60 characters).');
+  const stopVoiceCapture = () => {
+    if (recognitionRef.current) {
+      try {
+        recognitionRef.current.stop();
+      } catch (err) {
+        // no-op
+      }
+      recognitionRef.current = null;
+    }
+    setVoiceCaptureState((prev) => ({ ...prev, listening: false, activeTaskIndex: null }));
+  };
+
+  const startVoiceCapture = (taskIndex) => {
+    const Recognition = typeof window !== 'undefined'
+      ? (window.SpeechRecognition || window.webkitSpeechRecognition)
+      : null;
+    if (!Recognition) {
+      setVoiceCaptureState({ activeTaskIndex: null, listening: false, error: 'Voice capture is not supported in this browser. Use a Chromium-based browser on HTTPS.' });
       return;
     }
-    const evaluation = scoreRequiredWorkSubmission(unit, submissionText);
+
+    stopVoiceCapture();
+    setVoiceCaptureState({ activeTaskIndex: taskIndex, listening: true, error: '' });
+
+    const recognition = new Recognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.onresult = (event) => {
+      let transcript = '';
+      for (let i = 0; i < event.results.length; i += 1) {
+        transcript += `${event.results[i][0].transcript} `;
+      }
+      setActionInteractions((prev) => {
+        const current = prev[taskIndex] || {};
+        return {
+          ...prev,
+          [taskIndex]: {
+            ...current,
+            startedAt: current.startedAt || Date.now(),
+            transcript: transcript.trim()
+          }
+        };
+      });
+    };
+    recognition.onerror = (event) => {
+      setVoiceCaptureState({ activeTaskIndex: null, listening: false, error: event?.error || 'Voice capture failed.' });
+    };
+    recognition.onend = () => {
+      setVoiceCaptureState((prev) => ({ ...prev, listening: false, activeTaskIndex: null }));
+      recognitionRef.current = null;
+    };
+    recognition.start();
+    recognitionRef.current = recognition;
+  };
+
+  const rotateActionVariant = (unit) => {
+    const unitId = normalizeUnitId(unit?.id);
+    if (!unitId) return;
+    stopVoiceCapture();
+    setActionInteractions({});
+    setRequiredWorkRecords((prev) => {
+      const next = { ...prev };
+      delete next[unitId];
+      return next;
+    });
+    setActionVariantAttempts((prev) => ({
+      ...prev,
+      [unitId]: Number(prev?.[unitId] || 0) + 1
+    }));
+  };
+
+  const evaluateActionTask = (unit, task, taskIndex) => {
+    const unitId = normalizeUnitId(unit.id);
+    const variantAttempt = Number(actionVariantAttempts?.[unitId] || 0);
+    const taskState = actionInteractions?.[taskIndex] || {};
+    const startedAt = Number(taskState.startedAt || Date.now());
+    const elapsedMs = Math.max(0, Date.now() - startedAt);
+    const response = {
+      transcript: taskState.transcript || '',
+      selected: taskState.selected || [],
+      selectedIndex: taskState.selectedIndex,
+      mapping: taskState.mapping || {}
+    };
+    const evaluation = scoreActionTask({ task, response, elapsedMs });
+    if (!evaluation) return;
     const evaluatedAt = new Date().toISOString();
+    const summary = JSON.stringify({
+      taskType: task.type,
+      taskTitle: task.title,
+      response,
+      elapsedMs,
+      meta: { ...(evaluation.meta || {}), variantAttempt }
+    });
+
     setRequiredWorkRecords((prev) => {
       const next = { ...prev };
       const currentUnit = { ...(next[unitId] || {}) };
       currentUnit[taskIndex] = {
-        submissionText,
+        submissionText: summary,
         submittedAt: evaluatedAt,
+        meta: { ...(evaluation.meta || {}), variantAttempt },
         rubric: evaluation.rubric,
         feedback: evaluation.feedback,
         evaluatedAt,
@@ -594,6 +954,7 @@ const ComprehensiveCourse = ({
       next[unitId] = currentUnit;
       return next;
     });
+
     enqueueRequiredWorkSubmission({
       userId,
       progressKey,
@@ -602,8 +963,8 @@ const ComprehensiveCourse = ({
       unitId,
       unitTitle: unit.title,
       taskIndex,
-      taskTitle: unit.requiredWork?.[taskIndex] || `Task ${taskIndex + 1}`,
-      submissionText,
+      taskTitle: task.title || `Task ${taskIndex + 1}`,
+      submissionText: summary,
       autoRubric: evaluation.rubric,
       autoFeedback: evaluation.feedback,
       submittedAt: evaluatedAt,
@@ -640,7 +1001,8 @@ const ComprehensiveCourse = ({
         completedLessons: nextLessons,
         completedQuizzes: nextQuizzes,
         examCompleted,
-        requiredWorkRecords
+        requiredWorkRecords,
+        actionVariantAttempts
       });
       localStorage.setItem(progressKey, JSON.stringify(progressPayload));
       if (setUserData) setUserData(prev => ({ ...prev, [progressKey]: progressPayload }));
@@ -993,14 +1355,14 @@ const ComprehensiveCourse = ({
             {Array.isArray(unit.requiredWork) && unit.requiredWork.length > 0 && (
               <div>
                 <p className="text-xs uppercase tracking-wide text-amber-400 mb-2">Unit Flow</p>
-                <p className="text-sm text-slate-300 mb-2">1) Lesson material  2) Unit quiz  3) Written assessment</p>
-                <p className="text-xs uppercase tracking-wide text-amber-400 mb-2 mt-3">Written Assessment Prompts</p>
+                <p className="text-sm text-slate-300 mb-2">1) Lesson material  2) Unit quiz  3) Action assessment</p>
+                <p className="text-xs uppercase tracking-wide text-amber-400 mb-2 mt-3">Action Tasks (No Typing)</p>
                 <ul className="space-y-2">
-                  {unit.requiredWork.map((task, ti) => (
-                    <li key={`work-${ti}`} className="text-sm text-slate-200">- {task}</li>
+                  {actionTasks.map((task, ti) => (
+                    <li key={`action-${ti}`} className="text-sm text-slate-200">- {task.title}: {task.prompt}</li>
                   ))}
                 </ul>
-                <p className="text-xs text-slate-400 mt-3">Written assessment unlocks after quiz pass and appears at the end of this unit page.</p>
+                <p className="text-xs text-slate-400 mt-3">Action assessment unlocks after quiz pass and appears at the end of this unit page.</p>
               </div>
             )}
           </div>
@@ -1306,44 +1668,200 @@ const ComprehensiveCourse = ({
               <div className="bg-slate-800/60 rounded-xl p-5 border border-violet-500/30">
                 <h3 className="text-sm font-bold text-violet-300 mb-3 flex items-center gap-2">
                   <Book size={16} />
-                  Written Assessment (Final Step Of Unit)
+                  Action Assessment (Final Step Of Unit)
                 </h3>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs text-slate-400">
+                    Variant Set: {Number(actionVariantAttempts?.[unitId] || 0) + 1}
+                  </p>
+                  {quizDone && !workDone && (
+                    <button
+                      onClick={() => rotateActionVariant(unit)}
+                      className="px-3 py-1.5 text-xs font-semibold rounded bg-slate-700 hover:bg-slate-600 text-white transition-colors"
+                    >
+                      Load New Variant
+                    </button>
+                  )}
+                </div>
                 {!quizDone ? (
                   <div className="rounded border border-amber-500/40 bg-amber-900/20 p-3 text-sm text-amber-200">
-                    Complete and pass the unit quiz first. Written assessment unlocks after quiz pass.
+                    Complete and pass the unit quiz first. Action assessment unlocks after quiz pass.
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {unit.requiredWork.map((task, taskIndex) => {
+                    {actionTasks.map((task, taskIndex) => {
                       const record = getEffectiveTaskRecord(unitId, taskIndex);
                       const rubric = record?.rubric || null;
                       const hasPass = Boolean(rubric?.passed);
-                      const draftValue = String(requiredWorkDrafts?.[taskIndex] || '');
                       const instructorReview = record?.instructorReview || null;
+                      const interaction = actionInteractions?.[taskIndex] || {};
+                      const selectedScriptures = Array.isArray(interaction.selected) ? interaction.selected : [];
+                      const selectedDebateIndex = Number.isInteger(interaction.selectedIndex) ? interaction.selectedIndex : null;
+                      const doctrinePairs = Array.isArray(task.pairs) ? task.pairs : [];
+                      const doctrineMapping = interaction.mapping && typeof interaction.mapping === 'object' ? interaction.mapping : {};
+                      const voiceTranscript = String(interaction.transcript || '');
+
                       return (
                         <div key={`submission-${taskIndex}`} className={`rounded-lg border p-4 ${hasPass ? 'border-emerald-500/40 bg-emerald-900/10' : 'border-slate-600 bg-slate-900/40'}`}>
                           <div className="flex items-center justify-between mb-2">
-                            <p className="text-sm font-semibold text-slate-100">Task {taskIndex + 1}</p>
+                            <p className="text-sm font-semibold text-slate-100">Task {taskIndex + 1}: {task.title}</p>
                             {rubric && (
                               <span className={`text-xs font-semibold px-2 py-1 rounded ${hasPass ? 'bg-emerald-900/40 text-emerald-300' : 'bg-red-900/40 text-red-300'}`}>
                                 {rubric.total}% {hasPass ? 'Passed' : 'Needs Revision'}{instructorReview ? ' (Instructor)' : ' (Auto)'}
                               </span>
                             )}
                           </div>
-                          <p className="text-xs text-slate-400 mb-2">{task}</p>
-                          <textarea
-                            value={draftValue}
-                            onChange={(e) => setRequiredWorkDrafts((prev) => ({ ...prev, [taskIndex]: e.target.value }))}
-                            placeholder="Submit your analytical response here (include Scripture references and key terms)."
-                            rows={6}
-                            className="w-full px-3 py-2 bg-slate-900 border border-slate-600 rounded text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-violet-400"
-                          />
+                          <p className="text-xs text-slate-400 mb-3">{task.prompt}</p>
+
+                          {task.type === 'voice' && (
+                            <div className="space-y-3">
+                              <div className="flex flex-wrap gap-2">
+                                <button
+                                  onClick={() => startVoiceCapture(taskIndex)}
+                                  className="px-3 py-1.5 text-xs font-semibold rounded bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
+                                >
+                                  Start Mic
+                                </button>
+                                <button
+                                  onClick={stopVoiceCapture}
+                                  className="px-3 py-1.5 text-xs font-semibold rounded bg-slate-700 hover:bg-slate-600 text-white transition-colors"
+                                >
+                                  Stop Mic
+                                </button>
+                                {voiceCaptureState.listening && voiceCaptureState.activeTaskIndex === taskIndex && (
+                                  <span className="text-xs text-emerald-300">Listening...</span>
+                                )}
+                              </div>
+                              {voiceCaptureState.error && (
+                                <p className="text-xs text-red-300">{voiceCaptureState.error}</p>
+                              )}
+                              <div className="rounded border border-slate-600 bg-slate-950/60 p-3 min-h-[84px]">
+                                <p className="text-xs text-slate-300 whitespace-pre-wrap">
+                                  {voiceTranscript || 'Transcript will appear here after speaking.'}
+                                </p>
+                              </div>
+                              {record?.meta?.confidence !== undefined && (
+                                <p className="text-xs text-indigo-300">Confidence Score: {record.meta.confidence}%</p>
+                              )}
+                            </div>
+                          )}
+
+                          {task.type === 'scriptureTap' && (
+                            <div className="space-y-2">
+                              <p className="text-xs text-amber-300">Timed target: {(task.targetMs || 30000) / 1000}s</p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {(task.options || []).map((refOption) => {
+                                  const selected = selectedScriptures.includes(refOption);
+                                  return (
+                                    <button
+                                      key={`${taskIndex}-${refOption}`}
+                                      onClick={() => setActionInteractions((prev) => {
+                                        const current = prev[taskIndex] || {};
+                                        const currentSelected = Array.isArray(current.selected) ? current.selected : [];
+                                        const nextSelected = currentSelected.includes(refOption)
+                                          ? currentSelected.filter((item) => item !== refOption)
+                                          : [...currentSelected, refOption];
+                                        return {
+                                          ...prev,
+                                          [taskIndex]: {
+                                            ...current,
+                                            startedAt: current.startedAt || Date.now(),
+                                            selected: nextSelected
+                                          }
+                                        };
+                                      })}
+                                      className={`text-left px-3 py-2 rounded border text-xs transition-all ${selected ? 'bg-indigo-900/40 border-indigo-400 text-indigo-200' : 'bg-slate-900/40 border-slate-600 text-slate-300 hover:border-indigo-400'}`}
+                                    >
+                                      {refOption}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {task.type === 'debateTap' && (
+                            <div className="space-y-2">
+                              <p className="text-xs text-amber-300">Timed target: {(task.targetMs || 20000) / 1000}s</p>
+                              {(task.options || []).map((optionText, optionIndex) => {
+                                const selected = selectedDebateIndex === optionIndex;
+                                return (
+                                  <button
+                                    key={`${taskIndex}-debate-${optionIndex}`}
+                                    onClick={() => setActionInteractions((prev) => {
+                                      const current = prev[taskIndex] || {};
+                                      return {
+                                        ...prev,
+                                        [taskIndex]: {
+                                          ...current,
+                                          startedAt: current.startedAt || Date.now(),
+                                          selectedIndex: optionIndex
+                                        }
+                                      };
+                                    })}
+                                    className={`w-full text-left px-3 py-2 rounded border text-xs transition-all ${selected ? 'bg-indigo-900/40 border-indigo-400 text-indigo-200' : 'bg-slate-900/40 border-slate-600 text-slate-300 hover:border-indigo-400'}`}
+                                  >
+                                    {optionText}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+
+                          {task.type === 'doctrineBuilder' && (
+                            <div className="space-y-2">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div className="space-y-2">
+                                  {(doctrinePairs || []).map((pair, termIdx) => {
+                                    const mapped = doctrineMapping[termIdx];
+                                    return (
+                                      <div key={`${taskIndex}-term-${termIdx}`} className="rounded border border-slate-600 bg-slate-900/40 p-2">
+                                        <p className="text-xs text-amber-200 mb-1">{pair.term}</p>
+                                        <select
+                                          value={mapped === undefined ? '' : String(mapped)}
+                                          onChange={(e) => {
+                                            const next = e.target.value === '' ? undefined : Number(e.target.value);
+                                            setActionInteractions((prev) => {
+                                              const current = prev[taskIndex] || {};
+                                              return {
+                                                ...prev,
+                                                [taskIndex]: {
+                                                  ...current,
+                                                  startedAt: current.startedAt || Date.now(),
+                                                  mapping: { ...(current.mapping || {}), [termIdx]: next }
+                                                }
+                                              };
+                                            });
+                                          }}
+                                          className="w-full bg-slate-950 border border-slate-600 rounded px-2 py-1 text-xs text-slate-200"
+                                        >
+                                          <option value="">Select definition</option>
+                                          {doctrinePairs.map((defPair, defIdx) => (
+                                            <option key={`${taskIndex}-def-${defIdx}`} value={defIdx}>{defPair.definition}</option>
+                                          ))}
+                                        </select>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                                <div className="rounded border border-indigo-500/30 bg-indigo-900/10 p-3">
+                                  <p className="text-xs font-semibold text-indigo-300 mb-2">Definitions</p>
+                                  <ol className="space-y-2">
+                                    {doctrinePairs.map((pair, index) => (
+                                      <li key={`${taskIndex}-legend-${index}`} className="text-xs text-slate-300">{index + 1}. {pair.definition}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
                           <div className="flex items-center justify-between mt-3">
                             <p className="text-xs text-slate-500">
                               Last evaluated: {record?.evaluatedAt ? new Date(record.evaluatedAt).toLocaleString() : 'not yet'}
                             </p>
                             <button
-                              onClick={() => evaluateRequiredWorkTask(unit, taskIndex)}
+                              onClick={() => evaluateActionTask(unit, task, taskIndex)}
                               className="px-3 py-1.5 text-xs font-semibold rounded bg-violet-600 hover:bg-violet-500 text-white transition-colors"
                             >
                               Evaluate With Rubric
@@ -1381,7 +1899,7 @@ const ComprehensiveCourse = ({
                       );
                     })}
                     <p className={`text-xs font-semibold ${workDone ? 'text-emerald-300' : 'text-amber-300'}`}>
-                      {workDone ? 'All written assessment tasks for this unit are passed.' : 'Pass every written assessment task (70%+) to unlock final exam eligibility.'}
+                      {workDone ? 'All action-assessment tasks for this unit are passed.' : 'Pass every action task (70%+) to unlock final exam eligibility.'}
                     </p>
                   </div>
                 )}
@@ -1430,7 +1948,7 @@ const ComprehensiveCourse = ({
             <div className={`bg-gradient-to-r ${theme.accentBgSolid} h-full transition-all duration-500`} style={{ width: `${progress}%` }} />
           </div>
           <div className="text-slate-400 text-sm mt-2">
-            {completedLessons.length} lessons read | {completedQuizzes.length} quizzes passed{requiredWorkUnitCount > 0 ? ` | ${completedRequiredWorkCount}/${requiredWorkUnitCount} required-work units passed` : ''} | {examCompleted ? 'Exam passed' : 'Exam pending'}
+            {completedLessons.length} lessons read | {completedQuizzes.length} quizzes passed{requiredWorkUnitCount > 0 ? ` | ${completedRequiredWorkCount}/${requiredWorkUnitCount} action-assessment units passed` : ''} | {examCompleted ? 'Exam passed' : 'Exam pending'}
           </div>
         </div>
         <div className="space-y-3 mb-6">
@@ -1469,8 +1987,8 @@ const ComprehensiveCourse = ({
           <h3 className="text-xl font-bold text-white mb-2">Final Exam</h3>
           <p className="text-slate-400 text-sm mb-4">
             {allUnitsReadyForExam
-              ? 'All unit quizzes and required work are passed. You are ready for the final exam.'
-              : `Pass all ${courseData.units.length} quizzes and all required work tasks to unlock the final exam.`}
+              ? 'All unit quizzes and action assessments are passed. You are ready for the final exam.'
+              : `Pass all ${courseData.units.length} quizzes and all action assessment tasks to unlock the final exam.`}
           </p>
           {examCompleted && <p className="text-emerald-400 font-bold mb-3 flex items-center justify-center gap-2"><CheckCircle size={18} /> Exam Passed!</p>}
           <button onClick={startExam} disabled={!allUnitsReadyForExam}
