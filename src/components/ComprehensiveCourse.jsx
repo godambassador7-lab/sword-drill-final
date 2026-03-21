@@ -1923,8 +1923,7 @@ const ComprehensiveCourse = ({
   }
 
   const allUnitsReadyForExam = courseData.units.every((unit) => {
-    const quizDone = completedQuizzes.includes(normalizeUnitId(unit.id));
-    return quizDone && isUnitRequiredWorkComplete(unit);
+    return completedQuizzes.includes(normalizeUnitId(unit.id));
   });
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 p-4">
@@ -1987,8 +1986,8 @@ const ComprehensiveCourse = ({
           <h3 className="text-xl font-bold text-white mb-2">Final Exam</h3>
           <p className="text-slate-400 text-sm mb-4">
             {allUnitsReadyForExam
-              ? 'All unit quizzes and action assessments are passed. You are ready for the final exam.'
-              : `Pass all ${courseData.units.length} quizzes and all action assessment tasks to unlock the final exam.`}
+              ? 'All unit quizzes passed. You are ready for the final exam.'
+              : `Pass all ${courseData.units.length} unit quizzes to unlock the final exam.`}
           </p>
           {examCompleted && <p className="text-emerald-400 font-bold mb-3 flex items-center justify-center gap-2"><CheckCircle size={18} /> Exam Passed!</p>}
           <button onClick={startExam} disabled={!allUnitsReadyForExam}
