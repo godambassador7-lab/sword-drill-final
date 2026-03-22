@@ -1,0 +1,9 @@
+node_modules
+build
+.git
+.github
+.vscode
+reports
+archived_data
+*.log
+git_debug.txt

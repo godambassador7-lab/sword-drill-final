@@ -28,3 +28,5 @@ yarn-error.log*
 # Generated at CI time by copy step — not tracked
 src/core/data/
 src/core/dailyVerses.js
+
+.vercel
