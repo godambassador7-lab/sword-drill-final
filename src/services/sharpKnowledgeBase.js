@@ -1,6 +1,8 @@
 import { isSupabaseConfigured, supabase } from './supabaseClient';
 
 const KB_TABLE = 'sharp_kb_chunks';
+const USE_VECTOR = process.env.REACT_APP_SHARP_USE_VECTOR === 'true';
+const EMBEDDING_ENDPOINT = process.env.REACT_APP_SHARP_EMBEDDING_ENDPOINT;
 const STOP_WORDS = new Set([
   'the', 'and', 'for', 'that', 'with', 'from', 'what', 'when', 'where', 'which',
   'into', 'your', 'about', 'this', 'have', 'will', 'would', 'there', 'their',
@@ -53,6 +55,11 @@ export async function searchSharpKnowledge(query, limit = 4) {
     return [];
   }
 
+  if (USE_VECTOR && EMBEDDING_ENDPOINT) {
+    const vectorHits = await searchSharpKnowledgeVector(query, limit);
+    if (vectorHits.length > 0) return vectorHits;
+  }
+
   const tokens = tokenize(query);
   const orFilter = buildOrFilter(tokens);
 
@@ -83,3 +90,42 @@ export async function searchSharpKnowledge(query, limit = 4) {
     .slice(0, Math.max(1, limit));
 }
 
+async function getQueryEmbedding(query) {
+  if (!EMBEDDING_ENDPOINT) return null;
+  try {
+    const response = await fetch(EMBEDDING_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query })
+    });
+    if (!response.ok) return null;
+    const json = await response.json();
+    return Array.isArray(json?.embedding) ? json.embedding : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function searchSharpKnowledgeVector(query, limit = 4) {
+  if (!isSupabaseConfigured || !supabase || !query?.trim()) return [];
+
+  const embedding = await getQueryEmbedding(query);
+  if (!embedding) return [];
+
+  const { data, error } = await supabase.rpc('match_sharp_kb_chunks', {
+    query_embedding: embedding,
+    match_count: Math.max(1, limit),
+    min_similarity: 0.72
+  });
+
+  if (error || !Array.isArray(data)) return [];
+
+  return data.map((row) => ({
+    source_path: row.source_path,
+    title: row.title,
+    chunk_index: row.chunk_index,
+    content: row.content,
+    score: Number(row.similarity) || 0,
+    preview: snippet(row.content)
+  }));
+}

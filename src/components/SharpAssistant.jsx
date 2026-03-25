@@ -1364,8 +1364,8 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900/30 to-slate-900 text-white flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl h-[80vh] bg-slate-800/90 rounded-xl shadow-2xl flex flex-col overflow-hidden border-2 border-indigo-500/50">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-slate-900 via-indigo-900/30 to-slate-900 text-white flex items-center justify-center p-2 sm:p-4">
+      <div className="w-full max-w-4xl h-[calc(100dvh-1rem)] sm:h-[80vh] bg-slate-800/90 rounded-xl shadow-2xl flex flex-col overflow-hidden border-2 border-indigo-500/50">
         {/* Header */}
         <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border-b-2 border-indigo-500/50 p-4 flex-shrink-0">
           <div className="flex items-center justify-between">
@@ -1404,7 +1404,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
               className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-[80%] rounded-2xl p-4 ${
+                className={`max-w-[92%] sm:max-w-[80%] rounded-2xl p-3 sm:p-4 ${
                   message.role === 'user'
                     ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white'
                     : 'bg-slate-800/50 border border-indigo-500/30 text-slate-200'
