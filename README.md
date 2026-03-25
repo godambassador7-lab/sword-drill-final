@@ -39,6 +39,8 @@ Bible memorization and study companion built with React. Includes Sword Drill Ul
 
 ## Environment
 - `.env` should contain your Firebase config keys and any API endpoints used by `dbService`/`esvProvider`.
+- For SHARP Assistant Supabase persistence, set `REACT_APP_SUPABASE_URL` and `REACT_APP_SUPABASE_ANON_KEY` (see `SUPABASE_SHARP_SETUP.md`).
+- For large SHARP knowledge ingestion, use `SUPABASE_SERVICE_ROLE_KEY` locally with `npm run sharp:ingest` (see `SUPABASE_SHARP_KB_SETUP.md`).
 - The app assumes public assets under `/sword_drill/` when deployed to GitHub Pages.
 
 ## PWA Notes

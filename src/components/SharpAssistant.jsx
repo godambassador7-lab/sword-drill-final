@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, ArrowLeft, Sparkles, Book, Info } from 'lucide-react';
-import { answerQuery } from '../services/assistant/enhancedRuleBased';
+import { answerWithSharpBrain } from '../services/assistant/sharpBrain';
 import { CitationsList } from './CitationBadge';
+import { getRecentSharpMessages, saveSharpConversationTurn } from '../services/sharpAssistantSupabase';
+import { isSupabaseConfigured } from '../services/supabaseClient';
 
-const SharpAssistant = ({ onBack, userData, bibleData }) => {
+const SharpAssistant = ({ onBack, userData, userId, bibleData }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +15,7 @@ const SharpAssistant = ({ onBack, userData, bibleData }) => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const typingIntervalRef = useRef(null);
+  const sessionIdRef = useRef(`sharp-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -30,6 +33,40 @@ const SharpAssistant = ({ onBack, userData, bibleData }) => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const loadRecentMessages = async () => {
+      if (!userId || !isSupabaseConfigured) return;
+
+      const result = await getRecentSharpMessages(userId, 30);
+      if (!result.success || !Array.isArray(result.messages) || result.messages.length === 0) return;
+
+      const hydratedMessages = result.messages.map((message) => {
+        const createdAt = message.created_at ? Date.parse(message.created_at) : Date.now();
+        return {
+          id: message.id || `${message.role}-${createdAt}`,
+          role: message.role,
+          type: message.role,
+          content: message.content || '',
+          citations: message.citations || [],
+          metadata: message.metadata || {},
+          timestamp: Number.isFinite(createdAt) ? createdAt : Date.now(),
+          isTyping: false
+        };
+      });
+
+      setMessages(hydratedMessages);
+      setConversationHistory(
+        hydratedMessages.map((message) => ({
+          role: message.role,
+          type: message.role,
+          content: message.content
+        }))
+      );
+    };
+
+    loadRecentMessages();
+  }, [userId]);
 
   const generateResponse = async (userQuestion) => {
     // Build context about the app's biblical content
@@ -1254,10 +1291,10 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
     setIsLoading(true);
 
     try {
-      // Call enhanced rule-based system with RAG
-      const response = await answerQuery(userQuestion, {
+      // Call SHARP limited local-RAG brain
+      const response = await answerWithSharpBrain(userQuestion, {
         conversationHistory,
-        selectedTranslation: 'KJV',
+        selectedTranslation: userData?.selectedTranslation || 'KJV',
         userProgress: {
           versesMemorized: userData?.versesMemorized || 0,
           quizzesCompleted: userData?.quizzesCompleted || 0,
@@ -1267,15 +1304,32 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
       });
 
       // Update conversation history
-      setConversationHistory([
+      const updatedHistory = [
         ...conversationHistory,
-        { role: 'user', content: userQuestion },
-        { role: 'assistant', content: response.answer }
-      ]);
+        { role: 'user', type: 'user', content: userQuestion },
+        { role: 'assistant', type: 'assistant', content: response.answer }
+      ];
+      setConversationHistory(updatedHistory);
+
+      if (userId && isSupabaseConfigured) {
+        saveSharpConversationTurn({
+          userId,
+          sessionId: sessionIdRef.current,
+          userQuestion,
+          assistantAnswer: response.answer,
+          citations: response.citations || [],
+          metadata: response.metadata || {}
+        });
+      }
 
       // Type out the response
       const messageId = `assistant-${Date.now()}`;
-      typeOutMessage(response.answer, response.citations, response.metadata, messageId);
+      typeOutMessage(
+        response.answer,
+        response.citations || [],
+        response.metadata || response.meta || {},
+        messageId
+      );
 
     } catch (error) {
       console.error('Error generating response:', error);
@@ -1346,7 +1400,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
           <div className="space-y-4">
           {messages.map((message, index) => (
             <div
-              key={index}
+              key={message.id || index}
               className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div

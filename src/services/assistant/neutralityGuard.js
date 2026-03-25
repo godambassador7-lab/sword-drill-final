@@ -380,11 +380,24 @@ export function applyNeutralityGuard(response, hotTopic) {
   return formatNeutralResponse(hotTopic) + '\n\n' + response;
 }
 
+/**
+ * Backwards-compatible helper used by pipeline.js.
+ * Auto-detects hot-topic content and applies neutrality formatting when needed.
+ * @param {string} response - Generated response
+ * @param {string} query - Optional user query for topic detection
+ * @returns {string}
+ */
+export function applyNeutrality(response, query = '') {
+  const hotTopic = detectHotTopic(query || response);
+  return applyNeutralityGuard(response, hotTopic);
+}
+
 export default {
   HOT_TOPICS,
   detectHotTopic,
   formatNeutralResponse,
   getNeutralityDisclaimer,
   needsNeutralityGuard,
+  applyNeutrality,
   applyNeutralityGuard
 };

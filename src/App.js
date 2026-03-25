@@ -10647,6 +10647,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <SharpAssistant
             onBack={() => setCurrentView('home')}
             userData={userData}
+            userId={currentUser?.uid || null}
           />
         )}
         {currentView === 'tutorial' && (
