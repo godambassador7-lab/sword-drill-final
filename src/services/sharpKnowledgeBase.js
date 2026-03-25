@@ -9,6 +9,16 @@ const STOP_WORDS = new Set([
   'please', 'could', 'should', 'them', 'they', 'were', 'been', 'then', 'than'
 ]);
 
+const SOURCE_WEIGHTS = {
+  scripture: 1.4,
+  lexicon: 1.25,
+  dictionary: 1.2,
+  cross_reference: 1.15,
+  course: 1.0,
+  app_doc: 0.95,
+  other: 0.9
+};
+
 function tokenize(input) {
   return (input || '')
     .toLowerCase()
@@ -23,16 +33,47 @@ function scoreHit(query, content, title) {
   if (!c) return 0;
 
   let score = 0;
-  if (c.includes(q)) score += 8;
-  if (t.includes(q)) score += 4;
+  if (c.includes(q)) score += 10;
+  if (t.includes(q)) score += 5;
 
   const tokens = tokenize(query);
   for (const token of tokens) {
-    if (c.includes(token)) score += 1.2;
-    if (t.includes(token)) score += 0.6;
+    if (c.includes(token)) score += 1.4;
+    if (t.includes(token)) score += 0.8;
   }
 
   return score;
+}
+
+function inferSourceKind(sourcePath = '', title = '', metadata = {}) {
+  const p = (sourcePath || '').toLowerCase();
+  const t = (title || '').toLowerCase();
+  const ext = (metadata?.ext || '').toLowerCase();
+
+  if (p.includes('/bible/') || p.includes('/bibles/') || p.includes('/wlc/') || p.includes('/apocrypha/')) {
+    return 'scripture';
+  }
+  if (p.includes('lexicon') || p.includes('strong') || t.includes('strong')) {
+    return 'lexicon';
+  }
+  if (p.includes('dictionary') || t.includes('dictionary')) {
+    return 'dictionary';
+  }
+  if (p.includes('cross') || p.includes('topical') || p.includes('references')) {
+    return 'cross_reference';
+  }
+  if (p.includes('course') || p.includes('/modules/') || p.includes('/lessons/')) {
+    return 'course';
+  }
+  if (ext === 'md' || p.includes('readme') || p.includes('guide') || p.includes('setup')) {
+    return 'app_doc';
+  }
+  return 'other';
+}
+
+function applySourceWeight(baseScore, sourceKind) {
+  const weight = SOURCE_WEIGHTS[sourceKind] || SOURCE_WEIGHTS.other;
+  return baseScore * weight;
 }
 
 function buildOrFilter(tokens) {
@@ -82,10 +123,18 @@ export async function searchSharpKnowledge(query, limit = 4) {
   return data
     .map((row) => ({
       ...row,
-      score: scoreHit(query, row.content, row.title),
+      sourceKind: inferSourceKind(row.source_path, row.title, row.metadata),
+      score: 0,
       preview: snippet(row.content)
     }))
-    .filter((row) => row.score > 0.5)
+    .map((row) => ({
+      ...row,
+      score: applySourceWeight(
+        scoreHit(query, row.content, row.title),
+        row.sourceKind
+      )
+    }))
+    .filter((row) => row.score >= 2.2)
     .sort((a, b) => b.score - a.score)
     .slice(0, Math.max(1, limit));
 }
@@ -120,12 +169,23 @@ export async function searchSharpKnowledgeVector(query, limit = 4) {
 
   if (error || !Array.isArray(data)) return [];
 
-  return data.map((row) => ({
-    source_path: row.source_path,
-    title: row.title,
-    chunk_index: row.chunk_index,
-    content: row.content,
-    score: Number(row.similarity) || 0,
-    preview: snippet(row.content)
-  }));
+  return data
+    .map((row) => {
+      const sourceKind = inferSourceKind(row.source_path, row.title, row.metadata);
+      const semantic = Number(row.similarity) || 0;
+      const lexical = scoreHit(query, row.content, row.title) / 12;
+      const reranked = applySourceWeight((semantic * 0.75) + (lexical * 0.25), sourceKind);
+      return {
+        source_path: row.source_path,
+        title: row.title,
+        chunk_index: row.chunk_index,
+        content: row.content,
+        sourceKind,
+        score: reranked,
+        semanticScore: semantic,
+        preview: snippet(row.content)
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, Math.max(1, limit));
 }

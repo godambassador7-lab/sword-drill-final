@@ -5,6 +5,8 @@ import { CitationsList } from './CitationBadge';
 import { getRecentSharpMessages, saveSharpConversationTurn } from '../services/sharpAssistantSupabase';
 import { isSupabaseConfigured } from '../services/supabaseClient';
 
+const SHOW_CONFIDENCE_DEBUG = process.env.REACT_APP_SHARP_DEBUG_CONFIDENCE === 'true';
+
 const SharpAssistant = ({ onBack, userData, userId, bibleData }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -60,7 +62,10 @@ const SharpAssistant = ({ onBack, userData, userId, bibleData }) => {
         hydratedMessages.map((message) => ({
           role: message.role,
           type: message.role,
-          content: message.content
+          content: message.content,
+          citations: message.citations || [],
+          metadata: message.metadata || {},
+          meta: message.metadata || {}
         }))
       );
     };
@@ -1306,8 +1311,15 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
       // Update conversation history
       const updatedHistory = [
         ...conversationHistory,
-        { role: 'user', type: 'user', content: userQuestion },
-        { role: 'assistant', type: 'assistant', content: response.answer }
+        { role: 'user', type: 'user', content: userQuestion, citations: [], metadata: {}, meta: {} },
+        {
+          role: 'assistant',
+          type: 'assistant',
+          content: response.answer,
+          citations: response.citations || [],
+          metadata: response.metadata || response.meta || {},
+          meta: response.meta || response.metadata || {}
+        }
       ];
       setConversationHistory(updatedHistory);
 
@@ -1434,6 +1446,11 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
                   {message.metadata?.fromCache && (
                     <span className="text-amber-400">• Cached</span>
                   )}
+                  {SHOW_CONFIDENCE_DEBUG && message.role === 'assistant' && (
+                    <span className="text-emerald-300">
+                      • conf {(message.metadata?.confidenceScore ?? 0).toFixed(2)} | cits {message.metadata?.evidenceProfile?.citationCount ?? 0} | kb {message.metadata?.evidenceProfile?.kbHitCount ?? 0}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -1480,3 +1497,4 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
 };
 
 export default SharpAssistant;
+

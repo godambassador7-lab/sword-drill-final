@@ -131,22 +131,74 @@ function normalizeWhitespace(input) {
 }
 
 function buildChunks(text, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERLAP) {
-  const chunks = [];
-  let cursor = 0;
   const clean = normalizeWhitespace(text);
-  if (!clean) return chunks;
+  if (!clean) return [];
 
-  while (cursor < clean.length) {
-    const end = Math.min(cursor + chunkSize, clean.length);
-    const slice = clean.slice(cursor, end).trim();
-    if (slice.length > 60) {
-      chunks.push(slice);
+  const blocks = clean
+    .split(/\n{2,}/g)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
+  const chunks = [];
+  let current = '';
+
+  const pushCurrent = () => {
+    const value = current.trim();
+    if (value.length > 60) chunks.push(value);
+    current = '';
+  };
+
+  for (const block of blocks) {
+    const isHeaderLike = /^#{1,6}\s|^[A-Z][A-Z0-9 _:-]{6,}$/.test(block);
+    const isVerseLike = /^\d{1,3}[:.]\d{1,3}\s/.test(block) || /^[1-3]?\s?[A-Za-z]+\s+\d{1,3}:\d{1,3}/.test(block);
+
+    // Start a fresh chunk at hard semantic boundaries
+    if ((isHeaderLike || isVerseLike) && current.length > Math.floor(chunkSize * 0.6)) {
+      pushCurrent();
     }
-    if (end >= clean.length) break;
-    cursor = Math.max(end - overlap, cursor + 1);
+
+    const candidate = current ? `${current}\n\n${block}` : block;
+    if (candidate.length <= chunkSize) {
+      current = candidate;
+      continue;
+    }
+
+    // Flush current and split oversized blocks sentence-first
+    if (current) pushCurrent();
+    if (block.length <= chunkSize) {
+      current = block;
+      continue;
+    }
+
+    const sentences = block.split(/(?<=[.!?])\s+/g);
+    let sentenceChunk = '';
+    for (const sentence of sentences) {
+      const merged = sentenceChunk ? `${sentenceChunk} ${sentence}` : sentence;
+      if (merged.length <= chunkSize) {
+        sentenceChunk = merged;
+      } else {
+        if (sentenceChunk.trim().length > 60) chunks.push(sentenceChunk.trim());
+        sentenceChunk = sentence;
+      }
+    }
+    if (sentenceChunk.trim().length > 60) chunks.push(sentenceChunk.trim());
   }
 
-  return chunks;
+  if (current) pushCurrent();
+
+  // Add lightweight overlap to preserve continuity between adjacent chunks
+  const withOverlap = [];
+  for (let i = 0; i < chunks.length; i++) {
+    if (i === 0) {
+      withOverlap.push(chunks[i]);
+      continue;
+    }
+    const prevTail = chunks[i - 1].slice(-overlap).trim();
+    const merged = `${prevTail}\n${chunks[i]}`.trim();
+    withOverlap.push(merged.length <= chunkSize + overlap ? merged : chunks[i]);
+  }
+
+  return withOverlap;
 }
 
 async function insertBatch(supabase, rows) {

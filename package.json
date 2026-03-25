@@ -26,6 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sharp:ingest": "node scripts/supabase/ingestSharpKnowledge.js",
+    "sharp:eval": "node scripts/supabase/evaluateSharpGolden.js",
     "audit:content": "node scripts/auditContentQuality.js",
     "fix:content-qa": "node scripts/fixContentQuality.js",
     "predeploy": "npm run build",

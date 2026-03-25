@@ -1,0 +1,23 @@
+[
+  { "id": "g1", "question": "Explain John 3:16", "intent": "scripture.reference_lookup", "mustIncludeAny": ["john", "3:16"] },
+  { "id": "g2", "question": "What does justification by faith mean?", "intent": "theology", "mustIncludeAny": ["justification", "faith"] },
+  { "id": "g3", "question": "Who was Paul?", "intent": "scripture.who", "mustIncludeAny": ["paul", "apostle"] },
+  { "id": "g4", "question": "Difference between KJV and WEB", "intent": "scripture.translation", "mustIncludeAny": ["kjv", "web"] },
+  { "id": "g5", "question": "Meaning of agape in Greek", "intent": "scripture.word_study", "mustIncludeAny": ["greek", "agape"] },
+  { "id": "g6", "question": "What is the Trinity?", "intent": "theology", "mustIncludeAny": ["trinity"] },
+  { "id": "g7", "question": "Give verses on prayer", "intent": "scripture.topical", "mustIncludeAny": ["prayer"] },
+  { "id": "g8", "question": "Who wrote Romans?", "intent": "scripture.who", "mustIncludeAny": ["romans", "paul"] },
+  { "id": "g9", "question": "Explain baptism views", "intent": "theology", "mustIncludeAny": ["baptism"] },
+  { "id": "g10", "question": "What is Strong's Concordance?", "intent": "app.feature", "mustIncludeAny": ["strong"] },
+  { "id": "g11", "question": "Historical context of Ephesians", "intent": "church_history", "mustIncludeAny": ["ephesians"] },
+  { "id": "g12", "question": "What is sanctification?", "intent": "theology", "mustIncludeAny": ["sanctification"] },
+  { "id": "g13", "question": "Compare faith and works in James", "intent": "theology", "mustIncludeAny": ["james", "faith", "works"] },
+  { "id": "g14", "question": "What are apocrypha books?", "intent": "scripture.canon", "mustIncludeAny": ["apocrypha"] },
+  { "id": "g15", "question": "Where is Romans 8:28 in KJV?", "intent": "scripture.reference_lookup", "mustIncludeAny": ["romans", "8:28"] },
+  { "id": "g16", "question": "Tell me about church history of Nicea", "intent": "church_history", "mustIncludeAny": ["nicea", "church"] },
+  { "id": "g17", "question": "How do I use Sword Drill study plans?", "intent": "app.feature", "mustIncludeAny": ["study", "plan"] },
+  { "id": "g18", "question": "What is covenant theology?", "intent": "theology", "mustIncludeAny": ["covenant", "theology"] },
+  { "id": "g19", "question": "Meaning of hesed in Hebrew", "intent": "scripture.word_study", "mustIncludeAny": ["hebrew", "hesed"] },
+  { "id": "g20", "question": "Explain resurrection in 1 Corinthians 15", "intent": "theology", "mustIncludeAny": ["resurrection", "1 corinthians", "15"] }
+]
+
