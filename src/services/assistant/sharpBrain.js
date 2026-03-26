@@ -9,6 +9,7 @@ const OUT_OF_COVERAGE_RESPONSE =
   "That question appears outside SHARP's current Bible/app knowledge scope. I can reliably help with Scripture, theology, biblical languages, church history, and Sword Drill features.";
 
 const DEBUG_CONFIDENCE = process.env.REACT_APP_SHARP_DEBUG_CONFIDENCE === 'true';
+const LOG_RETRIEVAL = process.env.REACT_APP_SHARP_LOG_RETRIEVAL === 'true';
 
 const DOMAIN_KEYWORDS = [
   'bible', 'scripture', 'verse', 'old testament', 'new testament', 'jesus', 'moses',
@@ -179,10 +180,7 @@ function computeConfidence({ answer, citations, kbHits, pipelineMeta, intentProf
 }
 
 export async function answerWithSharpBrain(userMessage, context = {}) {
-  const [result, kbHits] = await Promise.all([
-    pipelineAnswerQuery(userMessage, context),
-    searchSharpKnowledge(userMessage, 3)
-  ]);
+  const result = await pipelineAnswerQuery(userMessage, context);
 
   let answer = typeof result?.answer === 'string' ? result.answer.trim() : '';
   const citations = normalizeCitations(result?.citations || []);
@@ -190,11 +188,16 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     ...(result?.metadata || result?.meta || {}),
     brain: 'sharp-limited-rag-v1',
     localOnly: true,
-    kbHits: kbHits.length,
+    kbHits: 0,
     usedClaude: false
   };
   const intentProfile = getIntentProfile(metadata);
   const inCoverage = isInCoverage(userMessage);
+  const kbHits = await searchSharpKnowledge(userMessage, 3, {
+    intentProfile,
+    selectedTranslation: context?.selectedTranslation || ''
+  });
+  metadata.kbHits = kbHits.length;
 
   if (kbHits.length > 0) {
     const kbSection = kbHits
@@ -245,6 +248,24 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     (intentProfile.requireVerseCitation && evidenceProfile.verseCitationCount === 0) ||
     (intentProfile.requireEvidenceDiversity && evidenceProfile.evidenceDiversityScore < 2) ||
     contradictionRisk > 1;
+
+  if (LOG_RETRIEVAL) {
+    console.log('[SHARP Retrieval]', {
+      question: userMessage.slice(0, 120),
+      intent: intentProfile.key,
+      confidence: confidenceScore.toFixed(3),
+      citations: evidenceProfile.citationCount,
+      verseCitations: evidenceProfile.verseCitationCount,
+      kbHits: kbHits.length,
+      topHits: kbHits.slice(0, 3).map((h) => ({
+        title: h.title,
+        source: h.source_path,
+        kind: h.sourceKind,
+        score: h.score
+      })),
+      lowConfidence: hardFailEvidence || confidenceScore < intentProfile.threshold
+    });
+  }
 
   if (hardFailEvidence || confidenceScore < intentProfile.threshold) {
     return {

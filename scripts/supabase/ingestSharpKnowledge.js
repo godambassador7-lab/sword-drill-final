@@ -42,6 +42,66 @@ const TEXT_EXTENSIONS = new Set([
   '.csv'
 ]);
 
+const IGNORE_PATH_PATTERNS = [
+  /[\\/]src[\\/]data[\\/]noto-emoji-2\.051[\\/]/i,
+  /[\\/]third_party[\\/]region-flags[\\/]/i
+];
+
+function extractBookFromPath(rel = '', title = '') {
+  const source = `${rel} ${title}`.toLowerCase();
+  const match = source.match(/\b(genesis|exodus|leviticus|numbers|deuteronomy|joshua|judges|ruth|samuel|kings|chronicles|ezra|nehemiah|esther|job|psalm|psalms|proverbs|ecclesiastes|song of solomon|isaiah|jeremiah|lamentations|ezekiel|daniel|hosea|joel|amos|obadiah|jonah|micah|nahum|habakkuk|zephaniah|haggai|zechariah|malachi|matthew|mark|luke|john|acts|romans|corinthians|galatians|ephesians|philippians|colossians|thessalonians|timothy|titus|philemon|hebrews|james|peter|jude|revelation|tobit|judith|maccabees|sirach|baruch|wisdom)\b/);
+  return match ? match[1] : null;
+}
+
+function extractChapterFromPath(rel = '', title = '') {
+  const source = `${rel}/${title}`;
+  const cMatch = source.match(/(?:chapter|ch|c)[ _-]?(\d{1,3})/i);
+  if (cMatch) return Number(cMatch[1]);
+  const simple = source.match(/(?:^|[\\/ _-])(\d{1,3})(?:\.[a-z0-9]+)?$/i);
+  if (simple) return Number(simple[1]);
+  return null;
+}
+
+function inferTranslation(rel = '', title = '') {
+  const source = `${rel} ${title}`.toLowerCase();
+  if (/\bkjv\b/.test(source)) return 'KJV';
+  if (/\basv\b/.test(source)) return 'ASV';
+  if (/\bweb\b/.test(source)) return 'WEB';
+  if (/\bylt\b/.test(source)) return 'YLT';
+  if (/\besv\b/.test(source)) return 'ESV';
+  if (/\bwlc\b/.test(source) || /masoretic/.test(source)) return 'WLC';
+  if (/\blxx\b|septuagint/.test(source)) return 'LXX';
+  if (/sinaiticus/.test(source)) return 'SINAITICUS';
+  return null;
+}
+
+function inferTopic(rel = '', title = '') {
+  const source = `${rel} ${title}`.toLowerCase();
+  if (/theology|doctrine|hermeneutics|apologetics/.test(source)) return 'theology';
+  if (/history|archaeology|canon|textual_criticism/.test(source)) return 'history';
+  if (/greek|hebrew|aramaic|lexicon|strong/.test(source)) return 'languages';
+  if (/quiz|study_plan|study plan|memory/.test(source)) return 'app_features';
+  if (/bible|apocrypha|wlc|lxx|sinaiticus/.test(source)) return 'scripture';
+  return 'general';
+}
+
+function inferCourse(rel = '') {
+  const m = rel.match(/(course[^/]*|courses\/[^/]+|understanding_textual_criticism_full|Sword_Drill_World_Religions_Course|SwordDrill_Associate_Exegetical_Methods)/i);
+  return m ? m[1] : null;
+}
+
+function buildMetadata(filePath, rel, title) {
+  return {
+    ext: path.extname(filePath).toLowerCase().slice(1),
+    sourceCategory: rel.split('/')[0] || 'root',
+    book: extractBookFromPath(rel, title),
+    chapter: extractChapterFromPath(rel, title),
+    translation: inferTranslation(rel, title),
+    topic: inferTopic(rel, title),
+    course: inferCourse(rel)
+  };
+}
+
 function getArgValue(name, fallback = null) {
   const prefix = `--${name}=`;
   const arg = process.argv.find((x) => x.startsWith(prefix));
@@ -61,6 +121,8 @@ function safeRelative(p) {
 }
 
 function shouldIncludeFile(filePath, stat) {
+  const normalized = filePath.replace(/\\/g, '/');
+  if (IGNORE_PATH_PATTERNS.some((rx) => rx.test(normalized))) return false;
   const ext = path.extname(filePath).toLowerCase();
   if (!TEXT_EXTENSIONS.has(ext)) return false;
   if (stat.size <= 0 || stat.size > MAX_FILE_BYTES) return false;
@@ -260,6 +322,7 @@ async function main() {
 
     const rel = safeRelative(filePath);
     const title = path.basename(filePath);
+    const baseMetadata = buildMetadata(filePath, rel, title);
 
     let text = '';
     try {
@@ -281,10 +344,7 @@ async function main() {
         chunk_index: i,
         content,
         content_length: content.length,
-        metadata: {
-          ext: path.extname(filePath).toLowerCase().slice(1),
-          sourceCategory: rel.split('/')[0] || 'root'
-        }
+        metadata: baseMetadata
       });
 
       insertedBytes += bytes;
