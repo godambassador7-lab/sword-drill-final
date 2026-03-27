@@ -3,6 +3,7 @@ import { isSupabaseConfigured, supabase } from './supabaseClient';
 const KB_TABLE = 'sharp_kb_chunks';
 const USE_VECTOR = process.env.REACT_APP_SHARP_USE_VECTOR === 'true';
 const EMBEDDING_ENDPOINT = process.env.REACT_APP_SHARP_EMBEDDING_ENDPOINT;
+const RERANK_ENDPOINT = process.env.REACT_APP_SHARP_RERANK_ENDPOINT;
 const STOP_WORDS = new Set([
   'the', 'and', 'for', 'that', 'with', 'from', 'what', 'when', 'where', 'which',
   'into', 'your', 'about', 'this', 'have', 'will', 'would', 'there', 'their',
@@ -205,6 +206,79 @@ function dedupeBySource(rows = []) {
   return out;
 }
 
+function contentSimilarity(a = '', b = '') {
+  const aTokens = new Set(tokenize(a));
+  const bTokens = new Set(tokenize(b));
+  if (!aTokens.size || !bTokens.size) return 0;
+  let overlap = 0;
+  for (const token of aTokens) {
+    if (bTokens.has(token)) overlap += 1;
+  }
+  return overlap / Math.max(aTokens.size, bTokens.size);
+}
+
+function mmrSelect(rows = [], limit = 4, lambda = 0.72) {
+  if (!rows.length) return [];
+  const selected = [];
+  const remaining = [...rows];
+  while (selected.length < limit && remaining.length > 0) {
+    let bestIdx = 0;
+    let bestScore = -Infinity;
+    for (let i = 0; i < remaining.length; i++) {
+      const candidate = remaining[i];
+      const relevance = Number(candidate.score || 0);
+      let maxSim = 0;
+      for (const chosen of selected) {
+        const sim = contentSimilarity(candidate.content, chosen.content);
+        if (sim > maxSim) maxSim = sim;
+      }
+      const mmr = (lambda * relevance) - ((1 - lambda) * maxSim);
+      if (mmr > bestScore) {
+        bestScore = mmr;
+        bestIdx = i;
+      }
+    }
+    selected.push(remaining.splice(bestIdx, 1)[0]);
+  }
+  return selected;
+}
+
+async function rerankWithEndpoint(query, rows = []) {
+  if (!RERANK_ENDPOINT || !rows.length) return rows;
+  try {
+    const payload = {
+      query,
+      documents: rows.map((r, idx) => ({
+        id: `${idx}`,
+        title: r.title || '',
+        source_path: r.source_path || '',
+        content: r.content || ''
+      }))
+    };
+    const response = await fetch(RERANK_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) return rows;
+    const json = await response.json();
+    const scored = Array.isArray(json?.results) ? json.results : [];
+    if (!scored.length) return rows;
+
+    const byId = new Map(rows.map((row, idx) => [String(idx), row]));
+    const reranked = [];
+    for (const item of scored) {
+      const row = byId.get(String(item?.id ?? ''));
+      if (!row) continue;
+      const newScore = Number(item?.score);
+      reranked.push(Number.isFinite(newScore) ? { ...row, score: newScore } : row);
+    }
+    return reranked.length ? reranked : rows;
+  } catch {
+    return rows;
+  }
+}
+
 function shouldKeepByIntent(row, intentProfile = null) {
   if (!intentProfile?.key) return true;
   const key = String(intentProfile.key);
@@ -360,12 +434,20 @@ export async function searchSharpKnowledge(query, limit = 4, options = {}) {
   const subqueries = decomposeQuery(rewrittenQuery, intentKey);
 
   const allCandidates = [];
+  const fusionByKey = new Map();
   for (const subquery of subqueries) {
     const subTokens = tokenize(subquery);
     const subOrFilter = buildOrFilter(subTokens);
     const { data, error } = await runKbQuery(subquery, subOrFilter, true, 45);
     if (error || !Array.isArray(data)) continue;
     allCandidates.push(...data);
+    const ranked = data.slice(0, 25);
+    for (let i = 0; i < ranked.length; i++) {
+      const row = ranked[i];
+      const key = `${row?.source_path || ''}::${row?.chunk_index ?? -1}`;
+      const rrf = 1 / (60 + i);
+      fusionByKey.set(key, (fusionByKey.get(key) || 0) + rrf);
+    }
   }
 
   if (!allCandidates.length) {
@@ -403,7 +485,9 @@ export async function searchSharpKnowledge(query, limit = 4, options = {}) {
       const matchRatio = tokens.length > 0 ? (coverage / tokens.length) : 0;
       const coverageBoost = Math.min(coverage, 6) * 0.9;
       const weighted = applySourceWeight(lexical + coverageBoost, row.sourceKind);
-      const score = applySpecificityPenalty(weighted, row.source_path, row.title);
+      const key = `${row?.source_path || ''}::${row?.chunk_index ?? -1}`;
+      const fusion = fusionByKey.get(key) || 0;
+      const score = applySpecificityPenalty(weighted + (fusion * 18), row.source_path, row.title);
       return { ...row, coverage, matchRatio, score };
     })
     .filter((row) => shouldKeepByIntent(row, options?.intentProfile))
@@ -415,9 +499,11 @@ export async function searchSharpKnowledge(query, limit = 4, options = {}) {
 
   const topScore = scoredRows[0]?.score || 0;
   const bandFloor = topScore > 0 ? topScore * 0.58 : 0;
-  const rows = dedupeBySource(scoredRows)
+  const baseRows = dedupeBySource(scoredRows)
     .filter((row) => row.score >= bandFloor)
-    .slice(0, Math.max(1, limit));
+    .slice(0, Math.max(4, limit * 3));
+  const rerankedRows = await rerankWithEndpoint(rewrittenQuery, baseRows);
+  const rows = mmrSelect(rerankedRows, Math.max(1, limit));
 
   setCached(cacheKey, rows);
   return rows;
@@ -454,7 +540,7 @@ export async function searchSharpKnowledgeVector(query, limit = 4, options = {})
   if (error || !Array.isArray(data)) return [];
   const minCoverage = minCoverageForIntent(options?.intentProfile?.key || 'none');
 
-  return data
+  const vectorRows = data
     .filter((row) => !isNoisePath(row.source_path))
     .map((row) => {
       const sourceKind = inferSourceKind(row.source_path, row.title, row.metadata);
@@ -486,5 +572,8 @@ export async function searchSharpKnowledgeVector(query, limit = 4, options = {})
     .filter((row) => row.coverage >= minCoverage)
     .filter((row) => row.matchRatio >= minMatchRatioForIntent(options?.intentProfile?.key || 'none'))
     .sort((a, b) => b.score - a.score)
-    .slice(0, Math.max(1, limit));
+    .slice(0, Math.max(4, limit * 3));
+
+  const rerankedVectorRows = await rerankWithEndpoint(query, vectorRows);
+  return mmrSelect(rerankedVectorRows, Math.max(1, limit));
 }

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-03-27T13:27:24.563Z",
+  "totals": {
+    "total": 20,
+    "pass": 13,
+    "fail": 7,
+    "passRate": 65
+  },
+  "reliability": {
+    "timeoutCount": 3,
+    "timeoutRate": 15,
+    "errorCount": 3
+  },
+  "relevance": {
+    "avgTopScore": 6.436,
+    "avgTopCoverage": 2.929
+  },
+  "failures": [
+    {
+      "id": "g1",
+      "reason": "No expected token in top retrieval hits"
+    },
+    {
+      "id": "g6",
+      "reason": "canceling statement due to statement timeout"
+    },
+    {
+      "id": "g10",
+      "reason": "canceling statement due to statement timeout"
+    },
+    {
+      "id": "g14",
+      "reason": "canceling statement due to statement timeout"
+    },
+    {
+      "id": "g15",
+      "reason": "No expected token in top retrieval hits"
+    },
+    {
+      "id": "g16",
+      "reason": "No expected token in top retrieval hits"
+    },
+    {
+      "id": "g17",
+      "reason": "No expected token in top retrieval hits"
+    }
+  ]
+}
