@@ -1,0 +1,1229 @@
+{
+  "generatedAt": "2026-03-27T14:05:38.015Z",
+  "totals": {
+    "total": 20,
+    "pass": 15,
+    "fail": 5,
+    "passRate": 75
+  },
+  "reliability": {
+    "timeoutCount": 3,
+    "timeoutRate": 15,
+    "errorCount": 5
+  },
+  "traces": [
+    {
+      "id": "g1",
+      "question": "Explain John 3:16",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Explain John 3:16",
+            "john 3:16",
+            "john 3",
+            "john"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "john",
+            "3",
+            "16"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "john",
+            "3",
+            "16"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "john",
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "john",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "textualCriticism.js",
+              "source_path": "src/data/courses/textualCriticism.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "textualTransmission.js",
+              "source_path": "src/data/courses/textualTransmission.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "textualTransmission.js",
+              "source_path": "src/data/courses/textualTransmission.js",
+              "score": 6.9,
+              "coverage": 3
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g2",
+      "question": "What does justification by faith mean?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What does justification by faith mean?",
+            "justification faith"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "justification",
+            "faith",
+            "mean",
+            "justification",
+            "righteousness"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "justification",
+            "faith",
+            "justification",
+            "righteousness"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "argumentation.js",
+              "source_path": "src/data/courses/argumentation.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 6.9,
+              "coverage": 3
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g3",
+      "question": "Who was Paul?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Who was Paul?",
+            "paul"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "paul",
+            "paul",
+            "apostle",
+            "paul"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "paul",
+            "paul",
+            "apostle",
+            "paul"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 9.2,
+              "coverage": 4
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g4",
+      "question": "Difference between KJV and WEB",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Difference between KJV and WEB",
+            "kjv web"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "kjv",
+            "web",
+            "kjv",
+            "king",
+            "james",
+            "version"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "kjv",
+            "web",
+            "kjv",
+            "king",
+            "james",
+            "version"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
+        }
+      ],
+      "outcome": "fail"
+    },
+    {
+      "id": "g5",
+      "question": "Meaning of agape in Greek",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Meaning of agape in Greek",
+            "agape greek"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "agape",
+            "greek",
+            "agape",
+            "love"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "agape",
+            "greek",
+            "agape",
+            "love"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "Colossians.json",
+              "source_path": "public/bible/esv/Colossians.json",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 2.3,
+              "coverage": 1
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 2.3,
+              "coverage": 1
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g6",
+      "question": "What is the Trinity?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What is the Trinity?",
+            "trinity"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "trinity",
+            "trinity",
+            "godhead"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "trinity",
+          "limit": 40
+        },
+        {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "trinity",
+            "trinity",
+            "godhead"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "trinity",
+          "limit": 40
+        },
+        {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
+          "type": "rank",
+          "top": []
+        }
+      ],
+      "outcome": "fail"
+    },
+    {
+      "id": "g7",
+      "question": "Give verses on prayer",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Give verses on prayer",
+            "verses prayer"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "give",
+            "verses",
+            "prayer"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "verses",
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "verses",
+          "limit": 40
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "Exodus.json",
+              "source_path": "public/bible/kjv/Exodus.json",
+              "score": 2.3,
+              "coverage": 1
+            },
+            {
+              "title": "Exodus.json",
+              "source_path": "public/bible/kjv/Exodus.json",
+              "score": 2.3,
+              "coverage": 1
+            },
+            {
+              "title": "Exodus.json",
+              "source_path": "public/bible/kjv/Exodus.json",
+              "score": 2.3,
+              "coverage": 1
+            }
+          ]
+        }
+      ],
+      "outcome": "fail"
+    },
+    {
+      "id": "g8",
+      "question": "Who wrote Romans?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Who wrote Romans?",
+            "romans wrote"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "wrote",
+            "romans",
+            "romans",
+            "epistle",
+            "romans"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "romans",
+            "wrote",
+            "romans",
+            "epistle",
+            "romans"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "ChallengeLadders.jsx",
+              "source_path": "src/components/ChallengeLadders.jsx",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "biblicalContext.js",
+              "source_path": "src/data/biblicalContext.js",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "course_content.json",
+              "source_path": "src/data/church_history_course/course_content.json",
+              "score": 9.2,
+              "coverage": 4
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g9",
+      "question": "Explain baptism views",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Explain baptism views",
+            "baptism views"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "baptism",
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "baptism",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "sharp_confidence_coverage.md",
+              "source_path": "src/data/courses/sharp_confidence_coverage.md",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "sharp_confidence_coverage.md",
+              "source_path": "src/data/courses/sharp_confidence_coverage.md",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "SharpAssistant.jsx",
+              "source_path": "src/components/SharpAssistant.jsx",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g10",
+      "question": "What is Strong's Concordance?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What is Strong's Concordance?",
+            "concordance strong"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "concordance",
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "concordance",
+          "limit": 40
+        },
+        {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "concordance",
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "concordance",
+          "limit": 40
+        },
+        {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
+          "type": "rank",
+          "top": []
+        }
+      ],
+      "outcome": "fail"
+    },
+    {
+      "id": "g11",
+      "question": "Historical context of Ephesians",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Historical context of Ephesians",
+            "historical ephesians"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "historical",
+            "context",
+            "ephesians",
+            "ephesians",
+            "ephesus"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "historical",
+            "ephesians",
+            "ephesians",
+            "ephesus"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/kjv/verses.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "thematicCrossRefs.js",
+              "source_path": "src/data/thematicCrossRefs.js",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "versesByDifficulty.js",
+              "source_path": "src/data/versesByDifficulty.js",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g12",
+      "question": "What is sanctification?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What is sanctification?",
+            "sanctification"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "sanctification",
+            "sanctification",
+            "holiness"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "sanctification",
+            "sanctification",
+            "holiness"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "BiblicalFeastDaysCourse.jsx",
+              "source_path": "src/components/BiblicalFeastDaysCourse.jsx",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "biblicalContext.js",
+              "source_path": "src/data/biblicalContext.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "biblicalContext.js",
+              "source_path": "src/data/biblicalContext.js",
+              "score": 6.9,
+              "coverage": 3
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g13",
+      "question": "Compare faith and works in James",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Compare faith and works in James",
+            "compare faith"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "compare",
+            "faith",
+            "works",
+            "james"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "compare",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "SharpAssistant.jsx",
+              "source_path": "src/components/SharpAssistant.jsx",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "topicalChains.js",
+              "source_path": "src/data/topicalChains.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "SharpAssistant.jsx",
+              "source_path": "src/components/SharpAssistant.jsx",
+              "score": 6.9,
+              "coverage": 3
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g14",
+      "question": "What are apocrypha books?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What are apocrypha books?",
+            "apocrypha books"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "apocrypha",
+            "books",
+            "apocrypha",
+            "deuterocanonical"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "retry",
+          "mode": "fallback",
+          "anchor": "deuterocanonical",
+          "limit": 40
+        },
+        {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "apocrypha",
+            "books",
+            "apocrypha",
+            "deuterocanonical"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "enhancedRuleBased.js",
+              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "enhancedRuleBased.js",
+              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "score": 9.2,
+              "coverage": 4
+            },
+            {
+              "title": "enhancedRuleBased.js",
+              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "score": 9.2,
+              "coverage": 4
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g15",
+      "question": "Where is Romans 8:28 in KJV?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Where is Romans 8:28 in KJV?",
+            "romans 8:28",
+            "romans 8",
+            "romans kjv"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "romans",
+            "8",
+            "28",
+            "kjv",
+            "romans",
+            "epistle"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "romans",
+            "8",
+            "28",
+            "romans",
+            "epistle",
+            "romans"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "romans",
+            "8",
+            "romans",
+            "epistle",
+            "romans"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "romans",
+            "kjv",
+            "romans",
+            "epistle",
+            "romans",
+            "kjv"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "systemPrompts.js",
+              "source_path": "src/services/assistant/systemPrompts.js",
+              "score": 18,
+              "coverage": 9
+            },
+            {
+              "title": "sharpKnowledgeBase.js",
+              "source_path": "src/services/sharpKnowledgeBase.js",
+              "score": 18,
+              "coverage": 9
+            },
+            {
+              "title": "systemPrompts.js",
+              "source_path": "src/services/assistant/systemPrompts.js",
+              "score": 16.6,
+              "coverage": 8
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g16",
+      "question": "Tell me about church history of Nicea",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Tell me about church history of Nicea",
+            "history church"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "church",
+            "history",
+            "nicea",
+            "nicaea",
+            "nicea",
+            "nicene"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "history",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "course_content.json",
+              "source_path": "src/data/church_history_course/course_content.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "quiz_content.json",
+              "source_path": "src/data/church_history_course/quiz_content.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "course_content.json",
+              "source_path": "src/data/church_history_course/course_content.json",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g17",
+      "question": "How do I use Sword Drill study plans?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "How do I use Sword Drill study plans?",
+            "sword drill"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "how",
+            "use",
+            "sword",
+            "drill",
+            "study",
+            "plans"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "sword",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "1 Esdras.json",
+              "source_path": "public/apocrypha/1 Esdras.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "1 Maccabees.json",
+              "source_path": "public/apocrypha/1 Maccabees.json",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "1 Maccabees.json",
+              "source_path": "public/apocrypha/1 Maccabees.json",
+              "score": 6.9,
+              "coverage": 3
+            }
+          ]
+        }
+      ],
+      "outcome": "fail"
+    },
+    {
+      "id": "g18",
+      "question": "What is covenant theology?",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "What is covenant theology?",
+            "covenant theology"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "covenant",
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "covenant",
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "1 Kings.json",
+              "source_path": "public/bible/asv/1 Kings.json",
+              "score": 2.3,
+              "coverage": 1
+            },
+            {
+              "title": "1 Kings.json",
+              "source_path": "public/bible/asv/1 Kings.json",
+              "score": 2.3,
+              "coverage": 1
+            },
+            {
+              "title": "1 Kings.json",
+              "source_path": "public/bible/asv/1 Kings.json",
+              "score": 2.3,
+              "coverage": 1
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g19",
+      "question": "Meaning of hesed in Hebrew",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Meaning of hesed in Hebrew",
+            "hebrew hesed"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "hesed",
+            "hebrew",
+            "hesed",
+            "chesed",
+            "lovingkindness",
+            "steadfast"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "hebrew",
+            "hesed",
+            "hesed",
+            "chesed",
+            "lovingkindness",
+            "steadfast"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "Nehemiah.json",
+              "source_path": "public/bible/asv/Nehemiah.json",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "Isaiah.json",
+              "source_path": "public/bible/asv/Isaiah.json",
+              "score": 4.6,
+              "coverage": 2
+            },
+            {
+              "title": "Nehemiah.json",
+              "source_path": "public/bible/asv/Nehemiah.json",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "id": "g20",
+      "question": "Explain resurrection in 1 Corinthians 15",
+      "steps": [
+        {
+          "type": "decompose",
+          "subqueries": [
+            "Explain resurrection in 1 Corinthians 15",
+            "in 1",
+            "resurrection corinthians"
+          ]
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "resurrection",
+            "1",
+            "corinthians",
+            "15",
+            "corinthians",
+            "epistle"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "anchor",
+          "anchor": "1",
+          "limit": 80
+        },
+        {
+          "type": "query",
+          "mode": "orFilter",
+          "tokens": [
+            "resurrection",
+            "corinthians",
+            "corinthians",
+            "epistle",
+            "corinthians",
+            "resurrection"
+          ],
+          "limit": 80
+        },
+        {
+          "type": "rank",
+          "top": [
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 13.8,
+              "coverage": 6
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 13.8,
+              "coverage": 6
+            },
+            {
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 11.5,
+              "coverage": 5
+            }
+          ]
+        }
+      ],
+      "outcome": "pass"
+    }
+  ]
+}
