@@ -93,7 +93,7 @@ function decomposeQuery(query = '') {
   if (tokens.length >= 2) queries.push(`${tokens[0]} ${tokens[1]}`);
   else if (tokens.length === 1) queries.push(tokens[0]);
 
-  return Array.from(new Set(queries.map((q) => q.trim()).filter(Boolean))).slice(0, 4);
+  return Array.from(new Set(queries.map((q) => q.trim()).filter(Boolean))).slice(0, 3);
 }
 
 function isNoisePath(sourcePath = '') {
@@ -153,7 +153,7 @@ async function runQuery(supabase, query, trace) {
   const orFilter = buildOrFilter(qTokens);
   const anchor = strongestToken(qTokens, rewritten);
 
-  let request = supabase.from('sharp_kb_chunks').select('source_path,title,content').limit(80);
+  let request = supabase.from('sharp_kb_chunks').select('source_path,title,content').limit(50);
   if (qTokens.length <= 2 && anchor) {
     request = request.ilike('content', `%${anchor}%`);
     trace.steps.push({ type: 'query', mode: 'anchor', anchor, limit: 80 });
@@ -171,7 +171,7 @@ async function runQuery(supabase, query, trace) {
       .from('sharp_kb_chunks')
       .select('source_path,title,content')
       .ilike('content', `%${anchor || rewritten.trim()}%`)
-      .limit(40);
+      .limit(30);
     trace.steps.push({ type: 'retry', mode: 'fallback', anchor: anchor || rewritten.trim(), limit: 40 });
     data = fallback.data;
     error = fallback.error;

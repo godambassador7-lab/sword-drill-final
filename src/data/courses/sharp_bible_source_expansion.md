@@ -27,6 +27,13 @@ Council of Nicaea (Nicea), Nicene Creed, early church fathers, Reformation, conf
 4. Canon questions (example: apocrypha books)
 5. Cross-reference and topical study (example: verses on prayer)
 
+## Targeted Q-A Anchors
+John 3:16 explains God's love and the promise of eternal life through belief in Jesus.
+Romans 8:28 says all things work together for good to those who love God.
+The Trinity means one God in three Persons: Father, Son, and Holy Spirit.
+Strong's Concordance is a Bible study index for original-language word references.
+Apocrypha refers to deuterocanonical books included in some traditions.
+
 ## Sword Drill Feature Intent Anchors
 study plans, courses, quizzes, memory verses, progress tracking, translation settings, lexicon study, Strong's lookup.
 

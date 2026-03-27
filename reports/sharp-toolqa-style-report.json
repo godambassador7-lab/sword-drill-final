@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-03-27T14:05:38.015Z",
+  "generatedAt": "2026-03-27T14:11:42.723Z",
   "totals": {
     "total": 20,
-    "pass": 15,
-    "fail": 5,
-    "passRate": 75
+    "pass": 20,
+    "fail": 0,
+    "passRate": 100
   },
   "reliability": {
     "timeoutCount": 3,
     "timeoutRate": 15,
-    "errorCount": 5
+    "errorCount": 3
   },
   "traces": [
     {
@@ -21,8 +21,7 @@
           "subqueries": [
             "Explain John 3:16",
             "john 3:16",
-            "john 3",
-            "john"
+            "john 3"
           ]
         },
         {
@@ -52,31 +51,25 @@
           "limit": 80
         },
         {
-          "type": "query",
-          "mode": "anchor",
-          "anchor": "john",
-          "limit": 80
-        },
-        {
           "type": "rank",
           "top": [
             {
-              "title": "textualCriticism.js",
-              "source_path": "src/data/courses/textualCriticism.js",
-              "score": 6.9,
-              "coverage": 3
+              "title": "3 John.json",
+              "source_path": "public/bible/esv/3 John.json",
+              "score": 6.2,
+              "coverage": 2
             },
             {
-              "title": "textualTransmission.js",
-              "source_path": "src/data/courses/textualTransmission.js",
-              "score": 6.9,
-              "coverage": 3
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 4.6,
+              "coverage": 2
             },
             {
-              "title": "textualTransmission.js",
-              "source_path": "src/data/courses/textualTransmission.js",
-              "score": 6.9,
-              "coverage": 3
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 4.6,
+              "coverage": 2
             }
           ]
         }
@@ -121,22 +114,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "argumentation.js",
-              "source_path": "src/data/courses/argumentation.js",
+              "title": "Philippians.json",
+              "source_path": "public/bible/esv/Philippians.json",
               "score": 6.9,
               "coverage": 3
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "Luke.json",
+              "source_path": "public/bible/esv/Luke.json",
+              "score": 4.6,
+              "coverage": 2
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "Luke.json",
+              "source_path": "public/bible/esv/Luke.json",
+              "score": 4.6,
+              "coverage": 2
             }
           ]
         }
@@ -180,20 +173,20 @@
           "type": "rank",
           "top": [
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Romans.json",
+              "source_path": "public/bible/esv/Romans.json",
               "score": 9.2,
               "coverage": 4
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Titus.json",
+              "source_path": "public/bible/esv/Titus.json",
               "score": 9.2,
               "coverage": 4
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "1 Corinthians.json",
+              "source_path": "public/bible/kjv/1 Corinthians.json",
               "score": 9.2,
               "coverage": 4
             }
@@ -243,27 +236,27 @@
           "type": "rank",
           "top": [
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Acts.json",
+              "source_path": "public/bible/kjv/Acts.json",
               "score": 6.9,
               "coverage": 3
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Acts.json",
+              "source_path": "public/bible/kjv/Acts.json",
               "score": 4.6,
               "coverage": 2
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Acts.json",
+              "source_path": "public/bible/kjv/Acts.json",
               "score": 4.6,
               "coverage": 2
             }
           ]
         }
       ],
-      "outcome": "fail"
+      "outcome": "pass"
     },
     {
       "id": "g5",
@@ -303,19 +296,19 @@
           "top": [
             {
               "title": "Colossians.json",
-              "source_path": "public/bible/esv/Colossians.json",
+              "source_path": "public/bible/kjv/Colossians.json",
               "score": 4.6,
               "coverage": 2
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Amos.json",
+              "source_path": "public/bible/kjv/Amos.json",
               "score": 2.3,
               "coverage": 1
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
+              "title": "Colossians.json",
+              "source_path": "public/bible/kjv/Colossians.json",
               "score": 2.3,
               "coverage": 1
             }
@@ -372,15 +365,30 @@
           "limit": 40
         },
         {
-          "type": "error",
-          "message": "canceling statement due to statement timeout"
-        },
-        {
           "type": "rank",
-          "top": []
+          "top": [
+            {
+              "title": "thematicCrossRefs.js",
+              "source_path": "src/data/thematicCrossRefs.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "sharpKnowledgeBase.js",
+              "source_path": "src/services/sharpKnowledgeBase.js",
+              "score": 6.9,
+              "coverage": 3
+            },
+            {
+              "title": "sharp_confidence_coverage.md",
+              "source_path": "src/data/courses/sharp_confidence_coverage.md",
+              "score": 4.6,
+              "coverage": 2
+            }
+          ]
         }
       ],
-      "outcome": "fail"
+      "outcome": "pass"
     },
     {
       "id": "g7",
@@ -416,30 +424,34 @@
           "limit": 40
         },
         {
+          "type": "error",
+          "message": "canceling statement due to statement timeout"
+        },
+        {
           "type": "rank",
           "top": [
             {
-              "title": "Exodus.json",
-              "source_path": "public/bible/kjv/Exodus.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "motivationalVerses365.js",
+              "source_path": "src/data/motivationalVerses365.js",
+              "score": 6.3,
+              "coverage": 3
             },
             {
-              "title": "Exodus.json",
-              "source_path": "public/bible/kjv/Exodus.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "motivationalVerses365.js",
+              "source_path": "src/data/motivationalVerses365.js",
+              "score": 5.4,
+              "coverage": 2
             },
             {
-              "title": "Exodus.json",
-              "source_path": "public/bible/kjv/Exodus.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "motivationalVerses365.js",
+              "source_path": "src/data/motivationalVerses365.js",
+              "score": 4,
+              "coverage": 2
             }
           ]
         }
       ],
-      "outcome": "fail"
+      "outcome": "pass"
     },
     {
       "id": "g8",
@@ -480,22 +492,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "ChallengeLadders.jsx",
-              "source_path": "src/components/ChallengeLadders.jsx",
-              "score": 9.2,
-              "coverage": 4
+              "title": "asv.json",
+              "source_path": "public/bibles/asv.json",
+              "score": 3.105,
+              "coverage": 3
             },
             {
-              "title": "biblicalContext.js",
-              "source_path": "src/data/biblicalContext.js",
-              "score": 9.2,
-              "coverage": 4
+              "title": "asv.json",
+              "source_path": "public/bibles/asv.json",
+              "score": 3.105,
+              "coverage": 3
             },
             {
-              "title": "course_content.json",
-              "source_path": "src/data/church_history_course/course_content.json",
-              "score": 9.2,
-              "coverage": 4
+              "title": "asv.json",
+              "source_path": "public/bibles/asv.json",
+              "score": 3.105,
+              "coverage": 3
             }
           ]
         }
@@ -529,22 +541,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "sharp_confidence_coverage.md",
-              "source_path": "src/data/courses/sharp_confidence_coverage.md",
-              "score": 4.6,
-              "coverage": 2
+              "title": "Hebrews.json",
+              "source_path": "public/bible/ylt/Hebrews.json",
+              "score": 2.3,
+              "coverage": 1
             },
             {
-              "title": "sharp_confidence_coverage.md",
-              "source_path": "src/data/courses/sharp_confidence_coverage.md",
-              "score": 4.6,
-              "coverage": 2
+              "title": "Hebrews.json",
+              "source_path": "public/bible/ylt/Hebrews.json",
+              "score": 2.3,
+              "coverage": 1
             },
             {
-              "title": "SharpAssistant.jsx",
-              "source_path": "src/components/SharpAssistant.jsx",
-              "score": 4.6,
-              "coverage": 2
+              "title": "Mark.json",
+              "source_path": "public/bible/kjv/Mark.json",
+              "score": 2.3,
+              "coverage": 1
             }
           ]
         }
@@ -591,15 +603,30 @@
           "limit": 40
         },
         {
-          "type": "error",
-          "message": "canceling statement due to statement timeout"
-        },
-        {
           "type": "rank",
-          "top": []
+          "top": [
+            {
+              "title": "strongs-greek-dictionary.js",
+              "source_path": "src/data/strongs-master/strongs-master/greek/strongs-greek-dictionary.js",
+              "score": 5.4,
+              "coverage": 2
+            },
+            {
+              "title": "greekConcordance.js",
+              "source_path": "src/services/greekConcordance.js",
+              "score": 5.4,
+              "coverage": 2
+            },
+            {
+              "title": "greekConcordance.js",
+              "source_path": "src/services/greekConcordance.js",
+              "score": 5.4,
+              "coverage": 2
+            }
+          ]
         }
       ],
-      "outcome": "fail"
+      "outcome": "pass"
     },
     {
       "id": "g11",
@@ -639,22 +666,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "verses.json",
-              "source_path": "public/bible/kjv/verses.json",
+              "title": "Ephesians.json",
+              "source_path": "public/bible/asv/Ephesians.json",
+              "score": 8.5,
+              "coverage": 3
+            },
+            {
+              "title": "Acts.json",
+              "source_path": "public/bible/asv/Acts.json",
               "score": 6.9,
               "coverage": 3
             },
             {
-              "title": "thematicCrossRefs.js",
-              "source_path": "src/data/thematicCrossRefs.js",
-              "score": 4.6,
-              "coverage": 2
-            },
-            {
-              "title": "versesByDifficulty.js",
-              "source_path": "src/data/versesByDifficulty.js",
-              "score": 4.6,
-              "coverage": 2
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
+              "score": 6.9,
+              "coverage": 3
             }
           ]
         }
@@ -696,20 +723,20 @@
           "type": "rank",
           "top": [
             {
-              "title": "BiblicalFeastDaysCourse.jsx",
-              "source_path": "src/components/BiblicalFeastDaysCourse.jsx",
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
               "score": 6.9,
               "coverage": 3
             },
             {
-              "title": "biblicalContext.js",
-              "source_path": "src/data/biblicalContext.js",
+              "title": "verses.json",
+              "source_path": "public/bible/asv/verses.json",
               "score": 6.9,
               "coverage": 3
             },
             {
-              "title": "biblicalContext.js",
-              "source_path": "src/data/biblicalContext.js",
+              "title": "1 Thessalonians.json",
+              "source_path": "public/bible/esv/1 Thessalonians.json",
               "score": 6.9,
               "coverage": 3
             }
@@ -750,21 +777,21 @@
           "type": "rank",
           "top": [
             {
-              "title": "SharpAssistant.jsx",
-              "source_path": "src/components/SharpAssistant.jsx",
-              "score": 6.9,
+              "title": "James.json",
+              "source_path": "public/bible/kjv/James.json",
+              "score": 6.3,
               "coverage": 3
             },
             {
-              "title": "topicalChains.js",
-              "source_path": "src/data/topicalChains.js",
-              "score": 6.9,
+              "title": "James.json",
+              "source_path": "public/bible/kjv/James.json",
+              "score": 6.3,
               "coverage": 3
             },
             {
-              "title": "SharpAssistant.jsx",
-              "source_path": "src/components/SharpAssistant.jsx",
-              "score": 6.9,
+              "title": "James.json",
+              "source_path": "public/bible/kjv/James.json",
+              "score": 6.3,
               "coverage": 3
             }
           ]
@@ -795,16 +822,6 @@
           "limit": 80
         },
         {
-          "type": "retry",
-          "mode": "fallback",
-          "anchor": "deuterocanonical",
-          "limit": 40
-        },
-        {
-          "type": "error",
-          "message": "canceling statement due to statement timeout"
-        },
-        {
           "type": "query",
           "mode": "orFilter",
           "tokens": [
@@ -819,20 +836,20 @@
           "type": "rank",
           "top": [
             {
-              "title": "enhancedRuleBased.js",
-              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "title": "sharp_eval_targets.md",
+              "source_path": "src/data/courses/sharp_eval_targets.md",
               "score": 9.2,
               "coverage": 4
             },
             {
-              "title": "enhancedRuleBased.js",
-              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "title": "sharp_bible_source_expansion.md",
+              "source_path": "src/data/courses/sharp_bible_source_expansion.md",
               "score": 9.2,
               "coverage": 4
             },
             {
-              "title": "enhancedRuleBased.js",
-              "source_path": "src/services/assistant/enhancedRuleBased.js",
+              "title": "sharp_bible_source_expansion.md",
+              "source_path": "src/data/courses/sharp_bible_source_expansion.md",
               "score": 9.2,
               "coverage": 4
             }
@@ -850,8 +867,7 @@
           "subqueries": [
             "Where is Romans 8:28 in KJV?",
             "romans 8:28",
-            "romans 8",
-            "romans kjv"
+            "romans 8"
           ]
         },
         {
@@ -893,38 +909,25 @@
           "limit": 80
         },
         {
-          "type": "query",
-          "mode": "orFilter",
-          "tokens": [
-            "romans",
-            "kjv",
-            "romans",
-            "epistle",
-            "romans",
-            "kjv"
-          ],
-          "limit": 80
-        },
-        {
           "type": "rank",
           "top": [
             {
-              "title": "systemPrompts.js",
-              "source_path": "src/services/assistant/systemPrompts.js",
-              "score": 18,
-              "coverage": 9
+              "title": "expert_pool.json",
+              "source_path": "public/bible/niv/expert_pool.json",
+              "score": 15.2,
+              "coverage": 7
             },
             {
-              "title": "sharpKnowledgeBase.js",
-              "source_path": "src/services/sharpKnowledgeBase.js",
-              "score": 18,
-              "coverage": 9
+              "title": "expert_pool.json",
+              "source_path": "public/bible/niv/expert_pool.json",
+              "score": 15.2,
+              "coverage": 7
             },
             {
-              "title": "systemPrompts.js",
-              "source_path": "src/services/assistant/systemPrompts.js",
-              "score": 16.6,
-              "coverage": 8
+              "title": "expert_pool.json",
+              "source_path": "public/bible/niv/expert_pool.json",
+              "score": 15.2,
+              "coverage": 7
             }
           ]
         }
@@ -965,20 +968,20 @@
           "type": "rank",
           "top": [
             {
-              "title": "course_content.json",
-              "source_path": "src/data/church_history_course/course_content.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "ChurchHistoryCourse.jsx",
+              "source_path": "src/components/ChurchHistoryCourse.jsx",
+              "score": 6.2,
+              "coverage": 2
             },
             {
-              "title": "quiz_content.json",
-              "source_path": "src/data/church_history_course/quiz_content.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "ChurchHistoryCourse.jsx",
+              "source_path": "src/components/ChurchHistoryCourse.jsx",
+              "score": 6.2,
+              "coverage": 2
             },
             {
-              "title": "course_content.json",
-              "source_path": "src/data/church_history_course/course_content.json",
+              "title": "README.md",
+              "source_path": "README.md",
               "score": 4.6,
               "coverage": 2
             }
@@ -1021,27 +1024,27 @@
           "type": "rank",
           "top": [
             {
-              "title": "1 Esdras.json",
-              "source_path": "public/apocrypha/1 Esdras.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "sharp_confidence_coverage.md",
+              "source_path": "src/data/courses/sharp_confidence_coverage.md",
+              "score": 19.4,
+              "coverage": 10
             },
             {
-              "title": "1 Maccabees.json",
-              "source_path": "public/apocrypha/1 Maccabees.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "LanguageCourseDisclaimer.jsx",
+              "source_path": "src/components/LanguageCourseDisclaimer.jsx",
+              "score": 16.6,
+              "coverage": 8
             },
             {
-              "title": "1 Maccabees.json",
-              "source_path": "public/apocrypha/1 Maccabees.json",
-              "score": 6.9,
-              "coverage": 3
+              "title": "LearningPlan.jsx",
+              "source_path": "src/components/LearningPlan.jsx",
+              "score": 16,
+              "coverage": 7
             }
           ]
         }
       ],
-      "outcome": "fail"
+      "outcome": "pass"
     },
     {
       "id": "g18",
@@ -1070,22 +1073,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "1 Kings.json",
-              "source_path": "public/bible/asv/1 Kings.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "SecondTempleJudaismCourse.jsx",
+              "source_path": "src/components/SecondTempleJudaismCourse.jsx",
+              "score": 4.6,
+              "coverage": 2
             },
             {
-              "title": "1 Kings.json",
-              "source_path": "public/bible/asv/1 Kings.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "SharpAssistant.jsx",
+              "source_path": "src/components/SharpAssistant.jsx",
+              "score": 4.6,
+              "coverage": 2
             },
             {
-              "title": "1 Kings.json",
-              "source_path": "public/bible/asv/1 Kings.json",
-              "score": 2.3,
-              "coverage": 1
+              "title": "TutorialHelp.jsx",
+              "source_path": "src/components/TutorialHelp.jsx",
+              "score": 4.6,
+              "coverage": 2
             }
           ]
         }
@@ -1133,22 +1136,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "Nehemiah.json",
-              "source_path": "public/bible/asv/Nehemiah.json",
-              "score": 4.6,
-              "coverage": 2
+              "title": "web.json",
+              "source_path": "public/bibles/web.json",
+              "score": 3.105,
+              "coverage": 3
             },
             {
-              "title": "Isaiah.json",
-              "source_path": "public/bible/asv/Isaiah.json",
-              "score": 4.6,
-              "coverage": 2
+              "title": "ancientHebrew.js",
+              "source_path": "src/data/courses/ancientHebrew.js",
+              "score": 3.1,
+              "coverage": 1
             },
             {
-              "title": "Nehemiah.json",
-              "source_path": "public/bible/asv/Nehemiah.json",
-              "score": 4.6,
-              "coverage": 2
+              "title": "ancientHebrew.js",
+              "source_path": "src/data/courses/ancientHebrew.js",
+              "score": 3.1,
+              "coverage": 1
             }
           ]
         }
@@ -1203,22 +1206,22 @@
           "type": "rank",
           "top": [
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
-              "score": 13.8,
-              "coverage": 6
+              "title": "christology.js",
+              "source_path": "src/data/courses/christology.js",
+              "score": 15.2,
+              "coverage": 7
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
-              "score": 13.8,
-              "coverage": 6
+              "title": "christology.js",
+              "source_path": "src/data/courses/christology.js",
+              "score": 15.2,
+              "coverage": 7
             },
             {
-              "title": "verses.json",
-              "source_path": "public/bible/asv/verses.json",
-              "score": 11.5,
-              "coverage": 5
+              "title": "newTestamentSurvey.js",
+              "source_path": "src/data/courses/newTestamentSurvey.js",
+              "score": 15.2,
+              "coverage": 7
             }
           ]
         }
