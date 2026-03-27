@@ -10,6 +10,7 @@ const OUT_OF_COVERAGE_RESPONSE =
 
 const DEBUG_CONFIDENCE = process.env.REACT_APP_SHARP_DEBUG_CONFIDENCE === 'true';
 const LOG_RETRIEVAL = process.env.REACT_APP_SHARP_LOG_RETRIEVAL === 'true';
+const INCLUDE_LIBRARY_NOTES = process.env.REACT_APP_SHARP_INCLUDE_LIBRARY_NOTES === 'true';
 
 const DOMAIN_KEYWORDS = [
   'bible', 'scripture', 'verse', 'old testament', 'new testament', 'jesus', 'moses',
@@ -199,7 +200,7 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
   });
   metadata.kbHits = kbHits.length;
 
-  if (kbHits.length > 0) {
+  if (INCLUDE_LIBRARY_NOTES && kbHits.length > 0) {
     const kbSection = kbHits
       .map((hit, idx) => `${idx + 1}. ${hit.title} (${hit.source_path})\n   ${hit.preview}`)
       .join('\n');

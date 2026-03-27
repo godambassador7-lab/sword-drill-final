@@ -184,6 +184,27 @@ function minCoverageForIntent(intentKey = '') {
   return 1;
 }
 
+function minMatchRatioForIntent(intentKey = '') {
+  if (intentKey.startsWith('scripture.reference_lookup')) return 0.25;
+  if (intentKey.startsWith('scripture.word_study')) return 0.4;
+  if (intentKey.startsWith('theology') || intentKey.startsWith('apologetics')) return 0.35;
+  if (intentKey.startsWith('church_history')) return 0.35;
+  if (intentKey.startsWith('app.')) return 0.4;
+  return 0.3;
+}
+
+function dedupeBySource(rows = []) {
+  const seen = new Set();
+  const out = [];
+  for (const row of rows) {
+    const source = String(row?.source_path || '');
+    if (!source || seen.has(source)) continue;
+    seen.add(source);
+    out.push(row);
+  }
+  return out;
+}
+
 function shouldKeepByIntent(row, intentProfile = null) {
   if (!intentProfile?.key) return true;
   const key = String(intentProfile.key);
@@ -224,6 +245,43 @@ function buildOrFilter(tokens) {
   return escaped.map((t) => `content.ilike.%${t}%`).join(',');
 }
 
+function extractReferenceSignals(query = '') {
+  const refs = [];
+  const lower = query.toLowerCase();
+  const fullRef = lower.match(/\b([1-3]?\s?[a-z]+)\s+(\d{1,3}):(\d{1,3})\b/);
+  if (fullRef) refs.push(`${fullRef[1]} ${fullRef[2]}:${fullRef[3]}`);
+  const chapterRef = lower.match(/\b([1-3]?\s?[a-z]+)\s+(\d{1,3})\b/);
+  if (chapterRef) refs.push(`${chapterRef[1]} ${chapterRef[2]}`);
+  return Array.from(new Set(refs));
+}
+
+function decomposeQuery(query = '', intentKey = '') {
+  const cleaned = String(query || '').trim();
+  if (!cleaned) return [];
+  const queries = [cleaned];
+  const references = extractReferenceSignals(cleaned);
+  queries.push(...references);
+
+  const tokens = tokenize(cleaned)
+    .filter((t) => !/^\d{1,3}$/.test(t))
+    .sort((a, b) => b.length - a.length);
+
+  if (tokens.length >= 2) {
+    queries.push(`${tokens[0]} ${tokens[1]}`);
+  } else if (tokens.length === 1) {
+    queries.push(tokens[0]);
+  }
+
+  if (intentKey.startsWith('app.')) {
+    queries.push(`${cleaned} sword drill app`);
+    if (cleaned.toLowerCase().includes('study')) {
+      queries.push('sword drill study plans');
+    }
+  }
+
+  return Array.from(new Set(queries.map((q) => q.trim()).filter(Boolean))).slice(0, 4);
+}
+
 function snippet(content, max = 240) {
   if (!content) return '';
   const clean = content.replace(/\s+/g, ' ').trim();
@@ -243,12 +301,12 @@ function strongestToken(tokens = [], fallbackText = '') {
   return simple.length ? simple.sort((a, b) => b.length - a.length)[0] : '';
 }
 
-async function runKbQuery(rewrittenQuery, orFilter, retry = true) {
+async function runKbQuery(rewrittenQuery, orFilter, retry = true, queryLimit = 60) {
   const tokens = tokenize(rewrittenQuery);
   let request = supabase
     .from(KB_TABLE)
     .select('source_path, title, chunk_index, content, metadata')
-    .limit(60);
+    .limit(queryLimit);
 
   const anchor = strongestToken(tokens, rewrittenQuery);
   if (tokens.length <= 2 && anchor) {
@@ -269,7 +327,7 @@ async function runKbQuery(rewrittenQuery, orFilter, retry = true) {
   let fallback = supabase
     .from(KB_TABLE)
     .select('source_path, title, chunk_index, content, metadata')
-    .limit(40);
+    .limit(Math.max(20, Math.floor(queryLimit * 0.66)));
   fallback = fallbackAnchor
     ? fallback.ilike('content', `%${fallbackAnchor}%`)
     : fallback.ilike('content', `%${rewrittenQuery.trim()}%`);
@@ -297,37 +355,68 @@ export async function searchSharpKnowledge(query, limit = 4, options = {}) {
   }
 
   const tokens = tokenize(rewrittenQuery);
-  const orFilter = buildOrFilter(tokens);
   const minCoverage = minCoverageForIntent(intentKey);
+  const minRatio = minMatchRatioForIntent(intentKey);
+  const subqueries = decomposeQuery(rewrittenQuery, intentKey);
 
-  const { data, error } = await runKbQuery(rewrittenQuery, orFilter, true);
-  if (error || !Array.isArray(data)) {
-    return [];
+  const allCandidates = [];
+  for (const subquery of subqueries) {
+    const subTokens = tokenize(subquery);
+    const subOrFilter = buildOrFilter(subTokens);
+    const { data, error } = await runKbQuery(subquery, subOrFilter, true, 45);
+    if (error || !Array.isArray(data)) continue;
+    allCandidates.push(...data);
   }
 
-  const rows = data
+  if (!allCandidates.length) {
+    const orFilter = buildOrFilter(tokens);
+    const { data, error } = await runKbQuery(rewrittenQuery, orFilter, true, 60);
+    if (error || !Array.isArray(data)) {
+      return [];
+    }
+    allCandidates.push(...data);
+  }
+
+  const seen = new Set();
+  const dedupedCandidates = [];
+  for (const row of allCandidates) {
+    const key = `${row?.source_path || ''}::${row?.chunk_index ?? -1}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    dedupedCandidates.push(row);
+  }
+
+  const scoredRows = dedupedCandidates
     .filter((row) => !isNoisePath(row.source_path))
     .map((row) => ({
       ...row,
       sourceKind: inferSourceKind(row.source_path, row.title, row.metadata),
       score: 0,
       coverage: 0,
+      matchRatio: 0,
       preview: snippet(row.content)
     }))
     .map((row) => {
       const text = `${row.title || ''}\n${row.content || ''}`;
       const lexical = scoreHit(rewrittenQuery, row.content, row.title);
       const coverage = coverageCount(tokens, text);
+      const matchRatio = tokens.length > 0 ? (coverage / tokens.length) : 0;
       const coverageBoost = Math.min(coverage, 6) * 0.9;
       const weighted = applySourceWeight(lexical + coverageBoost, row.sourceKind);
       const score = applySpecificityPenalty(weighted, row.source_path, row.title);
-      return { ...row, coverage, score };
+      return { ...row, coverage, matchRatio, score };
     })
     .filter((row) => shouldKeepByIntent(row, options?.intentProfile))
     .filter((row) => shouldKeepByTranslation(row, options?.selectedTranslation))
     .filter((row) => row.coverage >= minCoverage)
+    .filter((row) => row.matchRatio >= minRatio)
     .filter((row) => row.score >= 2.2)
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => b.score - a.score);
+
+  const topScore = scoredRows[0]?.score || 0;
+  const bandFloor = topScore > 0 ? topScore * 0.58 : 0;
+  const rows = dedupeBySource(scoredRows)
+    .filter((row) => row.score >= bandFloor)
     .slice(0, Math.max(1, limit));
 
   setCached(cacheKey, rows);
@@ -374,6 +463,7 @@ export async function searchSharpKnowledgeVector(query, limit = 4, options = {})
       const queryTokens = tokenize(query);
       const text = `${row.title || ''}\n${row.content || ''}`;
       const coverage = coverageCount(queryTokens, text);
+      const matchRatio = queryTokens.length > 0 ? (coverage / queryTokens.length) : 0;
       const coverageBoost = Math.min(coverage, 6) * 0.06;
       const rerankedBase = (semantic * 0.75) + (lexical * 0.25) + coverageBoost;
       const rerankedWeighted = applySourceWeight(rerankedBase, sourceKind);
@@ -385,6 +475,7 @@ export async function searchSharpKnowledgeVector(query, limit = 4, options = {})
         content: row.content,
         sourceKind,
         coverage,
+        matchRatio,
         score: reranked,
         semanticScore: semantic,
         preview: snippet(row.content)
@@ -393,6 +484,7 @@ export async function searchSharpKnowledgeVector(query, limit = 4, options = {})
     .filter((row) => shouldKeepByIntent(row, options?.intentProfile))
     .filter((row) => shouldKeepByTranslation(row, options?.selectedTranslation))
     .filter((row) => row.coverage >= minCoverage)
+    .filter((row) => row.matchRatio >= minMatchRatioForIntent(options?.intentProfile?.key || 'none'))
     .sort((a, b) => b.score - a.score)
     .slice(0, Math.max(1, limit));
 }
