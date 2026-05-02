@@ -2,7 +2,6 @@
   "name": "sword-drill",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://godambassador7-lab.github.io/sword-drill-final",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
     "@hebcal/core": "^6.0.6",

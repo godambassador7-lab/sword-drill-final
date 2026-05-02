@@ -20,7 +20,7 @@ const MAX_FILE_BYTES = 30 * 1024 * 1024; // 30 MB per file
 const DEFAULT_TARGET_MB = 900;
 const CHUNK_SIZE = 1200;
 const CHUNK_OVERLAP = 180;
-const BATCH_SIZE = 250;
+const DEFAULT_BATCH_SIZE = 250;
 
 const IGNORE_DIRS = new Set([
   'node_modules',
@@ -282,6 +282,8 @@ async function main() {
   }
 
   const targetMB = Number(getArgValue('target-mb', String(DEFAULT_TARGET_MB)));
+  const parsedBatchSize = Number(getArgValue('batch-size', String(DEFAULT_BATCH_SIZE)));
+  const batchSize = Number.isFinite(parsedBatchSize) ? Math.max(1, parsedBatchSize) : DEFAULT_BATCH_SIZE;
   const targetBytes = Math.floor(targetMB * 1024 * 1024);
   const sourceArg = getArgValue('sources');
   const sourceList = sourceArg
@@ -350,7 +352,7 @@ async function main() {
       insertedBytes += bytes;
       insertedRows += 1;
 
-      if (pendingRows.length >= BATCH_SIZE) {
+      if (pendingRows.length >= batchSize) {
         await insertBatch(supabase, pendingRows.splice(0, pendingRows.length));
         console.log(`Inserted rows: ${insertedRows} | Approx text bytes: ${insertedBytes}`);
       }
