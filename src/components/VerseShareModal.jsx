@@ -189,8 +189,8 @@ const VerseShareModal = ({ verse, onClose, show = true }) => {
   const verseText = verse.text || verse.verse || '';
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 border-2 border-amber-500/50 rounded-2xl max-w-2xl w-full shadow-2xl shadow-amber-500/20 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 overflow-y-auto">
+      <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 border-2 border-amber-500/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-amber-500/20 animate-fade-in my-auto">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-6 rounded-t-xl border-b-2 border-amber-500/30 flex items-center justify-between">
           <div className="flex items-center gap-3">

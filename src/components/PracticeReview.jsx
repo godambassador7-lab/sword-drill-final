@@ -429,8 +429,8 @@ const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
     const mastery = progress?.practiceMastery || {};
 
     return (
-      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={() => setShowProgressModal(null)}>
-        <div className="bg-slate-800 rounded-xl border-2 border-purple-500 max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 overflow-y-auto" onClick={() => setShowProgressModal(null)}>
+        <div className="bg-slate-800 rounded-xl border-2 border-purple-500 max-w-md w-full max-h-[80vh] overflow-y-auto p-6 my-auto" onClick={(e) => e.stopPropagation()}>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Award className="text-purple-400" size={24} />

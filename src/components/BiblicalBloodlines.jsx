@@ -973,7 +973,7 @@ const BiblicalBloodlines = ({ onClose }) => {
                           <BookOpen size={16} />
                           Smith's Bible Dictionary
                         </h3>
-                        <div className="space-y-2 max-h-32 overflow-y-auto">
+                        <div className="space-y-2 max-h-48 overflow-y-auto">
                           {defs.slice(0, 3).map((d, idx) => (
                             <p key={idx} className="text-slate-200 text-sm leading-relaxed">
                               {d}

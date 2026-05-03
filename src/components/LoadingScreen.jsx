@@ -125,15 +125,12 @@ const LoadingScreen = ({ onComplete }) => {
 
         {/* App title */}
         <h1
-          className="text-5xl font-black tracking-tight mb-1 select-none"
+          className="text-5xl font-black tracking-tight mb-1 select-none loading-gradient-text"
           style={{
-            background: `linear-gradient(135deg, ${c1}, ${c2})`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            textShadow: 'none',
+            color: '#fbbf24',
             filter: `drop-shadow(0 0 18px ${c1}99)`,
             transition: 'filter 0.5s ease, background 0.5s ease',
+            '--loading-grad': `linear-gradient(135deg, ${c1}, ${c2})`
           }}
         >
           Sword Drill
@@ -191,14 +188,12 @@ const LoadingScreen = ({ onComplete }) => {
         {/* Percentage label */}
         <div className="flex justify-end w-full">
           <span
-            className="text-3xl font-black tabular-nums"
+            className="text-3xl font-black tabular-nums loading-gradient-text"
             style={{
-              background: `linear-gradient(135deg, ${c1}, ${c2})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: '#fbbf24',
               filter: `drop-shadow(0 0 8px ${c1}88)`,
               transition: 'filter 0.4s, background 0.5s',
+              '--loading-grad': `linear-gradient(135deg, ${c1}, ${c2})`
             }}
           >
             {rounded}%
@@ -223,6 +218,17 @@ const LoadingScreen = ({ onComplete }) => {
       </div>
 
       <style>{`
+        .loading-gradient-text {
+          background: var(--loading-grad);
+        }
+        @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+          .loading-gradient-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+          }
+        }
         @keyframes shimmer {
           0%   { transform: translateX(-100%); }
           100% { transform: translateX(300%); }

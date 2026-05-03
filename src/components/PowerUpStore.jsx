@@ -174,8 +174,8 @@ const PowerUpStore = ({ onBack, userData, setUserData, userId }) => {
 
         {/* Quiz Type Selector Modal */}
         {showQuizSelector && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70" onClick={() => setShowQuizSelector(false)}>
-            <div className="bg-slate-800 rounded-2xl p-6 max-w-md w-full border-2 border-amber-500/30" onClick={(e) => e.stopPropagation()}>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 overflow-y-auto" onClick={() => setShowQuizSelector(false)}>
+            <div className="bg-slate-800 rounded-2xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto border-2 border-amber-500/30 my-auto" onClick={(e) => e.stopPropagation()}>
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-amber-400">Select Quiz Type</h2>
                 <button onClick={() => setShowQuizSelector(false)} className="text-slate-400 hover:text-white">

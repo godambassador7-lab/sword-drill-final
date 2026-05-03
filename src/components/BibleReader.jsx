@@ -1080,8 +1080,8 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
         </>
       )}
       {strongsPopover && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setStrongsPopover(null)}>
-          <div className="bg-slate-800 border border-emerald-500/50 rounded-xl p-4 max-w-lg w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto" onClick={() => setStrongsPopover(null)}>
+          <div className="bg-slate-800 border border-emerald-500/50 rounded-xl p-4 max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-2xl my-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-2">
               <div className="text-amber-400 font-bold text-lg">{strongsPopover.code}</div>
               <button onClick={() => setStrongsPopover(null)} className="text-slate-300 hover:text-white transition-colors">
