@@ -9,10 +9,12 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
  * Includes back, forward, and exit navigation.
  *
  * @param {Function} onClose - Callback to close the walkthrough
+ * @param {Function} onComplete - Callback when walkthrough is finished
  * @param {Function} onNavigate - Callback to navigate to different views (currentView setter)
  * @param {Function} onOpenMenu - Callback to open the menu
+ * @param {boolean} mandatory - If true, tutorial cannot be exited early
  */
-const WalkthroughTutorial = ({ onClose, onNavigate, onOpenMenu }) => {
+const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mandatory = false }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [spotlightPosition, setSpotlightPosition] = useState(null);
   const overlayRef = useRef(null);
@@ -208,7 +210,8 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onOpenMenu }) => {
     if (currentStep < tutorialSteps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      onClose();
+      if (onComplete) onComplete();
+      else onClose();
     }
   };
 
@@ -219,6 +222,7 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onOpenMenu }) => {
   };
 
   const handleExit = () => {
+    if (mandatory) return;
     if (window.confirm('Are you sure you want to exit the tutorial?')) {
       onClose();
     }
@@ -348,13 +352,15 @@ const WalkthroughTutorial = ({ onClose, onNavigate, onOpenMenu }) => {
               Step {currentStep + 1} of {tutorialSteps.length}
             </p>
           </div>
-          <button
-            onClick={handleExit}
-            className="text-white/80 hover:text-white transition-colors ml-2"
-            aria-label="Exit tutorial"
-          >
-            <X size={24} />
-          </button>
+          {!mandatory && (
+            <button
+              onClick={handleExit}
+              className="text-white/80 hover:text-white transition-colors ml-2"
+              aria-label="Exit tutorial"
+            >
+              <X size={24} />
+            </button>
+          )}
         </div>
 
         {/* Content */}

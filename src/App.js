@@ -836,6 +836,7 @@ const awardCourseSectionPoints = (userData, setUserData, courseName, sectionId, 
 // Local persistence helpers for guest/offline progress
 const PROGRESS_STORAGE_KEY = 'swordDrillProgress';
 const LAST_TRANSLATION_KEY = 'lastSelectedTranslation';
+const ONBOARDING_TUTORIAL_COMPLETED_KEY = 'sd_onboarding_tutorial_completed_v1';
 
 const saveProgressToLocalStorage = (progress) => {
   try {
@@ -1694,6 +1695,7 @@ const SwordDrillApp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showWalkthrough, setShowWalkthrough] = useState(false);
+  const [isMandatoryWalkthrough, setIsMandatoryWalkthrough] = useState(false);
   const [showCoursesDropdown, setShowCoursesDropdown] = useState(false);
   const [showAssociateCourses, setShowAssociateCourses] = useState(false);
   const [showDiplomaCourses, setShowDiplomaCourses] = useState(false);
@@ -1895,6 +1897,29 @@ const SwordDrillApp = () => {
 
   // Streak Redemption System
   const [showStreakRedemption, setShowStreakRedemption] = useState(false);
+
+  // First-run onboarding: require walkthrough once, then persist completion.
+  useEffect(() => {
+    if (!isLoggedIn || isInitialLoading) return;
+    const completed = localStorage.getItem(ONBOARDING_TUTORIAL_COMPLETED_KEY) === 'true';
+    if (!completed) {
+      setCurrentView('home');
+      setShowMenu(false);
+      setIsMandatoryWalkthrough(true);
+      setShowWalkthrough(true);
+    }
+  }, [isLoggedIn, isInitialLoading]);
+
+  const handleWalkthroughComplete = () => {
+    localStorage.setItem(ONBOARDING_TUTORIAL_COMPLETED_KEY, 'true');
+    setIsMandatoryWalkthrough(false);
+    setShowWalkthrough(false);
+  };
+
+  const handleWalkthroughClose = () => {
+    if (isMandatoryWalkthrough) return;
+    setShowWalkthrough(false);
+  };
 
   // Monitor for streak loss and show redemption offer
   useEffect(() => {
@@ -10691,7 +10716,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <TutorialHelp
             onBack={() => setCurrentView('home')}
             onNavigate={setCurrentView}
-            onStartWalkthrough={() => setShowWalkthrough(true)}
+            onStartWalkthrough={() => {
+              setIsMandatoryWalkthrough(false);
+              setShowWalkthrough(true);
+            }}
           />
         )}
         {currentView === 'bonus-quizzes' && <BonusQuizzesView />}
@@ -13175,7 +13203,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
       {/* Interactive Walkthrough Tutorial */}
       {showWalkthrough && (
         <WalkthroughTutorial
-          onClose={() => setShowWalkthrough(false)}
+          mandatory={isMandatoryWalkthrough}
+          onClose={handleWalkthroughClose}
+          onComplete={handleWalkthroughComplete}
           onNavigate={setCurrentView}
           onOpenMenu={setShowMenu}
         />
