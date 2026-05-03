@@ -1760,6 +1760,7 @@ const SwordDrillApp = () => {
     quizzesCompleted: 0,
     currentStreak: 0, // Will be loaded from localStorage in useEffect to prevent bouncing
     streakLostAt: null, // Timestamp when streak was lost (for 24-hour redemption window)
+    streakRedemptionOfferStartedAt: null, // Starts when redemption offer is shown first time
     lastKnownStreak: 0, // Store the streak value before it was lost
     totalPoints: 0,
     achievements: [],
@@ -1897,38 +1898,58 @@ const SwordDrillApp = () => {
 
   // Monitor for streak loss and show redemption offer
   useEffect(() => {
+    const SIX_HOURS = 6 * 60 * 60 * 1000;
     const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
 
     if (userData.streakLostAt && userData.lastKnownStreak > 0) {
-      const elapsed = Date.now() - userData.streakLostAt;
+      const now = Date.now();
+      const offerStateKey = `streakRedemptionOfferState_${userData.streakLostAt}`;
+      const parsedState = JSON.parse(localStorage.getItem(offerStateKey) || '{}');
+      const firstShownAt = Number(userData.streakRedemptionOfferStartedAt || parsedState.firstShownAt || 0);
+      const lastShownAt = Number(parsedState.lastShownAt || 0);
+      const shownCount = Number(parsedState.shownCount || 0);
 
-      // Allow this popup to be dismissed up to 2 times per streak loss instance.
-      const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
-      const dismissalCount = Number(localStorage.getItem(dismissalCountKey) || '0');
-      const reachedDismissLimit = Number.isFinite(dismissalCount) && dismissalCount >= 2;
+      // Once the offer has shown the first time, redemption expires 24 hours later.
+      if (firstShownAt && now - firstShownAt >= TWENTY_FOUR_HOURS) {
+        setShowStreakRedemption(false);
+        setUserData(prev => ({
+          ...prev,
+          streakLostAt: null,
+          lastKnownStreak: 0,
+          streakRedemptionOfferStartedAt: null
+        }));
+        localStorage.removeItem(offerStateKey);
+        localStorage.removeItem(`streakRedemptionDismissCount_${userData.streakLostAt}`);
+        localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
+        return;
+      }
 
-      // Only show if within 24 hours, modal isn't already shown, and dismiss limit not reached.
-      if (elapsed < TWENTY_FOUR_HOURS && !showStreakRedemption && !reachedDismissLimit) {
-        // Delay showing the modal slightly to avoid overwhelming the user
+      const canShowByCount = shownCount < 3;
+      const canShowByCooldown = !lastShownAt || (now - lastShownAt >= SIX_HOURS);
+
+      // Show at most once every 6 hours and no more than 3 times in the 24-hour window.
+      if (!showStreakRedemption && canShowByCount && canShowByCooldown) {
         const timer = setTimeout(() => {
+          const shownNow = Date.now();
+          const effectiveFirstShownAt = firstShownAt || shownNow;
+          const nextState = {
+            firstShownAt: effectiveFirstShownAt,
+            lastShownAt: shownNow,
+            shownCount: shownCount + 1
+          };
+          localStorage.setItem(offerStateKey, JSON.stringify(nextState));
+          if (!userData.streakRedemptionOfferStartedAt) {
+            setUserData(prev => ({
+              ...prev,
+              streakRedemptionOfferStartedAt: effectiveFirstShownAt
+            }));
+          }
           setShowStreakRedemption(true);
         }, 2000);
         return () => clearTimeout(timer);
       }
-
-      // If expired, clear streak-loss metadata and cleanup dismissal tracking.
-      if (elapsed >= TWENTY_FOUR_HOURS) {
-        setUserData(prev => ({
-          ...prev,
-          streakLostAt: null,
-          lastKnownStreak: 0
-        }));
-        localStorage.removeItem(dismissalCountKey);
-        // Backward-compatible cleanup for older key format.
-        localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
-      }
     }
-  }, [userData.streakLostAt, userData.lastKnownStreak, showStreakRedemption]);
+  }, [userData.streakLostAt, userData.lastKnownStreak, userData.streakRedemptionOfferStartedAt, showStreakRedemption]);
 
   // Manna 24-Hour Expiry System
   useEffect(() => {
@@ -2180,6 +2201,7 @@ const SwordDrillApp = () => {
             ...prev,
             currentStreak: currentCalculatedStreak,
             streakLostAt: Date.now(),
+            streakRedemptionOfferStartedAt: null,
             lastKnownStreak: prev.currentStreak
           };
         }
@@ -3173,6 +3195,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
   // Streak Redemption Handlers
   const handleStreakRedemption = () => {
     const REDEMPTION_COST = 2000;
+    const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
 
     if (userData.totalPoints < REDEMPTION_COST) {
       showToast('Not enough points to redeem streak!', 'error');
@@ -3184,9 +3207,17 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
       return;
     }
 
+    const redemptionWindowStart = Number(userData.streakRedemptionOfferStartedAt || 0);
+    if (redemptionWindowStart && Date.now() - redemptionWindowStart >= TWENTY_FOUR_HOURS) {
+      showToast('24-hour redemption window expired!', 'error');
+      return;
+    }
+
     // Clean up dismissal tracking for this redeemed streak.
     const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
+    const offerStateKey = `streakRedemptionOfferState_${userData.streakLostAt}`;
     localStorage.removeItem(dismissalCountKey);
+    localStorage.removeItem(offerStateKey);
     // Backward-compatible cleanup for older key format.
     localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
 
@@ -3210,6 +3241,7 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
         currentStreak: restoredStreak,
         totalPoints: Math.max(0, currentPoints - REDEMPTION_COST),
         streakLostAt: null, // Clear the lost timestamp
+        streakRedemptionOfferStartedAt: null,
         lastKnownStreak: 0 // Reset
       };
     });
@@ -7818,8 +7850,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           return;
         }
 
-        const elapsed = Date.now() - userData.streakLostAt;
-        if (elapsed >= TWENTY_FOUR_HOURS) {
+        const redemptionWindowStart = Number(userData.streakRedemptionOfferStartedAt || 0);
+        if (redemptionWindowStart && (Date.now() - redemptionWindowStart >= TWENTY_FOUR_HOURS)) {
           showToast('❌ 24-hour redemption window expired!', 'error');
           return;
         }
@@ -7868,11 +7900,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           currentStreak: restoredStreak,
           totalPoints: newPoints,
           streakLostAt: null,
+          streakRedemptionOfferStartedAt: null,
           lastKnownStreak: 0,
           streakRedemptionHistory: updatedRedemptionHistory
         };
 
         setUserData(updatedData);
+        localStorage.removeItem(`streakRedemptionOfferState_${userData.streakLostAt}`);
 
         if (currentUser?.uid) {
           updateUserProgress(currentUser.uid, updatedData);
@@ -8136,7 +8170,10 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           {(() => {
             const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
             const hasLostStreak = !!(userData.streakLostAt && userData.lastKnownStreak);
-            const elapsed = hasLostStreak ? (Date.now() - userData.streakLostAt) : TWENTY_FOUR_HOURS;
+            const redemptionWindowStart = Number(userData.streakRedemptionOfferStartedAt || 0);
+            const elapsed = hasLostStreak
+              ? (redemptionWindowStart ? (Date.now() - redemptionWindowStart) : 0)
+              : TWENTY_FOUR_HOURS;
             const windowExpired = elapsed >= TWENTY_FOUR_HOURS;
             const hoursLeft = !windowExpired ? Math.floor((TWENTY_FOUR_HOURS - elapsed) / (60 * 60 * 1000)) : 0;
             const minutesLeft = !windowExpired ? Math.floor(((TWENTY_FOUR_HOURS - elapsed) % (60 * 60 * 1000)) / (60 * 1000)) : 0;
@@ -13110,13 +13147,6 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           onPurchase={handleStreakRedemption}
           onDismiss={() => {
             setShowStreakRedemption(false);
-            // Track dismissals for this streak loss instance (max 2 enforced by display logic).
-            const dismissalCountKey = `streakRedemptionDismissCount_${userData.streakLostAt}`;
-            const currentDismissCount = Number(localStorage.getItem(dismissalCountKey) || '0');
-            const nextDismissCount = Number.isFinite(currentDismissCount) ? currentDismissCount + 1 : 1;
-            localStorage.setItem(dismissalCountKey, String(nextDismissCount));
-            // Backward-compatible cleanup for older key format.
-            localStorage.removeItem(`streakRedemptionDismissed_${userData.streakLostAt}`);
           }}
         />
       )}

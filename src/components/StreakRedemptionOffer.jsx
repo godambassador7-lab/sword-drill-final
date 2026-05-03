@@ -5,12 +5,13 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
   const [timeRemaining, setTimeRemaining] = useState('');
   const REDEMPTION_COST = 2000;
   const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+  const redemptionWindowStart = userData.streakRedemptionOfferStartedAt || userData.streakLostAt;
 
   useEffect(() => {
-    if (!userData.streakLostAt) return;
+    if (!redemptionWindowStart) return;
 
     const updateTimer = () => {
-      const elapsed = Date.now() - userData.streakLostAt;
+      const elapsed = Date.now() - redemptionWindowStart;
       const remaining = TWENTY_FOUR_HOURS - elapsed;
 
       if (remaining <= 0) {
@@ -29,7 +30,7 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
     const interval = setInterval(updateTimer, 1000);
 
     return () => clearInterval(interval);
-  }, [userData.streakLostAt]);
+  }, [redemptionWindowStart]);
 
   const canAfford = userData.totalPoints >= REDEMPTION_COST;
   const isExpired = timeRemaining === 'Expired';
