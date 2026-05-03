@@ -57,7 +57,7 @@ const StreakRedemptionOffer = ({ userData, onPurchase, onDismiss }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/90 z-[10050] flex items-center justify-center p-4 overflow-y-auto"
       onMouseDown={(e) => e.stopPropagation()}
       onTouchStart={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}

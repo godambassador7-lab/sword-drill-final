@@ -72,8 +72,16 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
     {
       id: 'quiz-modes',
       title: 'Practice Quiz Modes',
-      description: 'Test your Scripture knowledge with various quiz types! Try Fill in the Blank, Multiple Choice, True/False, and more. Each mode helps you memorize verses in different ways. The more you practice, the stronger your memory becomes!',
+      description: 'Start quizzes from here. You can choose different practice modes based on how you learn best.',
       selector: '[data-tutorial="quiz-modes"]',
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-types-explained',
+      title: 'Quiz Types Explained',
+      description: 'Fill in the Blank: type missing words from memory. Multiple Choice: choose the best answer quickly. Reference Recall: match verse text to reference. Verse Scramble: reorder mixed words correctly. Verse Detective: identify errors/context clues. Practice Review: retry missed questions to improve retention.',
+      selector: null,
       position: 'center',
       navigate: 'home'
     },
@@ -116,17 +124,19 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'store',
       title: 'Power-Up Shop',
       description: 'Spend your hard-earned points here! Unlock power-ups like Double Points, Streak Freeze, and other boosts. The more you practice, the more you can unlock!',
-      selector: '[data-tutorial="store"]',
-      position: 'center',
-      navigate: 'powerup-shop'
+      selector: '[data-tutorial="powerup-menu"]',
+      position: 'right',
+      navigate: 'home',
+      openMenu: true
     },
     {
       id: 'settings',
       title: 'Settings & Customization',
       description: 'Customize your experience! Adjust sound settings, download Bibles for offline use, and personalize your username.',
-      selector: '[data-tutorial="settings"]',
-      position: 'center',
-      navigate: 'settings'
+      selector: '[data-tutorial="settings-menu"]',
+      position: 'right',
+      navigate: 'home',
+      openMenu: true
     },
     {
       id: 'completion',
@@ -158,6 +168,8 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
 
   // Calculate spotlight position when step changes
   useEffect(() => {
+    setSpotlightPosition(null);
+
     const updatePosition = () => {
       if (currentStepData.selector) {
         const element = document.querySelector(currentStepData.selector);
@@ -177,30 +189,33 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       }
     };
 
-    // Add delay to allow DOM to update after navigation
-    const timer = setTimeout(() => {
-      if (currentStepData.selector) {
-        const element = document.querySelector(currentStepData.selector);
-        if (element) {
-          // Scroll element into view first
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-          // Wait for scroll to complete, then calculate position
-          setTimeout(updatePosition, 300);
-        } else {
-          setSpotlightPosition(null);
-        }
-      } else {
+    // Retry briefly to survive route/menu transitions and animations
+    let attempts = 0;
+    const maxAttempts = 15;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (!currentStepData.selector) {
         setSpotlightPosition(null);
+        clearInterval(interval);
+        return;
       }
-    }, 100);
+      const element = document.querySelector(currentStepData.selector);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(updatePosition, 220);
+        clearInterval(interval);
+      } else if (attempts >= maxAttempts) {
+        setSpotlightPosition(null);
+        clearInterval(interval);
+      }
+    }, 120);
 
     // Update position on scroll and resize
     window.addEventListener('scroll', updatePosition, true);
     window.addEventListener('resize', updatePosition);
 
     return () => {
-      clearTimeout(timer);
+      clearInterval(interval);
       window.removeEventListener('scroll', updatePosition, true);
       window.removeEventListener('resize', updatePosition);
     };

@@ -10435,6 +10435,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-teal-600/20 transition-all flex items-center gap-3 relative"
+                    data-tutorial="powerup-menu"
                   >
                     <Crown size={18} className="text-purple-400" /> Power-Ups & Unlockables
                     {(userData.activeBoosts || []).filter(b => b.expiresAt > Date.now()).length > 0 && (
@@ -10557,6 +10558,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-slate-600/20 hover:to-slate-500/20 transition-all flex items-center gap-3"
+                    data-tutorial="settings-menu"
                   >
                     <Settings size={18} className="text-slate-400" /> Account & Preferences
                   </button>
