@@ -48,7 +48,47 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
     {
       id: 'currencies',
       title: 'Understanding Currencies',
-      description: 'Sword Drill has multiple currencies! Manna (shown here) resets daily - use it for daily power-ups. You\'ll also earn Talents (long-term currency), Keys of Understanding (earned from mistakes to unlock insights), and Scrolls (boost your points). Each serves a unique purpose in your journey!',
+      description: 'Sword Drill uses five currencies. Next, you\'ll see each one explained individually so you know exactly how to earn and use them.',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
+      id: 'currency-points',
+      title: 'Currency: Points',
+      description: 'Points are your main spendable currency. Earn them from quizzes, streaks, and rewards. Use them for unlocks, power-ups, and streak redemption.',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
+      id: 'currency-manna',
+      title: 'Currency: Manna',
+      description: 'Manna is a daily-reset resource. It is for short-term daily rewards and redemptions, so use it before the reset.',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
+      id: 'currency-talents',
+      title: 'Currency: Talents',
+      description: 'Talents are your long-term investment currency. Convert and grow value over time in the Points Bank.',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
+      id: 'currency-keys',
+      title: 'Currency: Keys of Understanding',
+      description: 'Keys reward perseverance through mistakes. They can be redeemed and are designed to encourage learning, not perfection.',
+      selector: '[data-tutorial="currencies"]',
+      position: 'top',
+      navigate: 'home'
+    },
+    {
+      id: 'currency-scrolls',
+      title: 'Currency: Scrolls',
+      description: 'Scrolls are permanent progression boosts earned from course completion. They increase your ongoing points performance.',
       selector: '[data-tutorial="currencies"]',
       position: 'top',
       navigate: 'home'
@@ -72,15 +112,55 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
     {
       id: 'quiz-modes',
       title: 'Practice Quiz Modes',
-      description: 'Start quizzes from here. You can choose different practice modes based on how you learn best.',
+      description: 'Start quizzes from here. Next, each core quiz type is explained in its own step.',
       selector: '[data-tutorial="quiz-modes"]',
       position: 'center',
       navigate: 'home'
     },
     {
-      id: 'quiz-types-explained',
-      title: 'Quiz Types Explained',
-      description: 'Fill in the Blank: type missing words from memory. Multiple Choice: choose the best answer quickly. Reference Recall: match verse text to reference. Verse Scramble: reorder mixed words correctly. Verse Detective: identify errors/context clues. Practice Review: retry missed questions to improve retention.',
+      id: 'quiz-fill-blank',
+      title: 'Quiz: Fill in the Blank',
+      description: 'You memorize by typing missing words from Scripture text. This is strong for exact recall and spelling precision.',
+      selector: null,
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-multiple-choice',
+      title: 'Quiz: Multiple Choice',
+      description: 'You select the correct answer from options. Great for recognition speed, confidence building, and broad review.',
+      selector: null,
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-reference-recall',
+      title: 'Quiz: Reference Recall',
+      description: 'You connect verse content with the correct book/chapter/verse reference. This trains Scripture location memory.',
+      selector: null,
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-verse-scramble',
+      title: 'Quiz: Verse Scramble',
+      description: 'You reorder scrambled words into the correct verse. This reinforces sequence memory and attention to phrasing.',
+      selector: null,
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-verse-detective',
+      title: 'Quiz: Verse Detective',
+      description: 'You detect textual mistakes or context clues. This sharpens close reading and detail-level understanding.',
+      selector: null,
+      position: 'center',
+      navigate: 'home'
+    },
+    {
+      id: 'quiz-practice-review',
+      title: 'Quiz: Practice Review',
+      description: 'You revisit weak or missed content to improve retention. This is your reinforcement loop for long-term mastery.',
       selector: null,
       position: 'center',
       navigate: 'home'

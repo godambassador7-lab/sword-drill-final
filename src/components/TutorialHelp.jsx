@@ -139,16 +139,6 @@ const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
           ]
         },
         {
-          title: 'Biblical GeoGuessr',
-          content: 'Explore the geography of the Bible! Identify biblical locations, understand ancient maps, and discover where key events took place.',
-          tips: [
-            'Study ancient Middle East geography',
-            'Connect locations to biblical events',
-            'Learn modern vs. ancient place names',
-            'Visualize journeys of key biblical figures'
-          ]
-        },
-        {
           title: 'Bible Trivia',
           content: 'Test your general Bible knowledge with trivia questions covering people, events, books, and theology from both Old and New Testaments.',
           tips: [
@@ -314,7 +304,7 @@ const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
             'Ancient texts provide historical Bible study resources',
             'Eli Challenge is an advanced difficulty mode',
             'Use unlocked content to deepen your Bible knowledge',
-            'More unlockables coming in future updates!'
+            'Check this section regularly as new unlockables are released'
           ]
         }
       ]
@@ -339,14 +329,13 @@ const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
         },
         {
           title: 'Currency Systems Overview',
-          content: 'Sword Drill features 6 distinct currency systems, each serving unique purposes: Points (primary currency), Talents (long-term investment), Manna (daily reward), Keys of Understanding (from mistakes), Scrolls (permanent multiplier), and Gems (premium currency for boosts).',
+          content: 'Sword Drill features 5 distinct currency systems, each serving unique purposes: Points (primary currency), Talents (long-term investment), Manna (daily reward), Keys of Understanding (from mistakes), and Scrolls (permanent multiplier).',
           tips: [
             '💰 Points - Earn from quizzes, use for unlocks and purchases',
             '🪙 Talents - Convert points for 2% weekly growth (1 Talent = 500 points)',
             '🍃 Manna - Daily gift, redeem 200 points per day',
             '🔑 Keys - Earn from wrong answers, exchange for points',
             '📜 Scrolls - Permanent 1% points boost per scroll',
-            '💎 Gems - Purchase boosts (Multiplier, Focus, Keys, Manna boosts)',
             'Click any currency on home page to see detailed info',
             'Each currency has unique earning and spending mechanics'
           ]
@@ -1231,7 +1220,8 @@ const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
             '🏆 Community tournaments and events',
             '💬 Social features and study groups'
           ]
-        }
+        },
+        
       ]
     },
     {
