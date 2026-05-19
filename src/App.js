@@ -226,6 +226,30 @@ const normalizeTimestampValue = (ts) => {
   return Number.isFinite(num) ? num : null;
 };
 
+const WEEK_MS = 7 * 86400000;
+const DEFAULT_TALENTS_WEEKLY_GROWTH = 0.02;
+
+const getConversionAmountPoints = (conversion = {}) => {
+  const amount = Number(conversion.amount ?? conversion.pointsInvested ?? 0);
+  return Number.isFinite(amount) ? Math.max(0, amount) : 0;
+};
+
+const getConversionGrowthRate = (conversion = {}) => {
+  const rate = Number(conversion.growthRate);
+  return Number.isFinite(rate) && rate >= 0 ? rate : DEFAULT_TALENTS_WEEKLY_GROWTH;
+};
+
+const calculateConversionTalentsValue = (conversion = {}, now = Date.now()) => {
+  const startedAt = Number(conversion.startedAt);
+  const safeStartedAt = Number.isFinite(startedAt) ? startedAt : now;
+  const elapsedMs = Math.max(0, now - safeStartedAt);
+  const weeksElapsed = elapsedMs / WEEK_MS;
+  const initialTalents = getConversionAmountPoints(conversion) / 500;
+  const growthRate = getConversionGrowthRate(conversion);
+  const grown = initialTalents * Math.pow(1 + growthRate, weeksElapsed);
+  return parseFloat(Math.max(initialTalents, grown).toFixed(2));
+};
+
 // Point Economy Constants
 const ECONOMY = {
   MISSED_DAY_TAX: 10, // Daily upkeep if no activity
@@ -1101,7 +1125,17 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
   const mannaEarningActive = remoteProgress.mannaEarningActive ?? localProgress.mannaEarningActive ?? false;
   const mannaRedemptionsToday = remoteProgress.mannaRedemptionsToday ?? localProgress.mannaRedemptionsToday ?? 0;
   const talents = Math.max(localProgress.talents || 0, remoteProgress.talents || 0);
-  const talentsConversions = remoteProgress.talentsConversions ?? localProgress.talentsConversions ?? [];
+  const mergedTalentConversions = [
+    ...(Array.isArray(remoteProgress.talentsConversions) ? remoteProgress.talentsConversions : []),
+    ...(Array.isArray(localProgress.talentsConversions) ? localProgress.talentsConversions : [])
+  ];
+  const talentsConversions = Array.from(
+    new Map(
+      mergedTalentConversions
+        .filter((conversion) => conversion && conversion.id)
+        .map((conversion) => [conversion.id, conversion])
+    ).values()
+  );
   const keys = Math.max(localProgress.keys || 0, remoteProgress.keys || 0);
   const currentIncorrectStreak = remoteProgress.currentIncorrectStreak ?? localProgress.currentIncorrectStreak ?? 0;
   const scrolls = Math.max(localProgress.scrolls || 0, remoteProgress.scrolls || 0);
@@ -3516,13 +3550,8 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     if (!conversion) return;
 
     const now = Date.now();
-    const timeElapsed = now - conversion.startedAt;
-    const weeksElapsed = timeElapsed / (7 * 86400000);
-
-    // Calculate Talents with growth (2% per week compounded)
-    // Convert points to Talents first (500 points = 1 Talent), then apply growth
-    const initialTalents = conversion.amount / 500;
-    const talentsEarned = parseFloat((initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed)).toFixed(2));
+    const initialTalents = parseFloat((getConversionAmountPoints(conversion) / 500).toFixed(2));
+    const talentsEarned = calculateConversionTalentsValue(conversion, now);
 
     // Update conversions to mark as collected
     const newConversions = userData.talentsConversions.filter(c => c.id !== conversionId);
@@ -3557,7 +3586,8 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     }
 
     const growth = (talentsEarned - initialTalents).toFixed(2);
-    showToast(`Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${(conversion.growthRate * 100).toFixed(0)}% weekly returns`, 'success');
+    const growthRatePct = (getConversionGrowthRate(conversion) * 100).toFixed(0);
+    showToast(`Talents Collected!\n\n+${talentsEarned} Talents\nGrowth: +${growth} from ${growthRatePct}% weekly returns`, 'success');
   };
 
   const startQuiz = async (type, usePersonalVerses = false) => {
@@ -7195,10 +7225,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                 const timeRemaining = conversion.completesAt - now;
                 const daysRemaining = Math.max(0, Math.ceil(timeRemaining / 86400000));
                 const isComplete = timeRemaining <= 0;
-                const weeksElapsed = (now - conversion.startedAt) / (7 * 86400000);
-                // Convert points to Talents (500 points = 1 Talent), then apply growth
-                const initialTalents = conversion.amount / 500;
-                const currentValue = (initialTalents * Math.pow(1 + conversion.growthRate, weeksElapsed)).toFixed(2);
+                const pointsAmount = getConversionAmountPoints(conversion);
+                const currentValue = calculateConversionTalentsValue(conversion, now).toFixed(2);
 
                 return (
                   <div
@@ -7216,7 +7244,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                         )}
                         <div>
                           <div className="text-white font-semibold text-sm">
-                            {conversion.amount} points → {currentValue} Talent{parseFloat(currentValue) !== 1 ? 's' : ''}
+                            {pointsAmount} points → {currentValue} Talent{parseFloat(currentValue) !== 1 ? 's' : ''}
                           </div>
                           <div className="text-xs text-slate-400">
                             {isComplete ? 'Ready to collect!' : `${daysRemaining} days remaining`}
