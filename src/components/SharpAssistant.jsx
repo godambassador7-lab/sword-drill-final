@@ -83,7 +83,7 @@ const SharpAssistant = ({ onBack, userData, userId, bibleData }) => {
         currentLevel: userData.currentLevel || 'Beginner'
       },
       availableFeatures: [
-        'KJV, ASV, WEB, YLT Bible translations',
+        'ESV Scripture text via Crossway API',
         'Strong\'s Concordance with Hebrew and Greek definitions',
         'Biblical courses (Greek, Hebrew, Hermeneutics, Apologetics, etc.)',
         'Study plans and memory verses',
@@ -138,7 +138,7 @@ const SharpAssistant = ({ onBack, userData, userId, bibleData }) => {
 
 I can help you with this verse! Here's what I can tell you:
 
-📖 **Finding the verse**: You can look up ${book} ${chapter}:${verse} in the Bible Reader section of Sword Drill. We have multiple translations available including KJV, ASV, and WEB.
+📖 **Finding the verse**: You can look up ${book} ${chapter}:${verse} in the Bible Reader section of Sword Drill. Scripture text is served in ESV through the Crossway API.
 
 🔍 **Studying deeper**: If you want to study the original languages, check out the Strong's Concordance feature to see the Hebrew (Old Testament) or Greek (New Testament) meanings of key words.
 
@@ -1299,7 +1299,7 @@ Feel free to ask me anything about the Bible or using Sword Drill!`;
       // Call SHARP limited local-RAG brain
       const response = await answerWithSharpBrain(userQuestion, {
         conversationHistory,
-        selectedTranslation: userData?.selectedTranslation || 'KJV',
+        selectedTranslation: userData?.selectedTranslation || 'ESV',
         userProgress: {
           versesMemorized: userData?.versesMemorized || 0,
           quizzesCompleted: userData?.quizzesCompleted || 0,

@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Search, X, Columns, BookOpen } from 'lucide-react';
 import { simplifyText } from '../services/simplifiedMode';
 import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
+import { ESV_TRANSLATION, getEsvChapter } from '../services/esvApiService';
 import AddVerseConfirmation from './AddVerseConfirmation';
 
-const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, userData, onUpdateUserData }) => {
+const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference = null, userData, onUpdateUserData }) => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedChapter, setSelectedChapter] = useState(1);
   const [chapterContent, setChapterContent] = useState([]);
@@ -26,7 +27,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
   // Parallel view states
   const [parallelMode, setParallelMode] = useState(false);
-  const [secondaryTranslation, setSecondaryTranslation] = useState('ASV');
+  const [secondaryTranslation, setSecondaryTranslation] = useState(ESV_TRANSLATION);
   const [secondaryChapterContent, setSecondaryChapterContent] = useState([]);
   const [loadingSecondary, setLoadingSecondary] = useState(false);
 
@@ -43,12 +44,7 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const contentRef = useRef(null);
   const hasRestoredScroll = useRef(false);
 
-  // Validate and fix translation (public domain only)
-  const validTranslations = ['KJV', 'ASV', 'WEB', 'YLT', 'BISHOPS', 'GENEVA', 'KJV_STRONGS'];
-  const unlockedTranslations = validTranslations.filter(t => t !== 'KJV_STRONGS' || userData?.unlockables?.kjvStrongs);
-  const activeTranslation = unlockedTranslations.includes(selectedTranslation?.toUpperCase())
-    ? selectedTranslation.toUpperCase()
-    : 'KJV';
+  const activeTranslation = ESV_TRANSLATION;
 
   const getStrongsEntry = (code) => {
     if (!code) return null;
@@ -320,6 +316,15 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
 
     setLoading(true);
     try {
+      const esvVerses = await getEsvChapter(book.name, chapter);
+      setChapterContent(
+        esvVerses && esvVerses.length > 0
+          ? esvVerses
+          : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
+      );
+      setLoading(false);
+      return;
+
       if (activeTranslation === 'KJV_STRONGS') {
         const verses = await getKjvStrongsChapter(book.name, chapter);
         if (verses && verses.length > 0) {
@@ -394,6 +399,15 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
   const loadSecondaryChapter = async (book, chapter, translation) => {
     setLoadingSecondary(true);
     try {
+      const esvVerses = await getEsvChapter(book.name, chapter);
+      setSecondaryChapterContent(
+        esvVerses && esvVerses.length > 0
+          ? esvVerses
+          : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
+      );
+      setLoadingSecondary(false);
+      return;
+
       if (translation === 'KJV_STRONGS') {
         const verses = await getKjvStrongsChapter(book.name, chapter);
         if (verses && verses.length > 0) {
@@ -509,6 +523,10 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
     if (!query.trim()) return;
 
     setSearching(true);
+    setSearchResults([]);
+    setSearching(false);
+    return;
+
     const results = [];
     const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 2);
 
@@ -760,21 +778,11 @@ const BibleReader = ({ selectedTranslation = 'KJV', initialReference = null, use
             {parallelMode && !searchMode && (
               <div>
                 <label className="block text-slate-300 text-xs font-semibold mb-1">
-                  Secondary Translation
+                  Translation
                 </label>
-                <select
-                  value={secondaryTranslation}
-                  onChange={(e) => handleSecondaryTranslationChange(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:border-emerald-500 focus:outline-none text-sm"
-                >
-                  {unlockedTranslations
-                    .filter(trans => trans !== activeTranslation)
-                    .map(trans => (
-                      <option key={trans} value={trans}>
-                        {trans}
-                      </option>
-                    ))}
-                </select>
+                <div className="w-full px-3 py-2 bg-slate-700 text-slate-200 border border-slate-600 rounded-lg text-sm">
+                  ESV only via Crossway API
+                </div>
               </div>
             )}
 

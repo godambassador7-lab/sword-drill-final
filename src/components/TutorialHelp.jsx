@@ -1167,7 +1167,7 @@ const TutorialHelp = ({ onBack, onNavigate, onStartWalkthrough }) => {
           content: 'Content organization and copyright compliance update ensuring only public domain translations.',
           tips: [
             '📖 Removed copyrighted translations: NKJV, NIV, NLT, ESV, NASB',
-            '✅ Kept public domain translations: KJV, ASV, WEB, YLT, Bishops\' Bible, Geneva Bible',
+            '✅ Active Scripture translation: ESV via Crossway API',
             '🆓 All active translations are now freely available without licensing restrictions',
             '📚 Focus on historically significant and legally accessible Bible texts'
           ]

@@ -20,7 +20,7 @@ export const signUp = async (email, password, name) => {
       name,
       email,
       createdAt: new Date(),
-      selectedTranslation: 'KJV',
+      selectedTranslation: 'ESV',
       includeApocrypha: false
     });
     
@@ -64,7 +64,7 @@ export const signInWithGoogle = async () => {
         name: user.displayName || '',
         email: user.email,
         createdAt: new Date(),
-        selectedTranslation: 'KJV',
+        selectedTranslation: 'ESV',
         includeApocrypha: false
       });
     }

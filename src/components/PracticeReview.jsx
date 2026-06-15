@@ -172,7 +172,7 @@ const PracticeReview = ({ onClose, userData, showToast, onUpdateUserData }) => {
       console.log('Fetching verse text for:', verse.reference);
       setCurrentVerseText(''); // Reset first
       try {
-        const translation = userData?.selectedTranslation || 'KJV';
+        const translation = 'ESV';
         console.log('Using translation:', translation);
         const verseData = await getLocalVerseByReference(translation, verse.reference);
         console.log('Received verse data:', verseData);

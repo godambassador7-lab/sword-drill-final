@@ -1,5 +1,11 @@
 import { parseReference } from './assistant/referenceParser';
 import { simplifyText } from './simplifiedMode';
+import {
+  ESV_TRANSLATION,
+  getEsvVerseByReference,
+  getEsvVersesRange,
+  getEsvChapterRange
+} from './esvApiService';
 
 /**
  * Clean verse text by removing formatting symbols like paragraph marks
@@ -40,6 +46,9 @@ async function loadBookJson(folder, book) {
 }
 
 export async function getLocalVerseByReference(translation, reference, options = {}) {
+  const esv = await getEsvVerseByReference(reference);
+  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+
   const folder = folderFor(translation);
   if (!folder) return null;
   const pr = parseReference(reference);
@@ -62,6 +71,9 @@ export async function getLocalVerseByReference(translation, reference, options =
 
 // Fetch a range and concatenate (e.g., "Ephesians 6:10-18")
 export async function getLocalVersesRange(translation, reference, options = {}) {
+  const esv = await getEsvVersesRange(reference);
+  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+
   const folder = folderFor(translation);
   if (!folder) return null;
   const pr = parseReference(reference);
@@ -112,6 +124,9 @@ const DEFAULT_BOOKS = [
 
 // Fetch chapter/verse range (e.g., "1 Kings 11-14", "John 3:16-18", "1 Kings 15:25-16:7")
 export async function getLocalChapterRange(translation, reference, options = {}) {
+  const esv = await getEsvChapterRange(reference);
+  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+
   const folder = folderFor(translation);
   if (!folder) return null;
 

@@ -67,7 +67,7 @@ function formatVersesSection(verses) {
   let section = '## 📖 Bible Verses\n\n';
 
   verses.forEach(verse => {
-    section += `### ${verse.reference} (${verse.translation || 'KJV'})\n\n`;
+    section += `### ${verse.reference} (${verse.translation || 'ESV'})\n\n`;
     section += `> ${verse.text}\n\n`;
   });
 
@@ -246,7 +246,7 @@ export function buildMinimalContext(verses) {
   let context = '# Bible Verses\n\n';
 
   verses.forEach(verse => {
-    context += `**${verse.reference}** (${verse.translation || 'KJV'})\n`;
+    context += `**${verse.reference}** (${verse.translation || 'ESV'})\n`;
     context += `> ${verse.text}\n\n`;
   });
 

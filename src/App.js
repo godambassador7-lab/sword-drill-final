@@ -120,7 +120,6 @@ import { getRandomMemoryTip } from './data/memoryTips';
 import { getAllReferencesForDifficulty } from './data/versesByDifficulty';
 import { DAILY_VERSES_POOL } from './dailyVerses';
 import { getLocalVerseByReference, getLocalVersesRange } from './services/localBibleProvider';
-import { getKjvStrongsVerse, getKjvStrongsRange } from './services/kjvStrongsProvider';
 import { getVerseByReference as getStaticVerseByReference } from './services/assistant/retrieval/bibleProvider';
 import { recordQuizAttempt } from './services/quizTracker';
 import PracticeReview from './components/PracticeReview';
@@ -272,13 +271,11 @@ const ECONOMY = {
   }
 };
 
-const SUPPORTED_TRANSLATIONS = ['KJV', 'ASV', 'WEB', 'ESV', 'NIV', 'NLT', 'YLT', 'KJV_STRONGS'];
+const SUPPORTED_TRANSLATIONS = ['ESV'];
 const normalizeTranslation = (t) => {
   const raw = (t || '').toUpperCase().trim();
   const normalized = raw.replace(/[\s-]+/g, '_');
-  if (normalized === 'NKJV') return 'KJV'; // map NKJV to local KJV corpus
-  if (normalized === 'KJV_STRONGS') return 'KJV_STRONGS';
-  return SUPPORTED_TRANSLATIONS.includes(normalized) ? normalized : 'KJV';
+  return SUPPORTED_TRANSLATIONS.includes(normalized) ? normalized : 'ESV';
 };
 
 // Calculate active boost multiplier
@@ -1148,11 +1145,9 @@ const mergeProgressRecords = (localProgress = {}, remoteProgress = {}, localStre
     lastSelected ||
     remoteProgress.selectedTranslation ||
     localProgress.selectedTranslation ||
-    'KJV'
+    'ESV'
   );
-    const safeTranslation = preferredTranslation === 'KJV_STRONGS' && !unlockables.kjvStrongs
-      ? 'KJV'
-      : preferredTranslation;
+    const safeTranslation = preferredTranslation;
 
     return {
       // Spread all course progress first (so explicit fields below can override if needed)
@@ -1800,7 +1795,7 @@ const SwordDrillApp = () => {
     lastKnownStreak: 0, // Store the streak value before it was lost
     totalPoints: 0,
     achievements: [],
-    selectedTranslation: 'KJV',
+    selectedTranslation: 'ESV',
     includeApocrypha: false,
     simplifiedMode: false, // Modernize archaic language in public domain translations
     verseProgress: {}, // NEW: Track progress for each verse
@@ -2311,7 +2306,7 @@ useEffect(() => {
           currentStreak: mergedStreak,
           totalPoints: result.progress.totalPoints || 0,
           achievements: Array.isArray(result.progress.achievements) ? result.progress.achievements : [],
-          selectedTranslation: normalizeTranslation(result.user.selectedTranslation || 'KJV'),
+          selectedTranslation: normalizeTranslation(result.user.selectedTranslation || 'ESV'),
           includeApocrypha: result.user.includeApocrypha || false,
           verseProgress: verseProgressData,
           currentLevel: result.progress.currentLevel || 'Beginner',
@@ -2821,7 +2816,7 @@ const completeLogin = async (user) => {
         currentStreak: Math.max(recalculatedStreak, firebaseStreak),
         totalPoints: data.progress.totalPoints || 0,
         achievements: Array.isArray(data.progress.achievements) ? data.progress.achievements : [],
-        selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'KJV'),
+        selectedTranslation: normalizeTranslation(data.user.selectedTranslation || 'ESV'),
         includeApocrypha: data.user.includeApocrypha || false,
         verseProgress: verseProgressData,
         currentLevel: data.progress.currentLevel || 'Beginner',
@@ -2906,7 +2901,7 @@ const handleGoogleSignIn = async () => {
       currentStreak: 0,
       totalPoints: 0,
       achievements: [],
-      selectedTranslation: 'KJV',
+      selectedTranslation: 'ESV',
       includeApocrypha: false,
       verseProgress: {},
       currentLevel: 'Beginner',
@@ -3159,13 +3154,7 @@ const stripVerseNumbers = (text) => {
 };
 
 const resolveVerseText = async (reference, translationPref, options = {}) => {
-  const preferred = normalizeTranslation(translationPref || 'KJV');
-  if (preferred === 'KJV_STRONGS') {
-    const strongsRange = await getKjvStrongsRange(reference);
-    if (strongsRange) return strongsRange;
-    const strongs = await getKjvStrongsVerse(reference);
-    if (strongs) return strongs;
-  }
+  const preferred = normalizeTranslation(translationPref || 'ESV');
   // 1) Try local corpus (handles ranges)
   const localRange = await getLocalVersesRange(preferred, reference, options);
   if (localRange) return { text: stripVerseNumbers(localRange.text), translation: localRange.translation || preferred };
@@ -3604,14 +3593,12 @@ const pickCuratedReference = (quizType, userData, usePersonalVerses = false) => 
     setLoading(true);
 
     try {
-      const preferredTranslation = normalizeTranslation(userData.selectedTranslation || 'KJV');
-      const quizTranslation = preferredTranslation === 'KJV_STRONGS' ? 'KJV' : preferredTranslation;
+      const preferredTranslation = normalizeTranslation(userData.selectedTranslation || 'ESV');
+      const quizTranslation = preferredTranslation;
       // Pick a curated reference based on level, avoiding quiz-type cooldowns
       const reference = pickCuratedReference(type, userData, usePersonalVerses);
       const verseTextInfo = await resolveVerseText(reference, quizTranslation, { simplifiedMode: userData.simplifiedMode });
-    const normalizedQuizTranslation = (verseTextInfo.translation || quizTranslation || 'KJV') === 'KJV_STRONGS'
-      ? 'KJV'
-      : (verseTextInfo.translation || quizTranslation || 'KJV');
+    const normalizedQuizTranslation = verseTextInfo.translation || quizTranslation || 'ESV';
 
     let verse = {
       id: reference,
@@ -3920,17 +3907,13 @@ const startVerseDetective = async () => {
   try {
     // Pick a curated reference based on level
     const reference = pickCuratedReference('verse-detective', userData, false);
-    const detectiveTranslation = normalizeTranslation(userData.selectedTranslation || 'KJV') === 'KJV_STRONGS'
-      ? 'KJV'
-      : normalizeTranslation(userData.selectedTranslation || 'KJV');
+    const detectiveTranslation = normalizeTranslation(userData.selectedTranslation || 'ESV');
     const verseTextInfo = await resolveVerseText(reference, detectiveTranslation, { simplifiedMode: userData.simplifiedMode });
     const verse = {
       id: reference,
       reference,
       text: verseTextInfo.text,
-      translation: (verseTextInfo.translation || detectiveTranslation || 'KJV') === 'KJV_STRONGS'
-        ? 'KJV'
-        : (verseTextInfo.translation || detectiveTranslation || 'KJV')
+      translation: verseTextInfo.translation || detectiveTranslation || 'ESV'
     };
 
     // Generate wrong references using advanced multiple-choice logic
@@ -4110,12 +4093,12 @@ const startPersonalVerseDetective = async () => {
     const randomVerse = personalVerses[Math.floor(Math.random() * personalVerses.length)];
     const reference = randomVerse.reference;
 
-    const verseTextInfo = await resolveVerseText(reference, randomVerse.translation || 'KJV', { simplifiedMode: userData.simplifiedMode });
+    const verseTextInfo = await resolveVerseText(reference, randomVerse.translation || 'ESV', { simplifiedMode: userData.simplifiedMode });
     const verse = {
       id: reference,
       reference,
       text: verseTextInfo.text,
-      translation: verseTextInfo.translation || randomVerse.translation || 'KJV'
+      translation: verseTextInfo.translation || 'ESV'
     };
 
     // Generate wrong references using advanced multiple-choice logic
@@ -9189,13 +9172,9 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
           <label className="block text-white font-bold mb-3">Bible Translation</label>
           <select
-            value={userData.selectedTranslation}
+            value="ESV"
             onChange={(e) => {
-              const next = e.target.value;
-              if (next === 'KJV_STRONGS' && !userData.unlockables?.kjvStrongs) {
-                showToast("Unlock KJV w/ Strong's in the store (1000 pts)", 'error');
-                return;
-              }
+              const next = normalizeTranslation(e.target.value);
                 setUserData({ ...userData, selectedTranslation: next });
                 try { localStorage.setItem(LAST_TRANSLATION_KEY, next); } catch (_) {}
                 if (currentUser?.uid) {
@@ -9204,18 +9183,13 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
             }}
             className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:border-amber-500 focus:outline-none"
           >
-            <option value="KJV">King James Version (KJV)</option>
-            <option value="KJV_STRONGS" disabled={!userData.unlockables?.kjvStrongs}>
-              KJV w/ Strong's (Interlinear with Strong's numbers)
-            </option>
-            <option value="ASV">American Standard Version (ASV)</option>
-            <option value="WEB">World English Bible (WEB)</option>
-            <option value="YLT">Young's Literal Translation (YLT)</option>
-            <option value="Bishops">Bishops' Bible</option>
-            <option value="Geneva">Geneva Bible</option>
+            <option value="ESV">English Standard Version (ESV)</option>
           </select>
           <p className="text-slate-400 text-xs mt-2">
-            ✅ All translations available offline - no internet connection required. Unlock Strong's tagging for KJV in the shop.
+            Scripture text is served through the Crossway ESV API for approved Bible features.
+          </p>
+          <p className="hidden">
+            ESV is the only active Scripture translation.
           </p>
 
           {/* Translation Style Info */}
@@ -9231,8 +9205,8 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           )}
         </div>
 
-        {/* Simplified Mode Toggle */}
-        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
+        {/* Simplified mode is disabled while Scripture is sourced from Crossway ESV. */}
+        <div className="hidden">
           <label className="flex items-center justify-between">
             <div>
               <span className="text-white font-bold">Simplified Mode</span>
@@ -9333,7 +9307,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
 
         {/* Offline Bible Downloads */}
-        <BibleDownloadManager />
+        {false && <BibleDownloadManager />}
 
        <div className="bg-slate-700/50 rounded-xl p-4 border border-slate-600">
         <h3 className="text-white font-bold mb-2">About</h3>
@@ -11003,13 +10977,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <SwordDrillUltimate
             userLevel={userData.currentLevel || 'Beginner'}
             verseProgress={userData.verseProgress || {}}
-            getLocalVerseByReference={(ref) => {
-              const t = (userData.selectedTranslation || 'KJV').toUpperCase();
-              if (t === 'KJV_STRONGS') {
-                return getKjvStrongsVerse(ref);
-              }
-              return getLocalVerseByReference(t, ref, { simplifiedMode: userData.simplifiedMode });
-            }}
+            getLocalVerseByReference={(ref) => getLocalVerseByReference('ESV', ref)}
             onComplete={(results) => {
               // Fade out background music
               fadeOutMusic();

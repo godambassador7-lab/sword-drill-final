@@ -1,12 +1,12 @@
 // ESV Provider (licensed via api.esv.org). Requires an API token.
-// Set token via env var `REACT_APP_ESV_TOKEN` or localStorage key `ESV_TOKEN`.
+// Set token via env var `REACT_APP_ESV_API_KEY` or localStorage key `ESV_TOKEN`.
 
 const ESV_API = 'https://api.esv.org/v3/passage/text/';
 
 function getToken() {
   // Prefer React env var; fallback to localStorage for manual runtime entry
-  if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_ESV_TOKEN) {
-    return process.env.REACT_APP_ESV_TOKEN;
+  if (typeof process !== 'undefined' && process.env && (process.env.REACT_APP_ESV_API_KEY || process.env.REACT_APP_ESV_TOKEN)) {
+    return process.env.REACT_APP_ESV_API_KEY || process.env.REACT_APP_ESV_TOKEN;
   }
   if (typeof window !== 'undefined') {
     try { return window.localStorage.getItem('ESV_TOKEN') || ''; } catch (_) {}

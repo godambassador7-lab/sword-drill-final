@@ -9,7 +9,7 @@ import { lookupWordStudy } from './retrieval/lexiconProvider';
 import { getCrossReferences } from './retrieval/crossRefsProvider';
 import { contextCache } from './cache';
 import { BIBLE_BOOKS } from '../../data/bibleBooks';
-import { isApocryphaBook, getApocryphaVerses } from './retrieval/apocryphaProvider';
+import { isApocryphaBook } from './retrieval/apocryphaProvider';
 
 /**
  * Orchestrate retrieval from multiple sources based on question classification
@@ -173,7 +173,7 @@ function createRetrievalPlan(classification, query) {
  */
 async function retrieveBibleVerses(query, context, plan) {
   try {
-    const translation = context.selectedTranslation || 'KJV';
+    const translation = context.selectedTranslation || 'ESV';
 
     // SPECIAL: If query is for a specific book, retrieve verses FROM that book
     if (plan.bookName) {
@@ -263,47 +263,7 @@ async function retrieveKeyVersesFromBook(bookName, translation, maxVerses = 3) {
  * @returns {Promise<Array>} Array of key verses from the apocrypha book
  */
 async function retrieveKeyVersesFromApocrypha(bookName, maxVerses = 3) {
-  try {
-    // Define key verse references for important Apocrypha books
-    const keyVerses = {
-      'Tobit': [[1, 1], [4, 15], [12, 8]],  // [chapter, verse]
-      'Judith': [[13, 18], [16, 13], [8, 6]],
-      'Wisdom of Solomon': [[3, 1], [7, 26], [11, 24]],
-      'Sirach': [[1, 1], [6, 14], [44, 1]],
-      '1 Maccabees': [[1, 1], [2, 50], [3, 3]],
-      '2 Maccabees': [[1, 1], [7, 9], [12, 43]],
-      'Baruch': [[3, 9], [4, 1], [5, 5]]
-    };
-
-    // Get predefined key verses or default to chapter 1
-    const references = keyVerses[bookName] || [[1, 1], [1, 2], [1, 3]];
-
-    // Fetch the verses using apocryphaProvider
-    const verses = [];
-    for (const [ch, vs] of references.slice(0, maxVerses)) {
-      try {
-        const apocVerses = await getApocryphaVerses(bookName, ch, vs, vs);
-        if (apocVerses && apocVerses.length > 0) {
-          verses.push({
-            reference: apocVerses[0].reference,
-            text: apocVerses[0].text,
-            book: bookName,
-            chapter: ch,
-            verse: vs,
-            translation: 'KJV',
-            isApocrypha: true
-          });
-        }
-      } catch (err) {
-        console.error(`Error fetching apocrypha verse ${bookName} ${ch}:${vs}:`, err);
-      }
-    }
-
-    return verses;
-  } catch (error) {
-    console.error(`Error retrieving key verses from Apocrypha ${bookName}:`, error);
-    return [];
-  }
+  return [];
 }
 
 /**

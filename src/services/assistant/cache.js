@@ -24,7 +24,7 @@ class ResponseCache {
 
     // Include relevant context in key
     const contextKey = JSON.stringify({
-      translation: context.selectedTranslation || 'KJV'
+      translation: context.selectedTranslation || 'ESV'
       // Don't include conversation history in cache key
       // Each unique question should be cacheable regardless of history
     });

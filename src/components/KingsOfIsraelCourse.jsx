@@ -348,7 +348,7 @@ const KingsOfIsraelCourse = ({ onComplete, onCancel, userId, userData, setUserDa
     if (!currentKing.scripture) return;
 
     setLoadingPassage(true);
-    getLocalChapterRange('KJV', currentKing.scripture, { simplifiedMode: userData?.simplifiedMode })
+    getLocalChapterRange('ESV', currentKing.scripture)
       .then(result => {
         if (result) {
           setScripturePassage(result);

@@ -766,7 +766,7 @@ const ComprehensiveCourse = ({
           }
 
           try {
-            const data = await getLocalChapterRange('KJV', ref, { simplifiedMode: userData?.simplifiedMode });
+            const data = await getLocalChapterRange('ESV', ref);
             scriptureCacheRef.current.set(cacheKey, data || null);
             if (data) passages.push(data);
           } catch (err) {

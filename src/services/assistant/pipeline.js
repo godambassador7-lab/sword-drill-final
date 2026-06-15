@@ -2,16 +2,11 @@
 import { routeIntent } from './intentRouter';
 import { parseReference } from './referenceParser';
 import { searchLocalVerses, getVerseByReference } from './retrieval/bibleProvider';
-import { getKJVVerses } from './retrieval/kjvProvider';
-import { getWEBVerses } from './retrieval/webProvider';
 import { getESVVerses } from './retrieval/esvProvider';
-import { getBishopsVerses } from './retrieval/bishopsProvider';
-import { getGenevaVerses } from './retrieval/genevaProvider';
-import { getASVVerses } from './retrieval/asvProvider';
 import { getWlcVerseByReference } from './retrieval/wlcProvider';
 import { getLxxVerseByReference } from './retrieval/lxxProvider';
 import { getSinaiticusVerseByReference } from './retrieval/sinaiticusProvider';
-import { isApocryphaBook, getApocryphaVerses } from './retrieval/apocryphaProvider';
+import { isApocryphaBook } from './retrieval/apocryphaProvider';
 import { synthesizeNeutral } from './synthesizer';
 import { applyNeutrality } from './neutralityGuard';
 import { getCrossReferences } from './retrieval/crossRefsProvider';
@@ -108,7 +103,7 @@ async function getWlcRange(parsed, options = {}) {
 }
 
 async function fetchPreferredVerses(parsed, preferred) {
-  const pref = (preferred || 'KJV').toUpperCase();
+  const pref = (preferred || 'ESV').toUpperCase();
 
   // Check cache first
   const cacheKey = getCacheKey(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd, pref);
@@ -117,46 +112,7 @@ async function fetchPreferredVerses(parsed, preferred) {
     return cached.data;
   }
 
-  let arr = [];
-  // Apocrypha quick path
-  if (isApocryphaBook(parsed.book) && parsed.verse) {
-    arr = await getApocryphaVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (arr && arr.length) {
-      verseCache.set(cacheKey, { data: arr, timestamp: Date.now() });
-      return arr;
-    }
-  }
-  if (pref === 'WEB') {
-    arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  } else if (pref === 'ESV') {
-    arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  } else if (pref === 'ASV') {
-    arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  } else if (pref === 'BISHOPS') {
-    arr = await getBishopsVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  } else if (pref === 'GENEVA') {
-    arr = await getGenevaVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  } else {
-    arr = await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-    if (!arr || arr.length === 0) arr = await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
-  }
+  const arr = await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd);
 
   // Cache the result before returning
   if (arr && arr.length > 0) {
@@ -419,56 +375,17 @@ export async function answerQuery(userMessage, context = {}) {
 
   // Compare translations
   if (routed.type === 'compare_translations' && parsed.valid && parsed.verse) {
-    // Apocrypha branch: include APOC source first when applicable
-    const apoc = isApocryphaBook(parsed.book)
-      ? (await getApocryphaVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0]
-      : null;
-
-    // Modern translations
-    const kjv = (await getKJVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-    const web = (await getWEBVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-    const esv = (await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-    const asv = (await getASVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-    const bishops = (await getBishopsVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-    const geneva = (await getGenevaVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
-
-    // Ancient manuscripts (Old Testament only)
-    let wlc = null, lxx = null;
-    const isOT = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1Samuel','2Samuel','1Kings','2Kings','1Chronicles','2Chronicles','Ezra','Nehemiah','Esther','Job','Psalms','Proverbs','Ecclesiastes','Song','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi'].includes(parsed.book);
-
-    if (isOT && parsed.verse) {
-      try {
-        const wlcResult = await getWlcVerseByReference(parsed.book, parsed.chapter, parsed.verse);
-        if (wlcResult) wlc = { text: wlcResult, reference: parsed.normalized, translation: 'WLC' };
-      } catch (e) { /* WLC not available for this verse */ }
-
-      try {
-        const lxxResult = await getLxxVerseByReference(parsed.book, parsed.chapter, parsed.verse);
-        if (lxxResult) lxx = { text: lxxResult, reference: parsed.normalized, translation: 'LXX' };
-      } catch (e) { /* LXX not available for this verse */ }
+    const esvOnly = (await getESVVerses(parsed.book, parsed.chapter, parsed.verse, parsed.verseEnd))[0];
+    if (esvOnly) {
+      const ans = `Sword Drill is configured for ESV Scripture text through the Crossway API.\n\n[ESV] ${esvOnly.text}\n\nTranslation comparison is disabled because this app is currently approved to use ESV only.`;
+      return { answer: applyNeutrality(ans), citations: [{ ref: parsed.normalized, translation: 'ESV' }], meta: { compare: { ref: parsed.normalized, esv: esvOnly.text } } };
     }
+    return {
+      answer: `Sword Drill is configured for ESV Scripture text through the Crossway API, but ${parsed.normalized} was not returned by the ESV API.`,
+      citations: [{ ref: parsed.normalized, translation: 'ESV' }],
+      meta: { compare: { ref: parsed.normalized, esv: '' } }
+    };
 
-    if (apoc || kjv || web || esv || asv || bishops || geneva || wlc || lxx) {
-      let ans = `Compare translations for ${parsed.normalized}:`;
-
-      // Ancient manuscripts first
-      if (wlc) ans += `\n\n[WLC - Hebrew Masoretic] ${wlc.text}`;
-      if (lxx) ans += `\n\n[LXX - Greek Septuagint] ${lxx.text}`;
-
-      // Then modern translations
-      if (apoc) ans += `\n\n[APOC] ${apoc.text}`;
-      if (kjv) ans += `\n\n[KJV] ${kjv.text}`;
-      if (web) ans += `\n\n[WEB] ${web.text}`;
-      if (esv) ans += `\n\n[ESV] ${esv.text}`;
-      if (asv) ans += `\n\n[ASV] ${asv.text}`;
-      if (bishops) ans += `\n\n[BISHOPS] ${bishops.text}`;
-      if (geneva) ans += `\n\n[GENEVA] ${geneva.text}`;
-
-      ans += `\n\nTip: Ask "cross refs for ${parsed.normalized}" or "word study on <term>".`;
-      const meta = { compare: { ref: parsed.normalized, wlc: wlc?.text || '', lxx: lxx?.text || '', apoc: apoc?.text || '', kjv: kjv?.text || '', web: web?.text || '', esv: esv?.text || '', asv: asv?.text || '', bishops: bishops?.text || '', geneva: geneva?.text || '' }, apoc: !!apoc, ancientStudy: !!(wlc || lxx) };
-      const transList = ['WLC','LXX','APOC','KJV','WEB','ESV','ASV','BISHOPS','GENEVA'].filter((t, i) => [wlc, lxx, apoc, kjv, web, esv, asv, bishops, geneva][i]).join('/');
-      return { answer: applyNeutrality(ans), citations: [{ ref: parsed.normalized, translation: transList }], meta };
-    }
   }
 
   // Passage context

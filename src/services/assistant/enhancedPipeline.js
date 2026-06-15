@@ -237,7 +237,7 @@ export async function answerSimpleQuery(userMessage, context = {}) {
     // Quick verse retrieval
     const { searchBible } = await import('./retrieval/bibleProvider');
     const verses = await searchBible(userMessage, {
-      translation: context.selectedTranslation || 'KJV',
+      translation: context.selectedTranslation || 'ESV',
       limit: 3
     });
 

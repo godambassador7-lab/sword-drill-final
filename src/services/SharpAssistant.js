@@ -55,7 +55,7 @@ const SharpAssistant = ({ userData, userId }) => {
     try {
       const result = await answerQuery(userMessage, {
         userId: userId,
-        selectedTranslation: userData.selectedTranslation || 'KJV',
+        selectedTranslation: userData.selectedTranslation || 'ESV',
         conversationHistory: conversationHistory,
       });
 

@@ -1056,11 +1056,11 @@ async function generateVerseResponse(message, retrieved, context) {
 
     // Label apocrypha clearly
     if (isApocrypha) {
-      answer += `## 📖 ${verse.reference} (${verse.translation || 'KJV'}) ⚠️ Deuterocanonical/Apocrypha\n\n`;
+      answer += `## 📖 ${verse.reference} (${verse.translation || 'ESV'}) ⚠️ Deuterocanonical/Apocrypha\n\n`;
       answer += `> ${verse.text}\n\n`;
       answer += `**Note**: This passage is from the Deuterocanonical books (Apocrypha), included in Catholic and Orthodox canons but not in Protestant Bibles.\n\n`;
     } else {
-      answer += `## 📖 ${verse.reference} (${verse.translation || 'KJV'})\n\n`;
+      answer += `## 📖 ${verse.reference} (${verse.translation || 'ESV'})\n\n`;
       answer += `> ${verse.text}\n\n`;
     }
 
@@ -1307,6 +1307,13 @@ async function generateCompareTranslationsResponse(message, retrieved, context) 
     };
   }
 
+  const esv = comparison.translations[0];
+  return {
+    answer: `## ${reference} - ESV\n\nSword Drill is configured for ESV Scripture text through the Crossway API. Translation comparison is disabled because this app is currently approved to use ESV only.\n\n**ESV**: "${esv.text}"`,
+    citations: [{ type: 'verse', ref: esv.reference, translation: 'ESV' }],
+    metadata: { category: 'compare_translations', reference }
+  };
+
   // Build response
   answer += `## 📖 ${reference} - Translation Comparison\n\n`;
   answer += `Comparing ${comparison.availableCount} translation${comparison.availableCount !== 1 ? 's' : ''}:\n\n`;
@@ -1346,7 +1353,7 @@ async function generateCompareTranslationsResponse(message, retrieved, context) 
   // Add translation philosophy note
   answer += `---\n\n`;
   answer += `**Translation Philosophies**:\n`;
-  answer += `• **Literal** (KJV, ASV, WEB, YLT, ESV): Word-for-word translation preserving original structure\n`;
+  answer += `• **ESV**: Essentially literal translation served through the Crossway API\n`;
   answer += `• **Dynamic Equivalence** (NIV, NLT): Thought-for-thought translation prioritizing readability\n\n`;
   answer += `💡 Different translations help reveal nuances in the original Greek and Hebrew texts.`;
 
