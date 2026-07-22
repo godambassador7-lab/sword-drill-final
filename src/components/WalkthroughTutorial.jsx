@@ -57,7 +57,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'currency-points',
       title: 'Currency: Points',
       description: 'Points are your main spendable currency. Earn them from quizzes, streaks, and rewards. Use them for unlocks, power-ups, and streak redemption.',
-      selector: '[data-tutorial="currencies"]',
+      selector: '[data-tutorial="points-display"]',
       position: 'top',
       navigate: 'home'
     },
@@ -65,7 +65,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'currency-manna',
       title: 'Currency: Manna',
       description: 'Manna is a daily-reset resource. It is for short-term daily rewards and redemptions, so use it before the reset.',
-      selector: '[data-tutorial="currencies"]',
+      selector: '[data-tutorial="currency-manna"]',
       position: 'top',
       navigate: 'home'
     },
@@ -73,7 +73,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'currency-talents',
       title: 'Currency: Talents',
       description: 'Talents are your long-term investment currency. Convert and grow value over time in the Points Bank.',
-      selector: '[data-tutorial="currencies"]',
+      selector: '[data-tutorial="currency-talents"]',
       position: 'top',
       navigate: 'home'
     },
@@ -81,7 +81,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'currency-keys',
       title: 'Currency: Keys of Understanding',
       description: 'Keys reward perseverance through mistakes. They can be redeemed and are designed to encourage learning, not perfection.',
-      selector: '[data-tutorial="currencies"]',
+      selector: '[data-tutorial="currency-keys"]',
       position: 'top',
       navigate: 'home'
     },
@@ -89,7 +89,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'currency-scrolls',
       title: 'Currency: Scrolls',
       description: 'Scrolls are permanent progression boosts earned from course completion. They increase your ongoing points performance.',
-      selector: '[data-tutorial="currencies"]',
+      selector: '[data-tutorial="currency-scrolls"]',
       position: 'top',
       navigate: 'home'
     },
@@ -121,7 +121,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-fill-blank',
       title: 'Quiz: Fill in the Blank',
       description: 'You memorize by typing missing words from Scripture text. This is strong for exact recall and spelling precision.',
-      selector: null,
+      selector: '[data-tutorial="quiz-fill-blank"]',
       position: 'center',
       navigate: 'home'
     },
@@ -129,7 +129,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-multiple-choice',
       title: 'Quiz: Multiple Choice',
       description: 'You select the correct answer from options. Great for recognition speed, confidence building, and broad review.',
-      selector: null,
+      selector: '[data-tutorial="quiz-multiple-choice"]',
       position: 'center',
       navigate: 'home'
     },
@@ -137,7 +137,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-reference-recall',
       title: 'Quiz: Reference Recall',
       description: 'You connect verse content with the correct book/chapter/verse reference. This trains Scripture location memory.',
-      selector: null,
+      selector: '[data-tutorial="quiz-reference-recall"]',
       position: 'center',
       navigate: 'home'
     },
@@ -145,7 +145,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-verse-scramble',
       title: 'Quiz: Verse Scramble',
       description: 'You reorder scrambled words into the correct verse. This reinforces sequence memory and attention to phrasing.',
-      selector: null,
+      selector: '[data-tutorial="quiz-verse-scramble"]',
       position: 'center',
       navigate: 'home'
     },
@@ -153,7 +153,7 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-verse-detective',
       title: 'Quiz: Verse Detective',
       description: 'You detect textual mistakes or context clues. This sharpens close reading and detail-level understanding.',
-      selector: null,
+      selector: '[data-tutorial="quiz-verse-detective"]',
       position: 'center',
       navigate: 'home'
     },
@@ -161,9 +161,10 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
       id: 'quiz-practice-review',
       title: 'Quiz: Practice Review',
       description: 'You revisit weak or missed content to improve retention. This is your reinforcement loop for long-term mastery.',
-      selector: null,
+      selector: '[data-tutorial="quiz-practice-review"]',
       position: 'center',
-      navigate: 'home'
+      navigate: 'home',
+      openMenu: true
     },
     {
       id: 'verse-bank',
@@ -325,6 +326,37 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
 
   // Get tooltip position based on step preference
   const getTooltipPosition = () => {
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+
+    // On phones, use a viewport-safe bottom sheet. Trying to place a ~400px
+    // card beside a spotlight can produce negative coordinates on narrow screens.
+    if (viewportWidth < 640) {
+      if (currentStepData.id === 'menu-button' && spotlightPosition) {
+        return {
+          top: `${spotlightPosition.top + spotlightPosition.height + 12}px`,
+          right: '12px',
+          bottom: 'auto',
+          left: '12px',
+          width: 'auto',
+          maxHeight: `calc(100dvh - ${spotlightPosition.top + spotlightPosition.height + 24}px)`,
+          overflowY: 'auto',
+          transform: 'none'
+        };
+      }
+
+      return {
+        top: 'auto',
+        right: '12px',
+        bottom: 'max(12px, env(safe-area-inset-bottom))',
+        left: '12px',
+        width: 'auto',
+        maxHeight: 'calc(100dvh - 24px)',
+        overflowY: 'auto',
+        transform: 'none'
+      };
+    }
+
     if (!spotlightPosition) {
       return {
         top: '50%',
@@ -334,9 +366,6 @@ const WalkthroughTutorial = ({ onClose, onComplete, onNavigate, onOpenMenu, mand
     }
 
     const padding = 20;
-    const viewportHeight = window.innerHeight;
-    const viewportWidth = window.innerWidth;
-
     // Calculate available space in each direction
     const spaceAbove = spotlightPosition.top;
     const spaceBelow = viewportHeight - (spotlightPosition.top + spotlightPosition.height);

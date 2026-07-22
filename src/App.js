@@ -5084,7 +5084,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         </div>
       </button>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4" data-tutorial="currencies">
         <div className="bg-slate-700/50 rounded-xl p-3 sm:p-4 border border-slate-600">
           <div className="text-amber-400 text-2xl sm:text-3xl font-bold">{userData.versesMemorized}</div>
           <div className="text-slate-300 text-xs sm:text-sm">Verses Memorized</div>
@@ -5218,7 +5218,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 rounded-xl p-4 border-2 border-amber-500/50 cursor-pointer hover:from-amber-900/50 hover:to-orange-900/50 transition-all"
           onClick={() => setShowCurrencyInfo('manna')}
-          data-tutorial="currencies"
+          data-tutorial="currency-manna"
         >
           <div className="text-amber-300 text-3xl font-bold flex items-center gap-2">
             <img src={`${process.env.PUBLIC_URL || ''}/manna 4.png`} alt="Manna" width="35" height="35" className="inline-block" />
@@ -5247,6 +5247,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-gradient-to-br from-yellow-900/40 to-amber-900/40 rounded-xl p-4 border-2 border-yellow-600/50 cursor-pointer hover:from-yellow-900/50 hover:to-amber-900/50 transition-all"
           onClick={() => setShowCurrencyInfo('talents')}
+          data-tutorial="currency-talents"
         >
           <div className="text-yellow-300 text-3xl font-bold flex items-center gap-2">
             <img src={`${process.env.PUBLIC_URL || ''}/new bag.png`} alt="Talents" width="35" height="35" className="inline-block" />
@@ -5258,6 +5259,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl p-4 border-2 border-cyan-600/50 cursor-pointer hover:from-cyan-900/50 hover:to-blue-900/50 transition-all"
           onClick={() => setShowCurrencyInfo('keys')}
+          data-tutorial="currency-keys"
         >
           <div className="text-cyan-300 text-3xl font-bold flex items-center gap-2">
             <span>🔑</span>
@@ -5269,6 +5271,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
         <div
           className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-xl p-4 border-2 border-purple-600/50 cursor-pointer hover:from-purple-900/50 hover:to-indigo-900/50 transition-all"
           onClick={() => setShowCurrencyInfo('scrolls')}
+          data-tutorial="currency-scrolls"
         >
           <div className="text-purple-300 text-3xl font-bold flex items-center gap-2">
             <img src={`${process.env.PUBLIC_URL || ''}/new scrolls.png`} alt="Scroll" width="32" height="32" className="inline-block" />
@@ -5294,12 +5297,12 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
 
       <div>
         <h3 className="text-lg sm:text-xl font-bold text-amber-400 mb-3 sm:mb-4">Start Training</h3>
-        <div className="space-y-2 sm:space-y-3">
+        <div className="space-y-2 sm:space-y-3" data-tutorial="quiz-modes">
           <button
   onClick={() => startQuiz('fill-blank')}
   disabled={loading || !canTakeQuiz('fill-blank')}
   className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
-  data-tutorial="quiz-modes"
+  data-tutorial="quiz-fill-blank"
 >
   <div className="flex items-center justify-between gap-2">
     <div className="font-bold text-base sm:text-lg">Fill in the Blank</div>
@@ -5319,6 +5322,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <button
             onClick={() => startQuiz('multiple-choice')}
             disabled={loading || !canTakeQuiz('multiple-choice')}
+            data-tutorial="quiz-multiple-choice"
   className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
   <div className="flex items-center justify-between gap-2">
@@ -5332,6 +5336,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <button
             onClick={() => startQuiz('reference-recall')}
             disabled={loading || !canTakeQuiz('reference-recall')}
+            data-tutorial="quiz-reference-recall"
   className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
   <div className="flex items-center justify-between gap-2">
@@ -5346,6 +5351,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <button
             onClick={() => startQuiz('verse-scramble')}
             disabled={loading || !canTakeQuiz('verse-scramble')}
+            data-tutorial="quiz-verse-scramble"
             className="w-full bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white p-3 sm:p-4 rounded-xl border border-slate-600 hover:border-amber-500 transition-all text-left disabled:opacity-50 min-h-[64px] sm:min-h-[72px]"
           >
   <div className="flex items-center justify-between gap-2">
@@ -5362,6 +5368,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
           <button
             onClick={startVerseDetective}
             disabled={loading || !canTakeQuiz('verse-detective')}
+            data-tutorial="quiz-verse-detective"
             className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-4 rounded-xl border border-emerald-500 hover:border-emerald-400 transition-all text-left disabled:opacity-50 shadow-lg"
           >
             <div className="flex items-center justify-between">
@@ -9944,6 +9951,7 @@ const submitQuiz = async (isCorrectOverride, timeTakenOverride, forcedQuizState 
                       setShowMenu(false);
                     }}
                     className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-gradient-to-r hover:from-orange-600/20 hover:to-red-600/20 transition-all flex items-center gap-3"
+                    data-tutorial="quiz-practice-review"
                   >
                     <RefreshCw size={18} className="text-orange-400" /> Practice Review
                   </button>

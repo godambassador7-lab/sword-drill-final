@@ -4,7 +4,24 @@ export const ESV_TRANSLATION = 'ESV';
 const passageCache = new Map();
 
 function getApiKey() {
-  return process.env.REACT_APP_ESV_API_KEY || process.env.REACT_APP_CROSSWAY_ESV_API_KEY || '';
+  const environmentKey =
+    process.env.REACT_APP_ESV_API_KEY ||
+    process.env.REACT_APP_CROSSWAY_ESV_API_KEY ||
+    process.env.REACT_APP_ESV_TOKEN ||
+    '';
+
+  if (environmentKey) return environmentKey.trim();
+
+  // Supports native/local builds where a token was configured at runtime.
+  if (typeof window !== 'undefined') {
+    try {
+      return (window.localStorage.getItem('ESV_TOKEN') || '').trim();
+    } catch (_) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+  }
+
+  return '';
 }
 
 function stripCrosswayFormatting(text) {
