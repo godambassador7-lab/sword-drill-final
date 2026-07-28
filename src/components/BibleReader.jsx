@@ -5,6 +5,28 @@ import { getKjvStrongsChapter } from '../services/kjvStrongsProvider';
 import { ESV_TRANSLATION, getEsvChapter } from '../services/esvApiService';
 import AddVerseConfirmation from './AddVerseConfirmation';
 
+export const parseBibleReference = (reference, bibleBooks) => {
+  const match = String(reference || '').trim().match(/^([1-3]?\s*[A-Za-z][A-Za-z\s]*?)\s+(\d+)(?::(\d+))?(?:\s*-\s*(\d+))?\s*$/i);
+  if (!match) return null;
+
+  const bookName = match[1].replace(/\s+/g, ' ').trim().toLowerCase();
+  const book = bibleBooks.find((candidate) => {
+    const name = candidate.name.toLowerCase();
+    const abbreviation = candidate.abbr.toLowerCase();
+    return name === bookName || abbreviation === bookName || name.startsWith(bookName);
+  });
+  if (!book) return null;
+
+  const chapter = Number(match[2]);
+  const verse = match[3] ? Number(match[3]) : null;
+  const endVerse = match[4] ? Number(match[4]) : verse;
+  if (chapter < 1 || chapter > book.chapters || (verse !== null && verse < 1) || (endVerse !== null && endVerse < verse)) {
+    return null;
+  }
+
+  return { book, chapter, verse, endVerse };
+};
+
 const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference = null, userData, onUpdateUserData }) => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedChapter, setSelectedChapter] = useState(1);
@@ -44,7 +66,7 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   const contentRef = useRef(null);
   const hasRestoredScroll = useRef(false);
 
-  const activeTranslation = ESV_TRANSLATION;
+  const activeTranslation = String(selectedTranslation || ESV_TRANSLATION).toUpperCase();
 
   const getStrongsEntry = (code) => {
     if (!code) return null;
@@ -224,26 +246,7 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   // Only applies if explicitly provided, otherwise use saved passage
   useEffect(() => {
     if (initialReference && bibleBooks.length > 0 && isInitialLoad.current) {
-      const parseReference = (ref) => {
-        const match = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
-        if (match) {
-          const bookName = match[1].trim();
-          const chapter = parseInt(match[2]);
-          const verse = parseInt(match[3]);
-
-          const book = bibleBooks.find(b =>
-            b.name.toLowerCase() === bookName.toLowerCase() ||
-            b.abbr.toLowerCase() === bookName.toLowerCase()
-          );
-
-          if (book) {
-            return { book, chapter, verse };
-          }
-        }
-        return null;
-      };
-
-      const parsed = parseReference(initialReference);
+      const parsed = parseBibleReference(initialReference, bibleBooks);
       if (parsed) {
         setSelectedBook(parsed.book);
         setSelectedChapter(parsed.chapter);
@@ -316,14 +319,16 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
 
     setLoading(true);
     try {
-      const esvVerses = await getEsvChapter(book.name, chapter);
-      setChapterContent(
-        esvVerses && esvVerses.length > 0
-          ? esvVerses
-          : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
-      );
-      setLoading(false);
-      return;
+      if (activeTranslation === ESV_TRANSLATION) {
+        const esvVerses = await getEsvChapter(book.name, chapter);
+        setChapterContent(
+          esvVerses && esvVerses.length > 0
+            ? esvVerses
+            : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
+        );
+        setLoading(false);
+        return;
+      }
 
       if (activeTranslation === 'KJV_STRONGS') {
         const verses = await getKjvStrongsChapter(book.name, chapter);
@@ -399,14 +404,16 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   const loadSecondaryChapter = async (book, chapter, translation) => {
     setLoadingSecondary(true);
     try {
-      const esvVerses = await getEsvChapter(book.name, chapter);
-      setSecondaryChapterContent(
-        esvVerses && esvVerses.length > 0
-          ? esvVerses
-          : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
-      );
-      setLoadingSecondary(false);
-      return;
+      if (translation === ESV_TRANSLATION) {
+        const esvVerses = await getEsvChapter(book.name, chapter);
+        setSecondaryChapterContent(
+          esvVerses && esvVerses.length > 0
+            ? esvVerses
+            : [{ verse: 1, text: `${book.name} ${chapter} was not returned by the ESV API.` }]
+        );
+        setLoadingSecondary(false);
+        return;
+      }
 
       if (translation === 'KJV_STRONGS') {
         const verses = await getKjvStrongsChapter(book.name, chapter);
@@ -493,26 +500,15 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   };
 
   const handleQuickReferenceGo = () => {
-    const ref = quickReference.trim();
-    if (!ref) return;
-    const match = ref.match(/^\s*([1-3]?\\s?[A-Za-z][A-Za-z\\s]+)\\s+(\\d+)(?::(\\d+))?/i);
-    if (!match) return;
-    const bookName = match[1].trim();
-    const chapterNum = parseInt(match[2], 10);
-    const verseNum = match[3] ? parseInt(match[3], 10) : null;
-    const book = bibleBooks.find(b =>
-      b.name.toLowerCase() === bookName.toLowerCase() ||
-      b.abbr.toLowerCase() === bookName.toLowerCase() ||
-      b.name.toLowerCase().startsWith(bookName.toLowerCase())
-    );
-    if (!book) return;
-    if (chapterNum < 1 || chapterNum > book.chapters) return;
+    const parsed = parseBibleReference(quickReference, bibleBooks);
+    if (!parsed) return;
+    const { book, chapter: chapterNum, verse: verseNum, endVerse } = parsed;
     setQuickReference('');
     setSelectedBook(book);
     setBookInput(book.name);
     setSelectedChapter(chapterNum);
     setStartVerse(verseNum ? String(verseNum) : '');
-    setEndVerse(verseNum ? String(verseNum) : '');
+    setEndVerse(endVerse ? String(endVerse) : '');
     loadChapter(book, chapterNum);
     if (parallelMode) {
       loadSecondaryChapter(book, chapterNum, secondaryTranslation);
