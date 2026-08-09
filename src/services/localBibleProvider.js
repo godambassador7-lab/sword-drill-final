@@ -46,10 +46,13 @@ async function loadBookJson(folder, book) {
 }
 
 export async function getLocalVerseByReference(translation, reference, options = {}) {
-  const esv = await getEsvVerseByReference(reference);
-  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  const preferred = (translation || '').toUpperCase();
+  if (preferred === ESV_TRANSLATION) {
+    const esv = await getEsvVerseByReference(reference);
+    if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  }
 
-  const folder = folderFor(translation);
+  const folder = folderFor(preferred);
   if (!folder) return null;
   const pr = parseReference(reference);
   if (!pr.valid || !pr.verse) return null;
@@ -71,10 +74,13 @@ export async function getLocalVerseByReference(translation, reference, options =
 
 // Fetch a range and concatenate (e.g., "Ephesians 6:10-18")
 export async function getLocalVersesRange(translation, reference, options = {}) {
-  const esv = await getEsvVersesRange(reference);
-  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  const preferred = (translation || '').toUpperCase();
+  if (preferred === ESV_TRANSLATION) {
+    const esv = await getEsvVersesRange(reference);
+    if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  }
 
-  const folder = folderFor(translation);
+  const folder = folderFor(preferred);
   if (!folder) return null;
   const pr = parseReference(reference);
   if (!pr.valid || !pr.verse) return null;
@@ -124,10 +130,13 @@ const DEFAULT_BOOKS = [
 
 // Fetch chapter/verse range (e.g., "1 Kings 11-14", "John 3:16-18", "1 Kings 15:25-16:7")
 export async function getLocalChapterRange(translation, reference, options = {}) {
-  const esv = await getEsvChapterRange(reference);
-  if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  const preferred = (translation || '').toUpperCase();
+  if (preferred === ESV_TRANSLATION) {
+    const esv = await getEsvChapterRange(reference);
+    if (esv) return { reference: esv.reference, text: esv.text, translation: ESV_TRANSLATION };
+  }
 
-  const folder = folderFor(translation);
+  const folder = folderFor(preferred);
   if (!folder) return null;
 
   // Try to parse verse range first (e.g., "1 Kings 15:25-32" or "1 Kings 15:25-16:7")
