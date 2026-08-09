@@ -28,6 +28,7 @@
     "sharp:eval": "node scripts/supabase/evaluateSharpGolden.js",
     "sharp:quality": "node scripts/supabase/evaluateSharpQuality.js",
     "sharp:toolqa": "node scripts/supabase/evaluateSharpToolQAStyle.js",
+    "sharp:ai-eval": "node scripts/evaluateSharpAI.js",
     "audit:content": "node scripts/auditContentQuality.js",
     "fix:content-qa": "node scripts/fixContentQuality.js",
     "predeploy": "npm run build",

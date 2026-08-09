@@ -1,5 +1,6 @@
 import { answerQuery as pipelineAnswerQuery } from './pipeline';
 import { searchSharpKnowledge } from '../sharpKnowledgeBase';
+import { enhanceWithQwen, isQwenEnabled } from './qwenService';
 
 const LIMITATIONS_NOTE =
   "I can answer from Sword Drill's built-in study library and Bible datasets. If you want, ask for a narrower verse/topic and I can go deeper within that scope.";
@@ -11,6 +12,15 @@ const OUT_OF_COVERAGE_RESPONSE =
 const DEBUG_CONFIDENCE = process.env.REACT_APP_SHARP_DEBUG_CONFIDENCE === 'true';
 const LOG_RETRIEVAL = process.env.REACT_APP_SHARP_LOG_RETRIEVAL === 'true';
 const INCLUDE_LIBRARY_NOTES = process.env.REACT_APP_SHARP_INCLUDE_LIBRARY_NOTES === 'true';
+const APP_CAPABILITIES = [
+  'Bible reader and passage lookup',
+  'Scripture memorization drills and quizzes',
+  'Study plans and progress tracking',
+  "Strong's Hebrew and Greek word study",
+  'Biblical dictionaries, lexicons, maps, and cross-references',
+  'Courses covering biblical languages, hermeneutics, apologetics, archaeology, canon, textual criticism, and church history',
+  'Hebrew calendar and biblical feast-day study'
+];
 
 const DOMAIN_KEYWORDS = [
   'bible', 'scripture', 'verse', 'old testament', 'new testament', 'jesus', 'moses',
@@ -180,7 +190,7 @@ function computeConfidence({ answer, citations, kbHits, pipelineMeta, intentProf
   return Math.max(0, Math.min(1, score));
 }
 
-export async function answerWithSharpBrain(userMessage, context = {}) {
+async function answerLocally(userMessage, context = {}) {
   const result = await pipelineAnswerQuery(userMessage, context);
 
   let answer = typeof result?.answer === 'string' ? result.answer.trim() : '';
@@ -199,6 +209,12 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     selectedTranslation: context?.selectedTranslation || ''
   });
   metadata.kbHits = kbHits.length;
+  const grounding = kbHits.map((hit) => ({
+    title: hit.title || 'Sword Drill knowledge',
+    source: hit.source_path || '',
+    kind: hit.sourceKind || 'other',
+    content: hit.content || hit.preview || ''
+  }));
 
   if (INCLUDE_LIBRARY_NOTES && kbHits.length > 0) {
     const kbSection = kbHits
@@ -213,7 +229,8 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     return {
       answer: LIMITATIONS_NOTE,
       citations,
-      metadata: { ...metadata, fallback: true }
+      metadata: { ...metadata, fallback: true },
+      _grounding: grounding
     };
   }
 
@@ -240,7 +257,8 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     return {
       answer: OUT_OF_COVERAGE_RESPONSE,
       citations: [],
-      metadata: { ...metadata, outOfCoverage: true, lowConfidence: true }
+      metadata: { ...metadata, outOfCoverage: true, lowConfidence: true },
+      _grounding: grounding
     };
   }
 
@@ -272,7 +290,8 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     return {
       answer: LOW_CONFIDENCE_RESPONSE,
       citations,
-      metadata: { ...metadata, lowConfidence: true }
+      metadata: { ...metadata, lowConfidence: true },
+      _grounding: grounding
     };
   }
 
@@ -280,13 +299,15 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
     return {
       answer: `${answer}\n\n${LIMITATIONS_NOTE}`,
       citations,
-      metadata
+      metadata,
+      _grounding: grounding
     };
   }
 
   return {
     answer,
     citations,
+    _grounding: grounding,
     metadata: DEBUG_CONFIDENCE ? metadata : {
       ...metadata,
       intentProfile: undefined,
@@ -294,6 +315,45 @@ export async function answerWithSharpBrain(userMessage, context = {}) {
       contradictionRisk: undefined
     }
   };
+}
+
+export async function answerWithSharpBrain(userMessage, context = {}) {
+  const localResult = await answerLocally(userMessage, context);
+  const { _grounding: grounding = [], ...publicLocalResult } = localResult;
+  if (!isQwenEnabled()) return publicLocalResult;
+
+  try {
+    const qwenResult = await enhanceWithQwen({
+      question: userMessage,
+      localAnswer: publicLocalResult.answer,
+      citations: publicLocalResult.citations,
+      evidence: grounding,
+      appContext: {
+        selectedTranslation: context.selectedTranslation || 'ESV',
+        userProgress: context.userProgress || {},
+        capabilities: APP_CAPABILITIES
+      },
+      conversationHistory: context.conversationHistory
+    });
+    return {
+      ...publicLocalResult,
+      answer: qwenResult.content,
+      metadata: {
+        ...(publicLocalResult.metadata || {}),
+        localOnly: false,
+        usedQwen: true,
+        aiProvider: qwenResult.provider,
+        aiModel: qwenResult.model,
+        aiUsage: qwenResult.usage
+      }
+    };
+  } catch (error) {
+    console.warn('Qwen unavailable; using SHARP local response.', error);
+    return {
+      ...publicLocalResult,
+      metadata: { ...(publicLocalResult.metadata || {}), qwenFallback: true }
+    };
+  }
 }
 
 export default { answerWithSharpBrain };
