@@ -1,4 +1,4 @@
-const normalizeReferenceForReader = (reference) => {
+export const normalizeReferenceForReader = (reference) => {
   if (!reference) return null;
   const raw = String(reference).trim();
   if (!raw) return null;
@@ -6,16 +6,23 @@ const normalizeReferenceForReader = (reference) => {
   // Keep first reference if multiple are present ("Gen 1:1; Exod 3:14")
   const firstRef = raw.split(/[;,]/)[0].trim();
 
-  // Already has chapter:verse (possibly range) => keep the first verse
-  const verseMatch = firstRef.match(/^(.+?)\s+(\d+):(\d+)(?:-\d+(?::\d+)?)?$/);
+  // Preserve same-chapter verse ranges so the reader can isolate the requested verses.
+  const verseMatch = firstRef.match(/^(.+?)\s+(\d+):(\d+)(?:\s*-\s*(?:(\d+):)?(\d+))?$/);
   if (verseMatch) {
-    return `${verseMatch[1].trim()} ${verseMatch[2]}:${verseMatch[3]}`;
+    const [, book, chapter, startVerse, endChapter, endVerse] = verseMatch;
+    if (!endVerse) return `${book.trim()} ${chapter}:${startVerse}`;
+    if (!endChapter || endChapter === chapter) {
+      return `${book.trim()} ${chapter}:${startVerse}-${endVerse}`;
+    }
+
+    // The current reader displays one chapter at a time.
+    return `${book.trim()} ${chapter}:${startVerse}`;
   }
 
-  // Chapter-only references => default to verse 1
+  // Chapter-only references should continue to show the complete chapter.
   const chapterMatch = firstRef.match(/^(.+?)\s+(\d+)$/);
   if (chapterMatch) {
-    return `${chapterMatch[1].trim()} ${chapterMatch[2]}:1`;
+    return `${chapterMatch[1].trim()} ${chapterMatch[2]}`;
   }
 
   return firstRef;

@@ -250,6 +250,13 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
       if (parsed) {
         setSelectedBook(parsed.book);
         setSelectedChapter(parsed.chapter);
+        setBookInput(parsed.book.name);
+        setStartVerse(parsed.verse ? String(parsed.verse) : '');
+        setEndVerse(parsed.endVerse ? String(parsed.endVerse) : '');
+        loadChapter(parsed.book, parsed.chapter);
+        if (parallelMode) {
+          loadSecondaryChapter(parsed.book, parsed.chapter, secondaryTranslation);
+        }
         isInitialLoad.current = false;
       }
     } else if (!initialReference && isInitialLoad.current && bibleBooks.length > 0) {
@@ -481,6 +488,8 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   const handleBookSelect = (book) => {
     setSelectedBook(book);
     setSelectedChapter(1);
+    setStartVerse('');
+    setEndVerse('');
     setBookInput(book.name);
     setShowSuggestions(false);
     loadChapter(book, 1);
@@ -492,6 +501,8 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   const handleChapterChange = (newChapter) => {
     if (selectedBook && newChapter >= 1 && newChapter <= selectedBook.chapters) {
       setSelectedChapter(newChapter);
+      setStartVerse('');
+      setEndVerse('');
       loadChapter(selectedBook, newChapter);
       if (parallelMode) {
         loadSecondaryChapter(selectedBook, newChapter, secondaryTranslation);
@@ -599,6 +610,8 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
   const navigateToVerse = (result) => {
     setSelectedBook(result.bookData);
     setSelectedChapter(result.chapter);
+    setStartVerse(String(result.verse));
+    setEndVerse(String(result.verse));
     setBookInput(result.book);
     setSearchMode(false);
     setSearchResults([]);
@@ -707,7 +720,11 @@ const BibleReader = ({ selectedTranslation = ESV_TRANSLATION, initialReference =
         <div className="flex items-center gap-2 flex-1 min-w-0">
           <BookOpen size={20} className="text-amber-400 flex-shrink-0" />
           <span className="text-white font-semibold text-base truncate">
-            {selectedBook ? `${selectedBook.name} ${selectedChapter}` : 'Bible Reader'}
+            {selectedBook
+              ? `${selectedBook.name} ${selectedChapter}${startVerse
+                ? `:${startVerse}${endVerse && endVerse !== startVerse ? `-${endVerse}` : ''}`
+                : ''}`
+              : 'Bible Reader'}
           </span>
           <span className="text-slate-400 text-sm flex-shrink-0">{activeTranslation}</span>
         </div>
