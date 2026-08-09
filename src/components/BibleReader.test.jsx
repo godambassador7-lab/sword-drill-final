@@ -1,4 +1,11 @@
-import { parseBibleReference } from './BibleReader';
+import { render, screen, waitFor } from '@testing-library/react';
+import BibleReader, { parseBibleReference } from './BibleReader';
+import { getEsvChapter } from '../services/esvApiService';
+
+jest.mock('../services/esvApiService', () => ({
+  ESV_TRANSLATION: 'ESV',
+  getEsvChapter: jest.fn()
+}));
 
 const books = [
   { name: 'John', abbr: 'Jn', chapters: 21 },
@@ -28,4 +35,37 @@ describe('parseBibleReference', () => {
       expect(parseBibleReference(reference, books)).toBeNull();
     }
   );
+});
+
+describe('BibleReader reference navigation', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    getEsvChapter.mockReset();
+  });
+
+  test('shows only the requested verses from an initial reference', async () => {
+    getEsvChapter.mockResolvedValue([
+      { verse: 15, text: 'Outside the requested range.' },
+      { verse: 16, text: 'Requested verse sixteen.' },
+      { verse: 17, text: 'Requested verse seventeen.' },
+      { verse: 18, text: 'Also outside the requested range.' }
+    ]);
+
+    render(
+      <BibleReader
+        selectedTranslation="ESV"
+        initialReference="John 3:16-17"
+        userData={{}}
+        onUpdateUserData={jest.fn()}
+      />
+    );
+
+    expect(await screen.findByText('Requested verse sixteen.')).toBeInTheDocument();
+    expect(screen.getByText('Requested verse seventeen.')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.queryByText('Outside the requested range.')).not.toBeInTheDocument();
+      expect(screen.queryByText('Also outside the requested range.')).not.toBeInTheDocument();
+    });
+    expect(screen.getByText('John 3:16-17')).toBeInTheDocument();
+  });
 });
